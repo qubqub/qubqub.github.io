@@ -42,19 +42,19 @@ params:
   # showtoc: false
   # tocopen: false
 
-  # assets:
+  assets:
   #   # disableHLJS: true # to disable highlight.js
   #   # disableFingerprinting: true
-  #   favicon: "<link / abs url>"
-  #   favicon16x16: "<link / abs url>"
-  #   favicon32x32: "<link / abs url>"
+    favicon: "/images/favicon-60.png"
+    favicon16x16: "/images/favicon-16.png"
+    favicon32x32: "/images/favicon-32.png"
   #   apple_touch_icon: "<link / abs url>"
   #   safari_pinned_tab: "<link / abs url>"
 
-  # label:
-  #   text: "Home"
-  #   icon: /apple-touch-icon.png
-  #   iconHeight: 35
+  label:
+    text: ""
+    icon: /images/go-to-home.png
+    iconHeight: 25
 
   # profile-mode
   # profileMode:
@@ -112,6 +112,11 @@ params:
     threshold: 0.4
     minMatchCharLength: 0
     keys: ["title", "permalink", "summary", "content"]
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON # is necessary
 menu:
   main:
     - identifier: Archive
@@ -135,8 +140,3 @@ menu:
 #         guessSyntax: true
 #         lineNos: true
 #         style: monokai
-outputs:
-    home:
-        - HTML
-        - RSS
-        - JSON # is necessary
