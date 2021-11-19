@@ -22,7 +22,8 @@ params:
   # author: Me
   # author: ["Me", "You"] # multiple authors
   # images: ["<link or path of image for opengraph, twitter-cards>"]
-  DateFormat: "January 2, 2006"
+  #DateFormat: "January 2, 2006"
+  DateFormat: "2006년 1월 2일"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
 
@@ -45,15 +46,15 @@ params:
   assets:
   #   # disableHLJS: true # to disable highlight.js
   #   # disableFingerprinting: true
-    favicon: "/images/favicon-60.png"
-    favicon16x16: "/images/favicon-16.png"
-    favicon32x32: "/images/favicon-32.png"
+    favicon: "/icon/favicon-64.png"
+    favicon16x16: "/icon/favicon-16.png"
+    favicon32x32: "/icon/favicon-32.png"
   #   apple_touch_icon: "<link / abs url>"
   #   safari_pinned_tab: "<link / abs url>"
 
   label:
     text: ""
-    icon: /images/go-to-home.png
+    icon: /icon/go-to-home.png
     iconHeight: 25
 
   # profile-mode
@@ -132,11 +133,11 @@ menu:
       url: /tags/
       weight: 30
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
-# pygmentsUseClasses: true
-# markup:
-#     highlight:
-#         # anchorLineNos: true
-#         codeFences: true
-#         guessSyntax: true
-#         lineNos: true
-#         style: monokai
+pygmentsUseClasses: true
+markup:
+    highlight:
+        # anchorLineNos: true
+        codeFences: true
+        guessSyntax: true
+        lineNos: true
+        style: monokai
