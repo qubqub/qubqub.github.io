@@ -54,7 +54,7 @@ body {
         color: rgb(134, 142, 150);
         line-height: 1.5;
         font-size: 0.875rem;
-        max-height: calc(100vh - 200px);
+        max-height: calc(100vh - 128px);
         overflow: hidden auto;
         z-index: 2;
     }
