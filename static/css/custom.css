@@ -19,7 +19,6 @@ header.header {
 body {
     font-family: "Noto Sans KR", sans-serif;
     word-break: keep-all;
-    /* color: rgba(0, 0, 0, 0.78); */
     -webkit-font-smoothing: antialiased;
 }
 
@@ -53,10 +52,6 @@ body {
         min-width: 240px;
     }
     
-    /* main .toc.aside .inner a:hover {
-        text-decoration:none !important
-    } */
-    
     main .toc.aside summary, main .toc.aside .inner {
         padding-left: 0;
         margin-left: 0;
@@ -83,11 +78,10 @@ body {
         transition: all 0.125s ease-in 0s;
         color: rgb(33, 37, 41);
         transform: scale(1.05);
-        /* font-weight: 50; */
     }
 
     .toc-select>a {
-        color: #FFFF00
+        color: #3b86a0;
     }
     
     .toc-non-select {

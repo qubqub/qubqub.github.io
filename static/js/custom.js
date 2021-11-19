@@ -39,12 +39,10 @@ if (window.location.pathname.startsWith("/post/")) {
                     // down
                     header.classList.remove(scrollUp);
                     header.classList.add(scrollDown);
-                    // header.classList.toggle(scrollDown);
                 } else if (currentScroll < lastScroll && header.classList.contains(scrollDown)) {
                     // up
                     header.classList.remove(scrollDown);
                     header.classList.add(scrollUp);
-                    // header.classList.toggle(scrollUp);
                 }
             }
 
@@ -53,11 +51,9 @@ if (window.location.pathname.startsWith("/post/")) {
                 if (postContentTop < currentScroll && asideToc.classList.contains("toc-hide")) {
                     asideToc.classList.remove("toc-hide");
                     asideToc.classList.add("toc-reveal");
-                    // asideToc.classList.toggle("toc-reveal");
                 } else if(postContentTop >= currentScroll && asideToc.classList.contains("toc-reveal")) {
                     asideToc.classList.remove("toc-reveal");
                     asideToc.classList.add("toc-hide");
-                    // asideToc.classList.toggle("toc-hide");
                 }
         
                 let selEl = null;
