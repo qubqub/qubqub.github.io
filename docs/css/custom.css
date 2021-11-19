@@ -44,6 +44,7 @@ body {
         font-size: 0.875rem;
         max-height: calc(100vh - 128px);
         overflow: hidden auto;
+        z-index: 2;
     }
 
     main .toc.aside li ul {
@@ -96,11 +97,23 @@ body {
     .toc-select + .toc-non-select {
         margin-top: 4px;
     }
+
+    .top-link {
+        border-radius: 7px;
+        bottom: 400px;
+        right: 30px;
+    }
 }
 
 @media (max-width: 1439px) {
     main .toc.aside {
         display: none;
+    }
+
+    .top-link {
+        border-radius: 7px;
+        bottom: 25px;
+        right: 25px;
     }
 }
 
