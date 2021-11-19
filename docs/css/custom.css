@@ -16,15 +16,19 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-main .post-entry {
+.main {
+    max-width: calc(var(--main-width) + var(--gap) * 5);
+}
+
+.main .post-entry {
     padding-bottom: 1rem;
 }
 
-main .toc.aside .inner {
+.main .toc.aside .inner {
     padding-bottom: 0;
 }
 
-main .page-footer .pagination a {
+.main .page-footer .pagination a {
     border-radius: 8px;
 }
 
@@ -37,7 +41,7 @@ main .page-footer .pagination a {
 }
 
 @media (min-width: 1301px) {
-    main .toc.aside {
+    .main .toc.aside {
         /* position: absolute;
         left: 100%; */
         width: 270px;
@@ -55,17 +59,17 @@ main .page-footer .pagination a {
         z-index: 2;
     }
 
-    main .toc.aside li ul {
+    .main .toc.aside li ul {
         margin-inline-start: 12px;
     }
     
-    main .toc.aside ul {
+    .main .toc.aside ul {
         list-style: none;
         padding-left: 0;
         min-width: 240px;
     }
     
-    main .toc.aside summary, main .toc.aside .inner {
+    .main .toc.aside summary, main .toc.aside .inner {
         padding-left: 0;
         margin-left: 0;
         padding-right: 0;
@@ -114,7 +118,7 @@ main .page-footer .pagination a {
 }
 
 @media (max-width: 1300px) {
-    main .toc.aside {
+    .main .toc.aside {
         display: none;
     }
 
@@ -147,7 +151,7 @@ main .page-footer .pagination a {
 }
 
 .post-footer .post-license-info .license-descript {
-    font-size: 15px;
+    font-size: 17px;
     margin: 5px 5px 0px 5px;
 }
 
