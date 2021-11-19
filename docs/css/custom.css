@@ -1,1 +1,105 @@
+@font-face {
+    font-family: "Noto Sans KR", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/NotoSansKR-Medium.otf") format("truetype");
+}
+
 .first-entry { min-height: 0; }
+
+header.header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: inherit;
+    border-bottom: 1px solid rgb(225, 225, 225);
+    transition: transform 0.2s ease-in-out;
+}
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    word-break: keep-all;
+    -webkit-font-smoothing: antialiased;
+}
+
+.scroll-down {
+    transform: translate3d(0, -100%, 0);
+}
+
+.scroll-up {
+    transform: none;
+}
+
+@media (min-width: 1440px) {
+    main .toc.aside {
+        /* position: absolute;
+        left: 100%; */
+        width: 310px;
+        margin-left: 4rem;
+        border-left: 2px solid rgb(233, 236, 239);
+        border-top: 2px solid rgb(233, 236, 239);
+        padding: 0.25rem 0.75rem;
+        color: rgb(134, 142, 150);
+        line-height: 1.5;
+        font-size: 0.875rem;
+        max-height: calc(100vh - 128px);
+        overflow: hidden auto;
+    }
+    
+    main .toc.aside ul {
+        list-style: none;
+        padding-left: 0;
+        min-width: 240px;
+    }
+    
+    main .toc.aside summary, main .toc.aside .inner {
+        padding-left: 0;
+        margin-left: 0;
+        padding-right: 0;
+        margin-right: 0;
+    }
+    
+    .toc-hide {
+        display: none;
+        position: fixed;
+        top: 112px;
+        left: 75%;
+    }
+    
+    .toc-reveal {
+        display: block;
+        position: fixed;
+        top: 112px;
+        left: 75%;
+    }
+    
+    .toc-select {
+        display: block;
+        transition: all 0.125s ease-in 0s;
+        color: rgb(33, 37, 41);
+        transform: scale(1.05);
+    }
+
+    .toc-select>a {
+        color: #3b86a0;
+    }
+    
+    .toc-non-select {
+        display: block;
+        transition: all 0.125s ease-in 0s;
+    }
+    
+    .toc-select + .toc-non-select {
+        margin-top: 4px;
+    }
+}
+
+@media (max-width: 1439px) {
+    main .toc.aside {
+        display: none;
+    }
+}
+
+.post-header>.post-title {
+    margin-bottom: 2.5rem;
+}
