@@ -51,10 +51,7 @@ body {
     .main .toc.aside {
         width: 270px;
         margin-left: 4rem;
-        border-left: 2px solid rgb(233, 236, 239);
-        border-right: 2px solid rgb(233, 236, 239);
-        border-top: 2px solid rgb(233, 236, 239);
-        border-bottom: 2px solid rgb(233, 236, 239);
+        border: 2px solid rgb(233, 236, 239);
         padding: 0.25rem 0.75rem;
         color: rgb(134, 142, 150);
         line-height: 1.5;
