@@ -30,8 +30,8 @@ params:
   custom_css: ["css/custom.css"]
   custom_js: ["js/custom.js"]
 
+  ShowShareButtons: true
   # ShowReadingTime: true
-  # ShowShareButtons: true
   # ShowPostNavLinks: true
   # ShowBreadCrumbs: true
   # ShowCodeCopyButtons: false
