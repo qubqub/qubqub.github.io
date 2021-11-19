@@ -7,6 +7,9 @@ if (window.location.pathname.startsWith("/post/")) {
         if (tocNode !== null) {
             const tocClone = tocNode.cloneNode(true);
             tocClone.classList.add("aside");
+
+            tocClone.querySelector("details").setAttribute("open", "");
+
             const tocList = tocClone.querySelectorAll(".inner ul>li");
         
             for (let i = 0; i < tocList.length; i++) {
