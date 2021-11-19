@@ -69,7 +69,12 @@ if (window.location.pathname.startsWith("/post/")) {
                     for (let i = 0; i < allSelEl.length; i++) {
                         allSelEl[i].classList.remove("toc-select");
                     }
-                    selEl.classList.add("toc-select");
+
+                    if(Math.ceil(currentScroll + window.innerHeight) >= document.body.scrollHeight){
+                        allSelEl[tocIdList.length-1].classList.add("toc-select");
+                    } else {
+                        selEl.classList.add("toc-select");
+                    }
                 }
             }
 
