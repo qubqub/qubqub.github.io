@@ -17,6 +17,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+main .post-entry {
+    padding-bottom: 1rem;
+}
+
 .scroll-down {
     transform: translate3d(0, -100%, 0);
 }
