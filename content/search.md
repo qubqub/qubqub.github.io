@@ -4,5 +4,5 @@ layout: "search" # is necessary
 # url: "/archive"
 # description: "Search (Alt + /)"
 summary: "search"
-placeholder: "Please enter your search term."
+placeholder: "Type here to search..."
 ---
