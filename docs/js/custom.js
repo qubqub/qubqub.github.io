@@ -1,11 +1,15 @@
 if (window.location.pathname.startsWith("/post/")) {
     window.addEventListener("load", () => {
-        const postContentTop = document.querySelector(".main div.post-content").offsetTop;
+        // const postContentTop = document.querySelector(".main div.post-content").offsetTop;
+        const mainTocTop = document.querySelector(".main .post-single>.toc").offsetTop;
         const tocNode = document.querySelector(".main .toc");
         const tocIdList = [];
         if (tocNode !== null) {
             const tocClone = tocNode.cloneNode(true);
             tocClone.classList.add("aside");
+
+            // const imgNode = document.createElement("img");
+            // imgNode.classList.add("toc-btn", "reveal");
             const tocList = tocClone.querySelectorAll(".inner ul>li");
         
             for (let i = 0; i < tocList.length; i++) {
@@ -13,19 +17,31 @@ if (window.location.pathname.startsWith("/post/")) {
                 tocIdList[i] = decodeURI(tocList[i].querySelector("a").getAttribute("href"));
             }
 
-            if (postContentTop < window.pageYOffset) {
-                tocClone.classList.add("toc-reveal");
-            } else if(postContentTop >= window.pageYOffset) {
-                tocClone.classList.add("toc-hide");
+            // if (postContentTop < window.pageYOffset) {
+            //     tocClone.classList.add("reveal");
+            // } else if(postContentTop >= window.pageYOffset) {
+            //     tocClone.classList.add("hide");
+            // }
+            if (mainTocTop < window.pageYOffset) {
+                tocClone.classList.add("reveal");
+                // imgNode.classList.remove("hide");
+                // imgNode.classList.add("reveal");
+            } else if(mainTocTop >= window.pageYOffset) {
+                tocClone.classList.add("hide");
+                // imgNode.classList.remove("reveal");
+                // imgNode.classList.add("hide");
             }
 
             tocNode.parentNode.insertBefore(tocClone, tocNode.nextSibling);
+            // tocNode.parentNode.insertBefore(imgNode, tocNode.nextSibling);
         }
 
         let lastScroll = 0;
         const header = document.querySelector("header.header");
         const scrollUp = "scroll-up";
         const scrollDown = "scroll-down";
+        let selEl = null;
+        let lastSelEl = null;
 
         window.addEventListener("scroll", () => {
             const currentScroll = window.pageYOffset;
@@ -48,32 +64,60 @@ if (window.location.pathname.startsWith("/post/")) {
 
             if (tocNode !== null) {
                 const asideToc = document.querySelector(".main .toc.aside");
-                if (postContentTop < currentScroll && asideToc.classList.contains("toc-hide")) {
-                    asideToc.classList.remove("toc-hide");
-                    asideToc.classList.add("toc-reveal");
-                } else if(postContentTop >= currentScroll && asideToc.classList.contains("toc-reveal")) {
-                    asideToc.classList.remove("toc-reveal");
-                    asideToc.classList.add("toc-hide");
+                // const asideTocOpenBtn = document.querySelector(".main .toc-btn");
+                // if (postContentTop < currentScroll && asideToc.classList.contains("hide")) {
+                //     asideToc.classList.remove("hide");
+                //     asideToc.classList.add("reveal");
+                // } else if(postContentTop >= currentScroll && asideToc.classList.contains("reveal")) {
+                //     asideToc.classList.remove("reveal");
+                //     asideToc.classList.add("hide");
+                // }
+                if (mainTocTop < currentScroll && asideToc.classList.contains("hide")) {
+                    asideToc.classList.remove("hide");
+                    asideToc.classList.add("reveal");
+                    // asideTocOpenBtn.classList.remove("hide");
+                    // asideTocOpenBtn.classList.add("reveal");
+                    
+                } else if(mainTocTop >= currentScroll && asideToc.classList.contains("reveal")) {
+                    asideToc.classList.remove("reveal");
+                    asideToc.classList.add("hide");
+                    // asideTocOpenBtn.classList.remove("reveal");
+                    // asideTocOpenBtn.classList.add("hide");
                 }
-        
-                let selEl = null;
+                
                 const allSelEl = asideToc.querySelectorAll(".inner ul>li");
+                let elIndex = null;
                 for (let i = 0; i < tocIdList.length; i++) {
                     let tocEl = document.querySelector(tocIdList[i]);
                     if (tocEl.offsetTop <= currentScroll) {
                         selEl = allSelEl[i];
+                        elIndex = i;
                     }
                 }
                 
                 if (selEl !== null) {
-                    for (let i = 0; i < allSelEl.length; i++) {
-                        allSelEl[i].classList.remove("toc-select");
+                    let scrollEnd = Math.ceil(currentScroll + window.innerHeight) >= document.body.scrollHeight
+
+                    if (scrollEnd) {
+                        for (let i = 0; i < allSelEl.length; i++) {
+                            allSelEl[i].classList.remove("toc-select");
+                        }
+                        allSelEl[tocIdList.length-1].classList.add("toc-select");
+                        lastSelEl = allSelEl[tocIdList.length-1];
+                    } else {
+                        if ((selEl !== null && lastSelEl !== null) && selEl === lastSelEl) {
+                            return;
+                        }
+
+                        for (let i = 0; i < allSelEl.length; i++) {
+                            allSelEl[i].classList.remove("toc-select");
+                        }
+                        selEl.classList.add("toc-select");
+                        lastSelEl = selEl;
                     }
 
-                    if(Math.ceil(currentScroll + window.innerHeight) >= document.body.scrollHeight){
-                        allSelEl[tocIdList.length-1].classList.add("toc-select");
-                    } else {
-                        selEl.classList.add("toc-select");
+                    if (elIndex !== null) {
+                        asideToc.scrollTop = (elIndex) * 20;
                     }
                 }
             }

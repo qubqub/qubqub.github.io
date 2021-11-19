@@ -1,5 +1,5 @@
 baseURL: "https://glowsbright.github.io/"
-title: Paloalto's Blog
+title: < pA_ />
 paginate: 5
 theme: PaperMod
 
@@ -17,7 +17,7 @@ minify:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   # title: ExampleSite
-  description: "Paloalto's Blog"
+  description: "< pA_ />"
   keywords: [Blog, Portfolio]
   # author: Me
   # author: ["Me", "You"] # multiple authors
@@ -61,7 +61,7 @@ params:
   # profile-mode
   # profileMode:
   #   enabled: true # needs to be explicitly set
-  #   title: Paloalto's blog
+  #   title: < Paloalto />
   #   subtitle: "반갑습니다."
   #   # imageUrl: "<img location>"
   #   # imageWidth: 120

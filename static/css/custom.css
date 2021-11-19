@@ -13,7 +13,14 @@ header.header {
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
+    word-wrap: break-word;
     -webkit-font-smoothing: antialiased;
+}
+
+.header .nav .logo a img {
+    background: var(--tertiary);
+    border-radius: 5px;
+    padding: 0.05rem;
 }
 
 .main {
@@ -41,9 +48,24 @@ body {
 }
 
 @media (min-width: 1301px) {
+    /* .toc-btn.reveal {
+        cursor: pointer;
+        content: url("/icon/toc-open-32.png");
+        z-index: 3;
+        display: block;
+        position: fixed;
+        top: 112px;
+        left: 72.3%;
+        margin-left: 4rem;
+        background: var(--tertiary);
+        border-radius: 5px;
+    }
+
+    .toc-brn.hide {
+        display: none;
+    } */
+
     .main .toc.aside {
-        /* position: absolute;
-        left: 100%; */
         width: 270px;
         margin-left: 4rem;
         border-left: 2px solid rgb(233, 236, 239);
@@ -75,19 +97,16 @@ body {
         padding-right: 0;
         margin-right: 0;
     }
-    
-    .toc-hide {
-        display: none;
+
+    .toc.aside.reveal {
+        display: block;
         position: fixed;
         top: 112px;
         left: 75%;
     }
     
-    .toc-reveal {
-        display: block;
-        position: fixed;
-        top: 112px;
-        left: 75%;
+    .toc.aside.hide {
+        display: none;
     }
     
     .toc-select {
