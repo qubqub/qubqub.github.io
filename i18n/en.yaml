@@ -1,19 +1,25 @@
 - id: prev_page
-  translation: "Prev Page"
+  # translation: "Prev Page"
+  translation: "이전 페이지"
 
 - id: next_page
-  translation: "Next Page"
+  # translation: "Next Page"
+  translation: "다음 페이지"
 
 - id: read_time
   translation:
-    one : "1 min"
-    other: "{{ .Count }} min"
+    # one : "1 min"
+    # other: "{{ .Count }} min"
+    one : "1 분"
+    other: "{{ .Count }} 분"
 
 - id: toc
-  translation: "On this page"
+  # translation: "On this page"
+  translation: "목차"
 
 - id: translations
-  translation: "Translations"
+  # translation: "Translations"
+  translation: "번역"
 
 - id: home
   translation: "Home"
