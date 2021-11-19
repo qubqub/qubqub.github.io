@@ -48,23 +48,6 @@ body {
 }
 
 @media (min-width: 1301px) {
-    /* .toc-btn.reveal {
-        cursor: pointer;
-        content: url("/icon/toc-open-32.png");
-        z-index: 3;
-        display: block;
-        position: fixed;
-        top: 112px;
-        left: 72.3%;
-        margin-left: 4rem;
-        background: var(--tertiary);
-        border-radius: 5px;
-    }
-
-    .toc-brn.hide {
-        display: none;
-    } */
-
     .main .toc.aside {
         width: 270px;
         margin-left: 4rem;
@@ -98,15 +81,38 @@ body {
         margin-right: 0;
     }
 
+    @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      
+      @keyframes fade-out {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+
     .toc.aside.reveal {
         display: block;
         position: fixed;
         top: 112px;
         left: 75%;
+
+        animation: fade-in 1s;
+        animation-fill-mode: forwards;
+        display: flex;
     }
     
     .toc.aside.hide {
         display: none;
+        opacity: 0;
     }
     
     .toc-select {
@@ -180,4 +186,13 @@ body {
 
 .post-footer .post-license-info a:hover, .footer a:hover {
     color: rgb(0, 151, 202);
+}
+
+.footer a {
+    font-weight: bold;
+    border: none;
+}
+
+.footer a:hover {
+    border: none;
 }

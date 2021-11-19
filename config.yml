@@ -30,6 +30,8 @@ params:
   custom_css: ["css/custom.css"]
   custom_js: ["js/custom.js"]
 
+  GithubRepoUrl: "https://github.com/GlowsBright/glowsbright.github.io"
+
   ShowCreativeCommons: true
   ShowShareButtons: true
   # ShowReadingTime: true
