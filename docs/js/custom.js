@@ -7,33 +7,20 @@ if (window.location.pathname.startsWith("/post/")) {
         if (tocNode !== null) {
             const tocClone = tocNode.cloneNode(true);
             tocClone.classList.add("aside");
-
-            // const imgNode = document.createElement("img");
-            // imgNode.classList.add("toc-btn", "reveal");
             const tocList = tocClone.querySelectorAll(".inner ul>li");
         
             for (let i = 0; i < tocList.length; i++) {
                 tocList[i].classList.add("toc-non-select");
                 tocIdList[i] = decodeURI(tocList[i].querySelector("a").getAttribute("href"));
             }
-
-            // if (postContentTop < window.pageYOffset) {
-            //     tocClone.classList.add("reveal");
-            // } else if(postContentTop >= window.pageYOffset) {
-            //     tocClone.classList.add("hide");
-            // }
+            
             if (mainTocTop < window.pageYOffset) {
                 tocClone.classList.add("reveal");
-                // imgNode.classList.remove("hide");
-                // imgNode.classList.add("reveal");
             } else if(mainTocTop >= window.pageYOffset) {
                 tocClone.classList.add("hide");
-                // imgNode.classList.remove("reveal");
-                // imgNode.classList.add("hide");
             }
 
             tocNode.parentNode.insertBefore(tocClone, tocNode.nextSibling);
-            // tocNode.parentNode.insertBefore(imgNode, tocNode.nextSibling);
         }
 
         let lastScroll = 0;
@@ -45,7 +32,7 @@ if (window.location.pathname.startsWith("/post/")) {
 
         window.addEventListener("scroll", () => {
             const currentScroll = window.pageYOffset;
-            if (currentScroll <= 5) {
+            if (currentScroll <= 10) {
                 header.classList.remove(scrollUp);
                 return;
             }
@@ -64,25 +51,13 @@ if (window.location.pathname.startsWith("/post/")) {
 
             if (tocNode !== null) {
                 const asideToc = document.querySelector(".main .toc.aside");
-                // const asideTocOpenBtn = document.querySelector(".main .toc-btn");
-                // if (postContentTop < currentScroll && asideToc.classList.contains("hide")) {
-                //     asideToc.classList.remove("hide");
-                //     asideToc.classList.add("reveal");
-                // } else if(postContentTop >= currentScroll && asideToc.classList.contains("reveal")) {
-                //     asideToc.classList.remove("reveal");
-                //     asideToc.classList.add("hide");
-                // }
                 if (mainTocTop < currentScroll && asideToc.classList.contains("hide")) {
                     asideToc.classList.remove("hide");
                     asideToc.classList.add("reveal");
-                    // asideTocOpenBtn.classList.remove("hide");
-                    // asideTocOpenBtn.classList.add("reveal");
                     
                 } else if(mainTocTop >= currentScroll && asideToc.classList.contains("reveal")) {
                     asideToc.classList.remove("reveal");
                     asideToc.classList.add("hide");
-                    // asideTocOpenBtn.classList.remove("reveal");
-                    // asideTocOpenBtn.classList.add("hide");
                 }
                 
                 const allSelEl = asideToc.querySelectorAll(".inner ul>li");
@@ -95,8 +70,8 @@ if (window.location.pathname.startsWith("/post/")) {
                     }
                 }
                 
-                if (selEl !== null) {
-                    let scrollEnd = Math.ceil(currentScroll + window.innerHeight) >= document.body.scrollHeight
+                if (elIndex !== null) {
+                    let scrollEnd = Math.ceil(currentScroll + window.innerHeight) >= document.body.scrollHeight;
 
                     if (scrollEnd) {
                         for (let i = 0; i < allSelEl.length; i++) {
@@ -118,6 +93,13 @@ if (window.location.pathname.startsWith("/post/")) {
 
                     if (elIndex !== null) {
                         asideToc.scrollTop = (elIndex) * 20;
+                    }
+                } else {
+                    if (asideToc.querySelector(".toc-select") === null) {
+                        return;
+                    }
+                    for (let i = 0; i < allSelEl.length; i++) {
+                        allSelEl[i].classList.remove("toc-select");
                     }
                 }
             }
