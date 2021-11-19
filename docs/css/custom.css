@@ -89,30 +89,18 @@ body {
           opacity: 1;
         }
       }
-      
-      @keyframes fade-out {
-        from {
-          opacity: 1;
-        }
-        to {
-          opacity: 0;
-        }
-      }
 
     .toc.aside.reveal {
         display: block;
         position: fixed;
         top: 112px;
         left: 75%;
-
-        animation: fade-in 1s;
-        animation-fill-mode: forwards;
-        display: flex;
+        animation: fade-in 0.3s;
+        /* animation-fill-mode: forwards; */
     }
     
     .toc.aside.hide {
         display: none;
-        opacity: 0;
     }
     
     .toc-select {
