@@ -34,7 +34,7 @@ body {
     main .toc.aside {
         /* position: absolute;
         left: 100%; */
-        width: 310px;
+        width: 300px;
         margin-left: 4rem;
         border-left: 2px solid rgb(233, 236, 239);
         border-top: 2px solid rgb(233, 236, 239);
@@ -44,6 +44,10 @@ body {
         font-size: 0.875rem;
         max-height: calc(100vh - 128px);
         overflow: hidden auto;
+    }
+
+    .toc li ul {
+        margin-inline-start: 10px;
     }
     
     main .toc.aside ul {
