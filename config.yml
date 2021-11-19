@@ -30,6 +30,7 @@ params:
   custom_css: ["css/custom.css"]
   custom_js: ["js/custom.js"]
 
+  ShowCreativeCommons: true
   ShowShareButtons: true
   # ShowReadingTime: true
   # ShowPostNavLinks: true

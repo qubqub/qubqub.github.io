@@ -25,6 +25,10 @@ main .toc.aside .inner {
     padding-bottom: 0;
 }
 
+main .page-footer .pagination a {
+    border-radius: 8px;
+}
+
 .scroll-down {
     transform: translate3d(0, -100%, 0);
 }
@@ -124,4 +128,34 @@ main .toc.aside .inner {
 
 .post-header>.post-title {
     margin-bottom: 2.5rem;
+}
+
+.post-tags a {
+    padding-inline-start: 8px;
+    padding-inline-end: 8px;
+    font-size: 12px;
+    line-height: 25px;
+}
+
+.post-footer .post-license-info {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 1.5rem 0px;
+    padding: 1.5rem 0px;
+    border: 1px solid rgb(225, 225, 225);
+}
+
+.post-footer .post-license-info .license-descript {
+    font-size: 15.5px;
+    margin-top: 5px;
+}
+
+.post-footer .post-license-info a, .footer a {
+    transition: color 0.2s ease 0s;
+}
+
+.post-footer .post-license-info a:hover, .footer a:hover {
+    color: rgb(0, 151, 202);
 }
