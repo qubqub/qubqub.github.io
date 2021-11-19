@@ -84,6 +84,8 @@ params:
     #   url: "https://stackoverflow.com"
     - name: github
       url: "https://github.com/GlowsBright"
+    - name: rss
+      url: "/index.xml"
 
   # analytics:
   #   google:
