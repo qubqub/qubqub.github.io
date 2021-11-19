@@ -125,7 +125,7 @@ menu:
   main:
     - identifier: Archive
       # name: Archive
-      name: 아카이브
+      name: 기록 보관소
       url: /archives/
       weight: 10
     - identifier: Search
