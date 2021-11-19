@@ -37,7 +37,7 @@ main .page-footer .pagination a {
     transform: none;
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1301px) {
     main .toc.aside {
         /* position: absolute;
         left: 100%; */
@@ -114,7 +114,7 @@ main .page-footer .pagination a {
     }
 }
 
-@media (max-width: 1439px) {
+@media (max-width: 1300px) {
     main .toc.aside {
         display: none;
     }
