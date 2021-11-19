@@ -13,7 +13,6 @@ header.header {
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
-    word-break: keep-all;
     -webkit-font-smoothing: antialiased;
 }
 
