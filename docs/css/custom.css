@@ -46,7 +46,7 @@ body {
         overflow: hidden auto;
     }
 
-    .toc.aside li ul {
+    main .toc.aside li ul {
         margin-inline-start: 12px;
     }
     
