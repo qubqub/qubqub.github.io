@@ -20,6 +20,7 @@ body {
 .header .nav .logo a img {
     background: var(--tertiary);
     border-radius: 5px;
+    padding: 1px;
 }
 
 .main {
