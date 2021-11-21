@@ -57,7 +57,7 @@ params:
 
   label:
     text: ""
-    icon: /icon/go-to-home.png
+    icon: /icon/home.png
     iconHeight: 25
 
   # profile-mode
