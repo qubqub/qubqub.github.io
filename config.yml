@@ -30,7 +30,7 @@ params:
   custom_css: ["css/custom.css"]
   custom_js: ["js/custom.js"]
 
-  GithubRepoUrl: "https://github.com/GlowsBright/glowsbright.github.io"
+  GithubRepoUrl: "https://github.com/glowsbright/glowsbright.github.io"
 
   ShowCreativeCommons: true
   ShowShareButtons: true
@@ -85,8 +85,10 @@ params:
     #   url: "https://twitter.com/"
     # - name: stackoverflow
     #   url: "https://stackoverflow.com"
+    - name: telegram
+      url: "https://t.me/glowsbright"
     - name: github
-      url: "https://github.com/GlowsBright"
+      url: "https://github.com/glowsbright"
     - name: rss
       url: "/index.xml"
 
@@ -104,7 +106,7 @@ params:
   #   hiddenInSingle: true # hide on single page
 
   # editPost:
-  #   URL: "https://github.com/GlowsBright/content"
+  #   URL: "https://github.com/glowsbright/content"
   #   Text: "Suggest Changes" # edit text
   #   appendFilePath: true # to append file path to Edit link
 
