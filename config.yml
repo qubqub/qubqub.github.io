@@ -27,8 +27,8 @@ params:
   defaultTheme: auto # dark, light
   disableThemeToggle: false
 
-  custom_css: ["css/custom.css"]
-  custom_js: ["js/custom.js"]
+  custom_css: ["css/custom.min.css"]
+  custom_js: ["js/custom.min.js"]
 
   GithubRepoUrl: "https://github.com/glowsbright/glowsbright.github.io"
 
