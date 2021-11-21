@@ -1,6 +1,5 @@
 if (window.location.pathname.startsWith("/post/")) {
     window.addEventListener("load", () => {
-        // const postContentTop = document.querySelector(".main div.post-content").offsetTop;
         const mainTocTop = document.querySelector(".main .post-single>.toc").offsetTop;
         const tocNode = document.querySelector(".main .toc");
         const tocIdList = [];
@@ -59,6 +58,7 @@ if (window.location.pathname.startsWith("/post/")) {
                     asideToc.classList.add("reveal");
                     
                 } else if(mainTocTop >= currentScroll && asideToc.classList.contains("reveal")) {
+                    asideToc.scrollTop = 0;
                     asideToc.classList.remove("reveal");
                     asideToc.classList.add("hide");
                 }
@@ -95,7 +95,10 @@ if (window.location.pathname.startsWith("/post/")) {
                     }
 
                     if (elIndex !== null) {
-                        asideToc.scrollTop = (elIndex) * 20;
+                        asideToc.scroll({
+                            behavior: 'smooth',
+                            top: elIndex * 20
+                        });
                     }
                 } else {
                     if (asideToc.querySelector(".toc-select") === null) {

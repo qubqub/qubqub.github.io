@@ -49,12 +49,12 @@ body {
 
 @media (min-width: 1301px) {
     .main .toc.aside {
-        width: 270px;
+        width: 282px;
         margin-left: 4rem;
         border: 2px solid rgb(233, 236, 239);
         padding: 0.25rem 0.75rem;
         color: rgb(134, 142, 150);
-        line-height: 1.5;
+        /* line-height: 1.5; */
         font-size: 0.875rem;
         max-height: calc(100vh - 128px);
         overflow: hidden auto;
@@ -65,6 +65,10 @@ body {
         margin-inline-start: 12px;
     }
     
+    .main .toc.aside details .inner ul:first-child ~ * {
+        margin-top: 0.7rem
+    }
+
     .main .toc.aside ul {
         list-style: none;
         padding-left: 0;
