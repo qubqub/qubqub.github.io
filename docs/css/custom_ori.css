@@ -35,6 +35,17 @@ body {
     border-radius: var(--radius);
 }
 
+.post-footer .post-license-info a:hover,
+.footer a:hover,
+.post-tags a:hover,
+.terms-tags a:hover,
+.header .nav #menu a:hover,
+.header .nav .logo a:hover
+{
+    transition: color 0.2s ease 0s;
+    color: rgb(0, 151, 202);
+}
+
 .main .post-entry {
     padding-bottom: 1rem;
 }
@@ -178,24 +189,6 @@ body {
 .post-footer .post-license-info .license-descript {
     font-size: 17px;
     margin: 5px 5px 0px 5px;
-}
-
-.post-footer .post-license-info a,
-.footer a,
-.post-tags a,
-.terms-tags a,
-.header .nav #menu a
-{
-    transition: color 0.2s ease 0s;
-}
-
-.post-footer .post-license-info a:hover,
-.footer a:hover,
-.post-tags a:hover,
-.terms-tags a:hover,
-.header .nav #menu a:hover
-{
-    color: rgb(0, 151, 202);
 }
 
 .footer a {
