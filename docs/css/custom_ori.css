@@ -40,7 +40,8 @@ body {
 .post-tags a:hover,
 .terms-tags a:hover,
 .header .nav #menu a:hover,
-.header .nav .logo a:hover
+.header .nav .logo a:hover,
+.entry-footer .social-icons a:hover
 {
     transition: color 0.2s ease 0s;
     color: rgb(0, 151, 202);
