@@ -1,5 +1,5 @@
 baseURL: "https://1TiBGuy.github.io/"
-title: < pA_ />
+title: <1TiB/>
 paginate: 10
 theme: PaperMod
 
@@ -17,7 +17,7 @@ minify:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   # title: ExampleSite
-  description: "< 1TiB />"
+  description: "<1TiB/>"
   keywords: [1TiB, Blog, Portfolio]
   # author: Me
   # author: ["Me", "You"] # multiple authors

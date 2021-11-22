@@ -1,5 +1,5 @@
 if (window.location.pathname.startsWith("/post/")) {
-    window.addEventListener("load", () => {
+    document.addEventListener("DOMContentLoaded", () => {
         const mainTocTop = document.querySelector(".main .post-single>.toc").offsetTop;
         const tocNode = document.querySelector(".main .toc");
         const tocIdList = [];
@@ -46,7 +46,7 @@ if (window.location.pathname.startsWith("/post/")) {
                 return;
             }
 
-            if (currentScroll > 100) {
+            if (currentScroll > 80) {
                 if (currentScroll > lastScroll && !header.classList.contains(scrollDown)) {
                     // down
                     header.classList.remove(scrollUp);
