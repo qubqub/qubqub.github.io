@@ -1,4 +1,4 @@
-baseURL: "https://1TiBGuy.github.io/"
+baseURL: "https://1TiB.github.io/"
 title: <1TiB/>
 paginate: 10
 theme: PaperMod
@@ -30,7 +30,7 @@ params:
   custom_css: ["css/custom.min.css"]
   custom_js: ["js/custom.min.js"]
 
-  GithubRepoUrl: "https://github.com/1TiBGuy/1TiBGuy.github.io"
+  GithubRepoUrl: "https://github.com/1TiB/1TiB.github.io"
 
   ShowCreativeCommons: true
   ShowShareButtons: true
@@ -88,7 +88,7 @@ params:
     - name: telegram
       url: "https://t.me/oneTiBGuy"
     - name: github
-      url: "https://github.com/1TiBGuy"
+      url: "https://github.com/1TiB"
     - name: rss
       url: "/index.xml"
 
@@ -106,7 +106,7 @@ params:
   #   hiddenInSingle: true # hide on single page
 
   # editPost:
-  #   URL: "https://github.com/1TiBGuy/content"
+  #   URL: "https://github.com/1TiB/content"
   #   Text: "Suggest Changes" # edit text
   #   appendFilePath: true # to append file path to Edit link
 

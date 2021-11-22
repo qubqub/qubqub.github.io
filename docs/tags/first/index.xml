@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>first on &lt;1TiB/&gt;</title>
-    <link>https://1TiBGuy.github.io/tags/first/</link>
+    <link>https://1TiB.github.io/tags/first/</link>
     <description>Recent content in first on &lt;1TiB/&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate><atom:link href="https://1TiBGuy.github.io/tags/first/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate><atom:link href="https://1TiB.github.io/tags/first/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My 1st post</title>
-      <link>https://1TiBGuy.github.io/post/2021_11_18_01/</link>
+      <link>https://1TiB.github.io/post/2021_11_18_01/</link>
       <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
       
-      <guid>https://1TiBGuy.github.io/post/2021_11_18_01/</guid>
+      <guid>https://1TiB.github.io/post/2021_11_18_01/</guid>
       <description>Desc Text.</description>
     </item>
     
