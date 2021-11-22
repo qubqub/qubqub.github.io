@@ -1,4 +1,4 @@
-baseURL: "https://glowsbright.github.io/"
+baseURL: "https://1TiBGuy.github.io/"
 title: < pA_ />
 paginate: 5
 theme: PaperMod
@@ -17,8 +17,8 @@ minify:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   # title: ExampleSite
-  description: "< GiB_ />"
-  keywords: [Blog, Portfolio]
+  description: "< 1TiB />"
+  keywords: [1TiB, Blog, Portfolio]
   # author: Me
   # author: ["Me", "You"] # multiple authors
   # images: ["<link or path of image for opengraph, twitter-cards>"]
@@ -30,7 +30,7 @@ params:
   custom_css: ["css/custom.min.css"]
   custom_js: ["js/custom.min.js"]
 
-  GithubRepoUrl: "https://github.com/glowsbright/glowsbright.github.io"
+  GithubRepoUrl: "https://github.com/1TiBGuy/1TiBGuy.github.io"
 
   ShowCreativeCommons: true
   ShowShareButtons: true
@@ -86,9 +86,9 @@ params:
     # - name: stackoverflow
     #   url: "https://stackoverflow.com"
     - name: telegram
-      url: "https://t.me/glowsbright"
+      url: "https://t.me/oneTiBGuy"
     - name: github
-      url: "https://github.com/glowsbright"
+      url: "https://github.com/1TiBGuy"
     - name: rss
       url: "/index.xml"
 
@@ -106,7 +106,7 @@ params:
   #   hiddenInSingle: true # hide on single page
 
   # editPost:
-  #   URL: "https://github.com/glowsbright/content"
+  #   URL: "https://github.com/1TiBGuy/content"
   #   Text: "Suggest Changes" # edit text
   #   appendFilePath: true # to append file path to Edit link
 
