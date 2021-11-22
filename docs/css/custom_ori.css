@@ -185,7 +185,7 @@ body {
 .post-footer .post-license-info a:hover,
 .footer a:hover,
 .post-tags a:hover,
-.terms-tags a
+.terms-tags a:hover
 {
     color: rgb(0, 151, 202);
 }
