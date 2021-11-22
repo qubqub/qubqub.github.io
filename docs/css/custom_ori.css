@@ -73,7 +73,6 @@ body {
         margin-left: 4rem;
         border: 2px solid var(--border);
         padding: 0.25rem 0.75rem;
-        color: var(--code-bg);
         font-size: 0.875rem;
         max-height: calc(100vh - 128px);
         overflow: hidden auto;
