@@ -52,7 +52,7 @@ body {
 }
 
 .main .toc.aside .inner {
-    padding-bottom: 0;
+    padding: 0;
 }
 
 .main .page-footer .pagination a {
