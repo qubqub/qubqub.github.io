@@ -30,7 +30,7 @@ body {
 
 .main .post-entry:hover,
 .main .archive-entry:hover {
-    transition: box-shadow 0.2s ease 0s;
+    transition: box-shadow 0.2s ease 0s, transform .1s;
     box-shadow: 0 0 0 1px var(--primary) inset;
     border-radius: var(--radius);
 }
