@@ -156,7 +156,7 @@ body {
     font-size: 12px;
     line-height: 25px;
     font-weight: bold;
-    padding-bottom: 1.5px;
+    padding-bottom: 2px;
 }
 
 .post-footer .post-license-info {
@@ -174,11 +174,11 @@ body {
     margin: 5px 5px 0px 5px;
 }
 
-.post-footer .post-license-info a, .footer a {
+.post-footer .post-license-info a, .footer a, .post-tags a {
     transition: color 0.2s ease 0s;
 }
 
-.post-footer .post-license-info a:hover, .footer a:hover {
+.post-footer .post-license-info a:hover, .footer a:hover, .post-tags a:hover {
     color: rgb(0, 151, 202);
 }
 
