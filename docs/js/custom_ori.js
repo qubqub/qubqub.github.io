@@ -1,7 +1,8 @@
 if (window.location.pathname.startsWith("/post/")) {
     let _elIndex = null;
     document.addEventListener("DOMContentLoaded", () => {
-        const mainTocTop = document.querySelector(".main .post-single>.toc").offsetTop;
+        const mainToc = document.querySelector(".main .post-single>.toc");
+        const mainTocTop = mainToc?mainToc.offsetTop:0;
         const header = document.querySelector("header.header");
         const tocNode = document.querySelector(".main .toc");
         const tocIdList = [];
@@ -47,10 +48,12 @@ if (window.location.pathname.startsWith("/post/")) {
 
         window.addEventListener("scroll", () => {
             const currentScroll = window.pageYOffset;
-            if(mainTocTop >= currentScroll && asideToc.classList.contains("reveal")) {
-                asideToc.scrollTop = 0;
-                asideToc.classList.remove("reveal");
-                asideToc.classList.add("hide");
+            if (tocNode !== null) {
+                if(mainTocTop >= currentScroll && asideToc.classList.contains("reveal")) {
+                    asideToc.scrollTop = 0;
+                    asideToc.classList.remove("reveal");
+                    asideToc.classList.add("hide");
+                }
             }
 
             if (currentScroll <= 0 && !header.classList.contains(scrollUp)) {
@@ -77,7 +80,6 @@ if (window.location.pathname.startsWith("/post/")) {
             }
 
             if (tocNode !== null) {
-                
                 if (mainTocTop < currentScroll && asideToc.classList.contains("hide")) {
                     asideToc.classList.remove("hide");
                     asideToc.classList.add("reveal");
@@ -141,18 +143,20 @@ if (window.location.pathname.startsWith("/post/")) {
         });
 
         const tocDetails = document.querySelector(".main .toc.aside details");
-        const observer = new MutationObserver((mutationList, observer) => {
-            if (mutationList[0].oldValue !== null) return;
-            for (let i = 0; i < tocIdList.length; i++) {
-                let nextEl = document.querySelector(tocIdList[i+1]);
-                let curEl = document.querySelector(tocIdList[i]);
-                if (window.pageYOffset >= curEl.offsetTop && window.pageYOffset < nextEl.offsetTop) {
-                    asideToc.querySelectorAll(".inner ul>li")[i].classList.add("selected");
-                    asideToc.scrollTop = i * 20;
+        if (tocDetails !== null) {
+            const observer = new MutationObserver((mutationList, observer) => {
+                if (mutationList[0].oldValue !== null) return;
+                for (let i = 0; i < tocIdList.length; i++) {
+                    let nextEl = document.querySelector(tocIdList[i+1]);
+                    let curEl = document.querySelector(tocIdList[i]);
+                    if (window.pageYOffset >= curEl.offsetTop && window.pageYOffset < nextEl.offsetTop) {
+                        asideToc.querySelectorAll(".inner ul>li")[i].classList.add("selected");
+                        asideToc.scrollTop = i * 20;
+                    }
                 }
-            }
-        });
-        observer.observe(tocDetails, { attributes: true, attributeOldValue: true, attributeFilter: [ "open" ] });
+            });
+            observer.observe(tocDetails, { attributes: true, attributeOldValue: true, attributeFilter: [ "open" ] });
+        }
     });
 
     window.onload = function() {
