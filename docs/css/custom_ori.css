@@ -55,11 +55,11 @@ body {
         border: 2px solid rgb(233, 236, 239);
         padding: 0.25rem 0.75rem;
         color: rgb(134, 142, 150);
-        /* line-height: 1.5; */
         font-size: 0.875rem;
         max-height: calc(100vh - 128px);
         overflow: hidden auto;
         z-index: 2;
+        box-shadow: 2px 2px 2px darkgrey;
     }
 
     .main .toc.aside li ul {
