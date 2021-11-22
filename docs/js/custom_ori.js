@@ -128,5 +128,18 @@ if (window.location.pathname.startsWith("/post/")) {
 
             lastScroll = currentScroll;
         });
+
+        const el = document.querySelector(".main .toc.aside details");
+        const observer = new MutationObserver(() => {
+            for (let i = 0; i < tocIdList.length; i++) {
+                let nextEl = document.querySelector(tocIdList[i+1]);
+                let curEl = document.querySelector(tocIdList[i]);
+                if (window.pageYOffset >= curEl.offsetTop && window.pageYOffset < nextEl.offsetTop) {
+                    asideToc.scrollTop = i * 20;
+                }
+            }
+        });
+        observer.observe(el, { attributes: true });
+
     });
 }
