@@ -12,7 +12,8 @@ if (window.location.pathname.startsWith("/post/")) {
             const tocList = tocClone.querySelectorAll(".inner ul>li");
         
             for (let i = 0; i < tocList.length; i++) {
-                tocList[i].classList.add("toc-non-select");
+                if (tocList[i].classList.contains("non-selected")) continue;
+                tocList[i].classList.add("non-selected");
                 tocIdList[i] = decodeURI(tocList[i].querySelector("a").getAttribute("href"));
             }
             
@@ -34,6 +35,12 @@ if (window.location.pathname.startsWith("/post/")) {
 
         window.addEventListener("scroll", () => {
             const currentScroll = window.pageYOffset;
+            if (currentScroll <= 0 && !header.classList.contains(scrollUp)) {
+                header.classList.remove(scrollDown);
+                header.classList.add(scrollUp);
+                return;
+            }
+
             if (currentScroll <= 10) {
                 header.classList.remove(scrollUp);
                 return;
@@ -78,9 +85,10 @@ if (window.location.pathname.startsWith("/post/")) {
 
                     if (scrollEnd) {
                         for (let i = 0; i < allSelEl.length; i++) {
-                            allSelEl[i].classList.remove("toc-select");
+                            if (!allSelEl[i].classList.contains("selected")) continue;
+                            allSelEl[i].classList.remove("selected");
                         }
-                        allSelEl[tocIdList.length-1].classList.add("toc-select");
+                        allSelEl[tocIdList.length-1].classList.add("selected");
                         lastSelEl = allSelEl[tocIdList.length-1];
                     } else {
                         if ((selEl !== null && lastSelEl !== null) && selEl === lastSelEl) {
@@ -88,9 +96,10 @@ if (window.location.pathname.startsWith("/post/")) {
                         }
 
                         for (let i = 0; i < allSelEl.length; i++) {
-                            allSelEl[i].classList.remove("toc-select");
+                            if (!allSelEl[i].classList.contains("selected")) continue;
+                            allSelEl[i].classList.remove("selected");
                         }
-                        selEl.classList.add("toc-select");
+                        selEl.classList.add("selected");
                         lastSelEl = selEl;
                     }
 
@@ -101,11 +110,12 @@ if (window.location.pathname.startsWith("/post/")) {
                         });
                     }
                 } else {
-                    if (asideToc.querySelector(".toc-select") === null) {
+                    if (asideToc.querySelector(".selected") === null) {
                         return;
                     }
                     for (let i = 0; i < allSelEl.length; i++) {
-                        allSelEl[i].classList.remove("toc-select");
+                        if (!allSelEl[i].classList.contains("selected")) continue;
+                        allSelEl[i].classList.remove("selected");
                     }
                 }
             }

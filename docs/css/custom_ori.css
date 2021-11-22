@@ -105,23 +105,23 @@ body {
         display: none;
     }
     
-    .toc-select {
+    .toc.aside details .inner .selected {
         display: block;
         transition: all 0.125s ease-in 0s;
         color: rgb(33, 37, 41);
         transform: scale(1.05);
     }
 
-    .toc-select>a {
+    .toc.aside details .inner .selected>a {
         color: #3b86a0;
     }
     
-    .toc-non-select {
+    .toc.aside details .inner .non-selected {
         display: block;
         transition: all 0.125s ease-in 0s;
     }
     
-    .toc-select + .toc-non-select {
+    .toc.aside details .inner .selected + .toc.aside details .inner .non-selected {
         margin-top: 4px;
     }
 
