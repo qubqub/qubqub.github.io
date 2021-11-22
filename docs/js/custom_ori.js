@@ -108,7 +108,7 @@ if (window.location.pathname.startsWith("/post/")) {
                         allSelEl[tocIdList.length-1].classList.add("selected");
                         lastSelEl = allSelEl[tocIdList.length-1];
                     } else {
-                        if ((selEl !== null && lastSelEl !== null) && selEl === lastSelEl) {
+                        if (selEl === lastSelEl && elIndex > 0) {
                             return;
                         }
 
