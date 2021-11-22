@@ -1,6 +1,6 @@
 baseURL: "https://1TiBGuy.github.io/"
 title: < pA_ />
-paginate: 5
+paginate: 10
 theme: PaperMod
 
 enableRobotsTXT: true
