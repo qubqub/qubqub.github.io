@@ -51,10 +51,6 @@ body {
     padding-bottom: 1rem;
 }
 
-.main .toc.aside .inner {
-    padding: 0;
-}
-
 .main .page-footer .pagination a {
     border-radius: 8px;
 }
