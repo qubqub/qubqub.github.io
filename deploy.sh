@@ -17,7 +17,7 @@ git commit -m "$msg"
 
 git push origin master
 
-echo "\033[0;32mhttps://glowsbright.github.io/\033[0m"
+echo "\033[0;32mhttps://1TiBGuy.github.io/\033[0m"
 
 
 
