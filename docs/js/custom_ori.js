@@ -28,6 +28,7 @@ if (window.location.pathname.startsWith("/post/")) {
 
         let lastScroll = 0;
         const header = document.querySelector("header.header");
+        const asideToc = document.querySelector(".main .toc.aside");
         const scrollUp = "scroll-up";
         const scrollDown = "scroll-down";
         let selEl = null;
@@ -35,6 +36,12 @@ if (window.location.pathname.startsWith("/post/")) {
 
         window.addEventListener("scroll", () => {
             const currentScroll = window.pageYOffset;
+            if(mainTocTop >= currentScroll && asideToc.classList.contains("reveal")) {
+                asideToc.scrollTop = 0;
+                asideToc.classList.remove("reveal");
+                asideToc.classList.add("hide");
+            }
+
             if (currentScroll <= 0 && !header.classList.contains(scrollUp)) {
                 header.classList.remove(scrollDown);
                 header.classList.add(scrollUp);
@@ -59,11 +66,10 @@ if (window.location.pathname.startsWith("/post/")) {
             }
 
             if (tocNode !== null) {
-                const asideToc = document.querySelector(".main .toc.aside");
+                
                 if (mainTocTop < currentScroll && asideToc.classList.contains("hide")) {
                     asideToc.classList.remove("hide");
                     asideToc.classList.add("reveal");
-                    
                 } else if(mainTocTop >= currentScroll && asideToc.classList.contains("reveal")) {
                     asideToc.scrollTop = 0;
                     asideToc.classList.remove("reveal");
