@@ -174,11 +174,19 @@ body {
     margin: 5px 5px 0px 5px;
 }
 
-.post-footer .post-license-info a, .footer a, .post-tags a {
+.post-footer .post-license-info a,
+.footer a,
+.post-tags a,
+.terms-tags a
+{
     transition: color 0.2s ease 0s;
 }
 
-.post-footer .post-license-info a:hover, .footer a:hover, .post-tags a:hover {
+.post-footer .post-license-info a:hover,
+.footer a:hover,
+.post-tags a:hover,
+.terms-tags a
+{
     color: rgb(0, 151, 202);
 }
 
