@@ -35,21 +35,14 @@ body {
     border-radius: var(--radius);
 }
 
-.header .nav #theme-toggle #sun {
-    color: #a30000;
-}
-
-.header .nav #theme-toggle #moon {
-    color: #666666;
-}
-
 .post-footer .post-license-info a:hover,
 .footer a:hover,
 .post-tags a:hover,
 .terms-tags a:hover,
 .header .nav #menu a:hover,
 .header .nav .logo a:hover,
-.entry-footer .social-icons a:hover
+.entry-footer .social-icons a:hover,
+.header .nav #theme-toggle:hover
 {
     transition: color 0.2s ease 0s;
     color: rgb(0, 151, 202);
