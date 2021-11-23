@@ -35,6 +35,14 @@ body {
     border-radius: var(--radius);
 }
 
+.header .nav #theme-toggle #sun {
+    color: orangered;
+}
+
+.header .nav #theme-toggle #moon {
+    color: royalblue;
+}
+
 .post-footer .post-license-info a:hover,
 .footer a:hover,
 .post-tags a:hover,
