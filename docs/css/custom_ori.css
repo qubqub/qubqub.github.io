@@ -36,11 +36,11 @@ body {
 }
 
 .header .nav #theme-toggle #sun {
-    color: orangered;
+    color: #a30000;
 }
 
 .header .nav #theme-toggle #moon {
-    color: royalblue;
+    color: #666666;
 }
 
 .post-footer .post-license-info a:hover,
