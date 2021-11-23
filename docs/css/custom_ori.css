@@ -47,6 +47,31 @@ body {
     color: rgb(0, 151, 202);
 }
 
+.main .post-single .post-footer .share-buttons .twitter:hover {
+    transition: color 0.2s ease 0s;
+    color: #1673B3;
+}
+.main .post-single .post-footer .share-buttons .linkedin:hover {
+    transition: color 0.2s ease 0s;
+    color: #1E4D85;
+}
+.main .post-single .post-footer .share-buttons .reddit:hover {
+    transition: color 0.2s ease 0s;
+    color: #BE2F12;
+}
+.main .post-single .post-footer .share-buttons .facebook:hover {
+    transition: color 0.2s ease 0s;
+    color: #2B4271;
+}
+.main .post-single .post-footer .share-buttons .whatsapp:hover {
+    transition: color 0.2s ease 0s;
+    color: #378218;
+}
+.main .post-single .post-footer .share-buttons .telegram:hover {
+    transition: color 0.2s ease 0s;
+    color: #1B79A6;
+}
+
 .main .post-entry {
     padding-bottom: 1rem;
 }
