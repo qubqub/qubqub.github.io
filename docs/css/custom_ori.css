@@ -49,27 +49,27 @@ body {
 
 .main .post-single .post-footer .share-buttons .twitter:hover {
     transition: color 0.2s ease 0s;
-    color: #1673B3;
+    color: #00acee;
 }
 .main .post-single .post-footer .share-buttons .linkedin:hover {
     transition: color 0.2s ease 0s;
-    color: #1E4D85;
+    color: #0e76a8;
 }
 .main .post-single .post-footer .share-buttons .reddit:hover {
     transition: color 0.2s ease 0s;
-    color: #BE2F12;
+    color: #be3300;
 }
 .main .post-single .post-footer .share-buttons .facebook:hover {
     transition: color 0.2s ease 0s;
-    color: #2B4271;
+    color: #3b5998;
 }
 .main .post-single .post-footer .share-buttons .whatsapp:hover {
     transition: color 0.2s ease 0s;
-    color: #378218;
+    color: #389642;
 }
 .main .post-single .post-footer .share-buttons .telegram:hover {
     transition: color 0.2s ease 0s;
-    color: #1B79A6;
+    color: #30a3e6;
 }
 
 .main .post-entry {
