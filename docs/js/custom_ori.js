@@ -29,9 +29,9 @@ if (window.location.pathname.startsWith("/post/")) {
             if (mainTocTop < window.pageYOffset) {
                 const _toc = document.querySelectorAll(".main .toc.aside .inner ul>li");
                 for (let i = 0; i < tocIdList.length; i++) {
-                    let nextEl = document.getElementById(tocIdList[i+1]);
                     let curEl = document.getElementById(tocIdList[i]);
-                    if (window.pageYOffset >= curEl.offsetTop && window.pageYOffset < nextEl.offsetTop) {
+                    let nextEl = document.getElementById(tocIdList[i+1]);
+                    if (nextEl !== null && window.pageYOffset >= curEl.offsetTop && window.pageYOffset < nextEl.offsetTop) {
                         _toc[i].classList.add("selected");
                         _elIndex = i;
                     }
@@ -143,7 +143,7 @@ if (window.location.pathname.startsWith("/post/")) {
                 for (let i = 0; i < tocIdList.length; i++) {
                     let curEl = document.getElementById(tocIdList[i]);
                     let nextEl = document.getElementById(tocIdList[i+1]);
-                    if (window.pageYOffset >= curEl.offsetTop && window.pageYOffset < nextEl.offsetTop) {
+                    if (nextEl !== null && window.pageYOffset >= curEl.offsetTop && window.pageYOffset < nextEl.offsetTop) {
                         let scrollEnd = Math.ceil(window.pageYOffset + window.innerHeight) >= document.body.scrollHeight;
                         if (scrollEnd) {
                             asideToc.querySelectorAll(".inner ul>li")[tocIdList.length-1].classList.add("selected");
