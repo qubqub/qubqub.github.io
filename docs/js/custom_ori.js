@@ -15,7 +15,7 @@ if (window.location.pathname.startsWith("/post/")) {
             for (let i = 0; i < tocList.length; i++) {
                 if (tocList[i].classList.contains("non-selected")) continue;
                 tocList[i].classList.add("non-selected");
-                tocIdList[i] = decodeURI(tocList[i].querySelector("a").getAttribute("href"));
+                tocIdList[i] = decodeURI(tocList[i].querySelector("a").getAttribute("href").substring(1));
             }
             
             if (mainTocTop < window.pageYOffset) {
@@ -29,8 +29,8 @@ if (window.location.pathname.startsWith("/post/")) {
             if (mainTocTop < window.pageYOffset) {
                 const _toc = document.querySelectorAll(".main .toc.aside .inner ul>li");
                 for (let i = 0; i < tocIdList.length; i++) {
-                    let nextEl = document.querySelector(tocIdList[i+1]);
-                    let curEl = document.querySelector(tocIdList[i]);
+                    let nextEl = document.getElementById(tocIdList[i+1]);
+                    let curEl = document.getElementById(tocIdList[i]);
                     if (window.pageYOffset >= curEl.offsetTop && window.pageYOffset < nextEl.offsetTop) {
                         _toc[i].classList.add("selected");
                         _elIndex = i;
@@ -92,7 +92,7 @@ if (window.location.pathname.startsWith("/post/")) {
                 const allSelEl = asideToc.querySelectorAll(".inner ul>li");
                 let elIndex = null;
                 for (let i = 0; i < tocIdList.length; i++) {
-                    let tocEl = document.querySelector(tocIdList[i]);
+                    let tocEl = document.getElementById(tocIdList[i]);
                     if (tocEl.offsetTop <= currentScroll) {
                         selEl = allSelEl[i];
                         elIndex = i;
@@ -101,7 +101,6 @@ if (window.location.pathname.startsWith("/post/")) {
                 
                 if (elIndex !== null) {
                     let scrollEnd = Math.ceil(currentScroll + window.innerHeight) >= document.body.scrollHeight;
-
                     if (scrollEnd) {
                         for (let i = 0; i < allSelEl.length; i++) {
                             if (!allSelEl[i].classList.contains("selected")) continue;
@@ -110,10 +109,7 @@ if (window.location.pathname.startsWith("/post/")) {
                         allSelEl[tocIdList.length-1].classList.add("selected");
                         lastSelEl = allSelEl[tocIdList.length-1];
                     } else {
-                        if (selEl === lastSelEl && elIndex > 0) {
-                            return;
-                        }
-
+                        if (selEl === lastSelEl && elIndex > 0) return;
                         for (let i = 0; i < allSelEl.length; i++) {
                             if (!allSelEl[i].classList.contains("selected")) continue;
                             allSelEl[i].classList.remove("selected");
@@ -129,9 +125,7 @@ if (window.location.pathname.startsWith("/post/")) {
                         });
                     }
                 } else {
-                    if (asideToc.querySelector(".selected") === null) {
-                        return;
-                    }
+                    if (asideToc.querySelector(".selected") === null) return;
                     for (let i = 0; i < allSelEl.length; i++) {
                         if (!allSelEl[i].classList.contains("selected")) continue;
                         allSelEl[i].classList.remove("selected");
@@ -147,11 +141,17 @@ if (window.location.pathname.startsWith("/post/")) {
             const observer = new MutationObserver((mutationList, observer) => {
                 if (mutationList[0].oldValue !== null) return;
                 for (let i = 0; i < tocIdList.length; i++) {
-                    let nextEl = document.querySelector(tocIdList[i+1]);
-                    let curEl = document.querySelector(tocIdList[i]);
+                    let curEl = document.getElementById(tocIdList[i]);
+                    let nextEl = document.getElementById(tocIdList[i+1]);
                     if (window.pageYOffset >= curEl.offsetTop && window.pageYOffset < nextEl.offsetTop) {
-                        asideToc.querySelectorAll(".inner ul>li")[i].classList.add("selected");
-                        asideToc.scrollTop = i * 20;
+                        let scrollEnd = Math.ceil(window.pageYOffset + window.innerHeight) >= document.body.scrollHeight;
+                        if (scrollEnd) {
+                            asideToc.querySelectorAll(".inner ul>li")[tocIdList.length-1].classList.add("selected");
+                            asideToc.scrollTop = (tocIdList.length-1) * 20;
+                        } else {
+                            asideToc.querySelectorAll(".inner ul>li")[i].classList.add("selected");
+                            asideToc.scrollTop = i * 20;
+                        }
                     }
                 }
             });
