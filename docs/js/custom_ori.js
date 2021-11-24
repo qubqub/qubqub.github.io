@@ -33,7 +33,6 @@ if (window.location.pathname.startsWith("/post/")) {
                 for (let i = 0; i < tocIdList.length; i++) {
                     let curEl = document.getElementById(tocIdList[i]);
                     let nextEl = document.getElementById(tocIdList[i+1]);
-                    console.log(nextEl);
                     if (nextEl !== null && window.pageYOffset >= curEl.offsetTop && window.pageYOffset < nextEl.offsetTop) {
                         _tocEl = _toc[i];
                         _nextTocEl = _toc[i+1];
