@@ -1,5 +1,6 @@
 if (window.location.pathname.startsWith("/post/")) {
     let _elIndex = null;
+    let _tocEl = null;
     document.addEventListener("DOMContentLoaded", () => {
         const mainToc = document.querySelector(".main .post-single>.toc");
         const mainTocTop = mainToc?mainToc.offsetTop:0;
@@ -32,7 +33,7 @@ if (window.location.pathname.startsWith("/post/")) {
                     let curEl = document.getElementById(tocIdList[i]);
                     let nextEl = document.getElementById(tocIdList[i+1]);
                     if (nextEl !== null && window.pageYOffset >= curEl.offsetTop && window.pageYOffset < nextEl.offsetTop) {
-                        _toc[i].classList.add("selected");
+                        _tocEl = _toc[i];
                         _elIndex = i;
                     }
                 }
@@ -161,6 +162,7 @@ if (window.location.pathname.startsWith("/post/")) {
 
     window.onload = function() {
         if (_elIndex !== null) {
+            _tocEl.classList.add("selected");
             document.querySelector(".main .toc.aside").scrollTop = _elIndex * 20;
         }
     }
