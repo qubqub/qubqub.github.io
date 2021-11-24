@@ -3,15 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://1TiB.github.io/</loc>
-    <lastmod>2021-11-19T08:54:41+09:00</lastmod>
+    <lastmod>2021-11-25T00:05:33+09:00</lastmod>
   </url><url>
-    <loc>https://1TiB.github.io/post/2021_11_19_01/</loc>
-    <lastmod>2021-11-19T08:54:41+09:00</lastmod>
+    <loc>https://1TiB.github.io/tags/batch/</loc>
+    <lastmod>2021-11-25T00:05:33+09:00</lastmod>
   </url><url>
-    <loc>https://1TiB.github.io/tags/csharp/</loc>
-    <lastmod>2021-11-19T08:54:41+09:00</lastmod>
+    <loc>https://1TiB.github.io/post/2021_11_25_03/</loc>
+    <lastmod>2021-11-25T00:05:33+09:00</lastmod>
+  </url><url>
+    <loc>https://1TiB.github.io/tags/drawcall/</loc>
+    <lastmod>2021-11-25T00:05:33+09:00</lastmod>
   </url><url>
     <loc>https://1TiB.github.io/post/</loc>
+    <lastmod>2021-11-25T00:05:33+09:00</lastmod>
+  </url><url>
+    <loc>https://1TiB.github.io/tags/</loc>
+    <lastmod>2021-11-25T00:05:33+09:00</lastmod>
+  </url><url>
+    <loc>https://1TiB.github.io/tags/unity/</loc>
+    <lastmod>2021-11-25T00:05:33+09:00</lastmod>
+  </url><url>
+    <loc>https://1TiB.github.io/post/2021_11_25_02/</loc>
+    <lastmod>2021-11-24T23:19:40+09:00</lastmod>
+  </url><url>
+    <loc>https://1TiB.github.io/tags/csharp/</loc>
+    <lastmod>2021-11-23T23:32:06+09:00</lastmod>
+  </url><url>
+    <loc>https://1TiB.github.io/tags/generic/</loc>
+    <lastmod>2021-11-23T23:32:06+09:00</lastmod>
+  </url><url>
+    <loc>https://1TiB.github.io/post/2021_11_25_01/</loc>
+    <lastmod>2021-11-23T23:32:06+09:00</lastmod>
+  </url><url>
+    <loc>https://1TiB.github.io/post/2021_11_19_01/</loc>
     <lastmod>2021-11-19T08:54:41+09:00</lastmod>
   </url><url>
     <loc>https://1TiB.github.io/tags/string/</loc>
@@ -20,16 +44,10 @@
     <loc>https://1TiB.github.io/tags/stringbuilder/</loc>
     <lastmod>2021-11-19T08:54:41+09:00</lastmod>
   </url><url>
-    <loc>https://1TiB.github.io/tags/</loc>
-    <lastmod>2021-11-19T08:54:41+09:00</lastmod>
-  </url><url>
     <loc>https://1TiB.github.io/tags/extenstion-method/</loc>
     <lastmod>2021-11-18T15:49:20+09:00</lastmod>
   </url><url>
     <loc>https://1TiB.github.io/post/2021_11_18_02/</loc>
-    <lastmod>2021-11-18T15:49:20+09:00</lastmod>
-  </url><url>
-    <loc>https://1TiB.github.io/tags/unity/</loc>
     <lastmod>2021-11-18T15:49:20+09:00</lastmod>
   </url><url>
     <loc>https://1TiB.github.io/tags/%EB%B0%B1%EC%A4%80/</loc>

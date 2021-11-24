@@ -5,7 +5,39 @@
     <link>https://1TiB.github.io/tags/unity/</link>
     <description>Recent content in Unity on &lt;1TiB/&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 18 Nov 2021 15:49:20 +0900</lastBuildDate><atom:link href="https://1TiB.github.io/tags/unity/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Nov 2021 00:05:33 +0900</lastBuildDate><atom:link href="https://1TiB.github.io/tags/unity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Draw Call: 드로우콜(2)</title>
+      <link>https://1TiB.github.io/post/2021_11_25_03/</link>
+      <pubDate>Thu, 25 Nov 2021 00:05:33 +0900</pubDate>
+      
+      <guid>https://1TiB.github.io/post/2021_11_25_03/</guid>
+      <description>이전 포스트에서는 드로우콜 자체에 대해 알아보았다면, 이번 포스트에서는 드로우콜을 줄이기 위해 알아야하는 것과 드로우콜을 줄이는 방법에 대해 알아보겠다.
+Batch, Batching이 뭐야? 🧐  Batch: 이전 포스트에서 언급했던 DP Call과 render state change들을 합친 넓은 의미의 드로우콜. Batching: 드로우콜을 줄이는 작업(어떠한 조건 아래 다수의 Batch를 하나로 만드는 작업).  💚Batching 세부 설명
+Project Setting &amp;gt; Player 에서 사용이 체크가 되어있는지 확인.  Static Batching: Static 플래그가 체크되어있는 정적인 오브젝트에 적용 됨.   적용 방법  버텍스 연산을 런타임에 수행하지 않기때문에 Dynamic Batching 보다 효율적.</description>
+    </item>
+    
+    <item>
+      <title>Draw Call: 드로우콜(1)</title>
+      <link>https://1TiB.github.io/post/2021_11_25_02/</link>
+      <pubDate>Wed, 24 Nov 2021 23:19:40 +0900</pubDate>
+      
+      <guid>https://1TiB.github.io/post/2021_11_25_02/</guid>
+      <description>오늘 비대면 면접을 보았는데, 이전 프로젝트에서 드로우콜을 줄이려는 노력을 했냐고 물어보셨다.나는 딱히 드로우콜에 대해서 생각을 해본 적이 별로 없어서 없다고 말했지만, 이 부분에 대해 좀 더 알 필요가 있다고 생각했다. 그래서 오늘의 공부는 드로우콜!
+Draw Call이 뭐야? 🧐  간단 요약 정의: CPU가 GPU에 오브젝트를 그리라는 명령을 호출하는 것.  💚세부 설명
+ 오브젝트가 실제 화면에 렌더링 되려면 CPU -&amp;gt; GPU 정보 전달 필요함. 정보: 메시, 텍스처, 쉐이더, 트랜스폼, 알파블렌딩 여부 등이 존재.</description>
+    </item>
+    
+    <item>
+      <title>Generic: 제너릭 클래스</title>
+      <link>https://1TiB.github.io/post/2021_11_25_01/</link>
+      <pubDate>Tue, 23 Nov 2021 23:32:06 +0900</pubDate>
+      
+      <guid>https://1TiB.github.io/post/2021_11_25_01/</guid>
+      <description>유니티에서 쓸 Tween을 만들고 있는 중이다.Tween에서 여러가지 클래스를 처리하고 싶어서 Generic class를 활용하기로 하였다.
+Generic class가 뭐야? 🧐  일반적으로 클래스를 정의할 때, 클래스 내의 모든 데이타 타입을 지정해 주게 된다. 하지만 어떤 경우는 클래스의 거의 모든 부분이 동일한데 일부 데이타 타입만이 다른 경우가 있을 수 있다.이런 경우 C#의 제네릭 타입(Generic Type)을 사용할 수 있는데, 제네릭 타입에서는 int, float, double 같은 데이타 요소 타입을 확정하지 않고 이 데이타 타입 자체를 타입파라미터(Type Parameter)로 받아들이도록 클래스를 정의한다.</description>
+    </item>
+    
     <item>
       <title>Extenstion Method: 확장 메서드</title>
       <link>https://1TiB.github.io/post/2021_11_18_02/</link>
