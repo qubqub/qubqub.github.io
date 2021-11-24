@@ -1,6 +1,6 @@
 baseURL: "https://1TiB.github.io/"
 title: <1TiB/>
-paginate: 10
+paginate: 5
 theme: PaperMod
 
 enableRobotsTXT: true
