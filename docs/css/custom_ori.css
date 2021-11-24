@@ -48,6 +48,12 @@ body {
     color: rgb(0, 151, 202);
 }
 
+.main .page-footer .pagination a:hover {
+    transition: color 0.2s ease 0s, background-color 0.2s ease 0s;
+    color: var(--primary);
+    background-color: var(--tertiary);
+}
+
 .main .post-single .post-footer .share-buttons .twitter:hover {
     transition: color 0.2s ease 0s;
     color: #00acee;
