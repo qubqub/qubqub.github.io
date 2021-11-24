@@ -1,13 +1,10 @@
 if (window.location.pathname.startsWith("/post/")) {
-    let _elIndex = null;
-    let _tocEl = null;
-    let _nextTocEl = null;
+    const mainToc = document.querySelector(".main .post-single>.toc");
+    const tocIdList = [];
     document.addEventListener("DOMContentLoaded", () => {
-        const mainToc = document.querySelector(".main .post-single>.toc");
         const mainTocTop = mainToc?mainToc.offsetTop:0;
         const header = document.querySelector("header.header");
         const tocNode = document.querySelector(".main .toc");
-        const tocIdList = [];
         if (tocNode !== null) {
             const tocClone = tocNode.cloneNode(true);
             tocClone.classList.add("aside");
@@ -15,8 +12,6 @@ if (window.location.pathname.startsWith("/post/")) {
             const tocList = tocClone.querySelectorAll(".inner ul>li");
         
             for (let i = 0; i < tocList.length; i++) {
-                if (tocList[i].classList.contains("non-selected")) continue;
-                tocList[i].classList.add("non-selected");
                 tocIdList[i] = decodeURI(tocList[i].querySelector("a").getAttribute("href").substring(1));
             }
             
@@ -27,22 +22,6 @@ if (window.location.pathname.startsWith("/post/")) {
             }
 
             tocNode.parentNode.insertBefore(tocClone, tocNode.nextSibling);
-
-            if (mainTocTop < window.pageYOffset) {
-                const _toc = document.querySelectorAll(".main .toc.aside .inner ul>li");
-                for (let i = 0; i < tocIdList.length; i++) {
-                    let curEl = document.getElementById(tocIdList[i]);
-                    let nextEl = document.getElementById(tocIdList[i+1]);
-                    if (nextEl !== null && window.pageYOffset >= curEl.offsetTop && window.pageYOffset < nextEl.offsetTop) {
-                        _tocEl = _toc[i];
-                        _nextTocEl = _toc[i+1];
-                        _elIndex = i;
-                    } else {
-                        _tocEl = _toc[i];
-                        _elIndex = i;
-                    }
-                }
-            }
         }
 
         const asideToc = document.querySelector(".main .toc.aside");
@@ -170,10 +149,18 @@ if (window.location.pathname.startsWith("/post/")) {
     });
 
     window.onload = function() {
-        if (_elIndex !== null) {
-            if (_nextTocEl !== null) _nextTocEl.classList.remove("selected");
-            _tocEl.classList.add("selected");
-            document.querySelector(".main .toc.aside").scrollTop = _elIndex * 20;
+        const _mainTocTop = mainToc?mainToc.offsetTop:0;
+        if (_mainTocTop < window.pageYOffset) {
+            const _toc = document.querySelectorAll(".main .toc.aside .inner ul>li");
+            for (let i = 0; i < tocIdList.length; i++) {
+                let curEl = document.getElementById(tocIdList[i]);
+                let nextEl = document.getElementById(tocIdList[i+1]);
+                if (nextEl !== null && window.pageYOffset >= curEl.offsetTop && window.pageYOffset < nextEl.offsetTop) {
+                    if (_toc[i+1] !== null) _toc[i+1].classList.remove("selected");
+                    _toc[i].classList.add("selected");
+                    document.querySelector(".main .toc.aside").scrollTop = i * 20;
+                }
+            }
         }
     }
 }

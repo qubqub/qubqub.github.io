@@ -161,12 +161,12 @@ body {
         color: #4fb4d7;
     }
     
-    .toc.aside details .inner .non-selected {
+    .toc.aside details .inner li {
         display: block;
         transition: all 0.125s ease-in 0s;
     }
     
-    .toc.aside details .inner .selected + .toc.aside details .inner .non-selected {
+    .toc.aside details .inner .selected + .toc.aside details .inner li {
         margin-top: 4px;
     }
 
