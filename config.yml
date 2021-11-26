@@ -85,6 +85,8 @@ params:
     #   url: "https://twitter.com/"
     # - name: stackoverflow
     #   url: "https://stackoverflow.com"
+    - name: email
+      url: "terro21c@gmail.com"
     - name: telegram
       url: "https://t.me/oneTiBGuy"
     - name: github
