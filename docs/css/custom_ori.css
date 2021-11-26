@@ -236,3 +236,7 @@ body {
 .footer a:hover {
     border: none;
 }
+
+.svg--time {
+    vertical-align: -0.1rem;
+}
