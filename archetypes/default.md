@@ -4,7 +4,7 @@ date: {{ .Date }}
 tags: [""]
 author: [""]
 ShowReadingTime: true
-ShowBreadCrumbs: true
+ShowBreadCrumbs: false
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
 ShowCreativeCommons: true

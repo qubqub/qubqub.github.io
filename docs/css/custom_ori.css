@@ -1,6 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=YouTube+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.first-entry { min-height: 0; }
+@font-face {
+    font-family: "CascadiaCode";
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/CascadiaCode.woff2') format('truetype');
+}
+
+body {
+    font-family: "YouTube Sans", "Roboto", sans-serif;
+    word-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+}
 
 header.header {
     position: sticky;
@@ -12,13 +25,6 @@ header.header {
     transition: transform 0.2s ease-in-out;
 }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", 나눔고딕, "Nanum Gothic", "Noto Sans KR", "Noto Sans CJK KR", arial, 돋움, Dotum, Tahoma, Geneva, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    word-wrap: break-word;
-    -webkit-font-smoothing: antialiased;
-}
-
 .header .nav .logo a img {
     background: var(--tertiary);
     border-radius: 5px;
@@ -28,6 +34,8 @@ body {
 .main {
     max-width: calc(var(--main-width) + var(--gap) * 5);
 }
+
+.first-entry { min-height: 0; }
 
 .main .post-entry:hover,
 .main .archive-entry:hover,
@@ -199,7 +207,7 @@ body {
 }
 
 .post-header>.post-title {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .post-tags a {
@@ -207,7 +215,7 @@ body {
     z-index: 1;
     padding-inline-start: 8px;
     padding-inline-end: 8px;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 25px;
 }
 
@@ -216,15 +224,15 @@ body {
     flex-direction: column;
     -webkit-box-align: center;
     align-items: center;
-    margin: 0px 0px 1.5rem 0px;
-    padding: 1.5em 5px;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
     border: 1px solid var(--primary);
     border-radius: var(--radius);
 }
 
 .post-footer .post-license-info .license-descript {
-    font-size: 17px;
-    margin: 5px 5px 0px 5px;
+    font-size: 15px;
+    margin-top: 7px;
 }
 
 .footer a {
@@ -237,5 +245,22 @@ body {
 }
 
 .svg--time {
-    vertical-align: -0.1rem;
+    vertical-align: -0.14rem;
+}
+
+.post-content code {
+    margin: auto 4px;
+    padding: 4px 6px;
+    font-size: .85rem;
+    line-height: 1.5;
+    background: var(--code-bg);
+    border-radius: 4px;
+    vertical-align: 0.1rem;
+}
+
+.post-content pre code {
+    font-family: "CascadiaCode", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -webkit-font-smoothing: antialiased;
 }
