@@ -41,6 +41,10 @@ header.header {
     padding: 10px 0 5px 10px;
 }
 
+.terms-tags a {
+    font-size: 1.05rem;
+}
+
 .main .post-entry:hover,
 .main .archive-entry:hover,
 .terms-tags a:hover {
