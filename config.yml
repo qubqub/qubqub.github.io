@@ -27,6 +27,7 @@ params:
   defaultTheme: auto # dark, light
   disableThemeToggle: false
 
+  custom_css: ["css/custom.min.css"]
   custom_js: ["js/custom.min.js"]
 
   GithubRepoUrl: "https://github.com/1TiB/1TiB.github.io"

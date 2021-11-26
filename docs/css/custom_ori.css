@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 @font-face {
-    font-family: "CascadiaCode";
+    font-family: "NanumGothicCoding";
     font-style: normal;
     font-weight: 400;
     src: url('../fonts/NanumGothicCoding.ttf') format('truetype');
@@ -240,7 +240,7 @@ header.header {
     -webkit-box-align: center;
     align-items: center;
     margin-bottom: 1.5rem;
-    padding: 1.5rem;
+    padding: 1.5rem 0 1.5rem 0;
     border: 1px solid var(--primary);
     border-radius: var(--radius);
 }
@@ -268,7 +268,7 @@ header.header {
 }
 
 .post-content code {
-    font-family: "CascadiaCode", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-family: "NanumGothicCoding", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
     word-break: keep-all;
     hyphens: auto;
     -webkit-font-smoothing: antialiased;
