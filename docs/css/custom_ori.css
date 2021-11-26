@@ -242,6 +242,10 @@ header.header {
     margin-top: 7px;
 }
 
+.footer {
+    font-size: 0.8rem;
+}
+
 .footer a {
     font-weight: bold;
     border: none;
