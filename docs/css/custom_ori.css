@@ -226,7 +226,7 @@ header.header {
     z-index: 1;
     padding-inline-start: 8px;
     padding-inline-end: 8px;
-    font-size: 13px;
+    font-size: 0.9rem;
     line-height: 25px;
 }
 
