@@ -105,6 +105,13 @@ header.header {
     transform: none;
 }
 
+.toc summary {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 @media (min-width: 1301px) {
     .main .toc.aside {
         width: 282px;
