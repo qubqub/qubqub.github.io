@@ -274,7 +274,7 @@ header.header {
     line-height: 1.5;
     background: var(--code-bg);
     border-radius: 4px;
-    vertical-align: 0.1rem;
+    vertical-align: 0.125rem;
 }
 
 .post-content pre code {
