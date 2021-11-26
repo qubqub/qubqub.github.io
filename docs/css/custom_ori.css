@@ -37,6 +37,10 @@ header.header {
 
 .first-entry { min-height: 0; }
 
+.main .archive-entry {
+    padding: 10px 0 5px 10px;
+}
+
 .main .post-entry:hover,
 .main .archive-entry:hover,
 .terms-tags a:hover {
