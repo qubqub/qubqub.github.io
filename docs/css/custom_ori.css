@@ -249,9 +249,13 @@ header.header {
 }
 
 .post-content code {
+    font-family: "YouTube Sans", "Roboto", sans-serif;
+    word-break: keep-all;
+    hyphens: auto;
+    -webkit-font-smoothing: antialiased;
     margin: auto 4px;
     padding: 4px 6px;
-    font-size: .85rem;
+    font-size: 0.85rem;
     line-height: 1.5;
     background: var(--code-bg);
     border-radius: 4px;
@@ -261,6 +265,5 @@ header.header {
 .post-content pre code {
     font-family: "CascadiaCode", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
     hyphens: auto;
-    -webkit-hyphens: auto;
     -webkit-font-smoothing: antialiased;
 }
