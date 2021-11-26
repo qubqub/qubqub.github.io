@@ -26,7 +26,7 @@ header.header {
 }
 
 .header .nav .logo a img {
-    background: var(--tertiary);
+    background-color: var(--tertiary);
     border-radius: 5px;
     padding: 1px;
 }
