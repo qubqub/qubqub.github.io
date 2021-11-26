@@ -272,3 +272,7 @@ header.header {
     border-radius: 4px;
     vertical-align: 0.1rem;
 }
+
+.post-content pre code {
+    font-size: 1rem;
+}
