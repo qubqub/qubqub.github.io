@@ -130,27 +130,22 @@ outputs:
 menu:
   main:
     # - identifier: Java
-    #   # name: Java
     #   name: Java
     #   url: /post/java/
     #   weight: 10
-    # - identifier: Spring
-    #   # name: Java
-    #   name: Spring
-    #   url: /tags/Csharp/
-    #   weight: 20
+    - identifier: collection
+      name: 모아보기
+      url: /collection/
+      weight: 20
     - identifier: Archive
-      # name: Archive
       name: 기록 보관소
       url: /archives/
       weight: 70
     - identifier: Search
-      # name: Search
       name: 검색
       url: /search/
       weight: 80
     - identifier: Tags
-      # name: Tags
       name: 태그
       url: /tags/
       weight: 90
