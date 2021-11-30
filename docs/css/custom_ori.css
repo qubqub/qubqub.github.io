@@ -302,11 +302,20 @@ header.header {
     font-size: 1rem;
 }
 
-.highlight .lntable .copy-code {
+.post-content .highlight .lntable .copy-code {
     font-size: 1rem;
 }
 
-.highlight .lntable:hover {
-    transition: width 0.1s ease 0s;
-    width: 150%;
+.post-content .highlight:not(table), .post-content pre {
+    margin-bottom: 32px;
+}
+
+.post-content table {
+    margin-bottom: 0;
+    background: var(--hljs-bg);
+    border-radius: var(--radius);
+}
+
+.post-content .highlight:hover {
+    display: flex;
 }
