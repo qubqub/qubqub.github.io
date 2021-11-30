@@ -75,6 +75,7 @@ header.header {
 .main .page-footer nav.pagination .pagination__item--current a {
     color: var(--primary);
     background-color: var(--tertiary);
+    cursor: initial;
 }
 
 .main .page-footer ul.pagination {
