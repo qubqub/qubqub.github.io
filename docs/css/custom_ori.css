@@ -71,20 +71,6 @@ header.header {
     background-color: var(--tertiary);
 }
 
-.main .page-footer nav.pagination a {
-    margin: 0;
-}
-
-.main .page-footer ul.pagination {
-    margin-inline-start: auto;
-    margin-inline-end: auto;
-}
-
-.main .page-footer nav.pagination .next + .last,
-.main .page-footer nav.pagination .first + .prev{
-    margin-left: 0.5rem;
-}
-
 .main .page-footer nav.pagination .pagination__item:not(.pagination__item--current) a:hover {
     transition: color 0.2s ease 0s, background-color 0.2s ease 0s;
     color: var(--primary);

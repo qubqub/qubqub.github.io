@@ -74,14 +74,23 @@
 {{- if gt $paginator.TotalPages 1 }}
 <footer class="page-footer">
   <nav class="pagination">
+    <ul class="pagination">
     {{ if ne $paginator.PageNumber 1 }}
-    <a class="first" href="{{ $paginator.First.URL | absURL }}">««</a>
+    <li class="pagination__item pagination__item--first">
+      <a class="pagination__link pagination__link--first" href="{{ $paginator.First.URL | absURL }}">
+        ««
+      </a>
+    </li>
     {{ end }}
-    {{- if $paginator.HasPrev }}
-    <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">« {{ i18n "prev_page" }}</a>
-    {{- end }}
 
-    
+    {{ if $paginator.HasPrev }}
+    <li class="pagination__item pagination__item--previous">
+      <a href="{{ $paginator.Prev.URL | absURL }}" class="pagination__link pagination__link--previous">
+        « {{ i18n "prev_page" }}
+      </a>
+    </li>
+    {{ end }}
+
     {{ $paginator := .Paginator }}
 
     {{ $adjacent_links := 2 }}
@@ -92,67 +101,68 @@
     
     {{ $upper_limit := (sub $paginator.TotalPages $adjacent_links) }}
     
-    {{ if gt $paginator.TotalPages 1 }}
-    
-      <ul class="pagination">
-      
-        {{ range $paginator.Pagers }}
-        
-          {{ $.Scratch.Set "page_number_flag" false }}
-    
-          
-          {{ if gt $paginator.TotalPages $max_links }}
     
     
-            {{ if le $paginator.PageNumber $lower_limit }}
     
-              {{ if le .PageNumber $max_links }}
-                {{ $.Scratch.Set "page_number_flag" true }}
-              {{ end }}
+    {{ range $paginator.Pagers }}
     
-    
-            {{ else if ge $paginator.PageNumber $upper_limit }}
-    
-              {{ if gt .PageNumber (sub $paginator.TotalPages $max_links) }}
-                {{ $.Scratch.Set "page_number_flag" true }}
-              {{ end }}
-    
-    
-            {{ else }}
-              
-              {{ if and ( ge .PageNumber (sub $paginator.PageNumber $adjacent_links) ) ( le .PageNumber (add $paginator.PageNumber $adjacent_links) ) }}
-                {{ $.Scratch.Set "page_number_flag" true }}
-              {{ end }}
-    
-            {{ end }}
-    
-          
-          {{ else }}
-    
+      {{ $.Scratch.Set "page_number_flag" false }}
+
+      {{ if gt $paginator.TotalPages $max_links }}
+
+        {{ if le $paginator.PageNumber $lower_limit }}
+
+          {{ if le .PageNumber $max_links }}
             {{ $.Scratch.Set "page_number_flag" true }}
-    
           {{ end }}
-    
-          {{ if eq ($.Scratch.Get "page_number_flag") true }}
-            <li class="pagination__item{{ if eq . $paginator }} pagination__item--current{{ end }}">
-              <a href="{{ if eq . $paginator }} # {{ else }} {{ .URL }} {{ end }}" class="pagination__link">
-                {{ .PageNumber }}
-              </a>
-            </li>
+
+        {{ else if ge $paginator.PageNumber $upper_limit }}
+
+          {{ if gt .PageNumber (sub $paginator.TotalPages $max_links) }}
+            {{ $.Scratch.Set "page_number_flag" true }}
           {{ end }}
-    
+
+        {{ else }}
+          
+          {{ if and ( ge .PageNumber (sub $paginator.PageNumber $adjacent_links) ) ( le .PageNumber (add $paginator.PageNumber $adjacent_links) ) }}
+            {{ $.Scratch.Set "page_number_flag" true }}
+          {{ end }}
+
         {{ end }}
-      </ul>
+
+      {{ else }}
+
+        {{ $.Scratch.Set "page_number_flag" true }}
+
+      {{ end }}
+
+      {{ if eq ($.Scratch.Get "page_number_flag") true }}
+        <li class="pagination__item{{ if eq . $paginator }} pagination__item--current{{ end }}">
+          <a href="{{ if eq . $paginator }} # {{ else }} {{ .URL }} {{ end }}" class="pagination__link">
+            {{ .PageNumber }}
+          </a>
+        </li>
+      {{ end }}
+
+    {{ end }}
+    
+
+    {{ if $paginator.HasNext }}
+    <li class="pagination__item pagination__item--next">
+      <a href="{{ $paginator.Next.URL | absURL }}" class="pagination__link pagination__link--next">
+        {{ i18n "next_page" }} »
+      </a>
+    </li>
     {{ end }}
 
-
-
-    {{- if $paginator.HasNext }}
-    <a class="next" href="{{ $paginator.Next.URL | absURL }}">{{ i18n "next_page" }} »</a>
-    {{- end }}
     {{ if ne $paginator.PageNumber $paginator.TotalPages }}
-    <a class="last" href="{{ $paginator.Last.URL | absURL  }}">»»</a>
+    <li class="pagination__item pagination__item--last">
+      <a class="pagination__link pagination__link--last" href="{{ $paginator.Last.URL | absURL }}">
+        »»
+      </a>
+    </li>
     {{ end }}
+  </ul>
   </nav>
 </footer>
 {{- end }}
