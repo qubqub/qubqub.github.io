@@ -101,9 +101,6 @@
     
     {{ $upper_limit := (sub $paginator.TotalPages $adjacent_links) }}
     
-    
-    
-    
     {{ range $paginator.Pagers }}
     
       {{ $.Scratch.Set "page_number_flag" false }}
@@ -138,10 +135,10 @@
 
       {{ if eq ($.Scratch.Get "page_number_flag") true }}
         <li class="pagination__item{{ if eq . $paginator }} pagination__item--current{{ end }}">
-            {{ if eq . $paginator }}
-              <a>{{ .PageNumber }}</a>
-            {{ else }}
-          <a href="{{ .URL }}" class="pagination__link"> {{ .PageNumber }} </a>
+          {{ if eq . $paginator }}
+            <a>{{ .PageNumber }}</a>
+          {{ else }}
+            <a href="{{ .URL }}" class="pagination__link">{{ .PageNumber }}</a>
           {{ end }}
         </li>
       {{ end }}
