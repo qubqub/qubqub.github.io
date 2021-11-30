@@ -1,5 +1,5 @@
 ---
-title: "모아보기"
+title: "모아보기 📂"
 layout: "collection"
 description: ""
 url: "/collection/"
