@@ -6,6 +6,14 @@
   # translation: "Next Page"
   translation: "다음 페이지"
 
+- id: first_page
+  # translation: "Prev Page"
+  translation: "처음"
+
+- id: last_page
+  # translation: "Next Page"
+  translation: "마지막"
+
 - id: read_time
   translation:
     # one : "1 min"

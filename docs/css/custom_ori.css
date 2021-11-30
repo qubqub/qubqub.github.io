@@ -66,7 +66,26 @@ header.header {
     color: rgb(0, 151, 202);
 }
 
-.main .page-footer .pagination a:hover {
+.main .page-footer nav.pagination .pagination__item--current a {
+    color: var(--primary);
+    background-color: var(--tertiary);
+}
+
+.main .page-footer nav.pagination a {
+    margin: 0;
+}
+
+.main .page-footer ul.pagination {
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+}
+
+.main .page-footer nav.pagination .next + .last,
+.main .page-footer nav.pagination .first + .prev{
+    margin-left: 0.5rem;
+}
+
+.main .page-footer nav.pagination .pagination__item:not(.pagination__item--current) a:hover {
     transition: color 0.2s ease 0s, background-color 0.2s ease 0s;
     color: var(--primary);
     background-color: var(--tertiary);
@@ -284,4 +303,22 @@ header.header {
 
 .post-content pre code {
     font-size: 1rem;
+}
+
+.pagination ul li{
+    display: flex;
+    list-style: none;
+    margin-left: 10px;
+}
+
+.highlight .lntable {
+    transition: width 0.1s ease 0s;
+}
+
+.highlight .lntable:hover {
+    width: 130%;
+}
+
+.highlight .lntable .copy-code {
+    font-size: 17px;
 }
