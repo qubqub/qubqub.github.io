@@ -66,6 +66,12 @@ header.header {
     color: rgb(0, 151, 202);
 }
 
+.main .page-footer .pagination ul li{
+    display: flex;
+    list-style: none;
+    margin-left: 10px;
+}
+
 .main .page-footer nav.pagination .pagination__item--current a {
     color: var(--primary);
     background-color: var(--tertiary);
@@ -296,20 +302,11 @@ header.header {
     font-size: 1rem;
 }
 
-.pagination ul li{
-    display: flex;
-    list-style: none;
-    margin-left: 10px;
-}
-
-.highlight .lntable {
-    transition: width 0.1s ease 0s;
+.highlight .lntable .copy-code {
+    font-size: 1rem;
 }
 
 .highlight .lntable:hover {
-    width: 130%;
-}
-
-.highlight .lntable .copy-code {
-    font-size: 17px;
+    transition: width 0.1s ease 0s;
+    width: 150%;
 }
