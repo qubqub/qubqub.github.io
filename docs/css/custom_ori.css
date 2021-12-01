@@ -224,6 +224,10 @@ header.header {
         bottom: 30px;
         right: 30px;
     }
+
+    .post-content .highlight:hover {
+        display: flex;
+    }
 }
 
 @media (max-width: 1300px) {
@@ -315,8 +319,4 @@ header.header {
     margin-bottom: 0;
     background: var(--hljs-bg);
     border-radius: var(--radius);
-}
-
-.post-content .highlight:hover {
-    display: flex;
 }
