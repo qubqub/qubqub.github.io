@@ -2,6 +2,8 @@
 
 echo "\033[0;32mDeploying updates to GitHub...\033[0m"
 
+rm -r docs/
+
 # Build the project.
 hugo -d docs -t PaperMod --minify
 
