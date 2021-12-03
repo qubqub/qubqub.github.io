@@ -1,7 +1,7 @@
 ---
 title: "모아보기 🗂️"
 layout: "collection"
-description: "공부하면서 정리한 걸 모아보자."
+description: "공부하면서 정리한 것들 모아보기. 📒"
 url: "/collection/"
 summary: collection
 menu:
