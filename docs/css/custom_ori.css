@@ -41,6 +41,19 @@ header.header {
     padding: 10px 0 5px 10px;
 }
 
+.main .archive-year .archive-month-header {
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.main .archive-year .archive-month-header .toggle {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+}
+
 .terms-tags a {
     font-size: 1.05rem;
 }

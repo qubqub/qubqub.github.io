@@ -163,4 +163,16 @@ if (window.location.pathname.startsWith("/post/")) {
             }
         }
     }
+} else if (window.location.pathname.startsWith("/archives/")) {
+    function layer_toggle (elId, _this) {
+        const _el = document.getElementById(elId);
+        const _toggleEl = _this.querySelector(".toggle");   
+        if (_el.style.display==="none") {
+            _toggleEl.innerText = "▼";
+            _el.style.display = "block";
+        } else if (_el.style.display==="block" || _el.style.display==="") {
+            _toggleEl.innerText = "▶";
+            _el.style.display = "none";
+        }
+    }
 }
