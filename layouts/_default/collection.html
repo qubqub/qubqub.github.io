@@ -9,17 +9,19 @@
       {{- end }}
     </header>
     {{ range $.Site.Taxonomies.tags.ByCount }}
-      {{- $title := .Name }}
+      {{- $name := .Name }}
       {{- $count := .Count }}
-      <article class="post-entry">
-        <header class="entry-header">
-          <h2>{{ $title }}</h2>
-        </header>
-        <section class="entry-content">
-          <p>{{- i18n $title }}</p>
-        </section>
-        <a class="entry-link" aria-label="{{ $title }}" href="/tags/{{ $title }}/"></a>
-      </article>
+      {{- with $.Site.GetPage (printf "/%s/%s" "tags" $name) }}
+        <article class="post-entry" title="{{- i18n $name }}">
+          <header class="entry-header">
+            <h2>{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup></h2>
+          </header>
+          <section class="entry-content">
+            <p>{{- i18n $name }}</p>
+          </section>
+          <a class="entry-link" aria-label="{{ .Name }}" href="{{ .Permalink }}"></a>
+        </article>
+      {{- end }}
     {{- end }}
   {{- else }}
     {{- if .Title }}
@@ -33,7 +35,7 @@
       </header>
     {{- end }}
     {{- range .Params.menu }}
-      <article class="post-entry">
+      <article class="post-entry" title="{{ .description }}">
         <header class="entry-header">
           <h2>{{ .title }}</h2>
         </header>
