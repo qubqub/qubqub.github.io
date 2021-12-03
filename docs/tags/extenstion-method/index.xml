@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Extenstion Method on &lt;1TiB/&gt;</title>
-    <link>https://1TiB.github.io/tags/extenstion-method/</link>
-    <description>Recent content in Extenstion Method on &lt;1TiB/&gt;</description>
+    <title>Extenstion Method on &lt;Qutrits/&gt;</title>
+    <link>https://qutrits.github.io/tags/extenstion-method/</link>
+    <description>Recent content in Extenstion Method on &lt;Qutrits/&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 18 Nov 2021 15:49:20 +0900</lastBuildDate><atom:link href="https://1TiB.github.io/tags/extenstion-method/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Nov 2021 15:49:20 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/tags/extenstion-method/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Extenstion Method: 확장 메서드</title>
-      <link>https://1TiB.github.io/post/2021_11_18_02/</link>
+      <link>https://qutrits.github.io/post/2021_11_18_02/</link>
       <pubDate>Thu, 18 Nov 2021 15:49:20 +0900</pubDate>
       
-      <guid>https://1TiB.github.io/post/2021_11_18_02/</guid>
+      <guid>https://qutrits.github.io/post/2021_11_18_02/</guid>
       <description>유니티에서 여러가지 연습을 하려고 생각하고 있었을 때, 나만의 tween을 만들어 보고싶다고 생각했다. DoTween을 사용할 때 여러 함수들이 transform, image 등에서 부터 바로 DoTween 함수를 사용할 수 있었던 것이 기억에 남았다.
   나도 이런식으로 바로바로 접근할 수 있으면 좋겠다고 생각을 해서 방법을 찾아보니, Extenstion Method 를 이용하면 되는 것!
  Extenstion Method가 뭐야? 🧐  특수한 종류의 Static 메서드. 다른 클래스의 인스턴스 메서드인 것 처럼 사용되는 기능. 클래스, 구조체, 인터페이스 등에 적용 가능.</description>

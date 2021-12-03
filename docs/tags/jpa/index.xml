@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>JPA on &lt;1TiB/&gt;</title>
-    <link>https://1TiB.github.io/tags/jpa/</link>
-    <description>Recent content in JPA on &lt;1TiB/&gt;</description>
+    <title>JPA on &lt;Qutrits/&gt;</title>
+    <link>https://qutrits.github.io/tags/jpa/</link>
+    <description>Recent content in JPA on &lt;Qutrits/&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://1TiB.github.io/tags/jpa/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://qutrits.github.io/tags/jpa/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JPA</title>
-      <link>https://1TiB.github.io/post/2021_11_30_05/</link>
+      <link>https://qutrits.github.io/post/2021_11_30_05/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://1TiB.github.io/post/2021_11_30_05/</guid>
+      <guid>https://qutrits.github.io/post/2021_11_30_05/</guid>
       <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
     </item>
     

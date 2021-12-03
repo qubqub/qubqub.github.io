@@ -1,5 +1,5 @@
-baseURL: "https://1TiB.github.io/"
-title: <1TiB/>
+baseURL: "https://qutrits.github.io/"
+title: <Qutrits/>
 paginate: 5
 theme: PaperMod
 
@@ -17,8 +17,8 @@ minify:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   # title: ExampleSite
-  description: "<1TiB/>"
-  keywords: [1TiB, Blog, Portfolio]
+  description: "<Qutrits/>"
+  keywords: [qutrits, Blog, Portfolio]
   # author: Me
   # author: ["Me", "You"] # multiple authors
   # images: ["<link or path of image for opengraph, twitter-cards>"]
@@ -30,7 +30,7 @@ params:
   custom_css: ["css/custom.min.css"]
   custom_js: ["js/custom.min.js"]
 
-  GithubRepoUrl: "https://github.com/1TiB/1TiB.github.io"
+  GithubRepoUrl: "https://github.com/qutrits/qutrits.github.io"
 
   ShowCreativeCommons: true
   ShowShareButtons: true
@@ -90,7 +90,7 @@ params:
     - name: telegram
       url: "https://t.me/oneTiBGuy"
     - name: github
-      url: "https://github.com/1TiB"
+      url: "https://github.com/qutrits"
     - name: rss
       url: "/index.xml"
 
@@ -108,7 +108,7 @@ params:
   #   hiddenInSingle: true # hide on single page
 
   # editPost:
-  #   URL: "https://github.com/1TiB/content"
+  #   URL: "https://github.com/qutrits/content"
   #   Text: "Suggest Changes" # edit text
   #   appendFilePath: true # to append file path to Edit link
 
