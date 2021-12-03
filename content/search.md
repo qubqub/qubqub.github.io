@@ -4,5 +4,5 @@ layout: "search" # is necessary
 # url: "/archive"
 # description: "Search (Alt + /)"
 summary: "search"
-placeholder: "Type here to search..."
+placeholder: "검색하려면 여기에 입력하세요."
 ---

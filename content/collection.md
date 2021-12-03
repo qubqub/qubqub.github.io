@@ -4,6 +4,7 @@ layout: "collection"
 description: "공부하면서 정리한 것들 모아보기. 📒"
 url: "/collection/"
 summary: collection
+useTag: false # true면 아래 무시
 menu:
   - title: "Effective Java 3/E"
     description: "Effective Java 3/E 학습하면서 정리한 내용입니다."

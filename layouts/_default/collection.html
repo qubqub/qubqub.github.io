@@ -1,23 +1,47 @@
 {{- define "main" }}
-{{- if .Title }}
-<header class="page-header">
-  <h1>{{ .Title }}</h1>
-  {{- if .Description }}
-  <div class="post-description">
-    {{ .Description }}
-  </div>
+  {{- if .Params.useTag}}
+    <header class="page-header">
+      <h1>{{ .Title }}</h1>
+      {{- if .Description }}
+      <div class="post-description">
+        {{ .Description }}
+      </div>
+      {{- end }}
+    </header>
+    {{ range $.Site.Taxonomies.tags.ByCount }}
+      {{- $title := .Name }}
+      {{- $count := .Count }}
+      <article class="post-entry">
+        <header class="entry-header">
+          <h2>{{ $title }}</h2>
+        </header>
+        <section class="entry-content">
+          <p>{{- i18n $title }}</p>
+        </section>
+        <a class="entry-link" aria-label="{{ $title }}" href="/tags/{{ $title }}/"></a>
+      </article>
+    {{- end }}
+  {{- else }}
+    {{- if .Title }}
+      <header class="page-header">
+        <h1>{{ .Title }}</h1>
+        {{- if .Description }}
+        <div class="post-description">
+          {{ .Description }}
+        </div>
+        {{- end }}
+      </header>
+    {{- end }}
+    {{- range .Params.menu }}
+      <article class="post-entry">
+        <header class="entry-header">
+          <h2>{{ .title }}</h2>
+        </header>
+        <section class="entry-content">
+          <p>{{ .description }}</p>
+        </section>
+        <a class="entry-link" aria-label="{{ .title }}" href="{{ .url }}"></a>
+      </article>
+    {{- end }}
   {{- end }}
-</header>
-{{- end }}
-{{- range .Params.menu }}
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>{{ .title }}</h2>
-  </header>
-  <section class="entry-content">
-    <p>{{ .description }}</p>
-  </section>
-  <a class="entry-link" aria-label="{{ .title }}" href="{{ .url }}"></a>
-</article>
-{{- end }}
 {{- end }}{{/* end main */ -}}

@@ -18,10 +18,10 @@
 
 {{- if .Params.tags }}
 <div style="width: 100%; word-break: break-all; word-wrap: break-word; margin-top: 10px;">
-    <ul class="post-tags">
-        {{- range ($.GetTerms "tags") }}
-        <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
-        {{- end }}
-    </ul>
+  <ul class="post-tags">
+    {{- range ($.GetTerms "tags") }}
+      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+    {{- end }}
+  </ul>
 </div>
 {{- end }}
