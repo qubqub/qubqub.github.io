@@ -69,7 +69,10 @@ header.header {
 .main .page-footer .pagination ul li{
     display: flex;
     list-style: none;
-    margin-left: 10px;
+}
+
+.main .page-footer .pagination ul li:not(:last-child) {
+    margin-right: 10px;
 }
 
 .main .page-footer nav.pagination .pagination__item--current a {
@@ -119,6 +122,7 @@ header.header {
 }
 
 .main .page-footer .pagination a {
+
     border-radius: 8px;
 }
 
@@ -137,7 +141,127 @@ header.header {
     user-select: none;
 }
 
-@media (min-width: 1301px) {
+.pagination__link.pagination__link--first,
+.pagination__link.pagination__link--last {
+    padding: 0 0.8rem;
+}
+
+@media screen and (max-width: 355px) {
+    .pagination__link.pagination__link--first,
+    .pagination__link.pagination__link--last {
+        padding: 0 0.7rem;
+    }
+}
+
+@media screen and (max-width: 348px) {
+    .pagination__link.pagination__link--first,
+    .pagination__link.pagination__link--last {
+        padding: 0 0.65rem;
+    }
+}
+
+@media screen and (max-width: 345px) {
+    .pagination__link.pagination__link--first,
+    .pagination__link.pagination__link--last {
+        padding: 0 0.6rem;
+    }
+}
+
+@media screen and (max-width: 342px) {
+    .pagination__link.pagination__link--first,
+    .pagination__link.pagination__link--last {
+        padding: 0 0.55rem;
+    }
+}
+
+@media screen and (max-width: 339px) {
+    .pagination__link.pagination__link--first,
+    .pagination__link.pagination__link--last {
+        padding: 0 0.5rem;
+    }
+}
+
+@media screen and (max-width: 335px) {
+    .pagination__link.pagination__link--first,
+    .pagination__link.pagination__link--last {
+        padding: 0 0.45rem;
+    }
+}
+
+@media screen and (max-width: 332px) {
+    .pagination__link.pagination__link--first,
+    .pagination__link.pagination__link--last {
+        padding: 0 0.4rem;
+    }
+}
+
+@media screen and (max-width: 329px) {
+    .pagination__link.pagination__link--first,
+    .pagination__link.pagination__link--last {
+        padding: 0 0.35rem;
+    }
+}
+
+@media screen and (max-width: 326px) {
+    .pagination__link.pagination__link--first,
+    .pagination__link.pagination__link--last {
+        padding: 0 0.3rem;
+    }
+}
+
+@media screen and (max-width: 323px) {
+    .pagination__link.pagination__link--first,
+    .pagination__link.pagination__link--last {
+        padding: 0 0.25rem;
+    }
+}
+
+@media screen and (max-width: 319px) {
+    .pagination__link.pagination__link--first,
+    .pagination__link.pagination__link--last {
+        padding: 0 0.2rem;
+    }
+}
+
+@media screen and (max-width: 316px) {
+    .pagination__link.pagination__link--first,
+    .pagination__link.pagination__link--last {
+        padding: 0 0.15rem;
+    }
+}
+
+@media screen and (max-width: 313px) {
+    .pagination__link.pagination__link--first,
+    .pagination__link.pagination__link--last {
+        padding: 0 0.1rem;
+    }
+}
+
+@media screen and (max-width: 310px) {
+    .pagination__link.pagination__link--first,
+    .pagination__link.pagination__link--last {
+        padding: 0 0.05rem;
+    }
+}
+
+@media screen and (max-width: 307px) {
+    .pagination__link.pagination__link--first,
+    .pagination__link.pagination__link--last {
+        padding: 0 0.001rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main .page-footer nav.pagination .pagination__item.pagination__item--next {
+        display: none;
+    }
+
+    .main .page-footer nav.pagination .pagination__item.pagination__item--previous {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1301px) {
     .main .toc.aside {
         width: 282px;
         margin-left: 4rem;
@@ -173,12 +297,12 @@ header.header {
 
     @keyframes fade-in {
         from {
-          opacity: 0;
+            opacity: 0;
         }
         to {
-          opacity: 1;
+            opacity: 1;
         }
-      }
+    }
 
     .toc.aside.reveal {
         display: block;
@@ -230,7 +354,7 @@ header.header {
     }
 }
 
-@media (max-width: 1300px) {
+@media screen and (max-width: 1300px) {
     .main .toc.aside {
         display: none;
     }
