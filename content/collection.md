@@ -1,6 +1,7 @@
 ---
-title: "모아보기 🗂️"
 layout: "collection"
+searchHidden: true
+title: "모아보기 🗂️"
 description: "공부하면서 정리한 것들 모아보기. 📒"
 url: "/collection/"
 summary: collection
