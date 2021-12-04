@@ -182,7 +182,8 @@ header.header {
     background: var(--hljs-bg);
     border-radius: var(--radius);
 }
-.post-content .highlight pre code {
+.post-content .highlight pre code,
+.post-content pre code {
     font-family: "CascadiaCode", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
     word-break: keep-all;
     hyphens: auto;
