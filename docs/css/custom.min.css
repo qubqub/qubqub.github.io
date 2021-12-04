@@ -158,7 +158,37 @@ header.header {
     margin-right: 0.7rem;
 }
 
+.post-content .highlight .lntable .copy-code {
+    font-size: 1rem;
+}
+
+.post-content .highlight:not(table), .post-content pre {
+    margin-bottom: 32px;
+}
+
+.post-content table {
+    margin-bottom: 0;
+    background: var(--hljs-bg);
+    border-radius: var(--radius);
+}
+
+.post-content code {
+    font-family: "NanumGothicCoding", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    word-break: keep-all;
+    hyphens: auto;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.9rem;
+}
+
 @media screen and (max-width: 768px) {
+    .post-content .highlight code {
+        font-family: "NanumGothicCoding", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+        word-break: keep-all;
+        hyphens: auto;
+        -webkit-font-smoothing: antialiased;
+        font-size: 0.7rem;
+    }
+
     .main .page-footer .pagination a {
         border-radius: var(--radius);
         padding: 0 15px;
@@ -184,6 +214,10 @@ header.header {
 }
 
 @media screen and (min-width: 1301px) {
+    .post-content .highlight:hover {
+        display: flex;
+    }
+
     .main .toc.aside {
         width: 282px;
         margin-left: 4rem;
@@ -270,10 +304,6 @@ header.header {
         bottom: 30px;
         right: 30px;
     }
-
-    .post-content .highlight:hover {
-        display: flex;
-    }
 }
 
 @media screen and (max-width: 1300px) {
@@ -333,38 +363,4 @@ header.header {
 
 .svg--time {
     vertical-align: -0.14rem;
-}
-
-.post-content .highlight code {
-    font-family: "NanumGothicCoding", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-    word-break: keep-all;
-    hyphens: auto;
-    -webkit-font-smoothing: antialiased;
-    font-size: 0.9rem;
-    background: var(--code-bg);
-}
-
-@media screen and (max-width: 768px) {
-    .post-content .highlight code {
-        font-family: "NanumGothicCoding", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-        word-break: keep-all;
-        hyphens: auto;
-        -webkit-font-smoothing: antialiased;
-        font-size: 0.7rem;
-        background: var(--code-bg);
-    }
-}
-
-.post-content .highlight .lntable .copy-code {
-    font-size: 1rem;
-}
-
-.post-content .highlight:not(table), .post-content pre {
-    margin-bottom: 32px;
-}
-
-.post-content table {
-    margin-bottom: 0;
-    background: var(--hljs-bg);
-    border-radius: var(--radius);
 }
