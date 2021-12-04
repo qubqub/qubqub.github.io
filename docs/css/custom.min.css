@@ -190,9 +190,9 @@ header.header {
     white-space: nowrap;
 }
 
-/* .post-content .highlight .lntable {
-    overflow: hidden;
-} */
+.post-content .highlight .lntable .lntd pre code {
+    overflow-x: initial;
+}
 
 @media (max-width: 768px) {
     .post-content .highlight .lntd:nth-child(1) {
