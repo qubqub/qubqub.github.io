@@ -85,7 +85,7 @@ header.header {
 }
 
 .main .page-footer .pagination ul li:not(:last-child) {
-    margin-right: 10px;
+    margin-right: 0.5rem;
 }
 
 .main .page-footer nav.pagination .pagination__item--current a {
@@ -156,7 +156,8 @@ header.header {
 
 .pagination__link.pagination__link--first,
 .pagination__link.pagination__link--last {
-    padding: 0 0.6rem;
+    padding: 0 0.7rem;
+    white-space:nowrap;
 }
 
 /* @media screen and (max-width: 355px) {
