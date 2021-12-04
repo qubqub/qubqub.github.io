@@ -8,16 +8,15 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-useUtterances: true
-disqusShortname: https-qutrits-github-io
-
 # googleAnalytics: UA-123-45
+disqusShortname: https-qutrits-github-io
 
 minify:
   disableXML: true
   minifyOutput: true
 
 params:
+  useUtterances: false
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   # title: ExampleSite
   description: "<Qutrits/>"

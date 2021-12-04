@@ -8,6 +8,7 @@
         crossorigin="anonymous"
         async>
 </script>
-{{- end }}
+{{- else }}
 {{ template "_internal/disqus.html" . }}
+{{- end }}
 {{- /* Comments area end */ -}}
