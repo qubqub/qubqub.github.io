@@ -185,13 +185,13 @@ header.header {
         line-height: 21px !important;
     } */
 
-    .post-content .highlight pre code {
+    /* .post-content .highlight pre code {
         font-family: "NanumGothicCoding", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
         word-break: break-all;
         hyphens: auto;
         -webkit-font-smoothing: antialiased;
         font-size: 0.5rem !important;
-    }
+    } */
 
     .main .page-footer .pagination a {
         border-radius: var(--radius);
