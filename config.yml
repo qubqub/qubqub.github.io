@@ -8,7 +8,7 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-UseUtterances: true
+useUtterances: true
 disqusShortname: https-qutrits-github-io
 
 # googleAnalytics: UA-123-45
