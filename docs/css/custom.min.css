@@ -350,7 +350,7 @@ header.header {
         word-break: keep-all;
         hyphens: auto;
         -webkit-font-smoothing: antialiased;
-        font-size: 0.1rem;
+        font-size: 0.7rem;
         background: var(--code-bg);
     }
 }
