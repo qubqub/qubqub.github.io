@@ -192,6 +192,10 @@ header.header {
         line-height: 21px !important;
     } */
 
+    .post-content .highlight .lntd:nth-child(1) {
+        display: none;
+    }
+
     .post-content .highlight pre code {
         font-family: "CascadiaCode", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
         word-break: break-all;
