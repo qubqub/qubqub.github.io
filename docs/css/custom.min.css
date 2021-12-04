@@ -171,7 +171,6 @@ header.header {
     background: var(--hljs-bg);
     border-radius: var(--radius);
 }
-.post-content .highlight pre,
 .post-content .highlight pre code {
     font-family: "NanumGothicCoding", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
     word-break: keep-all;
@@ -181,7 +180,6 @@ header.header {
 }
 
 @media (max-width: 768px) {
-    .post-content .highlight pre,
     .post-content .highlight pre code {
         font-family: "NanumGothicCoding", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
         word-break: keep-all;
