@@ -207,13 +207,9 @@ header.header {
         display: none;
     }
 
-    /* .post-content .highlight pre code {
-        font-family: "CascadiaCode", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-        word-break: break-all;
-        hyphens: auto;
-        -webkit-font-smoothing: antialiased;
-        font-size: 0.45rem !important;
-    } */
+    .post-content .highlight pre code {
+        font-size: 0.45rem;
+    }
 
     .main .page-footer .pagination a {
         border-radius: var(--radius);
