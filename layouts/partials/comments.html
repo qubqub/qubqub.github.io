@@ -1,4 +1,13 @@
 {{- /* Comments area start */ -}}
 {{- /* to add comments read => https://gohugo.io/content-management/comments/ */ -}}
+{{- if (.Param "UseUtterances") -}}
+<script src="https://utteranc.es/client.js"
+        repo="qutrits/blog-comments"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+{{- end }}
 {{ template "_internal/disqus.html" . }}
 {{- /* Comments area end */ -}}
