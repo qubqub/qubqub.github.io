@@ -335,23 +335,22 @@ header.header {
     vertical-align: -0.14rem;
 }
 
-@media screen and (min-width: 768px) {
-    .post-content code {
+.post-content .highlight code {
+    font-family: "NanumGothicCoding", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    word-break: keep-all;
+    hyphens: auto;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.9rem;
+    background: var(--code-bg);
+}
+
+@media screen and (max-width: 768px) {
+    .post-content .highlight code {
         font-family: "NanumGothicCoding", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
         word-break: keep-all;
         hyphens: auto;
         -webkit-font-smoothing: antialiased;
-        margin: auto 4px;
-        padding: 4px 6px;
-        font-size: 0.9rem;
-        line-height: 1.5;
         background: var(--code-bg);
-        border-radius: 4px;
-        vertical-align: 0.125rem;
-    }
-    
-    .post-content pre code {
-        font-size: 1rem;
     }
 }
 
