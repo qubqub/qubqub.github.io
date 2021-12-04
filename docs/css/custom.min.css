@@ -180,9 +180,9 @@ header.header {
 }
 
 @media (max-width: 768px) {
-    .hljs.yaml .lnt.hljs-number {
-        font-size: 14px;
-        line-height: 21px;
+    .post-content .highlight .lntd .hljs.yaml .lnt .hljs-number {
+        font-size: 14px !important;
+        line-height: 21px !important;
     }
 
     .post-content .highlight pre code {
