@@ -156,7 +156,7 @@ header.header {
 
 .pagination__link.pagination__link--first,
 .pagination__link.pagination__link--last {
-    padding: 0 0.8rem;
+    padding: 0 0.7rem;
 }
 
 /* @media screen and (max-width: 355px) {
