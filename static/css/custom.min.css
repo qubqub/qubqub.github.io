@@ -187,7 +187,7 @@ header.header {
     word-break: keep-all;
     hyphens: auto;
     -webkit-font-smoothing: antialiased;
-    font-size: 0.9rem !important;
+    /* font-size: 0.9rem !important; */
 }
 
 .post-content .highlight pre code .hljs-comment {
