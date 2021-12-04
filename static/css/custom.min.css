@@ -190,6 +190,10 @@ header.header {
     white-space: nowrap;
 }
 
+.post-content .highlight pre code .c1 {
+    word-wrap: normal;
+}
+
 .post-content .highlight .lntable .lntd pre code {
     overflow-x: initial;
 }
