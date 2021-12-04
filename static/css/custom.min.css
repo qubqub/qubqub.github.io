@@ -183,7 +183,7 @@ header.header {
     border-radius: var(--radius);
 }
 .post-content .highlight pre code {
-    font-family: "NanumGothicCoding", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-family: "CascadiaCode", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
     word-break: keep-all;
     hyphens: auto;
     -webkit-font-smoothing: antialiased;
