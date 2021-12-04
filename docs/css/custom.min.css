@@ -226,7 +226,7 @@ header.header {
     .post-content .highlight pre code.language-flutter,
     .post-content .highlight pre code.language-scala,
     .post-content .highlight pre code.language-clojure {
-        font-size: 6px;
+        font-size: 7px;
     }
 
     .main .page-footer .pagination a {
