@@ -172,8 +172,22 @@ header.header {
     border-radius: var(--radius);
 }
 
+.post-content code {
+    font-family: "NanumGothicCoding", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    word-break: keep-all;
+    hyphens: auto;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.9rem;
+}
 
 @media (max-width: 768px) {
+    .post-content .highlight code {
+        font-family: "NanumGothicCoding", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+        word-break: keep-all;
+        hyphens: auto;
+        -webkit-font-smoothing: antialiased;
+        font-size: 0.5rem;
+    }
 
     .main .page-footer .pagination a {
         border-radius: var(--radius);
