@@ -191,7 +191,7 @@ header.header {
 }
 
 .post-content .highlight .lntable {
-    overflow: initial;
+    overflow: hidden;
 }
 
 @media (max-width: 768px) {
