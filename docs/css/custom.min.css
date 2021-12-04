@@ -225,7 +225,8 @@ header.header {
     .post-content .highlight pre code.language-groovy,
     .post-content .highlight pre code.language-flutter,
     .post-content .highlight pre code.language-scala,
-    .post-content .highlight pre code.language-clojure {
+    .post-content .highlight pre code.language-clojure,
+    .post-content .gist table tbody tr td {
         font-size: 0.4em;
     }
 
