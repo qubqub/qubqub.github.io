@@ -202,9 +202,9 @@ header.header {
 }
 
 @media (max-width: 768px) {
-    /* .post-content .highlight .lntd:nth-child(1) {
+    .post-content .highlight .lntd:nth-child(1) {
         display: none;
-    } */
+    }
 
     .post-content .highlight pre code.language-csharp,
     .post-content .highlight pre code.language-java,
@@ -226,7 +226,7 @@ header.header {
     .post-content .highlight pre code.language-flutter,
     .post-content .highlight pre code.language-scala,
     .post-content .highlight pre code.language-clojure {
-        font-size: 0.4em;
+        font-size: 8px;
     }
 
     .main .page-footer .pagination a {
