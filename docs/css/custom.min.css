@@ -207,7 +207,7 @@ header.header {
         display: none;
     }
 
-    .post-content .highlight pre code {
+    .post-content .highlight pre code.language-csharp {
         font-size: 0.45rem;
     }
 
