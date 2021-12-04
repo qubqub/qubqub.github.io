@@ -25,7 +25,7 @@
   {{- range .Pages.GroupByDate "January" }}
   {{ $month := .Key }}
   <div class="archive-month">
-    <h3 class="archive-month-header" onclick="layer_toggle('{{ $year }}-{{ $month }}', this)"><span class="toggle">📂</span>{{ $month }}<sup class="archive-count">&nbsp;&nbsp;{{ len .Pages }}</sup></h3>
+    <h3 class="archive-month-header" onclick="layer_toggle('{{ $year }}-{{ $month }}', this)"><span class="toggle">📁</span>{{ $month }}<sup class="archive-count">&nbsp;&nbsp;{{ len .Pages }}</sup></h3>
     <div class="archive-posts" id="{{ $year }}-{{ $month }}">
       {{- range .Pages }}
       {{- if eq .Kind "page" }}
