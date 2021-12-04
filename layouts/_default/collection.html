@@ -14,7 +14,7 @@
       {{- with $.Site.GetPage (printf "/%s/%s" "tags" $name) }}
         <article class="post-entry" title="{{- i18n $name }}">
           <header class="entry-header">
-            <h2>{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup></h2>
+            <h2>📄 {{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup></h2>
           </header>
           <section class="entry-content">
             <p>{{- i18n $name }}</p>
