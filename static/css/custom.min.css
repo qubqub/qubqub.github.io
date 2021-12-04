@@ -234,6 +234,7 @@ header.header {
 @media screen and (min-width: 1301px) {
     .post-content .highlight:hover {
         display: flex;
+        width: 100%;
     }
 
     .main .toc.aside {
