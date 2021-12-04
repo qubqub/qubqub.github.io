@@ -212,7 +212,14 @@ header.header {
     .post-content .highlight pre code.language-c,
     .post-content .highlight pre code.language-cpp,
     .post-content .highlight pre code.language-go,
-    .post-content .highlight pre code.language-rust {
+    .post-content .highlight pre code.language-rust,
+    .post-content .highlight pre code.language-javascript,
+    .post-content .highlight pre code.language-js,
+    .post-content .highlight pre code.language-kotlin,
+    .post-content .highlight pre code.language-kt,
+    .post-content .highlight pre code.language-typescript,
+    .post-content .highlight pre code.language-ts,
+    .post-content .highlight pre code.language-css {
         font-size: 0.5rem;
     }
 
