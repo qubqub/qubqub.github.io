@@ -180,6 +180,11 @@ header.header {
 }
 
 @media (max-width: 768px) {
+    .hljs.yaml .lnt.hljs-number {
+        font-size: 14px;
+        line-height: 21px;
+    }
+
     .post-content .highlight pre code {
         font-family: "NanumGothicCoding", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
         word-break: break-all;
