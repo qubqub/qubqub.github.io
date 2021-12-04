@@ -180,7 +180,7 @@ header.header {
     font-size: 0.9rem;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
     .post-content .highlight code {
         font-family: "NanumGothicCoding", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
         word-break: keep-all;
