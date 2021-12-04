@@ -210,7 +210,9 @@ header.header {
     .post-content .highlight pre code.language-csharp,
     .post-content .highlight pre code.language-java,
     .post-content .highlight pre code.language-c,
-    .post-content .highlight pre code.language-c++ {
+    .post-content .highlight pre code.language-cpp,
+    .post-content .highlight pre code.language-go,
+    .post-content .highlight pre code.language-rust {
         font-size: 0.5rem;
     }
 
