@@ -61,6 +61,7 @@ params:
     text: ""
     icon: /icon/home.png
     iconHeight: 25
+    iconWidth: 25
 
   # profile-mode
   # profileMode:
