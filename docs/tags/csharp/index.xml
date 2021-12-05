@@ -5,7 +5,16 @@
     <link>https://qutrits.github.io/tags/csharp/</link>
     <description>Recent content in Csharp on &lt;Qutrits/&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 26 Nov 2021 00:18:15 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/tags/csharp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Dec 2021 23:13:57 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/tags/csharp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>abstract class: 추상클래스</title>
+      <link>https://qutrits.github.io/post/2021_12_05_01/</link>
+      <pubDate>Thu, 02 Dec 2021 23:13:57 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/post/2021_12_05_01/</guid>
+      <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
+    </item>
+    
     <item>
       <title>AlgorithmStudy_백준 11068</title>
       <link>https://qutrits.github.io/post/2021_11_26_01/</link>
