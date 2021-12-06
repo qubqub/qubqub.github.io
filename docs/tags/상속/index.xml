@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>상속 on &lt;Qutrits/&gt;</title>
+    <link>https://qutrits.github.io/tags/%EC%83%81%EC%86%8D/</link>
+    <description>Recent content in 상속 on &lt;Qutrits/&gt;</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 06 Dec 2021 00:25:53 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/tags/%EC%83%81%EC%86%8D/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>inheritance: 상속</title>
+      <link>https://qutrits.github.io/post/2021_12_06_01/</link>
+      <pubDate>Mon, 06 Dec 2021 00:25:53 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/post/2021_12_06_01/</guid>
+      <description>상속이 뭐야? 🧐 상속은 확장의 개념이다. 추상클래스, 일반클래스 모두 상속을 통해 특정 객체의 개념을 확장시킬 수 있다.(인터페이스의 경우 기능확장이라는 말이 좀 더 어울리는 것 같다.) 인터페이스와 추상클래스는 이전 포스트에서 다루었으니 일반클래스를 예시로 들겠다.
+💚 예시 오크라는 객체가 있다고 하자. 이 오크라는 객체는 마법사 오크가 될수도, 전사 오크, 궁수 오크 등이 될 수 있다. 이런 오크들을 구현할 때 상속을 사용한다. 직업이 있는 오크 모두 하나의 오크라는 객체를 상속받을 수 있는 것이다. 일반클래스의 상속은 추상클래스나 인터페이스를 상속받는 것과 다르게 부모클래스도 인스턴스할 수 있다.</description>
+    </item>
+    
+  </channel>
+</rss>

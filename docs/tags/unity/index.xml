@@ -5,7 +5,28 @@
     <link>https://qutrits.github.io/tags/unity/</link>
     <description>Recent content in Unity on &lt;Qutrits/&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 25 Nov 2021 00:05:33 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/tags/unity/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Dec 2021 15:58:16 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/tags/unity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>타이머를 이용해 스킬아이콘을 만들어보자!</title>
+      <link>https://qutrits.github.io/post/2021_12_06_03/</link>
+      <pubDate>Mon, 06 Dec 2021 15:58:16 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/post/2021_12_06_03/</guid>
+      <description>🍑 타이머
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  public class Timer : MonoBehaviour { private Coroutine curTimer; public void StartTimer(int time, Action&amp;lt;float&amp;gt; onValueChanged) { //진행되던 타이머가 있다면 멈추고 새로 시작  if (curTimer != null) { StopCoroutine(curTimer); } curTimer = StartCoroutine(CoStartTimer(time, onValueChanged)); } //타이머를 진행할 시간, 시간이 바뀔때마다 어떠한 행동을할건지  IEnumerator CoStartTimer(int time, Action&amp;lt;float&amp;gt; onValueChanged) { float timer = 0; while (true) { //타이머가 지정된 시간을 넘기면 break!</description>
+    </item>
+    
+    <item>
+      <title>Tween 만들기 프로젝트 근황</title>
+      <link>https://qutrits.github.io/post/2021_12_06_02/</link>
+      <pubDate>Mon, 06 Dec 2021 15:34:11 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/post/2021_12_06_02/</guid>
+      <description>애니메이션 커브에 대해서 조금 더 알 수 있었던 핑퐁 기능 만들기였다.
+🍑 핑퐁 기능 추가!!!!
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30  public static Tween SetEase(this Tween tween, AnimationCurve ease, bool pingpong = false) //ping pong: 다시 돌아오는 형태의 애니메이션 { if (!tween.IsPlaying) //트윈이 플레이 중이지 않을 때 수정!</description>
+    </item>
+    
     <item>
       <title>Draw Call: 드로우콜(2)</title>
       <link>https://qutrits.github.io/post/2021_11_25_03/</link>

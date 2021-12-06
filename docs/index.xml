@@ -5,7 +5,38 @@
     <link>https://qutrits.github.io/</link>
     <description>Recent content on &lt;Qutrits/&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 02 Dec 2021 23:13:57 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Dec 2021 15:58:16 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>타이머를 이용해 스킬아이콘을 만들어보자!</title>
+      <link>https://qutrits.github.io/post/2021_12_06_03/</link>
+      <pubDate>Mon, 06 Dec 2021 15:58:16 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/post/2021_12_06_03/</guid>
+      <description>🍑 타이머
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  public class Timer : MonoBehaviour { private Coroutine curTimer; public void StartTimer(int time, Action&amp;lt;float&amp;gt; onValueChanged) { //진행되던 타이머가 있다면 멈추고 새로 시작  if (curTimer != null) { StopCoroutine(curTimer); } curTimer = StartCoroutine(CoStartTimer(time, onValueChanged)); } //타이머를 진행할 시간, 시간이 바뀔때마다 어떠한 행동을할건지  IEnumerator CoStartTimer(int time, Action&amp;lt;float&amp;gt; onValueChanged) { float timer = 0; while (true) { //타이머가 지정된 시간을 넘기면 break!</description>
+    </item>
+    
+    <item>
+      <title>Tween 만들기 프로젝트 근황</title>
+      <link>https://qutrits.github.io/post/2021_12_06_02/</link>
+      <pubDate>Mon, 06 Dec 2021 15:34:11 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/post/2021_12_06_02/</guid>
+      <description>애니메이션 커브에 대해서 조금 더 알 수 있었던 핑퐁 기능 만들기였다.
+🍑 핑퐁 기능 추가!!!!
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30  public static Tween SetEase(this Tween tween, AnimationCurve ease, bool pingpong = false) //ping pong: 다시 돌아오는 형태의 애니메이션 { if (!tween.IsPlaying) //트윈이 플레이 중이지 않을 때 수정!</description>
+    </item>
+    
+    <item>
+      <title>inheritance: 상속</title>
+      <link>https://qutrits.github.io/post/2021_12_06_01/</link>
+      <pubDate>Mon, 06 Dec 2021 00:25:53 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/post/2021_12_06_01/</guid>
+      <description>상속이 뭐야? 🧐 상속은 확장의 개념이다. 추상클래스, 일반클래스 모두 상속을 통해 특정 객체의 개념을 확장시킬 수 있다.(인터페이스의 경우 기능확장이라는 말이 좀 더 어울리는 것 같다.) 인터페이스와 추상클래스는 이전 포스트에서 다루었으니 일반클래스를 예시로 들겠다.
+💚 예시 오크라는 객체가 있다고 하자. 이 오크라는 객체는 마법사 오크가 될수도, 전사 오크, 궁수 오크 등이 될 수 있다. 이런 오크들을 구현할 때 상속을 사용한다. 직업이 있는 오크 모두 하나의 오크라는 객체를 상속받을 수 있는 것이다. 일반클래스의 상속은 추상클래스나 인터페이스를 상속받는 것과 다르게 부모클래스도 인스턴스할 수 있다.</description>
+    </item>
+    
     <item>
       <title>abstract class: 추상클래스</title>
       <link>https://qutrits.github.io/post/2021_12_05_01/</link>
