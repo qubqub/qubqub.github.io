@@ -227,11 +227,11 @@ header.header {
     right: 25px;
   }
   
-  .post-content .highlight .lntd:nth-child(1) {
+  /* .post-content .highlight .lntd:nth-child(1) {
       display: none;
-  }
+  } */
 
-  /* .post-content .highlight pre code.language-csharp,
+  .post-content .highlight pre code.language-csharp,
   .post-content .highlight pre code.language-java,
   .post-content .highlight pre code.language-c,
   .post-content .highlight pre code.language-cpp,
@@ -253,7 +253,7 @@ header.header {
   .post-content .highlight pre code.language-clojure,
   .post-content .highlight pre code.language-dart {
     font-size: 0.4em;
-  } */
+  }
 
   .main .page-footer .pagination a {
     border-radius: var(--radius);
