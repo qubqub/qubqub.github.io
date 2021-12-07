@@ -217,15 +217,15 @@ header.header {
   overflow-x: initial;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .main .toc.aside {
     display: none !important;
   }
 
   .top-link {
     border-radius: 7px;
-    bottom: 25px;
-    right: 25px;
+    bottom: 20px;
+    right: 20px;
     transition: visibility 0.1s, opacity 0.2s linear;
   }
   
@@ -282,7 +282,7 @@ header.header {
   }
 }
 
-@media screen and (max-width: 1370px) {
+@media screen and (max-width: 1370px) and (min-width: 769px) {
   .toc.aside.reveal {
     display: block;
     position: fixed;
