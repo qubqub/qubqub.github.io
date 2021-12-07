@@ -227,9 +227,9 @@ header.header {
     right: 25px;
   }
   
-  /* .post-content .highlight .lntd:nth-child(1) {
+  .post-content .highlight .lntd:nth-child(1) {
       display: none;
-  } */
+  }
 
   .post-content .highlight pre code.language-csharp,
   .post-content .highlight pre code.language-java,
