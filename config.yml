@@ -29,9 +29,6 @@ params:
   defaultTheme: auto # dark, light
   disableThemeToggle: false
 
-  # custom_css: ["css/custom.min.css"]
-  custom_js: ["js/custom.min.js"]
-
   GithubRepoUrl: "https://github.com/qutrits/qutrits.github.io"
 
   ShowCreativeCommons: true
@@ -49,6 +46,7 @@ params:
   # tocopen: false
 
   assets:
+    useCustomJs: true
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
     favicon: "/icon/favicon-64.png"

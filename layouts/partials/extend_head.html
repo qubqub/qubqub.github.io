@@ -1,10 +1,14 @@
 {{- /* Head custom content area start */ -}}
 {{- /*     Insert any custom code (web-analytics, resources, etc.) - it will appear in the <head></head> section of every page. */ -}}
 {{- /*     Can be overwritten by partial with the same name in the global layouts. */ -}}
-{{ range .Site.Params.custom_css -}}
-  <link rel="stylesheet" href="{{ . | absURL }}">
+{{- /* custom.js */}}
+{{- if .Site.Params.assets.useCustomJs }}
+{{- if not .Site.Params.assets.disableFingerprinting }}
+{{- $custom := slice (resources.Get "js/extended/custom.js") | resources.Concat "assets/js/extended/custom.js" | minify | fingerprint }}
+<script defer crossorigin="anonymous" src="{{ $custom.RelPermalink }}" integrity="{{ $custom.Data.Integrity }}"></script>
+{{- else }}
+{{- $custom := slice (resources.Get "js/extended/custom.min.js") | resources.Concat "assets/js/extended/custom.js" | minify }}
+<script defer crossorigin="anonymous" src="{{ $custom.RelPermalink }}"></script>
 {{- end }}
-{{ range .Site.Params.custom_js -}}
-  <script type="text/javascript" src="{{ . | absURL }}" async></script>
 {{- end }}
 {{- /* Head custom content area end */ -}}
