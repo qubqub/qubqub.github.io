@@ -488,14 +488,6 @@ header.header {
   }
 }
 
-.top-link div:before {
-  content: "\f24d";
-  font-family: ifont !important;
-  font-style: normal;
-  font-weight: normal !important;
-  vertical-align: top;
-}
-
 .post-header>.post-title {
   margin-bottom: 1.5rem;
 }
