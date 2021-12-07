@@ -2,7 +2,7 @@
 {{- /*     Insert any custom code (web-analytics, resources, etc.) - it will appear in the <head></head> section of every page. */ -}}
 {{- /*     Can be overwritten by partial with the same name in the global layouts. */ -}}
 {{ range .Site.Params.custom_css -}}
-  <link rel="stylesheet" href="{{ . | absURL }}" media="print">
+  <link rel="stylesheet" href="{{ . | absURL }}" media="orientation:portrait">
 {{- end }}
 {{ range .Site.Params.custom_js -}}
   <script type="text/javascript" src="{{ . | absURL }}" async></script>
