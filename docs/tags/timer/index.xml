@@ -12,8 +12,8 @@
       <pubDate>Mon, 06 Dec 2021 15:58:16 +0900</pubDate>
       
       <guid>https://qutrits.github.io/post/2021_12_06_03/</guid>
-      <description>🍑 타이머
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  public class Timer : MonoBehaviour { private Coroutine curTimer; public void StartTimer(int time, Action&amp;lt;float&amp;gt; onValueChanged) { //진행되던 타이머가 있다면 멈추고 새로 시작  if (curTimer != null) { StopCoroutine(curTimer); } curTimer = StartCoroutine(CoStartTimer(time, onValueChanged)); } //타이머를 진행할 시간, 시간이 바뀔때마다 어떠한 행동을할건지  IEnumerator CoStartTimer(int time, Action&amp;lt;float&amp;gt; onValueChanged) { float timer = 0; while (true) { //타이머가 지정된 시간을 넘기면 break!</description>
+      <description>🍑 타이머 public class Timer : MonoBehaviour { private Coroutine curTimer;
+ public void StartTimer(int time, Action&amp;lt;float&amp;gt; onValueChanged) { //진행되던 타이머가 있다면 멈추고 새로 시작 if (curTimer != null) { StopCoroutine(curTimer); } curTimer = StartCoroutine(CoStartTimer(time, onValueChanged)); } //타이머를 진행할 시간, 시간이 바뀔때마다 어떠한 행동을할건지 IEnumerator CoStartTimer(int time, Action&amp;lt;float&amp;gt; onValueChanged) { float timer = 0; while (true) { //타이머가 지정된 시간을 넘기면 break! if (timer &amp;gt;= time) { break; } //시간을 더해주자!</description>
     </item>
     
   </channel>
