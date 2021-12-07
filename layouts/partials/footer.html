@@ -97,12 +97,14 @@
 
     const copybutton = document.createElement('button');
     copybutton.classList.add('copy-code');
-    copybutton.innerText = '{{- i18n "code_copy" | default "copy" }}';
+    copybutton.innerHTML = '{{- i18n "code_copy" | default "copy" }}';
 
     function copyingDone() {
-      copybutton.innerText = '{{- i18n "code_copied" | default "copied!" }}';
+      copybutton.classList.add('done');
+      copybutton.innerHTML = '{{- i18n "code_copied" | default "copied!" }}';
       setTimeout(() => {
-        copybutton.innerText = '{{- i18n "code_copy" | default "copy" }}';
+        copybutton.classList.remove('done');
+        copybutton.innerHTML = '{{- i18n "code_copy" | default "copy" }}';
       }, 2000);
     }
 
