@@ -253,7 +253,7 @@ header.header {
   .post-content .highlight pre code.language-scala,
   .post-content .highlight pre code.language-clojure,
   .post-content .highlight pre code.language-dart {
-    font-size: 0.9vw !important;
+    font-size: 0.99vw !important;
   }
 
   .main .page-footer .pagination a {
