@@ -49,9 +49,9 @@ params:
     useCustomJs: true
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "/icon/favicon-64.png"
-    favicon16x16: "/icon/favicon-16.png"
-    favicon32x32: "/icon/favicon-32.png"
+    favicon: "/icon/favicon-64.svg"
+    favicon16x16: "/icon/favicon-16.svg"
+    favicon32x32: "/icon/favicon-32.svg"
   #   apple_touch_icon: "<link / abs url>"
   #   safari_pinned_tab: "<link / abs url>"
 
