@@ -231,27 +231,27 @@ header.header {
       display: none;
   }
 
-  .post-content .highlight pre code.language-csharp span,
-  .post-content .highlight pre code.language-java span,
-  .post-content .highlight pre code.language-c span,
-  .post-content .highlight pre code.language-cpp span,
-  .post-content .highlight pre code.language-go span,
-  .post-content .highlight pre code.language-rust span,
-  .post-content .highlight pre code.language-javascript span,
-  .post-content .highlight pre code.language-js span,
-  .post-content .highlight pre code.language-kotlin span,
-  .post-content .highlight pre code.language-kt span,
-  .post-content .highlight pre code.language-typescript span,
-  .post-content .highlight pre code.language-ts span,
-  .post-content .highlight pre code.language-css span,
-  .post-content .highlight pre code.language-python span,
-  .post-content .highlight pre code.language-py span,
-  .post-content .highlight pre code.language-ruby span,
-  .post-content .highlight pre code.language-groovy span,
-  .post-content .highlight pre code.language-flutter span,
-  .post-content .highlight pre code.language-scala span,
-  .post-content .highlight pre code.language-clojure span,
-  .post-content .highlight pre code.language-dart span {
+  .post-content .highlight pre code.language-csharp>span,
+  .post-content .highlight pre code.language-java>span,
+  .post-content .highlight pre code.language-c>span,
+  .post-content .highlight pre code.language-cpp>span,
+  .post-content .highlight pre code.language-go>span,
+  .post-content .highlight pre code.language-rust>span,
+  .post-content .highlight pre code.language-javascript>span,
+  .post-content .highlight pre code.language-js>span,
+  .post-content .highlight pre code.language-kotlin>span,
+  .post-content .highlight pre code.language-kt>span,
+  .post-content .highlight pre code.language-typescript>span,
+  .post-content .highlight pre code.language-ts>span,
+  .post-content .highlight pre code.language-css>span,
+  .post-content .highlight pre code.language-python>span,
+  .post-content .highlight pre code.language-py>span,
+  .post-content .highlight pre code.language-ruby>span,
+  .post-content .highlight pre code.language-groovy>span,
+  .post-content .highlight pre code.language-flutter>span,
+  .post-content .highlight pre code.language-scala>span,
+  .post-content .highlight pre code.language-clojure>span,
+  .post-content .highlight pre code.language-dart>span {
     font-size: 0.4em !important;
   }
 
