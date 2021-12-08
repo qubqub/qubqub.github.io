@@ -195,7 +195,7 @@ header.header {
     user-select: none;
     margin: var(--gap)0 calc(var(--gap) * 2);
     margin-left: auto;
-    max-width: 40%;
+    max-width: 35%;
   }
 }
 
@@ -207,7 +207,7 @@ header.header {
     user-select: none;
     margin: var(--gap)0 calc(var(--gap) * 2);
     margin-left: auto;
-    max-width: 30%;
+    max-width: 28%;
   }
 }
 
