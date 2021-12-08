@@ -188,7 +188,7 @@ header.header {
 }
 
 .first-entry-wrapper .entry-aside.profile-picture {
-  margin: var(--gap)0 calc(var(--gap) * 2.5);
+  margin: var(--gap)0 calc(var(--gap) * 2);
   margin-left: 3rem;
 }
 
