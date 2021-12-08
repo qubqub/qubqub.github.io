@@ -196,7 +196,7 @@ header.header {
   display: inline-block;
   border-radius: 50%;
   pointer-events: none;
-  max-height: 30%;
+  width: 32%;
 }
 
 .post-tags a:hover,
