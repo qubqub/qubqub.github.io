@@ -1,6 +1,6 @@
 baseURL: "https://qutrits.github.io/"
 title: <Qutrits/>
-paginate: 5
+paginate: 10
 theme: PaperMod
 
 enableRobotsTXT: true
