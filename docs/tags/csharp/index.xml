@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Csharp on &lt;Qutrits/&gt;</title>
+    <link>https://qutrits.github.io/tags/csharp/</link>
+    <description>Recent content in Csharp on &lt;Qutrits/&gt;</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 06 Dec 2021 00:25:53 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/tags/csharp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>inheritance: 상속</title>
+      <link>https://qutrits.github.io/post/2021_12_06_01/</link>
+      <pubDate>Mon, 06 Dec 2021 00:25:53 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/post/2021_12_06_01/</guid>
+      <description>상속이 뭐야? 🧐 상속은 확장의 개념이다. 추상클래스, 일반클래스 모두 상속을 통해 특정 객체의 개념을 확장시킬 수 있다.(인터페이스의 경우 기능확장이라는 말이 좀 더 어울리는 것 같다.) 인터페이스와 추상클래스는 이전 포스트에서 다루었으니 일반클래스를 예시로 들겠다.
+💚 예시 오크라는 객체가 있다고 하자. 이 오크라는 객체는 마법사 오크가 될수도, 전사 오크, 궁수 오크 등이 될 수 있다. 이런 오크들을 구현할 때 상속을 사용한다. 직업이 있는 오크 모두 하나의 오크라는 객체를 상속받을 수 있는 것이다. 일반클래스의 상속은 추상클래스나 인터페이스를 상속받는 것과 다르게 부모클래스도 인스턴스할 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>abstract class: 추상클래스</title>
+      <link>https://qutrits.github.io/post/2021_12_05_01/</link>
+      <pubDate>Thu, 02 Dec 2021 23:13:57 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/post/2021_12_05_01/</guid>
+      <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
+    </item>
+    
+    <item>
+      <title>AlgorithmStudy_백준 11068</title>
+      <link>https://qutrits.github.io/post/2021_11_26_01/</link>
+      <pubDate>Fri, 26 Nov 2021 00:18:15 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/post/2021_11_26_01/</guid>
+      <description>알고리즘 공부 백준 11068 🧐 회문인 수 👉문제 어떤 수를 왼쪽부터 읽어도, 오른쪽부터 읽어도 같을 때 이 수를 회문인 수라고 한다. 예를 들어, 747은 회문인 수이다. 255도 회문인 수인데, 16진수로 표현하면 FF이기 때문이다. 양의 정수를 입력받았을 때, 이 수가 어떤 B진법 (2 ≤ B ≤ 64)으로 표현하면 회문이 되는 경우가 있는지 알려주는 프로그램을 작성하시오. B진법이란, 한 자리에서 수를 표현할 때 쓸 수 있는 수의 가짓수가 B라는 뜻이다. 예를 들어, 십진법에서 B는 10이다.</description>
+    </item>
+    
+    <item>
+      <title>Generic: 제너릭 클래스</title>
+      <link>https://qutrits.github.io/post/2021_11_25_01/</link>
+      <pubDate>Tue, 23 Nov 2021 23:32:06 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/post/2021_11_25_01/</guid>
+      <description>유니티에서 쓸 Tween을 만들고 있는 중이다.Tween에서 여러가지 클래스를 처리하고 싶어서 Generic class를 활용하기로 하였다.
+Generic class가 뭐야? 🧐  일반적으로 클래스를 정의할 때, 클래스 내의 모든 데이타 타입을 지정해 주게 된다. 하지만 어떤 경우는 클래스의 거의 모든 부분이 동일한데 일부 데이타 타입만이 다른 경우가 있을 수 있다.이런 경우 C#의 제네릭 타입(Generic Type)을 사용할 수 있는데, 제네릭 타입에서는 int, float, double 같은 데이타 요소 타입을 확정하지 않고 이 데이타 타입 자체를 타입파라미터(Type Parameter)로 받아들이도록 클래스를 정의한다.</description>
+    </item>
+    
+    <item>
+      <title>C#_string_StringBuilder</title>
+      <link>https://qutrits.github.io/post/2021_11_19_01/</link>
+      <pubDate>Fri, 19 Nov 2021 08:54:41 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/post/2021_11_19_01/</guid>
+      <description>C# 공부 string/StringBuilder🤔 ✨string  Immutable(불변) 변수. 값이 아닌 참조 변수. 내부적으로 문자열을 관리하는 버퍼를 가지고 있지않다. 대신 이를 참조하고 있다. string마다 새로운 클래스가 생성이 된다.  1 2 3 4  string a = &amp;#34;안녕&amp;#34; + &amp;#34;하세요&amp;#34;; //&amp;#34;안녕&amp;#34; &amp;#34;하세요&amp;#34; -&amp;gt; 각각의 string class 생성. //a string class 생성. //총 3개의 string class가 생성된다. -&amp;gt; 즉 garbage가 많이 생긴다.   ✨StringBuilder  내부적으로 버퍼를 가지고 있다. 조합이 가능하다. 즉, 조합할 때마다 새롭게 class를 생성하지않는다.</description>
+    </item>
+    
+    <item>
+      <title>Extenstion Method: 확장 메서드</title>
+      <link>https://qutrits.github.io/post/2021_11_18_02/</link>
+      <pubDate>Thu, 18 Nov 2021 15:49:20 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/post/2021_11_18_02/</guid>
+      <description>유니티에서 여러가지 연습을 하려고 생각하고 있었을 때, 나만의 tween을 만들어 보고싶다고 생각했다. DoTween을 사용할 때 여러 함수들이 transform, image 등에서 부터 바로 DoTween 함수를 사용할 수 있었던 것이 기억에 남았다.
+  나도 이런식으로 바로바로 접근할 수 있으면 좋겠다고 생각을 해서 방법을 찾아보니, Extenstion Method 를 이용하면 되는 것!
+ Extenstion Method가 뭐야? 🧐  특수한 종류의 Static 메서드. 다른 클래스의 인스턴스 메서드인 것 처럼 사용되는 기능. 클래스, 구조체, 인터페이스 등에 적용 가능.</description>
+    </item>
+    
+    <item>
+      <title>AlgorithmStudy_백준 13116</title>
+      <link>https://qutrits.github.io/post/2021_11_24_01/</link>
+      <pubDate>Wed, 17 Nov 2021 23:11:14 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/post/2021_11_24_01/</guid>
+      <description>알고리즘 공부 백준 13116 🧐 잃어버린 괄호 👉문제 혹시 2007학년도 대학수학능력시험 수리영역 가형 이산수학 30번 문제를 아는가? 여러분은 수능을 치는 수험생의 마음으로 이 문제를 해결해야만 한다.
+하지만 우리는 저작권 위반으로 판사님을 뵙고 싶지 않았기 때문에 이 문제를 직접 수록할 수는 없었다. 아래 링크 중 하나를 클릭해서 pdf 파일을 내려받아 가장 마지막 페이지를 보면, 위의 그림과 아주 유사한 문제가 하나 있을 것이다. 여러분은 바로 그 문제를 해결해야만 한다.
+이미지 보러가기
+문제를 그대로 내면 재미없기 때문에, 우리는 위 그림과 같이 33과 79가 적혀 있던 부분을 하얀색 직사각형으로 가렸다.</description>
+    </item>
+    
+    <item>
+      <title>AlgorithmStudy_백준 9461</title>
+      <link>https://qutrits.github.io/post/2021_11_24_02/</link>
+      <pubDate>Mon, 15 Nov 2021 00:26:56 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/post/2021_11_24_02/</guid>
+      <description>알고리즘 공부 백준 9461 🧐 파도반 수열 👉문제 아래의 그림과 같이 삼각형이 나선 모양으로 놓여져 있다. 첫 삼각형은 정삼각형으로 변의 길이는 1이다. 그 다음에는 다음과 같은 과정으로 정삼각형을 계속 추가한다. 나선에서 가장 긴 변의 길이를 k라 했을 때, 그 변에 길이가 k인 정삼각형을 추가한다.
+파도반 수열 P(N)은 나선에 있는 정삼각형의 변의 길이이다. P(1)부터 P(10)까지 첫 10개 숫자는 1, 1, 1, 2, 2, 3, 4, 5, 7, 9이다.
+N이 주어졌을 때, P(N)을 구하는 프로그램을 작성하시오.</description>
+    </item>
+    
+  </channel>
+</rss>

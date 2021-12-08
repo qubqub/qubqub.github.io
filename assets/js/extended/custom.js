@@ -1,9 +1,10 @@
 if (window.location.pathname.startsWith("/post/")) {
   const mainToc = document.querySelector(".main .post-single>.toc");
-  const tocIdList = [];
+  let tocIdList = [];
 
   const DOMReady = function (callback) {
-    document.readyState === "interactive" || document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+    document.readyState === "interactive" ||
+      document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
   };
 
   DOMReady( function () {	
@@ -15,11 +16,11 @@ if (window.location.pathname.startsWith("/post/")) {
       tocClone.classList.add("aside");
       tocClone.querySelector("details").setAttribute("open", "");
       const tocList = tocClone.querySelectorAll(".inner ul>li");
-  
+
       for (let i = 0; i < tocList.length; i++) {
-        tocIdList[i] = decodeURI(tocList[i].querySelector("a").getAttribute("href").substring(1));
+        tocIdList[i] = decodeURI(tocList[i].firstElementChild.hash.substring(1));
       }
-      
+
       if (mainTocTop < window.pageYOffset) {
         tocClone.classList.add("reveal");
       } else if(mainTocTop >= window.pageYOffset) {
@@ -105,13 +106,22 @@ if (window.location.pathname.startsWith("/post/")) {
         const allSelEl = asideToc.querySelectorAll(".inner ul>li");
         let elIndex = null;
         let tocEl = null;
-        for (let i = 0; i < tocIdList.length; i++) {
-          tocEl = document.getElementById(tocIdList[i]);
+
+        tocIdList.map((tocId, idx) => {
+          tocEl = document.getElementById(tocId);
           if (tocEl.offsetTop + tocEl.offsetParent.offsetTop - 1 <= currentScroll) {
-            selEl = allSelEl[i];
-            elIndex = i;
+            selEl = allSelEl[idx];
+            elIndex = idx;
           }
-        }
+        });
+
+        // for (let i = 0; i < tocIdList.length; i++) {
+        //   tocEl = document.getElementById(tocIdList[i]);
+        //   if (tocEl.offsetTop + tocEl.offsetParent.offsetTop - 1 <= currentScroll) {
+        //     selEl = allSelEl[i];
+        //     elIndex = i;
+        //   }
+        // }
         
         if (elIndex !== null) {
           let scrollEnd = Math.ceil(currentScroll + window.innerHeight) >= document.body.scrollHeight;
@@ -157,7 +167,9 @@ if (window.location.pathname.startsWith("/post/")) {
         for (let i = 0; i < tocIdList.length; i++) {
           let curEl = document.getElementById(tocIdList[i]);
           let nextEl = document.getElementById(tocIdList[i+1]);
-          if (nextEl !== null && window.pageYOffset >= curEl.offsetTop + curEl.offsetParent.offsetTop - 1 && window.pageYOffset < nextEl.offsetTop + nextEl.offsetParent.offsetTop - 1) {
+          if (nextEl !== null &&
+                window.pageYOffset >= (curEl.offsetTop + curEl.offsetParent.offsetTop - 1) &&
+                window.pageYOffset < (nextEl.offsetTop + nextEl.offsetParent.offsetTop - 1)) {
             let scrollEnd = Math.ceil(window.pageYOffset + window.innerHeight) >= document.body.scrollHeight;
             if (asideToc.querySelectorAll(".inner ul>li")[i+1].classList.contains("selected")) {
               asideToc.querySelectorAll(".inner ul>li")[i+1].classList.remove("selected");
@@ -184,7 +196,9 @@ if (window.location.pathname.startsWith("/post/")) {
       for (let i = 0; i < tocIdList.length; i++) {
         let curEl = document.getElementById(tocIdList[i]);
         let nextEl = document.getElementById(tocIdList[i+1]);
-        if (nextEl !== null && window.pageYOffset >= curEl.offsetTop + curEl.offsetParent.offsetTop - 1 && window.pageYOffset < nextEl.offsetTop + nextEl.offsetParent.offsetTop - 1) {
+        if (nextEl !== null &&
+              window.pageYOffset >= (curEl.offsetTop + curEl.offsetParent.offsetTop - 1) &&
+              window.pageYOffset < (nextEl.offsetTop + nextEl.offsetParent.offsetTop - 1)) {
           if (_toc[i+1] !== null) _toc[i+1].classList.remove("selected");
           _toc[i].classList.add("selected");
           document.querySelector(".main .toc.aside").scrollTop = i * 20;
