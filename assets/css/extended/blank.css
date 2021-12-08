@@ -196,7 +196,6 @@ header.header {
     margin: var(--gap)0 calc(var(--gap) * 2);
     margin-left: auto;
     max-width: 35%;
-    z-index: 2;
   }
 
   .social-icons a:not(:last-of-type) {
@@ -213,7 +212,6 @@ header.header {
     margin: var(--gap)0 calc(var(--gap) * 2);
     margin-left: auto;
     max-width: 28%;
-    z-index: 2;
   }
 
   .social-icons a:not(:last-of-type) {
@@ -230,7 +228,6 @@ header.header {
     margin: var(--gap)0 calc(var(--gap) * 2);
     margin-left: 3rem;
     max-width: 18%;
-    z-index: 2;
   }
 }
 
@@ -243,7 +240,6 @@ header.header {
     margin: var(--gap)0 calc(var(--gap) * 2);
     margin-left: 3rem;
     max-width: 18%;
-    z-index: 2;
   }
 }
 
@@ -256,18 +252,16 @@ header.header {
     margin: var(--gap)0 calc(var(--gap) * 2);
     margin-left: 3rem;
     max-width: 18%;
-    z-index: 2;
   }
 }
 
 .first-entry-wrapper .entry-aside.profile-picture img {
   display: inline-block;
   border-radius: 50%;
-  pointer-events: none;
+  /* pointer-events: none; */
   -webkit-filter: grayscale(100%);
   filter: gray;
   transition: .2s cubic-bezier(0.3, 0, 0.5, 1);
-  z-index: 1;
 }
 
 .first-entry-wrapper .entry-aside.profile-picture:hover > img {
