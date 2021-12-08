@@ -80,6 +80,7 @@ params:
   homeInfoParams:
     Title: "Hi there \U0001F44B"
     Content: Write-ups ✍️
+    ProfilePicture: "/icon/profile_pic.jpg"
     
   socialIcons:
     # - name: twitter
