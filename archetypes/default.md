@@ -16,8 +16,8 @@ searchHidden: false
 cover:
   hidden: true # true : 리스트에서만 보이고 post 안에서는 커버 보이지 않음. 
                # false : 둘 다 보임
-               # http://www.hash.kr/ 에서 커버 이미지 url 검색
   image: ""
+  alt: ""
 
 draft: true
 ---
