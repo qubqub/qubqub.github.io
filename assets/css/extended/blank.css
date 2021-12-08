@@ -260,6 +260,11 @@ header.header {
   border-radius: 50%;
   -webkit-filter: grayscale(100%);
   filter: gray;
+  -webkit-pointer-events: none;
+  -ms-pointer-events: none;
+  -moz-pointer-events: none;
+  -o-pointer-events: none;
+  pointer-events: none;
   transition: .2s cubic-bezier(0.3, 0, 0.5, 1);
 }
 
@@ -267,7 +272,6 @@ header.header {
   box-shadow : 0px 0px 15px 5px rgba(255, 255, 190, .1);
   -webkit-filter: grayscale(0%);
   filter: none;
-  pointer-events: none;
 }
 
 .post-tags a:hover,
