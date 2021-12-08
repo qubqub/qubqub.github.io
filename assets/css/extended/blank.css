@@ -196,6 +196,7 @@ header.header {
     margin: var(--gap)0 calc(var(--gap) * 2);
     margin-left: auto;
     max-width: 35%;
+    z-index: 1;
   }
 
   .social-icons a:not(:last-of-type) {
@@ -212,6 +213,7 @@ header.header {
     margin: var(--gap)0 calc(var(--gap) * 2);
     margin-left: auto;
     max-width: 28%;
+    z-index: 1;
   }
 
   .social-icons a:not(:last-of-type) {
@@ -228,6 +230,7 @@ header.header {
     margin: var(--gap)0 calc(var(--gap) * 2);
     margin-left: 3rem;
     max-width: 18%;
+    z-index: 1;
   }
 }
 
@@ -240,6 +243,7 @@ header.header {
     margin: var(--gap)0 calc(var(--gap) * 2);
     margin-left: 3rem;
     max-width: 18%;
+    z-index: 1;
   }
 }
 
@@ -252,6 +256,7 @@ header.header {
     margin: var(--gap)0 calc(var(--gap) * 2);
     margin-left: 3rem;
     max-width: 18%;
+    z-index: 1;
   }
 }
 
