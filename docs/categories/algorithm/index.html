@@ -3,11 +3,11 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>String | &lt;Qutrits/></title>
+<title>algorithm | &lt;Qutrits/></title>
 <meta name=keywords content>
 <meta name=description content="<Qutrits/>">
 <meta name=author content>
-<link rel=canonical href=https://qutrits.github.io/tags/string/>
+<link rel=canonical href=https://qutrits.github.io/categories/algorithm/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.47aff0a3953d76c6978e7b37d793a19042a871d958241735338ecb8411a65c0e.css integrity="sha256-R6/wo5U9dsaXjns315OhkEKocdlYJBc1M47LhBGmXA4=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -18,17 +18,17 @@
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.89.4">
-<link rel=alternate type=application/rss+xml href=https://qutrits.github.io/tags/string/index.xml>
+<link rel=alternate type=application/rss+xml href=https://qutrits.github.io/categories/algorithm/index.xml>
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.76e2092388e545844a8822b31cda7a5c9593612d0d69514f4a51b8400a8af7ca.js integrity="sha256-duIJI4jlRYRKiCKzHNp6XJWTYS0NaVFPSlG4QAqK98o="></script><meta property="og:title" content="String">
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.76e2092388e545844a8822b31cda7a5c9593612d0d69514f4a51b8400a8af7ca.js integrity="sha256-duIJI4jlRYRKiCKzHNp6XJWTYS0NaVFPSlG4QAqK98o="></script><meta property="og:title" content="algorithm">
 <meta property="og:description" content="<Qutrits/>">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://qutrits.github.io/tags/string/">
+<meta property="og:url" content="https://qutrits.github.io/categories/algorithm/">
 <meta name=twitter:card content="summary">
-<meta name=twitter:title content="String">
+<meta name=twitter:title content="algorithm">
 <meta name=twitter:description content="<Qutrits/>">
 </head>
 <body class=list id=top>
@@ -69,25 +69,29 @@
 </header>
 <main class=main>
 <header class=page-header>
-<h1>String</h1>
+<h1>algorithm</h1>
 </header>
 <article class="post-entry tag-entry">
+<figure class=entry-cover><img loading=lazy src=https://upload.wikimedia.org/wikipedia/commons/1/19/Unity_Technologies_logo.svg alt>
+</figure>
 <header class=entry-header>
-<h2>C#_string_StringBuilder
+<h2>타이머를 이용해 스킬아이콘을 만들어보자!
 </h2>
 </header>
 <section class=entry-content>
-<p>C# 공부 string/StringBuilder🤔 ✨string Immutable(불변) 변수. 값이 아닌 참조 변수. 내부적으로 문자열을 관리하는 버퍼를 가지고 있지않다. 대신 이를 참조하고 있다. string마다 새로운 클래스가 생성이 된다. 1 2 3 4 string a = "안녕" + "하세요"; //"안녕" "하세요" -> 각각의 string class 생성. //a string class 생성. //총 3개의 string class가 생성된다. -> 즉 garbage가 많이 생긴다. ✨StringBuilder 내부적으로 버퍼를 가지고 있다. 조합이 가능하다. 즉, 조합할 때마다 새롭게 class를 생성하지않는다....</p>
+<p>🍑 타이머
+public class Timer : MonoBehaviour { private Coroutine curTimer; public void StartTimer(int time, Action&lt;float> onValueChanged) { //진행되던 타이머가 있다면 멈추고 새로 시작 if (curTimer != null) { StopCoroutine(curTimer); } curTimer = StartCoroutine(CoStartTimer(time, onValueChanged)); } //타이머를 진행할 시간, 시간이 바뀔때마다 어떠한 행동을할건지 IEnumerator CoStartTimer(int time, Action&lt;float> onValueChanged) { float timer = 0; while (true) { //타이머가 지정된 시간을 넘기면 break! if (timer >= time) { break; } //시간을 더해주자! timer += Time....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-19 08:54:41 +0900 KST">2021년 11월 19일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2021-12-06 15:58:16 +0900 KST">2021년 12월 6일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>
 <div style=width:100%;word-break:break-all;word-wrap:break-word;margin-top:10px>
 <ul class=post-tags>
-<li><a href=https://qutrits.github.io/tags/csharp/>Csharp</a></li>
-<li><a href=https://qutrits.github.io/tags/string/>String</a></li>
-<li><a href=https://qutrits.github.io/tags/stringbuilder/>StringBuilder</a></li>
+<li><a href=https://qutrits.github.io/tags/unity/>Unity</a></li>
+<li><a href=https://qutrits.github.io/tags/coroutine/>coroutine</a></li>
+<li><a href=https://qutrits.github.io/tags/timer/>timer</a></li>
+<li><a href=https://qutrits.github.io/tags/spellicon/>spellIcon</a></li>
 </ul>
 </div></footer>
-<a class=entry-link aria-label="post link to C#_string_StringBuilder" href=https://qutrits.github.io/post/2021_11_19_01/></a>
+<a class=entry-link aria-label="post link to 타이머를 이용해 스킬아이콘을 만들어보자!" href=https://qutrits.github.io/post/2021_12_06_03/></a>
 </article>
 </main>
 <footer class=footer>

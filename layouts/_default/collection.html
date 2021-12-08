@@ -1,5 +1,5 @@
 {{- define "main" }}
-  {{- if .Params.useTag}}
+  {{- if or (.Params.useTag) (.Params.useCategory)}}
     <header class="page-header">
       <h1>{{ .Title }}</h1>
       {{- if .Description }}
@@ -8,19 +8,37 @@
       </div>
       {{- end }}
     </header>
-    {{ range $.Site.Taxonomies.tags.ByCount }}
-      {{- $name := .Name }}
-      {{- $count := .Count }}
-      {{- with $.Site.GetPage (printf "/%s/%s" "tags" $name) }}
-        <article class="post-entry" title="{{- i18n $name }}">
-          <header class="entry-header">
-            <h2>📄 {{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup></h2>
-          </header>
-          <section class="entry-content">
-            <p>{{- i18n $name }}</p>
-          </section>
-          <a class="entry-link" aria-label="{{ .Name }}" href="{{ .Permalink }}"></a>
-        </article>
+    {{- if .Params.useCategory }}
+      {{ range $.Site.Taxonomies.categories.ByCount }}
+        {{- $name := .Name }}
+        {{- $count := .Count }}
+        {{- with $.Site.GetPage (printf "/%s/%s" "categories" $name) }}
+          <article class="post-entry" title="{{- i18n $name }}">
+            <header class="entry-header">
+              <h2>📄 {{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup></h2>
+            </header>
+            <section class="entry-content">
+              <p>{{- i18n $name }}</p>
+            </section>
+            <a class="entry-link" aria-label="{{ .Name }}" href="{{ .Permalink }}"></a>
+          </article>
+        {{- end }}
+      {{- end }}
+    {{- else if .Params.useTag }}
+      {{ range $.Site.Taxonomies.tags.ByCount }}
+        {{- $name := .Name }}
+        {{- $count := .Count }}
+        {{- with $.Site.GetPage (printf "/%s/%s" "tags" $name) }}
+          <article class="post-entry" title="{{- i18n $name }}">
+            <header class="entry-header">
+              <h2>📄 {{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup></h2>
+            </header>
+            <section class="entry-content">
+              <p>{{- i18n $name }}</p>
+            </section>
+            <a class="entry-link" aria-label="{{ .Name }}" href="{{ .Permalink }}"></a>
+          </article>
+        {{- end }}
       {{- end }}
     {{- end }}
   {{- else }}

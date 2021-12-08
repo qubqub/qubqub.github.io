@@ -326,6 +326,11 @@ header.header {
   padding-bottom: 1rem;
 }
 
+.main .post-entry .entry-header sup {
+  font-size: 1rem;
+  margin-left: 1px;
+}
+
 .scroll-down {
   transform: translate3d(0, -100%, 0);
 }
