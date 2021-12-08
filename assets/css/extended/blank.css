@@ -260,11 +260,10 @@ header.header {
   border-radius: 50%;
   -webkit-filter: grayscale(100%);
   filter: gray;
-  -webkit-pointer-events: none;
-  -ms-pointer-events: none;
-  -moz-pointer-events: none;
-  -o-pointer-events: none;
-  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   transition: .2s cubic-bezier(0.3, 0, 0.5, 1);
 }
 
