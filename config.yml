@@ -93,10 +93,10 @@ params:
       url: "https://t.me/oneTiBGuy"
     - name: github
       url: "https://github.com/qutrits"
-    - name: rss
-      url: "/index.xml"
     - name: instagram
       url: "Put your Instagram url here."
+    - name: rss
+      url: "/index.xml"
 
   # analytics:
   #   google:
