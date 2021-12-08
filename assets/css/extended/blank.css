@@ -189,13 +189,14 @@ header.header {
 
 .first-entry-wrapper .entry-aside.profile-picture {
   margin: var(--gap)0 calc(var(--gap) * 2);
-  margin-left: 3rem;
+  margin-left: 2rem;
 }
 
 .first-entry-wrapper .entry-aside.profile-picture img {
   display: inline-block;
   border-radius: 50%;
   pointer-events: none;
+  max-height: 30%;
 }
 
 .post-tags a:hover,
