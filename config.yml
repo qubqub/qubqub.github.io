@@ -96,7 +96,7 @@ params:
     - name: instagram
       url: "Put your Instagram url here."
     - name: rss
-      url: "https://qutrits.github.io/index.xml"
+      url: "/index.xml"
 
   # analytics:
   #   google:
