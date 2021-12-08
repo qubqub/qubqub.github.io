@@ -1,5 +1,5 @@
 {{- with $.Site.Params.homeInfoParams }}
-  {{- if .ProfilePicture1 }}
+  {{- if .ProfilePicture }}
     <div class="first-entry-wrapper" style="display: flex;">
       <article class="first-entry home-info">
         <header class="entry-header">
@@ -13,19 +13,9 @@
         </footer>
       </article>
 
-      <aside class="entry-aside profile-picture first">
-        <img loading="lazy" src="{{ .ProfilePicture1 | absURL }}"/>
+      <aside class="entry-aside profile-picture">
+        <img loading="lazy" src="{{ .ProfilePicture | absURL }}"/>
       </aside>
-      {{- if .ProfilePicture2 }}
-        <aside class="entry-aside profile-picture second">
-          <img loading="lazy" src="{{ .ProfilePicture2 | absURL }}"/>
-        </aside>
-        {{- if .ProfilePicture3 }}
-          <aside class="entry-aside profile-picture third">
-            <img loading="lazy" src="{{ .ProfilePicture3 | absURL }}"/>
-          </aside>
-        {{- end -}}
-      {{- end -}}
     </div>
   {{- else -}}
     <article class="first-entry home-info">
