@@ -197,6 +197,10 @@ header.header {
     margin-left: auto;
     max-width: 35%;
   }
+
+  .social-icons a:not(:last-of-type) {
+    margin-inline-end: 10px;
+  }
 }
 
 @media screen and (min-width: 441px) and (max-width: 650px) {
@@ -208,6 +212,10 @@ header.header {
     margin: var(--gap)0 calc(var(--gap) * 2);
     margin-left: auto;
     max-width: 28%;
+  }
+
+  .social-icons a:not(:last-of-type) {
+    margin-inline-end: 10px;
   }
 }
 
