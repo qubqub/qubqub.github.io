@@ -256,7 +256,6 @@ header.header {
   transition: .2s cubic-bezier(0.3, 0, 0.5, 1);
 }
 
-
 .first-entry-wrapper .entry-aside.profile-picture:hover > img {
   box-shadow : 0px 0px 15px 5px rgba(255, 255, 190, .1);
   -webkit-filter: grayscale(0%);
