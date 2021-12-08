@@ -209,6 +209,11 @@ header.header {
     margin-left: auto;
     max-width: 30%;
   }
+
+  .first-entry-wrapper .entry-aside.profile-picture.second,
+  .first-entry-wrapper .entry-aside.profile-picture.third {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 651px) and (max-width: 900px) {
@@ -245,6 +250,16 @@ header.header {
     margin-left: 3rem;
     max-width: 20%;
   }
+}
+
+.first-entry-wrapper .entry-aside.profile-picture.second {
+  margin-top: 0;
+  margin-left: -10px;
+  z-index: 1;
+}
+
+.first-entry-wrapper .entry-aside.profile-picture.third {
+  margin-left: -10px;
 }
 
 .first-entry-wrapper .entry-aside.profile-picture img {
