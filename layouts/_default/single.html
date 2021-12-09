@@ -18,13 +18,7 @@
       {{- partial "translation_list.html" . -}}
       {{- partial "edit_post.html" . -}}
       {{- partial "post_canonical.html" . -}}
-      {{- if .Params.tags }}
-      <ul class="post-tags">
-        {{- range ($.GetTerms "tags") }}
-          <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
-        {{- end }}
-      </ul>
-      {{- end }}
+      {{- partial "post_tags.html" . -}}
     </div>
     {{- end }}
   </header>
@@ -46,13 +40,7 @@
     {{- if (.Param "ShowCreativeCommons") }}
     {{- partial "creative_commons.html" . }}
     {{- end }}
-    {{- if .Params.tags }}
-    <ul class="post-tags">
-      {{- range ($.GetTerms "tags") }}
-      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
-    {{- end }}
+    {{- partial "post_tags.html" . -}}
     {{- if (.Param "ShowPostNavLinks") }}
     {{- partial "post_nav_links.html" . }}
     {{- end }}

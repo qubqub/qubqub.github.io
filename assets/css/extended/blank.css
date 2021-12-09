@@ -761,11 +761,16 @@ header.header {
   }
 }
 
+.tag-entry .entry-cover {
+  display: block;
+}
+
 .post-header>.post-title {
   margin-bottom: 1.5rem;
 }
-
-.post-single .post-header .post-meta .post-tags {
+.main .archive-year .archive-month .archive-posts .archive-entry .archive-meta .post-tags,
+.main .post-entry .entry-footer .post-tags,
+.main .post-single .post-header .post-meta .post-tags {
   width: 100%;
   word-break: break-all;
   word-wrap: break-word;

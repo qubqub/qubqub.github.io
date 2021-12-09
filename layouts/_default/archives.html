@@ -36,6 +36,7 @@
         </h3>
         <div class="archive-meta">
           {{- partial "post_meta.html" . -}}
+          {{- partial "post_tags.html" . -}}
         </div>
         <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
       </div>
