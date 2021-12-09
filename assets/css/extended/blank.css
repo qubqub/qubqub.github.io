@@ -113,13 +113,13 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-@font-face {
+/* @font-face {
   font-family: "NanumGothicCoding";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: url('/fonts/NanumGothicCoding.ttf') format('woff2');
-}
+} */
 
 @font-face {
   font-family: "CascadiaCode";
@@ -454,12 +454,13 @@ header.header {
 }
 
 .post-content code:not(.hljs) {
-  font-family: "NanumGothicCoding", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace !important;
+  font-family: "CascadiaCode", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace !important;
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
   border-radius: 4px;
   vertical-align: text-top;
-  font-size: .95rem;
+  font-size: .8em;
+  padding: .2em .4em;
 }
 
 .post-content .highlight pre code .hljs-comment {
