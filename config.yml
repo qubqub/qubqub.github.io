@@ -101,10 +101,6 @@ params:
       url: ""
     - name: link
       url: ""
-    - name: link
-      url: ""
-    - name: link
-      url: ""
     - name: rss
       url: "/index.xml"
 
