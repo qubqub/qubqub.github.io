@@ -191,8 +191,8 @@ header.header {
   .first-entry-wrapper .entry-aside .profile-picture {
     margin: var(--gap)0 calc(var(--gap) * 2);
     margin-left: auto;
-    margin-top: 30px;
-    margin-bottom: 45px;
+    margin-top: 25px;
+    margin-bottom: 40px;
     min-width: 130px;
   }
 
@@ -246,7 +246,7 @@ header.header {
 }
 
 .first-entry.home-info {
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 
 .first-entry-wrapper .entry-aside {
