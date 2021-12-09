@@ -90,15 +90,15 @@ params:
     - name: email
       url: "mailto:terro21c@gmail.com"
     - name: telegram
-      url: "https://t.me/oneTiBGuy"
+      url: "https://t.me/qu_bits"
     - name: github
       url: "https://github.com/qutrits"
+    - name: link
+      url: "/links"
     # - name: instagram
     #   url: "Put your Instagram url here."
     # - name: twitch
     #   url: "Put your twitch url here."
-    # - name: link
-    #   url: ""
     # - name: link
     #   url: ""
     - name: rss
