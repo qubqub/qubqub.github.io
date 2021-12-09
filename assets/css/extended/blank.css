@@ -765,6 +765,18 @@ header.header {
   display: block;
 }
 
+.main .post-entry .collection-cover {
+  margin-bottom: var(--gap);
+  text-align: center;
+}
+
+.main .post-entry .collection-cover img{
+  border-radius: var(--radius);
+  pointer-events: none;
+  width: 100%;
+  height: auto;
+}
+
 .post-header>.post-title {
   margin-bottom: 1.5rem;
 }

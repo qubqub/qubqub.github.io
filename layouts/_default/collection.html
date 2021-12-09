@@ -54,6 +54,11 @@
     {{- end }}
     {{- range .Params.menu }}
       <article class="post-entry" title="{{ .description }}">
+        {{- if not .cover.hidden }}
+        <figure class="collection-cover">
+          <img loading="lazy" src="{{ (.cover.image) | absURL }}" alt="{{ .cover.alt }}">
+        </figure>
+        {{- end }}
         <header class="entry-header">
           <h2>{{ .title }}</h2>
         </header>
