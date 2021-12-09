@@ -182,12 +182,8 @@ header.header {
 }
 
 .first-entry.home-info { min-height: 0; }
-
 .first-entry.home-info .entry-header h1 { white-space: nowrap; }
-
-.first-entry-wrapper {
-  display: flex;
-}
+.first-entry-wrapper { display: flex; }
 
 @media screen and (max-width: 440px) {
   .first-entry-wrapper .entry-aside .profile-picture {
