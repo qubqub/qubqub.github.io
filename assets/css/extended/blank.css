@@ -194,8 +194,8 @@ header.header {
     margin: var(--gap)0 calc(var(--gap) * 2);
     margin-left: auto;
     margin-top: 20px;
-    margin-bottom: 45px;
-    min-width: 130px;
+    margin-bottom: 50px;
+    min-width: 120px;
   }
 
   .social-icons a:not(:last-of-type) {
