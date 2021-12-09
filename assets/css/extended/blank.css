@@ -155,8 +155,6 @@ header.header {
   max-width: calc(var(--main-width) + var(--gap) * 5);
 }
 
-.first-entry { min-height: 0; }
-
 .main .archive-entry {
   padding: 10px 0 5px 10px;
 }
@@ -182,6 +180,10 @@ header.header {
   border-radius: var(--radius);
   background: var(--entry);
 }
+
+.first-entry.home-info { min-height: 0; }
+
+.first-entry.home-info .entry-header h1 { white-space: nowrap; }
 
 .first-entry-wrapper {
   display: flex;
