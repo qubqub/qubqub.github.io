@@ -488,8 +488,12 @@ header.header {
   }
   
   /* .post-content .highlight .lntd:nth-child(1) {
-      display: none;
+    display: none;
   } */
+
+  .post-content .highlight .lntd:nth-child(2) code {
+    padding-top: 0;
+  }
 
   .post-content .highlight pre code.language-html,
   .post-content .highlight pre code.language-css,
