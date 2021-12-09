@@ -265,7 +265,6 @@ header.header {
   background-size: cover;
 }
 
-.first-entry-wrapper .entry-aside .profile-picture:focus,
 .first-entry-wrapper .entry-aside .profile-picture:hover {
   box-shadow : 0px 0px 15px 5px rgba(255, 255, 190, .1);
   -webkit-filter: none;
