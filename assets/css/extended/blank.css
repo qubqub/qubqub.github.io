@@ -190,7 +190,7 @@ header.header {
 @media screen and (max-width: 440px) {
   .first-entry-wrapper .entry-aside .profile-picture {
     margin: var(--gap)0 calc(var(--gap) * 2);
-    margin-left: 3rem;
+    margin-left: auto;
     margin-top: 30px;
     margin-bottom: 45px;
     min-width: 130px;
@@ -204,7 +204,7 @@ header.header {
 @media screen and (min-width: 441px) and (max-width: 650px) {
   .first-entry-wrapper .entry-aside .profile-picture {
     margin: var(--gap)0 calc(var(--gap) * 2);
-    margin-left: 3rem;
+    margin-left: auto;
     margin-top: 20px;
     margin-bottom: 35px;
     min-width: 140px;
@@ -218,17 +218,17 @@ header.header {
 @media screen and (min-width: 651px) and (max-width: 900px) {
   .first-entry-wrapper .entry-aside .profile-picture {
     margin: var(--gap)0 calc(var(--gap) * 2);
-    margin-left: 3rem;
+    margin-left: auto;
     margin-top: 15px;
-    margin-bottom: 45px;
-    min-width: 145px;
+    margin-bottom: 40px;
+    min-width: 140px;
   }
 }
 
 @media screen and (min-width: 901px) and (max-width: 1300px) {
   .first-entry-wrapper .entry-aside .profile-picture {
     margin: var(--gap)0 calc(var(--gap) * 2);
-    margin-left: 3rem;
+    margin-left: auto;
     margin-top: 20px;
     margin-bottom: 55px;
     min-width: 150px;
@@ -238,11 +238,15 @@ header.header {
 @media screen and (min-width: 1301px) {
   .first-entry-wrapper .entry-aside .profile-picture {
     margin: var(--gap)0 calc(var(--gap) * 2);
-    margin-left: 3rem;
+    margin-left: auto;
     margin-top: 20px;
     margin-bottom: 60px;
     min-width: 140px;
   }
+}
+
+.first-entry.home-info {
+  margin-right: 3rem;
 }
 
 .first-entry-wrapper .entry-aside {
