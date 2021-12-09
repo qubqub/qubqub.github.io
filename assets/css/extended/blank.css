@@ -459,7 +459,7 @@ header.header {
   -webkit-font-smoothing: antialiased;
   border-radius: 4px;
   vertical-align: text-top;
-  font-size: .85em;
+  font-size: .95rem;
 }
 
 .post-content .highlight pre code .hljs-comment {
