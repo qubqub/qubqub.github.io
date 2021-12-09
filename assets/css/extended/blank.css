@@ -257,7 +257,7 @@ header.header {
   border-radius: 50%;
   -webkit-filter: grayscale(100%);
   filter: gray;
-  transition: .2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition: all .2s cubic-bezier(0.3, 0, 0.5, 1);
   background-image: var(--profile-image);
   background-repeat: no-repeat;
   background-position: center center;
