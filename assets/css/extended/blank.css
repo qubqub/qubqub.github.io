@@ -191,7 +191,7 @@ header.header {
     margin-left: auto;
     margin-top: 25px;
     margin-bottom: 45px;
-    min-width: 120px;
+    min-width: 125px;
   }
 
   .social-icons a:not(:last-of-type) {
