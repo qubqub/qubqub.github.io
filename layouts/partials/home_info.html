@@ -13,8 +13,7 @@
         </footer>
       </article>
 
-      <aside class="entry-aside profile-picture">
-        <img loading="lazy" src="{{ .ProfilePicture | absURL }}"/>
+      <aside class="entry-aside profile-picture" style="--profile-image: url({{ .ProfilePicture | absURL }});">
       </aside>
     </div>
   {{- else -}}
