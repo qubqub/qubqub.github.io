@@ -93,12 +93,24 @@ params:
       url: "https://t.me/oneTiBGuy"
     - name: github
       url: "https://github.com/qutrits"
-    # - name: instagram
-    #   url: "Put your Instagram url here."
-    # - name: twitch
-    #   url: "Put your twitch url here."
-    # - name: link
-    #   url: ""
+    - name: instagram
+      url: "Put your Instagram url here."
+    - name: twitch
+      url: "Put your twitch url here."
+    - name: link
+      url: ""
+    - name: instagram
+      url: "Put your Instagram url here."
+    - name: twitch
+      url: "Put your twitch url here."
+    - name: link
+      url: ""
+    - name: instagram
+      url: "Put your Instagram url here."
+    - name: twitch
+      url: "Put your twitch url here."
+    - name: link
+      url: ""
     - name: rss
       url: "/index.xml"
 
