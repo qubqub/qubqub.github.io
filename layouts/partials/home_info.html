@@ -1,6 +1,6 @@
 {{- with $.Site.Params.homeInfoParams }}
   {{- if .ProfilePicture }}
-    <div class="first-entry-wrapper" style="--profile-image: url({{ .ProfilePicture | absURL }});">
+    <div class="first-entry-wrapper">
       <article class="first-entry home-info">
         <header class="entry-header">
           <h1>{{ .Title | markdownify }}</h1>
@@ -14,7 +14,7 @@
       </article>
 
       <aside class="entry-aside">
-        <div class="profile-picture"></div>
+        <div class="profile-picture" style="--profile-image: url({{ .ProfilePicture | absURL }});"></div>
       </aside>
     </div>
   {{- else -}}
