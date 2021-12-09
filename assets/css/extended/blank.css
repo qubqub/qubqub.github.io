@@ -647,12 +647,28 @@ header.header {
     right: 30px;
     transition: visibility 0.1s, opacity 0.2s linear;
   }
+
+  .post-content .highlight .lntd:nth-child(1) {
+    position: absolute;
+    left: -1px;
+    z-index: 1;
+  }
+
+  .post-content .highlight .lntd:nth-child(2) {
+    padding-inline-start: 35px;
+  }
 }
 
 @media screen and (min-width: 1371px) {
-  /* .post-content .highlight:hover {
-    display: flex;
-  } */
+  .post-content .highlight .lntd:nth-child(1) {
+    position: absolute;
+    left: -1px;
+    z-index: 1;
+  }
+
+  .post-content .highlight .lntd:nth-child(2) {
+    padding-inline-start: 35px;
+  }
 
   .main .toc.aside .tocLock {
     margin-right: 0.1rem;
