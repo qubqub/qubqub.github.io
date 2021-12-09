@@ -491,7 +491,7 @@ header.header {
       display: none;
   } */
 
-  .post-content .highlight pre code.language-html,
+  /* .post-content .highlight pre code.language-html,
   .post-content .highlight pre code.language-css,
   .post-content .highlight pre code.language-javascript,
   .post-content .highlight pre code.language-js,
@@ -514,7 +514,7 @@ header.header {
   .post-content .highlight pre code.language-clojure,
   .post-content .highlight pre code.language-dart {
     font-size: 50% !important;
-  }
+  } */
 
   .main .page-footer .pagination a {
     border-radius: var(--radius);
