@@ -8,7 +8,7 @@
 <meta name=description content="<Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/tags/spellicon/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.71e01b493ae15e92e819895c56c7cee2558920a7fe8deebec3b51f85b5e51be6.css integrity="sha256-ceAbSTrhXpLoGYlcVsfO4lWJIKf+je6+w7UfhbXlG+Y=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.73daeda32a9c7c904490585c0bb3f238c3adfe71be9527cde24dffafa0b1e0a9.css integrity="sha256-c9rtoyqcfJBEkFhcC7PyOMOt/nG+lSfN4k3/r6Cx4Kk=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.png>
@@ -82,15 +82,7 @@
 <p>🍑 타이머
 public class Timer : MonoBehaviour { private Coroutine curTimer; public void StartTimer(int time, Action&lt;float> onValueChanged) { //진행되던 타이머가 있다면 멈추고 새로 시작 if (curTimer != null) { StopCoroutine(curTimer); } curTimer = StartCoroutine(CoStartTimer(time, onValueChanged)); } //타이머를 진행할 시간, 시간이 바뀔때마다 어떠한 행동을할건지 IEnumerator CoStartTimer(int time, Action&lt;float> onValueChanged) { float timer = 0; while (true) { //타이머가 지정된 시간을 넘기면 break! if (timer >= time) { break; } //시간을 더해주자! timer += Time....</p>
 </section>
-<footer class=entry-footer><span title="2021-12-06 15:58:16 +0900 KST">2021년 12월 6일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>
-<div style=width:100%;word-break:break-all;word-wrap:break-word;margin-top:10px>
-<ul class=post-tags>
-<li><a href=https://qutrits.github.io/tags/unity/>Unity</a></li>
-<li><a href=https://qutrits.github.io/tags/coroutine/>coroutine</a></li>
-<li><a href=https://qutrits.github.io/tags/timer/>timer</a></li>
-<li><a href=https://qutrits.github.io/tags/spellicon/>spellIcon</a></li>
-</ul>
-</div></footer>
+<footer class=entry-footer><span title="2021-12-06 15:58:16 +0900 KST">2021년 12월 6일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span></footer>
 <a class=entry-link aria-label="post link to 타이머를 이용해 스킬아이콘을 만들어보자!" href=https://qutrits.github.io/post/2021_12_06_03/></a>
 </article>
 </main>

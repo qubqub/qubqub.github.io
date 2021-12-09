@@ -765,6 +765,13 @@ header.header {
   margin-bottom: 1.5rem;
 }
 
+.post-single .post-header .post-meta .post-tags {
+  width: 100%;
+  word-break: break-all;
+  word-wrap: break-word;
+  margin-top: 10px;
+}
+
 .post-tags a {
   position: relative;
   z-index: 1;

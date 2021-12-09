@@ -8,7 +8,7 @@
 <meta name=description content="Posts - <Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/post/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.71e01b493ae15e92e819895c56c7cee2558920a7fe8deebec3b51f85b5e51be6.css integrity="sha256-ceAbSTrhXpLoGYlcVsfO4lWJIKf+je6+w7UfhbXlG+Y=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.73daeda32a9c7c904490585c0bb3f238c3adfe71be9527cde24dffafa0b1e0a9.css integrity="sha256-c9rtoyqcfJBEkFhcC7PyOMOt/nG+lSfN4k3/r6Cx4Kk=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.png>
@@ -83,15 +83,7 @@
 <p>🍑 타이머
 public class Timer : MonoBehaviour { private Coroutine curTimer; public void StartTimer(int time, Action&lt;float> onValueChanged) { //진행되던 타이머가 있다면 멈추고 새로 시작 if (curTimer != null) { StopCoroutine(curTimer); } curTimer = StartCoroutine(CoStartTimer(time, onValueChanged)); } //타이머를 진행할 시간, 시간이 바뀔때마다 어떠한 행동을할건지 IEnumerator CoStartTimer(int time, Action&lt;float> onValueChanged) { float timer = 0; while (true) { //타이머가 지정된 시간을 넘기면 break! if (timer >= time) { break; } //시간을 더해주자! timer += Time....</p>
 </section>
-<footer class=entry-footer><span title="2021-12-06 15:58:16 +0900 KST">2021년 12월 6일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>
-<div style=width:100%;word-break:break-all;word-wrap:break-word;margin-top:10px>
-<ul class=post-tags>
-<li><a href=https://qutrits.github.io/tags/unity/>Unity</a></li>
-<li><a href=https://qutrits.github.io/tags/coroutine/>coroutine</a></li>
-<li><a href=https://qutrits.github.io/tags/timer/>timer</a></li>
-<li><a href=https://qutrits.github.io/tags/spellicon/>spellIcon</a></li>
-</ul>
-</div></footer>
+<footer class=entry-footer><span title="2021-12-06 15:58:16 +0900 KST">2021년 12월 6일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span></footer>
 <a class=entry-link aria-label="post link to 타이머를 이용해 스킬아이콘을 만들어보자!" href=https://qutrits.github.io/post/2021_12_06_03/></a>
 </article>
 <article class=post-entry>
@@ -106,15 +98,7 @@ public class Timer : MonoBehaviour { private Coroutine curTimer; public void Sta
 🍑 핑퐁 기능 추가!!!!
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 public static Tween SetEase(this Tween tween, AnimationCurve ease, bool pingpong = false) //ping pong: 다시 돌아오는 형태의 애니메이션 { if (!tween.IsPlaying) //트윈이 플레이 중이지 않을 때 수정!...</p>
 </section>
-<footer class=entry-footer><span title="2021-12-06 15:34:11 +0900 KST">2021년 12월 6일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>
-<div style=width:100%;word-break:break-all;word-wrap:break-word;margin-top:10px>
-<ul class=post-tags>
-<li><a href=https://qutrits.github.io/tags/tween/>Tween</a></li>
-<li><a href=https://qutrits.github.io/tags/project/>Project</a></li>
-<li><a href=https://qutrits.github.io/tags/animationcurve/>AnimationCurve</a></li>
-<li><a href=https://qutrits.github.io/tags/unity/>Unity</a></li>
-</ul>
-</div></footer>
+<footer class=entry-footer><span title="2021-12-06 15:34:11 +0900 KST">2021년 12월 6일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span></footer>
 <a class=entry-link aria-label="post link to Tween 만들기 프로젝트 근황" href=https://qutrits.github.io/post/2021_12_06_02/></a>
 </article>
 <article class=post-entry>
@@ -126,14 +110,7 @@ public class Timer : MonoBehaviour { private Coroutine curTimer; public void Sta
 <p>상속이 뭐야? 🧐 상속은 확장의 개념이다. 추상클래스, 일반클래스 모두 상속을 통해 특정 객체의 개념을 확장시킬 수 있다.(인터페이스의 경우 기능확장이라는 말이 좀 더 어울리는 것 같다.) 인터페이스와 추상클래스는 이전 포스트에서 다루었으니 일반클래스를 예시로 들겠다.
 💚 예시 오크라는 객체가 있다고 하자. 이 오크라는 객체는 마법사 오크가 될수도, 전사 오크, 궁수 오크 등이 될 수 있다. 이런 오크들을 구현할 때 상속을 사용한다. 직업이 있는 오크 모두 하나의 오크라는 객체를 상속받을 수 있는 것이다. 일반클래스의 상속은 추상클래스나 인터페이스를 상속받는 것과 다르게 부모클래스도 인스턴스할 수 있다....</p>
 </section>
-<footer class=entry-footer><span title="2021-12-06 00:25:53 +0900 KST">2021년 12월 6일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>
-<div style=width:100%;word-break:break-all;word-wrap:break-word;margin-top:10px>
-<ul class=post-tags>
-<li><a href=https://qutrits.github.io/tags/inheritance/>inheritance</a></li>
-<li><a href=https://qutrits.github.io/tags/csharp/>Csharp</a></li>
-<li><a href=https://qutrits.github.io/tags/%EC%83%81%EC%86%8D/>상속</a></li>
-</ul>
-</div></footer>
+<footer class=entry-footer><span title="2021-12-06 00:25:53 +0900 KST">2021년 12월 6일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span></footer>
 <a class=entry-link aria-label="post link to inheritance: 상속" href=https://qutrits.github.io/post/2021_12_06_01/></a>
 </article>
 <article class=post-entry>
@@ -146,14 +123,7 @@ public class Timer : MonoBehaviour { private Coroutine curTimer; public void Sta
 abstract class(추상클래스)가 뭐야? 🧐 인터페이스가 Can Do를 알려주는 역할이라면 추상클래스는 분류(category)를 알려주는 클래스다.
 💚 예시 (내가 이해한 방식) 인터페이스에서 이야기했던 예시를 이어가자면, 앵무새와 참새, 펭귄 그리고 슈가 글라이더는 각자 객체를 가질 수 있다. 하지만 앵무새,참새 그리고 펭귄을 포함하는 조류, 슈가 글라이더를 포함하는 포유류라는 것은 객체가 없는, 추상적인 분류(category)의 개념이다. 추상클래스 안에 추상메소드는 인터페이스와 같은 역할이라고 생각하면된다. 즉, “이러한 분류(추상클래스)에 속하는 객체들은 이러한(추상메소드)것에 반드시 반응해야한다.” 라는 계약이 생긴다....</p>
 </section>
-<footer class=entry-footer><span title="2021-12-02 23:13:57 +0900 KST">2021년 12월 2일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hugo Authors
-<div style=width:100%;word-break:break-all;word-wrap:break-word;margin-top:10px>
-<ul class=post-tags>
-<li><a href=https://qutrits.github.io/tags/csharp/>Csharp</a></li>
-<li><a href=https://qutrits.github.io/tags/abstract/>abstract</a></li>
-<li><a href=https://qutrits.github.io/tags/class/>class</a></li>
-</ul>
-</div></footer>
+<footer class=entry-footer><span title="2021-12-02 23:13:57 +0900 KST">2021년 12월 2일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hugo Authors</footer>
 <a class=entry-link aria-label="post link to abstract class: 추상클래스" href=https://qutrits.github.io/post/2021_12_05_01/></a>
 </article>
 <article class=post-entry>
@@ -166,14 +136,7 @@ abstract class(추상클래스)가 뭐야? 🧐 인터페이스가 Can Do를 알
 <section class=entry-content>
 <p>알고리즘 공부 백준 11068 🧐 회문인 수 👉문제 어떤 수를 왼쪽부터 읽어도, 오른쪽부터 읽어도 같을 때 이 수를 회문인 수라고 한다. 예를 들어, 747은 회문인 수이다. 255도 회문인 수인데, 16진수로 표현하면 FF이기 때문이다. 양의 정수를 입력받았을 때, 이 수가 어떤 B진법 (2 ≤ B ≤ 64)으로 표현하면 회문이 되는 경우가 있는지 알려주는 프로그램을 작성하시오. B진법이란, 한 자리에서 수를 표현할 때 쓸 수 있는 수의 가짓수가 B라는 뜻이다. 예를 들어, 십진법에서 B는 10이다....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-26 00:18:15 +0900 KST">2021년 11월 26일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
-<div style=width:100%;word-break:break-all;word-wrap:break-word;margin-top:10px>
-<ul class=post-tags>
-<li><a href=https://qutrits.github.io/tags/csharp/>Csharp</a></li>
-<li><a href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
-<li><a href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
-</ul>
-</div></footer>
+<footer class=entry-footer><span title="2021-11-26 00:18:15 +0900 KST">2021년 11월 26일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin</footer>
 <a class=entry-link aria-label="post link to AlgorithmStudy_백준 11068" href=https://qutrits.github.io/post/2021_11_26_01/></a>
 </article>
 <article class=post-entry>
@@ -186,14 +149,7 @@ abstract class(추상클래스)가 뭐야? 🧐 인터페이스가 Can Do를 알
 Batch, Batching이 뭐야? 🧐 Batch: 이전 포스트에서 언급했던 DP Call과 render state change들을 합친 넓은 의미의 드로우콜. Batching: 드로우콜을 줄이는 작업(어떠한 조건 아래 다수의 Batch를 하나로 만드는 작업). 💚Batching 세부 설명
 Project Setting > Player 에서 사용이 체크가 되어있는지 확인. Static Batching: Static 플래그가 체크되어있는 정적인 오브젝트에 적용 됨. 적용 방법 버텍스 연산을 런타임에 수행하지 않기때문에 Dynamic Batching 보다 효율적....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-25 00:05:33 +0900 KST">2021년 11월 25일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
-<div style=width:100%;word-break:break-all;word-wrap:break-word;margin-top:10px>
-<ul class=post-tags>
-<li><a href=https://qutrits.github.io/tags/unity/>Unity</a></li>
-<li><a href=https://qutrits.github.io/tags/drawcall/>DrawCall</a></li>
-<li><a href=https://qutrits.github.io/tags/batch/>Batch</a></li>
-</ul>
-</div></footer>
+<footer class=entry-footer><span title="2021-11-25 00:05:33 +0900 KST">2021년 11월 25일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin</footer>
 <a class=entry-link aria-label="post link to Draw Call: 드로우콜(2)" href=https://qutrits.github.io/post/2021_11_25_03/></a>
 </article>
 <article class=post-entry>
@@ -206,14 +162,7 @@ Project Setting > Player 에서 사용이 체크가 되어있는지 확인. Stat
 Draw Call이 뭐야? 🧐 간단 요약 정의: CPU가 GPU에 오브젝트를 그리라는 명령을 호출하는 것. 💚세부 설명
 오브젝트가 실제 화면에 렌더링 되려면 CPU -> GPU 정보 전달 필요함. 정보: 메시, 텍스처, 쉐이더, 트랜스폼, 알파블렌딩 여부 등이 존재....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-24 23:19:40 +0900 KST">2021년 11월 24일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
-<div style=width:100%;word-break:break-all;word-wrap:break-word;margin-top:10px>
-<ul class=post-tags>
-<li><a href=https://qutrits.github.io/tags/unity/>Unity</a></li>
-<li><a href=https://qutrits.github.io/tags/drawcall/>DrawCall</a></li>
-<li><a href=https://qutrits.github.io/tags/batch/>Batch</a></li>
-</ul>
-</div></footer>
+<footer class=entry-footer><span title="2021-11-24 23:19:40 +0900 KST">2021년 11월 24일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin</footer>
 <a class=entry-link aria-label="post link to Draw Call: 드로우콜(1)" href=https://qutrits.github.io/post/2021_11_25_02/></a>
 </article>
 <article class=post-entry>
@@ -225,14 +174,7 @@ Draw Call이 뭐야? 🧐 간단 요약 정의: CPU가 GPU에 오브젝트를 �
 <p>유니티에서 쓸 Tween을 만들고 있는 중이다.Tween에서 여러가지 클래스를 처리하고 싶어서 Generic class를 활용하기로 하였다.
 Generic class가 뭐야? 🧐 일반적으로 클래스를 정의할 때, 클래스 내의 모든 데이타 타입을 지정해 주게 된다. 하지만 어떤 경우는 클래스의 거의 모든 부분이 동일한데 일부 데이타 타입만이 다른 경우가 있을 수 있다.이런 경우 C#의 제네릭 타입(Generic Type)을 사용할 수 있는데, 제네릭 타입에서는 int, float, double 같은 데이타 요소 타입을 확정하지 않고 이 데이타 타입 자체를 타입파라미터(Type Parameter)로 받아들이도록 클래스를 정의한다....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-23 23:32:06 +0900 KST">2021년 11월 23일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
-<div style=width:100%;word-break:break-all;word-wrap:break-word;margin-top:10px>
-<ul class=post-tags>
-<li><a href=https://qutrits.github.io/tags/csharp/>Csharp</a></li>
-<li><a href=https://qutrits.github.io/tags/unity/>Unity</a></li>
-<li><a href=https://qutrits.github.io/tags/generic/>Generic</a></li>
-</ul>
-</div></footer>
+<footer class=entry-footer><span title="2021-11-23 23:32:06 +0900 KST">2021년 11월 23일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin</footer>
 <a class=entry-link aria-label="post link to Generic: 제너릭 클래스" href=https://qutrits.github.io/post/2021_11_25_01/></a>
 </article>
 <article class=post-entry>
@@ -243,14 +185,7 @@ Generic class가 뭐야? 🧐 일반적으로 클래스를 정의할 때, 클래
 <section class=entry-content>
 <p>C# 공부 string/StringBuilder🤔 ✨string Immutable(불변) 변수. 값이 아닌 참조 변수. 내부적으로 문자열을 관리하는 버퍼를 가지고 있지않다. 대신 이를 참조하고 있다. string마다 새로운 클래스가 생성이 된다. 1 2 3 4 string a = "안녕" + "하세요"; //"안녕" "하세요" -> 각각의 string class 생성. //a string class 생성. //총 3개의 string class가 생성된다. -> 즉 garbage가 많이 생긴다. ✨StringBuilder 내부적으로 버퍼를 가지고 있다. 조합이 가능하다. 즉, 조합할 때마다 새롭게 class를 생성하지않는다....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-19 08:54:41 +0900 KST">2021년 11월 19일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
-<div style=width:100%;word-break:break-all;word-wrap:break-word;margin-top:10px>
-<ul class=post-tags>
-<li><a href=https://qutrits.github.io/tags/csharp/>Csharp</a></li>
-<li><a href=https://qutrits.github.io/tags/string/>String</a></li>
-<li><a href=https://qutrits.github.io/tags/stringbuilder/>StringBuilder</a></li>
-</ul>
-</div></footer>
+<footer class=entry-footer><span title="2021-11-19 08:54:41 +0900 KST">2021년 11월 19일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin</footer>
 <a class=entry-link aria-label="post link to C#_string_StringBuilder" href=https://qutrits.github.io/post/2021_11_19_01/></a>
 </article>
 <article class=post-entry>
@@ -265,14 +200,7 @@ Generic class가 뭐야? 🧐 일반적으로 클래스를 정의할 때, 클래
 나도 이런식으로 바로바로 접근할 수 있으면 좋겠다고 생각을 해서 방법을 찾아보니, Extenstion Method 를 이용하면 되는 것!
 Extenstion Method가 뭐야? 🧐 특수한 종류의 Static 메서드. 다른 클래스의 인스턴스 메서드인 것 처럼 사용되는 기능. 클래스, 구조체, 인터페이스 등에 적용 가능....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-18 15:49:20 +0900 KST">2021년 11월 18일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
-<div style=width:100%;word-break:break-all;word-wrap:break-word;margin-top:10px>
-<ul class=post-tags>
-<li><a href=https://qutrits.github.io/tags/csharp/>Csharp</a></li>
-<li><a href=https://qutrits.github.io/tags/unity/>Unity</a></li>
-<li><a href=https://qutrits.github.io/tags/extenstion-method/>Extenstion Method</a></li>
-</ul>
-</div></footer>
+<footer class=entry-footer><span title="2021-11-18 15:49:20 +0900 KST">2021년 11월 18일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin</footer>
 <a class=entry-link aria-label="post link to Extenstion Method: 확장 메서드" href=https://qutrits.github.io/post/2021_11_18_02/></a>
 </article>
 <footer class=page-footer>
