@@ -99,16 +99,10 @@ params:
       url: "Put your twitch url here."
     - name: link
       url: ""
-    - name: instagram
-      url: "Put your Instagram url here."
-    - name: twitch
-      url: "Put your twitch url here."
     - name: link
       url: ""
-    - name: instagram
-      url: "Put your Instagram url here."
-    - name: twitch
-      url: "Put your twitch url here."
+    - name: link
+      url: ""
     - name: link
       url: ""
     - name: rss
