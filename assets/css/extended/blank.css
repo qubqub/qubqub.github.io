@@ -252,13 +252,14 @@ header.header {
 }
 
 .first-entry-wrapper .entry-aside .profile-picture {
+  z-index: 100;
   border-radius: 50%;
   -webkit-filter: gray;
   -webkit-filter: grayscale(100%);
   filter: gray;
   filter: grayscale(100%);
   transition: all .2s cubic-bezier(0.3, 0, 0.5, 1);
-  -webkit-transition: all .2s cubic-bezier(0.3, 0, 0.5, 1);
+  -webkit-transition: .2s cubic-bezier(0.3, 0, 0.5, 1);
   background-image: var(--profile-image);
   background-repeat: no-repeat;
   background-position: center center;
