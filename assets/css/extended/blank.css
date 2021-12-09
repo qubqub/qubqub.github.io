@@ -458,7 +458,7 @@ header.header {
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
   border-radius: 4px;
-  vertical-align: text-bottom;
+  vertical-align: text-top;
 }
 
 .post-content .highlight pre code .hljs-comment {
