@@ -241,6 +241,10 @@ header.header {
   -webkit-filter: grayscale(100%);
   filter: gray;
   transition: .2s cubic-bezier(0.3, 0, 0.5, 1);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .first-entry-wrapper .entry-aside.profile-picture:hover > img {
