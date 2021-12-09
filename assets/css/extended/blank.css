@@ -261,7 +261,7 @@ header.header {
   background-size: cover;
 }
 
-.first-entry-wrapper .entry-aside:hover .profile-picture {
+.first-entry-wrapper:hover .profile-picture {
   box-shadow : 0px 0px 15px 5px rgba(255, 255, 190, .1);
   -webkit-filter: grazyscale(0%);
   filter: none;
