@@ -80,7 +80,7 @@ params:
   homeInfoParams:
     Title: "Hi there \U0001F44B"
     Content: Write-ups ✍️
-    ProfilePicture: "/icon/profile_pic01.webp"
+    ProfilePicture: "/icon/profile_pic.png"
     
   socialIcons:
     # - name: twitter
@@ -93,14 +93,14 @@ params:
       url: "https://t.me/oneTiBGuy"
     - name: github
       url: "https://github.com/qutrits"
-    - name: instagram
-      url: "Put your Instagram url here."
-    - name: twitch
-      url: "Put your twitch url here."
-    - name: link
-      url: ""
-    - name: link
-      url: ""
+    # - name: instagram
+    #   url: "Put your Instagram url here."
+    # - name: twitch
+    #   url: "Put your twitch url here."
+    # - name: link
+    #   url: ""
+    # - name: link
+    #   url: ""
     - name: rss
       url: "/index.xml"
 
