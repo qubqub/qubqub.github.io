@@ -254,7 +254,9 @@ header.header {
   -webkit-filter: grayscale(100%);
   filter: gray;
   transition: .2s cubic-bezier(0.3, 0, 0.5, 1);
-  background: var(--profile-image) no-repeat center center;
+  background-image: var(--profile-image);
+  background-repeat: no-repeat;
+  background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
