@@ -439,12 +439,6 @@ header.header {
   margin-bottom: 32px;
 }
 
-.post-content table {
-  margin-bottom: 0;
-  background: var(--hljs-bg);
-  border-radius: var(--radius);
-}
-
 .post-content .highlight pre code,
 .post-content pre code {
   font-family: "CascadiaCode", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace !important;
@@ -493,9 +487,9 @@ header.header {
     transition: visibility 0.1s, opacity 0.2s linear;
   }
   
-  .post-content .highlight .lntd:nth-child(1) {
+  /* .post-content .highlight .lntd:nth-child(1) {
       display: none;
-  }
+  } */
 
   .post-content .highlight pre code.language-html,
   .post-content .highlight pre code.language-css,
