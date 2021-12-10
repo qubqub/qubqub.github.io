@@ -461,6 +461,10 @@ header.header {
   -webkit-font-smoothing: antialiased;
 }
 
+.post-content .highlight .hljs .nt .hljs-attr {
+  color: #f92672;
+}
+
 .post-content a code {
   margin: auto 0;
   border-radius: 0 !important;
