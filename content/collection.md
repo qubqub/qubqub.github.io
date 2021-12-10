@@ -21,5 +21,5 @@ menu:
     cover:
       hidden: false
       image: "/logo/logo-jpa.png"
-      alt: "JAP"
+      alt: "JPA"
 ---
