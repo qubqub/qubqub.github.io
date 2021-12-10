@@ -9,7 +9,7 @@
 public class Timer : MonoBehaviour { private Coroutine curTimer; public void StartTimer(int time, Action<float> onValueChanged) { //진행되던 타이머가 있다면 멈추고 새로 시작 if (curTimer != null) { StopCoroutine(curTimer); } curTimer = StartCoroutine(CoStartTimer(time, onValueChanged)); } //타이머를 진행할 시간, 시간이 바뀔때마다 어떠한 행동을할건지 IEnumerator CoStartTimer(int time, Action<float> onValueChanged) { float timer = 0; while (true) { //타이머가 지정된 시간을 넘기면 break! if (timer >= time) { break; } //시간을 더해주자! timer += Time.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/post/2021_12_06_03/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.e6f8795cf80f33f26fd568cf49b75061cc8911ba0b9bb38b2fec3ad36097594f.css integrity="sha256-5vh5XPgPM/Jv1WjPSbdQYcyJEboLm7OLL+w602CXWU8=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.8ea685cd7a622752772e3035f64093b8e152885ca6093287bcedf77fc49b06c1.css integrity="sha256-jqaFzXpiJ1J3LjA19kCTuOFSiFymCTKHvO33f8SbBsE=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>

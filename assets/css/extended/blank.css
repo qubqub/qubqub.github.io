@@ -185,7 +185,21 @@ header.header {
 .first-entry.home-info .entry-header h1 { white-space: nowrap; }
 .first-entry-wrapper { display: flex; }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 335px) {
+  .first-entry-wrapper .entry-aside .profile-picture {
+    margin: var(--gap)0 calc(var(--gap) * 2);
+    margin-left: auto;
+    margin-top: 25px;
+    margin-bottom: 80px;
+    min-width: 125px;
+  }
+
+  .social-icons a:not(:last-of-type) {
+    margin-inline-end: 10px;
+  }
+}
+
+@media screen and (min-width: 336px) and (max-width: 440px) {
   .first-entry-wrapper .entry-aside .profile-picture {
     margin: var(--gap)0 calc(var(--gap) * 2);
     margin-left: auto;
