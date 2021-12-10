@@ -126,13 +126,11 @@ Draw Call: 드로우콜(2)
 <li>같은 머티리얼을 사용하는 메쉬들을 렌더링할 때 드로우콜을 줄일 수 있다.(동일한 머티리얼 <code>인스턴스</code>여야 함)</li>
 <li>배경 같은 요소(트랜스폼 등이 바뀌지 않는 오브젝트)에 적용해주기에 적합함.</li>
 </ul>
-<br>
 <p>⚠️주의⚠️</p>
-<br>
 <p>메모리가 추가로 필요함.
-<br></p>
+</p>
 <p>해당되는 오브젝트들은 처음부터 Scene에 존재해야 함.
-<br></p>
+</p>
 <p>동일한 머터리얼을 사용할 지라도 스크립트에서 <code>Renderer.material.color = Color.red;</code>처럼 머터리얼의 속성을 변경한다면 <strong>복사본이 생성</strong>되기 때문에 적용되지않는다(<code>Renderer.sharedMaterial</code>사용으로 해결가능).</p>
 <ol start=2>
 <li><code>Dynamic Batching</code>: Static 플래그가 체크되어있지않은 모든 오브젝트에 적용 됨.</li>
@@ -142,19 +140,14 @@ Draw Call: 드로우콜(2)
 <li>따라서 매 프레임마다 오버헤드가 발생.</li>
 <li>그러나 드로우콜을 줄임으로 전체적인 성능 향상.</li>
 </ul>
-<br>
 <p>⚠️주의⚠️</p>
-<br>
 <p><code>Skinned Mesh</code>에는 적용이 되지않음.</p>
-<br>
 <p>버텍스가 너무 많은 메쉬에는 적용이 되지않음.</p>
-<br>
 <h2 id=2d-환경에서는-드로우콜을-어떻게-줄이나요->2D 환경에서는 드로우콜을 어떻게 줄이나요? 🧐<a hidden class=anchor aria-hidden=true href=#2d-환경에서는-드로우콜을-어떻게-줄이나요->#</a></h2>
 <ul>
 <li>Sprite Mode: Multiple 사용.</li>
 <li>Sprite Atlas 이용.</li>
 </ul>
-<br>
 <p>참고자료: 유니티 그래픽스 최적화 스타트업</p>
 </div>
 <footer class=post-footer><div class=post-license-info>

@@ -5,8 +5,7 @@
 <meta name=robots content="index, follow">
 <title>C#_string_StringBuilder | &lt;Qutrits/></title>
 <meta name=keywords content="Csharp,String,StringBuilder">
-<meta name=description content="C# 공부 string/StringBuilder 🤔 ✨string  Immutable(불변) 변수. 값이 아닌 참조 변수. 내부적으로 문자열을 관리하는 버퍼를 가지고 있지않다. 대신 이를 참조하고 있다. string마다 새로운 클래스가 생성이 된다.  string a = &#34;안녕&#34; + &#34;하세요&#34;; //&#34;안녕&#34; &#34;하세요&#34; -> 각각의 string class 생성. //a string class 생성. //총 3개의 string class가 생성된다. -> 즉 garbage가 많이 생긴다. 
-✨StringBuilder  내부적으로 버퍼를 가지고 있다. 조합이 가능하다. 즉, 조합할 때마다 새롭게 class를 생성하지않는다. 조합한 것을 string으로 반환이 가능하다.">
+<meta name=description content="C# 공부 string/StringBuilder🤔 ✨string  Immutable(불변) 변수. 값이 아닌 참조 변수. 내부적으로 문자열을 관리하는 버퍼를 가지고 있지않다. 대신 이를 참조하고 있다. string마다 새로운 클래스가 생성이 된다.  1 2 3 4  string a = &#34;안녕&#34; + &#34;하세요&#34;; //&#34;안녕&#34; &#34;하세요&#34; -> 각각의 string class 생성. //a string class 생성. //총 3개의 string class가 생성된다. -> 즉 garbage가 많이 생긴다.   ✨StringBuilder  내부적으로 버퍼를 가지고 있다. 조합이 가능하다. 즉, 조합할 때마다 새롭게 class를 생성하지않는다.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/posts/2021_11_19_01/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.fd327c90abfdf1a824fc51821b39f1c5016f7fd210b3894c84ac94706978a927.css integrity="sha256-/TJ8kKv98agk/FGCGznxxQFvf9IQs4lMhKyUcGl4qSc=" rel="preload stylesheet" as=style>
@@ -25,18 +24,16 @@
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script defer crossorigin=anonymous src=/assets/js/extended/custom.min.76e2092388e545844a8822b31cda7a5c9593612d0d69514f4a51b8400a8af7ca.js integrity="sha256-duIJI4jlRYRKiCKzHNp6XJWTYS0NaVFPSlG4QAqK98o="></script><meta property="og:title" content="C#_string_StringBuilder">
-<meta property="og:description" content="C# 공부 string/StringBuilder 🤔 ✨string  Immutable(불변) 변수. 값이 아닌 참조 변수. 내부적으로 문자열을 관리하는 버퍼를 가지고 있지않다. 대신 이를 참조하고 있다. string마다 새로운 클래스가 생성이 된다.  string a = &#34;안녕&#34; + &#34;하세요&#34;; //&#34;안녕&#34; &#34;하세요&#34; -> 각각의 string class 생성. //a string class 생성. //총 3개의 string class가 생성된다. -> 즉 garbage가 많이 생긴다. 
-✨StringBuilder  내부적으로 버퍼를 가지고 있다. 조합이 가능하다. 즉, 조합할 때마다 새롭게 class를 생성하지않는다. 조합한 것을 string으로 반환이 가능하다.">
+<meta property="og:description" content="C# 공부 string/StringBuilder🤔 ✨string  Immutable(불변) 변수. 값이 아닌 참조 변수. 내부적으로 문자열을 관리하는 버퍼를 가지고 있지않다. 대신 이를 참조하고 있다. string마다 새로운 클래스가 생성이 된다.  1 2 3 4  string a = &#34;안녕&#34; + &#34;하세요&#34;; //&#34;안녕&#34; &#34;하세요&#34; -> 각각의 string class 생성. //a string class 생성. //총 3개의 string class가 생성된다. -> 즉 garbage가 많이 생긴다.   ✨StringBuilder  내부적으로 버퍼를 가지고 있다. 조합이 가능하다. 즉, 조합할 때마다 새롭게 class를 생성하지않는다.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://qutrits.github.io/posts/2021_11_19_01/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-11-19T08:54:41+09:00">
 <meta property="article:modified_time" content="2021-11-19T08:54:41+09:00">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="C#_string_StringBuilder">
-<meta name=twitter:description content="C# 공부 string/StringBuilder 🤔 ✨string  Immutable(불변) 변수. 값이 아닌 참조 변수. 내부적으로 문자열을 관리하는 버퍼를 가지고 있지않다. 대신 이를 참조하고 있다. string마다 새로운 클래스가 생성이 된다.  string a = &#34;안녕&#34; + &#34;하세요&#34;; //&#34;안녕&#34; &#34;하세요&#34; -> 각각의 string class 생성. //a string class 생성. //총 3개의 string class가 생성된다. -> 즉 garbage가 많이 생긴다. 
-✨StringBuilder  내부적으로 버퍼를 가지고 있다. 조합이 가능하다. 즉, 조합할 때마다 새롭게 class를 생성하지않는다. 조합한 것을 string으로 반환이 가능하다.">
+<meta name=twitter:description content="C# 공부 string/StringBuilder🤔 ✨string  Immutable(불변) 변수. 값이 아닌 참조 변수. 내부적으로 문자열을 관리하는 버퍼를 가지고 있지않다. 대신 이를 참조하고 있다. string마다 새로운 클래스가 생성이 된다.  1 2 3 4  string a = &#34;안녕&#34; + &#34;하세요&#34;; //&#34;안녕&#34; &#34;하세요&#34; -> 각각의 string class 생성. //a string class 생성. //총 3개의 string class가 생성된다. -> 즉 garbage가 많이 생긴다.   ✨StringBuilder  내부적으로 버퍼를 가지고 있다. 조합이 가능하다. 즉, 조합할 때마다 새롭게 class를 생성하지않는다.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://qutrits.github.io/posts/"},{"@type":"ListItem","position":2,"name":"C#_string_StringBuilder","item":"https://qutrits.github.io/posts/2021_11_19_01/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"C#_string_StringBuilder","name":"C#_string_StringBuilder","description":"C# 공부 string/StringBuilder 🤔 ✨string  Immutable(불변) 변수. 값이 아닌 참조 변수. 내부적으로 문자열을 관리하는 버퍼를 가지고 있지않다. 대신 이를 참조하고 있다. string마다 새로운 클래스가 생성이 된다.  string a = \u0026#34;안녕\u0026#34; + \u0026#34;하세요\u0026#34;; //\u0026#34;안녕\u0026#34; \u0026#34;하세요\u0026#34; -\u0026gt; 각각의 string class 생성. //a string class 생성. //총 3개의 string class가 생성된다. -\u0026gt; 즉 garbage가 많이 생긴다. \n✨StringBuilder  내부적으로 버퍼를 가지고 있다. 조합이 가능하다. 즉, 조합할 때마다 새롭게 class를 생성하지않는다. 조합한 것을 string으로 반환이 가능하다.","keywords":["Csharp","String","StringBuilder"],"articleBody":"C# 공부 string/StringBuilder 🤔 ✨string  Immutable(불변) 변수. 값이 아닌 참조 변수. 내부적으로 문자열을 관리하는 버퍼를 가지고 있지않다. 대신 이를 참조하고 있다. string마다 새로운 클래스가 생성이 된다.  string a = \"안녕\" + \"하세요\"; //\"안녕\" \"하세요\" - 각각의 string class 생성. //a string class 생성. //총 3개의 string class가 생성된다. - 즉 garbage가 많이 생긴다. \n✨StringBuilder  내부적으로 버퍼를 가지고 있다. 조합이 가능하다. 즉, 조합할 때마다 새롭게 class를 생성하지않는다. 조합한 것을 string으로 반환이 가능하다. 길이가 충분히 길고 길이를 모를 때 사용하는 것이 바람직하다.  StringBuilder sb1 = new StringBuilder(\"Hello\"); //생성할 당시에 바로 넣기가 가능하다. StringBuilder sb2 = new StringBuilder(100); //버퍼공간을 미리 할당하는 것이 가능하다. //미리 할당을 해놓으면 크기가 넘어가는 데이터가 들어오기 전까지는 Append를 사용할 시 추가 공간을 마련하지않아도 되어 조금 더 빠르다.  \n🌟🌟 StringBuilder가 편리함에도 string이 필요한 이유  값의 변형없이 사용되는 string 에 대한 참조만이 필요할 경우.  string a = \"immutable\"; //s1, s2, s3는 내부적으로 버퍼를 가지고 있지않기 때문에 a와 같은 버퍼를 참조한다. //만약, string이 StringBuilder처럼 작동을 한다면... //s1, s2, s3는 내부적으로 버퍼를 가지고 있어야하고 이는 a의 내부 버퍼를 복사한 값을 가지고 있을 것이다. = 메모리 낭비! string s1 = a; string s2 = b; string s3 = c;  멀티스레드 환경에서 string이 StringBuilder보다 안전하다.\n  string s = \"a\" + \"b\" + \"c\"; //string을 조합할 때는 연산의 최소 단위인 원자적 연산을 하기 때문에 스레드가 연산 중간에 간섭할 수 없어 값이 변할 위험이 없다.  StringBuilder sb = new StringBuilder(); sb.Append(\"a\"); sb.Append(\"b\"); sb.Append(\"c\"); //StringBuilder로 조합할 경우에는 원자적 연산이 아니기 때문에 멀티스레드 환경에서 값이 변형될 위험이 있다. ","wordCount":"239","inLanguage":"en","datePublished":"2021-11-19T08:54:41+09:00","dateModified":"2021-11-19T08:54:41+09:00","author":[{"@type":"Person","name":"Kyungchul Shin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/posts/2021_11_19_01/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.png"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"C#_string_StringBuilder","name":"C#_string_StringBuilder","description":"C# 공부 string/StringBuilder🤔 ✨string  Immutable(불변) 변수. 값이 아닌 참조 변수. 내부적으로 문자열을 관리하는 버퍼를 가지고 있지않다. 대신 이를 참조하고 있다. string마다 새로운 클래스가 생성이 된다.  1 2 3 4  string a = \u0026#34;안녕\u0026#34; + \u0026#34;하세요\u0026#34;; //\u0026#34;안녕\u0026#34; \u0026#34;하세요\u0026#34; -\u0026gt; 각각의 string class 생성. //a string class 생성. //총 3개의 string class가 생성된다. -\u0026gt; 즉 garbage가 많이 생긴다.   ✨StringBuilder  내부적으로 버퍼를 가지고 있다. 조합이 가능하다. 즉, 조합할 때마다 새롭게 class를 생성하지않는다.","keywords":["Csharp","String","StringBuilder"],"articleBody":"C# 공부 string/StringBuilder🤔 ✨string  Immutable(불변) 변수. 값이 아닌 참조 변수. 내부적으로 문자열을 관리하는 버퍼를 가지고 있지않다. 대신 이를 참조하고 있다. string마다 새로운 클래스가 생성이 된다.  1 2 3 4  string a = \"안녕\" + \"하세요\"; //\"안녕\" \"하세요\" - 각각의 string class 생성. //a string class 생성. //총 3개의 string class가 생성된다. - 즉 garbage가 많이 생긴다.   ✨StringBuilder  내부적으로 버퍼를 가지고 있다. 조합이 가능하다. 즉, 조합할 때마다 새롭게 class를 생성하지않는다. 조합한 것을 string으로 반환이 가능하다. 길이가 충분히 길고 길이를 모를 때 사용하는 것이 바람직하다.  1 2 3 4 5 6  StringBuilder sb1 = new StringBuilder(\"Hello\"); //생성할 당시에 바로 넣기가 가능하다. StringBuilder sb2 = new StringBuilder(100); //버퍼공간을 미리 할당하는 것이 가능하다. //미리 할당을 해놓으면 크기가 넘어가는 데이터가 들어오기 전까지는 Append를 사용할 시 추가 공간을 마련하지않아도 되어 조금 더 빠르다.    🌟🌟 StringBuilder가 편리함에도 string이 필요한 이유  값의 변형없이 사용되는 string 에 대한 참조만이 필요할 경우.  1 2 3 4 5 6 7 8  string a = \"immutable\"; //s1, s2, s3는 내부적으로 버퍼를 가지고 있지않기 때문에 a와 같은 버퍼를 참조한다. //만약, string이 StringBuilder처럼 작동을 한다면... //s1, s2, s3는 내부적으로 버퍼를 가지고 있어야하고 이는 a의 내부 버퍼를 복사한 값을 가지고 있을 것이다. = 메모리 낭비! string s1 = a; string s2 = b; string s3 = c;    멀티스레드 환경에서 string이 StringBuilder보다 안전하다.  1 2 3 4 5 6 7 8  string s = \"a\" + \"b\" + \"c\"; //string을 조합할 때는 연산의 최소 단위인 원자적 연산을 하기 때문에 스레드가 연산 중간에 간섭할 수 없어 값이 변할 위험이 없다.  StringBuilder sb = new StringBuilder(); sb.Append(\"a\"); sb.Append(\"b\"); sb.Append(\"c\"); //StringBuilder로 조합할 경우에는 원자적 연산이 아니기 때문에 멀티스레드 환경에서 값이 변형될 위험이 있다.   ","wordCount":"264","inLanguage":"en","datePublished":"2021-11-19T08:54:41+09:00","dateModified":"2021-11-19T08:54:41+09:00","author":[{"@type":"Person","name":"Kyungchul Shin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/posts/2021_11_19_01/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.png"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -93,11 +90,11 @@ C#_string_StringBuilder
 </summary>
 <div class=inner><ul>
 <li>
-<a href=#c-%ea%b3%b5%eb%b6%80-span-stylecolor7986cbstringstringbuilderspan- aria-label="C# 공부 string/StringBuilder 🤔">C# 공부 <span style=color:#7986cb>string/StringBuilder</span> 🤔</a><ul>
+<a href=#c-%ea%b3%b5%eb%b6%80-span-stylecolor7986cbstringstringbuilderspan- aria-label="C# 공부 string/StringBuilder🤔">C# 공부 string/StringBuilder 🤔</a><ul>
 <li>
-<a href=#span-stylecolorffa726stringspan aria-label=✨string>✨<span style=color:#ffa726>string</span></a></li>
+<a href=#span-stylecolorffa726stringspan aria-label=✨string>✨string</a></li>
 <li>
-<a href=#span-stylecolorffa726stringbuilderspan aria-label=✨StringBuilder>✨<span style=color:#ffa726>StringBuilder</span></a></li></ul>
+<a href=#span-stylecolorffa726stringbuilderspan aria-label=✨StringBuilder>✨StringBuilder</a></li></ul>
 </li>
 <li>
 <a href=#-stringbuilder%ea%b0%80-%ed%8e%b8%eb%a6%ac%ed%95%a8%ec%97%90%eb%8f%84-string%ec%9d%b4-%ed%95%84%ec%9a%94%ed%95%9c-%ec%9d%b4%ec%9c%a0 aria-label="🌟🌟 StringBuilder가 편리함에도 string이 필요한 이유">🌟🌟 StringBuilder가 편리함에도 string이 필요한 이유</a>
@@ -106,38 +103,72 @@ C#_string_StringBuilder
 </div>
 </details>
 </div>
-<div class=post-content><h1 id=c-공부-span-stylecolor7986cbstringstringbuilderspan->C# 공부 <span style=color:#7986cb>string/StringBuilder</span> 🤔<a hidden class=anchor aria-hidden=true href=#c-공부-span-stylecolor7986cbstringstringbuilderspan->#</a></h1>
-<h2 id=span-stylecolorffa726stringspan>✨<span style=color:#ffa726>string</span><a hidden class=anchor aria-hidden=true href=#span-stylecolorffa726stringspan>#</a></h2>
+<div class=post-content><h1 id=c-공부-span-stylecolor7986cbstringstringbuilderspan->C# 공부 string/StringBuilder 🤔<a hidden class=anchor aria-hidden=true href=#c-공부-span-stylecolor7986cbstringstringbuilderspan->#</a></h1>
+<h2 id=span-stylecolorffa726stringspan>✨string<a hidden class=anchor aria-hidden=true href=#span-stylecolorffa726stringspan>#</a></h2>
 <ul>
 <li>Immutable(불변) 변수.</li>
 <li>값이 아닌 참조 변수.</li>
 <li>내부적으로 문자열을 관리하는 버퍼를 가지고 있지않다. 대신 이를 참조하고 있다.</li>
 <li>string마다 새로운 클래스가 생성이 된다.</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=kt>string</span> <span class=n>a</span> <span class=p>=</span> <span class=s>&#34;안녕&#34;</span> <span class=p>+</span> <span class=s>&#34;하세요&#34;</span><span class=p>;</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=kt>string</span> <span class=n>a</span> <span class=p>=</span> <span class=s>&#34;안녕&#34;</span> <span class=p>+</span> <span class=s>&#34;하세요&#34;</span><span class=p>;</span>
 <span class=c1>//&#34;안녕&#34; &#34;하세요&#34; -&gt; 각각의 string class 생성. 
 </span><span class=c1>//a string class 생성.
 </span><span class=c1>//총 3개의 string class가 생성된다. -&gt; 즉 garbage가 많이 생긴다.
-</span></code></pre></div><br>
-<h2 id=span-stylecolorffa726stringbuilderspan>✨<span style=color:#ffa726>StringBuilder</span><a hidden class=anchor aria-hidden=true href=#span-stylecolorffa726stringbuilderspan>#</a></h2>
+</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id=span-stylecolorffa726stringbuilderspan>✨StringBuilder<a hidden class=anchor aria-hidden=true href=#span-stylecolorffa726stringbuilderspan>#</a></h2>
 <ul>
 <li>내부적으로 버퍼를 가지고 있다.</li>
 <li>조합이 가능하다. 즉, 조합할 때마다 새롭게 class를 생성하지않는다.</li>
 <li>조합한 것을 string으로 반환이 가능하다.</li>
 <li>길이가 충분히 길고 길이를 모를 때 사용하는 것이 바람직하다.</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=n>StringBuilder</span> <span class=n>sb1</span> <span class=p>=</span> <span class=k>new</span> <span class=n>StringBuilder</span><span class=p>(</span><span class=s>&#34;Hello&#34;</span><span class=p>);</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=n>StringBuilder</span> <span class=n>sb1</span> <span class=p>=</span> <span class=k>new</span> <span class=n>StringBuilder</span><span class=p>(</span><span class=s>&#34;Hello&#34;</span><span class=p>);</span>
 <span class=c1>//생성할 당시에 바로 넣기가 가능하다.
 </span><span class=c1></span><span class=n>StringBuilder</span> <span class=n>sb2</span> <span class=p>=</span> <span class=k>new</span> <span class=n>StringBuilder</span><span class=p>(</span><span class=m>100</span><span class=p>);</span>
 <span class=c1>//버퍼공간을 미리 할당하는 것이 가능하다.
 </span><span class=c1>//미리 할당을 해놓으면 크기가 넘어가는 데이터가 들어오기 전까지는 Append를 사용할 시 추가 공간을 마련하지않아도 되어 조금 더 빠르다.
 </span><span class=c1></span>
-</code></pre></div><br>
+</code></pre></td></tr></table>
+</div>
+</div>
 <h1 id=-stringbuilder가-편리함에도-string이-필요한-이유>🌟🌟 StringBuilder가 편리함에도 string이 필요한 이유<a hidden class=anchor aria-hidden=true href=#-stringbuilder가-편리함에도-string이-필요한-이유>#</a></h1>
 <ul>
 <li>값의 변형없이 사용되는 string 에 대한 참조만이 필요할 경우.</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=kt>string</span> <span class=n>a</span> <span class=p>=</span> <span class=s>&#34;immutable&#34;</span><span class=p>;</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=kt>string</span> <span class=n>a</span> <span class=p>=</span> <span class=s>&#34;immutable&#34;</span><span class=p>;</span>
 
 <span class=c1>//s1, s2, s3는 내부적으로 버퍼를 가지고 있지않기 때문에 a와 같은 버퍼를 참조한다.
 </span><span class=c1>//만약, string이 StringBuilder처럼 작동을 한다면...
@@ -145,10 +176,24 @@ C#_string_StringBuilder
 </span><span class=c1></span><span class=kt>string</span> <span class=n>s1</span> <span class=p>=</span> <span class=n>a</span><span class=p>;</span>
 <span class=kt>string</span> <span class=n>s2</span> <span class=p>=</span> <span class=n>b</span><span class=p>;</span>
 <span class=kt>string</span> <span class=n>s3</span> <span class=p>=</span> <span class=n>c</span><span class=p>;</span>
-</code></pre></div><ul>
-<li>멀티스레드 환경에서 string이 StringBuilder보다 안전하다.<br></li>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>멀티스레드 환경에서 string이 StringBuilder보다 안전하다.</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=kt>string</span> <span class=n>s</span> <span class=p>=</span> <span class=s>&#34;a&#34;</span> <span class=p>+</span> <span class=s>&#34;b&#34;</span> <span class=p>+</span> <span class=s>&#34;c&#34;</span><span class=p>;</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=kt>string</span> <span class=n>s</span> <span class=p>=</span> <span class=s>&#34;a&#34;</span> <span class=p>+</span> <span class=s>&#34;b&#34;</span> <span class=p>+</span> <span class=s>&#34;c&#34;</span><span class=p>;</span>
 <span class=c1>//string을 조합할 때는 연산의 최소 단위인 원자적 연산을 하기 때문에 스레드가 연산 중간에 간섭할 수 없어 값이 변할 위험이 없다.
 </span><span class=c1></span>
 <span class=n>StringBuilder</span> <span class=n>sb</span> <span class=p>=</span> <span class=k>new</span> <span class=n>StringBuilder</span><span class=p>();</span>
@@ -156,7 +201,9 @@ C#_string_StringBuilder
 <span class=n>sb</span><span class=p>.</span><span class=n>Append</span><span class=p>(</span><span class=s>&#34;b&#34;</span><span class=p>);</span>
 <span class=n>sb</span><span class=p>.</span><span class=n>Append</span><span class=p>(</span><span class=s>&#34;c&#34;</span><span class=p>);</span>
 <span class=c1>//StringBuilder로 조합할 경우에는 원자적 연산이 아니기 때문에 멀티스레드 환경에서 값이 변형될 위험이 있다.
-</span></code></pre></div>
+</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <footer class=post-footer><div class=post-license-info>
 <a rel=license href=https://creativecommons.org/licenses/by-sa/4.0/deed.ko target=_blank>

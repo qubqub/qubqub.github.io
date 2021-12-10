@@ -167,17 +167,17 @@ taxonomies:
   tag: tags
   series: series
 markup:
-  goldmark:
-    renderer:
-      unsafe: true
-    # highlight:
-    #     # anchorLineNos: true
-    #     codeFences: true
-    #     guessSyntax: true
-    #     lineNos: true
-    #     # noClasses: false
-    #     style: monokai
-    #     # pygmentsUseClasses: true
+  # goldmark:
+  #   renderer:
+  #     unsafe: true
+  highlight:
+    # anchorLineNos: true
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    # noClasses: false
+    style: monokai
+    # pygmentsUseClasses: true
 privacy:
   vimeo:
     disabled: false
