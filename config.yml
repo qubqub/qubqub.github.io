@@ -3,11 +3,12 @@ title: <Qutrits/>
 paginate: 5
 theme: PaperMod
 
+enableInlineShortcodes: true
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
-
+enableEmoji: true
 # googleAnalytics: UA-123-45
 disqusShortname: https-qutrits-github-io
 
@@ -161,6 +162,10 @@ menu:
       weight: 90
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
 markup:
   goldmark:
     renderer:
@@ -173,3 +178,25 @@ markup:
     #     # noClasses: false
     #     style: monokai
     #     # pygmentsUseClasses: true
+privacy:
+  vimeo:
+    disabled: false
+    simple: true
+
+  twitter:
+    disabled: false
+    enableDNT: true
+    simple: true
+
+  instagram:
+    disabled: false
+    simple: true
+
+  youtube:
+    disabled: false
+    privacyEnhanced: true
+services:
+  instagram:
+    disableInlineCSS: true
+  twitter:
+    disableInlineCSS: true

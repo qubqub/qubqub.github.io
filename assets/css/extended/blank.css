@@ -461,6 +461,12 @@ header.header {
   -webkit-font-smoothing: antialiased;
 }
 
+.post-content a code {
+  margin: auto 0;
+  border-radius: 0 !important;
+  box-shadow: 0 -1px 0 var(--primary)inset;
+}
+
 .post-content code:not(.hljs) {
   font-family: "CascadiaCode", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace !important;
   white-space: nowrap;
@@ -468,7 +474,7 @@ header.header {
   border-radius: 4px;
   vertical-align: text-top;
   font-size: .8em;
-  padding: .2em .4em;
+  /* padding: .2em .4em; */
 }
 
 .post-content .highlight pre code .hljs-comment {

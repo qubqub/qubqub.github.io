@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://qutrits.github.io/sitemap.xml
