@@ -20,6 +20,6 @@ menu:
     url: "/tags/jpa/"
     cover:
       hidden: false
-      image: ""
-      alt: ""
+      image: "/logo/logo-jpa.png"
+      alt: "JAP"
 ---
