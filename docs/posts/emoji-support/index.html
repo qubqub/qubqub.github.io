@@ -33,7 +33,7 @@
 <meta name=twitter:title content="Emoji Support">
 <meta name=twitter:description content="Guide to emoji usage in Hugo">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://qutrits.github.io/posts/"},{"@type":"ListItem","position":2,"name":"Emoji Support","item":"https://qutrits.github.io/posts/emoji-support/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Emoji Support","name":"Emoji Support","description":"Guide to emoji usage in Hugo","keywords":["emoji"],"articleBody":"Emoji can be enabled in a Hugo project in a number of ways.\nThe emojify function can be called directly in templates or Inline Shortcodes.\nTo enable emoji globally, set enableEmoji to true in your site’s configuration and then you can type emoji shorthand codes directly in content files; e.g.\nThe Emoji cheat sheet is a useful reference for emoji shorthand codes.\n N.B. The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.\n1 2 3  .emoji { font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols; }  ","wordCount":"126","inLanguage":"en","datePublished":"2019-03-05T00:00:00Z","dateModified":"2019-03-05T00:00:00Z","author":{"@type":"Person","name":"Hugo Authors"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/posts/emoji-support/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.png"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Emoji Support","name":"Emoji Support","description":"Guide to emoji usage in Hugo","keywords":["emoji"],"articleBody":"Emoji can be enabled in a Hugo project in a number of ways.\nThe emojify function can be called directly in templates or Inline Shortcodes.\nTo enable emoji globally, set enableEmoji to true in your site’s configuration and then you can type emoji shorthand codes directly in content files; e.g.\n🙈 :see_no_evil: 🙉 :hear_no_evil: 🙊 :speak_no_evil:\nThe Emoji cheat sheet is a useful reference for emoji shorthand codes.\n N.B. The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.\n.emoji { font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols; }","wordCount":"129","inLanguage":"en","datePublished":"2019-03-05T00:00:00Z","dateModified":"2019-03-05T00:00:00Z","author":{"@type":"Person","name":"Hugo Authors"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/posts/emoji-support/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.png"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -88,21 +88,14 @@ Guide to emoji usage in Hugo
 <div class=post-content><p>Emoji can be enabled in a Hugo project in a number of ways.</p>
 <p>The <a href=https://gohugo.io/functions/emojify/><code>emojify</code></a> function can be called directly in templates or <a href=https://gohugo.io/templates/shortcode-templates/#inline-shortcodes>Inline Shortcodes</a>.</p>
 <p>To enable emoji globally, set <code>enableEmoji</code> to <code>true</code> in your site&rsquo;s <a href=https://gohugo.io/getting-started/configuration/>configuration</a> and then you can type emoji shorthand codes directly in content files; e.g.</p>
+<p><span class=nowrap><span class=emojify>🙈</span> <code>:see_no_evil:</code></span> <span class=nowrap><span class=emojify>🙉</span> <code>:hear_no_evil:</code></span> <span class=nowrap><span class=emojify>🙊</span> <code>:speak_no_evil:</code></span></p>
+<br>
 <p>The <a href=http://www.emoji-cheat-sheet.com/>Emoji cheat sheet</a> is a useful reference for emoji shorthand codes.</p>
 <hr>
 <p><strong>N.B.</strong> The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-html data-lang=html>.emoji {
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html>.emoji {
 font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
-}</code></pre></td></tr></table>
-</div>
-</div>
+}</code></pre></div>
 </div>
 <footer class=post-footer><div class=post-license-info>
 <a rel=license href=https://creativecommons.org/licenses/by-sa/4.0/deed.ko target=_blank>

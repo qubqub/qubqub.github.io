@@ -5,8 +5,10 @@
 <meta name=robots content="index, follow">
 <title>Draw Call: 드로우콜(1) | &lt;Qutrits/></title>
 <meta name=keywords content="unity,DrawCall,Batch">
-<meta name=description content="오늘 비대면 면접을 보았는데, 이전 프로젝트에서 드로우콜을 줄이려는 노력을 했냐고 물어보셨다.나는 딱히 드로우콜에 대해서 생각을 해본 적이 별로 없어서 없다고 말했지만, 이 부분에 대해 좀 더 알 필요가 있다고 생각했다. 그래서 오늘의 공부는 드로우콜!
-Draw Call이 뭐야? 🧐  간단 요약 정의: CPU가 GPU에 오브젝트를 그리라는 명령을 호출하는 것.  💚세부 설명
+<meta name=description content="오늘 비대면 면접을 보았는데, 이전 프로젝트에서 드로우콜을 줄이려는 노력을 했냐고 물어보셨다.
+나는 딱히 드로우콜에 대해서 생각을 해본 적이 별로 없어서 없다고 말했지만, 이 부분에 대해 좀 더 알 필요가 있다고 생각했다. 그래서 오늘의 공부는 드로우콜!
+Draw Call이 뭐야? 🧐  간단 요약 정의: CPU가 GPU에 오브젝트를 그리라는 명령을 호출하는 것.
+  💚세부 설명
  오브젝트가 실제 화면에 렌더링 되려면 CPU -> GPU 정보 전달 필요함. 정보: 메시, 텍스처, 쉐이더, 트랜스폼, 알파블렌딩 여부 등이 존재.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/posts/2021_11_25_02/>
@@ -26,8 +28,10 @@ Draw Call이 뭐야? 🧐  간단 요약 정의: CPU가 GPU에 오브젝트를 �
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script defer crossorigin=anonymous src=/assets/js/extended/custom.min.76e2092388e545844a8822b31cda7a5c9593612d0d69514f4a51b8400a8af7ca.js integrity="sha256-duIJI4jlRYRKiCKzHNp6XJWTYS0NaVFPSlG4QAqK98o="></script><meta property="og:title" content="Draw Call: 드로우콜(1)">
-<meta property="og:description" content="오늘 비대면 면접을 보았는데, 이전 프로젝트에서 드로우콜을 줄이려는 노력을 했냐고 물어보셨다.나는 딱히 드로우콜에 대해서 생각을 해본 적이 별로 없어서 없다고 말했지만, 이 부분에 대해 좀 더 알 필요가 있다고 생각했다. 그래서 오늘의 공부는 드로우콜!
-Draw Call이 뭐야? 🧐  간단 요약 정의: CPU가 GPU에 오브젝트를 그리라는 명령을 호출하는 것.  💚세부 설명
+<meta property="og:description" content="오늘 비대면 면접을 보았는데, 이전 프로젝트에서 드로우콜을 줄이려는 노력을 했냐고 물어보셨다.
+나는 딱히 드로우콜에 대해서 생각을 해본 적이 별로 없어서 없다고 말했지만, 이 부분에 대해 좀 더 알 필요가 있다고 생각했다. 그래서 오늘의 공부는 드로우콜!
+Draw Call이 뭐야? 🧐  간단 요약 정의: CPU가 GPU에 오브젝트를 그리라는 명령을 호출하는 것.
+  💚세부 설명
  오브젝트가 실제 화면에 렌더링 되려면 CPU -> GPU 정보 전달 필요함. 정보: 메시, 텍스처, 쉐이더, 트랜스폼, 알파블렌딩 여부 등이 존재.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://qutrits.github.io/posts/2021_11_25_02/"><meta property="article:section" content="posts">
@@ -35,11 +39,13 @@ Draw Call이 뭐야? 🧐  간단 요약 정의: CPU가 GPU에 오브젝트를 �
 <meta property="article:modified_time" content="2021-11-24T23:19:40+09:00">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Draw Call: 드로우콜(1)">
-<meta name=twitter:description content="오늘 비대면 면접을 보았는데, 이전 프로젝트에서 드로우콜을 줄이려는 노력을 했냐고 물어보셨다.나는 딱히 드로우콜에 대해서 생각을 해본 적이 별로 없어서 없다고 말했지만, 이 부분에 대해 좀 더 알 필요가 있다고 생각했다. 그래서 오늘의 공부는 드로우콜!
-Draw Call이 뭐야? 🧐  간단 요약 정의: CPU가 GPU에 오브젝트를 그리라는 명령을 호출하는 것.  💚세부 설명
+<meta name=twitter:description content="오늘 비대면 면접을 보았는데, 이전 프로젝트에서 드로우콜을 줄이려는 노력을 했냐고 물어보셨다.
+나는 딱히 드로우콜에 대해서 생각을 해본 적이 별로 없어서 없다고 말했지만, 이 부분에 대해 좀 더 알 필요가 있다고 생각했다. 그래서 오늘의 공부는 드로우콜!
+Draw Call이 뭐야? 🧐  간단 요약 정의: CPU가 GPU에 오브젝트를 그리라는 명령을 호출하는 것.
+  💚세부 설명
  오브젝트가 실제 화면에 렌더링 되려면 CPU -> GPU 정보 전달 필요함. 정보: 메시, 텍스처, 쉐이더, 트랜스폼, 알파블렌딩 여부 등이 존재.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://qutrits.github.io/posts/"},{"@type":"ListItem","position":2,"name":"Draw Call: 드로우콜(1)","item":"https://qutrits.github.io/posts/2021_11_25_02/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Draw Call: 드로우콜(1)","name":"Draw Call: 드로우콜(1)","description":"오늘 비대면 면접을 보았는데, 이전 프로젝트에서 드로우콜을 줄이려는 노력을 했냐고 물어보셨다.나는 딱히 드로우콜에 대해서 생각을 해본 적이 별로 없어서 없다고 말했지만, 이 부분에 대해 좀 더 알 필요가 있다고 생각했다. 그래서 오늘의 공부는 드로우콜!\nDraw Call이 뭐야? 🧐  간단 요약 정의: CPU가 GPU에 오브젝트를 그리라는 명령을 호출하는 것.  💚세부 설명\n 오브젝트가 실제 화면에 렌더링 되려면 CPU -\u0026gt; GPU 정보 전달 필요함. 정보: 메시, 텍스처, 쉐이더, 트랜스폼, 알파블렌딩 여부 등이 존재.","keywords":["unity","DrawCall","Batch"],"articleBody":"오늘 비대면 면접을 보았는데, 이전 프로젝트에서 드로우콜을 줄이려는 노력을 했냐고 물어보셨다.나는 딱히 드로우콜에 대해서 생각을 해본 적이 별로 없어서 없다고 말했지만, 이 부분에 대해 좀 더 알 필요가 있다고 생각했다. 그래서 오늘의 공부는 드로우콜!\nDraw Call이 뭐야? 🧐  간단 요약 정의: CPU가 GPU에 오브젝트를 그리라는 명령을 호출하는 것.  💚세부 설명\n 오브젝트가 실제 화면에 렌더링 되려면 CPU - GPU 정보 전달 필요함. 정보: 메시, 텍스처, 쉐이더, 트랜스폼, 알파블렌딩 여부 등이 존재. CPU 메모리에서 GPU 메모리로 위의 정보 데이터들의 복사가 이루워짐.(게임 수행 내내 데이터는 메모리에 상주) GPU에는 렌더링 할 것의 상태 정보를 담는 테이블이 존재.(Render States: GPU 메모리의 데이터 위치 정보 보유) 새로운 오브젝트를 그릴 때 마다 상태 변경 CPU - GPU로 상태 변경 명령을 내림.(변경이 필요한 부분만) CPU - GPU로 상태 변경 명령(render state change) + 렌더 명령(Draw Primitive Call(DP Call)) = 드로우콜 CPU - 커맨드 버퍼(Command Buffer) - GPU 순으로 명령이 이루워짐.  Draw Call이 많으면 무엇이 문제일까? 🧐  명령을 GPU에서 사용하는 신호로 변환해야하기 때문에 CPU에 부담이 된다.(CPU 오버헤드)  어떻게 해야할까? 🧐  렌더링에 관련된 작업들을 별도의 쓰레드에서 수행하게한다.(Multithreaded Rendering)  드로우콜을 줄인다.  ⚠️주의⚠️\n드로우콜을 줄이는 데에는 텍스쳐의 크기 또는 폴리곤의 수를 줄이는 것과 관련이 없다!\nDraw Call은 어떻게 발생되는 걸까? 🧐 보통 오브젝트를 그릴 때 Mesh가 1개, Material이 1개일 경우 드로우콜이 한 번 일어난다.\n Mesh가 여러 개인 경우 Material이 여러 개인 경우 Shader에 따라서…   ⚠️주의⚠️\n수많은 상태 변경들을 포함하기 때문에 드로우콜의 비용은 개당으로 계산하기 어렵다.\n참고자료: 유니티 그래픽스 최적화 스타트업\n","wordCount":"228","inLanguage":"en","datePublished":"2021-11-24T23:19:40+09:00","dateModified":"2021-11-24T23:19:40+09:00","author":[{"@type":"Person","name":"Kyungchul Shin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/posts/2021_11_25_02/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.png"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Draw Call: 드로우콜(1)","name":"Draw Call: 드로우콜(1)","description":"오늘 비대면 면접을 보았는데, 이전 프로젝트에서 드로우콜을 줄이려는 노력을 했냐고 물어보셨다.\n나는 딱히 드로우콜에 대해서 생각을 해본 적이 별로 없어서 없다고 말했지만, 이 부분에 대해 좀 더 알 필요가 있다고 생각했다. 그래서 오늘의 공부는 드로우콜!\nDraw Call이 뭐야? 🧐  간단 요약 정의: CPU가 GPU에 오브젝트를 그리라는 명령을 호출하는 것.\n  💚세부 설명\n 오브젝트가 실제 화면에 렌더링 되려면 CPU -\u0026gt; GPU 정보 전달 필요함. 정보: 메시, 텍스처, 쉐이더, 트랜스폼, 알파블렌딩 여부 등이 존재.","keywords":["unity","DrawCall","Batch"],"articleBody":"오늘 비대면 면접을 보았는데, 이전 프로젝트에서 드로우콜을 줄이려는 노력을 했냐고 물어보셨다.\n나는 딱히 드로우콜에 대해서 생각을 해본 적이 별로 없어서 없다고 말했지만, 이 부분에 대해 좀 더 알 필요가 있다고 생각했다. 그래서 오늘의 공부는 드로우콜!\nDraw Call이 뭐야? 🧐  간단 요약 정의: CPU가 GPU에 오브젝트를 그리라는 명령을 호출하는 것.\n  💚세부 설명\n 오브젝트가 실제 화면에 렌더링 되려면 CPU - GPU 정보 전달 필요함. 정보: 메시, 텍스처, 쉐이더, 트랜스폼, 알파블렌딩 여부 등이 존재. CPU 메모리에서 GPU 메모리로 위의 정보 데이터들의 복사가 이루워짐.(게임 수행 내내 데이터는 메모리에 상주) GPU에는 렌더링 할 것의 상태 정보를 담는 테이블이 존재.(Render States: GPU 메모리의 데이터 위치 정보 보유) 새로운 오브젝트를 그릴 때 마다 상태 변경 CPU - GPU로 상태 변경 명령을 내림.(변경이 필요한 부분만) CPU - GPU로 상태 변경 명령(render state change) + 렌더 명령(Draw Primitive Call(DP Call)) = 드로우콜 CPU - 커맨드 버퍼(Command Buffer) - GPU 순으로 명령이 이루워짐.  Draw Call이 많으면 무엇이 문제일까? 🧐  명령을 GPU에서 사용하는 신호로 변환해야하기 때문에 CPU에 부담이 된다.(CPU 오버헤드)  어떻게 해야할까? 🧐  렌더링에 관련된 작업들을 별도의 쓰레드에서 수행하게한다.(Multithreaded Rendering)  드로우콜을 줄인다.  ⚠️주의⚠️\n드로우콜을 줄이는 데에는 텍스쳐의 크기 또는 폴리곤의 수를 줄이는 것과 관련이 없다!\nDraw Call은 어떻게 발생되는 걸까? 🧐 보통 오브젝트를 그릴 때 Mesh가 1개, Material이 1개일 경우 드로우콜이 한 번 일어난다.\n Mesh가 여러 개인 경우 Material이 여러 개인 경우 Shader에 따라서…   ⚠️주의⚠️\n수많은 상태 변경들을 포함하기 때문에 드로우콜의 비용은 개당으로 계산하기 어렵다.\n참고자료: 유니티 그래픽스 최적화 스타트업\n","wordCount":"229","inLanguage":"en","datePublished":"2021-11-24T23:19:40+09:00","dateModified":"2021-11-24T23:19:40+09:00","author":[{"@type":"Person","name":"Kyungchul Shin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/posts/2021_11_25_02/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.png"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -108,11 +114,11 @@ Draw Call: 드로우콜(1)
 </div>
 </details>
 </div>
-<div class=post-content><p>오늘 비대면 면접을 보았는데, 이전 프로젝트에서 <code>드로우콜</code>을 줄이려는 노력을 했냐고 물어보셨다.
-나는 딱히 <code>드로우콜</code>에 대해서 생각을 해본 적이 별로 없어서 없다고 말했지만, 이 부분에 대해 좀 더 알 필요가 있다고 생각했다. 그래서 오늘의 공부는 <code>드로우콜</code>!</p>
+<div class=post-content><p>오늘 비대면 면접을 보았는데, 이전 프로젝트에서 <code>드로우콜</code>을 줄이려는 노력을 했냐고 물어보셨다.<br>
+나는 딱히 <code>드로우콜</code>에 대해서 생각을 해본 적이 별로 없어서 없다고 말했지만, 이 부분에 대해 좀 더 알 필요가 있다고 생각했다. <br>그래서 오늘의 공부는 <code>드로우콜</code>!</p>
 <h2 id=hahahugoshortcode-s0-hbhb이-뭐야-><span style=color:#ffd400>Draw Call</span>이 뭐야? 🧐<a hidden class=anchor aria-hidden=true href=#hahahugoshortcode-s0-hbhb이-뭐야->#</a></h2>
 <ul>
-<li>간단 요약 정의: CPU가 GPU에 오브젝트를 그리라는 명령을 호출하는 것.</li>
+<li>간단 요약 정의: CPU가 GPU에 오브젝트를 그리라는 명령을 호출하는 것.<br></li>
 </ul>
 <p>💚세부 설명</p>
 <ol>
@@ -124,10 +130,12 @@ Draw Call: 드로우콜(1)
 <li>CPU -> GPU로 상태 변경 명령(<code>render state change</code>) + 렌더 명령(<code>Draw Primitive Call(DP Call)</code>) = <code>드로우콜</code></li>
 <li>CPU -> 커맨드 버퍼(<code>Command Buffer</code>) -> GPU 순으로 명령이 이루워짐.</li>
 </ol>
+<br>
 <h2 id=hahahugoshortcode-s1-hbhb이-많으면-무엇이-문제일까-><span style=color:#ffd400>Draw Call</span>이 많으면 무엇이 문제일까? 🧐<a hidden class=anchor aria-hidden=true href=#hahahugoshortcode-s1-hbhb이-많으면-무엇이-문제일까->#</a></h2>
 <ul>
 <li>명령을 GPU에서 사용하는 신호로 변환해야하기 때문에 CPU에 부담이 된다.(CPU 오버헤드)</li>
 </ul>
+<br>
 <h2 id=어떻게-해야할까->어떻게 해야할까? 🧐<a hidden class=anchor aria-hidden=true href=#어떻게-해야할까->#</a></h2>
 <ul>
 <li>렌더링에 관련된 작업들을 별도의 쓰레드에서 수행하게한다.(<code>Multithreaded Rendering</code>)
@@ -135,18 +143,23 @@ Draw Call: 드로우콜(1)
 </li>
 <li>드로우콜을 줄인다.</li>
 </ul>
+<br>
 <p>⚠️주의⚠️</p>
+<br>
 <p>드로우콜을 줄이는 데에는 텍스쳐의 크기 또는 폴리곤의 수를 줄이는 것과 관련이 없다!</p>
+<br>
 <h2 id=hahahugoshortcode-s2-hbhb은-어떻게-발생되는-걸까-><span style=color:#ffd400>Draw Call</span>은 어떻게 발생되는 걸까? 🧐<a hidden class=anchor aria-hidden=true href=#hahahugoshortcode-s2-hbhb은-어떻게-발생되는-걸까->#</a></h2>
 <p>보통 오브젝트를 그릴 때 Mesh가 1개, Material이 1개일 경우 드로우콜이 한 번 일어난다.</p>
 <ol>
 <li><code>Mesh</code>가 여러 개인 경우</li>
 <li><code>Material</code>이 여러 개인 경우</li>
 <li><code>Shader</code>에 따라서&mldr;
-</li>
+<br></li>
 </ol>
 <p>⚠️주의⚠️</p>
+<br>
 <p><strong>수많은 상태 변경들을 포함</strong>하기 때문에 드로우콜의 비용은 개당으로 계산하기 어렵다.</p>
+<br>
 <p>참고자료: 유니티 그래픽스 최적화 스타트업</p>
 </div>
 <footer class=post-footer><div class=post-license-info>
