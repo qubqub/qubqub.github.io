@@ -175,9 +175,8 @@ markup:
     codeFences: true
     guessSyntax: true
     lineNos: true
-    # noClasses: false
+    # noClasses: true
     style: monokai
-    # pygmentsUseClasses: true
 privacy:
   vimeo:
     disabled: false
