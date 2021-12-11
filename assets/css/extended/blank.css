@@ -685,7 +685,11 @@ header.header {
   .post-content .highlight pre code.language-flutter,
   .post-content .highlight pre code.language-scala,
   .post-content .highlight pre code.language-clojure,
-  .post-content .highlight pre code.language-dart {
+  .post-content .highlight pre code.language-dart,
+  .post-content .highlight pre code.language-shell,
+  .post-content .highlight pre code.language-yml,
+  .post-content .highlight pre code.language-text,
+  .post-content .highlight pre code.language-bash {
     font-size: 50% !important;
   }
 
