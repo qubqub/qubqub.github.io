@@ -1,14 +1,20 @@
 ---
 author: "Hugo Authors"
-title: "Markdown Syntax Guide"
+title: "Markdown Syntax Guide For L2"
 date: "2019-03-11"
 description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags: ["markdown", "css", "html", "themes"]
 categories: ["themes", "syntax"]
 series: ["Themes Guide"]
 aliases: ["migrate-from-jekyl"]
+ShowReadingTime: true
+ShowBreadCrumbs: true
+ShowPostNavLinks: true
+ShowCodeCopyButtons: true
+ShowCreativeCommons: true
 ShowToc: true
-TocOpen: true
+TocOpen: false
+weight: 2
 ---
 
 This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.
@@ -48,8 +54,7 @@ The blockquote element represents content that is quoted from another source, op
 
 #### Blockquote with attribution
 
-> Don't communicate by sharing memory, share memory by communicating.
->
+> Don't communicate by sharing memory, share memory by communicating.<br>
 > — <cite>Rob Pike[^1]</cite>
 
 [^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.
@@ -114,10 +119,6 @@ Tables aren't part of the core Markdown spec, but Hugo supports supports them ou
 </body>
 </html>
 {{< /highlight >}}
-
-#### Gist
-
-{{< gist spf13 7896402 >}}
 
 ## List Types
 

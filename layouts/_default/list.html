@@ -1,172 +1,172 @@
 {{- define "main" }}
 
-{{- if (and .Site.Params.profileMode.enabled .IsHome) }}
-{{- partial "index_profile.html" . }}
-{{- else }} {{/* if not profileMode */}}
+  {{- if (and .Site.Params.profileMode.enabled .IsHome) }}
+    {{- partial "index_profile.html" . }}
+  {{- else }} {{/* if not profileMode */}}
 
-{{- if not .IsHome | and .Title }}
-<header class="page-header">
-  {{- partial "breadcrumbs.html" . }}
-  <h1>{{ .Title }}</h1>
-  {{- if .Description }}
-  <div class="post-description">
-    {{ .Description | markdownify }}
-  </div>
-  {{- end }}
-</header>
-{{- end }}
+    {{- if not .IsHome | and .Title }}
+      <header class="page-header">
+        {{- partial "breadcrumbs.html" . }}
+        <h1>{{ .Title }}</h1>
+        {{- if .Description }}
+        <div class="post-description">
+          {{ .Description | markdownify }}
+        </div>
+        {{- end }}
+      </header>
+    {{- end }}
 
-{{- if .Content }}
-<div class="post-content">
-  {{- if not (.Param "disableAnchoredHeadings") }}
-  {{- partial "anchored_headings.html" .Content -}}
-  {{- else }}{{ .Content }}{{ end }}
-</div>
-{{- end }}
+    {{- if .Content }}
+      <div class="post-content">
+        {{- if not (.Param "disableAnchoredHeadings") }}
+        {{- partial "anchored_headings.html" .Content -}}
+        {{- else }}{{ .Content }}{{ end }}
+      </div>
+    {{- end }}
 
-{{- $pages := union .RegularPages .Sections }}
+    {{- $pages := union .RegularPages .Sections }}
 
-{{- if .IsHome }}
-{{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
-{{- end }}
+    {{- if .IsHome }}
+      {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+    {{- end }}
 
-{{- $paginator := .Paginate $pages }}
+    {{- $paginator := .Paginate $pages }}
 
-{{- if and .IsHome .Site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
-{{- partial "home_info.html" . }}
-{{- end }}
+    {{- if and .IsHome .Site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
+      {{- partial "home_info.html" . }}
+    {{- end }}
 
-{{- $term := .Data.Term }}
-{{- range $index, $page := $paginator.Pages }}
+    {{- $term := .Data.Term }}
+    {{- range $index, $page := $paginator.Pages }}
 
-{{- $class := "post-entry" }}
+      {{- $class := "post-entry" }}
 
-{{- $user_preferred := or .Site.Params.disableSpecial1stPost .Site.Params.homeInfoParams }}
-{{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
-{{- $class = "first-entry" }}
-{{- else if $term }}
-{{- $class = "post-entry tag-entry" }}
-{{- end }}
+      {{- $user_preferred := or .Site.Params.disableSpecial1stPost .Site.Params.homeInfoParams }}
+      {{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
+        {{- $class = "first-entry" }}
+      {{- else if $term }}
+        {{- $class = "post-entry tag-entry" }}
+      {{- end }}
 
-<article class="{{ $class }}">
-  {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
-  {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
-  <header class="entry-header">
-    <h2>
-      {{- .Title }}
-      {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
-    </h2>
-  </header>
-  {{- if (ne (.Param "hideSummary") true) }}
-  <section class="entry-content">
-    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-  </section>
-  {{- end }}
-  {{- if not (.Param "hideMeta") }}
-  <footer class="entry-footer">
-    {{- partial "post_meta.html" . -}}
-    {{- partial "post_tags.html" . -}}
-  </footer>
-  {{- end }}
-  <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-</article>
-{{- end }}
+      <article class="{{ $class }}">
+        {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
+        {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
+        <header class="entry-header">
+          <h2>
+            {{- .Title }}
+            {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+          </h2>
+        </header>
+        {{- if (ne (.Param "hideSummary") true) }}
+        <section class="entry-content">
+          <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+        </section>
+        {{- end }}
+        {{- if not (.Param "hideMeta") }}
+        <footer class="entry-footer">
+          {{- partial "post_meta.html" . -}}
+          {{- partial "post_tags.html" . -}}
+        </footer>
+        {{- end }}
+        <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+      </article>
+    {{- end }}
 
-{{- if gt $paginator.TotalPages 1 }}
-<footer class="page-footer">
-  <nav class="pagination">
-    <ul class="pagination">
-    {{ if ne $paginator.PageNumber 1 }}
-    <li class="pagination__item pagination__item--first">
-      <a class="pagination__link pagination__link--first" href="{{ $paginator.First.URL | absURL }}">
-        ««
-      </a>
-    </li>
-    {{ end }}
-
-    {{ if $paginator.HasPrev }}
-    <li class="pagination__item pagination__item--previous">
-      <a href="{{ $paginator.Prev.URL | absURL }}" class="pagination__link pagination__link--previous">
-        « {{ i18n "prev_page" }}
-      </a>
-    </li>
-    {{ end }}
-
-    {{ $paginator := .Paginator }}
-
-    {{ $adjacent_links := 2 }}
-    
-    {{ $max_links := (add (mul $adjacent_links 2) 1) }}
-    
-    {{ $lower_limit := (add $adjacent_links 1) }}
-    
-    {{ $upper_limit := (sub $paginator.TotalPages $adjacent_links) }}
-    
-    {{ range $paginator.Pagers }}
-    
-      {{ $.Scratch.Set "page_number_flag" false }}
-
-      {{ if gt $paginator.TotalPages $max_links }}
-
-        {{ if le $paginator.PageNumber $lower_limit }}
-
-          {{ if le .PageNumber $max_links }}
-            {{ $.Scratch.Set "page_number_flag" true }}
+    {{- if gt $paginator.TotalPages 1 }}
+      <footer class="page-footer">
+        <nav class="pagination">
+          <ul class="pagination">
+          {{ if ne $paginator.PageNumber 1 }}
+          <li class="pagination__item pagination__item--first">
+            <a class="pagination__link pagination__link--first" href="{{ $paginator.First.URL | absURL }}">
+              ««
+            </a>
+          </li>
           {{ end }}
 
-        {{ else if ge $paginator.PageNumber $upper_limit }}
-
-          {{ if gt .PageNumber (sub $paginator.TotalPages $max_links) }}
-            {{ $.Scratch.Set "page_number_flag" true }}
+          {{ if $paginator.HasPrev }}
+          <li class="pagination__item pagination__item--previous">
+            <a href="{{ $paginator.Prev.URL | absURL }}" class="pagination__link pagination__link--previous">
+              « {{ i18n "prev_page" }}
+            </a>
+          </li>
           {{ end }}
 
-        {{ else }}
+          {{ $paginator := .Paginator }}
+
+          {{ $adjacent_links := 2 }}
           
-          {{ if and ( ge .PageNumber (sub $paginator.PageNumber $adjacent_links) ) ( le .PageNumber (add $paginator.PageNumber $adjacent_links) ) }}
-            {{ $.Scratch.Set "page_number_flag" true }}
+          {{ $max_links := (add (mul $adjacent_links 2) 1) }}
+          
+          {{ $lower_limit := (add $adjacent_links 1) }}
+          
+          {{ $upper_limit := (sub $paginator.TotalPages $adjacent_links) }}
+          
+          {{ range $paginator.Pagers }}
+          
+            {{ $.Scratch.Set "page_number_flag" false }}
+
+            {{ if gt $paginator.TotalPages $max_links }}
+
+              {{ if le $paginator.PageNumber $lower_limit }}
+
+                {{ if le .PageNumber $max_links }}
+                  {{ $.Scratch.Set "page_number_flag" true }}
+                {{ end }}
+
+              {{ else if ge $paginator.PageNumber $upper_limit }}
+
+                {{ if gt .PageNumber (sub $paginator.TotalPages $max_links) }}
+                  {{ $.Scratch.Set "page_number_flag" true }}
+                {{ end }}
+
+              {{ else }}
+                
+                {{ if and ( ge .PageNumber (sub $paginator.PageNumber $adjacent_links) ) ( le .PageNumber (add $paginator.PageNumber $adjacent_links) ) }}
+                  {{ $.Scratch.Set "page_number_flag" true }}
+                {{ end }}
+
+              {{ end }}
+
+            {{ else }}
+
+              {{ $.Scratch.Set "page_number_flag" true }}
+
+            {{ end }}
+
+            {{ if eq ($.Scratch.Get "page_number_flag") true }}
+              <li class="pagination__item{{ if eq . $paginator }} pagination__item--current{{ end }}">
+                {{ if eq . $paginator }}
+                  <a>{{ .PageNumber }}</a>
+                {{ else }}
+                  <a href="{{ .URL }}" class="pagination__link">{{ .PageNumber }}</a>
+                {{ end }}
+              </li>
+            {{ end }}
+
+          {{ end }}
+          
+
+          {{ if $paginator.HasNext }}
+          <li class="pagination__item pagination__item--next">
+            <a href="{{ $paginator.Next.URL | absURL }}" class="pagination__link pagination__link--next">
+              {{ i18n "next_page" }} »
+            </a>
+          </li>
           {{ end }}
 
-        {{ end }}
-
-      {{ else }}
-
-        {{ $.Scratch.Set "page_number_flag" true }}
-
-      {{ end }}
-
-      {{ if eq ($.Scratch.Get "page_number_flag") true }}
-        <li class="pagination__item{{ if eq . $paginator }} pagination__item--current{{ end }}">
-          {{ if eq . $paginator }}
-            <a>{{ .PageNumber }}</a>
-          {{ else }}
-            <a href="{{ .URL }}" class="pagination__link">{{ .PageNumber }}</a>
+          {{ if ne $paginator.PageNumber $paginator.TotalPages }}
+          <li class="pagination__item pagination__item--last">
+            <a class="pagination__link pagination__link--last" href="{{ $paginator.Last.URL | absURL }}">
+              »»
+            </a>
+          </li>
           {{ end }}
-        </li>
-      {{ end }}
+        </ul>
+        </nav>
+      </footer>
+    {{- end }}
 
-    {{ end }}
-    
-
-    {{ if $paginator.HasNext }}
-    <li class="pagination__item pagination__item--next">
-      <a href="{{ $paginator.Next.URL | absURL }}" class="pagination__link pagination__link--next">
-        {{ i18n "next_page" }} »
-      </a>
-    </li>
-    {{ end }}
-
-    {{ if ne $paginator.PageNumber $paginator.TotalPages }}
-    <li class="pagination__item pagination__item--last">
-      <a class="pagination__link pagination__link--last" href="{{ $paginator.Last.URL | absURL }}">
-        »»
-      </a>
-    </li>
-    {{ end }}
-  </ul>
-  </nav>
-</footer>
-{{- end }}
-
-{{- end }}{{/* end profileMode */}}
+  {{- end }}{{/* end profileMode */}}
 
 {{- end }}{{- /* end main */ -}}

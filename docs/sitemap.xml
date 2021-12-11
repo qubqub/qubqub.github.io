@@ -8,10 +8,10 @@
     <loc>https://qutrits.github.io/posts/papermod/papermod-features/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://qutrits.github.io/posts/markdown-syntax.fr/</loc>
+    <loc>https://qutrits.github.io/posts/themes-guide/markdown-syntax.fr/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://qutrits.github.io/posts/markdown-syntax.fa/</loc>
+    <loc>https://qutrits.github.io/posts/themes-guide/markdown-syntax.fa/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://qutrits.github.io/</loc>
@@ -155,7 +155,7 @@
     <loc>https://qutrits.github.io/posts/2021_11_19_02/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://qutrits.github.io/posts/markdown-syntax/</loc>
+    <loc>https://qutrits.github.io/posts/themes-guide/markdown-syntax/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://qutrits.github.io/categories/syntax/</loc>
@@ -201,5 +201,7 @@
     <loc>https://qutrits.github.io/links/</loc>
   </url><url>
     <loc>https://qutrits.github.io/collection/</loc>
+  </url><url>
+    <loc>https://qutrits.github.io/series-list/</loc>
   </url>
 </urlset>

@@ -302,7 +302,7 @@ ShowToc: true
 To keep Toc Open **by default** on a post add following to page-variables:
 
 ```yml
-TocOpen: true
+TocOpen: false
 ```
 
 ---

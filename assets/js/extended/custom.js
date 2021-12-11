@@ -1,4 +1,17 @@
-if (window.location.pathname.startsWith("/post/")) {
+if (window.location.pathname.startsWith("/posts/")) {
+  function series_toggle (_this, series) {
+    const _el = document.querySelector(".post-single .series-main .series-list");
+    if (_el.style.display==="none" || _el.style.display==="") {
+      localStorage.setItem("lock-series-"+series, false);
+      _this.innerText = "🔓";
+      _el.style.display = "block";
+    } else if (_el.style.display==="block") {
+      localStorage.setItem("lock-series-"+series, true);
+      _this.innerText = "🔒";
+      _el.style.display = "none";
+    }
+  }
+
   const mainToc = document.querySelector(".main .post-single>.toc");
   let tocIdList = [];
 
@@ -11,10 +24,11 @@ if (window.location.pathname.startsWith("/post/")) {
     const mainTocTop = mainToc?mainToc.offsetTop + mainToc.offsetParent.offsetTop - 1:0;
     const header = document.querySelector("header.header");
     const tocNode = document.querySelector(".main .toc");
+
     if (tocNode !== null) {
       const tocClone = tocNode.cloneNode(true);
       tocClone.classList.add("aside");
-      tocClone.querySelector("details").setAttribute("open", "");
+
       const tocList = tocClone.querySelectorAll(".inner ul>li");
 
       for (let i = 0; i < tocList.length; i++) {
@@ -29,7 +43,16 @@ if (window.location.pathname.startsWith("/post/")) {
 
       const _n = tocClone.querySelector("details summary .details");
       const _m = document.createElement("span");
-      const _o = document.createTextNode("🔓");
+      let _o = null;
+
+      if (localStorage.getItem("lock-aside-toc-"+window.location.pathname) === "true") {
+        tocClone.querySelector("details").removeAttribute("open");
+        _o = document.createTextNode("🔒");
+      } else {
+        tocClone.querySelector("details").setAttribute("open", "");
+        _o = document.createTextNode("🔓");
+      }
+
       _m.appendChild(_o);
       _m.classList.add("tocLock");
       _n.prepend(_m);
@@ -37,14 +60,18 @@ if (window.location.pathname.startsWith("/post/")) {
       tocClone.querySelector("details summary").addEventListener("click", e => {
         if (e.target.querySelector(".tocLock") === null) {
           if (e.target.innerText === "🔓") {
+            localStorage.setItem("lock-aside-toc-"+window.location.pathname, true);
             e.target.innerText = "🔒";
           } else {
+            localStorage.setItem("lock-aside-toc-"+window.location.pathname, false);
             e.target.innerText = "🔓";
           }
         } else {
           if (e.target.querySelector(".tocLock").innerText === "🔓") {
+            localStorage.setItem("lock-aside-toc-"+window.location.pathname, true);
             e.target.querySelector(".tocLock").innerText = "🔒";
           } else {
+            localStorage.setItem("lock-aside-toc-"+window.location.pathname, false);
             e.target.querySelector(".tocLock").innerText = "🔓";
           }
         }
@@ -207,13 +234,21 @@ if (window.location.pathname.startsWith("/post/")) {
     }
   }
 } else if (window.location.pathname.startsWith("/archives/")) {
-  function layer_toggle (elId, _this) {
+  window.onload = function() {
+    
+  }
+
+  function archives_toggle (elId, _this) {
     const _el = document.getElementById(elId);
     const _toggleEl = _this.querySelector(".toggle");   
     if (_el.style.display==="none" || _el.style.display==="") {
+      console.log("lock-archives-"+elId);
+      localStorage.setItem("lock-archives-"+elId, false);
       _toggleEl.innerText = "📂";
       _el.style.display = "block";
     } else if (_el.style.display==="block") {
+      console.log("lock-archives-"+elId);
+      localStorage.setItem("lock-archives-"+elId, true);
       _toggleEl.innerText = "📁";
       _el.style.display = "none";
     }

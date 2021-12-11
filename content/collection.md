@@ -7,6 +7,8 @@ url: "/collection/"
 summary: collection
 useCategory: false # Priority 1
 useTag: false # Priority 2
+cover:
+  hidden: false
 menu:
   - title: "📄 Effective Java 3/E"
     description: "Effective Java 3/E을 학습하면서 정리한 내용입니다."

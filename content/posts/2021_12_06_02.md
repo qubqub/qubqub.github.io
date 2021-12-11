@@ -9,7 +9,7 @@ ShowPostNavLinks: true
 ShowCodeCopyButtons: true
 ShowCreativeCommons: true
 showToc: true
-TocOpen: true
+TocOpen: false
 comments: true
 disableShare: false
 searchHidden: false

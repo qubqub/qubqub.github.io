@@ -9,7 +9,7 @@
       {{- end }}
     </header>
     {{- if .Params.useCategory }}
-      {{ range $.Site.Taxonomies.categories.ByCount }}
+      {{- range $.Site.Taxonomies.categories.ByCount }}
         {{- $name := .Name }}
         {{- $count := .Count }}
         {{- with $.Site.GetPage (printf "/%s/%s" "categories" $name) }}
@@ -25,7 +25,7 @@
         {{- end }}
       {{- end }}
     {{- else if .Params.useTag }}
-      {{ range $.Site.Taxonomies.tags.ByCount }}
+      {{- range $.Site.Taxonomies.tags.ByCount }}
         {{- $name := .Name }}
         {{- $count := .Count }}
         {{- with $.Site.GetPage (printf "/%s/%s" "tags" $name) }}
@@ -55,9 +55,9 @@
     {{- range .Params.menu }}
       <article class="post-entry" title="{{ .description }}">
         {{- if not .cover.hidden }}
-        <figure class="collection-cover">
-          <img loading="lazy" src="{{ (.cover.image) | absURL }}" alt="{{ .cover.alt }}">
-        </figure>
+          <figure class="collection-cover">
+            <img loading="lazy" src="{{ (.cover.image) | absURL }}" alt="{{ .cover.alt }}">
+          </figure>
         {{- end }}
         <header class="entry-header">
           <h2>{{ .title }}</h2>

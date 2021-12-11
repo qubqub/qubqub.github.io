@@ -174,7 +174,8 @@ header.header {
 
 .main .post-entry:hover,
 .main .archive-entry:hover,
-.terms-tags a:hover {
+.terms-tags a:hover,
+.series-main .series-control .page-button a:hover {
   transition: box-shadow 0.2s ease 0s, transform .1s;
   box-shadow: 0 0 0 1px var(--primary) inset;
   border-radius: var(--radius);
@@ -373,6 +374,150 @@ header.header {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.series-description {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  margin-inline-start: 1rem;
+}
+
+.series-sub-description {
+  margin-bottom: 8px;
+  margin-inline-start: 2rem;
+}
+
+.series-content-cover {
+  margin-bottom: var(--gap);
+  text-align: center;
+}
+
+.series-content-cover img {
+  border-radius: var(--radius);
+  pointer-events: none;
+  width: 75%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.series-main {
+  margin: 2rem 0.1rem 2rem;
+  padding: 2rem 1.5rem 1rem;
+  background: var(--code-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  position: relative;
+}
+
+.dark .series-main {
+  background: var(--entry);
+}
+
+.series-main h2 {
+  margin-top: 0px;
+  font-weight: bold;
+  padding-right: 2rem;
+  font-size: 1.6rem;
+}
+
+.series-main h2 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.series-main a:hover {
+  text-decoration: underline !important;
+}
+
+.series-main .series-corner-image {
+  position: absolute;
+  right: 1.5rem;
+  top: 0px;
+}
+
+.series-main ol {
+  padding-left: 0px;
+  font-size: 1.2rem;
+  counter-reset: item 0;
+  display: none;
+}
+
+.series-main ol li {
+  display: block;
+  line-height: 1.9rem;
+}
+
+.series-main ol li:before {
+  content: counter(item) ". ";
+  counter-increment: item 1;
+  color: var(--secondary);
+  font-style: italic;
+  margin-right: 0.25rem;
+}
+
+.series-main ol li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.series-main .series-control {
+  margin-top: 2.5rem;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.series-main .series-control .toggle {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-left: -5px;
+  line-height: 1;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.series-main .series-control .info {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.series-main .series-control .series-number {
+  font-size: 1.2rem;
+  color: rgb(173, 181, 189);
+}
+
+.series-main .series-control .page-button {
+  display: flex;
+  margin-left: 0.7rem;
+}
+
+.series-main .series-control .page-button .left a,
+.series-main .series-control .page-button .right a {
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  padding: 0px;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.series-main ol li a.current {
+  color: rgb(18, 184, 134);
+  font-weight: bold;
 }
 
 .main .page-footer .pagination a {
@@ -842,7 +987,8 @@ header.header {
   padding-inline-start: 8px;
   padding-inline-end: 8px;
   font-size: 0.9rem;
-  line-height: 25px;
+  line-height: 14px;
+  margin: 0;
 }
 
 .post-footer .post-license-info {

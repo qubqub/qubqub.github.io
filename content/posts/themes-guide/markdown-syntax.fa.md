@@ -1,14 +1,19 @@
 ---
 author: "Hugo Authors"
-title: "Markdown Syntax Guide For L2"
+title: "Markdown Syntax Guide For RTL"
 date: "2019-03-11"
 description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags: ["markdown", "css", "html", "themes"]
 categories: ["themes", "syntax"]
 series: ["Themes Guide"]
 aliases: ["migrate-from-jekyl"]
+ShowReadingTime: true
+ShowBreadCrumbs: true
+ShowPostNavLinks: true
+ShowCodeCopyButtons: true
+ShowCreativeCommons: true
 ShowToc: true
-TocOpen: true
+TocOpen: false
 weight: 2
 ---
 
@@ -145,7 +150,7 @@ Tables aren't part of the core Markdown spec, but Hugo supports supports them ou
 
 H<sub>2</sub>O
 
-X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
+X<sup>n</sup> + Y<sup>n</sup>: Z<sup>n</sup>
 
 Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.
 

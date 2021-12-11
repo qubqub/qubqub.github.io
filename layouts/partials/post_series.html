@@ -1,0 +1,111 @@
+{{ $pageTitle := .Page.Title }}
+{{ $_currentIdx := 0 }}
+{{ $_prePageTitle := "" }}
+{{ $_prePageLink := "" }}
+{{ $_nextPageTitle := "" }}
+{{ $_nextPageLink := "" }}
+{{ $_seriesTitle := "" }}
+{{ range $index, $seriesPath := (.GetTerms "series") }}
+  {{ if (eq $index 0) }}
+    {{ $_series := index (split .Permalink "/") (sub (len (split .Permalink "/")) 2) }}
+    {{ $_seriesTitle = .LinkTitle }}
+    <div class="series-main">
+      <h2><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></h2>
+      <svg width="32" height="48" fill="none" viewBox="0 0 32 48" class="series-corner-image">
+        <path fill="#12B886" d="M32 0H0v48h.163l16-16L32 47.836V0z"></path>
+      </svg>
+      {{ range $taxonomy_term, $taxonomy := .Site.Taxonomies }}
+        {{ if (eq $taxonomy_term "series") }}
+          {{ with $.Site.GetPage }}
+            {{ range $key, $value := $taxonomy }}
+              {{ if (eq $key $_series)}}
+                <ol class="series-list">
+                  {{ range $index, $filePath := $value.Pages }}
+                    <li hugo-nav="{{ .RelPermalink}}">
+                      <a href="{{ .Permalink}}" {{ if (eq $pageTitle .LinkTitle) }} class="current" {{ end }}>{{ .LinkTitle }}</a>
+                    </li>
+                  {{ end }}
+                </ol> 
+
+                <div class="series-control">
+                  <div class="toggle" onclick="series_toggle(this, {{ $_seriesTitle }})">🔒</div>
+                  <div class="info">
+                    {{ range $index, $filePath := $value.Pages }}
+                      {{ if (eq $pageTitle .LinkTitle) }}
+                        {{ $_currentIdx = $index }}
+                      {{ end }}
+                    {{ end }}
+                    <div class="series-number">
+                      {{ add $_currentIdx 1 }} / {{ len $value.Pages }}
+                    </div>
+
+                    {{ range $index, $filePath := $value.Pages }}
+                      {{ if (eq $index (sub $_currentIdx 1)) }}
+                        {{ $_prePageTitle = .LinkTitle }}
+                        {{ $_prePageLink = .Permalink }}
+                      {{ end }}
+
+                      {{ if (eq $index (add $_currentIdx 1)) }}
+                        {{ $_nextPageTitle = .LinkTitle }}
+                        {{ $_nextPageLink = .Permalink }}
+                      {{ end }}
+                    {{ end }}
+
+                    <div class="page-button">
+                      {{ if $_prePageLink }}
+                        <div class="left">
+                          <a class="button" href="{{ $_prePageLink }}">
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                            </svg>
+                          </a>
+                        </div>
+                      {{ else }}
+                        <div class="left">
+                          <a class="button disabled">
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                            </svg>
+                          </a>
+                        </div>
+                      {{ end }}
+                      
+                      {{ if $_nextPageLink }}
+                        <div class="right">
+                          <a class="button" href="{{ $_nextPageLink }}">
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+                            </svg>
+                          </a>
+                        </div>
+                      {{ else }}
+                        <div class="right">
+                          <a class="button disabled">
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+                            </svg>
+                          </a>
+                        </div>
+                      {{ end }}
+                    </div>
+                  </div>
+                </div>
+
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+    <script>
+      const seriesToggle = localStorage.getItem("lock-series-"+{{ $_seriesTitle }});
+      if (seriesToggle === "false") {
+        document.querySelector(".series-main .series-list").style.display ="block";
+        document.querySelector(".series-main .series-control .toggle").innerText = "🔓";
+      } else {
+        document.querySelector(".series-main .series-list").style.display ="none";
+        document.querySelector(".series-main .series-control .toggle").innerText = "🔒";
+      }
+    </script>
+  {{ end }}
+{{ end }}

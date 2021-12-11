@@ -8,7 +8,7 @@
 <meta name=description content="C# 공부 string/StringBuilder🤔 ✨string  Immutable(불변) 변수. 값이 아닌 참조 변수. 내부적으로 문자열을 관리하는 버퍼를 가지고 있지않다. 대신 이를 참조하고 있다. string마다 새로운 클래스가 생성이 된다.  1 2 3 4  string a = &#34;안녕&#34; + &#34;하세요&#34;; //&#34;안녕&#34; &#34;하세요&#34; -> 각각의 string class 생성. //a string class 생성. //총 3개의 string class가 생성된다. -> 즉 garbage가 많이 생긴다.   ✨StringBuilder  내부적으로 버퍼를 가지고 있다. 조합이 가능하다. 즉, 조합할 때마다 새롭게 class를 생성하지않는다.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/posts/2021_11_19_01/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.0397eeb87569de2a03dc99cb2603fc1f09074a1310c66c62318b41d37f5210ab.css integrity="sha256-A5fuuHVp3ioD3JnLJgP8HwkHShMQxmxiMYtB039SEKs=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.990095317e54f81584b477e555f06386f38ba5b00e8d16ffaacc688ae51ddf3a.css integrity="sha256-mQCVMX5U+BWEtHflVfBjhvOLpbAOjRb/qsxoiuUd3zo=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -23,7 +23,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.76e2092388e545844a8822b31cda7a5c9593612d0d69514f4a51b8400a8af7ca.js integrity="sha256-duIJI4jlRYRKiCKzHNp6XJWTYS0NaVFPSlG4QAqK98o="></script><meta property="og:title" content="C#_string_StringBuilder">
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.a758a39f0cc9e63de0e062388eda05da416925750b90ddfdd8c5073fe2ac9a0b.js integrity="sha256-p1ijnwzJ5j3g4GI4jtoF2kFpJXULkN392MUHP+Ksmgs="></script><meta property="og:title" content="C#_string_StringBuilder">
 <meta property="og:description" content="C# 공부 string/StringBuilder🤔 ✨string  Immutable(불변) 변수. 값이 아닌 참조 변수. 내부적으로 문자열을 관리하는 버퍼를 가지고 있지않다. 대신 이를 참조하고 있다. string마다 새로운 클래스가 생성이 된다.  1 2 3 4  string a = &#34;안녕&#34; + &#34;하세요&#34;; //&#34;안녕&#34; &#34;하세요&#34; -> 각각의 string class 생성. //a string class 생성. //총 3개의 string class가 생성된다. -> 즉 garbage가 많이 생긴다.   ✨StringBuilder  내부적으로 버퍼를 가지고 있다. 조합이 가능하다. 즉, 조합할 때마다 새롭게 class를 생성하지않는다.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://qutrits.github.io/posts/2021_11_19_01/"><meta property="article:section" content="posts">
@@ -48,6 +48,11 @@
 </span>
 </div>
 <ul id=menu>
+<li>
+<a href=https://qutrits.github.io/series-list/ title=시리즈>
+<span>시리즈</span>
+</a>
+</li>
 <li>
 <a href=https://qutrits.github.io/collection/ title=모아보기>
 <span>모아보기</span>
@@ -79,12 +84,13 @@ C#_string_StringBuilder
 </h1>
 <div class=post-meta><span title="2021-11-19 08:54:41 +0900 KST">2021년 11월 19일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin&nbsp;&nbsp;|&nbsp;&nbsp;<a href=https://github.com/qutrits/qutrits.github.io/blob/master/content/posts/2021_11_19_01.md rel="noopener noreferrer" target=_blank>수정사항 제안</a>
 <ul class=post-tags>
-<li><a href=https://qutrits.github.io/tags/csharp/>Csharp</a></li>
-<li><a href=https://qutrits.github.io/tags/string/>String</a></li>
-<li><a href=https://qutrits.github.io/tags/stringbuilder/>StringBuilder</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/csharp/>Csharp</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/string/>String</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/stringbuilder/>StringBuilder</a></li>
 </ul></div>
-</header> <div class=toc>
-<details open>
+</header>
+<div class=toc>
+<details>
 <summary accesskey=c title="(Alt + C)">
 <span class=details>목차</span>
 </summary>
@@ -214,9 +220,9 @@ C#_string_StringBuilder
 </div>
 </div>
 <ul class=post-tags>
-<li><a href=https://qutrits.github.io/tags/csharp/>Csharp</a></li>
-<li><a href=https://qutrits.github.io/tags/string/>String</a></li>
-<li><a href=https://qutrits.github.io/tags/stringbuilder/>StringBuilder</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/csharp/>Csharp</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/string/>String</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/stringbuilder/>StringBuilder</a></li>
 </ul>
 <nav class=paginav>
 <a class=prev href=https://qutrits.github.io/posts/2021_11_25_01/>

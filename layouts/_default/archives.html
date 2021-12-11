@@ -18,32 +18,42 @@
 {{- range $pages.GroupByPublishDate "2006" }}
 {{- if ne .Key "0001" }}
 {{ $year := .Key }}
+{{ $month := "" }}
 <div class="archive-year">
   <h2 class="archive-year-header">
     {{- replace $year "0001" "" }}<sup class="archive-count">&nbsp;&nbsp;{{ len .Pages }}</sup>
   </h2>
   {{- range .Pages.GroupByDate "January" }}
-  {{ $month := .Key }}
-  <div class="archive-month">
-    <h3 class="archive-month-header" onclick="layer_toggle('{{ $year }}-{{ $month }}', this)"><span class="toggle">📁</span>{{ $month }}<sup class="archive-count">&nbsp;&nbsp;{{ len .Pages }}</sup></h3>
-    <div class="archive-posts" id="{{ $year }}-{{ $month }}">
-      {{- range .Pages }}
-      {{- if eq .Kind "page" }}
-      <div class="archive-entry">
-        <h3 class="archive-entry-title">
-          {{- .Title | markdownify }}
-          {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
-        </h3>
-        <div class="archive-meta">
-          {{- partial "post_meta.html" . -}}
-          {{- partial "post_tags.html" . -}}
+    {{ $month = .Key }}
+    <div class="archive-month">
+      <h3 class="archive-month-header" onclick="archives_toggle('{{ $year }}-{{ $month }}', this)">
+        <span class="toggle">📁</span>{{ $month }}<sup class="archive-count">&nbsp;&nbsp;{{ len .Pages }}</sup>
+      </h3>
+      <div class="archive-posts" id="{{ $year }}-{{ $month }}">
+        {{- range .Pages }}
+        {{- if eq .Kind "page" }}
+        <div class="archive-entry">
+          <h3 class="archive-entry-title">
+            {{- .Title | markdownify }}
+            {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+          </h3>
+          <div class="archive-meta">
+            {{- partial "post_meta.html" . -}}
+            {{- partial "post_tags.html" . -}}
+          </div>
+          <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
         </div>
-        <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+        {{- end }}
+        {{- end }}
       </div>
-      {{- end }}
-      {{- end }}
     </div>
-  </div>
+    <script>
+      if (localStorage.getItem("lock-archives-"+{{ $year }}+"-"+{{ $month }}) === "false") {
+        document.getElementById({{ $year }}+"-"+{{ $month }}).style.display = "block";
+      } else {
+        document.getElementById({{ $year }}+"-"+{{ $month }}).style.display = "none";
+      }
+    </script>
   {{- end }}
 </div>
 {{- end }}

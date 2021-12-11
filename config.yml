@@ -140,10 +140,10 @@ outputs:
         - JSON # is necessary
 menu:
   main:
-    # - identifier: Java
-    #   name: Java
-    #   url: /post/java/
-    #   weight: 10
+    - identifier: series
+      name: 시리즈
+      url: /series-list/
+      weight: 10
     - identifier: collection
       name: 모아보기
       url: /collection/
