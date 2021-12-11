@@ -803,6 +803,14 @@ header.header {
   display: block;
 }
 
+.entry-cover img {
+  border-radius: var(--radius);
+  pointer-events: none;
+  width: 75%;
+  height: auto;
+  margin: 0 auto;
+}
+
 .main .post-entry .collection-cover {
   margin-bottom: var(--gap);
   text-align: center;
@@ -811,8 +819,9 @@ header.header {
 .main .post-entry .collection-cover img{
   border-radius: var(--radius);
   pointer-events: none;
-  width: 100%;
+  width: 75%;
   height: auto;
+  margin: 0 auto;
 }
 
 .post-header>.post-title {
