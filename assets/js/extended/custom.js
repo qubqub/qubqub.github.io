@@ -234,10 +234,6 @@ if (window.location.pathname.startsWith("/posts/")) {
     }
   }
 } else if (window.location.pathname.startsWith("/archives/")) {
-  window.onload = function() {
-    
-  }
-
   function archives_toggle (elId, _this) {
     const _el = document.getElementById(elId);
     const _toggleEl = _this.querySelector(".toggle");   
