@@ -690,7 +690,7 @@ header.header {
   .post-content .highlight pre code.language-yml,
   .post-content .highlight pre code.language-text,
   .post-content .highlight pre code.language-bash {
-    font-size: 50% !important;
+    font-size: 8px !important;
   }
 
   .main .page-footer .pagination a {
