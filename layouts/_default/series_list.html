@@ -5,15 +5,17 @@
       {{- if .Description }}
       <div class="post-description">
         <h2 class="series-description">{{ .Description }}</h2>
-        {{- if .Params.subDescription1 }}
-        <h4 class="series-sub-description">{{ .Params.subDescription1 }}</h4>
-        {{- end }}
-        {{- if .Params.subDescription2 }}
-        <h4 class="series-sub-description">{{ .Params.subDescription2 }}</h4>
-        {{- end }}
-        {{- if .Params.subDescription3 }}
-        <h4 class="series-sub-description">{{ .Params.subDescription3 }}</h4>
-        {{- end }}
+        <div class="series-sub-description-wrapper">
+          {{- if .Params.subDescription1 }}
+          <h4 class="series-sub-description">{{ .Params.subDescription1 }}</h4>
+          {{- end }}
+          {{- if .Params.subDescription2 }}
+          <h4 class="series-sub-description">{{ .Params.subDescription2 }}</h4>
+          {{- end }}
+          {{- if .Params.subDescription3 }}
+          <h4 class="series-sub-description">{{ .Params.subDescription3 }}</h4>
+          {{- end }}
+        <div>
       </div>
       {{- end }}
       {{- if .Params.cover.image }}

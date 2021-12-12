@@ -8,7 +8,7 @@
       </div>
       {{- end }}
     </header>
-    {{- if .Params.useCategory }}
+    {{- if .Params.useCategory }}{{/* category */ -}}
       {{- range $.Site.Taxonomies.categories.ByCount }}
         {{- $name := .Name }}
         {{- $count := .Count }}
@@ -24,7 +24,7 @@
           </article>
         {{- end }}
       {{- end }}
-    {{- else if .Params.useTag }}
+    {{- else if .Params.useTag }}{{/* tag */ -}}
       {{- range $.Site.Taxonomies.tags.ByCount }}
         {{- $name := .Name }}
         {{- $count := .Count }}
@@ -41,7 +41,7 @@
         {{- end }}
       {{- end }}
     {{- end }}
-  {{- else }}
+  {{- else }}{{/* custom */ -}}
     {{- if .Title }}
       <header class="page-header">
         <h1>{{ .Title }}</h1>

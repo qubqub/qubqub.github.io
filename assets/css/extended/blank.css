@@ -377,14 +377,20 @@ header.header {
 }
 
 .series-description {
-  font-size: 2.5rem;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 2rem;
   font-weight: 800;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
   margin-inline-start: 1rem;
 }
 
+.series-sub-description-wrapper {
+  display: inline-block;
+  padding-top: 10px;
+}
+
 .series-sub-description {
+  font-size: 1rem;
   margin-bottom: 8px;
   margin-inline-start: 2rem;
 }
