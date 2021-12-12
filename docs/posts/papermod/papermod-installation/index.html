@@ -113,7 +113,7 @@ Installation | Update
 </div>
 </div>
 </div>
-<script>const seriesToggle=localStorage.getItem("lock-series-PaperMod");seriesToggle==="false"?(document.querySelector(".series-main .series-list").style.display="block",document.querySelector(".series-main .series-control .toggle").innerText="🔓"):(document.querySelector(".series-main .series-list").style.display="none",document.querySelector(".series-main .series-control .toggle").innerText="🔒")</script>
+<script>window.addEventListener('DOMContentLoaded',function(){if(localStorage.getItem("series-main-papermod")==="true"){const a=document.querySelector(".series-main");window.scrollTo(0,a.offsetTop+a.offsetParent.offsetTop-10),localStorage.removeItem("series-main-papermod")}});const seriesToggle=localStorage.getItem("lock-series-PaperMod");seriesToggle==="false"?(document.querySelector(".series-main .series-list").style.display="block",document.querySelector(".series-main .series-control .toggle").innerText="🔓"):(document.querySelector(".series-main .series-list").style.display="none",document.querySelector(".series-main .series-control .toggle").innerText="🔒");const seriesAnchor=[...document.querySelectorAll(".series-main .series-list li a"),...document.querySelectorAll(".series-control .page-button a:not(.disabled)")];for(let a=0;a<seriesAnchor.length;a++)seriesAnchor[a].addEventListener("click",a=>{localStorage.setItem("series-main-papermod",!0)})</script>
 <div class=post-content><h2 id=intro>Intro<a hidden class=anchor aria-hidden=true href=#intro>#</a></h2>
 <ul>
 <li><strong>We&rsquo;ll be using <code>yml/yaml</code> format for all examples down below, I recommend using <code>yml</code> over <code>toml</code> as it is easier to read.</strong></li>

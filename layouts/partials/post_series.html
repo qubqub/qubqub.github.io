@@ -98,6 +98,14 @@
       {{ end }}
     </div>
     <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        if (localStorage.getItem("series-main-"+{{ $_series }}) === "true") {
+          const seriesOffsetTop = document.querySelector(".series-main");
+          window.scrollTo(0, seriesOffsetTop.offsetTop + seriesOffsetTop.offsetParent.offsetTop - 10);
+          localStorage.removeItem("series-main-"+{{ $_series }});
+        }
+      });
+
       const seriesToggle = localStorage.getItem("lock-series-"+{{ $_seriesTitle }});
       if (seriesToggle === "false") {
         document.querySelector(".series-main .series-list").style.display ="block";
@@ -105,6 +113,17 @@
       } else {
         document.querySelector(".series-main .series-list").style.display ="none";
         document.querySelector(".series-main .series-control .toggle").innerText = "🔒";
+      }
+
+      const seriesAnchor = [
+        ...document.querySelectorAll(".series-main .series-list li a"),
+        ...document.querySelectorAll(".series-control .page-button a:not(.disabled)")
+      ];
+
+      for (let i = 0; i < seriesAnchor.length; i++) {
+        seriesAnchor[i].addEventListener("click", e => {
+          localStorage.setItem("series-main-"+{{ $_series }}, true);
+        });
       }
     </script>
   {{ end }}
