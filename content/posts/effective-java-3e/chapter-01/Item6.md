@@ -15,9 +15,9 @@ ShowReadingTime: true
 ShowPostNavLinks: false
 ShowCodeCopyButtons: true
 ShowBreadCrumbs: true
-cover:
-  hidden: true
-  image: "/logo/logo-effective-java-3e.png"
+# cover:
+#   hidden: true
+#   image: "/logo/logo-effective-java-3e.png"
 ---
 # [아이템 6] 불피요한 객체를 생성을 피하라
 기능이 똑같은 객체를 매번 생성하기 보다는 객체를 재사용하는 것이 적절합니다. 특히 **불변 객체는 항상 재사용할 수 있습니다.**

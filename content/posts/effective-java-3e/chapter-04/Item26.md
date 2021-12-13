@@ -15,9 +15,9 @@ ShowReadingTime: true
 ShowPostNavLinks: false
 ShowCodeCopyButtons: true
 ShowBreadCrumbs: true
-cover:
-  hidden: true
-  image: "/logo/logo-effective-java-3e.png"
+# cover:
+#   hidden: true
+#   image: "/logo/logo-effective-java-3e.png"
 ---
 ## [아이템 26] Raw 타입은 사용하지 마라.
 

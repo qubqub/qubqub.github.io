@@ -15,9 +15,9 @@ ShowReadingTime: true
 ShowPostNavLinks: false
 ShowCodeCopyButtons: true
 ShowBreadCrumbs: true
-cover:
-  hidden: true
-  image: "/logo/logo-effective-java-3e.png"
+# cover:
+#   hidden: true
+#   image: "/logo/logo-effective-java-3e.png"
 ---
 ## [아이템 19] 상속을 고려해 설계하고 문서화하라. 그렇지 않았다면 상속을 금지하라.
 

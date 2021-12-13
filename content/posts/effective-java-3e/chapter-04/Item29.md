@@ -15,9 +15,9 @@ ShowReadingTime: true
 ShowPostNavLinks: false
 ShowCodeCopyButtons: true
 ShowBreadCrumbs: true
-cover:
-  hidden: true
-  image: "/logo/logo-effective-java-3e.png"
+# cover:
+#   hidden: true
+#   image: "/logo/logo-effective-java-3e.png"
 ---
 ## [아이템 29] 이왕이면 제네릭 타입으로 만들라.
 

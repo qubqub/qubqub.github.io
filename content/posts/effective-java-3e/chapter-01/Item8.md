@@ -15,9 +15,9 @@ ShowReadingTime: true
 ShowPostNavLinks: false
 ShowCodeCopyButtons: true
 ShowBreadCrumbs: true
-cover:
-  hidden: true
-  image: "/logo/logo-effective-java-3e.png"
+# cover:
+#   hidden: true
+#   image: "/logo/logo-effective-java-3e.png"
 ---
 ## [아이템 8] `finalizer`와 `cleaner` 사용을 피하라
 

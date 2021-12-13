@@ -15,9 +15,9 @@ ShowReadingTime: true
 ShowPostNavLinks: false
 ShowCodeCopyButtons: true
 ShowBreadCrumbs: true
-cover:
-  hidden: true
-  image: "/logo/logo-effective-java-3e.png"
+# cover:
+#   hidden: true
+#   image: "/logo/logo-effective-java-3e.png"
 ---
 ## [아이템 18] 상속보다는 컴포지션을 사용하라.
 우선 이번 아이템에서 다루는 상속은 클래스가 다른 클래스를 확장하는 것을 말합니다.   

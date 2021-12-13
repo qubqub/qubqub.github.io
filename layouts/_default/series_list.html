@@ -33,9 +33,11 @@
         <article class="post-entry" title="{{- i18n $name }}">
           {{ $seriesTitle := .Name }}
           {{- range where $seriesCover "name" $seriesTitle }}
-            <figure class="series-content-cover">
-              <img loading="lazy" src="{{ .image | absURL }}" alt="{{ .alt }}">
-            </figure>
+            {{- if .image }}
+              <figure class="series-content-cover">
+                <img loading="lazy" src="{{ .image | absURL }}" alt="{{ .alt }}">
+              </figure>
+            {{- end }}
           {{- end }}
 
           <header class="entry-header">

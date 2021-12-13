@@ -15,9 +15,9 @@ ShowReadingTime: true
 ShowPostNavLinks: false
 ShowCodeCopyButtons: true
 ShowBreadCrumbs: true
-cover:
-  hidden: true
-  image: "/logo/logo-effective-java-3e.png"
+# cover:
+#   hidden: true
+#   image: "/logo/logo-effective-java-3e.png"
 ---
 # [아이템 12] toString을 항상 재정의하라.
 toString을 오버라이딩 하지 않으면 기본적으로 **클래스_이름@16진수로_표현한_해시코드**를 반환합니다. </br>
