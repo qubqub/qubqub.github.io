@@ -12,14 +12,14 @@ cover:
 menu:
   - title: "📄 Java"
     description: "Java를 학습하면서 정리한 내용입니다."
-    url: "/tags/java/"
+    url: "/categories/java/"
     cover:
       hidden: false
       image: "/logo/logo-java.png"
       alt: "이펙티브 자바"
   - title: "📄 JPA"
     description: "JPA를 학습하면서 정리한 내용입니다."
-    url: "/tags/jpa/"
+    url: "/categories/jpa/"
     cover:
       hidden: false
       image: "/logo/logo-jpa.png"

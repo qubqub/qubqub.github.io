@@ -1,7 +1,8 @@
 ---
 title: "[아이템 4] 인스턴스를 막으려거든 private 생성자를 사용하라"
 date: 2020-06-19T15:51:43+09:00
-tags: ["Java"]
+tags: ["Java", "Effective Java 3E"]
+categories: ["java"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 1"]
 author: ["Kyungchul Shin"]

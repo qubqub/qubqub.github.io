@@ -1,7 +1,8 @@
 ---
 title: "[아이템 16] public 클래스에서는 public 필드가 아닌 접근 메서드를 사용하라"
 date: 2020-07-02T13:38:11+09:00
-tags: ["Java"]
+tags: ["Java", "Effective Java 3E"]
+categories: ["java"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 3"]
 author: ["Kyungchul Shin"]

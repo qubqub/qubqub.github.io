@@ -1,7 +1,8 @@
 ---
 title: "[아이템 26] Raw 타입은 사용하지 마라"
 date: 2020-07-07T11:41:27+09:00
-tags: ["Java"]
+tags: ["Java", "Effective Java 3E"]
+categories: ["java"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 4"]
 author: ["Kyungchul Shin"]

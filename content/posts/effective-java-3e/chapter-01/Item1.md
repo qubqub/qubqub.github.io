@@ -1,7 +1,8 @@
 ---
 title: "[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라"
 date: 2020-06-18T15:49:20+09:00
-tags: ["Java"]
+tags: ["Java", "Effective Java 3E"]
+categories: ["java"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 1"]
 author: ["Kyungchul Shin"]

@@ -1,7 +1,8 @@
 ---
 title: "[아이템 9] try-finally보다는 try-with-resources를 사용하라"
 date: 2020-06-20T17:12:16+09:00
-tags: ["Java"]
+tags: ["Java", "Effective Java 3E"]
+categories: ["java"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 1"]
 author: ["Kyungchul Shin"]

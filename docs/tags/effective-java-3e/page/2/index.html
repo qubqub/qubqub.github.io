@@ -1,0 +1,237 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Effective Java 3E | &lt;Qutrits/></title>
+<meta name=keywords content>
+<meta name=description content="<Qutrits/>">
+<meta name=author content>
+<link rel=canonical href=https://qutrits.github.io/tags/effective-java-3e/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.db72368527b042a50b5021c554b5d204980c85a401e4b75c05cd6dd10df9d8e9.css integrity="sha256-23I2hSewQqULUCHFVLXSBJgMhaQB5LdcBc1t0Q352Ok=" rel="preload stylesheet" as=style>
+<link rel=preload href=/icon/home.webp as=image>
+<link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
+<link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.png>
+<link rel=apple-touch-icon href=https://qutrits.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://qutrits.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.89.4">
+<link rel=alternate type=application/rss+xml href=https://qutrits.github.io/tags/effective-java-3e/index.xml>
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.610c2195d4f13fec5206b70eeb9f601c1cc029ff451ed0aff45972142e252db9.js integrity="sha256-YQwhldTxP+xSBrcO659gHBzAKf9FHtCv9FlyFC4lLbk="></script><meta property="og:title" content="Effective Java 3E">
+<meta property="og:description" content="<Qutrits/>">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qutrits.github.io/tags/effective-java-3e/">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Effective Java 3E">
+<meta name=twitter:description content="<Qutrits/>">
+</head>
+<body class=list id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://qutrits.github.io/ accesskey=h title="<Qutrits/> (Alt + H)">
+<img src=/icon/home.webp alt=logo aria-label=logo height=25>&lt;Qutrits/></a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://qutrits.github.io/series-list/ title=시리즈>
+<span>시리즈</span>
+</a>
+</li>
+<li>
+<a href=https://qutrits.github.io/collection/ title=모아보기>
+<span>모아보기</span>
+</a>
+</li>
+<li>
+<a href=https://qutrits.github.io/archives/ title="기록 보관소">
+<span>기록 보관소</span>
+</a>
+</li>
+<li>
+<a href=https://qutrits.github.io/search/ title="검색 (Alt + /)" accesskey=/>
+<span>검색</span>
+</a>
+</li>
+<li>
+<a href=https://qutrits.github.io/tags/ title=태그>
+<span>태그</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<header class=page-header>
+<h1>Effective Java 3E</h1>
+</header>
+<article class="post-entry tag-entry">
+<figure class=entry-cover><img loading=lazy src=https://qutrits.github.io/logo/logo-effective-java-3e.png alt>
+</figure>
+<header class=entry-header>
+<h2>[아이템 28] 배열보다는 리스트를 사용하라
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 28] 배열보다는 리스트를 사용하라. 배열과 제네릭 타입의 차이 첫번째 차이점. 배열은 공변 입니다. 어려워 보이는 단어지만 뜻은 간단합니다. Sub가 Super의 하위 타입이라면 배열 Sub[]는 배열 Super[]의 하위 타입이 됩니다.
+반면, 제네릭은 불공변입니다. 즉 서로 다른 타입 Type1과 Type2가 있을 때, List&lt;Type1>은 List&lt;Type2>의 하위 타입도 아니고 상위 타입도 아닙니다.
+이것만 보면 제네릭에 문제가 있다고 생각할 수 있지만, 사실 문제가 있는 건 배열 쪽입니다. 다음은 문법상 허용되는 코드입니다.
+1 2 3 // 런타임 에러 Object[] objectArray = new Long[1]; objectArray[0] = "타입이 달라 넣을 수 없다....</p>
+</section>
+<footer class=entry-footer><span title="2020-07-08 14:21:51 +0900 KST">2020년 7월 8일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 28] 배열보다는 리스트를 사용하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item28/></a>
+</article>
+<article class="post-entry tag-entry">
+<figure class=entry-cover><img loading=lazy src=https://qutrits.github.io/logo/logo-effective-java-3e.png alt>
+</figure>
+<header class=entry-header>
+<h2>[아이템 27] 비검사 경고를 제거하라
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 27] 비검사 경고를 제거하라. 제네릭에 관련된 수 많은 컴파일 경고들이 있습니다. 비검사 형변환 경고, 비검사 메서드 호출 경고, 비검사 매개변수화 가변인수 타입 경고, 비검사 변환 경고 등이 있습니다.
+제네릭에 익숙해질 수록 마주치는 경고 수는 줄어들겠지만 새로 작성한 코드가 한 번에 깨끗하게 컴파일되리라 기대하지는 맙시다.
+대부분의 비검사 경고는 쉽게 제거할 수 있습니다. 코드를 다음처럼 잘못 작성했다고 예시를 들어봅시다.
+1 Set&lt;Fruits> fruits = new Hashset(); 그러면 컴파일러는 무엇이 잘못 됐는지 설멸해 줄 것입니다....</p>
+</section>
+<footer class=entry-footer><span title="2020-07-08 13:16:11 +0900 KST">2020년 7월 8일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 27] 비검사 경고를 제거하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item27/></a>
+</article>
+<article class="post-entry tag-entry">
+<figure class=entry-cover><img loading=lazy src=https://qutrits.github.io/logo/logo-effective-java-3e.png alt>
+</figure>
+<header class=entry-header>
+<h2>[아이템 26] Raw 타입은 사용하지 마라
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 26] Raw 타입은 사용하지 마라. raw type이란 제네릭 타입에서에서 타입 파라미터를 전혀 사용하지 않았을 때를 말합니다.
+1 2 // raw type List list = new ArrayList(); raw type은 타입 선언에서 제네릭 타입 정보가 전부 지워진 것처럼 동작하는데, 제네릭이 도래하기 전 코드와 호환성을 위해서 주로 존재합니다.
+1 2 // 문자열을 저장하는 컬렉션 private final List names = new ArrayList(); 위 코드를 사용하면 String대신 다른 타입을 넣어도 오류없이 실행됩니다....</p>
+</section>
+<footer class=entry-footer><span title="2020-07-07 11:41:27 +0900 KST">2020년 7월 7일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 26] Raw 타입은 사용하지 마라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item26/></a>
+</article>
+<article class="post-entry tag-entry">
+<figure class=entry-cover><img loading=lazy src=https://qutrits.github.io/logo/logo-effective-java-3e.png alt>
+</figure>
+<header class=entry-header>
+<h2>[아이템 25] 톱레벨 클래스는 한 파일에만 담으라
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 25] 톱레벨 클래스는 한 파일에만 담으라 1 2 3 4 5 public class Main { public static void main(String[] args) { System.out.println(Utensil.NAME + Dessert.NAME); } } 위 코드의 소스 파일은 Main 클래스 하나를 담고 있고, Main클래스는 다른 톱레벨 클래스 2개(Utensil Dessert)를 참조합니다.
+Utensil와 Dessert 클래스가 Utensil.java라는 한 파일에 정의되어 있다고 가정해봅시다.
+1 2 3 4 5 6 7 class Utensil { static final String NAME = "pan"; } class Dessert { static final String NAME = "cake"; } Main을 실행하면 “pancake"가 출력됩니다....</p>
+</section>
+<footer class=entry-footer><span title="2020-07-05 13:12:41 +0900 KST">2020년 7월 5일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 25] 톱레벨 클래스는 한 파일에만 담으라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item25/></a>
+</article>
+<article class="post-entry tag-entry">
+<figure class=entry-cover><img loading=lazy src=https://qutrits.github.io/logo/logo-effective-java-3e.png alt>
+</figure>
+<header class=entry-header>
+<h2>[아이템 24] 멤버 클래스는 되도록 static으로 만들어라
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 24] 멤버 클래스는 되도록 static으로 만들어라. 중첩 클래스(nested class)는 자신을 감싼 바깥 클래스에서만 쓰어야 하며 그 이외 쓰임새가 있다면 톱레벨 클래스로 만들어야 합니다.
+중첩 클래스는 다음과 같이 네 종류로 나눌 수 있습니다.
+정적 멤버 클래스 (비정적)멤버 클래스 익명 클래스 지역 클래스 이 중 정적 멤버 클래스를 제외한 나머지는 내부 클래스(inner class)에 해당합니다.
+정적 멤버 클래스 정적 멤버 클래스는 다른 클래스 안에 선언되고, 바깥 클래스의 private 멤버에도 접근할 수 있다는 점만 제외하고는 일반 클래스외 똑같습니다....</p>
+</section>
+<footer class=entry-footer><span title="2020-07-05 11:41:14 +0900 KST">2020년 7월 5일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 24] 멤버 클래스는 되도록 static으로 만들어라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item24/></a>
+</article>
+<footer class=page-footer>
+<nav class=pagination>
+<ul class=pagination>
+<li class="pagination__item pagination__item--first">
+<a class="pagination__link pagination__link--first" href=https://qutrits.github.io/tags/effective-java-3e/>
+««
+</a>
+</li>
+<li class="pagination__item pagination__item--previous">
+<a href=https://qutrits.github.io/tags/effective-java-3e/ class="pagination__link pagination__link--previous">
+« 이전 페이지
+</a>
+</li>
+<li class=pagination__item>
+<a href=/tags/effective-java-3e/ class=pagination__link>1</a>
+</li>
+<li class="pagination__item pagination__item--current">
+<a>2</a>
+</li>
+<li class=pagination__item>
+<a href=/tags/effective-java-3e/page/3/ class=pagination__link>3</a>
+</li>
+<li class=pagination__item>
+<a href=/tags/effective-java-3e/page/4/ class=pagination__link>4</a>
+</li>
+<li class=pagination__item>
+<a href=/tags/effective-java-3e/page/5/ class=pagination__link>5</a>
+</li>
+<li class="pagination__item pagination__item--next">
+<a href=https://qutrits.github.io/tags/effective-java-3e/page/3/ class="pagination__link pagination__link--next">
+다음 페이지 »
+</a>
+</li>
+<li class="pagination__item pagination__item--last">
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/tags/effective-java-3e/page/7/>
+»»
+</a>
+</li>
+</ul>
+</nav>
+</footer>
+</main>
+<footer class=footer>
+<span>&copy; 2021 <a href=https://qutrits.github.io/>&lt;Qutrits/></a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+    <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+<span>
+· Source code on
+<a href=https://github.com/qutrits/qutrits.github.io rel="noopener noreferrer" target=_blank>GitHub</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentcolor"><path d="M414 321.94 274.22 158.82a24 24 0 00-36.44.0L98 321.94c-13.34 15.57-2.28 39.62 18.22 39.62h279.6c20.5.0 31.56-24.05 18.18-39.62z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"auto"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

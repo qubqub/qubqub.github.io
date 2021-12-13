@@ -1,7 +1,8 @@
 ---
 title: "[아이템 18] 상속보다는 컴포지션을 사용하라"
 date: 2020-07-03T11:42:22+09:00
-tags: ["Java"]
+tags: ["Java", "Effective Java 3E"]
+categories: ["java"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 3"]
 author: ["Kyungchul Shin"]

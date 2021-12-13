@@ -1,7 +1,8 @@
 ---
 title: "[아이템 29] 이왕이면 제네릭 타입으로 만들라"
 date: 2020-07-08T16:53:15+09:00
-tags: ["Java"]
+tags: ["Java", "Effective Java 3E"]
+categories: ["java"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 4"]
 author: ["Kyungchul Shin"]
