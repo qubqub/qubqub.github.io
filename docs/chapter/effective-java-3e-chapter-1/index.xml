@@ -17,7 +17,7 @@
     </item>
     
     <item>
-      <title>[아이템 8] `finalizer`와 `cleaner` 사용을 피하라</title>
+      <title>[아이템 8] finalizer와 cleaner 사용을 피하라</title>
       <link>https://qutrits.github.io/posts/effective-java-3e/chapter-01/item8/</link>
       <pubDate>Sat, 20 Jun 2020 15:12:33 +0900</pubDate>
       
