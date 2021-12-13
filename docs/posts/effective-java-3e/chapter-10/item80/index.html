@@ -9,7 +9,7 @@
 1 2 3  ExecutorService exec = Executors.newSingleThreadExecutor(); exec.excute(runnable); // 이 실행자에게 task를 넘김 exec.shutdown(); // graceful하게 종료 (이 작업이 실패하면 VM 자체가 종료되지 않을 것)   이 외에도 다양한 기능을 실행할 수 있다. 실행자 서비스를 사용하기에 까다로운 애플리케이션도 있는데, 가벼운 서버라면 Executors.newCachedThreadPool이 일반적으로 좋은 선택이지만 CachedThreadPool은 무거운 프로덕션 서버에는 좋지 못하다. CachedThreadPool에서는 요청받은 태스크들이 큐에 쌓이지 않고 즉시 스레드에 위임돼 실행한다 가용한 스레드가 없다면 새로 하나를 생성한다, 서버가 무거울 경우 CPU 이용률이 100%로 치닫고, 새로운 태스크가 도착하는 족족 또 다른 스레드를 생성해 상황을 악화시킨다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item80/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.951200770ddb335bf430f5481970aa437d2011a162563bcd193e309d7a3575d4.css integrity="sha256-lRIAdw3bM1v0MPVIGXCqQ30gEaFiVjvNGT4wnXo1ddQ=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.b132e03ef7bd4207554e97f551fbeefaed91931994a98236773e429790dc9b5d.css integrity="sha256-sTLgPve9QgdVTpf1Ufvu+u2RkxmUqYI2dz5Cl5Dcm10=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
