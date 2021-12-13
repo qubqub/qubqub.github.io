@@ -477,7 +477,6 @@ header.header {
   color: inherit;
   text-decoration: none;
 }
-
 .series-main .chapter-control {
   margin-top: -3%;
   display: flex;
@@ -521,6 +520,7 @@ header.header {
   justify-content: center;
   font-size: 1rem;
   padding: 0;
+  padding-right: 7px;
   cursor: pointer;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -538,6 +538,7 @@ header.header {
   justify-content: center;
   font-size: 1rem;
   padding: 0;
+  padding-left: 7px;
   cursor: pointer;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -551,6 +552,16 @@ header.header {
   border-radius: var(--radius);
   background: var(--entry);
 }
+
+
+
+
+
+
+
+
+
+
 
 .series-main .series-control {
   margin-top: 2.5rem;
