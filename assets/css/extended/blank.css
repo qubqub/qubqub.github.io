@@ -840,6 +840,7 @@ header.header {
   }
 
   .main .toc.aside {
+    max-width: 20rem;
     padding: 0 0.75rem;
     font-size: 0.875rem;
     max-height: calc(100vh - 128px);
@@ -889,6 +890,7 @@ header.header {
   .toc.aside details .inner {
     margin: 0;
     padding: 0;
+    padding-inline-end: 2rem;
   }
 
   .toc.aside details .inner .selected>a {
@@ -953,6 +955,7 @@ header.header {
   }
 
   .main .toc.aside {
+    max-width: 20rem;
     margin-left: 4rem;
     padding: 0 0.75rem;
     font-size: 0.875rem;
@@ -1015,6 +1018,7 @@ header.header {
   .toc.aside details .inner {
     margin: 0;
     padding: 0;
+    padding-inline-end: 2rem;
   }
 
   .toc.aside details .inner .selected>a {
