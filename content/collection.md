@@ -10,9 +10,9 @@ useTag: false # Priority 2
 cover:
   hidden: false
 menu:
-  - title: "📄 Effective Java 3/E"
-    description: "Effective Java 3/E을 학습하면서 정리한 내용입니다."
-    url: "/tags/effective-java-3/e/"
+  - title: "📄 Java"
+    description: "Java를 학습하면서 정리한 내용입니다."
+    url: "/tags/java/"
     cover:
       hidden: false
       image: "/logo/logo-java.png"
