@@ -42,7 +42,4 @@ seriesCover:
   - name: "Themes Guide"
     image: "/logo/logo-c.png"
     alt: "Themes Guide"
-  - name: "PaperMod"
-    image: "/logo/logo-react.png"
-    alt: "PaperMod"
 ---

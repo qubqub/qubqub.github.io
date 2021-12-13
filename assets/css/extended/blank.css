@@ -478,13 +478,6 @@ header.header {
   text-decoration: none;
 }
 
-
-
-
-
-
-
-
 .series-main .chapter-control {
   margin-top: -3%;
   display: flex;
@@ -497,10 +490,6 @@ header.header {
   -ms-user-select: none;
   user-select: none;
 }
-
-/* .series-main .chapter-control .page-button {
-  margin-top: -3%;
-} */
 
 .series-main .chapter-control .info {
   display: flex;
@@ -517,11 +506,6 @@ header.header {
   display: flex;
   margin-left: 0.7rem;
 }
-
-/* .series-main .chapter-control .left {
-  margin-right: 15px;
-  margin-bottom: 10px;
-} */
 
 .series-main .chapter-control div:nth-child(2) {
   margin-left: 15px;
@@ -567,16 +551,6 @@ header.header {
   border-radius: var(--radius);
   background: var(--entry);
 }
-
-
-
-
-
-
-
-
-
-
 
 .series-main .series-control {
   margin-top: 2.5rem;

@@ -32,7 +32,6 @@
   {{ $_nextChapterId = print (substr $_chapterId 0 (sub (len $_chapterId) 1)) (add $_chapterNumber 1) }}
 {{ end }}
 
-
 {{ range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
   {{ if (eq $taxonomy_term "chapter") }}
     {{ $_totalChapterPage = len $taxonomy }}
@@ -91,7 +90,6 @@
         <svg width="32" height="48" fill="none" viewBox="0 0 32 48" class="series-corner-image">
           <path fill="#12B886" d="M32 0H0v48h.163l16-16L32 47.836V0z"></path>
         </svg>
-
 
         {{ range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
           {{ if (eq $taxonomy_term "chapter") }}
@@ -175,8 +173,6 @@
             {{ end }}
           {{ end }}
         {{ end }}
-
-
 
       </div>
       <script>

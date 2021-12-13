@@ -28,12 +28,7 @@
     {{- range $.Site.Taxonomies.series.ByCount }}
       {{- $name := .Name }}
       {{- $count := .Count }}
-
-
-
       
-
-
       {{- with $.Site.GetPage (printf "/%s/%s" "series" $name) }}
         <article class="post-entry" title="{{- i18n $name }}">
           {{ $seriesTitle := .Name }}
@@ -50,9 +45,7 @@
             <p>{{- i18n $name }}</p>
           </section>
           <a class="entry-link" aria-label="{{ $seriesTitle }}" href="{{ .Permalink }}"></a>
-        
-
-
+          
           <ul class="post-tags">
             {{- range $.Site.Taxonomies.chapter.Alphabetical }}
               {{ $splitChapter := split .Name "chapter" }}
@@ -61,34 +54,20 @@
               {{ $chapterNumber := substr (index $splitChapter 1) 1 }}
 
               {{- if (eq $seriesId $name) }}
-                
-                  {{- range where $seriesCover "name" $seriesTitle }}
-                    {{- range .chapter }}
-                      {{- if (eq .number (int $chapterNumber)) }}
-                      <li>
-                        <a class="button" href="/chapter/{{ $seriesId }}-chapter-{{ .number }}">Ch.{{ .number }} {{ .title }}</a>
-                      </li>
-                      {{- end }}
+                {{- range where $seriesCover "name" $seriesTitle }}
+                  {{- range .chapter }}
+                    {{- if (eq .number (int $chapterNumber)) }}
+                    <li>
+                      <a class="button" href="/chapter/{{ $seriesId }}-chapter-{{ .number }}">Ch.{{ .number }} {{ .title }}</a>
+                    </li>
                     {{- end }}
                   {{- end }}
-                
-              {{- else }}
-            
+                {{- end }}
               {{- end }}
-
             {{- end }}
-
           </ul>
         </article>
       {{- end }}
-
-
-      
-
-
-
-
     {{- end }}
-    
   {{- end }}
 {{- end }}{{/* end main */ -}}
