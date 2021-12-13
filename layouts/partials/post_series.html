@@ -4,31 +4,112 @@
 {{ $_prePageLink := "" }}
 {{ $_nextPageTitle := "" }}
 {{ $_nextPageLink := "" }}
+
+{{ $_seriesId := "" }}
 {{ $_seriesTitle := "" }}
-{{ range $index, $seriesPath := (.GetTerms "series") }}
-  {{ if (eq $index 0) }}
-    {{ $_series := index (split .Permalink "/") (sub (len (split .Permalink "/")) 2) }}
-    {{ $_seriesTitle = .LinkTitle }}
-    <div class="series-main">
-      <h2><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></h2>
-      <svg width="32" height="48" fill="none" viewBox="0 0 32 48" class="series-corner-image">
-        <path fill="#12B886" d="M32 0H0v48h.163l16-16L32 47.836V0z"></path>
-      </svg>
-      {{ range $taxonomy_term, $taxonomy := .Site.Taxonomies }}
-        {{ if (eq $taxonomy_term "series") }}
-          {{ with $.Site.GetPage }}
+
+{{ $_useChapter := false }}
+
+{{ $_chapterId := "" }}
+{{ $_chapterTitle := "" }}
+{{ $_chapterNumber := "" }}
+
+{{ $_preChapterId := "" }}
+{{ $_preChapterPages := "" }}
+{{ $_preChapterLink := "" }}
+{{ $_nextChapterId := "" }}
+{{ $_nextChapterPages := "" }}
+{{ $_nextChapterLink := "" }}
+{{ $_totalChapterPage := "" }}
+
+{{ range .GetTerms "chapter" }}
+  {{ $_chapterId = index (split .Permalink "/") (sub (len (split .Permalink "/")) 2) }}
+  {{ $_chapterTitle = .LinkTitle }}
+  {{ $_useChapter = true }}
+  {{ $_chapterNumber = index (split $_chapterId "-") (sub (len (split $_chapterId "-")) 1) }}
+  {{ $_chapterNumber = int $_chapterNumber }}
+  {{ $_preChapterId = print (substr $_chapterId 0 (sub (len $_chapterId) 1)) (sub $_chapterNumber 1) }}
+  {{ $_nextChapterId = print (substr $_chapterId 0 (sub (len $_chapterId) 1)) (add $_chapterNumber 1) }}
+{{ end }}
+
+
+{{ range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
+  {{ if (eq $taxonomy_term "chapter") }}
+    {{ $_totalChapterPage = len $taxonomy }}
+    {{ range $key, $value := $taxonomy }}
+      {{ if (eq $key $_preChapterId)}}
+        {{ $_preChapterPages = index $value 0 }}
+      {{ end }}
+
+      {{ if (eq $key $_nextChapterId)}}
+        {{ $_nextChapterPages = index $value (sub (len $value) 1) }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ if $_useChapter }}
+  {{ range $index, $seriesPath := (.GetTerms "chapter") }}
+    {{ if (eq $index 0) }}
+      <div class="series-main">
+        <div class="chapter-control">
+          <div class="info">
+            <div class="chapter-number">{{ $_chapterNumber }} / {{ $_totalChapterPage }}</div>
+            <div class="page-button">
+              {{ with $_preChapterPages }}
+                <div class="left">
+                  <a class="button" href="{{ .Permalink }}">
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                    </svg>
+                    <svg style="margin-left: -10px" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                    </svg>
+                    {{ sub $_chapterNumber 1 }} 장
+                  </a>
+                </div>
+              {{ end }}
+
+              {{ with $_nextChapterPages }}
+                <div class="right">
+                  <a class="button" href="{{ .Permalink }}">
+                    {{ add $_chapterNumber 1 }} 장
+                    <svg style="margin-right: -10px" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+                    </svg>
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+                    </svg>
+                  </a>
+                </div>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+        
+        <h2><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></h2>
+        <svg width="32" height="48" fill="none" viewBox="0 0 32 48" class="series-corner-image">
+          <path fill="#12B886" d="M32 0H0v48h.163l16-16L32 47.836V0z"></path>
+        </svg>
+
+
+        {{ range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
+          {{ if (eq $taxonomy_term "chapter") }}
             {{ range $key, $value := $taxonomy }}
-              {{ if (eq $key $_series)}}
+              {{ if (eq $key $_chapterId)}}
                 <ol class="series-list">
-                  {{ range $index, $filePath := $value.Pages }}
+                  {{ $descPages := seq (sub (len $value.Pages) 1) -1 0 }} {{/* sort in reverse order */}}
+                  {{ range $descPages }}
+                    {{ with (index $value.Pages .) }}
                     <li hugo-nav="{{ .RelPermalink}}">
                       <a href="{{ .Permalink}}" {{ if (eq $pageTitle .LinkTitle) }} class="current" {{ end }}>{{ .LinkTitle }}</a>
                     </li>
+                    {{ end }}
                   {{ end }}
-                </ol> 
+                </ol>
 
                 <div class="series-control">
-                  <div class="toggle" onclick="series_toggle(this, {{ $_seriesTitle }})">🔒</div>
+                  <div class="toggle" onclick="series_toggle(this, {{ $_chapterTitle }})">🔒</div>
                   <div class="info">
                     {{ range $index, $filePath := $value.Pages }}
                       {{ if (eq $pageTitle .LinkTitle) }}
@@ -36,16 +117,16 @@
                       {{ end }}
                     {{ end }}
                     <div class="series-number">
-                      {{ add $_currentIdx 1 }} / {{ len $value.Pages }}
+                      {{ sub (len $value.Pages) $_currentIdx }} / {{ len $value.Pages }}
                     </div>
 
                     {{ range $index, $filePath := $value.Pages }}
-                      {{ if (eq $index (sub $_currentIdx 1)) }}
+                      {{ if (eq $index (add $_currentIdx 1)) }}
                         {{ $_prePageTitle = .LinkTitle }}
                         {{ $_prePageLink = .Permalink }}
                       {{ end }}
 
-                      {{ if (eq $index (add $_currentIdx 1)) }}
+                      {{ if (eq $index (sub $_currentIdx 1)) }}
                         {{ $_nextPageTitle = .LinkTitle }}
                         {{ $_nextPageLink = .Permalink }}
                       {{ end }}
@@ -90,41 +171,168 @@
                     </div>
                   </div>
                 </div>
-
               {{ end }}
             {{ end }}
           {{ end }}
         {{ end }}
-      {{ end }}
-    </div>
-    <script>
-      window.addEventListener('DOMContentLoaded', function () {
-        if (localStorage.getItem("series-main-"+{{ $_series }}) === "true") {
-          const seriesOffsetTop = document.querySelector(".series-main");
-          window.scrollTo(0, seriesOffsetTop.offsetTop + seriesOffsetTop.offsetParent.offsetTop - 10);
-          localStorage.removeItem("series-main-"+{{ $_series }});
-        }
-      });
 
-      const seriesToggle = localStorage.getItem("lock-series-"+{{ $_seriesTitle }});
-      if (seriesToggle === "false") {
-        document.querySelector(".series-main .series-list").style.display ="block";
-        document.querySelector(".series-main .series-control .toggle").innerText = "🔓";
-      } else {
-        document.querySelector(".series-main .series-list").style.display ="none";
-        document.querySelector(".series-main .series-control .toggle").innerText = "🔒";
-      }
 
-      const seriesAnchor = [
-        ...document.querySelectorAll(".series-main .series-list li a"),
-        ...document.querySelectorAll(".series-control .page-button a:not(.disabled)")
-      ];
 
-      for (let i = 0; i < seriesAnchor.length; i++) {
-        seriesAnchor[i].addEventListener("click", e => {
-          localStorage.setItem("series-main-"+{{ $_series }}, true);
+      </div>
+      <script>
+        window.addEventListener('DOMContentLoaded', function () {
+          if (localStorage.getItem("series-main-"+{{ $_seriesId }}) === "true") {
+            const seriesOffsetTop = document.querySelector(".series-main");
+            window.scrollTo(0, seriesOffsetTop.offsetTop + seriesOffsetTop.offsetParent.offsetTop - 10);
+            localStorage.removeItem("series-main-"+{{ $_seriesId }});
+          }
         });
-      }
-    </script>
+
+        const seriesToggle = localStorage.getItem("lock-series-"+{{ $_chapterTitle }});
+        if (seriesToggle === "false") {
+          document.querySelector(".series-main .series-list").style.display ="block";
+          document.querySelector(".series-main .series-control .toggle").innerText = "🔓";
+        } else {
+          document.querySelector(".series-main .series-list").style.display ="none";
+          document.querySelector(".series-main .series-control .toggle").innerText = "🔒";
+        }
+
+        const seriesAnchor = [
+          ...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)")
+          ...document.querySelectorAll(".series-main .series-list li a"),
+          ...document.querySelectorAll(".series-control .page-button a:not(.disabled)")
+        ];
+
+        for (let i = 0; i < seriesAnchor.length; i++) {
+          seriesAnchor[i].addEventListener("click", e => {
+            localStorage.setItem("series-main-"+{{ $_seriesId }}, true);
+          });
+        }
+      </script>
+    {{ end }}
+  {{ end }}
+{{ else }}
+  {{ range $index, $seriesPath := (.GetTerms "series") }}
+    {{ if (eq $index 0) }}
+      {{ $_seriesId = index (split .Permalink "/") (sub (len (split .Permalink "/")) 2) }}
+      {{ $_seriesTitle = .LinkTitle }}
+      <div class="series-main">
+        <h2><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></h2>
+        <svg width="32" height="48" fill="none" viewBox="0 0 32 48" class="series-corner-image">
+          <path fill="#12B886" d="M32 0H0v48h.163l16-16L32 47.836V0z"></path>
+        </svg>
+        {{ range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
+          {{ if (eq $taxonomy_term "series") }}
+            {{ range $key, $value := $taxonomy }}
+              {{ if (eq $key $_seriesId)}}
+                <ol class="series-list">
+                  {{ $descPages := seq (sub (len $value.Pages) 1) -1 0 }} {{/* sort in reverse order */}}
+                  {{ range $descPages }}
+                    {{ with (index $value.Pages .) }}
+                    <li hugo-nav="{{ .RelPermalink}}">
+                      <a href="{{ .Permalink}}" {{ if (eq $pageTitle .LinkTitle) }} class="current" {{ end }}>{{ .LinkTitle }}</a>
+                    </li>
+                    {{ end }}
+                  {{ end }}
+                </ol>
+
+                <div class="series-control">
+                  <div class="toggle" onclick="series_toggle(this, {{ $_seriesTitle }})">🔒</div>
+                  <div class="info">
+                    {{ range $index, $filePath := $value.Pages }}
+                      {{ if (eq $pageTitle .LinkTitle) }}
+                        {{ $_currentIdx = $index }}
+                      {{ end }}
+                    {{ end }}
+                    <div class="series-number">
+                      {{ sub (len $value.Pages) $_currentIdx }} / {{ len $value.Pages }}
+                    </div>
+
+                    {{ range $index, $filePath := $value.Pages }}
+                      {{ if (eq $index (add $_currentIdx 1)) }}
+                        {{ $_prePageTitle = .LinkTitle }}
+                        {{ $_prePageLink = .Permalink }}
+                      {{ end }}
+
+                      {{ if (eq $index (sub $_currentIdx 1)) }}
+                        {{ $_nextPageTitle = .LinkTitle }}
+                        {{ $_nextPageLink = .Permalink }}
+                      {{ end }}
+                    {{ end }}
+
+                    <div class="page-button">
+                      {{ if $_prePageLink }}
+                        <div class="left">
+                          <a class="button" href="{{ $_prePageLink }}">
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                            </svg>
+                          </a>
+                        </div>
+                      {{ else }}
+                        <div class="left">
+                          <a class="button disabled">
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                            </svg>
+                          </a>
+                        </div>
+                      {{ end }}
+                      
+                      {{ if $_nextPageLink }}
+                        <div class="right">
+                          <a class="button" href="{{ $_nextPageLink }}">
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+                            </svg>
+                          </a>
+                        </div>
+                      {{ else }}
+                        <div class="right">
+                          <a class="button disabled">
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+                            </svg>
+                          </a>
+                        </div>
+                      {{ end }}
+                    </div>
+                  </div>
+                </div>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
+      <script>
+        window.addEventListener('DOMContentLoaded', function () {
+          if (localStorage.getItem("series-main-"+{{ $_seriesId }}) === "true") {
+            const seriesOffsetTop = document.querySelector(".series-main");
+            window.scrollTo(0, seriesOffsetTop.offsetTop + seriesOffsetTop.offsetParent.offsetTop - 10);
+            localStorage.removeItem("series-main-"+{{ $_seriesId }});
+          }
+        });
+
+        const seriesToggle = localStorage.getItem("lock-series-"+{{ $_seriesTitle }});
+        if (seriesToggle === "false") {
+          document.querySelector(".series-main .series-list").style.display ="block";
+          document.querySelector(".series-main .series-control .toggle").innerText = "🔓";
+        } else {
+          document.querySelector(".series-main .series-list").style.display ="none";
+          document.querySelector(".series-main .series-control .toggle").innerText = "🔒";
+        }
+
+        const seriesAnchor = [
+          ...document.querySelectorAll(".series-main .series-list li a"),
+          ...document.querySelectorAll(".series-control .page-button a:not(.disabled)")
+        ];
+
+        for (let i = 0; i < seriesAnchor.length; i++) {
+          seriesAnchor[i].addEventListener("click", e => {
+            localStorage.setItem("series-main-"+{{ $_seriesId }}, true);
+          });
+        }
+      </script>
+    {{ end }}
   {{ end }}
 {{ end }}

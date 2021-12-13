@@ -163,9 +163,10 @@ menu:
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 taxonomies:
+  series: series
+  chapter: chapter
   category: categories
   tag: tags
-  series: series
 markup:
   # goldmark:
   #   renderer:
