@@ -39,7 +39,7 @@ seriesCover:
         title: "동시성"
       - number: 11
         title: "직렬화"
-  - name: "Themes Guide"
-    image: "/logo/logo-c.png"
-    alt: "Themes Guide"
+  # - name: "Themes Guide"
+  #   image: "/logo/logo-c.png"
+  #   alt: "Themes Guide"
 ---
