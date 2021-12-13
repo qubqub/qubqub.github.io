@@ -40,6 +40,39 @@
   # translation: "copied!"
   translation: <div class="tooltip">Copied!</div><span class="octicon done" style="color:#3fb950;"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon-check"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></span>
 
+- id: effective-java-3e-chapter-1
+  translation: "객체 생성과 파괴"
+
+- id: effective-java-3e-chapter-2
+  translation: "모든 객체의 공통 메서드"
+
+- id: effective-java-3e-chapter-3
+  translation: "클래스와 인터페이스"
+
+- id: effective-java-3e-chapter-4
+  translation: "제네릭"
+
+- id: effective-java-3e-chapter-5
+  translation: "열거 타입과 애너테이션"
+
+- id: effective-java-3e-chapter-6
+  translation: "람다와 스트림"
+
+- id: effective-java-3e-chapter-7
+  translation: "메서드"
+
+- id: effective-java-3e-chapter-8
+  translation: "일반적인 프로그래밍 원칙"
+
+- id: effective-java-3e-chapter-9
+  translation: "예외"
+
+- id: effective-java-3e-chapter-10
+  translation: "동시성"
+
+- id: effective-java-3e-chapter-11
+  translation: "직렬화"
+
 - id: html
   translation: '하이퍼 텍스트 마크업 언어는 웹 페이지를 위한 지배적인 마크업 언어다. 또한, HTML은 제목, 단락, 목록 등과 같은 본문을 위한 구조적 의미를 나타내는 것뿐만 아니라 링크, 인용과 그 밖의 항목으로 구조적 문서를 만들 수 있는 방법을 제공한다.'
 
