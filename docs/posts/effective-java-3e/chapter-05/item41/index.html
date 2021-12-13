@@ -8,7 +8,7 @@
 <meta name=description content="[아이템 41] 정의하려는 것이 타입이라면 마커 인터페이스를 사용하라. 마커 인터페이스란 메서드 선언을 포함하지 않고, 단지 구현하는 클래스의 특정 속성을 표시해주는 것입니다. 대표적으로 Serializable인터페이스가 있습니다.마커 애너테이션이 등장하면서 마커 인터페이스가 구식이 되었다는 얘기가 있는데, 이는 사실이 아닙니다. 마커 인터페이스는 마커 애너테이션 보다 좋은 점도 있습니다.첫 째로 마커 인터페이스는 이를 구현한 클래스의 인스턴스들을 구분하는 타입을 쓸 수 있지만, 마커 애너테이션은 그렇지 않습니다. 마커 인터페이스는 타입이고 마커 애너테이션을 사용하면 런타임에야 발견할 수 있습니다.자바의 직렬화는 Serializable 마커 인터페이스를 보고 그 대상이 직렬화를 할 수 있는 타입인지 확인합니다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-05/item41/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.b132e03ef7bd4207554e97f551fbeefaed91931994a98236773e429790dc9b5d.css integrity="sha256-sTLgPve9QgdVTpf1Ufvu+u2RkxmUqYI2dz5Cl5Dcm10=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.64a389a24d6f07df8f535c16e84dd2701afcad4c0165703a1e59747f5f4fa94f.css integrity="sha256-ZKOJok1vB9+PU1wW6E3ScBr8rUwBZXA6Hll0f19PqU8=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
