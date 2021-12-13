@@ -58,7 +58,7 @@
                   {{- range .chapter }}
                     {{- if (eq .number (int $chapterNumber)) }}
                     <li>
-                      <a class="button" href="/chapter/{{ $seriesId }}-chapter-{{ .number }}">Ch.{{ .number }} {{ .title }}</a>
+                      <a class="button" href="/chapter/{{ $seriesId }}-chapter-{{ .number }}">{{ .number }} 장 {{ .title }}</a>
                     </li>
                     {{- end }}
                   {{- end }}
