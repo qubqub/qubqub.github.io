@@ -553,7 +553,7 @@ header.header {
 }
 
 .series-main .series-control {
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   display: flex;
   -webkit-box-pack: justify;
   justify-content: space-between;
