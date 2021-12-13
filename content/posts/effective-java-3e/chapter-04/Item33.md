@@ -27,7 +27,7 @@ ShowBreadCrumbs: true
 // 타입 안전 이종 컨테이너 패턴 - API
 public class Favorites {
     public <T> void putFavorite(Class<T> type, T instance);
-    public <T> getFavorite(Class<T> type)
+    public <T> getFavorite(Class<T> type);
 }
 ```
 
@@ -35,15 +35,15 @@ public class Favorites {
 
 ``` java
 // 타입 안전 이종 컨태이너 패턴 - 클라이언트
-    Favorites f = new Favorites();
-    
-    f.putFavorite(String.class, "JAVA");
-    f.putFavorite(Integer.class, 0xcafebabe);
-    f.putFavorite(Class.class, Favorite.class);
+Favorites f = new Favorites();
 
-    String favoriteString = f.getFavorite(String.class);
-    Integer favoriteInteger = f.getFavorite(Integer.class);
-    Class<?> favoriteClass = f.getFavorite(Class.class);
+f.putFavorite(String.class, "JAVA");
+f.putFavorite(Integer.class, 0xcafebabe);
+f.putFavorite(Class.class, Favorite.class);
+
+String favoriteString = f.getFavorite(String.class);
+Integer favoriteInteger = f.getFavorite(Integer.class);
+Class<?> favoriteClass = f.getFavorite(Class.class);
 ```
 
 `favorite` 인스턴스는 `type safe`합니다. `String`을 요청했는데 `Integer`를 반환할 일이 없습니다.
