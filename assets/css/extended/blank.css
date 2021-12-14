@@ -740,7 +740,7 @@ header.header {
 
 @media screen and (max-width: 768px) {
   .post-meta .font-size-button {
-    align-items: baseline;
+    align-items: baseline !important;
   }
 
   .series-main .chapter-control .left a,
