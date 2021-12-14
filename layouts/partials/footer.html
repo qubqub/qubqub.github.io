@@ -20,7 +20,7 @@
 {{- end }}
 
 {{- if (.Param "ShowFontSizeButton") }}
-<div class="aside-font-size-button">
+<div class="aside-font-size-button" id="aside-font-size-button">
   <svg class="button increase" id="aside-font-size-increase" width="24" height="24" viewBox="0 0 24 24">
     <path fill="#12b886" d="M5.12,14L7.5,7.67L9.87,14M6.5,5L1,19H3.25L4.37,16H10.62L11.75,19H14L8.5,5H6.5M18,7L13,12.07L14.41,13.5L17,10.9V17H19V10.9L21.59,13.5L23,12.07L18,7Z" />
   </svg>
@@ -73,19 +73,31 @@
 
 </script>
 
-{{- if (not .Site.Params.disableScrollToTop) }}
+{{- if (or (not .Site.Params.disableScrollToTop) (.Param "ShowFontSizeButton")) }}
 <script>
-  var mybutton = document.getElementById("top-link");
   window.onscroll = function () {
+    {{- if (not .Site.Params.disableScrollToTop) }}
+    var topLinkButton = document.getElementById("top-link");
     if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-      mybutton.style.visibility = "visible";
-      mybutton.style.opacity = "1";
+      topLinkButton.style.visibility = "visible";
+      topLinkButton.style.opacity = "1";
     } else {
-      mybutton.style.visibility = "hidden";
-      mybutton.style.opacity = "0";
+      topLinkButton.style.visibility = "hidden";
+      topLinkButton.style.opacity = "0";
     }
-  };
+    {{- end }}
 
+    {{- if (.Param "ShowFontSizeButton") }}
+    var adiseFontButton = document.getElementById("aside-font-size-button");
+    if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+      adiseFontButton.style.visibility = "visible";
+      adiseFontButton.style.opacity = "1";
+    } else {
+      adiseFontButton.style.visibility = "hidden";
+      adiseFontButton.style.opacity = "0";
+    }
+    {{- end }}
+  };
 </script>
 {{- end }}
 
@@ -159,9 +171,9 @@
 {{- if (.Param "ShowFontSizeButton") }}
 <script>
   localStorage.setItem("post-content-font-size", 100);
-  const asideIncreaseFont = document.getElementById("aside-font-size-increase");
-  const asideDecreaseFont = document.getElementById("aside-font-size-decrease");
-  const asideDefaultFont = document.getElementById("aside-font-size-default");
+  var asideIncreaseFont = document.getElementById("aside-font-size-increase");
+  var asideDecreaseFont = document.getElementById("aside-font-size-decrease");
+  var asideDefaultFont = document.getElementById("aside-font-size-default");
 
   asideIncreaseFont.addEventListener("click", function (e) {
     if (localStorage.getItem("post-content-font-size")) {
