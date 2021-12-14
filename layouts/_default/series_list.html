@@ -74,7 +74,7 @@
                         {{- range .chapter }}
                           {{- if (eq .id $key) }}
                           <li>
-                            <a class="button" href="{{ $_chapterLink }}">{{ $_chapterNumber }} 장 {{ .title }}</a>
+                            <a class="button chapter-link-button" href="{{ $_chapterLink }}">{{ $_chapterNumber }} 장 {{ .title }}</a>
                           </li>
                           {{- end }}
                         {{- end }}

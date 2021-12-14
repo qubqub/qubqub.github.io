@@ -1278,6 +1278,11 @@ header.header {
   margin-top: 10px;
 }
 
+.post-entry .post-tags .chapter-link-button {
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
 .post-tags a {
   position: relative;
   z-index: 1;
