@@ -294,6 +294,7 @@ header.header {
 .post-entry .button:hover,
 .post-tags a:hover,
 .terms-tags a:hover,
+.font-size-button .button:hover,
 .aside-font-size-button .button:hover,
 .top-link:hover {
   transition: box-shadow 0.2s ease 0s, transform .1s;
@@ -780,9 +781,12 @@ header.header {
   }
 
   .top-link {
+    color: #12b886;
     border-radius: 7px;
     bottom: 20px;
     right: 20px;
+    margin: 0;
+    padding: 10px;
     transition: visibility 0.1s, opacity 0.2s linear;
   }
   
@@ -967,9 +971,12 @@ header.header {
   }
 
   .top-link {
+    color: #12b886;
     border-radius: 7px;
     bottom: 30px;
     right: 30px;
+    margin: 0;
+    padding: 10px;
     transition: visibility 0.1s, opacity 0.2s linear;
   }
 
@@ -1115,9 +1122,12 @@ header.header {
   }
 
   .top-link {
+    color: #12b886;
     border-radius: 7px;
     bottom: 30px;
     right: 30px;
+    margin: 0;
+    padding: 10px;
     transition: visibility 0.1s, opacity 0.2s linear;
   }
 }
