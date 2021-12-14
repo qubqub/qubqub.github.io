@@ -221,8 +221,8 @@ if (window.location.pathname.startsWith("/posts/")) {
       const _hljs = document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");
       setTimeout(() => {
         for (let i = 0; i < _hljs.length; i++) {
+          console.log(_hljs[i]);
           _hljs[i].style.width = "200%";
-          _hljs[i].style.width = "100%";
         }
       }, 500);
     }
