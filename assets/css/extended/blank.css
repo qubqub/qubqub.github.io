@@ -876,7 +876,7 @@ header.header {
 @media screen and (min-width: 769px) and (max-width: 1370px) {
   .post-content .highlight td:nth-child(2) pre code.hljs {
     padding-inline-start: 12px;
-    width: 1000%
+    width: 2000%
   }
 
   .display-font-size-info {
