@@ -1,4 +1,4 @@
-{{ if .Params.ShowFontSizeButton -}}
+{{ if (.Param "ShowFontSizeButton") -}}
 
 {{- if or .Params.author $.Site.Params.author (.Param "ShowReadingTime") (not .Date.IsZero) .IsTranslated (or .Params.editPost.URL .Site.Params.editPost.URL) (.Params.ShowCanonicalLink) }}&nbsp;&nbsp;|&nbsp;&nbsp;{{- end -}}
 <span class="font-size-button">

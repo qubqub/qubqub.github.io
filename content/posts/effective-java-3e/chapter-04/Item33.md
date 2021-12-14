@@ -15,9 +15,6 @@ ShowReadingTime: true
 ShowPostNavLinks: false
 ShowCodeCopyButtons: true
 ShowBreadCrumbs: true
-
-ShowFontSizeButton: true
-
 # cover:
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"

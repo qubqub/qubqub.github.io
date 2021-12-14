@@ -32,6 +32,7 @@ params:
 
   GithubRepoUrl: "https://github.com/qutrits/qutrits.github.io"
 
+  ShowFontSizeButton: true
   ShowCreativeCommons: true
   ShowShareButtons: true
   # ShowReadingTime: true
