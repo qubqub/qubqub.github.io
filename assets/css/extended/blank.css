@@ -742,8 +742,21 @@ header.header {
 }
 
 @media screen and (max-width: 768px) {
+  .series-title {
+    font-size: 32px !important;
+  }
+
+  .series-description {
+    font-size: 1.7rem;
+  }
+
+  .series-sub-description-wrapper .series-sub-description {
+    font-size: 0.85rem;
+  }
+
   .series-sub-description-wrapper {
     margin-inline-start: -10px;
+    padding-top: 8px
   }
 
   .post-meta .font-size-button .default {
