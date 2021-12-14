@@ -786,7 +786,8 @@ header.header {
     bottom: 20px;
     right: 20px;
     margin: 0;
-    padding: 10px;
+    width: 30px;
+    height: 30px;
     transition: visibility 0.1s, opacity 0.2s linear;
   }
   

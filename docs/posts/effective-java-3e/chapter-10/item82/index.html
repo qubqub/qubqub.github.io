@@ -9,7 +9,7 @@
  불변: 외부 동기화가 필요없다. 대표적으로 String, Long, BigInteger 무조건적 스레드 안전: 이 클래스의 인스턴스는 수정될 수 있으나, 내부에서 충실히 동기화하여 별도의 외부 동기화 없이 사용해도 안전 대표적으로 ConcurrentHashMap 조건부 스레드 안전: 일부 메서드는 동시에 사용하려면 외부 동기화가 필요. Collections.synchronized 래퍼 메서드가 반환한 컬렉션이 여기 속함 스레드 비안전: 동시에 시용하려면 메서드 호출을 클라이언트가 선택한 외부 동기화 메커니즘으로 감싸야한다. ArrayList, HashMap 같은 기본 컬렉션.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item82/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.c62d1fc4df55befa82aa322b81b43a7ed255ef53f38e632cb9abd202dfb733f5.css integrity="sha256-xi0fxN9VvvqCqjIrgbQ6ftJV71PzjmMsuavSAt+3M/U=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.11050df239a3bf31d18b1f784d0b5b49bcef1e13e5acf3997aa3bc9fbd155ba5.css integrity="sha256-EQUN8jmjvzHRix94TQtbSbzvHhPlrPOZeqO8n70VW6U=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
