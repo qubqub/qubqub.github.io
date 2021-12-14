@@ -217,6 +217,12 @@ if (window.location.pathname.startsWith("/posts/")) {
   });
 
   window.onload = function() {
+    const _hljs = document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");
+    for (let i = 0; i < _hljs.length; i++) {
+      _hljs[i].style.width = "500%";
+      _hljs[i].style.width = "100%";
+    }
+
     const _mainTocTop = mainToc?mainToc.offsetTop + mainToc.offsetParent.offsetTop - 1:0;
     if (_mainTocTop < window.pageYOffset) {
       const _toc = document.querySelectorAll(".main .toc.aside .inner ul>li");

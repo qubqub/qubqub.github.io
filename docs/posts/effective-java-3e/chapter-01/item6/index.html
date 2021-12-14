@@ -25,7 +25,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.610c2195d4f13fec5206b70eeb9f601c1cc029ff451ed0aff45972142e252db9.js integrity="sha256-YQwhldTxP+xSBrcO659gHBzAKf9FHtCv9FlyFC4lLbk="></script><meta property="og:title" content="[아이템 6] 불피요한 객체를 생성을 피하라">
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.1fe81935df41c7584bfa5dbc3054a89c11dd17c855e63c45a29f2a8286c6edcc.js integrity="sha256-H+gZNd9Bx1hL+l28MFSonBHdF8hV5jxFop8qgobG7cw="></script><meta property="og:title" content="[아이템 6] 불피요한 객체를 생성을 피하라">
 <meta property="og:description" content="[아이템 6] 불피요한 객체를 생성을 피하라 기능이 똑같은 객체를 매번 생성하기 보다는 객체를 재사용하는 것이 적절합니다. 특히 불변 객체는 항상 재사용할 수 있습니다.
 문자열 생성 방법 객체 생성 방식 - 피해야되는 예시 1  String str = new String(&#34;hello&#34;);   이 방식을 이용하면 똑같은 문자열을 생성하더라도 항상 새로운 객체를 생성하므로 낭비가 됩니다.
 리터럴 방식 1  String str = &#34;hello&#34;;   리터럴 방식을 사용하면 JVM에서 동일한 문자열이 존재한다면 그 리터럴을 재사용합니다.">
