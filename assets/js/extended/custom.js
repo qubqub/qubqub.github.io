@@ -50,6 +50,7 @@ if (window.location.pathname.startsWith("/posts/")) {
     progressEl.style.backgroundColor = "#12b886";
     progressEl.style.height = "0.3vh";
     progressEl.style.width = "0%";
+    progressEl.style.borderRadius = "16px";
     _body.prepend(progressEl);
 
     const _progressbar = document.querySelector(".progress-bar-container__progress");

@@ -25,7 +25,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.88fce73b92e54a99310d68694b7fb41e7dba86510afb0cba2c83c8ecad1aacc4.js integrity="sha256-iPznO5LlSpkxDWhpS3+0Hn26hlEK+wy6LIPI7K0arMQ="></script><meta property="og:title" content="[아이템 32] 제네릭과 가변인수를 함께 쓸 때는 신중하라">
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.a35958bb9627cce83a7bcef32d41c606cb91c29df3dea92ef217721c051d0193.js integrity="sha256-o1lYu5YnzOg6e87zLUHGBsuRwp3z3qku8hdyHAUdAZM="></script><meta property="og:title" content="[아이템 32] 제네릭과 가변인수를 함께 쓸 때는 신중하라">
 <meta property="og:description" content="[아이템 32] 제네릭과 가변인수를 함께 쓸 때는 신중하라. 가변인수와 제네릭은 자바 5에 함께 추가되었는데 이 둘은 서로 어울리지 않습니다.
 가변인수(varargs)란 메서드에 넘기는 인수의 개수를 클라이언트가 조절할 수 있게 해주는 것입니다. 구현 방식에 허점이 있습나다. 가변인수 메서드를 호출하면 가변인수를 담기 위한 배열이 자동으로 하나 만들어집니다. 그런데 내부로 감춰야 했을 이 배열을 그만 클라이언트에 노출하는 문제가 생겼습니다. 그 결과 verargs 매개변수에 제네릭이나 매개변수화 타입이 포함되면 알기 어려운 컴파일 경고가 발생합니다.
 실체화 불가 타입은 런타임에 컴파일보다 타입 관련 정보를 적게 담고 있습니다.">
