@@ -25,7 +25,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ce2e7f3a22c309a06f3ff822fe8497b85f123a8b683e20f8d9dc4203b8449de2.js integrity="sha256-zi5/OiLDCaBvP/gi/oSXuF8SOotoPiD42dxCA7hEneI="></script><meta property="og:title" content="[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라">
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.0b81a705c39afb141a92d57ff4c7a140adc80e2b0e3e0d54468136d8cbbb6e31.js integrity="sha256-C4GnBcOa+xQaktV/9MehQK3IDisOPg1URoE22Mu7bjE="></script><meta property="og:title" content="[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라">
 <meta property="og:description" content="[Iteam 1] 생성자 대신 정적 팩토리 메서드를 고려하라 일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메소드를 이용할 수 있다. Boolean 클래스에서 발췌한 예제 코드
 1 2 3  public static Boolean valueOf(boolean b) { return b ? Boolean.TRUE : Booelan.FALSE; }   장점 1. 이름을 가질 수 있다. 생성자에 넘기는 매개변수만으로 반활된 객체의 특성을 제대로 설명하지 못합니다.
 반면 정적 팩터리 메서드는 이름을 잘 지으면 반환될 객체의 특성을 쉽게 묘사할 수 있습니다.">

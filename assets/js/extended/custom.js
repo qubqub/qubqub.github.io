@@ -219,10 +219,12 @@ if (window.location.pathname.startsWith("/posts/")) {
   window.onload = function() {
     if (window.innerWidth < 769) {
       const _hljs = document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");
-      for (let i = 0; i < _hljs.length; i++) {
-        _hljs[i].style.width = "200%";
-        _hljs[i].style.width = "100%";
-      }
+      setTimeout(() => {
+        for (let i = 0; i < _hljs.length; i++) {
+          _hljs[i].style.width = "200%";
+          _hljs[i].style.width = "100%";
+        }
+      }, 500);
     }
 
     const _mainTocTop = mainToc?mainToc.offsetTop + mainToc.offsetParent.offsetTop - 1:0;
