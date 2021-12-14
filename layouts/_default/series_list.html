@@ -46,8 +46,15 @@
           <section class="entry-content">
             <p>{{- i18n $name }}</p>
           </section>
+
+
+
+          
           <a class="entry-link" aria-label="{{ $seriesTitle }}" href="{{ .Permalink }}"></a>
           
+
+
+
           <ul class="post-tags">
             {{- range $.Site.Taxonomies.chapter.Alphabetical }}
               {{ $splitChapter := split .Name "chapter" }}

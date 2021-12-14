@@ -48,7 +48,7 @@
 {{ end }}
 
 {{ if $_useChapter }}
-  {{ range $index, $seriesPath := (.GetTerms "chapter") }}
+  {{ range $index, $chapterPath := (.GetTerms "chapter") }}
     {{ if (eq $index 0) }}
       <div class="series-main">
         <div class="chapter-control">

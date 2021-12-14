@@ -177,6 +177,7 @@ header.header {
   margin-right: 0.5rem;
 }
 
+
 .terms-tags a {
   font-size: 1.05rem;
 }
@@ -307,7 +308,8 @@ header.header {
 .header .nav .logo a:hover,
 .entry-footer .social-icons a:hover,
 .header .nav #theme-toggle:hover,
-.archive-year .archive-month .archive-month-header:hover
+.archive-year .archive-month .archive-month-header:hover,
+.post-meta .edit-post:hover
 {
   transition: color 0.2s ease 0s;
   /* color: rgb(0, 151, 202); */
