@@ -766,8 +766,8 @@ header.header {
   }
 
   .display-font-size-info {
-    font-size: 1.25rem;
-    height: 1.1rem;
+    font-size: 1.2rem;
+    height: 1.3rem;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -781,7 +781,7 @@ header.header {
 
   .aside-display-font-size-info {
     margin-bottom: 2px;
-    font-size: 1.1rem;
+    font-size: 0.7rem;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -879,8 +879,8 @@ header.header {
   }
 
   .display-font-size-info {
-    font-size: 1.25rem;
-    height: 1.1rem;
+    font-size: 1.2rem;
+    height: 1.3rem;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -894,7 +894,7 @@ header.header {
 
   .aside-display-font-size-info {
     margin-bottom: 2px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -1046,8 +1046,8 @@ header.header {
   }
 
   .display-font-size-info {
-    font-size: 1.25rem;
-    height: 1.1rem;
+    font-size: 1.2rem;
+    height: 1.3rem;
     display: flex;
     -webkit-box-align: center;
     align-items: center;

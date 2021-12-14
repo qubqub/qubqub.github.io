@@ -8,7 +8,7 @@
 <meta name=description content="[아이템 37] ordinal 인덱싱 대신 EnumMap을 사용하라. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  public class Plant { enum LifeCycle { ANNUAL, PERENNIAL, BIENNIAL } final String name; final LifeCycle lifeCycle; Plant(String name, LifeCycle lifeCycle) { this.name = name; this.lifeCycle = lifeCycle; } @Override public String toString() { return name; } }   식물을 간단히 나타낸 코드입니다. 이들을 생애주기 별로 묶어봅시다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-05/item37/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.733a1e68b59d82cc7a0e078d5990b2c167e446941a3ffd64ae195109fc9ea0ba.css integrity="sha256-czoeaLWdgsx6DgeNWZCywWfkRpQaP/1krhlRCfyeoLo=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.ce0115d7e84f8dca5a49e49407d8e2246554f9801c26cfede4120d1902ad43fd.css integrity="sha256-zgEV1+hPjcpaSeSUB9jiJGVU+YAcJs/t5BINGQKtQ/0=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
