@@ -24,7 +24,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.b25e57cbbb8f719672c47d7ed8b65e7e47c8e4ebff295123109a91a2e3b19965.js integrity="sha256-sl5Xy7uPcZZyxH1+2LZefkfI5Ov/KVEjEJqRouOxmWU="></script><meta property="og:title" content="[아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하여라">
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.2d41031a345a2ca9d168501c159d08781ea7ff9cd08f01c439ca424530c3d5f3.js integrity="sha256-LUEDGjRaLKnRaFAcFZ0IeB6n/5zQjwHEOcpCRTDD1fM="></script><meta property="og:title" content="[아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하여라">
 <meta property="og:description" content="[아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하여라. 대부분의 클래스는 하나 이상의 리소스에 의존합니다. 이번 예제에서는 SpellChecker가 Lexicon를 의존하고 있는 모습입니다.
 부적절한 구현 정적 유틸리티를 잘못 사용한 예 - 유연하지 않고 테스트 할 수 없다 1 2 3 4 5 6 7 8 9  public class SpellChecker { private static final Lexicon dictionary = ...; private SpellChecker() { } public static boolean isValid(String word) { ... } public static List<String> suggestions(String typo) { } }   싱글턴을 잘못 사용한 예 - 유연하지 않고 테스트하기 어렵다 1 2 3 4 5 6 7 8 9 10  public class SpellChecker { private final Lexicon dictionary = .">
 <meta property="og:type" content="article">

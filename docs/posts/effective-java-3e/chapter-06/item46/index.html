@@ -24,7 +24,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.b25e57cbbb8f719672c47d7ed8b65e7e47c8e4ebff295123109a91a2e3b19965.js integrity="sha256-sl5Xy7uPcZZyxH1+2LZefkfI5Ov/KVEjEJqRouOxmWU="></script><meta property="og:title" content>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.2d41031a345a2ca9d168501c159d08781ea7ff9cd08f01c439ca424530c3d5f3.js integrity="sha256-LUEDGjRaLKnRaFAcFZ0IeB6n/5zQjwHEOcpCRTDD1fM="></script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 46] 스트림에서는 부작용이 없는 함수를 사용하라. 스트림 패러다임의 핵심은 계산을 일련의 변환으로 재구성하는 부분입니다. 이때 각 변환 단계는 가능한 한 이전 단계의 결과를 받아 처리하는 순수 함수여야 하는데, 순수 함수란 입력만이 결과에 영향을 주는 함수를 말합니다. 즉 다른 가변 상태를 참조하지 않고, 함수 스스로도 다른 상태를 변경하지 않습니다.다음은 텍스트 파일에서 단어별 수를 세어 빈도표를 만드는 코드입니다.
 1 2 3 4 5 6 7  // 스트림을 이해하지 못한 코드 - 따라 하지 말 것 Map<String, Long> freq = new HashMap<>(); try (Stream<String> words = new Scanner(file).">
 <meta property="og:type" content="article">
