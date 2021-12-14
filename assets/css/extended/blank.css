@@ -747,7 +747,7 @@ header.header {
   
   .aside-font-size-button {
     position: fixed;
-    bottom: 150px;
+    bottom: 135px;
     right: 20px;
     z-index: 99;
     height: 42px;
@@ -757,7 +757,7 @@ header.header {
     cursor: pointer;
     margin: 0;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     width: 30px;
     height: 30px;
   }
