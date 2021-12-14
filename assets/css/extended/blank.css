@@ -818,7 +818,7 @@ header.header {
     padding-top: 0;
   } */
 
-  .post-content .highlight pre code.hljs {
+  .post-content .highlight td:nth-child(2) pre code.hljs {
     font-size: 8px !important;
   }
 
