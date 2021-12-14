@@ -24,7 +24,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.1fe81935df41c7584bfa5dbc3054a89c11dd17c855e63c45a29f2a8286c6edcc.js integrity="sha256-H+gZNd9Bx1hL+l28MFSonBHdF8hV5jxFop8qgobG7cw="></script><meta property="og:title" content>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ce2e7f3a22c309a06f3ff822fe8497b85f123a8b683e20f8d9dc4203b8449de2.js integrity="sha256-zi5/OiLDCaBvP/gi/oSXuF8SOotoPiD42dxCA7hEneI="></script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 86] Serializable을 구현할지는 신중히 결정하라. Serializable을 구현하면 릴리스 한 뒤에는 수정하기 어렵습니다. 직렬화 당시 내부 구현 방식에 묶이고, 캡슐화가 깨지는 위험이 있습니다. 직렬화된 클래스는 고유 식별 번호를 부여받는데, serialVersionUID를 명시하지 않으면 런타임에 SHA-1을 적용하여 자동으로 클래스 안에 생성해 넣는데, 클래스의 이름, 멤버 등이 포함됩니다. 그래서 나중에 이들 중 하나를 수정한다면 UID 값도 변하여 호환성이 깨져버립니다.
 1 2 3 4  // 상태가 있고, 확장 가능하고, 직렬화 가능한 클래스용 readObjectNoData 메서드 private void readObjectNoData() throws InvalidObjectException() { throw new InvalidObjectException(&#34;스트림 데이터가 필요합니다&#34;); }   ">
 <meta property="og:type" content="article">

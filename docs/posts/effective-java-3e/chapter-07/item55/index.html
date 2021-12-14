@@ -23,7 +23,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.1fe81935df41c7584bfa5dbc3054a89c11dd17c855e63c45a29f2a8286c6edcc.js integrity="sha256-H+gZNd9Bx1hL+l28MFSonBHdF8hV5jxFop8qgobG7cw="></script><meta property="og:title" content>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ce2e7f3a22c309a06f3ff822fe8497b85f123a8b683e20f8d9dc4203b8449de2.js integrity="sha256-zi5/OiLDCaBvP/gi/oSXuF8SOotoPiD42dxCA7hEneI="></script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 55] 옵셔널 반환은 신중히 하라 자바 8이전에는 메서드가 특정 값을 반환할 수 없을때 취할 수 있는 선택지가 두 가지가 있었습니다. 예외를 던지거나, null을 반환하는 것입니다. 두 방법 모두 허점이 있습니다. 예외는 진짜 예외적인 상황에서만 사용해야 하며 예외를 생성할 때 스택 추적 전체를 캡쳐하므로 바용도 만만치 않습니다. null을 반환할 수 있는 메서드를 호출하면 null 처리를 별도로 해줘야합니다. null 처리를 무시하면 나중에 NPE가 발생할 수 있습니다. 자바 8부터는 Optional을 지원했습니다. Optional<T>는 null이 아닌 T타입 참조를 하나 담거나, 아무것도 담지 않을 수 있습니다.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://qutrits.github.io/posts/effective-java-3e/chapter-07/item55/"><meta property="article:section" content="posts">
