@@ -1076,9 +1076,10 @@ header.header {
   margin: 0 auto;
 }
 
-/* .post-header>.post-title {
-  margin-bottom: 1.5rem;
-} */
+.post-header>.post-title {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
 
 .main .archive-year .archive-month .archive-posts .archive-entry .archive-meta .post-tags,
 .main .post-entry .entry-footer .post-tags,
