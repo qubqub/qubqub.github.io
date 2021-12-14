@@ -108,15 +108,16 @@ if (window.location.pathname.startsWith("/posts/")) {
         return;
       }
 
-      if (currentScroll > 80) {
-
+      if (currentScroll > 60) {
         if (window.innerWidth < 769) {
           const _hljs = document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");
           for (let i = 0; i < _hljs.length; i++) {
             _hljs[i].style.width = "100%";
           }
         }
+      }
 
+      if (currentScroll > 80) {
         if (currentScroll > lastScroll && !header.classList.contains(scrollDown)) {
           // down
           header.classList.remove(scrollUp);
