@@ -739,6 +739,10 @@ header.header {
 }
 
 @media screen and (max-width: 768px) {
+  .post-meta .font-size-button {
+    align-items: baseline;
+  }
+
   .series-main .chapter-control .left a,
   .series-main .chapter-control .right a {
     padding-right: 0;
