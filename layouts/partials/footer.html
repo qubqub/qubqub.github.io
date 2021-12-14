@@ -21,6 +21,7 @@
 
 {{- if (.Param "ShowFontSizeButton") }}
 <div class="aside-font-size-button" id="aside-font-size-button">
+  <span class="aside-display-font-size-info">100%</span>
   <svg class="button increase" id="aside-font-size-increase" width="24" height="24" viewBox="0 0 24 24">
     <path fill="#12b886" d="M5.12,14L7.5,7.67L9.87,14M6.5,5L1,19H3.25L4.37,16H10.62L11.75,19H14L8.5,5H6.5M18,7L13,12.07L14.41,13.5L17,10.9V17H19V10.9L21.59,13.5L23,12.07L18,7Z" />
   </svg>
@@ -182,10 +183,14 @@
       if (_fontSize+5 > 200) return;
 
       document.querySelector(".post-single .post-content").style.fontSize = (_fontSize+10) + "%";
+      document.querySelector(".display-font-size-info").innerText = (_fontSize+10) + "%";
+      document.querySelector(".aside-display-font-size-info").innerText = (_fontSize+10) + "%";
       localStorage.setItem("post-content-font-size", _fontSize+10);
     } else {
-      document.querySelector(".post-single .post-content").style.fontSize = "105%";
-      localStorage.setItem("post-content-font-size", 105);
+      document.querySelector(".post-single .post-content").style.fontSize = "110%";
+      document.querySelector(".display-font-size-info").innerText = "110%";
+      document.querySelector(".aside-display-font-size-info").innerText = "110%";
+      localStorage.setItem("post-content-font-size", 110);
     }
   });
 
@@ -196,15 +201,21 @@
       if (_fontSize-5 < 50) return;
 
       document.querySelector(".post-single .post-content").style.fontSize = (_fontSize-10) + "%";
+      document.querySelector(".display-font-size-info").innerText = (_fontSize-10) + "%";
+      document.querySelector(".aside-display-font-size-info").innerText = (_fontSize-10) + "%";
       localStorage.setItem("post-content-font-size", _fontSize-10);
     } else {
-      document.querySelector(".post-single .post-content").style.fontSize = "95%";
-      localStorage.setItem("post-content-font-size", 95);
+      document.querySelector(".post-single .post-content").style.fontSize = "90%";
+      document.querySelector(".display-font-size-info").innerText = "90%";
+      document.querySelector(".aside-display-font-size-info").innerText = "90%";
+      localStorage.setItem("post-content-font-size", 90);
     }
   });
 
   asideDefaultFont.addEventListener("click", function (e) {
     document.querySelector(".post-single .post-content").style.fontSize = "100%";
+    document.querySelector(".display-font-size-info").innerText = "100%";
+    document.querySelector(".aside-display-font-size-info").innerText = "100%";
     localStorage.setItem("post-content-font-size", 100);
   });
 </script>
