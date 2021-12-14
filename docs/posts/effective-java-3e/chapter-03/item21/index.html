@@ -26,7 +26,7 @@ JAVA 8이전까지는 인터페이스에 새로운 메소드가 추가될리 없
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.2d41031a345a2ca9d168501c159d08781ea7ff9cd08f01c439ca424530c3d5f3.js integrity="sha256-LUEDGjRaLKnRaFAcFZ0IeB6n/5zQjwHEOcpCRTDD1fM="></script><meta property="og:title" content="[아이템 21] 인터페이스는 구현하는 쪽을 생각해 설계하라">
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.74fb6b34bfcbd82a73f7a7b8d1bc0a8160bfdf13854b641877be06b18f0f4a06.js integrity="sha256-dPtrNL/L2Cpz96e40bwKgWC/3xOFS2QYd74GsY8PSgY="></script><meta property="og:title" content="[아이템 21] 인터페이스는 구현하는 쪽을 생각해 설계하라">
 <meta property="og:description" content="[아이템 21] 인터페이스는 구현하는 쪽을 생각해 설계하라. JAVA 8이전에는 기존 구현체를 깨뜨리지 않고 인터페이스에 새로운 메서드를 추가할 방법이 없었습니다. JAVA 8부터는 디폴트 메서드를 제공해서 이러한 문제점들을 해결해줬지만 위험이 완전히 사라진 것은 아닙니다.
 JAVA 8이전까지는 인터페이스에 새로운 메소드가 추가될리 없다는 암묵적인 가정으로 작성되었습니다.
 즉 디폴트 메서드는 구현한 클래스에 동의 없이 무작정 삽입되었습니다. JAVA 8에서는 핵심 컬렉션 인터페이스들에 다수의 디폴트 메서드가 추가되었습니다. 주로 람다를 활용하기 위해서입니다.
