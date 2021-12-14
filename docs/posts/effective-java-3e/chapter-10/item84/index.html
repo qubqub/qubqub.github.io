@@ -23,7 +23,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.3f5f62bbae6416963bcf4ea7c35808b85bdc27ced09a2ccf01cdbc2239742aab.js integrity="sha256-P19iu65kFpY7z06nw1gIuFvcJ87QmizPAc28Ijl0Kqs="></script><meta property="og:title" content>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.2270a092bc466a8a913d3e0fae43272b9278b7e1b02394fbcb3a413dd2d21c5b.js integrity="sha256-InCgkrxGaoqRPT4PrkMnK5J4t+GwI5T7yzpBPdLSHFs="></script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 84] 프로그램의 동작을 스레드 스케줄러에 기대지 말라. 구체적인 스케줄링 정책은 운영체제 마다 다를 수 있다. 따라서 이 정책에 죄지우지 되면 안 된다. 실행 가능한 스레드의 평균적인 수를 프로세스 수보다 지나치게 많아지지 않도록 하는 것이 좋은 프로그래램이다. 그래야 스케줄러가 고민할 거리가 줄기 때문이다.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://qutrits.github.io/posts/effective-java-3e/chapter-10/item84/"><meta property="article:section" content="posts">
@@ -80,7 +80,7 @@
 <h1 class=post-title>
 </h1>
 <div class=post-meta><a class=edit-post href=https://github.com/qutrits/qutrits.github.io/blob/master/content/posts/effective-java-3e/chapter-10/Item84.md rel="noopener noreferrer" target=_blank>수정사항 제안</a>
-&nbsp;&nbsp;|&nbsp;&nbsp;<span class=font-size-button><svg class="button default" id="font-size-default" width="21" height="21" viewBox="0 0 24 24"><path fill="#12b886" d="M7.20711 2.54289c.39052.39053.39052 1.02369.0 1.41422L5.41421 5.75H13.25c4.4183.0 8 3.58172 8 8 0 4.4183-3.5817 8-8 8-4.41828.0-8-3.5817-8-8 0-.552300000000001.44772-1 1-1s1 .447699999999999 1 1c0 3.3137 2.68629 6 6 6 3.3137.0 6-2.6863 6-6s-2.6863-6-6-6H5.41421l1.7929 1.79289c.39052.39053.39052 1.02371.0 1.41421C6.81658 11.3476 6.18342 11.3476 5.79289 10.9571l-3.5-3.49999c-.39052-.39053-.39052-1.02369.0-1.41422l3.5-3.5c.39053-.39052 1.02369-.39052 1.41422.0z" fill="#212121"/></svg>
+&nbsp;&nbsp;|&nbsp;&nbsp;<span class=font-size-button><svg class="button default" id="font-size-default" width="21" height="21" viewBox="0 0 24 24"><path fill="#12b886" d="M7.20711 2.54289c.39052.39053.39052 1.02369.0 1.41422L5.41421 5.75H13.25c4.4183.0 8 3.58172 8 8 0 4.4183-3.5817 8-8 8-4.41828.0-8-3.5817-8-8 0-.552300000000001.44772-1 1-1S7.25 13.1977 7.25 13.75c0 3.3137 2.68629 6 6 6 3.3137.0 6-2.6863 6-6s-2.6863-6-6-6H5.41421l1.7929 1.79289c.39052.39053.39052 1.02371.0 1.41421C6.81658 11.3476 6.18342 11.3476 5.79289 10.9571l-3.5-3.49999c-.39052-.39053-.39052-1.02369.0-1.41422l3.5-3.5c.39053-.39052 1.02369-.39052 1.41422.0z" fill="#212121"/></svg>
 &nbsp;<svg class="button increase" id="font-size-increase" width="21" height="21" viewBox="0 0 24 24"><path fill="#12b886" d="M5.12 14 7.5 7.67 9.87 14M6.5 5 1 19H3.25l1.12-3h6.25l1.13 3H14L8.5 5h-2M18 7l-5 5.07 1.41 1.43L17 10.9V17h2V10.9l2.59 2.6L23 12.07 18 7z"/></svg>
 &nbsp;<svg class="button decrease" id="font-size-decrease" width="21" height="21" viewBox="0 0 24 24"><path fill="#12b886" d="M5.12 14 7.5 7.67 9.87 14M6.5 5 1 19H3.25l1.12-3h6.25l1.13 3H14L8.5 5h-2M18 17l5-5.07-1.41-1.43L19 13.1V7H17v6.1l-2.59-2.6L13 11.93 18 17z"/></svg>
 </span>
