@@ -1,0 +1,55 @@
+{{ if .Params.ShowFontSizeButton -}}
+
+{{- if or .Params.author $.Site.Params.author (.Param "ShowReadingTime") (not .Date.IsZero) .IsTranslated (or .Params.editPost.URL .Site.Params.editPost.URL) (.Params.ShowCanonicalLink) }}&nbsp;&nbsp;|&nbsp;&nbsp;{{- end -}}
+<span class="font-size-button">
+  <svg class="button increase" id="font-size-default" width="24" height="24" viewBox="0 0 512 512">
+    <path fill="#12b886" d="M240,424V328c116.4,0,159.39,33.76,208,96,0-119.23-39.57-240-208-240V88L64,256Z"/>
+  </svg>
+  &nbsp;  
+  <svg class="button increase" id="font-size-increase" width="24" height="24" viewBox="0 0 24 24">
+    <path fill="#12b886" d="M5.12,14L7.5,7.67L9.87,14M6.5,5L1,19H3.25L4.37,16H10.62L11.75,19H14L8.5,5H6.5M18,7L13,12.07L14.41,13.5L17,10.9V17H19V10.9L21.59,13.5L23,12.07L18,7Z" />
+  </svg>
+  &nbsp;
+  <svg class="button decrease" id="font-size-decrease" width="24" height="24" viewBox="0 0 24 24">
+    <path fill="#12b886" d="M5.12,14L7.5,7.67L9.87,14M6.5,5L1,19H3.25L4.37,16H10.62L11.75,19H14L8.5,5H6.5M18,17L23,11.93L21.59,10.5L19,13.1V7H17V13.1L14.41,10.5L13,11.93L18,17Z" />
+  </svg>
+</span>
+
+<script>
+  localStorage.setItem("post-content-font-size", 100);
+
+  document.getElementById("font-size-increase").addEventListener("click", e => {
+    if (localStorage.getItem("post-content-font-size")) {
+      let _fontSize = parseInt(localStorage.getItem("post-content-font-size"));
+
+      if (_fontSize+5 > 200) return;
+
+      document.querySelector(".post-single .post-content").style.fontSize = (_fontSize+10) + "%";
+      localStorage.setItem("post-content-font-size", _fontSize+10);
+    } else {
+      document.querySelector(".post-single .post-content").style.fontSize = "105%";
+      localStorage.setItem("post-content-font-size", 105);
+    }
+  });
+
+  document.getElementById("font-size-decrease").addEventListener("click", e => {
+    if (localStorage.getItem("post-content-font-size")) {
+      let _fontSize = parseInt(localStorage.getItem("post-content-font-size"));
+
+      if (_fontSize-5 < 50) return;
+
+      document.querySelector(".post-single .post-content").style.fontSize = (_fontSize-10) + "%";
+      localStorage.setItem("post-content-font-size", _fontSize-10);
+    } else {
+      document.querySelector(".post-single .post-content").style.fontSize = "95%";
+      localStorage.setItem("post-content-font-size", 95);
+    }
+  });
+
+  document.getElementById("font-size-default").addEventListener("click", e => {
+    document.querySelector(".post-single .post-content").style.fontSize = "100%";
+    localStorage.setItem("post-content-font-size", 100);
+  });
+</script>
+
+{{- end }}
