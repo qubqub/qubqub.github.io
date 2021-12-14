@@ -32,6 +32,7 @@
       {{- with $.Site.GetPage (printf "/%s/%s" "series" $name) }}
         <article class="post-entry" title="{{- i18n $name }}">
           {{ $seriesTitle := .Name }}
+          {{ $seriesId := index (split .Permalink "/") (sub (len (split .Permalink "/")) 2) }}
           {{- range where $seriesCover "name" $seriesTitle }}
             {{- if .image }}
               <figure class="series-content-cover">
@@ -46,35 +47,45 @@
           <section class="entry-content">
             <p>{{- i18n $name }}</p>
           </section>
-
-
-
           
-          <a class="entry-link" aria-label="{{ $seriesTitle }}" href="{{ .Permalink }}"></a>
+          {{- range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
+            {{- if (eq $taxonomy_term "series") }}
+              {{- range $key, $value := $taxonomy }}
+                {{ if (eq $seriesId $key) }}
+                  {{ with (index $value.Pages (sub (len $value.Pages) 1)) }}
+                    <a class="entry-link" aria-label="{{ $seriesTitle }}" href="{{ .Permalink }}"></a>
+                  {{- end }}
+                {{- end }}
+              {{- end }}
+            {{- end }}
+          {{- end }}
           
-
-
-
           <ul class="post-tags">
-            {{- range $.Site.Taxonomies.chapter.Alphabetical }}
-              {{ $splitChapter := split .Name "chapter" }}
-
-              {{ $seriesId := substr (index $splitChapter 0) 0 -1 }}
-              {{ $chapterNumber := substr (index $splitChapter 1) 1 }}
-
-              {{- if (eq $seriesId $name) }}
-                {{- range where $seriesCover "name" $seriesTitle }}
-                  {{- range .chapter }}
-                    {{- if (eq .number (int $chapterNumber)) }}
-                    <li>
-                      <a class="button" href="/chapter/{{ $seriesId }}-chapter-{{ .number }}">{{ .number }} 장 {{ .title }}</a>
-                    </li>
-                    {{- end }}
+            {{- range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
+              {{- if (eq $taxonomy_term "chapter") }}
+                {{- range $key, $value := $taxonomy }}
+                  {{ $_splitChapter := split $key "-chapter-" }}
+                  {{ $_seriesId := index $_splitChapter 0 }}
+                  {{ $_chapterNumber := index $_splitChapter 1 }}
+                  {{ with (index $value.Pages (sub (len $value.Pages) 1)) }}
+                    {{ if (eq $seriesId $_seriesId) }}
+                      {{ $_chapterLink := .Permalink }}
+                      {{- range where $seriesCover "name" $seriesTitle }}
+                        {{- range .chapter }}
+                          {{- if (eq .id $key) }}
+                          <li>
+                            <a class="button" href="{{ $_chapterLink }}">{{ $_chapterNumber }} 장 {{ .title }}</a>
+                          </li>
+                          {{- end }}
+                        {{- end }}
+                      {{- end }}
+                    {{ end }}
                   {{- end }}
                 {{- end }}
               {{- end }}
             {{- end }}
           </ul>
+          
         </article>
       {{- end }}
     {{- end }}
