@@ -25,6 +25,37 @@ if (window.location.pathname.startsWith("/posts/")) {
     const header = document.querySelector("header.header");
     const tocNode = document.querySelector(".main .toc");
 
+    function updateScrollProgressBar () {
+      let scrollHeight = _root.scrollHeight - heightInViewport(_progressbar) - window.innerHeight;
+      let scrollPosition = _root.scrollTop;
+      let scrollPercentage = scrollPosition / scrollHeight * 100;
+      _progressbar.style.width = scrollPercentage + "%";
+    }
+  
+    function heightInViewport (el) {
+      var elH = el.offsetHeight,
+        H = document.body.offsetHeight,
+        r = el.getBoundingClientRect(),
+        t = r.top,
+        b = r.bottom;
+      return Math.max(0, t > 0 ? Math.min(elH, H - t) : Math.min(b, H));
+    }
+
+    const _root = document.querySelector("html");
+    const _body = document.querySelector("body");
+    const progressEl = document.createElement("div");
+    progressEl.classList.add("progress-bar-container__progress");
+    progressEl.style.position = "fixed";
+    progressEl.style.zIndex = "9999";
+    progressEl.style.backgroundColor = "#12b886";
+    progressEl.style.height = "0.3vh";
+    progressEl.style.width = "0%";
+    _body.prepend(progressEl);
+
+    const _progressbar = document.querySelector(".progress-bar-container__progress");
+    var _config = { childList: true, subtree: true, characterData: true, attributes: true };
+    new MutationObserver(updateScrollProgressBar).observe(_progressbar, _config);
+
     if (tocNode !== null) {
       const tocClone = tocNode.cloneNode(true);
       tocClone.classList.add("aside");
@@ -88,6 +119,7 @@ if (window.location.pathname.startsWith("/posts/")) {
     let lastScroll = 0;
 
     window.addEventListener("scroll", () => {
+      updateScrollProgressBar();
       const currentScroll = window.pageYOffset;
       if (tocNode !== null) {
         if(mainTocTop >= currentScroll && asideToc.classList.contains("reveal")) {

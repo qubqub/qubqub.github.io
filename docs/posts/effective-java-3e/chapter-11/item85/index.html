@@ -24,7 +24,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.2270a092bc466a8a913d3e0fae43272b9278b7e1b02394fbcb3a413dd2d21c5b.js integrity="sha256-InCgkrxGaoqRPT4PrkMnK5J4t+GwI5T7yzpBPdLSHFs="></script><meta property="og:title" content>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.88fce73b92e54a99310d68694b7fb41e7dba86510afb0cba2c83c8ecad1aacc4.js integrity="sha256-iPznO5LlSpkxDWhpS3+0Hn26hlEK+wy6LIPI7K0arMQ="></script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 85] 자바 직렬화의 대안을 찾으라. 자바의 역직렬화에는 치명적인 단점이 있습니다. 신롸할 수 없는 스트림을 역직렬화하면 원격 코드 실행, 서비스 거부 등의 공격으로 이어질 수 있습니다.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  static byte[] bomb() { Set<Object> root = new HashSet<>(); Set<Object> s1 = root; Set<Object> s2 = new HashSet<>(); for (int i = 0; i < 100; i++) { Set<Object> t1 = new HashSet<>(); Set<Object> t2 = new HashSet<>(); t1.">
 <meta property="og:type" content="article">
