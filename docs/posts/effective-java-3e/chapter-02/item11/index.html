@@ -8,7 +8,7 @@
 <meta name=description content="[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라. equals와 hasoCode를 재정의 하지 않으면 HashMap이나 HashSet에서 같은 원소를 사용할 때 문제가 발생합니다.  equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 hashCode메서드는 여러번 호출해도 일관된 값을 반환해야 합니다. equals가 두 객체를 같다고 판단하면 hashCode 또한 같은 값을 반환해야 합니다. equals가 두 객체를 다르다고 판단해도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해쉬테이블의 성능이 좋아집니다.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-02/item11/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.11050df239a3bf31d18b1f784d0b5b49bcef1e13e5acf3997aa3bc9fbd155ba5.css integrity="sha256-EQUN8jmjvzHRix94TQtbSbzvHhPlrPOZeqO8n70VW6U=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.ea1cf3692a3c1f9252f2e5568a1aa102222e4a0fd8da49aad19467afc5d2435c.css integrity="sha256-6hzzaSo8H5JS8uVWihqhAiIuSg/Y2kmq0ZRnr8XSQ1w=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>

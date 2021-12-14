@@ -742,6 +742,10 @@ header.header {
 }
 
 @media screen and (max-width: 768px) {
+  .series-sub-description-wrapper {
+    margin-inline-start: -10px;
+  }
+
   .post-meta .font-size-button .default {
     color: #12b886;
   }
