@@ -847,6 +847,10 @@ header.header {
 }
 
 @media screen and (min-width: 769px) and (max-width: 1370px) {
+  .post-content .highlight td:nth-child(2) pre code.hljs {
+    padding-inline-start: 12px;
+  }
+  
   .aside-font-size-button {
     transition: visibility .1s,opacity .2s linear;
     visibility: hidden;
@@ -984,7 +988,7 @@ header.header {
 
 @media screen and (min-width: 1371px) {
   .post-content .highlight td:nth-child(2) pre code.hljs {
-    padding-left: 0;
+    padding-inline-start: 12px;
   }
 
   .aside-font-size-button {
@@ -1014,7 +1018,7 @@ header.header {
   }
 
   .post-content .highlight .lntd:nth-child(2) {
-    padding-inline-start: 35px;
+    padding-inline-start: 30px;
   }
 
   .main .toc.aside .tocLock {
