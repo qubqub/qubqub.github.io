@@ -10,7 +10,7 @@ Utensil와 Dessert 클래스가 Utensil.java라는 한 파일에 정의되어 �
 1 2 3 4 5 6 7  class Utensil { static final String NAME = &#34;pan&#34;; } class Dessert { static final String NAME = &#34;cake&#34;; }   Main을 실행하면 &ldquo;pancake&#34;가 출력됩니다.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item25/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.2801f1b668f1b3587062c09e2c3ef73cbe694427da7e72eea2f5aef2642ae708.css integrity="sha256-KAHxtmjxs1hwYsCeLD73PL5pRCfafnLuovWu8mQq5wg=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.84a855d0e6371885de593945c5d0f6c9374e9437e6a7bd4c494a5d516d998f5d.css integrity="sha256-hKhV0OY3GIXeWTlFxdD2yTdOlDfmp71MSUpdUW2Zj10=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -25,7 +25,7 @@ Utensil와 Dessert 클래스가 Utensil.java라는 한 파일에 정의되어 �
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.92e04c7dee57cef828d10b96321f587a5cbd428471d1ad00f3724e44dced7e0e.js integrity="sha256-kuBMfe5Xzvgo0QuWMh9Yely9QoRx0a0A83JORNztfg4="></script><meta property="og:title" content="[아이템 25] 톱레벨 클래스는 한 파일에만 담으라">
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.450535e7e1961a7ad456cf4839b0387830c7693f6a6776c771ee612ef5a5ce86.js integrity="sha256-RQU15+GWGnrUVs9IObA4eDDHaT9qZ3bHce5hLvWlzoY="></script><meta property="og:title" content="[아이템 25] 톱레벨 클래스는 한 파일에만 담으라">
 <meta property="og:description" content="[아이템 25] 톱레벨 클래스는 한 파일에만 담으라 1 2 3 4 5  public class Main { public static void main(String[] args) { System.out.println(Utensil.NAME + Dessert.NAME); } }   위 코드의 소스 파일은 Main 클래스 하나를 담고 있고, Main클래스는 다른 톱레벨 클래스 2개(Utensil Dessert)를 참조합니다.
 Utensil와 Dessert 클래스가 Utensil.java라는 한 파일에 정의되어 있다고 가정해봅시다.
 1 2 3 4 5 6 7  class Utensil { static final String NAME = &#34;pan&#34;; } class Dessert { static final String NAME = &#34;cake&#34;; }   Main을 실행하면 &ldquo;pancake&#34;가 출력됩니다.">

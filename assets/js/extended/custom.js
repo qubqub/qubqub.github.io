@@ -12,6 +12,7 @@ if (window.location.pathname.startsWith("/posts/")) {
     }
   }
 
+  let adjustCodeWidth = false;
   const mainToc = document.querySelector(".main .post-single>.toc");
   let tocIdList = [];
 
@@ -137,10 +138,12 @@ if (window.location.pathname.startsWith("/posts/")) {
 
       if (currentScroll > 60) {
         if (window.innerWidth < 769) {
+          if (adjustCodeWidth) return;
           const _hljs = document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");
           for (let i = 0; i < _hljs.length; i++) {
             _hljs[i].style.width = "100%";
           }
+          adjustCodeWidth = true;
         }
       }
 
