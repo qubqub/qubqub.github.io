@@ -983,6 +983,10 @@ header.header {
 }
 
 @media screen and (min-width: 1371px) {
+  .post-content .highlight td:nth-child(2) pre code.hljs {
+    padding-left: 0;
+  }
+
   .aside-font-size-button {
     transition: visibility .1s,opacity .2s linear;
     visibility: hidden;

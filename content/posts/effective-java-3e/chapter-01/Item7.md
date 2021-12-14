@@ -52,15 +52,15 @@ public class Stack {
    
 다음과 같이 코드를 수정할 수 있습니다.
 ``` java
-    public Object pop() {
-        if (size == 0) {
-            throw new EmptyStackException();
-        }
-
-        Object value = this.elements[--size];
-        this.elements[size] = null;
-        return value;
+public Object pop() {
+    if (size == 0) {
+        throw new EmptyStackException();
     }
+
+    Object value = this.elements[--size];
+    this.elements[size] = null;
+    return value;
+}
 ```
 
 size를 감소시킬 뿐만 아니라 실제로 해당 참조를 `null`로 처리한 방법입니다.
