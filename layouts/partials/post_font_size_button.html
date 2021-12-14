@@ -1,5 +1,4 @@
-{{ if (.Param "ShowFontSizeButton") -}}
-
+{{- if (.Param "ShowFontSizeButton") -}}
 {{- if or .Params.author $.Site.Params.author (.Param "ShowReadingTime") (not .Date.IsZero) .IsTranslated (or .Params.editPost.URL .Site.Params.editPost.URL) (.Params.ShowCanonicalLink) }}&nbsp;&nbsp;|&nbsp;&nbsp;{{- end -}}
 <span class="font-size-button">
   <svg class="button default" id="font-size-default" width="24" height="24" viewBox="0 0 24 24">
@@ -17,7 +16,6 @@
 
 <script>
   localStorage.setItem("post-content-font-size", 100);
-
   document.getElementById("font-size-increase").addEventListener("click", e => {
     if (localStorage.getItem("post-content-font-size")) {
       let _fontSize = parseInt(localStorage.getItem("post-content-font-size"));
@@ -51,5 +49,4 @@
     localStorage.setItem("post-content-font-size", 100);
   });
 </script>
-
 {{- end }}
