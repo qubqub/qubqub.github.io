@@ -45,12 +45,6 @@ if (window.location.pathname.startsWith("/posts/")) {
     const _body = document.querySelector("body");
     const progressEl = document.createElement("div");
     progressEl.classList.add("progress-bar-container__progress");
-    progressEl.style.position = "fixed";
-    progressEl.style.zIndex = "9999";
-    progressEl.style.backgroundColor = "#12b886";
-    progressEl.style.height = "0.3vh";
-    progressEl.style.width = "0%";
-    progressEl.style.borderRadius = "16px";
     _body.prepend(progressEl);
 
     const _progressbar = document.querySelector(".progress-bar-container__progress");

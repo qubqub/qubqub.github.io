@@ -177,6 +177,14 @@ header.header {
   margin-right: 0.5rem;
 }
 
+.progress-bar-container__progress {
+  position: fixed;
+  z-index: 9999;
+  background-color: #12b886;
+  height: 0.3vh;
+  width: 0%;
+  border-radius: 16px;
+}
 
 .terms-tags a {
   font-size: 1.05rem;
