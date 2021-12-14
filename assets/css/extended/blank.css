@@ -747,15 +747,15 @@ header.header {
   }
 
   .series-description {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 
   .series-sub-description-wrapper .series-sub-description {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   .series-sub-description-wrapper {
-    margin-inline-start: -10px;
+    margin-inline-start: -15px;
     padding-top: 8px
   }
 
