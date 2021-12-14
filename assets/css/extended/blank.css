@@ -818,32 +818,7 @@ header.header {
     padding-top: 0;
   } */
 
-  .post-content .highlight pre code.language-html,
-  .post-content .highlight pre code.language-css,
-  .post-content .highlight pre code.language-javascript,
-  .post-content .highlight pre code.language-js,
-  .post-content .highlight pre code.language-typescript,
-  .post-content .highlight pre code.language-ts,
-  .post-content .highlight pre code.language-csharp,
-  .post-content .highlight pre code.language-java,
-  .post-content .highlight pre code.language-kotlin,
-  .post-content .highlight pre code.language-kt,
-  .post-content .highlight pre code.language-c,
-  .post-content .highlight pre code.language-cpp,
-  .post-content .highlight pre code.language-go,
-  .post-content .highlight pre code.language-rust,
-  .post-content .highlight pre code.language-python,
-  .post-content .highlight pre code.language-py,
-  .post-content .highlight pre code.language-ruby,
-  .post-content .highlight pre code.language-groovy,
-  .post-content .highlight pre code.language-flutter,
-  .post-content .highlight pre code.language-scala,
-  .post-content .highlight pre code.language-clojure,
-  .post-content .highlight pre code.language-dart,
-  .post-content .highlight pre code.language-shell,
-  .post-content .highlight pre code.language-yml,
-  .post-content .highlight pre code.language-text,
-  .post-content .highlight pre code.language-bash {
+  .post-content .highlight pre code.hljs {
     font-size: 8px !important;
   }
 
