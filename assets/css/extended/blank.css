@@ -810,13 +810,9 @@ header.header {
     transition: visibility 0.1s, opacity 0.2s linear;
   }
   
-  /* .post-content .highlight .lntd:nth-child(1) {
+  .post-content .highlight .lntd:nth-child(1) {
     display: none;
-  } */
-
-  /* .post-content .highlight .lntd:nth-child(2) code {
-    padding-top: 0;
-  } */
+  }
 
   .post-content .highlight td:nth-child(2) pre code.hljs {
     font-size: 8px !important;
