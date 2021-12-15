@@ -747,6 +747,10 @@ header.header {
   overflow-x: initial;
 }
 
+.post-content .highlight td:nth-child(2) pre code.hljs {
+  width: 500%;
+}
+
 @media screen and (max-width: 900px) {
   .list .top-link {
       transform: none;
