@@ -12,10 +12,8 @@ if (window.location.pathname.startsWith("/posts/")) {
     }
   }
 
-  let adjustCodeWidth = false;
   const mainToc = document.querySelector(".main .post-single>.toc");
   const tocDetails = document.querySelector(".main .toc.aside details");
-  const _hljs = document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");
   let tocIdList = [];
 
   const DOMReady = function (callback) {
@@ -116,16 +114,9 @@ if (window.location.pathname.startsWith("/posts/")) {
     let lastSelEl = null;
     let lastScroll = 0;
     let currentScroll = 0;
-
+    
     window.addEventListener("scroll", () => {
-      for (let i = 0; i < _hljs.length; i++) {
-        if (adjustCodeWidth) break;
-        _hljs[i].style.width = "100%";
-      }
-      adjustCodeWidth = true;
-
       currentScroll = window.pageYOffset;
-
       updateScrollProgressBar();
 
 
@@ -260,6 +251,10 @@ if (window.location.pathname.startsWith("/posts/")) {
   });
 
   window.onload = function() {
+    const _hljs = document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");
+    for (let i = 0; i < _hljs.length; i++) {
+      _hljs[i].style.width = "100%";
+    }
     const _mainTocTop = mainToc?mainToc.offsetTop + mainToc.offsetParent.offsetTop - 1:0;
     if (_mainTocTop < window.pageYOffset) {
       const _toc = document.querySelectorAll(".main .toc.aside .inner ul>li");
