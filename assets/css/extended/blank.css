@@ -817,7 +817,6 @@ header.header {
   border-radius: 4px;
   vertical-align: text-top;
   font-size: 78%;
-  /* padding: .2em .4em; */
 }
 
 .post-content .highlight pre code .hljs-comment {
@@ -842,7 +841,42 @@ header.header {
   }
 }
 
+#menu-trigger {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
+  #menu.main-menu.hidden {
+    display: none;
+  }  
+
+  #menu.main-menu.reveal {
+    list-style: none;
+    position: absolute;
+    right: 0;
+    z-index: 5;
+    margin-bottom: var(--gap);
+    padding: var(--gap);
+    background: var(--code-bg);
+    border-radius: var(--radius);
+    border: 2px solid var(--tertiary);
+    line-height: 2.5;
+    margin: calc(var(--header-height) - var(--gap))var(--gap);
+    display: block;
+  }
+
+  #menu li {
+    margin-inline-start: 0px !important;
+  }
+
+  #menu-trigger {
+    font-size: 30px;
+    position: relative;
+    display: block;
+    float: right;
+    margin: auto var(--gap);
+  }
+
   .series-title {
     font-size: 32px !important;
   }

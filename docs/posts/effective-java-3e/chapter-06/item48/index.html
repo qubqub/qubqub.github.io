@@ -8,7 +8,7 @@
 <meta name=description content="[아이템 48] 스트림 병렬화는 주의해서 적용하라. 자바 8에 추가된 parallel 메서드는 파이프라인을 병렬 실행할 수 있습니다. 동시성 프로그래밍을 할 때는 안전성과 응답 가능 상태를 유지하기 위해 주의를 기울여야합니다. 데이터 소스가 Stream.iterate거나 중간 연산으로 limit를 쓰면 파이프라인 병렬화로 성능 개선을 기대할 수 없습니다. 대체로 스트림 소스가 ArrayList, HashMap, HashSet, ConcurrentHashMap의 인스턴스거나 배열, int 범위, long 범위일 때 병렬화의 효과가 가장 좋습니다. 이 자료구조들은 데이터를 원하는 크기로 정확하고 손쉽게 나눌 수 있어서 다수의 스레드에 분배하기 좋다는 특성이 있습니다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-06/item48/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.54314bd562139d7233eaf39928de11d1f9841bbc1538647d5a437ba70d8b4110.css integrity="sha256-VDFL1WITnXIz6vOZKN4R0fmEG7wVOGR9WkN7pw2LQRA=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.ebbf5bc3d88018e648802e76cb02df46951e7dbfb61dde578c8716f195301345.css integrity="sha256-679bw9iAGOZIgC52ywLfRpUefb+2Hd5XjIcW8ZUwE0U=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -23,7 +23,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.e28b6bbc96065bbf597c3cb5d69f6c7aa647b113546bdb94afc7f0693cfe66ab.js integrity="sha256-4otrvJYGW79ZfDy11p9seqZHsRNUa9uUr8fwaTz+Zqs="></script><meta property="og:title" content>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.792358bccda224437388b630f35c1aecbc118a070414757a6ea9a597f4cea1c9.js integrity="sha256-eSNYvM2iJENziLYw81wa7LwRigcEFHV6bqmll/TOock="></script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 48] 스트림 병렬화는 주의해서 적용하라. 자바 8에 추가된 parallel 메서드는 파이프라인을 병렬 실행할 수 있습니다. 동시성 프로그래밍을 할 때는 안전성과 응답 가능 상태를 유지하기 위해 주의를 기울여야합니다. 데이터 소스가 Stream.iterate거나 중간 연산으로 limit를 쓰면 파이프라인 병렬화로 성능 개선을 기대할 수 없습니다. 대체로 스트림 소스가 ArrayList, HashMap, HashSet, ConcurrentHashMap의 인스턴스거나 배열, int 범위, long 범위일 때 병렬화의 효과가 가장 좋습니다. 이 자료구조들은 데이터를 원하는 크기로 정확하고 손쉽게 나눌 수 있어서 다수의 스레드에 분배하기 좋다는 특성이 있습니다.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://qutrits.github.io/posts/effective-java-3e/chapter-06/item48/"><meta property="article:section" content="posts">
@@ -45,7 +45,9 @@
 </button>
 </span>
 </div>
-<ul id=menu>
+<button id=menu-trigger aria-haspopup=menu aria-label="Menu Button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+<ul id=menu class="main-menu hidden">
 <li>
 <a href=https://qutrits.github.io/series-list/ title=시리즈>
 <span>시리즈</span>

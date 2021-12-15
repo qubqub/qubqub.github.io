@@ -9,7 +9,7 @@
 Generic class가 뭐야? 🧐  일반적으로 클래스를 정의할 때, 클래스 내의 모든 데이타 타입을 지정해 주게 된다. 하지만 어떤 경우는 클래스의 거의 모든 부분이 동일한데 일부 데이타 타입만이 다른 경우가 있을 수 있다.이런 경우 C#의 제네릭 타입(Generic Type)을 사용할 수 있는데, 제네릭 타입에서는 int, float, double 같은 데이타 요소 타입을 확정하지 않고 이 데이타 타입 자체를 타입파라미터(Type Parameter)로 받아들이도록 클래스를 정의한다.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/posts/2021_11_25_01/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.54314bd562139d7233eaf39928de11d1f9841bbc1538647d5a437ba70d8b4110.css integrity="sha256-VDFL1WITnXIz6vOZKN4R0fmEG7wVOGR9WkN7pw2LQRA=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.ebbf5bc3d88018e648802e76cb02df46951e7dbfb61dde578c8716f195301345.css integrity="sha256-679bw9iAGOZIgC52ywLfRpUefb+2Hd5XjIcW8ZUwE0U=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -24,7 +24,7 @@ Generic class가 뭐야? 🧐  일반적으로 클래스를 정의할 때, 클�
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.e28b6bbc96065bbf597c3cb5d69f6c7aa647b113546bdb94afc7f0693cfe66ab.js integrity="sha256-4otrvJYGW79ZfDy11p9seqZHsRNUa9uUr8fwaTz+Zqs="></script><meta property="og:title" content="Generic: 제너릭 클래스">
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.792358bccda224437388b630f35c1aecbc118a070414757a6ea9a597f4cea1c9.js integrity="sha256-eSNYvM2iJENziLYw81wa7LwRigcEFHV6bqmll/TOock="></script><meta property="og:title" content="Generic: 제너릭 클래스">
 <meta property="og:description" content="유니티에서 쓸 Tween을 만들고 있는 중이다.Tween에서 여러가지 클래스를 처리하고 싶어서 Generic class를 활용하기로 하였다.
 Generic class가 뭐야? 🧐  일반적으로 클래스를 정의할 때, 클래스 내의 모든 데이타 타입을 지정해 주게 된다. 하지만 어떤 경우는 클래스의 거의 모든 부분이 동일한데 일부 데이타 타입만이 다른 경우가 있을 수 있다.이런 경우 C#의 제네릭 타입(Generic Type)을 사용할 수 있는데, 제네릭 타입에서는 int, float, double 같은 데이타 요소 타입을 확정하지 않고 이 데이타 타입 자체를 타입파라미터(Type Parameter)로 받아들이도록 클래스를 정의한다.">
 <meta property="og:type" content="article">
@@ -50,7 +50,9 @@ Generic class가 뭐야? 🧐  일반적으로 클래스를 정의할 때, 클�
 </button>
 </span>
 </div>
-<ul id=menu>
+<button id=menu-trigger aria-haspopup=menu aria-label="Menu Button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+<ul id=menu class="main-menu hidden">
 <li>
 <a href=https://qutrits.github.io/series-list/ title=시리즈>
 <span>시리즈</span>

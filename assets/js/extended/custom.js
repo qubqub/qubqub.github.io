@@ -1,3 +1,43 @@
+window.onload = function() {
+  if (window.innerWidth < 769) {
+    if (!document.getElementById("menu").classList.contains("hidden")) {
+      document.getElementById("menu").classList.add("hidden");
+      document.getElementById("menu").classList.remove("reveal");
+    }
+  } else {
+    if (document.getElementById("menu").classList.contains("hidden")) {
+      document.getElementById("menu").classList.add("reveal");
+      document.getElementById("menu").classList.remove("hidden");
+    }
+  }
+}
+
+window.addEventListener('resize', function() {
+  if (window.innerWidth < 769) {
+    if (!document.getElementById("menu").classList.contains("hidden")) {
+      document.getElementById("menu").classList.add("hidden");
+      document.getElementById("menu").classList.remove("reveal");
+    }
+  } else {
+    if (document.getElementById("menu").classList.contains("hidden")) {
+      document.getElementById("menu").classList.add("reveal");
+      document.getElementById("menu").classList.remove("hidden");
+    }
+  }
+}, true);
+
+document.getElementById("menu-trigger").addEventListener("click", e => {
+  if (window.innerWidth < 769) {
+    if (document.getElementById("menu").classList.contains("hidden")) {
+      document.getElementById("menu").classList.add("reveal");
+      document.getElementById("menu").classList.remove("hidden");
+    } else {
+      document.getElementById("menu").classList.add("hidden");
+      document.getElementById("menu").classList.remove("reveal");
+    }
+  }
+});
+
 if (window.location.pathname.match(/^\/posts\/.+/)) {
   const urlSlug = window.location.pathname.match(/^(\/posts\/)([^/]+)/);
   if (urlSlug[2] !== "page") {
@@ -163,12 +203,20 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
         if (currentScroll > postHeaderOffsetHeight) {
           if (currentScroll > lastScroll) {
             // down
-            header.classList.remove(scrollUp);
-            header.classList.add(scrollDown);
+            if (header.classList.contains(scrollUp)) {
+              header.classList.remove(scrollUp);
+              header.classList.add(scrollDown);
+              if (document.getElementById("menu").classList.contains("reveal")) {
+                document.getElementById("menu").classList.remove("reveal");
+                document.getElementById("menu").classList.add("hidden");
+              }
+            }
           } else if (currentScroll < lastScroll) {
             // up
-            header.classList.remove(scrollDown);
-            header.classList.add(scrollUp);
+            if (header.classList.contains(scrollDown)) {
+              header.classList.remove(scrollDown);
+              header.classList.add(scrollUp);
+            }
           }
         }
         
