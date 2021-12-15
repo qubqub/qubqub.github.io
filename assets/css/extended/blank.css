@@ -523,7 +523,7 @@ header.header {
 
 .series-main .chapter-control .info .page-button {
   display: flex;
-  margin-left: 0.7rem;
+  margin-left: 0.5rem;
 }
 
 .series-main .chapter-control div:nth-child(2) {

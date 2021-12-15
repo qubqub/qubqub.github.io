@@ -9,7 +9,7 @@
 1 2 3 4 5 6 7  static int sum(int... args) { int sum = 0; for (int args: args) { sum += args; } return sum; }   1개 이상의 인수가 필요한 경우도 있습니다. 다음 예제는 1개 이상의 인수를 필요료하는 가변인수 메서드의 잘못된 구현입니다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-07/item53/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.ea0501a8946060212642d72d6aec18021762746336549b67b71eabdc16d69a05.css integrity="sha256-6gUBqJRgYCEmQtctauwYAhdidGM2VJtntx6r3BbWmgU=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.0e122c74d370fc4744d181df8903ab806044f677006726d99d4db8f4b560a488.css integrity="sha256-DhIsdNNw/EdE0YHfiQOrgGBE9ncAZybZnU249LVgpIg=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -24,7 +24,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ae24d77fac67eae7db7fc8453be7bf8a8ac5291ddc4dd370d2416dc04aba6352.js integrity="sha256-riTXf6xn6ufbf8hFO+e/iorFKR3cTdNw0kFtwEq6Y1I="></script><meta property="og:title" content>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.39fa317225321421528acc5ca82fc81ce20b86a845fcf61e34ed67a3b8f16ab9.js integrity="sha256-OfoxciUyFCFSisxcqC/IHOILhqhF/PYeNO1no7jxark="></script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 53] 가변인수는 신중히 사용하라. 가변인수(varargs) 메서드는 명시한 타입의 인수를 0개 이상 받을 수 있습니다. 다음 예제는 int 인자의 합을 구하는 가변인수 메서드입니다.
 1 2 3 4 5 6 7  static int sum(int... args) { int sum = 0; for (int args: args) { sum += args; } return sum; }   1개 이상의 인수가 필요한 경우도 있습니다. 다음 예제는 1개 이상의 인수를 필요료하는 가변인수 메서드의 잘못된 구현입니다.">
 <meta property="og:type" content="article">
