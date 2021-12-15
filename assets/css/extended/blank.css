@@ -138,6 +138,10 @@
   color: #fff;
 }
 
+:root {
+  --main-color: #12b886;
+}
+
 body {
   font-family: "YouTube Sans", "Roboto", sans-serif !important;
   word-wrap: break-word;
@@ -212,7 +216,7 @@ header.header {
 .progress-bar-container__progress {
   position: fixed;
   z-index: 9999;
-  background-color: #12b886;
+  background-color: var(--main-color);
   height: 0.15vh;
   width: 0%;
   border-radius: 16px;
@@ -230,6 +234,7 @@ header.header {
 
 .main .post-entry:hover,
 .main .archive-entry:hover,
+.profile .profile_inner .buttons .button:hover,
 .terms-tags a:hover,
 .series-main .series-control .page-button a:hover {
   transition: box-shadow 0.2s ease 0s, transform .1s;
@@ -318,7 +323,9 @@ header.header {
   display: contents;
 }
 
+.profile_inner .profile-picture,
 .first-entry-wrapper .entry-aside .profile-picture {
+  display: inline-table;
   border-radius: 50%;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
@@ -332,6 +339,7 @@ header.header {
   background-size: cover;
 }
 
+.profile_inner .profile-picture:hover,
 .first-entry-wrapper .entry-aside .profile-picture:hover {
   box-shadow : 0px 0px 15px 5px rgba(255, 255, 190, .1);
   -webkit-filter: none;
@@ -353,13 +361,25 @@ header.header {
 .header .nav #menu a:hover,
 .header .nav .logo a:hover,
 .entry-footer .social-icons a:hover,
+.profile .profile_inner .social-icons a:hover,
 .header .nav #theme-toggle:hover,
 .archive-year .archive-month .archive-month-header:hover,
-.post-meta .edit-post:hover
+.post-meta .edit-post:hover,
+.profile .profile_inner .buttons .button:hover,
+.top-link:hover
 {
   transition: color 0.2s ease 0s;
-  /* color: rgb(0, 151, 202); */
-  color: #12b886;
+  color: var(--main-color);
+}
+
+.font-size-button .increase:hover,
+.font-size-button .decrease:hover,
+.font-size-button .default:hover path,
+.aside-font-size-button .increase:hover,
+.aside-font-size-button .decrease:hover,
+.aside-font-size-button .default:hover path {
+  transition: color 0.2s ease 0s;
+  fill: var(--main-color);
 }
 
 .main .page-footer .pagination ul li{
@@ -730,6 +750,15 @@ header.header {
   box-shadow: 0 0 0 1px #676e75 inset;
 }
 
+.font-size-button .increase,
+.font-size-button .decrease,
+.font-size-button .default path,
+.aside-font-size-button .increase,
+.aside-font-size-button .decrease,
+.aside-font-size-button .default path {
+  fill: var(--secondary);
+}
+
 .tooltip {
   font-family: "CascadiaCode", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace !important;
   padding-top: 3px;
@@ -832,7 +861,7 @@ header.header {
   }
 
   .post-meta .font-size-button .default {
-    color: #12b886;
+    color: var(--main-color);
   }
 
   .display-font-size-info {
@@ -897,7 +926,6 @@ header.header {
   }
 
   .top-link {
-    color: #12b886;
     border-radius: 7px;
     bottom: 20px;
     right: 20px;
@@ -1091,7 +1119,6 @@ header.header {
   }
 
   .top-link {
-    color: #12b886;
     border-radius: 7px;
     bottom: 30px;
     right: 30px;
@@ -1273,7 +1300,6 @@ header.header {
   }
 
   .top-link {
-    color: #12b886;
     border-radius: 7px;
     bottom: 30px;
     right: 30px;
@@ -1336,7 +1362,7 @@ header.header {
 }
 
 .post-meta .font-size-button .default {
-  color: #12b886;
+  color: var(--main-color);
 }
 
 .main .archive-year .archive-month .archive-posts .archive-entry .archive-meta .post-tags,
