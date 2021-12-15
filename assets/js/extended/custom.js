@@ -422,7 +422,7 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
     
     sleep(300).then(() => {
       for (let i = 0; i < randomIndexArray.length; i++) {
-        sleep((i+1)*30).then(() => {
+        sleep((i+1)*20).then(() => {
           termList[randomIndexArray[i]].children[0].style.opacity = "1";
           termList[randomIndexArray[i]].children[0].style.transform = "translateY(0%)";
         });
