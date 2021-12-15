@@ -23,7 +23,10 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ef1c5e4983e3b4ee19b7d345a7c759d97d6787c6a2f06b89d8b02bbd6a4a5aef.js integrity="sha256-7xxeSYPjtO4Zt9NFp8dZ2X1nh8ai8GuJ2LArvWpKWu8="></script><meta property="og:title" content>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ef1c5e4983e3b4ee19b7d345a7c759d97d6787c6a2f06b89d8b02bbd6a4a5aef.js integrity="sha256-7xxeSYPjtO4Zt9NFp8dZ2X1nh8ai8GuJ2LArvWpKWu8="></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-38DP21SQNX"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-38DP21SQNX',{anonymize_ip:!1})}</script>
+<meta property="og:title" content>
 <meta property="og:description" content="[Itemm 79] 과도한 동기화는 피하라. 과도한 동기화는 성능을 저하시키고 교차상태에 빠뜨릴 수 있다. liveness, safety failures를 피하려면 동기화 메서드나 동기화 블록 안에서는 제어를 절대로 클라이언트에게 양보하면 안 된다. ex) 동기화된 영역 안에서 재정의할 수 있는 메서드 호출 x, 클라이언트가 념겨준 함수 객체 호출 x 과도한 동기화는 성능을을 저하 시킨다. 가변 클래스를 작성하거든 동기화를 전혀 하지 말고, 그 클래스를 동시에 사용해야 하는 클래스가 외부에서 알아서 동기화 하게 하던가, 동기화를 내부에서 수행해 스레드 안전한 클래스로 만들자.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://qutrits.github.io/posts/effective-java-3e/chapter-10/item79/"><meta property="article:section" content="posts">
