@@ -1457,3 +1457,15 @@ header.header {
 .svg--time {
   vertical-align: -0.14rem;
 }
+
+.link-header {
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.links .button {
+  opacity: 0;
+  transform: translateX(-10%);
+  transition: all 0.4s ease-in-out 0s;
+}

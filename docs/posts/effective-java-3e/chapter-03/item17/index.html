@@ -9,7 +9,7 @@
 클래스를 불변으로 만들기 위한 규칙  객체의 상태를 변경하는 메서드를 제공하지 않습니다. 클래스를 확장할 수 없도록 합니다. 모든 필드를 private final으로 선언합니다. 생성자 관리를 잘할 것 (밑에서 설명) 자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다.  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  public final class Calculator { private final int x; private final int y; public Calculator(int x, int y) { this.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item17/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.538dc4c4b5e8c58956ae02251720689c3c77ce5b7e3d1711917502e0d7947401.css integrity="sha256-U43ExLXoxYlWrgIlFyBonDx3zlt+PRcRkXUC4NeUdAE=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.b59b49f39b3918a7d6ae29ee3151b6797cd208876de0d76fcbcb9c64f607d587.css integrity="sha256-tZtJ85s5GKfWrinuMVG2eXzSCIdt4Ndvy8ucZPYH1Yc=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -24,7 +24,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.27917751b22028c6605f9e0c4ab553ac7354712ce22b183e56a6eb568859b48c.js integrity="sha256-J5F3UbIgKMZgX54MSrVTrHNUcSziKxg+VqbrVohZtIw="></script><meta property="og:title" content="[아이템 17] 변경 가능성을 최소화하라">
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.4c76206665b3554c4413d4303f2012ec59564e430785b1647d7e089d3f062222.js integrity="sha256-THYgZmWzVUxEE9QwPyAS7FlWTkMHhbFkfX4InT8GIiI="></script><meta property="og:title" content="[아이템 17] 변경 가능성을 최소화하라">
 <meta property="og:description" content="[아이템 17] 변경 가능성을 최소화하라. 불변 클래스(Immutable Class)란 말 그대로 객체가 생성된 후에 더이상 값을 변경할 수 없는 것을 의미합니다. 자바에서는 대표적으로 String, Integer, Float,Long 등이 있습니다.불변 클래스의 장점
 클래스를 불변으로 만들기 위한 규칙  객체의 상태를 변경하는 메서드를 제공하지 않습니다. 클래스를 확장할 수 없도록 합니다. 모든 필드를 private final으로 선언합니다. 생성자 관리를 잘할 것 (밑에서 설명) 자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다.  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  public final class Calculator { private final int x; private final int y; public Calculator(int x, int y) { this.">
 <meta property="og:type" content="article">
