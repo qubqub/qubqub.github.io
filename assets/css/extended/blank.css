@@ -155,7 +155,7 @@ header.header {
   background-color: inherit;
   opacity: 0.95;
   border-bottom: 1px solid var(--primary);
-  transition: transform 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .header .nav .logo a img {
@@ -176,19 +176,19 @@ header.header {
   display: none;
   opacity: 0;
   transform: translateX(-3%);
-  transition: transform 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
 }
 
 .main .archive-year .archive-year-header {
   transform: translateY(-70%);
   opacity: 0;
-  transition: transform 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
 }
 
 .main .archive-year .archive-month .archive-month-header {
   opacity: 0;
   transform: translateY(-70%);
-  transition: transform 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
 }
 
 #searchbox #searchInput {
@@ -199,13 +199,13 @@ header.header {
 .page-header {
   opacity: 0;
   transform: translateY(-30%);
-  transition: transform 0.2s ease-out 0s;
+  transition: all 0.2s ease-out 0s;
 }
 
 .post-entry:not(.search-entry) {
   opacity: 0;
   transform: translateX(-4%);
-  transition: transform 0.2s ease-out 0s;
+  transition: all 0.2s ease-out 0s;
 }
 
 .main .archive-year .archive-month-header .toggle {
