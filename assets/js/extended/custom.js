@@ -21,6 +21,16 @@ if (window.location.pathname.startsWith("/posts/")) {
   };
 
   DOMReady( function () {
+    setTimeout(() => {
+      document.querySelector(".post-title").style.opacity = "1";
+      document.querySelector(".post-title").style.transform = "translateY(0%)";
+    }, 200);
+
+    setTimeout(() => {
+      document.querySelector(".post-content").style.opacity = "1";
+      document.querySelector(".post-content").style.transform = "translateX(0%)";
+    }, 600);
+
     document.querySelector("header.header").style.borderBottom = "none";
     const scrollUp = "scroll-up";
     const scrollDown = "scroll-down";
@@ -286,4 +296,15 @@ if (window.location.pathname.startsWith("/posts/")) {
       _el.style.display = "none";
     }
   }
+} else if (window.location.pathname.startsWith("/tags/")) {
+  const termList = document.querySelectorAll(".terms-tags li");
+
+  for (let i = 0; i < termList.length; i++) {
+    termList[i].children[0].style.opacity = "1";
+    termList[i].children[0].style.transform = "translateY(0%)";
+  }
+
+
+  // document.querySelector(".post-title").style.opacity = "1";
+  // document.querySelector(".post-title").style.transform = "translateY(0%)";
 }

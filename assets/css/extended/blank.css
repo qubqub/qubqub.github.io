@@ -191,6 +191,9 @@ header.header {
 .terms-tags a {
   font-size: 1.05rem;
   padding: 0 10px;
+  transform: translateY(-30%);
+  opacity: 0;
+  transition: all 0.5s ease-out 0s;
 }
 
 .main .post-entry:hover,
@@ -648,6 +651,18 @@ header.header {
 
 .main .page-footer .pagination ul li:not(:last-child) {
   margin-right: 0.7rem;
+}
+
+.post-content {
+  transform: translateX(-2%);
+  opacity: 0;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.post-title {
+  transform: translateY(-20%);
+  opacity: 0;
+  transition: all 0.5s ease-in-out 0s;
 }
 
 .post-content .highlight .lntable .copy-code,

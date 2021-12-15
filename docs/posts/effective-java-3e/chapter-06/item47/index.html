@@ -9,7 +9,7 @@
 정리  원소 시퀀스를 반환하는 메서드를 작성할 때는, 이를 스트림으로 처리하길 원하는 사용자와 반복으로 처리하길 원하는 사용자가 모두 있을 수 있음을 고려하라 컬렉션을 반환할 수 있다면 그렇게 하고 반환 전부터 이미 원소들을 컬렉션에 관리하고 있거나 컬렉션을 하나 더 만들어도 될 정도로 원소 개수가 적다면 ArrayList같은 표준 컬렉션에 담아 반환하라.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-06/item47/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.0e122c74d370fc4744d181df8903ab806044f677006726d99d4db8f4b560a488.css integrity="sha256-DhIsdNNw/EdE0YHfiQOrgGBE9ncAZybZnU249LVgpIg=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.6a8adf6f0853f36c430bb1bccd9f71d84bd3c5b99b4bbfaefd146fb5005239d0.css integrity="sha256-aorfbwhT82xDC7G8zZ9x2EvTxbmbS7+u/RRvtQBSOdA=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -24,7 +24,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.39fa317225321421528acc5ca82fc81ce20b86a845fcf61e34ed67a3b8f16ab9.js integrity="sha256-OfoxciUyFCFSisxcqC/IHOILhqhF/PYeNO1no7jxark="></script><meta property="og:title" content>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.060f259e6588931c6a21c5f982a4300659951be179da2469a63ade8c68550468.js integrity="sha256-Bg8lnmWIkxxqIcX5gqQwBlmVG+F52iRppjrejGhVBGg="></script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 47] 반환 타입으로는 스트림보다 컬렉션이 낫다. 사실 Stream 인터페이스 Iterable 인터페이스가 정의한 추상 메서드를 전부 포함하고 Iterable 인터페이스가 정의한 방식대로 동작합니다. 하지만 for-each로 스트림을 반복할 수 없는 이유는 Stream이 Iterable을 확장하지 않아서입니다. Collection인터페이스는 Iterable의 하위 타입이고 stream의 메서드도 제공하니 반복과 스트림을 동시에 지원합니다. 따라서 원소 시퀀수를 공개하는 공개 API의 반환타입에는 Collection이나 그 하위 타입을 사용하는게 일반적으로 좋습니다.
 정리  원소 시퀀스를 반환하는 메서드를 작성할 때는, 이를 스트림으로 처리하길 원하는 사용자와 반복으로 처리하길 원하는 사용자가 모두 있을 수 있음을 고려하라 컬렉션을 반환할 수 있다면 그렇게 하고 반환 전부터 이미 원소들을 컬렉션에 관리하고 있거나 컬렉션을 하나 더 만들어도 될 정도로 원소 개수가 적다면 ArrayList같은 표준 컬렉션에 담아 반환하라.">
 <meta property="og:type" content="article">
