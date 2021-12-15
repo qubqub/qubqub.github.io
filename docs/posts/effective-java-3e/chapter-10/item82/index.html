@@ -24,7 +24,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.79a750ce393c91a57258e5fe895ab535cbbccfa28f2cd60076a32710266e17df.js integrity="sha256-eadQzjk8kaVyWOX+iVq1Ncu8z6KPLNYAdqMnECZuF98="></script><meta property="og:title" content>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.75933f7d56ace35d9a730b575a6bc6389e816f673c2dab875c0cfc9e1a492be3.js integrity="sha256-dZM/fVas412acwtXWmvGOJ6Bb2c8LauHXAz8nhpJK+M="></script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 82] 스레드 안전성 수준을 문서화하라. 일반적으로 스레드 안정성이 높은 순
  불변: 외부 동기화가 필요없다. 대표적으로 String, Long, BigInteger 무조건적 스레드 안전: 이 클래스의 인스턴스는 수정될 수 있으나, 내부에서 충실히 동기화하여 별도의 외부 동기화 없이 사용해도 안전 대표적으로 ConcurrentHashMap 조건부 스레드 안전: 일부 메서드는 동시에 사용하려면 외부 동기화가 필요. Collections.synchronized 래퍼 메서드가 반환한 컬렉션이 여기 속함 스레드 비안전: 동시에 시용하려면 메서드 호출을 클라이언트가 선택한 외부 동기화 메커니즘으로 감싸야한다. ArrayList, HashMap 같은 기본 컬렉션.">
 <meta property="og:type" content="article">

@@ -25,7 +25,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.79a750ce393c91a57258e5fe895ab535cbbccfa28f2cd60076a32710266e17df.js integrity="sha256-eadQzjk8kaVyWOX+iVq1Ncu8z6KPLNYAdqMnECZuF98="></script><meta property="og:title" content="[아이템 22] 인터페이스는 타입을 정의하는 용도로만 사용하라">
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.75933f7d56ace35d9a730b575a6bc6389e816f673c2dab875c0cfc9e1a492be3.js integrity="sha256-dZM/fVas412acwtXWmvGOJ6Bb2c8LauHXAz8nhpJK+M="></script><meta property="og:title" content="[아이템 22] 인터페이스는 타입을 정의하는 용도로만 사용하라">
 <meta property="og:description" content="[아이템 22] 인터페이스는 타입을 정의하는 용도로만 사용하라. 인터페이스는 자신을 구현한 클래스의 인스턴스를 참조할 수 있는 타입 역할을 합니다. 그러므로 인터페이스를 구현한 클래스는 클라이언트에게 자신의 인스턴스로 무엇을 할 수 있는지 말해주는 것입니다. 인터페이스를 다른 용도로 사용하는 것은 부적절합니다.
 이 지침에 맞지 않는 예로 소위 상수 인터페이스라는 것이 있습니다. 상수 인터페이스는 메서드가 없이, 상수를 뜻하는 static final 필드로만 가득 찬 인터페이스를 뜻합니다.
 1 2 3 4 5 6 7  public interface PhysicalConstants { static final double AVOGADROS_NUMBER = 6.">
