@@ -24,7 +24,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.4c42c4276758c0a7f58bdfba17736105db651de2475aa7c018cf47cda5d70a91.js integrity="sha256-TELEJ2dYwKf1i9+6F3NhBdtlHeJHWqfAGM9HzaXXCpE="></script><meta property="og:title" content>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.d01afe7c5f325d4c4f166d79737787c62d8c4167de39222ecdb7c0c02359fdb5.js integrity="sha256-0Br+fF8yXUxPFm15c3eHxi2MQWfeOSIuzbfAwCNZ/bU="></script><meta property="og:title" content>
 <meta property="og:description" content="# [아이템 63] 문자열 연결은 느리니 주의하라. 문자열 연결 연산자로 문자열을 n개를 잇는 시간은 n^2에 비례합니다. 문자열은 immutable이라 두 문자열을 연결할 경우 양쪽의 내용을 모두 복사해야 하므로 성능 저하는 피할 수 없습니다.
 1 2 3 4 5 6 7  public String statement() { String result = &#34;&#34;; for (int i = 0; i < numItems(); i++) { result += lineForItem(); // 문자열연결  } return result; }   StringBuilder를 활용하면 성능을 크게 개선할 수 있습니다.">
 <meta property="og:type" content="article">

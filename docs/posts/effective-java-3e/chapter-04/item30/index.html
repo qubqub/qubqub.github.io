@@ -24,7 +24,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.4c42c4276758c0a7f58bdfba17736105db651de2475aa7c018cf47cda5d70a91.js integrity="sha256-TELEJ2dYwKf1i9+6F3NhBdtlHeJHWqfAGM9HzaXXCpE="></script><meta property="og:title" content="[아이템 30] 이왕이면 제네릭 메서드로 만들라">
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.d01afe7c5f325d4c4f166d79737787c62d8c4167de39222ecdb7c0c02359fdb5.js integrity="sha256-0Br+fF8yXUxPFm15c3eHxi2MQWfeOSIuzbfAwCNZ/bU="></script><meta property="og:title" content="[아이템 30] 이왕이면 제네릭 메서드로 만들라">
 <meta property="og:description" content="[아이템 30] 이왕이면 제네릭 메서드로 만들라. 제네릭 메서드는 대표적으로 Collections의 알고리즘 메서드(binarySearch, sort 등..)가 있습니다. 사용 방법은 리턴타입 앞에다 타입을 명시해주면 됩니다. 다음은 두 집합의 합집합을 반환하는 문제가 있는 메서드입니다.
 1 2 3 4 5 6  // raw tyoe 사용 - 수용 불가 public static Set union(Set s1, Set s2) { Set result = new HashSet(s1); result.addAll(s2); return result; }   컴파일은 되지만 경고가 발생합니다. 경고를 없애려면 이 메서드 타입을 안전하게 만들어야 합니다.">
 <meta property="og:type" content="article">

@@ -14,6 +14,7 @@ if (window.location.pathname.startsWith("/posts/")) {
 
   let adjustCodeWidth = false;
   const mainToc = document.querySelector(".main .post-single>.toc");
+  const tocDetails = document.querySelector(".main .toc.aside details");
   const _hljs = document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");
   let tocIdList = [];
 
@@ -29,7 +30,7 @@ if (window.location.pathname.startsWith("/posts/")) {
 
     function updateScrollProgressBar () {
       let scrollHeight = _root.scrollHeight - heightInViewport(_progressbar) - window.innerHeight;
-      let scrollPosition = _root.scrollTop;
+      let scrollPosition = currentScroll;
       let scrollPercentage = scrollPosition / scrollHeight * 100;
       _progressbar.style.width = scrollPercentage + "%";
     }
@@ -114,6 +115,7 @@ if (window.location.pathname.startsWith("/posts/")) {
     let selEl = null;
     let lastSelEl = null;
     let lastScroll = 0;
+    let currentScroll = 0;
 
     window.addEventListener("scroll", () => {
       for (let i = 0; i < _hljs.length; i++) {
@@ -122,15 +124,16 @@ if (window.location.pathname.startsWith("/posts/")) {
       }
       adjustCodeWidth = true;
 
+      currentScroll = window.pageYOffset;
+
       updateScrollProgressBar();
-      const currentScroll = window.pageYOffset;
-      if (tocNode !== null) {
-        if(mainTocTop >= currentScroll && asideToc.classList.contains("reveal")) {
-          asideToc.scrollTop = 0;
-          asideToc.classList.remove("reveal");
-          asideToc.classList.add("hide");
-        }
-      }
+
+
+
+
+
+
+
 
       if (currentScroll <= 0 && !header.classList.contains(scrollUp)) {
         header.classList.remove(scrollDown);
@@ -154,6 +157,12 @@ if (window.location.pathname.startsWith("/posts/")) {
           header.classList.add(scrollUp);
         }
       }
+
+
+
+
+
+
 
       if (tocNode !== null) {
         if (mainTocTop < currentScroll && asideToc.classList.contains("hide")) {
@@ -222,7 +231,6 @@ if (window.location.pathname.startsWith("/posts/")) {
       lastScroll = currentScroll;
     });
 
-    const tocDetails = document.querySelector(".main .toc.aside details");
     if (tocDetails !== null) {
       const observer = new MutationObserver((mutationList, observer) => {
         if (mutationList[0].oldValue !== null) return;
