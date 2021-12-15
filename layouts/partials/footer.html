@@ -78,25 +78,29 @@
 <script>
   window.onscroll = function () {
     {{- if (not .Site.Params.disableScrollToTop) }}
-    var topLinkButton = document.getElementById("top-link");
-    if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-      topLinkButton.style.visibility = "visible";
-      topLinkButton.style.opacity = "1";
-    } else {
-      topLinkButton.style.visibility = "hidden";
-      topLinkButton.style.opacity = "0";
-    }
+      var postEl = document.querySelector(".post-content");
+      var postElTop = (postEl.offsetTop + postEl.offsetParent.offsetTop - 1);
+      var topLinkButton = document.getElementById("top-link");
+      if (document.body.scrollTop > postElTop || document.documentElement.scrollTop > postElTop) {
+        topLinkButton.style.visibility = "visible";
+        topLinkButton.style.opacity = "1";
+      } else {
+        topLinkButton.style.visibility = "hidden";
+        topLinkButton.style.opacity = "0";
+      }
     {{- end }}
 
     {{- if (.Param "ShowFontSizeButton") }}
-    var adiseFontButton = document.getElementById("aside-font-size-button");
-    if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-      adiseFontButton.style.visibility = "visible";
-      adiseFontButton.style.opacity = "1";
-    } else {
-      adiseFontButton.style.visibility = "hidden";
-      adiseFontButton.style.opacity = "0";
-    }
+      var postEl = document.querySelector(".post-content");
+      var postElTop = (postEl.offsetTop + postEl.offsetParent.offsetTop - 1);
+      var adiseFontButton = document.getElementById("aside-font-size-button");
+      if (document.body.scrollTop > postElTop || document.documentElement.scrollTop > postElTop) {
+        adiseFontButton.style.visibility = "visible";
+        adiseFontButton.style.opacity = "1";
+      } else {
+        adiseFontButton.style.visibility = "hidden";
+        adiseFontButton.style.opacity = "0";
+      }
     {{- end }}
   };
 </script>

@@ -386,11 +386,11 @@ header.header {
 }
 
 .scroll-down {
-  transform: translate3d(0, -100%, 0);
+  transform: translateY(-100%);
 }
 
 .scroll-up {
-  transform: none;
+  transform: translateY(0);
 }
 
 .toc summary,

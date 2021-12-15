@@ -119,42 +119,25 @@ if (window.location.pathname.startsWith("/posts/")) {
       currentScroll = window.pageYOffset;
       updateScrollProgressBar();
 
-
-
-
-
-
-
-
       if (currentScroll <= 0 && !header.classList.contains(scrollUp)) {
         header.classList.remove(scrollDown);
         header.classList.add(scrollUp);
         return;
       }
 
-      if (currentScroll <= 10) {
-        header.classList.remove(scrollUp);
-        return;
-      }
-
-      if (currentScroll > 80) {
-        if (currentScroll > lastScroll && !header.classList.contains(scrollDown)) {
+      const postEl = document.querySelector(".post-content");
+      if (currentScroll > (postEl.offsetTop + postEl.offsetParent.offsetTop - 1)) {
+        if (currentScroll > lastScroll) {
           // down
           header.classList.remove(scrollUp);
           header.classList.add(scrollDown);
-        } else if (currentScroll < lastScroll && header.classList.contains(scrollDown)) {
+        } else if (currentScroll < lastScroll) {
           // up
           header.classList.remove(scrollDown);
           header.classList.add(scrollUp);
         }
       }
-
-
-
-
-
-
-
+      
       if (tocNode !== null) {
         if (mainTocTop < currentScroll && asideToc.classList.contains("hide")) {
           asideToc.classList.remove("hide");
@@ -195,7 +178,11 @@ if (window.location.pathname.startsWith("/posts/")) {
             allSelEl[tocIdList.length-1].classList.add("selected");
             lastSelEl = allSelEl[tocIdList.length-1];
           } else {
-            if (selEl === lastSelEl && elIndex > 0) return;
+            if (selEl === lastSelEl && elIndex > 0) {
+              lastScroll = currentScroll;
+              return;
+            }
+
             for (let i = 0; i < allSelEl.length; i++) {
               if (!allSelEl[i].classList.contains("selected")) continue;
               allSelEl[i].classList.remove("selected");
@@ -211,7 +198,10 @@ if (window.location.pathname.startsWith("/posts/")) {
             });
           }
         } else {
-          if (asideToc.querySelector(".selected") === null) return;
+          if (asideToc.querySelector(".selected") === null) {
+            lastScroll = currentScroll;
+            return;
+          }
           for (let i = 0; i < allSelEl.length; i++) {
             if (!allSelEl[i].classList.contains("selected")) continue;
             allSelEl[i].classList.remove("selected");

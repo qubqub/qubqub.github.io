@@ -107,7 +107,7 @@
                 </ol>
 
                 <div class="series-control">
-                  <div class="toggle" onclick="series_toggle(this, {{ $_chapterTitle }})">🔒</div>
+                  <div class="toggle" onclick="series_toggle(this, '{{ $_chapterTitle }}')">🔒</div>
                   <div class="info">
                     {{ range $index, $filePath := $value.Pages }}
                       {{ if (eq $pageTitle .LinkTitle) }}
@@ -177,14 +177,14 @@
       </div>
       <script>
         window.addEventListener('DOMContentLoaded', function () {
-          if (localStorage.getItem("series-main-"+{{ $_seriesId }}) === "true") {
+          if (localStorage.getItem("series-main-{{ $_seriesId }}") === "true") {
             const seriesOffsetTop = document.querySelector(".series-main");
             window.scrollTo(0, seriesOffsetTop.offsetTop + seriesOffsetTop.offsetParent.offsetTop - 10);
-            localStorage.removeItem("series-main-"+{{ $_seriesId }});
+            localStorage.removeItem("series-main-{{ $_seriesId }}");
           }
         });
 
-        const seriesToggle = localStorage.getItem("lock-series-"+{{ $_chapterTitle }});
+        const seriesToggle = localStorage.getItem("lock-series-{{ $_chapterTitle }}");
         if (seriesToggle === "false") {
           document.querySelector(".series-main .series-list").style.display ="block";
           document.querySelector(".series-main .series-control .toggle").innerText = "🔓";
@@ -194,14 +194,14 @@
         }
 
         const seriesAnchor = [
-          ...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)")
+          ...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)"),
           ...document.querySelectorAll(".series-main .series-list li a"),
           ...document.querySelectorAll(".series-control .page-button a:not(.disabled)")
         ];
 
         for (let i = 0; i < seriesAnchor.length; i++) {
           seriesAnchor[i].addEventListener("click", e => {
-            localStorage.setItem("series-main-"+{{ $_seriesId }}, true);
+            localStorage.setItem("series-main-{{ $_seriesId }}", true);
           });
         }
       </script>
@@ -233,7 +233,7 @@
                 </ol>
 
                 <div class="series-control">
-                  <div class="toggle" onclick="series_toggle(this, {{ $_seriesTitle }})">🔒</div>
+                  <div class="toggle" onclick="series_toggle(this, '{{ $_seriesTitle }}')">🔒</div>
                   <div class="info">
                     {{ range $index, $filePath := $value.Pages }}
                       {{ if (eq $pageTitle .LinkTitle) }}
@@ -302,14 +302,15 @@
       </div>
       <script>
         window.addEventListener('DOMContentLoaded', function () {
-          if (localStorage.getItem("series-main-"+{{ $_seriesId }}) === "true") {
+          console.log("series-main-{{ $_seriesId }}");
+          if (localStorage.getItem("series-main-{{ $_seriesId }}") === "true") {
             const seriesOffsetTop = document.querySelector(".series-main");
             window.scrollTo(0, seriesOffsetTop.offsetTop + seriesOffsetTop.offsetParent.offsetTop - 10);
-            localStorage.removeItem("series-main-"+{{ $_seriesId }});
+            localStorage.removeItem("series-main-{{ $_seriesId }}");
           }
         });
 
-        const seriesToggle = localStorage.getItem("lock-series-"+{{ $_seriesTitle }});
+        const seriesToggle = localStorage.getItem("lock-series-{{ $_seriesTitle }}");
         if (seriesToggle === "false") {
           document.querySelector(".series-main .series-list").style.display ="block";
           document.querySelector(".series-main .series-control .toggle").innerText = "🔓";
@@ -325,7 +326,7 @@
 
         for (let i = 0; i < seriesAnchor.length; i++) {
           seriesAnchor[i].addEventListener("click", e => {
-            localStorage.setItem("series-main-"+{{ $_seriesId }}, true);
+            localStorage.setItem("series-main-{{ $_seriesId }}", true);
           });
         }
       </script>
