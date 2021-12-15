@@ -23,8 +23,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-215417930-1"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-215417930-1')</script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
 <script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ef1c5e4983e3b4ee19b7d345a7c759d97d6787c6a2f06b89d8b02bbd6a4a5aef.js integrity="sha256-7xxeSYPjtO4Zt9NFp8dZ2X1nh8ai8GuJ2LArvWpKWu8="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="Posts">
 <meta property="og:description" content="<Qutrits/>">
@@ -84,92 +83,91 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
-<h2>abstract class: 추상클래스
+<h2>[아이템 28] 배열보다는 리스트를 사용하라
 </h2>
 </header>
 <section class=entry-content>
-<p>오늘은 추상 클래스에 대해 알아보쟈!
-abstract class(추상클래스)가 뭐야? 🧐 인터페이스가 Can Do를 알려주는 역할이라면 추상클래스는 분류(category)를 알려주는 클래스다.
-💚 예시 (내가 이해한 방식) 인터페이스에서 이야기했던 예시를 이어가자면, 앵무새와 참새, 펭귄 그리고 슈가 글라이더는 각자 객체를 가질 수 있다. 하지만 앵무새,참새 그리고 펭귄을 포함하는 조류, 슈가 글라이더를 포함하는 포유류라는 것은 객체가 없는, 추상적인 분류(category)의 개념이다. 추상클래스 안에 추상메소드는 인터페이스와 같은 역할이라고 생각하면된다. 즉, “이러한 분류(추상클래스)에 속하는 객체들은 이러한(추상메소드)것에 반드시 반응해야한다.” 라는 계약이 생긴다....</p>
+<p>[아이템 28] 배열보다는 리스트를 사용하라. 배열과 제네릭 타입의 차이 첫번째 차이점. 배열은 공변 입니다. 어려워 보이는 단어지만 뜻은 간단합니다. Sub가 Super의 하위 타입이라면 배열 Sub[]는 배열 Super[]의 하위 타입이 됩니다.
+반면, 제네릭은 불공변입니다. 즉 서로 다른 타입 Type1과 Type2가 있을 때, List&lt;Type1>은 List&lt;Type2>의 하위 타입도 아니고 상위 타입도 아닙니다.
+이것만 보면 제네릭에 문제가 있다고 생각할 수 있지만, 사실 문제가 있는 건 배열 쪽입니다. 다음은 문법상 허용되는 코드입니다.
+1 2 3 // 런타임 에러 Object[] objectArray = new Long[1]; objectArray[0] = "타입이 달라 넣을 수 없다....</p>
 </section>
-<footer class=entry-footer><span title="2021-12-02 23:13:57 +0900 KST">2021년 12월 2일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hugo Authors
+<footer class=entry-footer><span title="2020-07-08 14:21:51 +0900 KST">2020년 7월 8일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/csharp/>Csharp</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/abstract/>abstract</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/class/>class</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to abstract class: 추상클래스" href=https://qutrits.github.io/posts/2021_12_05_01/></a>
-</article>
-<article class=post-entry>
-<figure class=entry-cover><img loading=lazy src=https://qutrits.github.io/logo/logo-unity-01.png alt>
-</figure>
-<header class=entry-header>
-<h2>AlgorithmStudy_백준 11068
-</h2>
-</header>
-<section class=entry-content>
-<p>알고리즘 공부 백준 11068 🧐 회문인 수 👉문제 어떤 수를 왼쪽부터 읽어도, 오른쪽부터 읽어도 같을 때 이 수를 회문인 수라고 한다. 예를 들어, 747은 회문인 수이다. 255도 회문인 수인데, 16진수로 표현하면 FF이기 때문이다. 양의 정수를 입력받았을 때, 이 수가 어떤 B진법 (2 ≤ B ≤ 64)으로 표현하면 회문이 되는 경우가 있는지 알려주는 프로그램을 작성하시오. B진법이란, 한 자리에서 수를 표현할 때 쓸 수 있는 수의 가짓수가 B라는 뜻이다. 예를 들어, 십진법에서 B는 10이다....</p>
-</section>
-<footer class=entry-footer><span title="2021-11-26 00:18:15 +0900 KST">2021년 11월 26일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
-<ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/csharp/>Csharp</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
-</ul></footer>
-<a class=entry-link aria-label="post link to AlgorithmStudy_백준 11068" href=https://qutrits.github.io/posts/2021_11_26_01/></a>
+<a class=entry-link aria-label="post link to [아이템 28] 배열보다는 리스트를 사용하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item28/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>Draw Call: 드로우콜(2)
+<h2>[아이템 27] 비검사 경고를 제거하라
 </h2>
 </header>
 <section class=entry-content>
-<p>이전 포스트에서는 드로우콜 자체에 대해 알아보았다면, 이번 포스트에서는 드로우콜을 줄이기 위해 알아야하는 것과 드로우콜을 줄이는 방법에 대해 알아보겠다.
-Batch, Batching이 뭐야? 🧐 Batch: 이전 포스트에서 언급했던 DP Call과 render state change들을 합친 넓은 의미의 드로우콜. Batching: 드로우콜을 줄이는 작업(어떠한 조건 아래 다수의 Batch를 하나로 만드는 작업). 💚Batching 세부 설명
-Project Setting > Player 에서 사용이 체크가 되어있는지 확인. Static Batching: Static 플래그가 체크되어있는 정적인 오브젝트에 적용 됨. 적용 방법 버텍스 연산을 런타임에 수행하지 않기때문에 Dynamic Batching 보다 효율적....</p>
+<p>[아이템 27] 비검사 경고를 제거하라. 제네릭에 관련된 수 많은 컴파일 경고들이 있습니다. 비검사 형변환 경고, 비검사 메서드 호출 경고, 비검사 매개변수화 가변인수 타입 경고, 비검사 변환 경고 등이 있습니다.
+제네릭에 익숙해질 수록 마주치는 경고 수는 줄어들겠지만 새로 작성한 코드가 한 번에 깨끗하게 컴파일되리라 기대하지는 맙시다.
+대부분의 비검사 경고는 쉽게 제거할 수 있습니다. 코드를 다음처럼 잘못 작성했다고 예시를 들어봅시다.
+1 Set&lt;Fruits> fruits = new Hashset(); 그러면 컴파일러는 무엇이 잘못 됐는지 설멸해 줄 것입니다....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-25 00:05:33 +0900 KST">2021년 11월 25일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-07-08 13:16:11 +0900 KST">2020년 7월 8일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/unity/>Unity</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/drawcall/>DrawCall</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/batch/>Batch</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to Draw Call: 드로우콜(2)" href=https://qutrits.github.io/posts/2021_11_25_03/></a>
+<a class=entry-link aria-label="post link to [아이템 27] 비검사 경고를 제거하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item27/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>Draw Call: 드로우콜(1)
+<h2>[아이템 26] Raw 타입은 사용하지 마라
 </h2>
 </header>
 <section class=entry-content>
-<p>오늘 비대면 면접을 보았는데, 이전 프로젝트에서 드로우콜을 줄이려는 노력을 했냐고 물어보셨다.나는 딱히 드로우콜에 대해서 생각을 해본 적이 별로 없어서 없다고 말했지만, 이 부분에 대해 좀 더 알 필요가 있다고 생각했다. 그래서 오늘의 공부는 드로우콜!
-Draw Call이 뭐야? 🧐 간단 요약 정의: CPU가 GPU에 오브젝트를 그리라는 명령을 호출하는 것. 💚세부 설명
-오브젝트가 실제 화면에 렌더링 되려면 CPU -> GPU 정보 전달 필요함. 정보: 메시, 텍스처, 쉐이더, 트랜스폼, 알파블렌딩 여부 등이 존재....</p>
+<p>[아이템 26] Raw 타입은 사용하지 마라. raw type이란 제네릭 타입에서에서 타입 파라미터를 전혀 사용하지 않았을 때를 말합니다.
+1 2 // raw type List list = new ArrayList(); raw type은 타입 선언에서 제네릭 타입 정보가 전부 지워진 것처럼 동작하는데, 제네릭이 도래하기 전 코드와 호환성을 위해서 주로 존재합니다.
+1 2 // 문자열을 저장하는 컬렉션 private final List names = new ArrayList(); 위 코드를 사용하면 String대신 다른 타입을 넣어도 오류없이 실행됩니다....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-24 23:19:40 +0900 KST">2021년 11월 24일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-07-07 11:41:27 +0900 KST">2020년 7월 7일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/unity/>Unity</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/drawcall/>DrawCall</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/batch/>Batch</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to Draw Call: 드로우콜(1)" href=https://qutrits.github.io/posts/2021_11_25_02/></a>
+<a class=entry-link aria-label="post link to [아이템 26] Raw 타입은 사용하지 마라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item26/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>Generic: 제너릭 클래스
+<h2>[아이템 25] 톱레벨 클래스는 한 파일에만 담으라
 </h2>
 </header>
 <section class=entry-content>
-<p>유니티에서 쓸 Tween을 만들고 있는 중이다.Tween에서 여러가지 클래스를 처리하고 싶어서 Generic class를 활용하기로 하였다.
-Generic class가 뭐야? 🧐 일반적으로 클래스를 정의할 때, 클래스 내의 모든 데이타 타입을 지정해 주게 된다. 하지만 어떤 경우는 클래스의 거의 모든 부분이 동일한데 일부 데이타 타입만이 다른 경우가 있을 수 있다.이런 경우 C#의 제네릭 타입(Generic Type)을 사용할 수 있는데, 제네릭 타입에서는 int, float, double 같은 데이타 요소 타입을 확정하지 않고 이 데이타 타입 자체를 타입파라미터(Type Parameter)로 받아들이도록 클래스를 정의한다....</p>
+<p>[아이템 25] 톱레벨 클래스는 한 파일에만 담으라 1 2 3 4 5 public class Main { public static void main(String[] args) { System.out.println(Utensil.NAME + Dessert.NAME); } } 위 코드의 소스 파일은 Main 클래스 하나를 담고 있고, Main클래스는 다른 톱레벨 클래스 2개(Utensil Dessert)를 참조합니다.
+Utensil와 Dessert 클래스가 Utensil.java라는 한 파일에 정의되어 있다고 가정해봅시다.
+1 2 3 4 5 6 7 class Utensil { static final String NAME = "pan"; } class Dessert { static final String NAME = "cake"; } Main을 실행하면 “pancake"가 출력됩니다....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-23 23:32:06 +0900 KST">2021년 11월 23일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-07-05 13:12:41 +0900 KST">2020년 7월 5일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/csharp/>Csharp</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/unity/>Unity</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/generic/>Generic</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to Generic: 제너릭 클래스" href=https://qutrits.github.io/posts/2021_11_25_01/></a>
+<a class=entry-link aria-label="post link to [아이템 25] 톱레벨 클래스는 한 파일에만 담으라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item25/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>[아이템 24] 멤버 클래스는 되도록 static으로 만들어라
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 24] 멤버 클래스는 되도록 static으로 만들어라. 중첩 클래스(nested class)는 자신을 감싼 바깥 클래스에서만 쓰어야 하며 그 이외 쓰임새가 있다면 톱레벨 클래스로 만들어야 합니다.
+중첩 클래스는 다음과 같이 네 종류로 나눌 수 있습니다.
+정적 멤버 클래스 (비정적)멤버 클래스 익명 클래스 지역 클래스 이 중 정적 멤버 클래스를 제외한 나머지는 내부 클래스(inner class)에 해당합니다.
+정적 멤버 클래스 정적 멤버 클래스는 다른 클래스 안에 선언되고, 바깥 클래스의 private 멤버에도 접근할 수 있다는 점만 제외하고는 일반 클래스외 똑같습니다....</p>
+</section>
+<footer class=entry-footer><span title="2020-07-05 11:41:14 +0900 KST">2020년 7월 5일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 24] 멤버 클래스는 되도록 static으로 만들어라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item24/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -204,7 +202,7 @@ Generic class가 뭐야? 🧐 일반적으로 클래스를 정의할 때, 클래
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
-<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/23/><svg style="margin-right:-10px;vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/18/><svg style="margin-right:-10px;vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

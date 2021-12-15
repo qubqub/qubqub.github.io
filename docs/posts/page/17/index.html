@@ -23,8 +23,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-215417930-1"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-215417930-1')</script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
 <script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ef1c5e4983e3b4ee19b7d345a7c759d97d6787c6a2f06b89d8b02bbd6a4a5aef.js integrity="sha256-7xxeSYPjtO4Zt9NFp8dZ2X1nh8ai8GuJ2LArvWpKWu8="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="Posts">
 <meta property="og:description" content="<Qutrits/>">
@@ -88,11 +87,11 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 60] 정확한 답이 필요하다면 float와 double은 피하라. float와 dobule은 과학과 공학 계산용으로 설계 되었습니다. 이진 부동소수점 연산에 쓰이며, 넓은 범위의 수를 빠르게 정밀한 ‘근사치’로 계산하도록 설계되었습니다. 따라서 정확한 계산 결과가 필요할 때는 사용하면 안 됩니다. 특 히 금용 관련 계산과 맞지 않습니다. 0.1 혹은 10의 음의 거듭 제곱수(10^-1, 10-^2)를 표현할 수 없기 때문입니다.예를 들어 1.03달러에서 42센트를 사용하고 남은 돈을 계산한다고 가정해봅시다.
-1 System.out.println(1.03 - 0.42); 이 코드는 0....</p>
+<p>[아이템 81] wait와 notify보다는 동시성 유틸리티를 애용하라. wait와 notify는 올바르게 사용하기가 아주 까다로우니 고수준 동시성 유틸리티를 사용하라. java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있다.
+실헹자 프레임워크 동시성 컬렉션 동기화 장치 동시성 컬렉션은 높은 동시성에 도달하기 위해 동기화를 각자의 내부에서 구현한다. 따라서 컬렉션에서 동기성을 무력화하는 건 불가능하며 외부에서 락을 추가로 사용하면 속도가 느려진다. 동시성을 무력화하지 못하므로 여러 메서드를 원자적으로 묶어 호출하는 건 불가능하다. 그레서 여러 기본 동작을 하나의 원자적 동작으로 묶는 ‘상태 의존적 수정’ 메서드들이 추가되었다....</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item60/></a>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item81/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -100,10 +99,11 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 61] 박싱된 기본 타입보다는 기본 타입을 사용하라. 자바의 데이터 타입은 기본형과 참조형이 있습니다. 기본형에 대응하는 참조 타입이 하나씩 있으며 이를 박싱된 기본 타입이라 합니다. 기본 타입과 박싱된 기본 타입은 분명한 차이가 있으며 용도에 맞게 사용해야합니다.박싱된 기본 타입은 값 뿐만 아니라 식별성이 더해졌습니다. 즉 값이 같아도 서로 다르게 식별될 수 있습니다. 그리고 박싱 타입은 null을 가질 수 있습니다. 추가로 기본 타입은 박싱 타입보다 메모리와 시간 측면에서 더 효율적입니다.1 2 3 // 잘못 구현된 비교자 Comparator&lt;Integer> naturalOrder = (i, j) -> (i &lt; j) ?...</p>
+<p>[아이템 82] 스레드 안전성 수준을 문서화하라. 일반적으로 스레드 안정성이 높은 순
+불변: 외부 동기화가 필요없다. 대표적으로 String, Long, BigInteger 무조건적 스레드 안전: 이 클래스의 인스턴스는 수정될 수 있으나, 내부에서 충실히 동기화하여 별도의 외부 동기화 없이 사용해도 안전 대표적으로 ConcurrentHashMap 조건부 스레드 안전: 일부 메서드는 동시에 사용하려면 외부 동기화가 필요. Collections.synchronized 래퍼 메서드가 반환한 컬렉션이 여기 속함 스레드 비안전: 동시에 시용하려면 메서드 호출을 클라이언트가 선택한 외부 동기화 메커니즘으로 감싸야한다. ArrayList, HashMap 같은 기본 컬렉션....</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item61/></a>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item82/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -111,11 +111,11 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 62] 다른 타입이 적절하다면 문자열 사용을 피하라. 문자열은 다른 값 타입을 대신하기엔 적절하지 않습니다.
-1 2 // 흔한 타입을 문자열로 처리한 부적절한 예 String compoundKey = className + "#" + i.next(); 두 요소를 구분해주는 #이 두 요소 중 하나에서 쓰였다면 혼란을 초래할 수 있습니다. 각 요소를 개별로 접근하려면 문자열을 파싱해야 해서 느리고, 귀찮고, 오류 가능성도 커집니다. 이럴 경우 전용 클래스를 새로 만드는 편이 낫습니다. 보통 private 정적 멤버 클래스로 선언합니다....</p>
+<p>[아이템 83] 지연 초기화는 신중히 사용하라. 지연 초기화는 필드의 초기화 시점을 그 값이 처음 필요햔 시점까지 늦추는 것이다. 지연 초기화는 인스턴스 생성시 초기화 비용을 줄일 수 있지만, 지연 초기화하는 필드에 접근하는 비용은 커진다. 지연 초기화를 잘못사용하면 실제로 성능이 더 느려질 수도 있다. 멀티 스레드 환경에서 지연 초기화를 하기에는 까다롭다. 지연 초기화하는 필드를 둘 이상 스레드가 공유한다면 동기화해야 한다. 일반적으로 일반적인 초기화가 지연 초기화보다 낫다.
+1 2 // 인스턴스 필드를 초기화하는 일반적인 방법 private final FieldType field = computerFieldValue(); 1 2 3 4 5 6 7 8 9 // 지연 초기화 - sychronized 방식 private FieldType field; private sychronized FieldType getField() { if (field == null) { field = computerFieldValue(); } return field; } 1 2 3 4 5 6 7 8 // 정적 필드용 지연 초기화 홀더 클래스 관용구 private static class FieldHolder { static final FieldType field = computerFieldValue(); } private static FieldType getField() { return FieldHolder....</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item62/></a>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item83/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -123,11 +123,10 @@
 </h2>
 </header>
 <section class=entry-content>
-<p># [아이템 63] 문자열 연결은 느리니 주의하라. 문자열 연결 연산자로 문자열을 n개를 잇는 시간은 n^2에 비례합니다. 문자열은 immutable이라 두 문자열을 연결할 경우 양쪽의 내용을 모두 복사해야 하므로 성능 저하는 피할 수 없습니다.
-1 2 3 4 5 6 7 public String statement() { String result = ""; for (int i = 0; i &lt; numItems(); i++) { result += lineForItem(); // 문자열연결 } return result; } StringBuilder를 활용하면 성능을 크게 개선할 수 있습니다....</p>
+<p>[아이템 84] 프로그램의 동작을 스레드 스케줄러에 기대지 말라. 구체적인 스케줄링 정책은 운영체제 마다 다를 수 있다. 따라서 이 정책에 죄지우지 되면 안 된다. 실행 가능한 스레드의 평균적인 수를 프로세스 수보다 지나치게 많아지지 않도록 하는 것이 좋은 프로그래램이다. 그래야 스케줄러가 고민할 거리가 줄기 때문이다.</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item63/></a>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item84/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -135,11 +134,11 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 64] 객체는 인터페이스를 사용해 참조하라. 1 2 // 좋은 예 Set&lt;Student> student = new HashSet&lt;>(); 1 2 // 나쁜 예. 클래스 참조 HashSet&lt;Student> student = new HashSet&lt;>(); 인터페이스를 활용하면 유연함을 얻을 수 있습니다. 구현체를 교체하고 싶으면 구현 클래스만 바꾸면 됩니다.
-1 2 // HashSet -> LinkedHashSet 교체 Set&lt;Student> student = new LinkedHashSet&lt;>(); 하지만 구현체를 바꿀 경우 주의할 점이 있습니다. 기존 구현체만의 특별한 기능을 제공하는 게 있다면, 바꿀 구현체에도 있는지 혹은 사이드 이펙트도 충분히 고려해야 합니다....</p>
+<p>[아이템 85] 자바 직렬화의 대안을 찾으라. 자바의 역직렬화에는 치명적인 단점이 있습니다. 신롸할 수 없는 스트림을 역직렬화하면 원격 코드 실행, 서비스 거부 등의 공격으로 이어질 수 있습니다.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 static byte[] bomb() { Set&lt;Object> root = new HashSet&lt;>(); Set&lt;Object> s1 = root; Set&lt;Object> s2 = new HashSet&lt;>(); for (int i = 0; i &lt; 100; i++) { Set&lt;Object> t1 = new HashSet&lt;>(); Set&lt;Object> t2 = new HashSet&lt;>(); t1....</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item64/></a>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-11/item85/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -154,6 +153,9 @@
 </a>
 </li>
 <li class=pagination__item>
+<a href=/posts/page/14/ class=pagination__link>14</a>
+</li>
+<li class=pagination__item>
 <a href=/posts/page/15/ class=pagination__link>15</a>
 </li>
 <li class=pagination__item>
@@ -165,16 +167,13 @@
 <li class=pagination__item>
 <a href=/posts/page/18/ class=pagination__link>18</a>
 </li>
-<li class=pagination__item>
-<a href=/posts/page/19/ class=pagination__link>19</a>
-</li>
 <li class="pagination__item pagination__item--next">
 <a href=https://qutrits.github.io/posts/page/18/ class="pagination__link pagination__link--next">
 다음 페이지<svg style="margin-right:-10px;vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
-<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/23/><svg style="margin-right:-10px;vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/18/><svg style="margin-right:-10px;vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>
