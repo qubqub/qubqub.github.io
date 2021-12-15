@@ -190,6 +190,7 @@ header.header {
 
 .terms-tags a {
   font-size: 1.05rem;
+  padding: 0 10px;
 }
 
 .main .post-entry:hover,

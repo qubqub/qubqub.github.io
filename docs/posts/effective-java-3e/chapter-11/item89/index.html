@@ -8,7 +8,7 @@
 <meta name=description content="[아이템 89] 인스턴스 수를 통제해야 한다면 readResolve 보단는 열거타입을 사용하라. 1 2 3 4 5 6 7  // 싱글턴 public class Elvis { public static final Elvis INSTANCE = new Elvis(); private Elvis() { ... } public void leaveTheBuilding() { ... } }   Serializable을 구현하는 순간 더이상 싱글턴이 아니다. 어떤 readObject를 사용하든 초기화될때 만들어진 인스턴스와는 별개인 인스턴스를 반환하게 된다. readResolve 기능을 활용하면 readObject가 만들어낸 인스턴스를 다른 것으로 대체할 수 있다">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-11/item89/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.43ab65660561a39f2c77589d50ba63b0f863b7a54e50c0dde18340d7ff7f575d.css integrity="sha256-Q6tlZgVho58sd1idULpjsPhjt6VOUMDd4YNA1/9/V10=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.609bac1579326cc51a9a2ca3a6c410a7b3d1077b2841386ba4121bc986df2fcf.css integrity="sha256-YJusFXkybMUamiyjpsQQp7PRB3soQThrpBIbyYbfL88=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>

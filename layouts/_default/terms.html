@@ -12,12 +12,31 @@
 
 <ul class="terms-tags">
   {{- $type := .Type }}
-  {{ range $.Site.Taxonomies.tags.ByCount }}
+  {{/*  {{ range $.Site.Taxonomies.tags.ByCount }}  */}}
+  {{- range $key, $value := .Data.Terms.Alphabetical }}
   {{- $name := .Name }}
   {{- $count := .Count }}
   {{- with $.Site.GetPage (printf "/%s/%s" $type $name) }}
+
+  {{/*  {{- (int (substr (string $count) 0 1)) }}  */}}
+
+  {{/*  {{- if 1 lt (int (substr (string $count) 0 1)) }}
+    크다
+  {{- end }}  */}}
+
+  {{ $fontSize := add (float (print "0" (substr (string $count) 0 -1) "." (substr (string $count) -1 1))) 1 }}
+
+  {{- if (lt 1 $fontSize) }}
+    {{- if lt 2.5 $fontSize }}
+      {{ $fontSize = 2.5 }}
+    {{- end }}
+  {{- else }}
+    {{ $fontSize = 1 }}
+  {{- end }}
+
+  
   <li>
-    <a href="{{ .Permalink }}">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
+    <a href="{{ .Permalink }}" style="font-size: {{ mul $fontSize 0.8 }}rem;">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
   </li>
   {{- end }}
   {{- end }}
