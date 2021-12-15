@@ -295,6 +295,20 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
         }
       }
     }
+  } else {
+    setTimeout(() => {
+      const postHeader = document.querySelector(".page-header");
+      postHeader.style.opacity = "1";
+      postHeader.style.transform = "translateY(0%)";
+    }, 200);
+  
+    setTimeout(() => {
+      const postEntry = document.querySelectorAll(".post-entry");
+      for (let i = 0; i < postEntry.length; i++) {
+        postEntry[i].style.opacity = "1";
+        postEntry[i].style.transform = "translateX(0%)";
+      }
+    }, 600);
   }
 } else if (window.location.pathname.match(/^\/archives\/$/)) {
   function archives_toggle (elId, _this) {
@@ -348,6 +362,18 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
             window.location.pathname.match(/^\/categories\/.+/) ||
             window.location.pathname.match(/^\/series\/.+/) ||
             window.location.pathname.match(/^\/chapter\/.+/)) {
-  const postEntry = document.querySelectorAll(".post-entry");
-  console.log();
+
+  setTimeout(() => {
+    const postHeader = document.querySelector(".page-header");
+    postHeader.style.opacity = "1";
+    postHeader.style.transform = "translateY(0%)";
+  }, 500);
+
+  setTimeout(() => {
+    const postEntry = document.querySelectorAll(".post-entry");
+    for (let i = 0; i < postEntry.length; i++) {
+      postEntry[i].style.opacity = "1";
+      postEntry[i].style.transform = "translateX(0%)";
+    }
+  }, 800);
 }
