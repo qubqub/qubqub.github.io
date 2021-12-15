@@ -11,7 +11,7 @@ JAVA 8이전까지는 인터페이스에 새로운 메소드가 추가될리 없
 자바라이브러리의 디폴트 메서드는 코드 품질이 높고 범용적이라 대부분 잘 작동하지만, 생각할 수 있는 모든 상황에서 불변식을 해치지 않는 디폴트 메서드를 작성하기란 어려운 법입니다.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item21/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.ebbf5bc3d88018e648802e76cb02df46951e7dbfb61dde578c8716f195301345.css integrity="sha256-679bw9iAGOZIgC52ywLfRpUefb+2Hd5XjIcW8ZUwE0U=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.85000d78ca0566cddc66382cdcbb31831cf4ccb08d6e8aadcc85981065b17597.css integrity="sha256-hQANeMoFZs3cZjgs3Lsxgxz0zLCNboqtzIWYEGWxdZc=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -26,7 +26,7 @@ JAVA 8이전까지는 인터페이스에 새로운 메소드가 추가될리 없
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.792358bccda224437388b630f35c1aecbc118a070414757a6ea9a597f4cea1c9.js integrity="sha256-eSNYvM2iJENziLYw81wa7LwRigcEFHV6bqmll/TOock="></script><meta property="og:title" content="[아이템 21] 인터페이스는 구현하는 쪽을 생각해 설계하라">
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.27917751b22028c6605f9e0c4ab553ac7354712ce22b183e56a6eb568859b48c.js integrity="sha256-J5F3UbIgKMZgX54MSrVTrHNUcSziKxg+VqbrVohZtIw="></script><meta property="og:title" content="[아이템 21] 인터페이스는 구현하는 쪽을 생각해 설계하라">
 <meta property="og:description" content="[아이템 21] 인터페이스는 구현하는 쪽을 생각해 설계하라. JAVA 8이전에는 기존 구현체를 깨뜨리지 않고 인터페이스에 새로운 메서드를 추가할 방법이 없었습니다. JAVA 8부터는 디폴트 메서드를 제공해서 이러한 문제점들을 해결해줬지만 위험이 완전히 사라진 것은 아닙니다.
 JAVA 8이전까지는 인터페이스에 새로운 메소드가 추가될리 없다는 암묵적인 가정으로 작성되었습니다.
 즉 디폴트 메서드는 구현한 클래스에 동의 없이 무작정 삽입되었습니다. JAVA 8에서는 핵심 컬렉션 인터페이스들에 다수의 디폴트 메서드가 추가되었습니다. 주로 람다를 활용하기 위해서입니다.

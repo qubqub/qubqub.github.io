@@ -174,38 +174,38 @@ header.header {
 
 .main .archive-year .archive-month .archive-posts {
   display: none;
-  transform: translateX(-3%);
   opacity: 0;
-  transition: all 0.3s ease-in-out 0s;
+  transform: translateX(-3%);
+  transition: transform 0.3s ease-in-out 0s;
 }
 
 .main .archive-year .archive-year-header {
   transform: translateY(-70%);
   opacity: 0;
-  transition: all 0.3s ease-in-out 0s;
+  transition: transform 0.3s ease-in-out 0s;
 }
 
 .main .archive-year .archive-month .archive-month-header {
-  transform: translateY(-70%);
   opacity: 0;
-  transition: all 0.3s ease-in-out 0s;
+  transform: translateY(-70%);
+  transition: transform 0.3s ease-in-out 0s;
 }
 
 #searchbox #searchInput {
   width: 0;
-  transition: all 0.3s ease-out 0s;
+  transition: width 0.3s ease-out 0s;
 }
 
 .page-header {
   opacity: 0;
   transform: translateY(-30%);
-  transition: all 0.2s ease-out 0s;
+  transition: transform 0.2s ease-out 0s;
 }
 
-.post-entry {
+.post-entry:not(.search-entry) {
   opacity: 0;
   transform: translateX(-4%);
-  transition: all 0.2s ease-out 0s;
+  transition: transform 0.2s ease-out 0s;
 }
 
 .main .archive-year .archive-month-header .toggle {

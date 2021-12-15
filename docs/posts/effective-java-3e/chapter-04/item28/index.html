@@ -11,7 +11,7 @@
 1 2 3  // 런타임 에러 Object[] objectArray = new Long[1]; objectArray[0] = &#34;타입이 달라 넣을 수 없다.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item28/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.ebbf5bc3d88018e648802e76cb02df46951e7dbfb61dde578c8716f195301345.css integrity="sha256-679bw9iAGOZIgC52ywLfRpUefb+2Hd5XjIcW8ZUwE0U=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.85000d78ca0566cddc66382cdcbb31831cf4ccb08d6e8aadcc85981065b17597.css integrity="sha256-hQANeMoFZs3cZjgs3Lsxgxz0zLCNboqtzIWYEGWxdZc=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -26,7 +26,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.792358bccda224437388b630f35c1aecbc118a070414757a6ea9a597f4cea1c9.js integrity="sha256-eSNYvM2iJENziLYw81wa7LwRigcEFHV6bqmll/TOock="></script><meta property="og:title" content="[아이템 28] 배열보다는 리스트를 사용하라">
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.27917751b22028c6605f9e0c4ab553ac7354712ce22b183e56a6eb568859b48c.js integrity="sha256-J5F3UbIgKMZgX54MSrVTrHNUcSziKxg+VqbrVohZtIw="></script><meta property="og:title" content="[아이템 28] 배열보다는 리스트를 사용하라">
 <meta property="og:description" content="[아이템 28] 배열보다는 리스트를 사용하라. 배열과 제네릭 타입의 차이 첫번째 차이점. 배열은 공변 입니다. 어려워 보이는 단어지만 뜻은 간단합니다. Sub가 Super의 하위 타입이라면 배열 Sub[]는 배열 Super[]의 하위 타입이 됩니다.
 반면, 제네릭은 불공변입니다. 즉 서로 다른 타입 Type1과 Type2가 있을 때, List<Type1>은 List<Type2>의 하위 타입도 아니고 상위 타입도 아닙니다.
 이것만 보면 제네릭에 문제가 있다고 생각할 수 있지만, 사실 문제가 있는 건 배열 쪽입니다. 다음은 문법상 허용되는 코드입니다.
