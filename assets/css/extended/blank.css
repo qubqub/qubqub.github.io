@@ -394,6 +394,10 @@ header.header {
   transform: translateY(0);
 }
 
+.header-bottom {
+  border-bottom: 1px solid var(--primary) !important;
+}
+
 .toc summary,
 .main .archive-year .archive-month-header {
   cursor: pointer;

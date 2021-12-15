@@ -12,6 +12,16 @@ if (window.location.pathname.startsWith("/posts/")) {
     }
   }
 
+  const scrollUp = "scroll-up";
+  const scrollDown = "scroll-down";
+  const headerBottom = "header-bottom";
+  let selEl = null;
+  let lastSelEl = null;
+  let lastScroll = 0;
+  let currentScroll = 0;
+
+  document.querySelector("header.header").style.borderBottom = "none";
+
   const mainToc = document.querySelector(".main .post-single>.toc");
   const tocDetails = document.querySelector(".main .toc.aside details");
   let tocIdList = [];
@@ -108,21 +118,22 @@ if (window.location.pathname.startsWith("/posts/")) {
     }
 
     const asideToc = document.querySelector(".main .toc.aside");
-    const scrollUp = "scroll-up";
-    const scrollDown = "scroll-down";
-    let selEl = null;
-    let lastSelEl = null;
-    let lastScroll = 0;
-    let currentScroll = 0;
     
     window.addEventListener("scroll", () => {
       currentScroll = window.pageYOffset;
       updateScrollProgressBar();
 
-      if (currentScroll <= 0 && !header.classList.contains(scrollUp)) {
-        header.classList.remove(scrollDown);
-        header.classList.add(scrollUp);
-        return;
+      if (currentScroll <= 0) {
+        if (!header.classList.contains(scrollUp) || header.classList.contains(headerBottom)) {
+          header.classList.remove(headerBottom);
+          header.classList.remove(scrollDown);
+          header.classList.add(scrollUp);
+          return;
+        }
+      } else {
+        if (!header.classList.contains(headerBottom)) {
+          header.classList.add(headerBottom);
+        }
       }
 
       const postEl = document.querySelector(".post-content");
