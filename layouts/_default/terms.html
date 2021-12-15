@@ -24,7 +24,7 @@
     크다
   {{- end }}  */}}
 
-  {{ $fontSize := add (float (print "0" (substr (string $count) 0 -1) "." (substr (string $count) -1 1))) 1 }}
+  {{ $fontSize := mul (add (float (print "0" (substr (string $count) 0 -1) "." (substr (string $count) -1 1))) 1) 0.8 }}
 
   {{- if (lt 1 $fontSize) }}
     {{- if lt 2.5 $fontSize }}
@@ -36,7 +36,7 @@
 
   
   <li>
-    <a href="{{ .Permalink }}" style="font-size: {{ mul $fontSize 0.8 }}rem;">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
+    <a href="{{ .Permalink }}" style="font-size: {{ $fontSize }}rem;">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
   </li>
   {{- end }}
   {{- end }}
