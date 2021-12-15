@@ -423,17 +423,6 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
     sleep(300).then(() => {
       for (let i = 0; i < randomIndexArray.length; i++) {
         sleep((i+1)*20).then(() => {
-          let fontSize = termList[randomIndexArray[i]].children[0].style.fontSize.split("rem")[0];
-          if (window.innerWidth < 769) {
-            if (fontSize >= 1 && fontSize <= 1.5) {
-              fontSize *= 0.75
-            } else if (fontSize > 1.5 && fontSize <= 2) {
-              fontSize *= 0.7
-            } else if (fontSize > 2 && fontSize <= 2.5) {
-              fontSize *= 0.65
-            }
-          }
-          termList[randomIndexArray[i]].children[0].style.fontSize = fontSize+"rem";
           termList[randomIndexArray[i]].children[0].style.opacity = "1";
           termList[randomIndexArray[i]].children[0].style.transform = "translateY(0%)";
         });
