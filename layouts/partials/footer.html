@@ -82,7 +82,7 @@
 <script>
   window.onscroll = function () {
       var postEl = document.querySelector(".post-content");
-      var postElTop = (postEl.offsetTop + postEl.offsetParent.offsetTop - 1);
+      var postElTop = postEl?(postEl.offsetTop + postEl.offsetParent.offsetTop - 1):800;
       var topLinkButton = document.getElementById("top-link");
       if (document.body.scrollTop > postElTop || document.documentElement.scrollTop > postElTop) {
         topLinkButton.style.visibility = "visible";
@@ -100,7 +100,7 @@
 <script>
   window.onscroll = function () {
       var postEl = document.querySelector(".post-content");
-      var postElTop = (postEl.offsetTop + postEl.offsetParent.offsetTop - 1);
+      var postElTop = postEl?(postEl.offsetTop + postEl.offsetParent.offsetTop - 1):800;
       var adiseFontButton = document.getElementById("aside-font-size-button");
       if (document.body.scrollTop > postElTop || document.documentElement.scrollTop > postElTop) {
         adiseFontButton.style.visibility = "visible";
@@ -118,7 +118,7 @@
 <script>
   window.onscroll = function () {
       var postEl = document.querySelector(".post-content");
-      var postElTop = (postEl.offsetTop + postEl.offsetParent.offsetTop - 1);
+      var postElTop = postEl?(postEl.offsetTop + postEl.offsetParent.offsetTop - 1):800;
       var topLinkButton = document.getElementById("top-link");
       if (document.body.scrollTop > postElTop || document.documentElement.scrollTop > postElTop) {
         topLinkButton.style.visibility = "visible";

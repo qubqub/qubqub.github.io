@@ -302,7 +302,6 @@
       </div>
       <script>
         window.addEventListener('DOMContentLoaded', function () {
-          console.log("series-main-{{ $_seriesId }}");
           if (localStorage.getItem("series-main-{{ $_seriesId }}") === "true") {
             const seriesOffsetTop = document.querySelector(".series-main");
             window.scrollTo(0, seriesOffsetTop.offsetTop + seriesOffsetTop.offsetParent.offsetTop - 10);

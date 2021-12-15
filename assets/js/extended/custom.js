@@ -266,12 +266,10 @@ if (window.location.pathname.startsWith("/posts/")) {
     const _el = document.getElementById(elId);
     const _toggleEl = _this.querySelector(".toggle");   
     if (_el.style.display==="none" || _el.style.display==="") {
-      console.log("lock-archives-"+elId);
       localStorage.setItem("lock-archives-"+elId, false);
       _toggleEl.innerText = "📂";
       _el.style.display = "block";
     } else if (_el.style.display==="block") {
-      console.log("lock-archives-"+elId);
       localStorage.setItem("lock-archives-"+elId, true);
       _toggleEl.innerText = "📁";
       _el.style.display = "none";

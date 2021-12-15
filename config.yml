@@ -64,25 +64,29 @@ params:
     iconWidth: 25
 
   # profile-mode
-  # profileMode:
-  #   enabled: true # needs to be explicitly set
-  #   title: < Paloalto />
-  #   subtitle: "반갑습니다."
-  #   # imageUrl: "<img location>"
-  #   # imageWidth: 120
-  #   # imageHeight: 120
-  #   # imageTitle: my image
-  #   buttons:
-  #     - name: Posts
-  #       url: posts
-  #     - name: Tags
-  #       url: tags
+  profileMode:
+    enabled: true # needs to be explicitly set
+    title: < Paloalto />
+    subtitle: "반갑습니다."
+    imageUrl: "/icon/profile_pic.png"
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: my image
+    buttons:
+      - name: Posts
+        url: posts
+      - name: Series
+        url: series-list
+      - name: Archives
+        url: archives
+      - name: Tags
+        url: tags
 
   # home-info mode
-  homeInfoParams:
-    Title: "Hi there \U0001F44B"
-    Content: Write-ups ✍️
-    ProfilePicture: "/icon/profile_pic.png"
+  # homeInfoParams:
+  #   Title: "Hi there \U0001F44B"
+  #   Content: Write-ups ✍️
+  #   ProfilePicture: "/icon/profile_pic.png"
     
   socialIcons:
     # - name: twitter
@@ -120,7 +124,7 @@ params:
   #   hiddenInSingle: true # hide on single page
 
   editPost:
-    URL: "https://github.com/qutrits/qutrits.github.io/blob/master/content"
+    URL: "https://github.com/qutrits/qutrits.github.io/blob/main/content"
     Text: "수정사항 제안" # edit text
     appendFilePath: true # to append file path to Edit link
 
