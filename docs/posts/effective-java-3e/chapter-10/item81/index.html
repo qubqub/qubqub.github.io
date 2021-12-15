@@ -9,7 +9,7 @@
  실헹자 프레임워크 동시성 컬렉션 동기화 장치  동시성 컬렉션은 높은 동시성에 도달하기 위해 동기화를 각자의 내부에서 구현한다. 따라서 컬렉션에서 동기성을 무력화하는 건 불가능하며 외부에서 락을 추가로 사용하면 속도가 느려진다. 동시성을 무력화하지 못하므로 여러 메서드를 원자적으로 묶어 호출하는 건 불가능하다. 그레서 여러 기본 동작을 하나의 원자적 동작으로 묶는 &lsquo;상태 의존적 수정&rsquo; 메서드들이 추가되었다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item81/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.6a8adf6f0853f36c430bb1bccd9f71d84bd3c5b99b4bbfaefd146fb5005239d0.css integrity="sha256-aorfbwhT82xDC7G8zZ9x2EvTxbmbS7+u/RRvtQBSOdA=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.e9399d1591a3303eb93ea0e9a5455b7e33f98c987d6800675c5743fa1b209322.css integrity="sha256-6TmdFZGjMD65PqDppUVbfjP5jJh9aABnXFdD+hsgkyI=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -24,7 +24,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.060f259e6588931c6a21c5f982a4300659951be179da2469a63ade8c68550468.js integrity="sha256-Bg8lnmWIkxxqIcX5gqQwBlmVG+F52iRppjrejGhVBGg="></script><meta property="og:title" content>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.79a750ce393c91a57258e5fe895ab535cbbccfa28f2cd60076a32710266e17df.js integrity="sha256-eadQzjk8kaVyWOX+iVq1Ncu8z6KPLNYAdqMnECZuF98="></script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 81] wait와 notify보다는 동시성 유틸리티를 애용하라. wait와 notify는 올바르게 사용하기가 아주 까다로우니 고수준 동시성 유틸리티를 사용하라. java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있다.
  실헹자 프레임워크 동시성 컬렉션 동기화 장치  동시성 컬렉션은 높은 동시성에 도달하기 위해 동기화를 각자의 내부에서 구현한다. 따라서 컬렉션에서 동기성을 무력화하는 건 불가능하며 외부에서 락을 추가로 사용하면 속도가 느려진다. 동시성을 무력화하지 못하므로 여러 메서드를 원자적으로 묶어 호출하는 건 불가능하다. 그레서 여러 기본 동작을 하나의 원자적 동작으로 묶는 &lsquo;상태 의존적 수정&rsquo; 메서드들이 추가되었다.">
 <meta property="og:type" content="article">

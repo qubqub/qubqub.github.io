@@ -9,7 +9,7 @@
  컴파일타임 타입 검사가 주는 이점을 하나도 누릴 수 없다. 예외 검사도 마찬가지입니다. 리플렉션 기능으로 존재하지 않는 혹은 접근할 수 없는 메서드를 호출하려고하면 런타임 오류가 발생합니다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item65/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.6a8adf6f0853f36c430bb1bccd9f71d84bd3c5b99b4bbfaefd146fb5005239d0.css integrity="sha256-aorfbwhT82xDC7G8zZ9x2EvTxbmbS7+u/RRvtQBSOdA=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.e9399d1591a3303eb93ea0e9a5455b7e33f98c987d6800675c5743fa1b209322.css integrity="sha256-6TmdFZGjMD65PqDppUVbfjP5jJh9aABnXFdD+hsgkyI=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -24,7 +24,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.060f259e6588931c6a21c5f982a4300659951be179da2469a63ade8c68550468.js integrity="sha256-Bg8lnmWIkxxqIcX5gqQwBlmVG+F52iRppjrejGhVBGg="></script><meta property="og:title" content>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.79a750ce393c91a57258e5fe895ab535cbbccfa28f2cd60076a32710266e17df.js integrity="sha256-eadQzjk8kaVyWOX+iVq1Ncu8z6KPLNYAdqMnECZuF98="></script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 65] 리플렉션보다는 인터페이스를 사용하라. 리플렉션 기능을 활용하면 클래스에 접근 할 수 있습니다. Class객체가 주어지면 생성자, 메서드, 필드에 해당하는 Consturct, Method, Field 인스턴스를 가져올 수 있고 그 인스턴스들로는 그 클래스의 시그니처 등을 가져올 수 있습니다. Method.invoke는 어떤 클래스의 어떤 객체가 가진 어떤 메서드라도 호출할 수 있게 해줍니다 물론 장점만있는 건 아닙니다. 단점은 다음과 같습니다.
  컴파일타임 타입 검사가 주는 이점을 하나도 누릴 수 없다. 예외 검사도 마찬가지입니다. 리플렉션 기능으로 존재하지 않는 혹은 접근할 수 없는 메서드를 호출하려고하면 런타임 오류가 발생합니다.">
 <meta property="og:type" content="article">
