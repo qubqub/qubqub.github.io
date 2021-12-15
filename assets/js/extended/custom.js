@@ -410,11 +410,21 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
 } else if (window.location.pathname.match(/^\/tags\/$/)) {
   const termList = document.querySelectorAll(".terms-tags li");
   if (termList) {
-    sleep(500).then(() => {
-      for (let i = 0; i < termList.length; i++) {
-        sleep((i+1)*15).then(() => {
-          termList[i].children[0].style.opacity = "1";
-          termList[i].children[0].style.transform = "translateY(0%)";
+    let randomIndexArray = [];
+    for (i=0; i<termList.length; i++) {
+      randomNum = Math.floor(Math.random() * termList.length);
+      if (randomIndexArray.indexOf(randomNum) === -1) {
+        randomIndexArray.push(randomNum);
+      } else {
+        i--;
+      }
+    }
+    
+    sleep(300).then(() => {
+      for (let i = 0; i < randomIndexArray.length; i++) {
+        sleep((i+1)*30).then(() => {
+          termList[randomIndexArray[i]].children[0].style.opacity = "1";
+          termList[randomIndexArray[i]].children[0].style.transform = "translateY(0%)";
         });
       }
     });
