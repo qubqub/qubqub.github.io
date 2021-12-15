@@ -66,7 +66,7 @@ params:
   # profile-mode
   profileMode:
     enabled: true # needs to be explicitly set
-    title: < Paloalto />
+    title: <Qutrits/>
     subtitle: "반갑습니다."
     imageUrl: "/icon/profile_pic.png"
     imageWidth: 120
