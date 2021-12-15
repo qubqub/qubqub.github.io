@@ -2,6 +2,9 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 tags: [""]
+categories: [""]
+series: [""]
+chapter: [""]
 author: [""]
 ShowReadingTime: true
 ShowBreadCrumbs: false
