@@ -460,11 +460,13 @@ header.header {
   border-bottom: 1px solid var(--primary) !important;
 }
 
-.toc summary,
-.toc-aside summary,
-.main .archive-year .archive-month-header {
-  
+.toc-aside details summary {
   cursor: pointer;
+}
+
+.toc details summary,
+.toc-aside details summary,
+.main .archive-year .archive-month-header {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -774,6 +776,8 @@ header.header {
 .aside-font-size-button .decrease,
 .aside-font-size-button .default path {
   fill: var(--secondary);
+  cursor: pointer;
+  z-index: 9999;
 }
 
 .tooltip {
@@ -1122,7 +1126,6 @@ header.header {
     padding-right: 0;
     margin-right: 0;
     list-style: none;
-    cursor: pointer;
   }
 
   @keyframes fade-in {
@@ -1170,7 +1173,6 @@ header.header {
     list-style: none;
     margin-left: -0.5rem;
     white-space: nowrap;
-    cursor: pointer;
   }
 
   .top-link {
@@ -1299,7 +1301,6 @@ header.header {
     padding-right: 0;
     list-style: none;
     margin-right: 0;
-    cursor: pointer;
   }
 
   @keyframes fade-in {
@@ -1355,7 +1356,6 @@ header.header {
     list-style: none;
     margin-left: -0.5rem;
     white-space: nowrap;
-    cursor: pointer;
   }
 
   .top-link {

@@ -9,7 +9,7 @@
 1 2 3 4 5 6 7 8 9 10  // ordinal을 잘못 사용한 예 public enum FRUITS { APPLE, BANANA, ORANGE; public int numberOfFruits() { return ordinal() + 1; } }   상수 선언 순서를 바꾸는 순간 numberOfFruits는 오작동하며 이미 사용중인 정수와 값이 같은 상수는 추가할 수 없고 중간에 값을 비울 수도 없습니다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-05/item35/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.38cf1f80db50555cfa6ac2e6b614308f89b8b4f9b2b68338c579badf04c7816c.css integrity="sha256-OM8fgNtQVVz6asLmthQwj4m4tPmytoM4xXm63wTHgWw=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.7fdcc3250d2766238701ebc88b716557ac0b92655db0f16547001b0b7feda2aa.css integrity="sha256-f9zDJQ0nZiOHAevIi3FlV6wLkmVdsPFlRwAbC3/toqo=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -25,7 +25,7 @@
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.9f4fe716ce91b7c4cb8ed8e69e1f7639da2fc3c9d97e1dc620214a5b7519b043.js integrity="sha256-n0/nFs6Rt8TLjtjmnh92Odovw8nZfh3GICFKW3UZsEM="></script>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.601949636b7c20701516b97039a8af5486336e79b78d407059c8890370594863.js integrity="sha256-YBlJY2t8IHAVFrlwOaivVIYzbnm3jUBwWciJA3BZSGM="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 35] ordinal 메서드 대신 인스턴스 필드를 사용하라 대부분 열거 타입 상수는 자연스럽게 하나의 정숫값에 대응됩니다. 모든 엵 ㅓ타입은 해당 상수가 그 열거 타입에서 몇 번째 위치인지를 반환하는 ordinal 이라는 메서드를 제공합니다.
 1 2 3 4 5 6 7 8 9 10  // ordinal을 잘못 사용한 예 public enum FRUITS { APPLE, BANANA, ORANGE; public int numberOfFruits() { return ordinal() + 1; } }   상수 선언 순서를 바꾸는 순간 numberOfFruits는 오작동하며 이미 사용중인 정수와 값이 같은 상수는 추가할 수 없고 중간에 값을 비울 수도 없습니다.">

@@ -154,22 +154,25 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
         if (localStorage.getItem("lock-aside-toc-"+window.location.pathname) === "true") {
           _m.innerHTML = iconLock;
           tocClone.querySelector("details").removeAttribute("open");
+          _m.dataset.isLock = true;
         } else {
           _m.innerHTML = iconUnlock;
+          console.log(_m.dataset.lock);
           tocClone.querySelector("details").setAttribute("open", "");
+          _m.dataset.isLock = false;
         }
         _n.prepend(_m);
-  
-        tocClone.querySelector("summary .details").addEventListener("click", e => {
-          const asideToc = document.querySelector(".toc-aside>details");
-          const asideTocIcon = asideToc.querySelector("summary .details .tocLock");
-          let isOpenAsideToc = asideToc.attributes.length;
-          if (isOpenAsideToc === 0) { // open
-            localStorage.setItem("lock-aside-toc-"+window.location.pathname, false);
-            asideTocIcon.innerHTML = iconUnlock;
-          } else {
+
+        tocClone.querySelector("summary").addEventListener("click", e => {
+          const asideTocIcon = asideToc.querySelector(".toc-aside>details summary .details .tocLock");
+          if (asideTocIcon.dataset.isLock === "false") {
+            asideTocIcon.dataset.isLock = true;
             localStorage.setItem("lock-aside-toc-"+window.location.pathname, true);
             asideTocIcon.innerHTML = iconLock;
+          } else {
+            asideTocIcon.dataset.isLock = false;
+            localStorage.setItem("lock-aside-toc-"+window.location.pathname, false);
+            asideTocIcon.innerHTML = iconUnlock;
           }
         });
   
@@ -238,14 +241,6 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
               elIndex = idx;
             }
           });
-  
-          // for (let i = 0; i < tocIdList.length; i++) {
-          //   tocEl = document.getElementById(tocIdList[i]);
-          //   if (tocEl.offsetTop + tocEl.offsetParent.offsetTop - 1 <= currentScroll) {
-          //     selEl = allSelEl[i];
-          //     elIndex = i;
-          //   }
-          // }
           
           if (elIndex !== null) {
             let scrollEnd = Math.ceil(currentScroll + window.innerHeight) >= document.body.scrollHeight;
