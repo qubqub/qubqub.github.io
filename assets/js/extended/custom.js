@@ -160,9 +160,9 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
         }
         _n.prepend(_m);
   
-        tocClone.querySelector("details summary").addEventListener("click", e => {
+        tocClone.querySelector("summary .details").addEventListener("click", e => {
           const asideToc = document.querySelector(".toc-aside>details");
-          const asideTocIcon = asideToc.querySelector(".details .tocLock");
+          const asideTocIcon = asideToc.querySelector("summary .details .tocLock");
           let isOpenAsideToc = asideToc.attributes.length;
           if (isOpenAsideToc === 0) { // open
             localStorage.setItem("lock-aside-toc-"+window.location.pathname, false);
