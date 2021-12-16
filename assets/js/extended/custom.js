@@ -126,7 +126,7 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
       new MutationObserver(updateScrollProgressBar).observe(_progressbar, _config);
 
       const asideToc = document.querySelector(".main .toc-aside");
-      const asideTocSummay = asideToc.querySelector(".summary");
+      const asideTocSummay = document.querySelector(".main .toc-aside-summary");
       const asideTocWrapper = asideToc.querySelector(".inner-wrapper");
       const asideTocToggle = asideTocSummay.querySelector(".toggle");
       const asideTocList = asideToc.querySelectorAll(".inner-wrapper .inner ul>li");
@@ -156,6 +156,7 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
         if (mainTocTop < window.pageYOffset) {
           asideToc.classList.remove("hide");
           asideToc.classList.add("reveal");
+          asideTocSummay.classList.remove("hide");
         } else if(mainTocTop >= window.pageYOffset) {
           asideToc.classList.add("hide");
         }
@@ -220,10 +221,12 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
           if (mainTocTop < currentScroll && asideToc.classList.contains("hide")) {
             asideToc.classList.remove("hide");
             asideToc.classList.add("reveal");
+            asideTocSummay.classList.remove("hide");
           } else if(mainTocTop >= currentScroll && asideToc.classList.contains("reveal")) {
             asideToc.scrollTop = 0;
             asideToc.classList.remove("reveal");
             asideToc.classList.add("hide");
+            asideTocSummay.classList.add("hide");
           }
           
           let elIndex = null;

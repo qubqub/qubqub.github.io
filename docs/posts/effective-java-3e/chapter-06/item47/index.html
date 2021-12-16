@@ -10,7 +10,7 @@ Collection인터페이스는 Iterable의 하위 타입이고 stream의 메서드
 정리  원소 시퀀스를 반환하는 메서드를 작성할 때는, 이를 스트림으로 처리하길 원하는 사용자와 반복으로 처리하길 원하는 사용자가 모두 있을 수 있음을 고려하라 컬렉션을 반환할 수 있다면 그렇게 하고 반환 전부터 이미 원소들을 컬렉션에 관리하고 있거나 컬렉션을 하나 더 만들어도 될 정도로 원소 개수가 적다면 ArrayList같은 표준 컬렉션에 담아 반환하라.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-06/item47/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.df254a590c9b5109b69a6fe139d1f3dfd35059962262164ec0d3c06eea87f8e8.css integrity="sha256-3yVKWQybUQm2mm/hOdHz39NQWZYiYhZOwNPAbuqH+Og=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.2c243d0074a5b36fc490264c0e6d698892e45750456846d1967913b10edf0c8e.css integrity="sha256-LCQ9AHSls2/EkCZMDm1piJLkV1BFaEbRlnkTsQ7fDI4=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -26,7 +26,7 @@ Collection인터페이스는 Iterable의 하위 타입이고 stream의 메서드
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.0f9c0724a4a9532e378064ea3610bf45586ab7d654252a3c7439e6774bec89de.js integrity="sha256-D5wHJKSpUy43gGTqNhC/RVhqt9ZUJSo8dDnmd0vsid4="></script>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ff8c7e0f76468280c10bbbb651769c0f50345a6ef98bb8c963a1b0d7ef3e3781.js integrity="sha256-/4x+D3ZGgoDBC7u2UXacD1A0Wm75i7jJY6Gw1+8+N4E="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 47] 반환 타입으로는 스트림보다 컬렉션이 낫다. 사실 Stream 인터페이스 Iterable 인터페이스가 정의한 추상 메서드를 전부 포함하고 Iterable 인터페이스가 정의한 방식대로 동작합니다. 하지만 for-each로 스트림을 반복할 수 없는 이유는 Stream이 Iterable을 확장하지 않아서입니다.
 Collection인터페이스는 Iterable의 하위 타입이고 stream의 메서드도 제공하니 반복과 스트림을 동시에 지원합니다. 따라서 원소 시퀀수를 공개하는 공개 API의 반환타입에는 Collection이나 그 하위 타입을 사용하는게 일반적으로 좋습니다.

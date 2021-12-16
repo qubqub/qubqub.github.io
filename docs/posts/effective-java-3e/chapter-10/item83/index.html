@@ -10,7 +10,7 @@
 1 2  // 인스턴스 필드를 초기화하는 일반적인 방법 private final FieldType field = computerFieldValue();   1 2 3 4 5 6 7 8 9  // 지연 초기화 - sychronized 방식 private FieldType field; private sychronized FieldType getField() { if (field == null) { field = computerFieldValue(); } return field; }   1 2 3 4 5 6 7 8  // 정적 필드용 지연 초기화 홀더 클래스 관용구 private static class FieldHolder { static final FieldType field = computerFieldValue(); } private static FieldType getField() { return FieldHolder.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item83/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.df254a590c9b5109b69a6fe139d1f3dfd35059962262164ec0d3c06eea87f8e8.css integrity="sha256-3yVKWQybUQm2mm/hOdHz39NQWZYiYhZOwNPAbuqH+Og=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.2c243d0074a5b36fc490264c0e6d698892e45750456846d1967913b10edf0c8e.css integrity="sha256-LCQ9AHSls2/EkCZMDm1piJLkV1BFaEbRlnkTsQ7fDI4=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -26,7 +26,7 @@
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.0f9c0724a4a9532e378064ea3610bf45586ab7d654252a3c7439e6774bec89de.js integrity="sha256-D5wHJKSpUy43gGTqNhC/RVhqt9ZUJSo8dDnmd0vsid4="></script>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ff8c7e0f76468280c10bbbb651769c0f50345a6ef98bb8c963a1b0d7ef3e3781.js integrity="sha256-/4x+D3ZGgoDBC7u2UXacD1A0Wm75i7jJY6Gw1+8+N4E="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 83] 지연 초기화는 신중히 사용하라. 지연 초기화는 필드의 초기화 시점을 그 값이 처음 필요햔 시점까지 늦추는 것이다. 지연 초기화는 인스턴스 생성시 초기화 비용을 줄일 수 있지만, 지연 초기화하는 필드에 접근하는 비용은 커진다. 지연 초기화를 잘못사용하면 실제로 성능이 더 느려질 수도 있다.
 멀티 스레드 환경에서 지연 초기화를 하기에는 까다롭다. 지연 초기화하는 필드를 둘 이상 스레드가 공유한다면 동기화해야 한다. 일반적으로 일반적인 초기화가 지연 초기화보다 낫다.
