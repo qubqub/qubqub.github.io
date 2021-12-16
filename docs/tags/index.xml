@@ -295,7 +295,7 @@
     </item>
     
     <item>
-      <title>MarkDown</title>
+      <title>markdown</title>
       <link>https://qutrits.github.io/tags/markdown/</link>
       <pubDate>Sun, 14 Nov 2021 21:31:11 +0900</pubDate>
       
@@ -358,6 +358,15 @@
     </item>
     
     <item>
+      <title>PaperMod</title>
+      <link>https://qutrits.github.io/tags/papermod/</link>
+      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qutrits.github.io/tags/papermod/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Effective Java 3E</title>
       <link>https://qutrits.github.io/tags/effective-java-3e/</link>
       <pubDate>Thu, 09 Jul 2020 18:21:51 +0900</pubDate>
@@ -372,6 +381,69 @@
       <pubDate>Thu, 09 Jul 2020 18:21:51 +0900</pubDate>
       
       <guid>https://qutrits.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>css</title>
+      <link>https://qutrits.github.io/tags/css/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://qutrits.github.io/tags/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>html</title>
+      <link>https://qutrits.github.io/tags/html/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://qutrits.github.io/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>themes</title>
+      <link>https://qutrits.github.io/tags/themes/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://qutrits.github.io/tags/themes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>privacy</title>
+      <link>https://qutrits.github.io/tags/privacy/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://qutrits.github.io/tags/privacy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shortcodes</title>
+      <link>https://qutrits.github.io/tags/shortcodes/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://qutrits.github.io/tags/shortcodes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>text</title>
+      <link>https://qutrits.github.io/tags/text/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://qutrits.github.io/tags/text/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emoji</title>
+      <link>https://qutrits.github.io/tags/emoji/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://qutrits.github.io/tags/emoji/</guid>
       <description></description>
     </item>
     

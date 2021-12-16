@@ -24,7 +24,7 @@
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.d7a219b215c8faed41c9c30f7d50ea9524700ca11f42d3b605ea7367cf8b660c.js integrity="sha256-16IZshXI+u1BycMPfVDqlSRwDKEfQtO2BepzZ8+LZgw="></script>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ac654bac455e537d136710f0d6828168a7d4b52340c51028b65f2fe2168689d1.js integrity="sha256-rGVLrEVeU30TZxDw1oKBaKfUtSNAxRAotl8v4haGidE="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="Posts">
 <meta property="og:description" content="<Qutrits/>">
 <meta property="og:type" content="website">
@@ -87,13 +87,10 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 81] wait와 notify보다는 동시성 유틸리티를 애용하라. wait와 notify는 올바르게 사용하기가 아주 까다로우니 고수준 동시성 유틸리티를 사용하라.
-java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있다.
-실헹자 프레임워크 동시성 컬렉션 동기화 장치 동시성 컬렉션은 높은 동시성에 도달하기 위해 동기화를 각자의 내부에서 구현한다. 따라서 컬렉션에서 동기성을 무력화하는 건 불가능하며 외부에서 락을 추가로 사용하면 속도가 느려진다.
-동시성을 무력화하지 못하므로 여러 메서드를 원자적으로 묶어 호출하는 건 불가능하다. 그레서 여러 기본 동작을 하나의 원자적 동작으로 묶는 ‘상태 의존적 수정’ 메서드들이 추가되었다....</p>
+<p>[아이템 74] 메서드가 던지는 모든 예외를 문서화하라. 검사 예외는 항상 따로따로 선언하고, 각 예외가 발생하는 상황을 자바독의 @throws 태그를 사용하여 정확히 문서화를 합시다. 상위 클래스 하나로 선언하는 일은 삼가는 게 좋습니다. 어떤 예외를 호출하는지 명확하게 알 수 없고, 같은 맥락에서 다른 예외가 발생할 여지가 있을 경우 이러한 것까지 다 삼켜버릴 수 있기 때문입니다. 비검사 예외 같은 경우 메서드 선언에 throws를 넣는 건 권장하지 않습니다. 검사냐 비검사냐에 따라 API 사용자가 할 일이 달라지므로 이 둘은 확실히 구분해두는 것이 좋습니다....</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item81/></a>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-09/item74/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -101,11 +98,11 @@ java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있�
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 82] 스레드 안전성 수준을 문서화하라. 일반적으로 스레드 안정성이 높은 순
-불변: 외부 동기화가 필요없다. 대표적으로 String, Long, BigInteger 무조건적 스레드 안전: 이 클래스의 인스턴스는 수정될 수 있으나, 내부에서 충실히 동기화하여 별도의 외부 동기화 없이 사용해도 안전 대표적으로 ConcurrentHashMap 조건부 스레드 안전: 일부 메서드는 동시에 사용하려면 외부 동기화가 필요. Collections.synchronized 래퍼 메서드가 반환한 컬렉션이 여기 속함 스레드 비안전: 동시에 시용하려면 메서드 호출을 클라이언트가 선택한 외부 동기화 메커니즘으로 감싸야한다. ArrayList, HashMap 같은 기본 컬렉션....</p>
+<p>[아이템 75] 예외 상세 메시지에 실패 관련 정보를 담으라. 스택 트레이스는 예외 객체의 toString 메서드를 호출해 얻는 문자열입니다. toString 메서드에 발생 원인에 대한 정보는 가능한 많을 수록 좋습니다. 물론 장황하지 않고 필요한 정보만 담는 것입니다. 가장 좋은 건 발생한 예외에 관여된 모든 매개변수와 필드의 값을 실패 메세지에 담는 것입니다. 물론 보안관 관련된 정보는 유의해서 다루어야 합니다.
+ex) IndexOutOfBoundsException의 상세 메세지에는 범위의 최솟값, 최댓값, 범위를 벗어난 인덱스의 값을 담는 것입니다.</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item82/></a>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-09/item75/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -113,12 +110,11 @@ java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있�
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 83] 지연 초기화는 신중히 사용하라. 지연 초기화는 필드의 초기화 시점을 그 값이 처음 필요햔 시점까지 늦추는 것이다. 지연 초기화는 인스턴스 생성시 초기화 비용을 줄일 수 있지만, 지연 초기화하는 필드에 접근하는 비용은 커진다. 지연 초기화를 잘못사용하면 실제로 성능이 더 느려질 수도 있다.
-멀티 스레드 환경에서 지연 초기화를 하기에는 까다롭다. 지연 초기화하는 필드를 둘 이상 스레드가 공유한다면 동기화해야 한다. 일반적으로 일반적인 초기화가 지연 초기화보다 낫다.
-1 2 // 인스턴스 필드를 초기화하는 일반적인 방법 private final FieldType field = computerFieldValue(); 1 2 3 4 5 6 7 8 9 // 지연 초기화 - sychronized 방식 private FieldType field; private sychronized FieldType getField() { if (field == null) { field = computerFieldValue(); } return field; } 1 2 3 4 5 6 7 8 // 정적 필드용 지연 초기화 홀더 클래스 관용구 private static class FieldHolder { static final FieldType field = computerFieldValue(); } private static FieldType getField() { return FieldHolder....</p>
+<p>[아이템 76] 가능한 한 실패 원자적으로 만들라. 여기서 말하는 실패 원자적이란 호출한 메서드가 실패하더라도 해당 객체는 호출 전 상태로 유지되는 것입니다. 가장 간단한 방법은 불변 객채로 설계하는 것입니다. 가변 객체일 경우 작업 수행 전에 유효성을 검사합는 것입니다.
+1 2 3 4 5 6 7 8 public Object pop() { if (size == 0) { throw new EmptyStachException(); } Object result = el[--size]; el[size] = null; // 참조 해제 return result; } 유효성 검사하는 부분이 없어도 ArrayOutOfBoundsException을 던지지만 이는 추상화 수준에 상황에 어울리지 않습니다....</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item83/></a>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-09/item76/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -126,10 +122,11 @@ java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있�
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 84] 프로그램의 동작을 스레드 스케줄러에 기대지 말라. 구체적인 스케줄링 정책은 운영체제 마다 다를 수 있다. 따라서 이 정책에 죄지우지 되면 안 된다. 실행 가능한 스레드의 평균적인 수를 프로세스 수보다 지나치게 많아지지 않도록 하는 것이 좋은 프로그래램이다. 그래야 스케줄러가 고민할 거리가 줄기 때문이다.</p>
+<p>[아이템 77] 예외를 무시하지 마라. 발생할 수 있는 실수
+1 2 3 4 5 try { ... } catch (IllegalArgumentException e){ } 초보 프로그래머가 할 수 있는 실수입니다. catch 블록에서 아무것도 하지 않으면 catch가 존재할 이유가 없어지는 것과 마찬가지입니다. 예외가 발생허더라도 계속 지나칠 수 있습니다. 이는 심각한 결함으로 이어질 수 있습니다. 만약 예외를 무시하기로 결정한 부분이라면 IllegalArgumentException ignored로 바꿔놓는 것이 좋습니다.</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item84/></a>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-09/item77/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -137,11 +134,11 @@ java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있�
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 85] 자바 직렬화의 대안을 찾으라. 자바의 역직렬화에는 치명적인 단점이 있습니다. 신롸할 수 없는 스트림을 역직렬화하면 원격 코드 실행, 서비스 거부 등의 공격으로 이어질 수 있습니다.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 static byte[] bomb() { Set&lt;Object> root = new HashSet&lt;>(); Set&lt;Object> s1 = root; Set&lt;Object> s2 = new HashSet&lt;>(); for (int i = 0; i &lt; 100; i++) { Set&lt;Object> t1 = new HashSet&lt;>(); Set&lt;Object> t2 = new HashSet&lt;>(); t1....</p>
+<p>[아이템 78] 공유중인 가변 데이터는 동기화해 사용하라. 동기화란 특정 메서드나 블럭에 한 쓰레드가 접근했을 때, 해당 객체에 락을 걸고 다른 쓰레드가 접근하지 못하도록 하는 것이다.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 public class StopThread { private static boolean stopRequested; public static void main(String[] args) throws InterruptedException { Thread backgroundThread = new Thread(() -> { int i = 0; while (!...</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-11/item85/></a>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item78/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -156,9 +153,6 @@ java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있�
 </a>
 </li>
 <li class=pagination__item>
-<a href=/posts/page/21/ class=pagination__link>21</a>
-</li>
-<li class=pagination__item>
 <a href=/posts/page/22/ class=pagination__link>22</a>
 </li>
 <li class=pagination__item>
@@ -170,13 +164,16 @@ java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있�
 <li class=pagination__item>
 <a href=/posts/page/25/ class=pagination__link>25</a>
 </li>
+<li class=pagination__item>
+<a href=/posts/page/26/ class=pagination__link>26</a>
+</li>
 <li class="pagination__item pagination__item--next">
 <a href=https://qutrits.github.io/posts/page/25/ class="pagination__link pagination__link--next">
 다음 페이지<svg style="margin-right:-10px;vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
-<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/25/><svg style="margin-right:-10px;vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/28/><svg style="margin-right:-10px;vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

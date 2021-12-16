@@ -7,6 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 13 Dec 2021 17:46:19 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Markdown Syntax Guide For L2</title>
+      <link>https://qutrits.github.io/posts/dummy/guides/markdown-syntax.fr/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/dummy/guides/markdown-syntax.fr/</guid>
+      <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
+    </item>
+    
+    <item>
+      <title>Markdown Syntax Guide For RTL</title>
+      <link>https://qutrits.github.io/posts/dummy/guides/markdown-syntax.fa/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/dummy/guides/markdown-syntax.fa/</guid>
+      <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
+    </item>
+    
+    <item>
       <title>배너를 만들어보자!</title>
       <link>https://qutrits.github.io/posts/dummy/studying15_snap/</link>
       <pubDate>Mon, 13 Dec 2021 17:46:19 +0900</pubDate>
@@ -764,6 +782,51 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
     </item>
     
     <item>
+      <title>Markdown Syntax Guide</title>
+      <link>https://qutrits.github.io/posts/dummy/guides/markdown-syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/dummy/guides/markdown-syntax/</guid>
+      <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
+    </item>
+    
+    <item>
+      <title>Rich Content</title>
+      <link>https://qutrits.github.io/posts/dummy/guides/rich-content/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/dummy/guides/rich-content/</guid>
+      <description>A brief description of Hugo Shortcodes</description>
+    </item>
+    
+    <item>
+      <title>Placeholder Text</title>
+      <link>https://qutrits.github.io/posts/dummy/guides/placeholder-text/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/dummy/guides/placeholder-text/</guid>
+      <description>Lorem Ipsum Dolor Si Amet</description>
+    </item>
+    
+    <item>
+      <title>Math Typesetting</title>
+      <link>https://qutrits.github.io/posts/dummy/guides/math-typesetting/</link>
+      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/dummy/guides/math-typesetting/</guid>
+      <description>A brief guide to setup KaTeX</description>
+    </item>
+    
+    <item>
+      <title>Emoji Support</title>
+      <link>https://qutrits.github.io/posts/dummy/guides/emoji-support/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/dummy/guides/emoji-support/</guid>
+      <description>Guide to emoji usage in Hugo</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://qutrits.github.io/posts/effective-java-3e/chapter-05/item34/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1335,6 +1398,10 @@ readResolve 기능을 활용하면 readObject가 만들어낸 인스턴스를 �
       <description>[아이템 90] 직렬화된 인스턴스 대신 직렬화 프록시 사용을 검토하라. 직렬화 프록시 패턴을 이용하면 앞서 애기했던 단점들을 줄일 수 있다.먼저 바깥 클래스의 논리적인 상태를 표현하는 중첩 클래스를 private static으로 생성한다. 이 중첩 클래스가 바깥 클래스의 직렬화 프록시다. 이 클래스는 단순히 인스로 넘어온 인스턴스의 데이터만 복사하고 바깥 클래스와 모두 Serializable을 구현해야한다.
 1 2 3 4 5 6 7 8 9 10 11  // Period 클래스용 직렬화 프록시 private static class SerializationProxy implements Serializable { private final Date start; private final Date end; SerializationProxy(Period p) { this.</description>
     </item>
+    
+    
+    
+    
     
   </channel>
 </rss>
