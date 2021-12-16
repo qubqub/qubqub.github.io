@@ -1121,6 +1121,7 @@ header.header {
     padding-right: 0;
     margin-right: 0;
     list-style: none;
+    cursor: pointer;
   }
 
   @keyframes fade-in {
@@ -1168,6 +1169,7 @@ header.header {
     list-style: none;
     margin-left: -0.5rem;
     white-space: nowrap;
+    cursor: pointer;
   }
 
   .top-link {
@@ -1296,6 +1298,7 @@ header.header {
     padding-right: 0;
     list-style: none;
     margin-right: 0;
+    cursor: pointer;
   }
 
   @keyframes fade-in {
@@ -1351,6 +1354,7 @@ header.header {
     list-style: none;
     margin-left: -0.5rem;
     white-space: nowrap;
+    cursor: pointer;
   }
 
   .top-link {
