@@ -57,15 +57,12 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
         _el.style.display = "none";
       }
     }
-    
-    const mainToc = document.querySelector(".main .post-single>.toc");
-    const tocIdList = [];
-  
+
     const DOMReady = function (callback) {
       document.readyState === "interactive" ||
         document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
     };
-  
+
     DOMReady( function () {
       if (document.querySelector(".post-title")) {
         sleep(200).then(() => {
@@ -73,21 +70,21 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
           document.querySelector(".post-title").style.transform = "translateY(0%)";
         });
       }
-  
+
       if (document.querySelector(".series-main")) {
         sleep(200).then(() => {
           document.querySelector(".series-main").style.opacity = "1";
           document.querySelector(".series-main").style.transform = "translateY(0%)";
         });
       }
-  
+
       if (document.querySelector(".post-content")) {
         sleep(600).then(() => {
           document.querySelector(".post-content").style.opacity = "1";
           document.querySelector(".post-content").style.transform = "translateX(0%)";
         });
       }
-  
+
       document.querySelector("header.header").style.borderBottom = "none";
       const scrollUp = "scroll-up";
       const scrollDown = "scroll-down";
@@ -97,16 +94,18 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
       let lastScroll = 0;
       let currentScroll = 0;
       const header = document.querySelector("header.header");
+      const mainToc = document.querySelector(".main .post-single>.toc");
       const mainTocTop = mainToc?mainToc.offsetTop + mainToc.offsetParent.offsetTop - 1:0;
       const postHeaderEl = document.querySelector(".post-header");
-  
+      const tocIdList = [];
+
       function updateScrollProgressBar () {
         let scrollHeight = _root.scrollHeight - heightInViewport(_progressbar) - window.innerHeight;
         let scrollPosition = currentScroll;
         let scrollPercentage = scrollPosition / scrollHeight * 100;
         _progressbar.style.width = scrollPercentage + "%";
       }
-    
+
       function heightInViewport (el) {
         var elH = el.offsetHeight,
           H = document.body.offsetHeight,
@@ -115,83 +114,68 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
           b = r.bottom;
         return Math.max(0, t > 0 ? Math.min(elH, H - t) : Math.min(b, H));
       }
-  
+
       const _root = document.querySelector("html");
       const _body = document.querySelector("body");
       const progressEl = document.createElement("div");
       progressEl.classList.add("progress-bar-container__progress");
       _body.prepend(progressEl);
-  
+
       const _progressbar = document.querySelector(".progress-bar-container__progress");
       const _config = { childList: true, subtree: true, characterData: true, attributes: true };
       new MutationObserver(updateScrollProgressBar).observe(_progressbar, _config);
+
+      const asideToc = document.querySelector(".main .toc-aside");
+      const asideTocSummay = asideToc.querySelector(".summary");
+      const asideTocWrapper = asideToc.querySelector(".inner-wrapper");
+      const asideTocToggle = asideTocSummay.querySelector(".toggle");
+      const asideTocList = asideToc.querySelectorAll(".inner-wrapper .inner ul>li");
+
+      if (asideToc) {
+        const iconLock = '<svg class="lock" x="0px" y="0px" width="24px" height="20px" viewBox="0 0 512 512"><path d="M363.908,212.282v-90.978C363.908,54.434,309.509,0,242.606,0c-66.884,0-121.302,54.434-121.302,121.304v90.978 c-33.498,0-60.653,27.158-60.653,60.648v151.629c0,33.5,27.155,60.653,60.653,60.653h242.604c33.491,0,60.653-27.153,60.653-60.653 V272.93C424.562,239.439,397.399,212.282,363.908,212.282z M257.77,359.257v50.139c0,8.382-6.781,15.163-15.163,15.163 c-8.382,0-15.164-6.781-15.164-15.163v-50.139c-8.9-5.269-15.161-14.57-15.161-25.673c0-16.765,13.579-30.327,30.324-30.327 c16.745,0,30.326,13.562,30.326,30.327C272.933,344.687,266.665,353.989,257.77,359.257z M303.255,212.282h-121.3v-90.978 c0-33.465,27.2-60.653,60.651-60.653c33.435,0,60.648,27.188,60.648,60.653V212.282z"/></svg>';
+        const iconUnlock = '<svg class="unlock" x="0px" y="0px" width="24px" height="20px" viewBox="0 0 512 512"><path d="M424.562,212.282h-60.653H242.607v-90.978C242.607,54.434,188.206,0,121.305,0C54.419,0,0.001,54.434,0.001,121.304v90.978 h60.651v-90.978c0-33.465,27.205-60.653,60.653-60.653c33.435,0,60.651,27.188,60.651,60.653v90.978 c-33.493,0-60.651,27.158-60.651,60.648v151.629c0,33.5,27.158,60.653,60.651,60.653h242.606c33.491,0,60.649-27.153,60.649-60.653 V272.93C485.212,239.439,458.054,212.282,424.562,212.282z M318.424,359.257v50.139c0,8.382-6.786,15.163-15.168,15.163 c-8.377,0-15.158-6.781-15.158-15.163v-50.139c-8.887-5.269-15.164-14.57-15.164-25.673c0-16.765,13.562-30.327,30.322-30.327 c16.765,0,30.331,13.562,30.331,30.327C333.587,344.687,327.306,353.989,318.424,359.257z"/></svg>';
+
+        if (localStorage.getItem("lock-aside-toc-"+window.location.pathname) === "true") {
+          asideTocToggle.innerHTML = iconLock;
+          asideTocSummay.dataset.isLock = true;
+          asideTocWrapper.classList.add("close");
+        } else {
+          asideTocToggle.innerHTML = iconUnlock;
+          asideTocSummay.dataset.isLock = false;
+          asideTocWrapper.classList.add("open");
+        }
+
+        for (let i = 0; i < asideTocList.length; i++) {
+          tocIdList[i] = decodeURI(asideTocList[i].firstElementChild.hash.substring(1));
+        }
+
+        if (mainTocTop === 0) {
+          mainTocTop = (postHeaderEl.offsetHeight + postHeaderEl.offsetTop + postHeaderEl.offsetParent.offsetTop - 1);
+        }
   
+        if (mainTocTop < window.pageYOffset) {
+          asideToc.classList.remove("hide");
+          asideToc.classList.add("reveal");
+        } else if(mainTocTop >= window.pageYOffset) {
+          asideToc.classList.add("hide");
+        }
 
-
-
-
-
-
-
-      // const tocDetails = document.querySelector(".main .toc-aside details");
-      // const tocNode = document.querySelector(".main .toc");
-
-      // if (tocNode !== null) {
-      //   const tocClone = tocNode.cloneNode(true);
-      //   tocClone.classList.remove("toc");
-      //   tocClone.classList.add("toc-aside");
-  
-      //   const tocList = tocClone.querySelectorAll(".inner ul>li");
-  
-      //   for (let i = 0; i < tocList.length; i++) {
-      //     tocIdList[i] = decodeURI(tocList[i].firstElementChild.hash.substring(1));
-      //   }
-  
-      //   if (mainTocTop < window.pageYOffset) {
-      //     tocClone.classList.add("reveal");
-      //   } else if(mainTocTop >= window.pageYOffset) {
-      //     tocClone.classList.add("hide");
-      //   }
-  
-      //   const _n = tocClone.querySelector("details summary .details");
-      //   const _m = document.createElement("span");
-      //   _m.classList.add("tocLock");
-      //   const iconLock = '<svg class="lock" x="0px" y="0px" width="24px" height="20px" viewBox="0 0 512 512"><path d="M363.908,212.282v-90.978C363.908,54.434,309.509,0,242.606,0c-66.884,0-121.302,54.434-121.302,121.304v90.978 c-33.498,0-60.653,27.158-60.653,60.648v151.629c0,33.5,27.155,60.653,60.653,60.653h242.604c33.491,0,60.653-27.153,60.653-60.653 V272.93C424.562,239.439,397.399,212.282,363.908,212.282z M257.77,359.257v50.139c0,8.382-6.781,15.163-15.163,15.163 c-8.382,0-15.164-6.781-15.164-15.163v-50.139c-8.9-5.269-15.161-14.57-15.161-25.673c0-16.765,13.579-30.327,30.324-30.327 c16.745,0,30.326,13.562,30.326,30.327C272.933,344.687,266.665,353.989,257.77,359.257z M303.255,212.282h-121.3v-90.978 c0-33.465,27.2-60.653,60.651-60.653c33.435,0,60.648,27.188,60.648,60.653V212.282z"/></svg>';
-      //   const iconUnlock = '<svg class="unlock" x="0px" y="0px" width="24px" height="20px" viewBox="0 0 512 512"><path d="M424.562,212.282h-60.653H242.607v-90.978C242.607,54.434,188.206,0,121.305,0C54.419,0,0.001,54.434,0.001,121.304v90.978 h60.651v-90.978c0-33.465,27.205-60.653,60.653-60.653c33.435,0,60.651,27.188,60.651,60.653v90.978 c-33.493,0-60.651,27.158-60.651,60.648v151.629c0,33.5,27.158,60.653,60.651,60.653h242.606c33.491,0,60.649-27.153,60.649-60.653 V272.93C485.212,239.439,458.054,212.282,424.562,212.282z M318.424,359.257v50.139c0,8.382-6.786,15.163-15.168,15.163 c-8.377,0-15.158-6.781-15.158-15.163v-50.139c-8.887-5.269-15.164-14.57-15.164-25.673c0-16.765,13.562-30.327,30.322-30.327 c16.765,0,30.331,13.562,30.331,30.327C333.587,344.687,327.306,353.989,318.424,359.257z"/></svg>';
-
-      //   if (localStorage.getItem("lock-aside-toc-"+window.location.pathname) === "true") {
-      //     _m.innerHTML = iconLock;
-      //     tocClone.querySelector("details").removeAttribute("open");
-      //     _m.dataset.isLock = true;
-      //   } else {
-      //     _m.innerHTML = iconUnlock;
-      //     console.log(_m.dataset.lock);
-      //     tocClone.querySelector("details").setAttribute("open", "");
-      //     _m.dataset.isLock = false;
-      //   }
-      //   _n.prepend(_m);
-
-      //   tocClone.querySelector("summary").addEventListener("click", e => {
-      //     const asideTocIcon = asideToc.querySelector(".toc-aside>details summary .details .tocLock");
-      //     if (asideTocIcon.dataset.isLock === "false") {
-      //       asideTocIcon.dataset.isLock = true;
-      //       localStorage.setItem("lock-aside-toc-"+window.location.pathname, true);
-      //       asideTocIcon.innerHTML = iconLock;
-      //     } else {
-      //       asideTocIcon.dataset.isLock = false;
-      //       localStorage.setItem("lock-aside-toc-"+window.location.pathname, false);
-      //       asideTocIcon.innerHTML = iconUnlock;
-      //     }
-      //   });
-  
-      //   tocNode.parentNode.insertBefore(tocClone, tocNode.nextSibling);
-      // }
-  
-      // const asideToc = document.querySelector(".main .toc-aside");
-      
-
-
-
+        asideTocSummay.addEventListener("click", e => {
+          if (asideTocSummay.dataset.isLock === "false") {
+            asideTocSummay.dataset.isLock = true;
+            localStorage.setItem("lock-aside-toc-"+window.location.pathname, true);
+            asideTocToggle.innerHTML = iconLock;
+            asideTocWrapper.classList.add("close");
+            asideTocWrapper.classList.remove("open");
+          } else {
+            asideTocSummay.dataset.isLock = false;
+            localStorage.setItem("lock-aside-toc-"+window.location.pathname, false);
+            asideTocToggle.innerHTML = iconUnlock;
+            asideTocWrapper.classList.add("open");
+            asideTocWrapper.classList.remove("close");
+          }
+        });
+      }
 
       window.addEventListener("scroll", () => {
         currentScroll = window.pageYOffset;
@@ -232,128 +216,76 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
           }
         }
         
-        // if (tocNode !== null) {
-        //   if (mainTocTop < currentScroll && asideToc.classList.contains("hide")) {
-        //     asideToc.classList.remove("hide");
-        //     asideToc.classList.add("reveal");
-        //   } else if(mainTocTop >= currentScroll && asideToc.classList.contains("reveal")) {
-        //     asideToc.scrollTop = 0;
-        //     asideToc.classList.remove("reveal");
-        //     asideToc.classList.add("hide");
-        //   }
+        if (asideToc) {
+          if (mainTocTop < currentScroll && asideToc.classList.contains("hide")) {
+            asideToc.classList.remove("hide");
+            asideToc.classList.add("reveal");
+          } else if(mainTocTop >= currentScroll && asideToc.classList.contains("reveal")) {
+            asideToc.scrollTop = 0;
+            asideToc.classList.remove("reveal");
+            asideToc.classList.add("hide");
+          }
           
-        //   const allSelEl = asideToc.querySelectorAll(".inner ul>li");
-        //   let elIndex = null;
-        //   let tocEl = null;
-  
-        //   tocIdList.map((tocId, idx) => {
-        //     tocEl = document.getElementById(tocId);
-        //     if (tocEl.offsetTop + tocEl.offsetParent.offsetTop - 1 <= currentScroll) {
-        //       selEl = allSelEl[idx];
-        //       elIndex = idx;
-        //     }
-        //   });
+          let elIndex = null;
+          let tocEl = null;
+          tocIdList.map((tocId, idx) => {
+            tocEl = document.getElementById(tocId);
+            if (tocEl.offsetTop + tocEl.offsetParent.offsetTop - 1 <= currentScroll) {
+              selEl = asideTocList[idx];
+              elIndex = idx;
+            }
+          });
           
-        //   if (elIndex !== null) {
-        //     let scrollEnd = Math.ceil(currentScroll + window.innerHeight) >= document.body.scrollHeight;
-        //     if (scrollEnd) {
-        //       for (let i = 0; i < allSelEl.length; i++) {
-        //         if (!allSelEl[i].classList.contains("selected")) continue;
-        //         allSelEl[i].classList.remove("selected");
-        //       }
-        //       allSelEl[tocIdList.length-1].classList.add("selected");
-        //       lastSelEl = allSelEl[tocIdList.length-1];
-        //     } else {
-        //       if (selEl === lastSelEl && elIndex > 0) {
-        //         lastScroll = currentScroll;
-        //         return;
-        //       }
+          if (elIndex !== null) {
+            let scrollEnd = Math.ceil(currentScroll + window.innerHeight) >= document.body.scrollHeight;
+            if (scrollEnd) {
+              for (let i = 0; i < asideTocList.length; i++) {
+                if (!asideTocList[i].classList.contains("selected")) continue;
+                asideTocList[i].classList.remove("selected");
+              }
+              asideTocList[tocIdList.length-1].classList.add("selected");
+              lastSelEl = asideTocList[tocIdList.length-1];
+            } else {
+              if (selEl === lastSelEl && elIndex > 0) {
+                lastScroll = currentScroll;
+                return;
+              }
   
-        //       for (let i = 0; i < allSelEl.length; i++) {
-        //         if (!allSelEl[i].classList.contains("selected")) continue;
-        //         allSelEl[i].classList.remove("selected");
-        //       }
-        //       selEl.classList.add("selected");
-        //       lastSelEl = selEl;
-        //     }
+              for (let i = 0; i < asideTocList.length; i++) {
+                if (!asideTocList[i].classList.contains("selected")) continue;
+                asideTocList[i].classList.remove("selected");
+              }
+              selEl.classList.add("selected");
+              lastSelEl = selEl;
+            }
   
-        //     if (elIndex !== null) {
-        //       asideToc.scroll({
-        //         behavior: 'smooth',
-        //         top: elIndex * 20
-        //       });
-        //     }
-        //   } else {
-        //     if (asideToc.querySelector(".selected") === null) {
-        //       lastScroll = currentScroll;
-        //       return;
-        //     }
-        //     for (let i = 0; i < allSelEl.length; i++) {
-        //       if (!allSelEl[i].classList.contains("selected")) continue;
-        //       allSelEl[i].classList.remove("selected");
-        //     }
-        //   }
-        // }
-  
+            if (elIndex !== null) {
+              asideToc.scroll({
+                behavior: 'smooth',
+                top: elIndex * 20
+              });
+            }
+          } else {
+            if (asideToc.querySelector(".selected") === null) {
+              lastScroll = currentScroll;
+              return;
+            }
+            for (let i = 0; i < asideTocList.length; i++) {
+              if (!asideTocList[i].classList.contains("selected")) continue;
+              asideTocList[i].classList.remove("selected");
+            }
+          }
+        }
         lastScroll = currentScroll;
       });
-  
-      // if (tocDetails !== null) {
-      //   const observer = new MutationObserver((mutationList, observer) => {
-      //     if (mutationList[0].oldValue !== null) return;
-      //     for (let i = 0; i < tocIdList.length; i++) {
-      //       let curEl = document.getElementById(tocIdList[i]);
-      //       let nextEl = document.getElementById(tocIdList[i+1]);
-      //       if (nextEl !== null &&
-      //             window.pageYOffset >= (curEl.offsetTop + curEl.offsetParent.offsetTop - 1) &&
-      //             window.pageYOffset < (nextEl.offsetTop + nextEl.offsetParent.offsetTop - 1)) {
-      //         let scrollEnd = Math.ceil(window.pageYOffset + window.innerHeight) >= document.body.scrollHeight;
-      //         if (asideToc.querySelectorAll(".inner ul>li")[i+1].classList.contains("selected")) {
-      //           asideToc.querySelectorAll(".inner ul>li")[i+1].classList.remove("selected");
-      //         }
-              
-      //         if (scrollEnd) {
-      //           asideToc.querySelectorAll(".inner ul>li")[tocIdList.length-1].classList.add("selected");
-      //           asideToc.scrollTop = (tocIdList.length-1) * 20;
-      //         } else {
-      //           asideToc.querySelectorAll(".inner ul>li")[i].classList.add("selected");
-      //           asideToc.scrollTop = i * 20;
-      //         }
-      //       }
-      //     }
-      //   });
-      //   observer.observe(tocDetails, { attributes: true, attributeOldValue: true, attributeFilter: [ "open" ] });
-      // }
     });
-  
+
     window.onload = function() {
       const _hljs = document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");
       for (let i = 0; i < _hljs.length; i++) {
         _hljs[i].style.width = "100%";
       }
-
-
-      // const _mainTocTop = mainToc?mainToc.offsetTop + mainToc.offsetParent.offsetTop - 1:0;
-      // if (_mainTocTop < window.pageYOffset) {
-      //   const _toc = document.querySelectorAll(".main .toc-aside .inner ul>li");
-      //   for (let i = 0; i < tocIdList.length; i++) {
-      //     let curEl = document.getElementById(tocIdList[i]);
-      //     let nextEl = document.getElementById(tocIdList[i+1]);
-      //     if (nextEl !== null &&
-      //           window.pageYOffset >= (curEl.offsetTop + curEl.offsetParent.offsetTop - 1) &&
-      //           window.pageYOffset < (nextEl.offsetTop + nextEl.offsetParent.offsetTop - 1)) {
-      //       if (_toc[i+1] !== null) _toc[i+1].classList.remove("selected");
-      //       _toc[i].classList.add("selected");
-      //       document.querySelector(".main .toc-aside").scrollTop = i * 20;
-      //     }
-      //   }
-      // }
-
-
     }
-
-
-
   } else {
     const postHeader = document.querySelector(".page-header");
     if (postHeader) {
