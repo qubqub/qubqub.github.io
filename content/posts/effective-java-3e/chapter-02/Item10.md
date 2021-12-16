@@ -3,7 +3,7 @@ title: "[아이템 10] equals는 일반 규약을 지켜 재정의하라"
 date: 2020-06-27T11:42:54+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
-series: ["Effective Java 3E"]
+series: ["Effective Java 3/E"]
 chapter: ["Effective Java 3E Chapter 2"]
 author: ["Kyungchul Shin"]
 showToc: true

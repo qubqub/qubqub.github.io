@@ -211,6 +211,7 @@ header.header {
 .main .archive-year .archive-month-header .toggle {
   font-size: 1rem;
   margin-right: 0.5rem;
+  vertical-align: top;
 }
 
 .progress-bar-container__progress {
@@ -372,6 +373,12 @@ header.header {
   color: var(--main-color);
 }
 
+.toc.aside .details:hover .tocLock .unlock,
+.toc.aside .details:hover .tocLock .lock,
+.main .archive-year .archive-month-header .toggle .lock:hover,
+.main .archive-year .archive-month-header .toggle .unlock:hover,
+.series-control .toggle .unlock:hover,
+.series-control .toggle .lock:hover,
 .font-size-button .increase:hover,
 .font-size-button .decrease:hover,
 .font-size-button .default:hover path,
@@ -752,6 +759,12 @@ header.header {
   box-shadow: 0 0 0 1px #676e75 inset;
 }
 
+.toc.aside .tocLock .unlock,
+.toc.aside .tocLock .lock,
+.main .archive-year .archive-month-header .toggle .lock,
+.main .archive-year .archive-month-header .toggle .unlock,
+.series-control .toggle .unlock,
+.series-control .toggle .lock,
 .font-size-button .increase,
 .font-size-button .decrease,
 .font-size-button .default path,
@@ -1069,7 +1082,8 @@ header.header {
   }
 
   .main .toc.aside .tocLock {
-    margin-right: 0.1rem;
+    margin-right: 4px;
+    vertical-align: sub;
   }
 
   .main .toc.aside {
@@ -1237,7 +1251,8 @@ header.header {
   }
 
   .main .toc.aside .tocLock {
-    margin-right: 0.1rem;
+    margin-right: 4px;
+    vertical-align: sub;
   }
 
   .main .toc.aside {

@@ -5,7 +5,7 @@ title: "모아보기 🗂️"
 description: "공부하면서 정리한 것들 모아보기. 📒"
 url: "/collection/"
 summary: collection
-useCategory: false # Priority 1
+useCategory: true # Priority 1
 useTag: false # Priority 2
 cover:
   hidden: false

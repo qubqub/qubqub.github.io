@@ -3,7 +3,7 @@ title: "[아이템 20] 추상 클래스보다는 인터페이스를 우선하라
 date: 2020-07-03T14:21:15+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
-series: ["Effective Java 3E"]
+series: ["Effective Java 3/E"]
 chapter: ["Effective Java 3E Chapter 3"]
 author: ["Kyungchul Shin"]
 showToc: true

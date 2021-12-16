@@ -13,9 +13,12 @@ url: "/series-list/"
 summary: series_list
 use: true
 seriesCover:
-  - name: "Effective Java 3E"
+  - name: "BAEKJOON Online Judge"
+    image: ""
+    alt: "백준 온라인 저지"
+  - name: "Effective Java 3/E"
     image: "/logo/logo-effective-java-3e.png"
-    alt: "Effective Java 3E"
+    alt: "Effective Java 3/E"
     chapter:
       - id: "effective-java-3e-chapter-1"
         title: "객체 생성과 파괴"

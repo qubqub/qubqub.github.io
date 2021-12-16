@@ -3,7 +3,7 @@ title: "[아이템 3] private 생성자나 열거 타입으로  싱글턴임을 
 date: 2020-06-18T19:09:20+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
-series: ["Effective Java 3E"]
+series: ["Effective Java 3/E"]
 chapter: ["Effective Java 3E Chapter 1"]
 author: ["Kyungchul Shin"]
 showToc: true

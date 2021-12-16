@@ -3,7 +3,7 @@ title: "[아이템 17] 변경 가능성을 최소화하라"
 date: 2020-07-02T14:11:51+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
-series: ["Effective Java 3E"]
+series: ["Effective Java 3/E"]
 chapter: ["Effective Java 3E Chapter 3"]
 author: ["Kyungchul Shin"]
 showToc: true

@@ -8,6 +8,9 @@
     <loc>https://qutrits.github.io/tags/banner/</loc>
     <lastmod>2021-12-13T17:46:19+09:00</lastmod>
   </url><url>
+    <loc>https://qutrits.github.io/categories/</loc>
+    <lastmod>2021-12-13T17:46:19+09:00</lastmod>
+  </url><url>
     <loc>https://qutrits.github.io/posts/</loc>
     <lastmod>2021-12-13T17:46:19+09:00</lastmod>
   </url><url>
@@ -20,16 +23,28 @@
     <loc>https://qutrits.github.io/tags/unity/</loc>
     <lastmod>2021-12-13T17:46:19+09:00</lastmod>
   </url><url>
+    <loc>https://qutrits.github.io/categories/unity/</loc>
+    <lastmod>2021-12-13T17:46:19+09:00</lastmod>
+  </url><url>
     <loc>https://qutrits.github.io/posts/dummy/studying15_snap/</loc>
     <lastmod>2021-12-13T17:46:19+09:00</lastmod>
   </url><url>
     <loc>https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/</loc>
     <lastmod>2021-12-12T23:15:57+09:00</lastmod>
   </url><url>
+    <loc>https://qutrits.github.io/categories/algorithm/</loc>
+    <lastmod>2021-12-12T23:15:57+09:00</lastmod>
+  </url><url>
     <loc>https://qutrits.github.io/posts/dummy/algorithm19_2667/</loc>
     <lastmod>2021-12-12T23:15:57+09:00</lastmod>
   </url><url>
+    <loc>https://qutrits.github.io/series/baekjoon-online-judge/</loc>
+    <lastmod>2021-12-12T23:15:57+09:00</lastmod>
+  </url><url>
     <loc>https://qutrits.github.io/tags/csharp/</loc>
+    <lastmod>2021-12-12T23:15:57+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/series/</loc>
     <lastmod>2021-12-12T23:15:57+09:00</lastmod>
   </url><url>
     <loc>https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</loc>
@@ -43,6 +58,9 @@
   </url><url>
     <loc>https://qutrits.github.io/tags/%ED%80%B4%EC%A6%88/</loc>
     <lastmod>2021-12-09T17:17:48+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/categories/csharp/</loc>
+    <lastmod>2021-12-07T20:21:53+09:00</lastmod>
   </url><url>
     <loc>https://qutrits.github.io/tags/garbagecollection/</loc>
     <lastmod>2021-12-07T20:21:53+09:00</lastmod>
@@ -179,6 +197,9 @@
     <loc>https://qutrits.github.io/tags/hugo/</loc>
     <lastmod>2021-11-14T21:31:11+09:00</lastmod>
   </url><url>
+    <loc>https://qutrits.github.io/categories/hugo/</loc>
+    <lastmod>2021-11-14T21:31:11+09:00</lastmod>
+  </url><url>
     <loc>https://qutrits.github.io/posts/dummy/markdown1/</loc>
     <lastmod>2021-11-14T21:31:11+09:00</lastmod>
   </url><url>
@@ -236,16 +257,10 @@
     <loc>https://qutrits.github.io/posts/effective-java-3e/chapter-04/item33/</loc>
     <lastmod>2020-07-09T18:21:51+09:00</lastmod>
   </url><url>
-    <loc>https://qutrits.github.io/categories/</loc>
-    <lastmod>2020-07-09T18:21:51+09:00</lastmod>
-  </url><url>
     <loc>https://qutrits.github.io/chapter/</loc>
     <lastmod>2020-07-09T18:21:51+09:00</lastmod>
   </url><url>
     <loc>https://qutrits.github.io/tags/effective-java-3e/</loc>
-    <lastmod>2020-07-09T18:21:51+09:00</lastmod>
-  </url><url>
-    <loc>https://qutrits.github.io/series/effective-java-3e/</loc>
     <lastmod>2020-07-09T18:21:51+09:00</lastmod>
   </url><url>
     <loc>https://qutrits.github.io/chapter/effective-java-3e-chapter-4/</loc>
@@ -255,9 +270,6 @@
     <lastmod>2020-07-09T18:21:51+09:00</lastmod>
   </url><url>
     <loc>https://qutrits.github.io/categories/java/</loc>
-    <lastmod>2020-07-09T18:21:51+09:00</lastmod>
-  </url><url>
-    <loc>https://qutrits.github.io/series/</loc>
     <lastmod>2020-07-09T18:21:51+09:00</lastmod>
   </url><url>
     <loc>https://qutrits.github.io/posts/effective-java-3e/chapter-04/item32/</loc>
@@ -478,6 +490,8 @@
     <loc>https://qutrits.github.io/posts/effective-java-3e/chapter-11/item89/</loc>
   </url><url>
     <loc>https://qutrits.github.io/posts/effective-java-3e/chapter-11/item90/</loc>
+  </url><url>
+    <loc>https://qutrits.github.io/series/effective-java-3/e/</loc>
   </url><url>
     <loc>https://qutrits.github.io/search/</loc>
   </url><url>

@@ -45,13 +45,15 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
   if (urlSlug[2] !== "page") {
     function series_toggle (_this, series) {
       const _el = document.querySelector(".post-single .series-main .series-list");
+      const iconLock = '<svg class="lock" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 512 512"><path d="M363.908,212.282v-90.978C363.908,54.434,309.509,0,242.606,0c-66.884,0-121.302,54.434-121.302,121.304v90.978 c-33.498,0-60.653,27.158-60.653,60.648v151.629c0,33.5,27.155,60.653,60.653,60.653h242.604c33.491,0,60.653-27.153,60.653-60.653 V272.93C424.562,239.439,397.399,212.282,363.908,212.282z M257.77,359.257v50.139c0,8.382-6.781,15.163-15.163,15.163 c-8.382,0-15.164-6.781-15.164-15.163v-50.139c-8.9-5.269-15.161-14.57-15.161-25.673c0-16.765,13.579-30.327,30.324-30.327 c16.745,0,30.326,13.562,30.326,30.327C272.933,344.687,266.665,353.989,257.77,359.257z M303.255,212.282h-121.3v-90.978 c0-33.465,27.2-60.653,60.651-60.653c33.435,0,60.648,27.188,60.648,60.653V212.282z"/></svg>';
+      const iconUnlock = '<svg class="unlock" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 512 512"><path d="M424.562,212.282h-60.653H242.607v-90.978C242.607,54.434,188.206,0,121.305,0C54.419,0,0.001,54.434,0.001,121.304v90.978 h60.651v-90.978c0-33.465,27.205-60.653,60.653-60.653c33.435,0,60.651,27.188,60.651,60.653v90.978 c-33.493,0-60.651,27.158-60.651,60.648v151.629c0,33.5,27.158,60.653,60.651,60.653h242.606c33.491,0,60.649-27.153,60.649-60.653 V272.93C485.212,239.439,458.054,212.282,424.562,212.282z M318.424,359.257v50.139c0,8.382-6.786,15.163-15.168,15.163 c-8.377,0-15.158-6.781-15.158-15.163v-50.139c-8.887-5.269-15.164-14.57-15.164-25.673c0-16.765,13.562-30.327,30.322-30.327 c16.765,0,30.331,13.562,30.331,30.327C333.587,344.687,327.306,353.989,318.424,359.257z"/></svg>';
       if (_el.style.display==="none" || _el.style.display==="") {
         localStorage.setItem("lock-series-"+series, false);
-        _this.innerText = "🔓";
+        _this.innerHTML = iconUnlock;
         _el.style.display = "block";
       } else if (_el.style.display==="block") {
         localStorage.setItem("lock-series-"+series, true);
-        _this.innerText = "🔒";
+        _this.innerHTML = iconLock;
         _el.style.display = "none";
       }
     }
@@ -144,37 +146,31 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
   
         const _n = tocClone.querySelector("details summary .details");
         const _m = document.createElement("span");
-        let _o = null;
-  
-        if (localStorage.getItem("lock-aside-toc-"+window.location.pathname) === "true") {
-          tocClone.querySelector("details").removeAttribute("open");
-          _o = document.createTextNode("🔒");
-        } else {
-          tocClone.querySelector("details").setAttribute("open", "");
-          _o = document.createTextNode("🔓");
-        }
-  
-        _m.appendChild(_o);
         _m.classList.add("tocLock");
+        const iconLock = '<svg class="lock" x="0px" y="0px" width="24px" height="20px" viewBox="0 0 512 512"><path d="M363.908,212.282v-90.978C363.908,54.434,309.509,0,242.606,0c-66.884,0-121.302,54.434-121.302,121.304v90.978 c-33.498,0-60.653,27.158-60.653,60.648v151.629c0,33.5,27.155,60.653,60.653,60.653h242.604c33.491,0,60.653-27.153,60.653-60.653 V272.93C424.562,239.439,397.399,212.282,363.908,212.282z M257.77,359.257v50.139c0,8.382-6.781,15.163-15.163,15.163 c-8.382,0-15.164-6.781-15.164-15.163v-50.139c-8.9-5.269-15.161-14.57-15.161-25.673c0-16.765,13.579-30.327,30.324-30.327 c16.745,0,30.326,13.562,30.326,30.327C272.933,344.687,266.665,353.989,257.77,359.257z M303.255,212.282h-121.3v-90.978 c0-33.465,27.2-60.653,60.651-60.653c33.435,0,60.648,27.188,60.648,60.653V212.282z"/></svg>';
+        const iconUnlock = '<svg class="unlock" x="0px" y="0px" width="24px" height="20px" viewBox="0 0 512 512"><path d="M424.562,212.282h-60.653H242.607v-90.978C242.607,54.434,188.206,0,121.305,0C54.419,0,0.001,54.434,0.001,121.304v90.978 h60.651v-90.978c0-33.465,27.205-60.653,60.653-60.653c33.435,0,60.651,27.188,60.651,60.653v90.978 c-33.493,0-60.651,27.158-60.651,60.648v151.629c0,33.5,27.158,60.653,60.651,60.653h242.606c33.491,0,60.649-27.153,60.649-60.653 V272.93C485.212,239.439,458.054,212.282,424.562,212.282z M318.424,359.257v50.139c0,8.382-6.786,15.163-15.168,15.163 c-8.377,0-15.158-6.781-15.158-15.163v-50.139c-8.887-5.269-15.164-14.57-15.164-25.673c0-16.765,13.562-30.327,30.322-30.327 c16.765,0,30.331,13.562,30.331,30.327C333.587,344.687,327.306,353.989,318.424,359.257z"/></svg>';
+
+        if (localStorage.getItem("lock-aside-toc-"+window.location.pathname) === "true") {
+          _m.innerHTML = iconLock;
+          console.log(tocClone.querySelector("details"));
+          tocClone.querySelector("details").removeAttribute("open");
+        } else {
+          _m.innerHTML = iconUnlock;
+          console.log(tocClone.querySelector("details"));
+          tocClone.querySelector("details").setAttribute("open", "");
+        }
         _n.prepend(_m);
   
         tocClone.querySelector("details summary").addEventListener("click", e => {
-          if (e.target.querySelector(".tocLock") === null) {
-            if (e.target.innerText === "🔓") {
-              localStorage.setItem("lock-aside-toc-"+window.location.pathname, true);
-              e.target.innerText = "🔒";
-            } else {
-              localStorage.setItem("lock-aside-toc-"+window.location.pathname, false);
-              e.target.innerText = "🔓";
-            }
+          const asideToc = document.querySelector(".toc.aside>details");
+          const asideTocIcon = asideToc.querySelector(".details .tocLock");
+          let isOpenAsideToc = asideToc.attributes.length;
+          if (isOpenAsideToc === 0) { // open
+            localStorage.setItem("lock-aside-toc-"+window.location.pathname, false);
+            asideTocIcon.innerHTML = iconUnlock;
           } else {
-            if (e.target.querySelector(".tocLock").innerText === "🔓") {
-              localStorage.setItem("lock-aside-toc-"+window.location.pathname, true);
-              e.target.querySelector(".tocLock").innerText = "🔒";
-            } else {
-              localStorage.setItem("lock-aside-toc-"+window.location.pathname, false);
-              e.target.querySelector(".tocLock").innerText = "🔓";
-            }
+            localStorage.setItem("lock-aside-toc-"+window.location.pathname, true);
+            asideTocIcon.innerHTML = iconLock;
           }
         });
   
@@ -368,15 +364,17 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
   }
 } else if (window.location.pathname.match(/^\/archives\/$/)) {
   function archives_toggle (elId, _this) {
+    const iconLock = '<svg class="lock" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 512 512"><path d="M363.908,212.282v-90.978C363.908,54.434,309.509,0,242.606,0c-66.884,0-121.302,54.434-121.302,121.304v90.978 c-33.498,0-60.653,27.158-60.653,60.648v151.629c0,33.5,27.155,60.653,60.653,60.653h242.604c33.491,0,60.653-27.153,60.653-60.653 V272.93C424.562,239.439,397.399,212.282,363.908,212.282z M257.77,359.257v50.139c0,8.382-6.781,15.163-15.163,15.163 c-8.382,0-15.164-6.781-15.164-15.163v-50.139c-8.9-5.269-15.161-14.57-15.161-25.673c0-16.765,13.579-30.327,30.324-30.327 c16.745,0,30.326,13.562,30.326,30.327C272.933,344.687,266.665,353.989,257.77,359.257z M303.255,212.282h-121.3v-90.978 c0-33.465,27.2-60.653,60.651-60.653c33.435,0,60.648,27.188,60.648,60.653V212.282z"/></svg>';
+    const iconUnlock = '<svg class="unlock" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 512 512"><path d="M424.562,212.282h-60.653H242.607v-90.978C242.607,54.434,188.206,0,121.305,0C54.419,0,0.001,54.434,0.001,121.304v90.978 h60.651v-90.978c0-33.465,27.205-60.653,60.653-60.653c33.435,0,60.651,27.188,60.651,60.653v90.978 c-33.493,0-60.651,27.158-60.651,60.648v151.629c0,33.5,27.158,60.653,60.651,60.653h242.606c33.491,0,60.649-27.153,60.649-60.653 V272.93C485.212,239.439,458.054,212.282,424.562,212.282z M318.424,359.257v50.139c0,8.382-6.786,15.163-15.168,15.163 c-8.377,0-15.158-6.781-15.158-15.163v-50.139c-8.887-5.269-15.164-14.57-15.164-25.673c0-16.765,13.562-30.327,30.322-30.327 c16.765,0,30.331,13.562,30.331,30.327C333.587,344.687,327.306,353.989,318.424,359.257z"/></svg>';
     const _el = document.getElementById(elId);
     const _toggleEl = _this.querySelector(".toggle");   
     if (_el.style.display==="none" || _el.style.display==="") {
       localStorage.setItem("lock-archives-"+elId, false);
-      _toggleEl.innerText = "📂";
+      _toggleEl.innerHTML = iconUnlock;
       _el.style.display = "block";
     } else if (_el.style.display==="block") {
       localStorage.setItem("lock-archives-"+elId, true);
-      _toggleEl.innerText = "📁";
+      _toggleEl.innerHTML = iconLock;
       _el.style.display = "none";
     }
   }
