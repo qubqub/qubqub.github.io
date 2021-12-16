@@ -1119,6 +1119,7 @@ header.header {
     margin-left: 0;
     padding-right: 0;
     margin-right: 0;
+    list-style: none;
   }
 
   @keyframes fade-in {
@@ -1292,6 +1293,7 @@ header.header {
     padding-left: 0;
     margin-left: 0;
     padding-right: 0;
+    list-style: none;
     margin-right: 0;
   }
 
