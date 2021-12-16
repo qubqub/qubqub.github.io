@@ -31,6 +31,9 @@
   {{- if (.Param "ShowToc") }}
   {{- partial "toc.html" . }}
   {{- end }}
+  {{- if (.Param "ShowTocAside") }}
+  {{- partial "toc-aside.html" . }}
+  {{- end }}
 
   {{- if .Content }}
   <div class="post-content">

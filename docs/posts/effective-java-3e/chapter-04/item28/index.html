@@ -11,7 +11,7 @@
 1 2 3  // 런타임 에러 Object[] objectArray = new Long[1]; objectArray[0] = &#34;타입이 달라 넣을 수 없다.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item28/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.7fdcc3250d2766238701ebc88b716557ac0b92655db0f16547001b0b7feda2aa.css integrity="sha256-f9zDJQ0nZiOHAevIi3FlV6wLkmVdsPFlRwAbC3/toqo=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.a4eb1360ca53d4c87657ef811bebdbabd78ad56330c2f1985192aff3b455ed46.css integrity="sha256-pOsTYMpT1Mh2V++BG+vbq9eK1WMwwvGYUZKv87RV7UY=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -27,7 +27,7 @@
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.601949636b7c20701516b97039a8af5486336e79b78d407059c8890370594863.js integrity="sha256-YBlJY2t8IHAVFrlwOaivVIYzbnm3jUBwWciJA3BZSGM="></script>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.11a8cba015e2facb079d777f6791a30597caa48869a340f8a9be45135466b8e1.js integrity="sha256-EajLoBXi+ssHnXd/Z5GjBZfKpIhpo0D4qb5FE1RmuOE="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="[아이템 28] 배열보다는 리스트를 사용하라">
 <meta property="og:description" content="[아이템 28] 배열보다는 리스트를 사용하라. 배열과 제네릭 타입의 차이 첫번째 차이점. 배열은 공변 입니다. 어려워 보이는 단어지만 뜻은 간단합니다. Sub가 Super의 하위 타입이라면 배열 Sub[]는 배열 Super[]의 하위 타입이 됩니다.
 반면, 제네릭은 불공변입니다. 즉 서로 다른 타입 Type1과 Type2가 있을 때, List<Type1>은 List<Type2>의 하위 타입도 아니고 상위 타입도 아닙니다.
@@ -189,6 +189,26 @@
 </ul>
 </div>
 </details>
+</div>
+<div class="toc-aside reveal">
+<div class=summary accesskey=a title="(Alt + A)">
+<span class=details>목차</span>
+</div>
+<div class=inner-wapper>
+<div class=inner><ul>
+<li>
+<a href=#%ec%95%84%ec%9d%b4%ed%85%9c-28-%eb%b0%b0%ec%97%b4%eb%b3%b4%eb%8b%a4%eb%8a%94-%eb%a6%ac%ec%8a%a4%ed%8a%b8%eb%a5%bc-%ec%82%ac%ec%9a%a9%ed%95%98%eb%9d%bc aria-label="[아이템 28] 배열보다는 리스트를 사용하라.">[아이템 28] 배열보다는 리스트를 사용하라.</a><ul>
+<li>
+<a href=#%eb%b0%b0%ec%97%b4%ea%b3%bc-%ec%a0%9c%eb%84%a4%eb%a6%ad-%ed%83%80%ec%9e%85%ec%9d%98-%ec%b0%a8%ec%9d%b4 aria-label="배열과 제네릭 타입의 차이">배열과 제네릭 타입의 차이</a></li>
+<li>
+<a href=#%ec%a0%9c%eb%84%a4%eb%a6%ad-%eb%b0%b0%ec%97%b4%ec%9d%84-%eb%a7%8c%eb%93%a4%ec%a7%80-%eb%aa%bb%ed%95%98%ea%b2%8c-%eb%a7%89%ec%9d%80-%ec%9d%b4%ec%9c%a0 aria-label="제네릭 배열을 만들지 못하게 막은 이유">제네릭 배열을 만들지 못하게 막은 이유</a></li></ul>
+</li>
+<li>
+<a href=#%ec%a0%95%eb%a6%ac aria-label=정리>정리</a>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class=post-content><h2 id=아이템-28-배열보다는-리스트를-사용하라>[아이템 28] 배열보다는 리스트를 사용하라.<a hidden class=anchor aria-hidden=true href=#아이템-28-배열보다는-리스트를-사용하라>#</a></h2>
 <h3 id=배열과-제네릭-타입의-차이>배열과 제네릭 타입의 차이<a hidden class=anchor aria-hidden=true href=#배열과-제네릭-타입의-차이>#</a></h3>

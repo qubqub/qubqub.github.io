@@ -12,7 +12,7 @@ Graph(그래프)는 무엇일까? 🧐 BFS, DFS를 알기전에 그래프라는 
  인접 행렬  1 2 3 4 5 6 7 8 9  int V; //정점의 갯수 int E; //간선의 갯수  int[,] Graph = new int[V, V]; //N x N 행렬  for (int i = 0; i < E; i++) { Graph[v1,v2] = 1;//방향 그래프 인접행렬로의 표현 }   인접 리스트  1 2 3 4 5 6 7 8 9 10 11 12 13  int V; //정점의 갯수 int E; //간선의 갯수  List<int>[] Graph = new List<int>[V + 1]; for (int i = 1; i < N + 1; i++) { Graph[i] = new List<int>(); foreach(v in AdjacencyVertices) { Graph[i].">
 <meta name=author content="Hyemi Oh">
 <link rel=canonical href=https://qutrits.github.io/posts/dummy/studying7_bfs_dfs/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.7fdcc3250d2766238701ebc88b716557ac0b92655db0f16547001b0b7feda2aa.css integrity="sha256-f9zDJQ0nZiOHAevIi3FlV6wLkmVdsPFlRwAbC3/toqo=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.a4eb1360ca53d4c87657ef811bebdbabd78ad56330c2f1985192aff3b455ed46.css integrity="sha256-pOsTYMpT1Mh2V++BG+vbq9eK1WMwwvGYUZKv87RV7UY=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -28,7 +28,7 @@ Graph(그래프)는 무엇일까? 🧐 BFS, DFS를 알기전에 그래프라는 
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.601949636b7c20701516b97039a8af5486336e79b78d407059c8890370594863.js integrity="sha256-YBlJY2t8IHAVFrlwOaivVIYzbnm3jUBwWciJA3BZSGM="></script>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.11a8cba015e2facb079d777f6791a30597caa48869a340f8a9be45135466b8e1.js integrity="sha256-EajLoBXi+ssHnXd/Z5GjBZfKpIhpo0D4qb5FE1RmuOE="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="BFS: 너비우선탐색, DFS: 깊이우선탐색(1)">
 <meta property="og:description" content="음&mldr; 나는 탐색알고리즘을 매우 어려워 하는 사람이다&mldr;😭😭 이것에 이어서 길찾기를 무서워하는데..😱 프로그래머로서 이런것들은 좀 이겨내야하지 않을까? 라는 생각이 들어서..
 원래 무서운 것은 몰라서 그런거라고 했으니, 나는 이 녀석들을 공부해서 안무서워해야겠다.😋😋😋
@@ -129,6 +129,23 @@ BFS: 너비우선탐색, DFS: 깊이우선탐색(1)
 </ul>
 </div>
 </details>
+</div>
+<div class="toc-aside reveal">
+<div class=summary accesskey=a title="(Alt + A)">
+<span class=details>목차</span>
+</div>
+<div class=inner-wapper>
+<div class=inner><ul>
+<li>
+<a href=#hahahugoshortcode-s0-hbhb%eb%8a%94-%eb%ac%b4%ec%97%87%ec%9d%bc%ea%b9%8c- aria-label="Graph(그래프)는 무엇일까? 🧐"><span style=color:#ffd400>Graph(그래프)</span>는 무엇일까? 🧐</a></li>
+<li>
+<a href=#hahahugoshortcode-s1-hbhb%eb%a5%bc-%ec%95%8c%ec%95%84%eb%b3%b4%ec%9e%90- aria-label="BFS를 알아보자 🧐"><span style=color:#ffd400>BFS</span>를 알아보자 🧐</a></li>
+<li>
+<a href=#hahahugoshortcode-s2-hbhb%eb%a5%bc-%ec%95%8c%ec%95%84%eb%b3%b4%ec%9e%90- aria-label="DFS를 알아보자 🧐"><span style=color:#ffd400>DFS</span>를 알아보자 🧐</a>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class=post-content><p>음&mldr; 나는 탐색알고리즘을 매우 어려워 하는 사람이다&mldr;😭😭 <br>
 <br>

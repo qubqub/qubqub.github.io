@@ -460,12 +460,12 @@ header.header {
   border-bottom: 1px solid var(--primary) !important;
 }
 
-.toc-aside details summary {
+.toc-aside .inner-wapper .summary {
   cursor: pointer;
 }
 
 .toc details summary,
-.toc-aside details summary,
+.toc-aside .summary,
 .main .archive-year .archive-month-header {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -777,7 +777,6 @@ header.header {
 .aside-font-size-button .default path {
   fill: var(--secondary);
   cursor: pointer;
-  z-index: 9999;
 }
 
 .tooltip {
@@ -1119,8 +1118,8 @@ header.header {
     width: 100%;
   }
   
-  .main .toc-aside summary,
-  main .toc-aside .inner {
+  .main .toc-aside .summary,
+  .main .toc-aside .inner-wapper .inner {
     padding-left: 0;
     margin-left: 0;
     padding-right: 0;
@@ -1141,13 +1140,13 @@ header.header {
     display: none;
   }
 
-  .toc-aside details .inner {
+  .toc-aside .inner-wapper .inner {
     margin: 0;
     padding: 0;
     padding-inline-end: 2rem;
   }
 
-  .toc-aside details .inner .selected>a {
+  .toc-aside .inner-wapper .inner .selected>a {
     display: block;
     transition: all 0.125s ease-in 0s;
     transform: scale(1.05);
@@ -1155,18 +1154,18 @@ header.header {
     font-weight: 600;
   }
 
-  .toc-aside details .inner a {
+  .toc-aside .inner-wapper .inner a {
     box-shadow: none;
     color: var(--secondary);
   }
   
-  .toc-aside details .inner li {
+  .toc-aside .inner-wapper .inner li {
     display: block;
     transition: all 0.125s ease-in 0s;
     
   }
 
-  .main .toc-aside summary {
+  .main .toc-aside .summary {
     position: fixed;
     top: 85px;
     font-size: 1rem;
@@ -1283,10 +1282,6 @@ header.header {
   .main .toc-aside li ul {
     margin-inline-start: 12px;
   }
-  
-  /* .main .toc-aside details .inner ul:first-child ~ * {
-    margin-top: 0.7rem
-  } */
 
   .main .toc-aside ul {
     list-style: none;
@@ -1294,8 +1289,8 @@ header.header {
     width: 100%;
   }
   
-  .main .toc-aside summary,
-  main .toc-aside .inner {
+  .main .toc-aside .summary,
+  .main .toc-aside .inner-wapper .inner {
     padding-left: 0;
     margin-left: 0;
     padding-right: 0;
@@ -1324,13 +1319,13 @@ header.header {
     display: none;
   }
 
-  .toc-aside details .inner {
+  .toc-aside .inner-wapper .inner {
     margin: 0;
     padding: 0;
     padding-inline-end: 2rem;
   }
 
-  .toc-aside details .inner .selected>a {
+  .toc-aside .inner-wapper .inner .selected>a {
     display: block;
     transition: all 0.125s ease-in 0s;
     transform: scale(1.05);
@@ -1338,18 +1333,18 @@ header.header {
     font-weight: 600;
   }
 
-  .toc-aside details .inner a {
+  .toc-aside .inner-wapper .inner a {
     box-shadow: none;
     color: var(--secondary);
   }
   
-  .toc-aside details .inner li {
+  .toc-aside .inner-wapper .inner li {
     display: block;
     transition: all 0.125s ease-in 0s;
     
   }
 
-  .main .toc-aside summary {
+  .main .toc-aside .summary {
     position: fixed;
     top: 85px;
     font-size: 1rem;

@@ -6,8 +6,9 @@ categories: ["java"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 1"]
 author: ["Kyungchul Shin"]
-showToc: true
+ShowToc: true
 TocOpen: false
+ShowTocAside: true
 draft: false
 hidemeta: false
 comments: true
