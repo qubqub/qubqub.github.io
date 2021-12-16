@@ -45,7 +45,7 @@ Comparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natu
 그래서 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다.
 1  Arrays.sort(a);   compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받는)보다 작으면 음의 정수를, 같으면 0을, 크면 양의 정수를 반환합니다.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://qutrits.github.io/posts/"},{"@type":"ListItem","position":2,"name":"[아이템 14] Comparable를 구현할지 고려하라","item":"https://qutrits.github.io/posts/effective-java-3e/chapter-02/item14/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 14] Comparable를 구현할지 고려하라","name":"[아이템 14] Comparable를 구현할지 고려하라","description":"[아이템 14] Comparable를 구현할지 고려하라 자바에서는 Comparable과 Comparator이라는 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬기준을 구현하는 데 사용하고, Comparator은 기본 정렬기준 외에 다른 기준으로 정렬하고자 할 때 사용합니다. 여기서는 Comparable의 하나 밖에 없는 compareTo메서드에 대해서 알아봅시다.\nComparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natural order가 있음을 의미합니다.\n그래서 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다.\n1  Arrays.sort(a);   compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받는)보다 작으면 음의 정수를, 같으면 0을, 크면 양의 정수를 반환합니다.","keywords":["Java","Effective Java 3E"],"articleBody":"[아이템 14] Comparable를 구현할지 고려하라 자바에서는 Comparable과 Comparator이라는 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬기준을 구현하는 데 사용하고, Comparator은 기본 정렬기준 외에 다른 기준으로 정렬하고자 할 때 사용합니다. 여기서는 Comparable의 하나 밖에 없는 compareTo메서드에 대해서 알아봅시다.\nComparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natural order가 있음을 의미합니다.\n그래서 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다.\n1  Arrays.sort(a);   compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받는)보다 작으면 음의 정수를, 같으면 0을, 크면 양의 정수를 반환합니다. 이 객체와 비교할 수 없는 타입이면 ClassCastException을 던집니다.\n다음 설명에서는 sgn(표현식) 표기는 수학에서 말하는 부호 함수를 뜻하며, 표현식의 값이 음수, 0, 양수일 때 -1, 0, 1을 반환하도록 정의했습니다.\n  Comparable을 구현한 클래스는 모든 x, y에 대해,\nsgn(x.comparaTo(y)) == -sgn(y.comparaTo(x))여야 합니다.\n따라서 sgn(x.comparaTo(y))는 -sgn(y.comparaTo(x))가 예외를 던질 때에 한해 예외를 던져야 합니다.\n  Comparable을 구현한 클래스는 추이성을 보장해야 합니다.\nx.comparaTo(y)  0 \u0026\u0026 y.comparaTo(z)  0이면 x.compareTo(z)  0입니다.\n  Comparable을 구현한 클래스는 모든 z에 대해 x.compareTo(y) == 0이면 sgn(x.compareTo(z)) == sgn(y.compareTo(z))입니다.\n  이번 권고가 필수는 아니지만 꼭 지키는 게 좋습니다. (x.compareTo(y) == 0) == (x.equals(y))여야 합니다.\n  hashCode 규약을 지키지 못하면 해시를 사용하는 클래스에서 오작동이 날 수 있듯이 compareTo 규약을 지키지 못하면 TreeSet, TreeMap과 같이 비교를 활용하는 클래스에서 오작동이 날 수 있습니다.\nCompareble 인터페이스은 타입 인수를 받는 제네릭 인터페이스므로 compareTo 메서드의 인수 타입은 컴파일타임에 정해집니다. 즉 매개변수 타입이 잘못 됐다면 컴파일 자체가 되지 않으므로 형변환 할 필요가 없다는 뜻입니다.\n객체 참조 필드를 비교하려면 compareTo 메서드를 재귀적으로 호출합니다. Compareble을 구현하지 않은 필드나 표준이 아닌 순서로 비교해야 한다면 Comparator를 사용하면 됩니다.\n클래스의 핵심 필드가 여러개라면 가장 핵심적인 필드부터 비교하는 것을 추천드립니다. 비교 결과가 0이 아니라면 순서는 거기서 셜정되기 떄문입니다.\nJAVA 8에서 compareTo 메서드를 구현하기\n1 2 3 4 5 6 7 8 9 10 11  ListStudent students = Arrays.asList( new Student(30, \"kim\"), new Student(50, \"jake\"), new Student(50, \"foo\") ); students.sort( Comparator.comparingInt(Student::getAge) .thenComparing(Student::getName) ); // 이뿐만 아니라 다양한 방식으로 정렬을 할 수 있습니다.   이런식으로 간결하게 코드를 짤 수 있습니다. 대신 약간의 성능 저하가 있습니다.\n","wordCount":"309","inLanguage":"en","datePublished":"2020-06-27T17:11:39+09:00","dateModified":"2020-06-27T17:11:39+09:00","author":[{"@type":"Person","name":"Kyungchul Shin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/posts/effective-java-3e/chapter-02/item14/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.png"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 14] Comparable를 구현할지 고려하라","name":"[아이템 14] Comparable를 구현할지 고려하라","description":"[아이템 14] Comparable를 구현할지 고려하라 자바에서는 Comparable과 Comparator이라는 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬기준을 구현하는 데 사용하고, Comparator은 기본 정렬기준 외에 다른 기준으로 정렬하고자 할 때 사용합니다. 여기서는 Comparable의 하나 밖에 없는 compareTo메서드에 대해서 알아봅시다.\nComparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natural order가 있음을 의미합니다.\n그래서 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다.\n1  Arrays.sort(a);   compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받는)보다 작으면 음의 정수를, 같으면 0을, 크면 양의 정수를 반환합니다.","keywords":["Java","Effective Java 3E"],"articleBody":"[아이템 14] Comparable를 구현할지 고려하라 자바에서는 Comparable과 Comparator이라는 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬기준을 구현하는 데 사용하고, Comparator은 기본 정렬기준 외에 다른 기준으로 정렬하고자 할 때 사용합니다. 여기서는 Comparable의 하나 밖에 없는 compareTo메서드에 대해서 알아봅시다.\nComparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natural order가 있음을 의미합니다.\n그래서 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다.\n1  Arrays.sort(a);   compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받는)보다 작으면 음의 정수를, 같으면 0을, 크면 양의 정수를 반환합니다. 이 객체와 비교할 수 없는 타입이면 ClassCastException을 던집니다.\n다음 설명에서는 sgn(표현식) 표기는 수학에서 말하는 부호 함수를 뜻하며, 표현식의 값이 음수, 0, 양수일 때 -1, 0, 1을 반환하도록 정의했습니다.\n  Comparable을 구현한 클래스는 모든 x, y에 대해,\nsgn(x.comparaTo(y)) == -sgn(y.comparaTo(x))여야 합니다.\n따라서 sgn(x.comparaTo(y))는 -sgn(y.comparaTo(x))가 예외를 던질 때에 한해 예외를 던져야 합니다.\n  Comparable을 구현한 클래스는 추이성을 보장해야 합니다.\nx.comparaTo(y)  0 \u0026\u0026 y.comparaTo(z)  0이면 x.compareTo(z)  0입니다.\n  Comparable을 구현한 클래스는 모든 z에 대해 x.compareTo(y) == 0이면 sgn(x.compareTo(z)) == sgn(y.compareTo(z))입니다.\n  이번 권고가 필수는 아니지만 꼭 지키는 게 좋습니다. (x.compareTo(y) == 0) == (x.equals(y))여야 합니다.\n  hashCode 규약을 지키지 못하면 해시를 사용하는 클래스에서 오작동이 날 수 있듯이 compareTo 규약을 지키지 못하면 TreeSet, TreeMap과 같이 비교를 활용하는 클래스에서 오작동이 날 수 있습니다.\nCompareble 인터페이스은 타입 인수를 받는 제네릭 인터페이스므로 compareTo 메서드의 인수 타입은 컴파일타임에 정해집니다. 즉 매개변수 타입이 잘못 됐다면 컴파일 자체가 되지 않으므로 형변환 할 필요가 없다는 뜻입니다.\n객체 참조 필드를 비교하려면 compareTo 메서드를 재귀적으로 호출합니다. Compareble을 구현하지 않은 필드나 표준이 아닌 순서로 비교해야 한다면 Comparator를 사용하면 됩니다.\n클래스의 핵심 필드가 여러개라면 가장 핵심적인 필드부터 비교하는 것을 추천드립니다. 비교 결과가 0이 아니라면 순서는 거기서 셜정되기 떄문입니다.\nJAVA 8에서 compareTo 메서드를 구현하기\n1 2 3 4 5 6 7 8 9 10 11  ListStudent students = Arrays.asList( new Student(30, \"kim\"), new Student(50, \"jake\"), new Student(50, \"foo\") ); students.sort( Comparator.comparingInt(Student::getAge) .thenComparing(Student::getName) ); // 이뿐만 아니라 다양한 방식으로 정렬을 할 수 있습니다.   위와 같이 코드를 간결하게 짤 수 있습니다. 대신 약간의 성능 저하가 있습니다.\n","wordCount":"310","inLanguage":"en","datePublished":"2020-06-27T17:11:39+09:00","dateModified":"2020-06-27T17:11:39+09:00","author":[{"@type":"Person","name":"Kyungchul Shin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/posts/effective-java-3e/chapter-02/item14/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.png"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -173,18 +173,16 @@ Comparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natu
 <div class=inner><ul>
 <li>
 <a href=#%ec%95%84%ec%9d%b4%ed%85%9c-14-comparable%eb%a5%bc-%ea%b5%ac%ed%98%84%ed%95%a0%ec%a7%80-%ea%b3%a0%eb%a0%a4%ed%95%98%eb%9d%bc aria-label="[아이템 14] Comparable를 구현할지 고려하라">[아이템 14] Comparable를 구현할지 고려하라</a><ul>
-<ul>
 <li>
 <a href=#compareto-%eb%a9%94%ec%84%9c%eb%93%9c%ec%9d%98-%ea%b7%9c%ec%95%bd aria-label="compareTo 메서드의 규약"><strong>compareTo 메서드의 규약</strong></a>
 </li>
-</ul>
 </ul>
 </li>
 </ul>
 </div>
 </details>
 </div>
-<div class=post-content><h1 id=아이템-14-comparable를-구현할지-고려하라>[아이템 14] Comparable를 구현할지 고려하라<a hidden class=anchor aria-hidden=true href=#아이템-14-comparable를-구현할지-고려하라>#</a></h1>
+<div class=post-content><h2 id=아이템-14-comparable를-구현할지-고려하라>[아이템 14] Comparable를 구현할지 고려하라<a hidden class=anchor aria-hidden=true href=#아이템-14-comparable를-구현할지-고려하라>#</a></h2>
 <p>자바에서는 <code>Comparable</code>과 <code>Comparator</code>이라는 정렬 인터페이스를 제공합니다. <code>Comparable</code>은 기본 정렬기준을 구현하는 데 사용하고, <code>Comparator</code>은 기본 정렬기준 외에 다른 기준으로 정렬하고자 할 때 사용합니다. 여기서는 <code>Comparable</code>의 하나 밖에 없는 <code>compareTo</code>메서드에 대해서 알아봅시다.</p>
 <p><code>Comparable</code>을 구현했다는 것은 그 클래스의 인스턴스들에는 <code>natural order</code>가 있음을 의미합니다.<br>
 그래서 <code>Comparable</code>을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다.</p>
@@ -213,13 +211,17 @@ Comparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natu
 <p><code>Comparable</code>을 구현한 클래스는 모든 <code>z</code>에 대해 <code>x.compareTo(y) == 0</code>이면 <code>sgn(x.compareTo(z))</code> == <code>sgn(y.compareTo(z))</code>입니다.</p>
 </li>
 <li>
-<p>이번 권고가 필수는 아니지만 꼭 지키는 게 좋습니다. <code>(x.compareTo(y) == 0)</code> == <code>(x.equals(y))</code>여야 합니다.</p>
+<p>이번 권고가 필수는 아니지만 꼭 지키는 게 좋습니다. <code>(x.compareTo(y) == 0)</code> == <code>(x.equals(y))</code>여야 합니다.<br>
+<br>
+</p>
 </li>
 </ul>
 <p><code>hashCode</code> 규약을 지키지 못하면 해시를 사용하는 클래스에서 오작동이 날 수 있듯이 <code>compareTo</code> 규약을 지키지 못하면 <code>TreeSet</code>, <code>TreeMap</code>과 같이 비교를 활용하는 클래스에서 오작동이 날 수 있습니다.</p>
-<p><code>Compareble</code> 인터페이스은 타입 인수를 받는 제네릭 인터페이스므로 <code>compareTo</code> 메서드의 인수 타입은 컴파일타임에 정해집니다. 즉 매개변수 타입이 잘못 됐다면 컴파일 자체가 되지 않으므로 형변환 할 필요가 없다는 뜻입니다.<br>
-객체 참조 필드를 비교하려면 <code>compareTo</code> 메서드를 재귀적으로 호출합니다. <code>Compareble</code>을 구현하지 않은 필드나 표준이 아닌 순서로 비교해야 한다면 <code>Comparator</code>를 사용하면 됩니다.</p>
-<p>클래스의 핵심 필드가 여러개라면 가장 핵심적인 필드부터 비교하는 것을 추천드립니다. 비교 결과가 0이 아니라면 순서는 거기서 셜정되기 떄문입니다.</p>
+<p><code>Compareble</code> 인터페이스은 타입 인수를 받는 제네릭 인터페이스므로 <code>compareTo</code> 메서드의 인수 타입은 컴파일타임에 정해집니다. 즉 매개변수 타입이 잘못 됐다면 컴파일 자체가 되지 않으므로 형변환 할 필요가 없다는 뜻입니다.</p>
+<p>객체 참조 필드를 비교하려면 <code>compareTo</code> 메서드를 재귀적으로 호출합니다. <code>Compareble</code>을 구현하지 않은 필드나 표준이 아닌 순서로 비교해야 한다면 <code>Comparator</code>를 사용하면 됩니다.</p>
+<p>클래스의 핵심 필드가 여러개라면 가장 핵심적인 필드부터 비교하는 것을 추천드립니다. 비교 결과가 0이 아니라면 순서는 거기서 셜정되기 떄문입니다.<br>
+<br>
+</p>
 <p><strong><code>JAVA 8</code>에서 <code>compareTo</code> 메서드를 구현하기</strong></p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -249,7 +251,7 @@ Comparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natu
 <span class=c1>// 이뿐만 아니라 다양한 방식으로 정렬을 할 수 있습니다.
 </span></code></pre></td></tr></table>
 </div>
-</div><p>이런식으로 간결하게 코드를 짤 수 있습니다. 대신 약간의 성능 저하가 있습니다.</p>
+</div><p>위와 같이 코드를 간결하게 짤 수 있습니다. 대신 약간의 성능 저하가 있습니다.</p>
 </div>
 <footer class=post-footer><div class=post-license-info>
 <a rel=license href=https://creativecommons.org/licenses/by-sa/4.0/deed.ko target=_blank>
