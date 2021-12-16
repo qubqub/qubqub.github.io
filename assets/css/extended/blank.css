@@ -373,8 +373,8 @@ header.header {
   color: var(--main-color);
 }
 
-.toc.aside .details:hover .tocLock .unlock,
-.toc.aside .details:hover .tocLock .lock,
+.toc-aside .details:hover .tocLock .unlock,
+.toc-aside .details:hover .tocLock .lock,
 .main .archive-year .archive-month-header .toggle .lock:hover,
 .main .archive-year .archive-month-header .toggle .unlock:hover,
 .series-control .toggle .unlock:hover,
@@ -461,6 +461,7 @@ header.header {
 }
 
 .toc summary,
+.toc-aside summary,
 .main .archive-year .archive-month-header {
   cursor: pointer;
   -webkit-touch-callout: none;
@@ -759,8 +760,8 @@ header.header {
   box-shadow: 0 0 0 1px #676e75 inset;
 }
 
-.toc.aside .tocLock .unlock,
-.toc.aside .tocLock .lock,
+.toc-aside .tocLock .unlock,
+.toc-aside .tocLock .lock,
 .main .archive-year .archive-month-header .toggle .lock,
 .main .archive-year .archive-month-header .toggle .unlock,
 .series-control .toggle .unlock,
@@ -860,7 +861,7 @@ header.header {
   display: none;
 }
 
-.main .toc.aside summary:host {
+.main .toc-aside summary:host {
   list-style: none;
 }
 
@@ -974,7 +975,7 @@ header.header {
     padding-left: 0;
   }
 
-  .main .toc.aside {
+  .main .toc-aside {
     display: none !important;
   }
 
@@ -1077,7 +1078,7 @@ header.header {
     height: 42px;
   }
 
-  .toc.aside.reveal {
+  .toc-aside.reveal {
     display: block;
     position: fixed;
     top: 120px;
@@ -1085,12 +1086,12 @@ header.header {
     animation: fade-in 0.3s;
   }
 
-  .main .toc.aside .tocLock {
+  .main .toc-aside .tocLock {
     margin-right: 4px;
     vertical-align: sub;
   }
 
-  .main .toc.aside {
+  .main .toc-aside {
     max-width: 20rem;
     padding: 0 0.75rem;
     font-size: 0.875rem;
@@ -1103,22 +1104,22 @@ header.header {
     border-radius: 0;
   }
 
-  .main .toc.aside::-webkit-scrollbar {
+  .main .toc-aside::-webkit-scrollbar {
     width: 0 !important
   }
 
-  .main .toc.aside li ul {
+  .main .toc-aside li ul {
     margin-inline-start: 12px;
   }
 
-  .main .toc.aside ul {
+  .main .toc-aside ul {
     list-style: none;
     padding-left: 0;
     width: 100%;
   }
   
-  .main .toc.aside summary,
-  main .toc.aside .inner {
+  .main .toc-aside summary,
+  main .toc-aside .inner {
     padding-left: 0;
     margin-left: 0;
     padding-right: 0;
@@ -1135,17 +1136,17 @@ header.header {
     }
   }
 
-  .toc.aside.hide {
+  .toc-aside.hide {
     display: none;
   }
 
-  .toc.aside details .inner {
+  .toc-aside details .inner {
     margin: 0;
     padding: 0;
     padding-inline-end: 2rem;
   }
 
-  .toc.aside details .inner .selected>a {
+  .toc-aside details .inner .selected>a {
     display: block;
     transition: all 0.125s ease-in 0s;
     transform: scale(1.05);
@@ -1153,18 +1154,18 @@ header.header {
     font-weight: 600;
   }
 
-  .toc.aside details .inner a {
+  .toc-aside details .inner a {
     box-shadow: none;
     color: var(--secondary);
   }
   
-  .toc.aside details .inner li {
+  .toc-aside details .inner li {
     display: block;
     transition: all 0.125s ease-in 0s;
     
   }
 
-  .main .toc.aside summary {
+  .main .toc-aside summary {
     position: fixed;
     top: 85px;
     font-size: 1rem;
@@ -1255,12 +1256,12 @@ header.header {
     padding-inline-start: 35px;
   }
 
-  .main .toc.aside .tocLock {
+  .main .toc-aside .tocLock {
     margin-right: 4px;
     vertical-align: sub;
   }
 
-  .main .toc.aside {
+  .main .toc-aside {
     max-width: 20rem;
     margin-left: 4rem;
     padding: 0 0.75rem;
@@ -1274,26 +1275,26 @@ header.header {
     border-radius: 0;
   }
 
-  .main .toc.aside::-webkit-scrollbar {
+  .main .toc-aside::-webkit-scrollbar {
     width: 0 !important
   }
 
-  .main .toc.aside li ul {
+  .main .toc-aside li ul {
     margin-inline-start: 12px;
   }
   
-  /* .main .toc.aside details .inner ul:first-child ~ * {
+  /* .main .toc-aside details .inner ul:first-child ~ * {
     margin-top: 0.7rem
   } */
 
-  .main .toc.aside ul {
+  .main .toc-aside ul {
     list-style: none;
     padding-left: 0;
     width: 100%;
   }
   
-  .main .toc.aside summary,
-  main .toc.aside .inner {
+  .main .toc-aside summary,
+  main .toc-aside .inner {
     padding-left: 0;
     margin-left: 0;
     padding-right: 0;
@@ -1310,7 +1311,7 @@ header.header {
     }
   }
 
-  .toc.aside.reveal {
+  .toc-aside.reveal {
     display: block;
     position: fixed;
     top: 120px;
@@ -1318,17 +1319,17 @@ header.header {
     animation: fade-in 0.3s;
   }
   
-  .toc.aside.hide {
+  .toc-aside.hide {
     display: none;
   }
 
-  .toc.aside details .inner {
+  .toc-aside details .inner {
     margin: 0;
     padding: 0;
     padding-inline-end: 2rem;
   }
 
-  .toc.aside details .inner .selected>a {
+  .toc-aside details .inner .selected>a {
     display: block;
     transition: all 0.125s ease-in 0s;
     transform: scale(1.05);
@@ -1336,18 +1337,18 @@ header.header {
     font-weight: 600;
   }
 
-  .toc.aside details .inner a {
+  .toc-aside details .inner a {
     box-shadow: none;
     color: var(--secondary);
   }
   
-  .toc.aside details .inner li {
+  .toc-aside details .inner li {
     display: block;
     transition: all 0.125s ease-in 0s;
     
   }
 
-  .main .toc.aside summary {
+  .main .toc-aside summary {
     position: fixed;
     top: 85px;
     font-size: 1rem;

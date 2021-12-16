@@ -9,7 +9,7 @@
 정보 은닉(캡슐화)의 장점  시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item15/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.6631e54c1becb8d0af6bc5170ba5e418fe16e968e42d7a7f64f5c1b53663a610.css integrity="sha256-ZjHlTBvsuNCva8UXC6XkGP4W6WjkLXp/ZPXBtTZjphA=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.a57200773266f699657ae66e3bf1fc2ce1eb3f0f9a460dfa4bdf56b349269f4f.css integrity="sha256-pXIAdzJm9plleuZuO/H8LOHrPw+aRg36S99Ws0kmn08=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -25,7 +25,7 @@
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ac654bac455e537d136710f0d6828168a7d4b52340c51028b65f2fe2168689d1.js integrity="sha256-rGVLrEVeU30TZxDw1oKBaKfUtSNAxRAotl8v4haGidE="></script>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.e11c8ea11eed019e484b0bdccb247aabf4b249e433b9213612eb241d1e08e2cd.js integrity="sha256-4RyOoR7tAZ5ISwvcyyR6q/SySeQzuSE2EuskHR4I4s0="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라">
 <meta property="og:description" content="[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라. 잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 분리합니다.
 정보 은닉(캡슐화)의 장점  시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다.">

@@ -96,7 +96,7 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
       let lastSelEl = null;
       let lastScroll = 0;
       let currentScroll = 0;
-      const tocDetails = document.querySelector(".main .toc.aside details");
+      const tocDetails = document.querySelector(".main .toc-aside details");
       const header = document.querySelector("header.header");
       const tocNode = document.querySelector(".main .toc");
       const mainTocTop = mainToc?mainToc.offsetTop + mainToc.offsetParent.offsetTop - 1:0;
@@ -130,7 +130,8 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
   
       if (tocNode !== null) {
         const tocClone = tocNode.cloneNode(true);
-        tocClone.classList.add("aside");
+        tocClone.classList.remove("toc");
+        tocClone.classList.add("toc-aside");
   
         const tocList = tocClone.querySelectorAll(".inner ul>li");
   
@@ -160,7 +161,7 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
         _n.prepend(_m);
   
         tocClone.querySelector("details summary").addEventListener("click", e => {
-          const asideToc = document.querySelector(".toc.aside>details");
+          const asideToc = document.querySelector(".toc-aside>details");
           const asideTocIcon = asideToc.querySelector(".details .tocLock");
           let isOpenAsideToc = asideToc.attributes.length;
           if (isOpenAsideToc === 0) { // open
@@ -175,7 +176,7 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
         tocNode.parentNode.insertBefore(tocClone, tocNode.nextSibling);
       }
   
-      const asideToc = document.querySelector(".main .toc.aside");
+      const asideToc = document.querySelector(".main .toc-aside");
       
       window.addEventListener("scroll", () => {
         currentScroll = window.pageYOffset;
@@ -325,7 +326,7 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
       }
       const _mainTocTop = mainToc?mainToc.offsetTop + mainToc.offsetParent.offsetTop - 1:0;
       if (_mainTocTop < window.pageYOffset) {
-        const _toc = document.querySelectorAll(".main .toc.aside .inner ul>li");
+        const _toc = document.querySelectorAll(".main .toc-aside .inner ul>li");
         for (let i = 0; i < tocIdList.length; i++) {
           let curEl = document.getElementById(tocIdList[i]);
           let nextEl = document.getElementById(tocIdList[i+1]);
@@ -334,7 +335,7 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
                 window.pageYOffset < (nextEl.offsetTop + nextEl.offsetParent.offsetTop - 1)) {
             if (_toc[i+1] !== null) _toc[i+1].classList.remove("selected");
             _toc[i].classList.add("selected");
-            document.querySelector(".main .toc.aside").scrollTop = i * 20;
+            document.querySelector(".main .toc-aside").scrollTop = i * 20;
           }
         }
       }
