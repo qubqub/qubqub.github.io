@@ -6,7 +6,7 @@
 
 {{- if .Site.Params.assets.useCustomJs }}
   {{- if not .Site.Params.assets.disableFingerprinting }}
-    {{- $custom := slice (resources.Get "js/extended/custom.js") | resources.Concat "assets/js/extended/custom.js"  | fingerprint }}
+    {{- $custom := slice (resources.Get "js/extended/custom.js") | resources.Concat "assets/js/extended/custom.js" | minify | fingerprint }}
     <script defer crossorigin="anonymous" src="{{ $custom.RelPermalink }}" integrity="{{ $custom.Data.Integrity }}"></script>
   {{- else }}
     {{- $custom := slice (resources.Get "js/extended/custom.js") | resources.Concat "assets/js/extended/custom.js" | minify }}
