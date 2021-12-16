@@ -18,12 +18,6 @@
   {{- $count := .Count }}
   {{- with $.Site.GetPage (printf "/%s/%s" $type $name) }}
 
-  {{/*  {{- (int (substr (string $count) 0 1)) }}  */}}
-
-  {{/*  {{- if 1 lt (int (substr (string $count) 0 1)) }}
-    크다
-  {{- end }}  */}}
-
   {{ $fontSize := mul (add (float (print "0" (substr (string $count) 0 -1) "." (substr (string $count) -1 1))) 1) 0.8 }}
 
   {{- if (lt 1 $fontSize) }}

@@ -412,6 +412,31 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
   if (termList) {
     let randomIndexArray = [];
     for (i=0; i<termList.length; i++) {
+
+
+
+
+
+
+      let fontSize = termList[i].children[0].style.fontSize.split("rem")[0];
+      if (window.innerWidth < 769) {
+        if (fontSize >= 1 && fontSize <= 1.5) {
+          fontSize *= 0.75
+        } else if (fontSize > 1.5 && fontSize <= 2) {
+          fontSize *= 0.7
+        } else if (fontSize > 2 && fontSize <= 2.5) {
+          fontSize *= 0.65
+        }
+      }
+      termList[i].children[0].style.fontSize = fontSize+"rem";
+
+
+
+
+
+
+      
+
       randomNum = Math.floor(Math.random() * termList.length);
       if (randomIndexArray.indexOf(randomNum) === -1) {
         randomIndexArray.push(randomNum);

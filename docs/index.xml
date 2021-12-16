@@ -231,7 +231,9 @@ Comparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natu
       <pubDate>Sat, 27 Jun 2020 15:04:12 +0900</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-02/item13/</guid>
-      <description>[아이템 13] clone 재정의는 주의해서 진행하라. 실무에서 Cloneable을 구현한 클래스는 clone 메서드를 public으로 제공하며, 사용자는 당연히 복제가 제대로 이뤄지리라 기대합니다. 하지만 clone 메서드의 일반 규약은 허술한 부분이 있습니다. 다음은 Object 명세에서 가져온 설명입니다. 이 객체의 복사본을 생성해 반환합니다. &amp;lsquo;복사&amp;rsquo;의 정확한 뜻은 그 객체를 구현한 클래스에 따라 다를 수 있지만 일반적은 의도는 다음과 같습니다. 어떤 객체 x에 대해 다음 식은 참입니다.
+      <description>[아이템 13] clone 재정의는 주의해서 진행하라. 실무에서 Cloneable을 구현한 클래스는 clone 메서드를 public으로 제공하며, 사용자는 당연히 복제가 제대로 이뤄지리라 기대합니다.
+하지만 clone 메서드의 일반 규약은 허술한 부분이 있습니다. 다음은 Object 명세에서 가져온 설명입니다.
+이 객체의 복사본을 생성해 반환합니다. &amp;lsquo;복사&amp;rsquo;의 정확한 뜻은 그 객체를 구현한 클래스에 따라 다를 수 있지만 일반적은 의도는 다음과 같습니다. 어떤 객체 x에 대해 다음 식은 참입니다.
  x.clone() != x x.clone.getClass() = x.getClass() x.clone().equals(x)  clone을 사용하는 방법은 굉장히 쉽습니다.</description>
     </item>
     
@@ -241,7 +243,8 @@ Comparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natu
       <pubDate>Sat, 27 Jun 2020 14:31:22 +0900</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-02/item12/</guid>
-      <description>[아이템 12] toString을 항상 재정의하라. toString을 오버라이딩 하지 않으면 기본적으로 클래스_이름@16진수로_표현한_해시코드를 반환합니다. 이렇게 되면 객체의 특성을 알아볼 수 있으므로 toString을 재정의 할 필요가 있습니다.
+      <description>[아이템 12] toString을 항상 재정의하라. toString을 오버라이딩 하지 않으면 기본적으로 클래스_이름@16진수로_표현한_해시코드를 반환합니다.
+이렇게 되면 객체의 특성을 알아볼 수 있으므로 toString을 재정의 할 필요가 있습니다.
 1 2  Student student = new Student(&amp;#34;kim&amp;#34;, 16); System.out.println(student);   위 코드를 실행하면 Student@abcd같은 형태로 콘솔에 출력되므로 객체의 특성을 파악하기가 힘듭니다.
 toString 재정의하는 좋은 방법.  객체가 가진 가진 주요 정보를 모두 반환하는 게 좋습니다. toString을 구현하면 반환값의 포맷을 문서화할지 정해야 합니다.  규칙이 명확해지는 장점이 있지만, 한번 명시하면 그 포맷에 얽매이게 됩니다.</description>
     </item>
@@ -252,7 +255,8 @@ toString 재정의하는 좋은 방법.  객체가 가진 가진 주요 정보�
       <pubDate>Sat, 27 Jun 2020 13:18:21 +0900</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-02/item11/</guid>
-      <description>[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라. equals와 hasoCode를 재정의 하지 않으면 HashMap이나 HashSet에서 같은 원소를 사용할 때 문제가 발생합니다.  equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 hashCode메서드는 여러번 호출해도 일관된 값을 반환해야 합니다. equals가 두 객체를 같다고 판단하면 hashCode 또한 같은 값을 반환해야 합니다. equals가 두 객체를 다르다고 판단해도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해쉬테이블의 성능이 좋아집니다.</description>
+      <description>[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라. equals와 hasoCode를 재정의 하지 않으면 HashMap이나 HashSet에서 같은 원소를 사용할 때 문제가 발생합니다.
+ equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 hashCode메서드는 여러번 호출해도 일관된 값을 반환해야 합니다. equals가 두 객체를 같다고 판단하면 hashCode 또한 같은 값을 반환해야 합니다. equals가 두 객체를 다르다고 판단해도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.</description>
     </item>
     
     <item>
@@ -261,7 +265,9 @@ toString 재정의하는 좋은 방법.  객체가 가진 가진 주요 정보�
       <pubDate>Sat, 27 Jun 2020 11:42:54 +0900</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-02/item10/</guid>
-      <description>[아이템 10] equals는 일반 규약을 지켜 재정의하라. equals 메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다.여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다. 반사성(reflexivity)  null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.  대칭성(symmetry)  null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.equals(x)입니다.  잘못된 코드 - 대칭성 위반</description>
+      <description>[아이템 10] equals는 일반 규약을 지켜 재정의하라. equals 메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다.여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.
+equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.
+반사성(reflexivity)  null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.  대칭성(symmetry)  null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.equals(x)입니다.  잘못된 코드 - 대칭성 위반</description>
     </item>
     
     <item>
@@ -405,7 +411,8 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-05/item38/</guid>
-      <description>[아이템 38] 확장할 수 있는 열거 타입이 필요하면 인터페이스를 사용하라. 열거 타입은 확장할 수 없게 설계 되었습니다. 확장한 타입의 원소는 기반 타입의 원소로 취급하지만 그 반대는 성립하지 않는다면 어폐가 있고 기반 타입과 확장된 타입들의 원소를 모두를 순회할 방법도 마땅치 않으며 확장성을 높이려면 고려할 요소가 늘어나 설계와 구현이 더 복잡해지기 때문입니다. 그러나 연산 코드는 확장할 수 있는 열거 타입과 어울립니다. API가 제공하는 기본 연산 외에 사용자가 확장 연산을 추가할 수 있도록 열어줘야 할 때가 있습니다.</description>
+      <description>[아이템 38] 확장할 수 있는 열거 타입이 필요하면 인터페이스를 사용하라. 열거 타입은 확장할 수 없게 설계 되었습니다. 확장한 타입의 원소는 기반 타입의 원소로 취급하지만 그 반대는 성립하지 않는다면 어폐가 있고 기반 타입과 확장된 타입들의 원소를 모두를 순회할 방법도 마땅치 않으며 확장성을 높이려면 고려할 요소가 늘어나 설계와 구현이 더 복잡해지기 때문입니다.
+그러나 연산 코드는 확장할 수 있는 열거 타입과 어울립니다. API가 제공하는 기본 연산 외에 사용자가 확장 연산을 추가할 수 있도록 열어줘야 할 때가 있습니다.</description>
     </item>
     
     <item>
@@ -466,7 +473,8 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-06/item44/</guid>
-      <description>[아이템 44] 표준 함수형 인터페이스를 사용하라. java.util.function 패키지에 다양한 용도의 표준 함수형 인터페이스가 정의되어 있으므로 용도에 맞는 게 있다면 직접 구현하지 말고 표준 함수형 인터페이스를 활용합시다. 일관성을 높일 수 있고 디폴트 메서드를 많이 제공하므로 다른 코드와의 상호운용성도 증가할 것입니다. java.util.function에는 총 43개의 인터페이스가 있지만 기본 인터페이스 6개만 기억하면 나머지는 충분히 유추할 수 있으며 나머지는 필요할 때마다 찾아서 사용하면 됩니다. 표준 함수형 인터페이스 대부분은 기본 타입만 지원합니다. 그렇다고 기본 함수형 인터페이스에 박싱된 기본 타입을 넣어서 사용하지 맙시다.</description>
+      <description>[아이템 44] 표준 함수형 인터페이스를 사용하라. java.util.function 패키지에 다양한 용도의 표준 함수형 인터페이스가 정의되어 있으므로 용도에 맞는 게 있다면 직접 구현하지 말고 표준 함수형 인터페이스를 활용합시다. 일관성을 높일 수 있고 디폴트 메서드를 많이 제공하므로 다른 코드와의 상호운용성도 증가할 것입니다. java.util.function에는 총 43개의 인터페이스가 있지만 기본 인터페이스 6개만 기억하면 나머지는 충분히 유추할 수 있으며 나머지는 필요할 때마다 찾아서 사용하면 됩니다.
+표준 함수형 인터페이스 대부분은 기본 타입만 지원합니다. 그렇다고 기본 함수형 인터페이스에 박싱된 기본 타입을 넣어서 사용하지 맙시다.</description>
     </item>
     
     <item>
@@ -495,7 +503,8 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-06/item47/</guid>
-      <description>[아이템 47] 반환 타입으로는 스트림보다 컬렉션이 낫다. 사실 Stream 인터페이스 Iterable 인터페이스가 정의한 추상 메서드를 전부 포함하고 Iterable 인터페이스가 정의한 방식대로 동작합니다. 하지만 for-each로 스트림을 반복할 수 없는 이유는 Stream이 Iterable을 확장하지 않아서입니다. Collection인터페이스는 Iterable의 하위 타입이고 stream의 메서드도 제공하니 반복과 스트림을 동시에 지원합니다. 따라서 원소 시퀀수를 공개하는 공개 API의 반환타입에는 Collection이나 그 하위 타입을 사용하는게 일반적으로 좋습니다.
+      <description>[아이템 47] 반환 타입으로는 스트림보다 컬렉션이 낫다. 사실 Stream 인터페이스 Iterable 인터페이스가 정의한 추상 메서드를 전부 포함하고 Iterable 인터페이스가 정의한 방식대로 동작합니다. 하지만 for-each로 스트림을 반복할 수 없는 이유는 Stream이 Iterable을 확장하지 않아서입니다.
+Collection인터페이스는 Iterable의 하위 타입이고 stream의 메서드도 제공하니 반복과 스트림을 동시에 지원합니다. 따라서 원소 시퀀수를 공개하는 공개 API의 반환타입에는 Collection이나 그 하위 타입을 사용하는게 일반적으로 좋습니다.
 정리  원소 시퀀스를 반환하는 메서드를 작성할 때는, 이를 스트림으로 처리하길 원하는 사용자와 반복으로 처리하길 원하는 사용자가 모두 있을 수 있음을 고려하라 컬렉션을 반환할 수 있다면 그렇게 하고 반환 전부터 이미 원소들을 컬렉션에 관리하고 있거나 컬렉션을 하나 더 만들어도 될 정도로 원소 개수가 적다면 ArrayList같은 표준 컬렉션에 담아 반환하라.</description>
     </item>
     
@@ -514,7 +523,8 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-07/item49/</guid>
-      <description>매개변수가 유효한지 검사하라. 메서드와 생성자는 대부분 특정 조건의 입력 매개변수에 특정 조건을 만족하기를 바랍니다. 만일 잘못된 값이 들어올 경우 보통 예외를 던지거나 컴파일 오류를 잡아내긴 하지만, 오류는 가능한 빨리 잡아내는 게 좋습니다. 그렇지 않으면 감지하기 어려워지고 감지하더라도 찾아내기 힘들어지는 경우도 있습니다.이러한 경우를 방지하기 위해 매개변수를 미리 확인한다면 즉각적이고 깔끔한 방식으로 예외를 처리할 수 있습니다. 하지만 반드시 메서드를 실행하기 전에 매개변수 유효성 검사를 해야하는 것만은 아닙니다. 유효성 검사 비용이 지나치게 높거나 실용적이지 않을 때는 다시 고려를 해봐야 합니다.</description>
+      <description>매개변수가 유효한지 검사하라. 메서드와 생성자는 대부분 특정 조건의 입력 매개변수에 특정 조건을 만족하기를 바랍니다. 만일 잘못된 값이 들어올 경우 보통 예외를 던지거나 컴파일 오류를 잡아내긴 하지만, 오류는 가능한 빨리 잡아내는 게 좋습니다. 그렇지 않으면 감지하기 어려워지고 감지하더라도 찾아내기 힘들어지는 경우도 있습니다.이러한 경우를 방지하기 위해 매개변수를 미리 확인한다면 즉각적이고 깔끔한 방식으로 예외를 처리할 수 있습니다.
+하지만 반드시 메서드를 실행하기 전에 매개변수 유효성 검사를 해야하는 것만은 아닙니다. 유효성 검사 비용이 지나치게 높거나 실용적이지 않을 때는 다시 고려를 해봐야 합니다.</description>
     </item>
     
     <item>
@@ -523,7 +533,8 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-07/item50/</guid>
-      <description>[Item50] 적시에 방어적 복사본을 만들라 이번 아이템에서는 지난 Item17에 다루었던 불변에 대한 주제가 포함되어있습니다. 어떤 객체든 객체의 허락 없이는 외부에서 함부로 내부를 수정하게 하는 일이 없아야 합니다. 하지만 주의를 기울이지 않으면 자신도 모르게 내부를 수정하도록 코드를 짜는 경우가 생길 수 있습니다. 다음은 부주의로 일어날 수 있는 상황을 예시로 든 코드입니다.
+      <description>[Item50] 적시에 방어적 복사본을 만들라 이번 아이템에서는 지난 Item17에 다루었던 불변에 대한 주제가 포함되어있습니다. 어떤 객체든 객체의 허락 없이는 외부에서 함부로 내부를 수정하게 하는 일이 없아야 합니다. 하지만 주의를 기울이지 않으면 자신도 모르게 내부를 수정하도록 코드를 짜는 경우가 생길 수 있습니다.
+다음은 부주의로 일어날 수 있는 상황을 예시로 든 코드입니다.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  public final class Period { private final Date date; private final Date end; public Period(Date start, Date end) { if (start.</description>
     </item>
     
@@ -573,7 +584,8 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-07/item55/</guid>
-      <description>[아이템 55] 옵셔널 반환은 신중히 하라 자바 8이전에는 메서드가 특정 값을 반환할 수 없을때 취할 수 있는 선택지가 두 가지가 있었습니다. 예외를 던지거나, null을 반환하는 것입니다. 두 방법 모두 허점이 있습니다. 예외는 진짜 예외적인 상황에서만 사용해야 하며 예외를 생성할 때 스택 추적 전체를 캡쳐하므로 바용도 만만치 않습니다. null을 반환할 수 있는 메서드를 호출하면 null 처리를 별도로 해줘야합니다. null 처리를 무시하면 나중에 NPE가 발생할 수 있습니다. 자바 8부터는 Optional을 지원했습니다. Optional&amp;lt;T&amp;gt;는 null이 아닌 T타입 참조를 하나 담거나, 아무것도 담지 않을 수 있습니다.</description>
+      <description>[아이템 55] 옵셔널 반환은 신중히 하라 자바 8이전에는 메서드가 특정 값을 반환할 수 없을때 취할 수 있는 선택지가 두 가지가 있었습니다. 예외를 던지거나, null을 반환하는 것입니다. 두 방법 모두 허점이 있습니다. 예외는 진짜 예외적인 상황에서만 사용해야 하며 예외를 생성할 때 스택 추적 전체를 캡쳐하므로 바용도 만만치 않습니다. null을 반환할 수 있는 메서드를 호출하면 null 처리를 별도로 해줘야합니다. null 처리를 무시하면 나중에 NPE가 발생할 수 있습니다.
+자바 8부터는 Optional을 지원했습니다. Optional&amp;lt;T&amp;gt;는 null이 아닌 T타입 참조를 하나 담거나, 아무것도 담지 않을 수 있습니다.</description>
     </item>
     
     <item>
@@ -591,7 +603,8 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-08/item57/</guid>
-      <description>[아이템 57] 지역변수의 범위를 최소화하라. 지역변수의 범위는 가능한 좁히는 게 좋습니다. 가장 좋은 방법은 선언과 동사에 초기화 해주는 것입니다. 초기화에 필요한 정보가 없다면 정보가 주어질 때까지 선언을 미루는 것입니다.. 물론 try-catch문은 이 규칙에서 예외입니다. try 블록 안에서 초기화해야하고 밖에서도 쓰일 경우 try 블록 앞에서 선언해야 합니다. 이러한 지역변수 초기화는 대표적으로 for (for-each), while로 비교할 수 있습니다.
+      <description>[아이템 57] 지역변수의 범위를 최소화하라. 지역변수의 범위는 가능한 좁히는 게 좋습니다. 가장 좋은 방법은 선언과 동사에 초기화 해주는 것입니다. 초기화에 필요한 정보가 없다면 정보가 주어질 때까지 선언을 미루는 것입니다.. 물론 try-catch문은 이 규칙에서 예외입니다. try 블록 안에서 초기화해야하고 밖에서도 쓰일 경우 try 블록 앞에서 선언해야 합니다.
+이러한 지역변수 초기화는 대표적으로 for (for-each), while로 비교할 수 있습니다.
 1 2 3 4  // 컬렉션이나 베열을 순회하는 권장 관용구 for (Element e : c) { .</description>
     </item>
     
@@ -671,7 +684,8 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-08/item65/</guid>
-      <description>[아이템 65] 리플렉션보다는 인터페이스를 사용하라. 리플렉션 기능을 활용하면 클래스에 접근 할 수 있습니다. Class객체가 주어지면 생성자, 메서드, 필드에 해당하는 Consturct, Method, Field 인스턴스를 가져올 수 있고 그 인스턴스들로는 그 클래스의 시그니처 등을 가져올 수 있습니다. Method.invoke는 어떤 클래스의 어떤 객체가 가진 어떤 메서드라도 호출할 수 있게 해줍니다 물론 장점만있는 건 아닙니다. 단점은 다음과 같습니다.
+      <description>[아이템 65] 리플렉션보다는 인터페이스를 사용하라. 리플렉션 기능을 활용하면 클래스에 접근 할 수 있습니다. Class객체가 주어지면 생성자, 메서드, 필드에 해당하는 Consturct, Method, Field 인스턴스를 가져올 수 있고 그 인스턴스들로는 그 클래스의 시그니처 등을 가져올 수 있습니다.
+Method.invoke는 어떤 클래스의 어떤 객체가 가진 어떤 메서드라도 호출할 수 있게 해줍니다 물론 장점만있는 건 아닙니다. 단점은 다음과 같습니다.
  컴파일타임 타입 검사가 주는 이점을 하나도 누릴 수 없다. 예외 검사도 마찬가지입니다. 리플렉션 기능으로 존재하지 않는 혹은 접근할 수 없는 메서드를 호출하려고하면 런타임 오류가 발생합니다.</description>
     </item>
     
@@ -721,7 +735,8 @@ API 설계할 때 성능에 주는 영향을 고려하라.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-09/item70/</guid>
-      <description>[아이템 70] 복구할 수 있는 상황에서는 검사 예외를, 프로그래밍 오류에는 런타임 예외를 시용하라. 자바에서는 기본적으로 오류는 checked exception, runtime exception, error 이렇게 세 가지로 나눌 수 있습니다. 100% 확실한 건 아니지만 일반적으로 사용하는 상황은 다음과 같습니다. 호출 하는 쪽에서 복구하리라 여거지는 상황에서는 검사 예외를 사용합시다. 이것이 검사 예외랑 비검사 예외를 구분하는 가장 기본적인 규칙입니다. catch로 잡아서 처리하거나 thorws로 예외를 호출한쪽으로 전파하고 호출했을 때 발생할 수 있는 있다는 걸 API 사용자에게 알리는 것입니다.</description>
+      <description>[아이템 70] 복구할 수 있는 상황에서는 검사 예외를, 프로그래밍 오류에는 런타임 예외를 시용하라. 자바에서는 기본적으로 오류는 checked exception, runtime exception, error 이렇게 세 가지로 나눌 수 있습니다. 100% 확실한 건 아니지만 일반적으로 사용하는 상황은 다음과 같습니다.
+호출 하는 쪽에서 복구하리라 여거지는 상황에서는 검사 예외를 사용합시다. 이것이 검사 예외랑 비검사 예외를 구분하는 가장 기본적인 규칙입니다. catch로 잡아서 처리하거나 thorws로 예외를 호출한쪽으로 전파하고 호출했을 때 발생할 수 있는 있다는 걸 API 사용자에게 알리는 것입니다.</description>
     </item>
     
     <item>
@@ -739,7 +754,8 @@ API 설계할 때 성능에 주는 영향을 고려하라.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-09/item72/</guid>
-      <description>[아이템 72] 표준 예외를 사용하라. 자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다. Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 게 좋습니다. 다른 예외들의 상위 클래스이므로 즉 여러 예외를 포괄하기 때문에 안정적으로 테스트할 수 없습니다.</description>
+      <description>[아이템 72] 표준 예외를 사용하라. 자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다.
+Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 게 좋습니다. 다른 예외들의 상위 클래스이므로 즉 여러 예외를 포괄하기 때문에 안정적으로 테스트할 수 없습니다.</description>
     </item>
     
     <item>
@@ -767,7 +783,8 @@ API 설계할 때 성능에 주는 영향을 고려하라.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-09/item75/</guid>
-      <description>[아이템 75] 예외 상세 메시지에 실패 관련 정보를 담으라. 스택 트레이스는 예외 객체의 toString 메서드를 호출해 얻는 문자열입니다. toString 메서드에 발생 원인에 대한 정보는 가능한 많을 수록 좋습니다. 물론 장황하지 않고 필요한 정보만 담는 것입니다. 가장 좋은 건 발생한 예외에 관여된 모든 매개변수와 필드의 값을 실패 메세지에 담는 것입니다. 물론 보안관 관련된 정보는 유의해서 다루어야 합니다. ex) IndexOutOfBoundsException의 상세 메세지에는 범위의 최솟값, 최댓값, 범위를 벗어난 인덱스의 값을 담는 것입니다.</description>
+      <description>[아이템 75] 예외 상세 메시지에 실패 관련 정보를 담으라. 스택 트레이스는 예외 객체의 toString 메서드를 호출해 얻는 문자열입니다. toString 메서드에 발생 원인에 대한 정보는 가능한 많을 수록 좋습니다. 물론 장황하지 않고 필요한 정보만 담는 것입니다. 가장 좋은 건 발생한 예외에 관여된 모든 매개변수와 필드의 값을 실패 메세지에 담는 것입니다. 물론 보안관 관련된 정보는 유의해서 다루어야 합니다.
+ex) IndexOutOfBoundsException의 상세 메세지에는 범위의 최솟값, 최댓값, 범위를 벗어난 인덱스의 값을 담는 것입니다.</description>
     </item>
     
     <item>
@@ -806,7 +823,9 @@ API 설계할 때 성능에 주는 영향을 고려하라.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-10/item79/</guid>
-      <description>[Itemm 79] 과도한 동기화는 피하라. 과도한 동기화는 성능을 저하시키고 교차상태에 빠뜨릴 수 있다. liveness, safety failures를 피하려면 동기화 메서드나 동기화 블록 안에서는 제어를 절대로 클라이언트에게 양보하면 안 된다. ex) 동기화된 영역 안에서 재정의할 수 있는 메서드 호출 x, 클라이언트가 념겨준 함수 객체 호출 x 과도한 동기화는 성능을을 저하 시킨다. 가변 클래스를 작성하거든 동기화를 전혀 하지 말고, 그 클래스를 동시에 사용해야 하는 클래스가 외부에서 알아서 동기화 하게 하던가, 동기화를 내부에서 수행해 스레드 안전한 클래스로 만들자.</description>
+      <description>[Itemm 79] 과도한 동기화는 피하라. 과도한 동기화는 성능을 저하시키고 교차상태에 빠뜨릴 수 있다.
+liveness, safety failures를 피하려면 동기화 메서드나 동기화 블록 안에서는 제어를 절대로 클라이언트에게 양보하면 안 된다. ex) 동기화된 영역 안에서 재정의할 수 있는 메서드 호출 x, 클라이언트가 념겨준 함수 객체 호출 x
+과도한 동기화는 성능을을 저하 시킨다. 가변 클래스를 작성하거든 동기화를 전혀 하지 말고, 그 클래스를 동시에 사용해야 하는 클래스가 외부에서 알아서 동기화 하게 하던가, 동기화를 내부에서 수행해 스레드 안전한 클래스로 만들자.</description>
     </item>
     
     <item>
@@ -825,8 +844,10 @@ API 설계할 때 성능에 주는 영향을 고려하라.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-10/item81/</guid>
-      <description>[아이템 81] wait와 notify보다는 동시성 유틸리티를 애용하라. wait와 notify는 올바르게 사용하기가 아주 까다로우니 고수준 동시성 유틸리티를 사용하라. java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있다.
- 실헹자 프레임워크 동시성 컬렉션 동기화 장치  동시성 컬렉션은 높은 동시성에 도달하기 위해 동기화를 각자의 내부에서 구현한다. 따라서 컬렉션에서 동기성을 무력화하는 건 불가능하며 외부에서 락을 추가로 사용하면 속도가 느려진다. 동시성을 무력화하지 못하므로 여러 메서드를 원자적으로 묶어 호출하는 건 불가능하다. 그레서 여러 기본 동작을 하나의 원자적 동작으로 묶는 &amp;lsquo;상태 의존적 수정&amp;rsquo; 메서드들이 추가되었다.</description>
+      <description>[아이템 81] wait와 notify보다는 동시성 유틸리티를 애용하라. wait와 notify는 올바르게 사용하기가 아주 까다로우니 고수준 동시성 유틸리티를 사용하라.
+java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있다.
+ 실헹자 프레임워크 동시성 컬렉션 동기화 장치  동시성 컬렉션은 높은 동시성에 도달하기 위해 동기화를 각자의 내부에서 구현한다. 따라서 컬렉션에서 동기성을 무력화하는 건 불가능하며 외부에서 락을 추가로 사용하면 속도가 느려진다.
+동시성을 무력화하지 못하므로 여러 메서드를 원자적으로 묶어 호출하는 건 불가능하다. 그레서 여러 기본 동작을 하나의 원자적 동작으로 묶는 &amp;lsquo;상태 의존적 수정&amp;rsquo; 메서드들이 추가되었다.</description>
     </item>
     
     <item>
@@ -845,7 +866,8 @@ API 설계할 때 성능에 주는 영향을 고려하라.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-10/item83/</guid>
-      <description>[아이템 83] 지연 초기화는 신중히 사용하라. 지연 초기화는 필드의 초기화 시점을 그 값이 처음 필요햔 시점까지 늦추는 것이다. 지연 초기화는 인스턴스 생성시 초기화 비용을 줄일 수 있지만, 지연 초기화하는 필드에 접근하는 비용은 커진다. 지연 초기화를 잘못사용하면 실제로 성능이 더 느려질 수도 있다. 멀티 스레드 환경에서 지연 초기화를 하기에는 까다롭다. 지연 초기화하는 필드를 둘 이상 스레드가 공유한다면 동기화해야 한다. 일반적으로 일반적인 초기화가 지연 초기화보다 낫다.
+      <description>[아이템 83] 지연 초기화는 신중히 사용하라. 지연 초기화는 필드의 초기화 시점을 그 값이 처음 필요햔 시점까지 늦추는 것이다. 지연 초기화는 인스턴스 생성시 초기화 비용을 줄일 수 있지만, 지연 초기화하는 필드에 접근하는 비용은 커진다. 지연 초기화를 잘못사용하면 실제로 성능이 더 느려질 수도 있다.
+멀티 스레드 환경에서 지연 초기화를 하기에는 까다롭다. 지연 초기화하는 필드를 둘 이상 스레드가 공유한다면 동기화해야 한다. 일반적으로 일반적인 초기화가 지연 초기화보다 낫다.
 1 2  // 인스턴스 필드를 초기화하는 일반적인 방법 private final FieldType field = computerFieldValue();   1 2 3 4 5 6 7 8 9  // 지연 초기화 - sychronized 방식 private FieldType field; private sychronized FieldType getField() { if (field == null) { field = computerFieldValue(); } return field; }   1 2 3 4 5 6 7 8  // 정적 필드용 지연 초기화 홀더 클래스 관용구 private static class FieldHolder { static final FieldType field = computerFieldValue(); } private static FieldType getField() { return FieldHolder.</description>
     </item>
     
@@ -903,7 +925,8 @@ API 설계할 때 성능에 주는 영향을 고려하라.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/posts/effective-java-3e/chapter-11/item89/</guid>
-      <description>[아이템 89] 인스턴스 수를 통제해야 한다면 readResolve 보단는 열거타입을 사용하라. 1 2 3 4 5 6 7  // 싱글턴 public class Elvis { public static final Elvis INSTANCE = new Elvis(); private Elvis() { ... } public void leaveTheBuilding() { ... } }   Serializable을 구현하는 순간 더이상 싱글턴이 아니다. 어떤 readObject를 사용하든 초기화될때 만들어진 인스턴스와는 별개인 인스턴스를 반환하게 된다. readResolve 기능을 활용하면 readObject가 만들어낸 인스턴스를 다른 것으로 대체할 수 있다</description>
+      <description>[아이템 89] 인스턴스 수를 통제해야 한다면 readResolve 보단는 열거타입을 사용하라. 1 2 3 4 5 6 7  // 싱글턴 public class Elvis { public static final Elvis INSTANCE = new Elvis(); private Elvis() { ... } public void leaveTheBuilding() { ... } }   Serializable을 구현하는 순간 더이상 싱글턴이 아니다. 어떤 readObject를 사용하든 초기화될때 만들어진 인스턴스와는 별개인 인스턴스를 반환하게 된다.
+readResolve 기능을 활용하면 readObject가 만들어낸 인스턴스를 다른 것으로 대체할 수 있다</description>
     </item>
     
     <item>

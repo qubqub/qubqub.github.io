@@ -99,16 +99,21 @@
 {{- if (and (.Param "ShowFontSizeButton") (.Site.Params.disableScrollToTop)) }}
 <script>
   window.onscroll = function () {
-      var postEl = document.querySelector(".post-content");
-      var postElTop = postEl?(postEl.offsetTop + postEl.offsetParent.offsetTop - 1):800;
-      var adiseFontButton = document.getElementById("aside-font-size-button");
-      if (document.body.scrollTop > postElTop || document.documentElement.scrollTop > postElTop) {
-        adiseFontButton.style.visibility = "visible";
-        adiseFontButton.style.opacity = "1";
-      } else {
-        adiseFontButton.style.visibility = "hidden";
-        adiseFontButton.style.opacity = "0";
+    if (window.location.pathname.match(/^\/posts\/.+/)) {
+      const urlSlug = window.location.pathname.match(/^(\/posts\/)([^/]+)/);
+      if (urlSlug[2] !== "page") {
+        var postEl = document.querySelector(".post-content");
+        var postElTop = postEl?(postEl.offsetTop + postEl.offsetParent.offsetTop - 1):800;
+        var adiseFontButton = document.getElementById("aside-font-size-button");
+        if (document.body.scrollTop > postElTop || document.documentElement.scrollTop > postElTop) {
+          adiseFontButton.style.visibility = "visible";
+          adiseFontButton.style.opacity = "1";
+        } else {
+          adiseFontButton.style.visibility = "hidden";
+          adiseFontButton.style.opacity = "0";
+        }
       }
+    }
   };
 </script>
 {{- end }}
@@ -117,25 +122,30 @@
 {{- if (and (.Param "ShowFontSizeButton") (not .Site.Params.disableScrollToTop)) }}
 <script>
   window.onscroll = function () {
-      var postEl = document.querySelector(".post-content");
-      var postElTop = postEl?(postEl.offsetTop + postEl.offsetParent.offsetTop - 1):800;
-      var topLinkButton = document.getElementById("top-link");
-      if (document.body.scrollTop > postElTop || document.documentElement.scrollTop > postElTop) {
-        topLinkButton.style.visibility = "visible";
-        topLinkButton.style.opacity = "1";
-      } else {
-        topLinkButton.style.visibility = "hidden";
-        topLinkButton.style.opacity = "0";
-      }
+    var postEl = document.querySelector(".post-content");
+    var postElTop = postEl?(postEl.offsetTop + postEl.offsetParent.offsetTop - 1):800;
+    var topLinkButton = document.getElementById("top-link");
+    if (document.body.scrollTop > postElTop || document.documentElement.scrollTop > postElTop) {
+      topLinkButton.style.visibility = "visible";
+      topLinkButton.style.opacity = "1";
+    } else {
+      topLinkButton.style.visibility = "hidden";
+      topLinkButton.style.opacity = "0";
+    }
 
-      var adiseFontButton = document.getElementById("aside-font-size-button");
-      if (document.body.scrollTop > postElTop || document.documentElement.scrollTop > postElTop) {
-        adiseFontButton.style.visibility = "visible";
-        adiseFontButton.style.opacity = "1";
-      } else {
-        adiseFontButton.style.visibility = "hidden";
-        adiseFontButton.style.opacity = "0";
+    if (window.location.pathname.match(/^\/posts\/.+/)) {
+      const urlSlug = window.location.pathname.match(/^(\/posts\/)([^/]+)/);
+      if (urlSlug[2] !== "page") {
+        var adiseFontButton = document.getElementById("aside-font-size-button");
+        if (document.body.scrollTop > postElTop || document.documentElement.scrollTop > postElTop) {
+          adiseFontButton.style.visibility = "visible";
+          adiseFontButton.style.opacity = "1";
+        } else {
+          adiseFontButton.style.visibility = "hidden";
+          adiseFontButton.style.opacity = "0";
+        }
       }
+    }
   };
 </script>
 {{- end }}

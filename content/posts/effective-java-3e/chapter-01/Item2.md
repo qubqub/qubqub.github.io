@@ -19,7 +19,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-# [아이템 2] 생성자에 매개변수가 많다면 빌더를 고려해라.
+## [아이템 2] 생성자에 매개변수가 많다면 빌더를 고려해라.
    
 매개변수가 많아질 경우 정적 팩토리 메서드와 생성자는 사용하기 불편해집니다.       
 

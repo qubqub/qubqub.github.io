@@ -19,7 +19,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-# [아이템 4] 인스턴스를 막으려거든 private 생성자를 사용하라
+## [아이템 4] 인스턴스를 막으려거든 private 생성자를 사용하라
 
 java.lang.Math와 java.util.Arrays와 같이 static 메서드와 static 필드만을 담을 클래스는 인스턴스화를 하는 건 낭비가 됩니다.
    

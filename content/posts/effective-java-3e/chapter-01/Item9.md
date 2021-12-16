@@ -19,7 +19,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-# [아이템 9] try-finally보다는 try-with-resources를 사용하라
+## [아이템 9] try-finally보다는 try-with-resources를 사용하라
 자바 라이브러리에는 `InputStream`, `OutputStream`, `java.sql.Connection`과 같이 직접 닫아(close)해줘야 하는 자원들 있습니다. 클라이언트는 실수로 자원을 닫아주지 않는 경우 예상치 못한 성능 문제로 이어질 수 있습니다.
 ``` java
   static String firstLineOfFile(String path) throws IOException {

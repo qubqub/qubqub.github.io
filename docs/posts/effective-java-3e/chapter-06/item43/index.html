@@ -12,7 +12,7 @@
 1  map.merger(key, 1, Integer::sum);   메서드 참조를 이용하면 코드가 간결해지며 가독성이 좋아지는 경우가 있지만 때로는 람다에서는 매개변수의 이름으로 가이드를 할 수도 있고 메서드 참조보다 더 읽기 쉽고 가독성이 더 좋아지는 경우가 있습니다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-06/item43/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.4fff122323c58b22b05a9cec66bfb520abeecf033e98b04233d07df3bc97e9d9.css integrity="sha256-T/8SIyPFiyKwWpzsZr+1IKvuzwM+mLBCM9B987yX6dk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.04ec849a69a01cdcc7b2c5dae620d09443eaba833a856ebe2bfa251f2862e9c3.css integrity="sha256-BOyEmmmgHNzHssXa5iDQlEPquoM6hW6+K/olHyhi6cM=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -28,7 +28,7 @@
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ef1c5e4983e3b4ee19b7d345a7c759d97d6787c6a2f06b89d8b02bbd6a4a5aef.js integrity="sha256-7xxeSYPjtO4Zt9NFp8dZ2X1nh8ai8GuJ2LArvWpKWu8="></script>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.4a716529106c1bdbd16cb5163f15330b98cd8261951264d8ad38fcf7cf3c6ef0.js integrity="sha256-SnFlKRBsG9vRbLUWPxUzC5jNgmGVEmTYrTj89888bvA="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 43] 람다보다는 메서드 참조를 사용하라. 메서드 참조를 이용하면 람다보다 간단하게 코드를 작성할 수 있습니다.
  문법 클래스이름::메소드이름또는참조변수이름::메소드이름
@@ -107,9 +107,9 @@
 <div class=post-content><h1 id=아이템-43-람다보다는-메서드-참조를-사용하라>[아이템 43] 람다보다는 메서드 참조를 사용하라.<a hidden class=anchor aria-hidden=true href=#아이템-43-람다보다는-메서드-참조를-사용하라>#</a></h1>
 <p>메서드 참조를 이용하면 람다보다 간단하게 코드를 작성할 수 있습니다.</p>
 <blockquote>
-<p>문법
-클래스이름::메소드이름
-또는
+<p>문법 <br>
+클래스이름::메소드이름<br>
+또는<br>
 참조변수이름::메소드이름</p>
 </blockquote>
 <p>다음의 예제 코드는 키가 맵에 없다면 키와 숫자 1을 매핑하고, 이미 있다면 기존 매핑 값에 1을 증가시킵니다.</p>
@@ -130,7 +130,7 @@
 <pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=n>map</span><span class=o>.</span><span class=na>merger</span><span class=o>(</span><span class=n>key</span><span class=o>,</span> <span class=n>1</span><span class=o>,</span> <span class=n>Integer</span><span class=o>::</span><span class=n>sum</span><span class=o>);</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>메서드 참조를 이용하면 코드가 간결해지며 가독성이 좋아지는 경우가 있지만 때로는 람다에서는 매개변수의 이름으로 가이드를 할 수도 있고 메서드 참조보다 더 읽기 쉽고 가독성이 더 좋아지는 경우가 있습니다.
+</div><p>메서드 참조를 이용하면 코드가 간결해지며 가독성이 좋아지는 경우가 있지만 때로는 람다에서는 매개변수의 이름으로 가이드를 할 수도 있고 메서드 참조보다 더 읽기 쉽고 가독성이 더 좋아지는 경우가 있습니다. <br>
 메서드 참조 유형은 다섯가지가 있습니다. 가장 흔한 유형은 앞에서 사용했던 정적 메서드를 가리키는 메서드 참조입니다. 먼저 인스턴스 메서드를 참조하는 유형이 두 가지가 있습니다. 그 중 하나는 수신 객체(receiving object; 참조 대상 인스턴스)를 특정하는 한정적(bound) 인스턴스 참조이고, 다른 하나는 수신 객체를 특정하지 않는 비한정적(unbound) 인스턴스 메서드 참조압니다. 한정적 참조는 함수 객체가 받는 인수와 참조되는 메서드가 받는 인수와 똑같습니다. 비한정적 참조에서는 함수 객체를 적용하는 시점에 수신 객체를 알려줍니다. 이를 위해 수신 객체 전달용 매개변수가 매개변수의 목록의 첫 번째로 추가되며, 그 뒤로는 참조되는 메서드 선언에 정의된 매개변수들이 뒤따릅니다. 비한정적 참조는 스트림 파이프라인에서의 매핑과 필터 함수에 주로 사용됩니다.</p>
 </div>
 <footer class=post-footer><div class=post-license-info>
@@ -176,7 +176,7 @@ Powered by
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class="top-link button" id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentcolor"><path d="M414 321.94 274.22 158.82a24 24 0 00-36.44.0L98 321.94c-13.34 15.57-2.28 39.62 18.22 39.62h279.6c20.5.0 31.56-24.05 18.18-39.62z"/></svg>
 </a>
 <script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"auto"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
-<script>window.onscroll=function(){var d=document.querySelector(".post-content"),a=d?d.offsetTop+d.offsetParent.offsetTop-1:800,b=document.getElementById("top-link"),c;document.body.scrollTop>a||document.documentElement.scrollTop>a?(b.style.visibility="visible",b.style.opacity="1"):(b.style.visibility="hidden",b.style.opacity="0"),c=document.getElementById("aside-font-size-button"),document.body.scrollTop>a||document.documentElement.scrollTop>a?(c.style.visibility="visible",c.style.opacity="1"):(c.style.visibility="hidden",c.style.opacity="0")}</script>
+<script>window.onscroll=function(){var d=document.querySelector(".post-content"),a=d?d.offsetTop+d.offsetParent.offsetTop-1:800,b=document.getElementById("top-link"),c;if(document.body.scrollTop>a||document.documentElement.scrollTop>a?(b.style.visibility="visible",b.style.opacity="1"):(b.style.visibility="hidden",b.style.opacity="0"),window.location.pathname.match(/^\/posts\/.+/)){const b=window.location.pathname.match(/^(\/posts\/)([^/]+)/);b[2]!=="page"&&(c=document.getElementById("aside-font-size-button"),document.body.scrollTop>a||document.documentElement.scrollTop>a?(c.style.visibility="visible",c.style.opacity="1"):(c.style.visibility="hidden",c.style.opacity="0"))}}</script>
 <script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
 <script>var asideIncreaseFont,asideDecreaseFont,asideDefaultFont;localStorage.setItem("post-content-font-size",100),asideIncreaseFont=document.getElementById("aside-font-size-increase"),asideDecreaseFont=document.getElementById("aside-font-size-decrease"),asideDefaultFont=document.getElementById("aside-font-size-default"),asideIncreaseFont.addEventListener("click",function(a){if(localStorage.getItem("post-content-font-size")){let a=parseInt(localStorage.getItem("post-content-font-size"));if(a+5>200)return;document.querySelector(".post-single .post-content").style.fontSize=a+10+"%",document.querySelector(".display-font-size-info").innerText=a+10+"%",document.querySelector(".aside-display-font-size-info").innerText=a+10+"%",localStorage.setItem("post-content-font-size",a+10)}else document.querySelector(".post-single .post-content").style.fontSize="110%",document.querySelector(".display-font-size-info").innerText="110%",document.querySelector(".aside-display-font-size-info").innerText="110%",localStorage.setItem("post-content-font-size",110)}),asideDecreaseFont.addEventListener("click",function(a){if(localStorage.getItem("post-content-font-size")){let a=parseInt(localStorage.getItem("post-content-font-size"));if(a-5<50)return;document.querySelector(".post-single .post-content").style.fontSize=a-10+"%",document.querySelector(".display-font-size-info").innerText=a-10+"%",document.querySelector(".aside-display-font-size-info").innerText=a-10+"%",localStorage.setItem("post-content-font-size",a-10)}else document.querySelector(".post-single .post-content").style.fontSize="90%",document.querySelector(".display-font-size-info").innerText="90%",document.querySelector(".aside-display-font-size-info").innerText="90%",localStorage.setItem("post-content-font-size",90)}),asideDefaultFont.addEventListener("click",function(a){document.querySelector(".post-single .post-content").style.fontSize="100%",document.querySelector(".display-font-size-info").innerText="100%",document.querySelector(".aside-display-font-size-info").innerText="100%",localStorage.setItem("post-content-font-size",100)})</script></body>
 </html>

@@ -19,14 +19,15 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-# [아이템 12] toString을 항상 재정의하라.
-toString을 오버라이딩 하지 않으면 기본적으로 **클래스_이름@16진수로_표현한_해시코드**를 반환합니다. </br>
+## [아이템 12] toString을 항상 재정의하라.
+toString을 오버라이딩 하지 않으면 기본적으로 **클래스_이름@16진수로_표현한_해시코드**를 반환합니다.
+
 이렇게 되면 객체의 특성을 알아볼 수 있으므로 `toString`을 재정의 할 필요가 있습니다.
 ``` java
 Student student = new Student("kim", 16);
 System.out.println(student);
 ```
-위 코드를 실행하면 Student@abcd같은 형태로 콘솔에 출력되므로 객체의 특성을 파악하기가 힘듭니다.
+위 코드를 실행하면 `Student@abcd`같은 형태로 콘솔에 출력되므로 객체의 특성을 파악하기가 힘듭니다.
 
 ### **toString 재정의하는 좋은 방법.**
 - 객체가 가진 가진 **주요 정보를 모두 반환**하는 게 좋습니다.
