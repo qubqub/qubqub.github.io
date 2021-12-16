@@ -24,7 +24,7 @@
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.4a716529106c1bdbd16cb5163f15330b98cd8261951264d8ad38fcf7cf3c6ef0.js integrity="sha256-SnFlKRBsG9vRbLUWPxUzC5jNgmGVEmTYrTj89888bvA="></script>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ef1c5e4983e3b4ee19b7d345a7c759d97d6787c6a2f06b89d8b02bbd6a4a5aef.js integrity="sha256-7xxeSYPjtO4Zt9NFp8dZ2X1nh8ai8GuJ2LArvWpKWu8="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="Posts">
 <meta property="og:description" content="<Qutrits/>">
 <meta property="og:type" content="website">
@@ -83,87 +83,92 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
-<h2>[아이템 8] finalizer와 cleaner 사용을 피하라
+<h2>AlgorithmStudy_백준 1181
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 8] finalizer와 cleaner 사용을 피하라 자바에서는 두 가지 객체 소멸자를 제공합니다. 바로 finalizer와 cleaner입니다. finalizer는 예측 불가능하며 일반적으로 불필요하며 오작동 낮은 성능과 같은 문제점들이 있습니다. 자바 9부터는 사용 자제(deprecated) API로 지정했습니다.
-cleaner는 finalizer보다 덜 위험하지만 이 역시 예측 불가능하고, 느리고 일반적으로 불필요합니다.
-단점 언제 실행되는지 알 수가 없다 finalizer와 cleaner는 즉시 실행된다는 보장이 없습니다. 즉 제때 실행되어야 하는 작업을 절대 할 수 없다는 뜻입니다.
-finalizer는 굉장히 lazy 합니다 여기서 lazy하다는 뜻은 인스턴스의 자원 회수가 멋대로 지연될 수 있다는 뜻입니다....</p>
+<p>알고리즘 공부 백준 1181 🧐 단어 정렬 👉문제 알파벳 소문자로 이루어진 N개의 단어가 들어오면 아래와 같은 조건에 따라 정렬하는 프로그램을 작성하시오.
+길이가 짧은 것부터 길이가 같으면 사전 순으로 👉입력 첫째 줄에 단어의 개수 N이 주어진다. (1 ≤ N ≤ 20,000) 둘째 줄부터 N개의 줄에 걸쳐 알파벳 소문자로 이루어진 단어가 한 줄에 하나씩 주어진다. 주어지는 문자열의 길이는 50을 넘지 않는다.
+👉출력 조건에 따라 정렬하여 단어들을 출력한다. 단, 같은 단어가 여러 번 입력된 경우에는 한 번씩만 출력한다....</p>
 </section>
-<footer class=entry-footer><span title="2020-06-20 15:12:33 +0900 KST">2020년 6월 20일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2021-11-12 23:39:46 +0900 KST">2021년 11월 12일</span>
 <ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 8] finalizer와 cleaner 사용을 피하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-01/item8/></a>
+<a class=entry-link aria-label="post link to AlgorithmStudy_백준 1181" href=https://qutrits.github.io/posts/dummy/algorithm8/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>[아이템 7] 다 쓴 객체 참조를 해제하라
+<h2>AlgorithmStudy_백준 1929
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 7] 다 쓴 객체 참조를 해제하라 메모리 누수가 일어나는 예제 코드
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 public class Stack { private Object[] elements; private int size = 0; private static final int DEFAULT_INITIAL_CAPACITY = 16; public Stack() { elements = new Object[DEFAULT_INITIAL_CAPACITY]; } public void push(Object e) { ensureCapacity(); elements[size++] = e; } public Object pop() { if (size == 0) throw new EmptyStackException(); return elements[--size]; // 주의 } private void ensureCapacity() { if (elements....</p>
+<p>알고리즘 공부 백준 1929 🧐 소수 구하기 👉문제 M이상 N이하의 소수를 모두 출력하는 프로그램을 작성하시오.
+👉입력 첫째 줄에 자연수 M과 N이 빈 칸을 사이에 두고 주어진다. (1 ≤ M ≤ N ≤ 1,000,000) M이상 N이하의 소수가 하나 이상 있는 입력만 주어진다.
+👉출력 한 줄에 하나씩, 증가하는 순서대로 소수를 출력한다.
+🍑풀이
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 using System; using System....</p>
 </section>
-<footer class=entry-footer><span title="2020-06-20 12:15:43 +0900 KST">2020년 6월 20일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2021-11-12 23:39:46 +0900 KST">2021년 11월 12일</span>
 <ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 7] 다 쓴 객체 참조를 해제하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-01/item7/></a>
+<a class=entry-link aria-label="post link to AlgorithmStudy_백준 1929" href=https://qutrits.github.io/posts/dummy/algorithm7/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>[아이템 6] 불피요한 객체를 생성을 피하라
+<h2>AlgorithmStudy_백준 11866
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 6] 불피요한 객체를 생성을 피하라 기능이 똑같은 객체를 매번 생성하기 보다는 객체를 재사용하는 것이 적절합니다. 특히 불변 객체는 항상 재사용할 수 있습니다.
-문자열 생성 방법 객체 생성 방식 - 피해야되는 예시 1 String str = new String("hello"); 이 방식을 이용하면 똑같은 문자열을 생성하더라도 항상 새로운 객체를 생성하므로 낭비가 됩니다.
-리터럴 방식 1 String str = "hello"; 리터럴 방식을 사용하면 JVM에서 동일한 문자열이 존재한다면 그 리터럴을 재사용합니다....</p>
+<p>알고리즘 공부 백준 11866 🧐 오세푸스 문제 👉문제 요세푸스 문제는 다음과 같다.
+1번부터 N번까지 N명의 사람이 원을 이루면서 앉아있고, 양의 정수 K(≤ N)가 주어진다. 이제 순서대로 K번째 사람을 제거한다. 한 사람이 제거되면 남은 사람들로 이루어진 원을 따라 이 과정을 계속해 나간다. 이 과정은 N명의 사람이 모두 제거될 때까지 계속된다. 원에서 사람들이 제거되는 순서를 (N, K)-요세푸스 순열이라고 한다. 예를 들어 (7, 3)-요세푸스 순열은 &lt;3, 6, 2, 7, 5, 1, 4>이다.
+N과 K가 주어지면 (N, K)-요세푸스 순열을 구하는 프로그램을 작성하시오....</p>
 </section>
-<footer class=entry-footer><span title="2020-06-19 18:33:20 +0900 KST">2020년 6월 19일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2021-11-12 04:21:22 +0900 KST">2021년 11월 12일</span>
 <ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 6] 불피요한 객체를 생성을 피하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-01/item6/></a>
+<a class=entry-link aria-label="post link to AlgorithmStudy_백준 11866" href=https://qutrits.github.io/posts/dummy/algorithm6/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>[아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하여라
+<h2>AlgorithmStudy_백준 1920
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하여라. 대부분의 클래스는 하나 이상의 리소스에 의존합니다. 이번 예제에서는 SpellChecker가 Lexicon를 의존하고 있는 모습입니다.
-부적절한 구현 정적 유틸리티를 잘못 사용한 예 - 유연하지 않고 테스트 할 수 없다 1 2 3 4 5 6 7 8 9 public class SpellChecker { private static final Lexicon dictionary = ...; private SpellChecker() { } public static boolean isValid(String word) { ... } public static List&lt;String> suggestions(String typo) { } } 싱글턴을 잘못 사용한 예 - 유연하지 않고 테스트하기 어렵다 1 2 3 4 5 6 7 8 9 10 public class SpellChecker { private final Lexicon dictionary = ....</p>
+<p>알고리즘 공부 백준 1920 🧐 수 찾기 👉문제 N개의 정수 A[1], A[2], …, A[N]이 주어져 있을 때, 이 안에 X라는 정수가 존재하는지 알아내는 프로그램을 작성하시오.
+👉입력 첫째 줄에 자연수 N(1 ≤ N ≤ 100,000)이 주어진다. 다음 줄에는 N개의 정수 A[1], A[2], …, A[N]이 주어진다. 다음 줄에는 M(1 ≤ M ≤ 100,000)이 주어진다. 다음 줄에는 M개의 수들이 주어지는데, 이 수들이 A안에 존재하는지 알아내면 된다. 모든 정수의 범위는 -231 보다 크거나 같고 231보다 작다....</p>
 </section>
-<footer class=entry-footer><span title="2020-06-19 17:15:21 +0900 KST">2020년 6월 19일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2021-11-12 04:21:22 +0900 KST">2021년 11월 12일</span>
 <ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하여라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-01/item5/></a>
+<a class=entry-link aria-label="post link to AlgorithmStudy_백준 1920" href=https://qutrits.github.io/posts/dummy/algorithm5/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>[아이템 4] 인스턴스를 막으려거든 private 생성자를 사용하라
+<h2>c#_string_StringBuilder
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 4] 인스턴스를 막으려거든 private 생성자를 사용하라 java.lang.Math와 java.util.Arrays와 같이 static 메서드와 static 필드만을 담을 클래스는 인스턴스화를 하는 건 낭비가 됩니다.
-매개변수 없는 생성자를 만들지 않으면 기본생성자가 생성이 되는데 이것을 방치하면 클라이언트 입장에서는 정적 멤버만 담은 유틸리티 클래스인지 알 수 없으므로 인스턴스화를 시킬 가능성이 있습니다. 이를 방지하기 위해 private 생성자를 만들어서 인스턴스화를 막을 수 있습니다.
-1 2 3 4 5 public class UtilityClass { private UtilityClass() { } } private 생성자이므로 상속을 시도하려는 클래스에서는 생성자를 호출할 수 없기 때문에 상속도 불가능 합니다....</p>
+<p>C# 공부 string/StringBuilder🤔 ✨string Immutable(불변) 변수. 값이 아닌 참조 변수. 내부적으로 문자열을 관리하는 버퍼를 가지고 있지않다. 대신 이를 참조하고 있다. string마다 새로운 클래스가 생성이 된다. 1 2 3 4 string a = "안녕" + "하세요"; //"안녕" "하세요" -> 각각의 string class 생성. //a string class 생성. //총 3개의 string class가 생성된다. -> 즉 garbage가 많이 생긴다. ✨StringBuilder 내부적으로 버퍼를 가지고 있다. 조합이 가능하다. 즉, 조합할 때마다 새롭게 class를 생성하지않는다....</p>
 </section>
-<footer class=entry-footer><span title="2020-06-19 15:51:43 +0900 KST">2020년 6월 19일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2021-11-12 04:21:22 +0900 KST">2021년 11월 12일</span>
 <ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/string/>string</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/stringbuilder/>StringBuilder</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 4] 인스턴스를 막으려거든 private 생성자를 사용하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-01/item4/></a>
+<a class=entry-link aria-label="post link to c#_string_StringBuilder" href=https://qutrits.github.io/posts/dummy/csharp1/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -198,7 +203,7 @@ finalizer는 굉장히 lazy 합니다 여기서 lazy하다는 뜻은 인스턴�
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
-<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/18/><svg style="margin-right:-10px;vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/25/><svg style="margin-right:-10px;vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

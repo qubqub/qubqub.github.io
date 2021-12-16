@@ -24,7 +24,7 @@
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.4a716529106c1bdbd16cb5163f15330b98cd8261951264d8ad38fcf7cf3c6ef0.js integrity="sha256-SnFlKRBsG9vRbLUWPxUzC5jNgmGVEmTYrTj89888bvA="></script>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ef1c5e4983e3b4ee19b7d345a7c759d97d6787c6a2f06b89d8b02bbd6a4a5aef.js integrity="sha256-7xxeSYPjtO4Zt9NFp8dZ2X1nh8ai8GuJ2LArvWpKWu8="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="Posts">
 <meta property="og:description" content="<Qutrits/>">
 <meta property="og:type" content="website">
@@ -83,15 +83,53 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
-<h2>
+<h2>[아이템 3] private 생성자나 열거 타입으로 싱글턴임을 보증하라
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 66] 네이티브 메서드는 신중히 사용하라. 자바 네이티브 인터페이스는 자바 프로그램이 네이티브 메서드를 호출하는 기술입니다. 네이티브 메서드란 C나 C++같읕 네이비티브 프로그래밍 언어로 작성한 메서드를 말합니다. 네이티브 메서드의 주요 쓰임은 세 가지가 있습니다.
-레지스트리 같은 플랫폼 특화 기능을 사용한다. 네이티브 코드로 작성된 기존 라이브러리를 사용한다. 성능 개선을 목적으로 성능에 결정적인 영향을 주는 영역만 따로 네이티브 언어로 작성한다. 자바 9부터는 process API를 추가해 OS 프로세스에 접근하는 길을 열어주었고 자바에서 네이티브 메서드를 사용할 필요가 점점 줄어드는 추세입니다....</p>
+<p>[아이템 3] private 생성자나 열거 타입으로 싱글턴임을 보증하라 싱글턴(singletone)이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.
+싱글턴을 만드는 방식은 보통 둘 중 하나입니다.
+public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9 public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { ....</p>
 </section>
-<footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item66/></a>
+<footer class=entry-footer><span title="2020-06-18 19:09:20 +0900 KST">2020년 6월 18일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-01/item3/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>[아이템 2] 생성자에 매개변수가 많다면 빌더를 고려하라
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 2] 생성자에 매개변수가 많다면 빌더를 고려해라. 매개변수가 많아질 경우 정적 팩토리 메서드와 생성자는 사용하기 불편해집니다.
+첫번째 대안: 생성자를 이용할 경우 1 Nutritionfact cocaCola = new Nutritionfact(240, 8, 100, 0, 35); 이렇게 생성자를 만들 수 있지만 어떤 속성 값을 설정했는지 알기 힘듭니다. 매개변수의 수가 늘어날 수록 코드를 작성하거나 읽기 힘들어집니다. 문제는 매개변수 타입이 같은 상황에서 실수로 순서를 바꿔 입력할 경우 컴파일 시점에서 알 수 없고 런타임에 엉뚱하게 동작하게 됩니다....</p>
+</section>
+<footer class=entry-footer><span title="2020-06-18 17:21:20 +0900 KST">2020년 6월 18일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 4 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 2] 생성자에 매개변수가 많다면 빌더를 고려하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-01/item2/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라
+</h2>
+</header>
+<section class=entry-content>
+<p>[Iteam 1] 생성자 대신 정적 팩토리 메서드를 고려하라 일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메소드를 이용할 수 있다. Boolean 클래스에서 발췌한 예제 코드
+1 2 3 public static Boolean valueOf(boolean b) { return b ? Boolean.TRUE : Booelan.FALSE; } 장점 1. 이름을 가질 수 있다. 생성자에 넘기는 매개변수만으로 반활된 객체의 특성을 제대로 설명하지 못합니다.
+반면 정적 팩터리 메서드는 이름을 잘 지으면 반환될 객체의 특성을 쉽게 묘사할 수 있습니다....</p>
+</section>
+<footer class=entry-footer><span title="2020-06-18 15:49:20 +0900 KST">2020년 6월 18일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-01/item1/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -99,12 +137,11 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 67] 최적화는 신중히 하라. 최적화는 좋은 결과보다 해로운 결과로 이어지기 쉽고, 자칫하면 빠르지도 않고 제대로 동작하지 않는 소프트웨어를 탄생시키는 것과 같습니다. 그러므로 최적화 할때는 득과실을 잘 생각해봐야 합니다.
-성능을 제한하는 설계를 피하라 완성 후 변경하기가 가장 어려운 설계 요소는 바로 컴포넌트끼리 혹은 외부 시스템과의 소통 방식입니다. 대표적으로 API, 네트워크 프로토콜 등이 있습ㄴ디ㅏ. 이런 설계 요소들은 완성 후에는 변경하기 어려우며 동시에 시스템 성능을 심각하게 제한할 수 있습니다.
-API 설계할 때 성능에 주는 영향을 고려하라....</p>
+<p>[아이템 34] int 상수 대신 열거 타입을 사용하라. 열거 타입이란 일정 개수의 상수 값을 정의하고 그 이외 값들은 허용하지 않는 타입입니다. 대표적으로 사계절, 요일, 태양계의 행성 등이 있습니다.
+열거 타입을 지원하기 전 코드 1 2 3 4 5 // 정수 열거 패턴 - 상당히 취약하다. public static final int EAST = 0; public static final int WEST = 1; public static final int SOUTH = 2; public static final int NORTH = 3; 이 코드는 타입의 안전성을 보장할 수 없고 표현력도 좋지 않습니다....</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item67/></a>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-05/item34/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -112,34 +149,11 @@ API 설계할 때 성능에 주는 영향을 고려하라....</p>
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 68] 일반적으로 통용되는 명명 규칙을 따르라. 자바이 명명 규칙은 크게 철자와 문법, 두 범주로 나뉘고 명명 규칙을 지켜야 좋은 프로그래밍이 될 수 있습니다. 대표적으로 메서드와 필드 내임의 첫 글자는 소문자를 사용합니다. 하지만 상수 필드의 경우 예외입니다. 상수는 모두 대무자를 이용하며 단어 사이는 _로 구분 합니다. ex)MAX_VALUE.. 상수 필드는 값이 static final 필드를 말합니다. 타입 매개변수 같은 경우 한 문자로 표현되며, 임의의 타입에는 T를, 컬렉션 원소의 타입은 E, 맵의 키와 값에는 K, V를, 예외는 X, 메서드의 반환 타입에는 R을 사용합니다....</p>
+<p>[아이템 35] ordinal 메서드 대신 인스턴스 필드를 사용하라 대부분 열거 타입 상수는 자연스럽게 하나의 정숫값에 대응됩니다. 모든 엵 ㅓ타입은 해당 상수가 그 열거 타입에서 몇 번째 위치인지를 반환하는 ordinal 이라는 메서드를 제공합니다.
+1 2 3 4 5 6 7 8 9 10 // ordinal을 잘못 사용한 예 public enum FRUITS { APPLE, BANANA, ORANGE; public int numberOfFruits() { return ordinal() + 1; } } 상수 선언 순서를 바꾸는 순간 numberOfFruits는 오작동하며 이미 사용중인 정수와 값이 같은 상수는 추가할 수 없고 중간에 값을 비울 수도 없습니다....</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item68/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>
-</h2>
-</header>
-<section class=entry-content>
-<p>[아이템 69] 예외는 진짜 예외 상황에서만 사용하라. 예외는 반드시 예외 상황에서만 사용해야한다. 일반적인 제어 흐름용으로 사용하면 안 됩니다.
-1 2 3 4 5 6 7 8 try { int i = 0; while (true) { index[i++].doSomething(); } } catch (ArrayIndexOutOfBoundsException) { .. } 코드가 장황하고 직관적이지 않습니다. 성능도 일반적인 제어 흐름보다 느립니다.</p>
-</section>
-<footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-09/item69/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>
-</h2>
-</header>
-<section class=entry-content>
-<p>[아이템 70] 복구할 수 있는 상황에서는 검사 예외를, 프로그래밍 오류에는 런타임 예외를 시용하라. 자바에서는 기본적으로 오류는 checked exception, runtime exception, error 이렇게 세 가지로 나눌 수 있습니다. 100% 확실한 건 아니지만 일반적으로 사용하는 상황은 다음과 같습니다.
-호출 하는 쪽에서 복구하리라 여거지는 상황에서는 검사 예외를 사용합시다. 이것이 검사 예외랑 비검사 예외를 구분하는 가장 기본적인 규칙입니다. catch로 잡아서 처리하거나 thorws로 예외를 호출한쪽으로 전파하고 호출했을 때 발생할 수 있는 있다는 걸 API 사용자에게 알리는 것입니다....</p>
-</section>
-<footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-09/item70/></a>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-05/item35/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -174,7 +188,7 @@ API 설계할 때 성능에 주는 영향을 고려하라....</p>
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
-<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/18/><svg style="margin-right:-10px;vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/25/><svg style="margin-right:-10px;vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

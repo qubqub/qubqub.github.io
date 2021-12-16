@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>class on &lt;Qutrits/&gt;</title>
+    <link>https://qutrits.github.io/tags/class/</link>
+    <description>Recent content in class on &lt;Qutrits/&gt;</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 02 Dec 2021 23:13:57 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/tags/class/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>abstract class: 추상클래스</title>
+      <link>https://qutrits.github.io/posts/dummy/stuying10_abstract/</link>
+      <pubDate>Thu, 02 Dec 2021 23:13:57 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/dummy/stuying10_abstract/</guid>
+      <description>오늘은 추상 클래스에 대해 알아보쟈!
+abstract class(추상클래스)가 뭐야? 🧐 인터페이스가 Can Do를 알려주는 역할이라면 추상클래스는 분류(category)를 알려주는 클래스다.
+💚 예시 (내가 이해한 방식) 인터페이스에서 이야기했던 예시를 이어가자면, 앵무새와 참새, 펭귄 그리고 슈가 글라이더는 각자 객체를 가질 수 있다. 하지만 앵무새,참새 그리고 펭귄을 포함하는 조류, 슈가 글라이더를 포함하는 포유류라는 것은 객체가 없는, 추상적인 분류(category)의 개념이다. 추상클래스 안에 추상메소드는 인터페이스와 같은 역할이라고 생각하면된다. 즉, &amp;ldquo;이러한 분류(추상클래스)에 속하는 객체들은 이러한(추상메소드)것에 반드시 반응해야한다.&amp;rdquo; 라는 계약이 생긴다.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -24,7 +24,7 @@
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.4a716529106c1bdbd16cb5163f15330b98cd8261951264d8ad38fcf7cf3c6ef0.js integrity="sha256-SnFlKRBsG9vRbLUWPxUzC5jNgmGVEmTYrTj89888bvA="></script>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ef1c5e4983e3b4ee19b7d345a7c759d97d6787c6a2f06b89d8b02bbd6a4a5aef.js integrity="sha256-7xxeSYPjtO4Zt9NFp8dZ2X1nh8ai8GuJ2LArvWpKWu8="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="Posts">
 <meta property="og:description" content="<Qutrits/>">
 <meta property="og:type" content="website">
@@ -87,11 +87,11 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 86] Serializable을 구현할지는 신중히 결정하라. Serializable을 구현하면 릴리스 한 뒤에는 수정하기 어렵습니다. 직렬화 당시 내부 구현 방식에 묶이고, 캡슐화가 깨지는 위험이 있습니다. 직렬화된 클래스는 고유 식별 번호를 부여받는데, serialVersionUID를 명시하지 않으면 런타임에 SHA-1을 적용하여 자동으로 클래스 안에 생성해 넣는데, 클래스의 이름, 멤버 등이 포함됩니다. 그래서 나중에 이들 중 하나를 수정한다면 UID 값도 변하여 호환성이 깨져버립니다.
-1 2 3 4 // 상태가 있고, 확장 가능하고, 직렬화 가능한 클래스용 readObjectNoData 메서드 private void readObjectNoData() throws InvalidObjectException() { throw new InvalidObjectException("스트림 데이터가 필요합니다"); } </p>
+<p>[아이템 51] 메서드 시그니처를 신중히 설계하라. 메서드 이름을 신중히 짓자. 항상 표준 명명 규칙을 따라야합니다. 이름만 보고 이해할 수 있고, 일관성있게 짓는 것이 핵심입니다. 그 다음 목표는 개발자 커뮤니티에서 널리 받아들여지는 이름을 사용하는 것입니다. 되도록이면 긴 이름은 피하는 것이 좋습니다. 물론 조직내에 규율이 있다면 그 규율을 지키는 게 우선입니다.
+편의 메서드를 너무 만들지 말자. 메서드가 너무 많은 클래스는 파악하고 유지보수 하기도 힘들고 객체지향 SOLID원칙 중 Single Responsiblity Principle에 위반될 수도 있습니다....</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-11/item86/></a>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-07/item51/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -99,11 +99,11 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 87] 커스텀 직렬화 형태를 고려해보라. 이상적인 직렬화는 물리적인 모습과 독립된 논리적인 모습을 표현해야한다. 하지만 기본 직렬화 형태는 객체가 포함한 모든 데이터와 그 객체에서부터 시작해 접근할 수 있는 모든 객체를 담아낸다.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 public class Name implements Serializable { /* * 성. null이 아니어야 함. * @serial */ private final String lastName; /* * 이름....</p>
+<p>[아이템 52] 다중정의는 신중히 사용하라. 다음은 컬렉션을 집합, 리스트, 그 외로 구분하고자 만든 프로그램입니다.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 public class CollectionClassifier { public static String classify(Set&lt;?> s) { return "Set"; } public static String classify(List&lt;?> lst) { return "List"; } public static String classify(Collection&lt;?> c) { return "Unknown Collection"; } public static void main(String[] args) { Collection&lt;?...</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-11/item87/></a>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-07/item52/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -111,10 +111,11 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 88] readObject 메서드는 방어적으로 작성하라. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 // 방어적 복사를 사용하는 불변 클ㄹ스 public final class Period { private final Date start; private final Date end; /** * @param start 시작 시간 * @param end 종료 시각. 시작 시간보다 뒤어야 한다 * @throws IllegalArgumentException 시작 시간이 종료 시간보다 늦을 때 발생한다 * @throws NullPointerException start나 end가 null일시 발생 */ public Period(Date start, Date end) { this....</p>
+<p>[아이템 53] 가변인수는 신중히 사용하라. 가변인수(varargs) 메서드는 명시한 타입의 인수를 0개 이상 받을 수 있습니다. 다음 예제는 int 인자의 합을 구하는 가변인수 메서드입니다.
+1 2 3 4 5 6 7 static int sum(int... args) { int sum = 0; for (int args: args) { sum += args; } return sum; } 1개 이상의 인수가 필요한 경우도 있습니다. 다음 예제는 1개 이상의 인수를 필요료하는 가변인수 메서드의 잘못된 구현입니다....</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-11/item88/></a>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-07/item53/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -122,11 +123,11 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 89] 인스턴스 수를 통제해야 한다면 readResolve 보단는 열거타입을 사용하라. 1 2 3 4 5 6 7 // 싱글턴 public class Elvis { public static final Elvis INSTANCE = new Elvis(); private Elvis() { ... } public void leaveTheBuilding() { ... } } Serializable을 구현하는 순간 더이상 싱글턴이 아니다. 어떤 readObject를 사용하든 초기화될때 만들어진 인스턴스와는 별개인 인스턴스를 반환하게 된다.
-readResolve 기능을 활용하면 readObject가 만들어낸 인스턴스를 다른 것으로 대체할 수 있다...</p>
+<p>[아이템 54] null이 아닌, 빈 컬렉션이나 배열을 반환하라. 1 2 3 4 5 6 // 컬렉션이 비어있으면 null을 반환 - 따라하지 말 것 private final List&lt;Cheese> cheesesInStock = ...; public List&lt;Cheese> getCheeses() { return cheesesInStock.isEmpty() ? null : new ArrayList&lt;>(cheesesInStock); } null을 반환할 경우 클라이어트는 이 null 상황을 처리하는 코드를 추가로 작성해야합니다.
+1 2 3 4 List&lt;Cheese> cheesesInStock = shop.getCheeses(); if (cheese != null && cheeses.contains(cheese.STILTON)) { system....</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-11/item89/></a>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-07/item54/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -134,11 +135,11 @@ readResolve 기능을 활용하면 readObject가 만들어낸 인스턴스를 �
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 90] 직렬화된 인스턴스 대신 직렬화 프록시 사용을 검토하라. 직렬화 프록시 패턴을 이용하면 앞서 애기했던 단점들을 줄일 수 있다.먼저 바깥 클래스의 논리적인 상태를 표현하는 중첩 클래스를 private static으로 생성한다. 이 중첩 클래스가 바깥 클래스의 직렬화 프록시다. 이 클래스는 단순히 인스로 넘어온 인스턴스의 데이터만 복사하고 바깥 클래스와 모두 Serializable을 구현해야한다.
-1 2 3 4 5 6 7 8 9 10 11 // Period 클래스용 직렬화 프록시 private static class SerializationProxy implements Serializable { private final Date start; private final Date end; SerializationProxy(Period p) { this....</p>
+<p>[아이템 55] 옵셔널 반환은 신중히 하라 자바 8이전에는 메서드가 특정 값을 반환할 수 없을때 취할 수 있는 선택지가 두 가지가 있었습니다. 예외를 던지거나, null을 반환하는 것입니다. 두 방법 모두 허점이 있습니다. 예외는 진짜 예외적인 상황에서만 사용해야 하며 예외를 생성할 때 스택 추적 전체를 캡쳐하므로 바용도 만만치 않습니다. null을 반환할 수 있는 메서드를 호출하면 null 처리를 별도로 해줘야합니다. null 처리를 무시하면 나중에 NPE가 발생할 수 있습니다.
+자바 8부터는 Optional을 지원했습니다. Optional&lt;T>는 null이 아닌 T타입 참조를 하나 담거나, 아무것도 담지 않을 수 있습니다....</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-11/item90/></a>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-07/item55/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -153,12 +154,6 @@ readResolve 기능을 활용하면 readObject가 만들어낸 인스턴스를 �
 </a>
 </li>
 <li class=pagination__item>
-<a href=/posts/page/14/ class=pagination__link>14</a>
-</li>
-<li class=pagination__item>
-<a href=/posts/page/15/ class=pagination__link>15</a>
-</li>
-<li class=pagination__item>
 <a href=/posts/page/16/ class=pagination__link>16</a>
 </li>
 <li class=pagination__item>
@@ -166,6 +161,21 @@ readResolve 기능을 활용하면 readObject가 만들어낸 인스턴스를 �
 </li>
 <li class="pagination__item pagination__item--current">
 <a>18</a>
+</li>
+<li class=pagination__item>
+<a href=/posts/page/19/ class=pagination__link>19</a>
+</li>
+<li class=pagination__item>
+<a href=/posts/page/20/ class=pagination__link>20</a>
+</li>
+<li class="pagination__item pagination__item--next">
+<a href=https://qutrits.github.io/posts/page/19/ class="pagination__link pagination__link--next">
+다음 페이지<svg style="margin-right:-10px;vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+</a>
+</li>
+<li class="pagination__item pagination__item--last">
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/25/><svg style="margin-right:-10px;vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:middle" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+</a>
 </li>
 </ul>
 </nav>
