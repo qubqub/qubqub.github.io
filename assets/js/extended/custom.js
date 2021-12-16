@@ -74,9 +74,6 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
       const scrollUp = "scroll-up";
       const scrollDown = "scroll-down";
       const headerBottom = "header-bottom";
-      let selEl = null;
-      let lastSelEl = null;
-      let lastScroll = 0;
       let currentScroll = 0;
       const header = document.querySelector("header.header");
       const mainToc = document.querySelector(".main .post-single>.toc");
@@ -111,12 +108,16 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
       new MutationObserver(updateScrollProgressBar).observe(_progressbar, _config);
 
       const asideToc = document.querySelector(".main .toc-aside");
-      const asideTocSummay = document.querySelector(".main .toc-aside-summary");
-      const asideTocWrapper = asideToc.querySelector(".inner-wrapper");
-      const asideTocToggle = asideTocSummay.querySelector(".toggle");
-      const asideTocList = asideToc.querySelectorAll(".inner-wrapper .inner ul>li");
-
+      let asideTocSummay = null;
+      let asideTocWrapper = null;
+      let asideTocToggle = null;
+      let asideTocList = null;
       if (asideToc) {
+        asideTocSummay = document.querySelector(".main .toc-aside-summary");
+        asideTocWrapper = asideToc.querySelector(".inner-wrapper");
+        asideTocToggle = asideTocSummay.querySelector(".toggle");
+        asideTocList = asideToc.querySelectorAll(".inner-wrapper .inner ul>li");
+
         if (localStorage.getItem("lock-aside-toc-"+window.location.pathname) === "true") {
           asideTocSummay.dataset.isLock = true;
           asideTocWrapper.classList.add("close");
@@ -163,9 +164,10 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
       }
 
       window.addEventListener("scroll", () => {
+        let lastScroll = 0;
         currentScroll = window.pageYOffset;
         updateScrollProgressBar();
-  
+
         if (currentScroll <= 0) {
           if (!header.classList.contains(scrollUp) || header.classList.contains(headerBottom)) {
             header.classList.remove(headerBottom);
@@ -178,9 +180,9 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
             header.classList.add(headerBottom);
           }
         }
-  
+
         const postHeaderOffsetHeight = (postHeaderEl.offsetHeight + postHeaderEl.offsetTop + postHeaderEl.offsetParent.offsetTop - 1);
-  
+
         if (currentScroll > postHeaderOffsetHeight) {
           if (currentScroll > lastScroll) {
             // down
@@ -202,6 +204,8 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
         }
         
         if (asideToc) {
+          const scrollEnd = Math.ceil(currentScroll + window.innerHeight) >= document.body.scrollHeight;
+
           if (mainTocTop < currentScroll && asideToc.classList.contains("hide")) {
             asideToc.classList.remove("hide");
             asideToc.classList.add("reveal");
@@ -212,7 +216,9 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
             asideToc.classList.add("hide");
             asideTocSummay.classList.add("hide");
           }
-          
+
+          let selEl = null;
+          let lastSelEl = null;
           let elIndex = null;
           let tocEl = null;
           tocIdList.map((tocId, idx) => {
@@ -222,9 +228,8 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
               elIndex = idx;
             }
           });
-          
+
           if (elIndex !== null) {
-            let scrollEnd = Math.ceil(currentScroll + window.innerHeight) >= document.body.scrollHeight;
             if (scrollEnd) {
               for (let i = 0; i < asideTocList.length; i++) {
                 if (!asideTocList[i].classList.contains("selected")) continue;
@@ -253,13 +258,18 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
               });
             }
           } else {
-            if (asideToc.querySelector(".selected") === null) {
-              lastScroll = currentScroll;
-              return;
-            }
-            for (let i = 0; i < asideTocList.length; i++) {
-              if (!asideTocList[i].classList.contains("selected")) continue;
-              asideTocList[i].classList.remove("selected");
+            if (scrollEnd) {
+              asideTocList[tocIdList.length-1].classList.add("selected");
+              lastSelEl = asideTocList[tocIdList.length-1];
+            } else {
+              if (asideToc.querySelector(".selected") === null) {
+                lastScroll = currentScroll;
+                return;
+              }
+              for (let i = 0; i < asideTocList.length; i++) {
+                if (!asideTocList[i].classList.contains("selected")) continue;
+                asideTocList[i].classList.remove("selected");
+              }
             }
           }
         }
