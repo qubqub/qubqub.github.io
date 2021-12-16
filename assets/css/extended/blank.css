@@ -375,8 +375,8 @@ header.header {
 
 .main .post-single .toc-aside-summary:hover .toggle .unlock,
 .main .post-single .toc-aside-summary:hover .toggle .lock,
-.main .archive-year .archive-month-header .toggle .lock:hover,
-.main .archive-year .archive-month-header .toggle .unlock:hover,
+.main .archive-year .archive-month-header .toggle:hover .lock,
+.main .archive-year .archive-month-header .toggle:hover .unlock,
 .series-control .toggle .unlock:hover,
 .series-control .toggle .lock:hover,
 .font-size-button .increase:hover,
@@ -763,6 +763,15 @@ header.header {
   box-shadow: 0 0 0 1px #676e75 inset;
 }
 
+.toggle {
+  cursor: pointer;
+}
+
+.toggle .unlock.hide,
+.toggle .lock.hide {
+  display: none;
+}
+
 .main .post-single .toc-aside-summary .toggle .unlock,
 .main .post-single .toc-aside-summary .toggle .lock,
 .main .archive-year .archive-month-header .toggle .lock,
@@ -807,6 +816,14 @@ header.header {
   border-width: 5px;
   border-style: solid;
   border-color: transparent transparent transparent var(--tertiary);
+}
+
+.main .archive-year {
+  margin-top: 0;
+}
+
+.main .archive-year ~ .archive-year {
+  margin-top: 120px;
 }
 
 .post-content .highlight:not(table), .post-content pre {
@@ -1113,6 +1130,15 @@ header.header {
     vertical-align: sub;
   }
 
+  .main .post-single .toc-aside-summary {
+    position: fixed;
+    top: 85px;
+    font-size: 1rem;
+    list-style: none;
+    margin-left: 50rem;
+    white-space: nowrap;
+  }
+
   .main .post-single .toc-aside {
     max-width: 20rem;
     padding: 0 0.75rem;
@@ -1181,15 +1207,6 @@ header.header {
     display: block;
     transition: all 0.125s ease-in 0s;
     
-  }
-
-  .main .post-single .toc-aside-summary {
-    position: fixed;
-    top: 85px;
-    font-size: 1rem;
-    list-style: none;
-    margin-left: 55rem;
-    white-space: nowrap;
   }
 
   .top-link {

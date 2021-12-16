@@ -9,7 +9,7 @@
 1 2 3 4 5 6 7  public String statement() { String result = &#34;&#34;; for (int i = 0; i < numItems(); i++) { result += lineForItem(); // 문자열연결  } return result; }   StringBuilder를 활용하면 성능을 크게 개선할 수 있습니다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item63/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.2c243d0074a5b36fc490264c0e6d698892e45750456846d1967913b10edf0c8e.css integrity="sha256-LCQ9AHSls2/EkCZMDm1piJLkV1BFaEbRlnkTsQ7fDI4=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.0d3f42ead0af76f41ddb396253f41363d4a2f853dc02066206852a27925cb33a.css integrity="sha256-DT9C6tCvdvQd2zliU/QTY9Si+FPcAgZiBoUqJ5Jcszo=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -25,7 +25,7 @@
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ff8c7e0f76468280c10bbbb651769c0f50345a6ef98bb8c963a1b0d7ef3e3781.js integrity="sha256-/4x+D3ZGgoDBC7u2UXacD1A0Wm75i7jJY6Gw1+8+N4E="></script>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.5a3f27a6dc881a94d15839be6da7eb72c6a643a6ab613c6a42a046b5a634e5a8.js integrity="sha256-Wj8nptyIGpTRWDm+bafrcsamQ6arYTxqQqBGtaY05ag="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content>
 <meta property="og:description" content="# [아이템 63] 문자열 연결은 느리니 주의하라. 문자열 연결 연산자로 문자열을 n개를 잇는 시간은 n^2에 비례합니다. 문자열은 immutable이라 두 문자열을 연결할 경우 양쪽의 내용을 모두 복사해야 하므로 성능 저하는 피할 수 없습니다.
 1 2 3 4 5 6 7  public String statement() { String result = &#34;&#34;; for (int i = 0; i < numItems(); i++) { result += lineForItem(); // 문자열연결  } return result; }   StringBuilder를 활용하면 성능을 크게 개선할 수 있습니다.">
