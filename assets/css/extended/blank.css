@@ -861,8 +861,9 @@ header.header {
   display: none;
 }
 
-.main .toc-aside:host summary {
+.main .toc-aside details #details-summary {
   list-style: none !important;
+  /* display: none; */
 }
 
 @media screen and (max-width: 768px) {
