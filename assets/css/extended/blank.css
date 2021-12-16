@@ -860,6 +860,10 @@ header.header {
   display: none;
 }
 
+.main .toc.aside summary:host {
+  list-style: none;
+}
+
 @media screen and (max-width: 768px) {
   #menu.main-menu.hidden {
     display: none;
