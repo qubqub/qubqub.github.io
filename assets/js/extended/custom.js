@@ -28,7 +28,7 @@ window.addEventListener('resize', function() {
   }
 }, true);
 
-document.getElementById("menu-trigger").addEventListener("click", e => {
+document.getElementById("menu-trigger").addEventListener("click", () => {
   if (window.innerWidth < 769) {
     if (document.getElementById("menu").classList.contains("hidden")) {
       document.getElementById("menu").classList.add("reveal");
@@ -143,7 +143,7 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
           asideToc.classList.add("hide");
         }
 
-        asideTocSummay.addEventListener("click", e => {
+        asideTocSummay.addEventListener("click", () => {
           if (asideTocSummay.dataset.isLock === "false") {
             asideTocSummay.dataset.isLock = true;
             localStorage.setItem("lock-aside-toc-"+window.location.pathname, true);

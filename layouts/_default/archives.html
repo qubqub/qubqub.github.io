@@ -1,5 +1,4 @@
 {{- define "main" }}
-
 <header class="page-header">
   <h1>{{ .Title }}</h1>
   {{- if .Description }}
@@ -55,15 +54,14 @@
       </div>
     </div>
     <script>
-      if (localStorage.getItem("lock-archives-"+{{ $year }}+"-"+{{ $month }}) === "false") {
-        document.getElementById({{ $year }}+"-"+{{ $month }}).style.display = "block";
+      if (localStorage.getItem("lock-archives-{{ $year }}-{{ $month }}") === "false") {
+        document.getElementById("{{ $year }}-{{ $month }}").style.display = "block";
       } else {
-        document.getElementById({{ $year }}+"-"+{{ $month }}).style.display = "none";
+        document.getElementById("{{ $year }}-{{ $month }}").style.display = "none";
       }
     </script>
   {{- end }}
 </div>
 {{- end }}
 {{- end }}
-
 {{- end }}{{/* end main */}}
