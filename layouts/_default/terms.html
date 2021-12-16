@@ -21,15 +21,15 @@
   {{ $fontSize := mul (add (float (print "0" (substr (string $count) 0 -1) "." (substr (string $count) -1 1))) 1) 0.8 }}
 
   {{- if (gt 1 $fontSize) }}
-    {{ $fontSize = (mul $fontSize 0.825) }}
+    {{ $fontSize = (mul $fontSize 0.9) }}
   {{- else if (and (le 1 $fontSize) (ge 1.25 $fontSize)) }}
-    {{ $fontSize = (mul $fontSize 0.8) }}
+    {{ $fontSize = (mul $fontSize 0.9) }}
   {{- else if (and (lt 1.25 $fontSize) (ge 1.5 $fontSize)) }}
-    {{ $fontSize = (mul $fontSize 0.775) }}
+    {{ $fontSize = (mul $fontSize 0.875) }}
   {{- else if (and (lt 1.5 $fontSize) (ge 1.75 $fontSize)) }}
-    {{ $fontSize = (mul $fontSize 0.75) }}
+    {{ $fontSize = (mul $fontSize 0.875) }}
   {{- else if (and (lt 1.75 $fontSize) (ge 2 $fontSize)) }}
-    {{ $fontSize = (mul $fontSize 0.725) }}
+    {{ $fontSize = (mul $fontSize 0.875) }}
   {{- else if (and (lt 2 $fontSize) (ge 2.5 $fontSize)) }}
     {{ $fontSize = (mul $fontSize 0.7) }}
   {{- else if (lt 2.5 $fontSize) }}
