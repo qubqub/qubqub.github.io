@@ -3,7 +3,7 @@ title: "[아이템 31] 한정적 와일드카드를 사용해 API 유연성을 �
 date: 2020-07-09T13:42:19+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
-series: ["Effective Java 3/E"]
+series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 4"]
 author: ["Kyungchul Shin"]
 showToc: true

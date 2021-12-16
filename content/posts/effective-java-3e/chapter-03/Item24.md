@@ -3,7 +3,7 @@ title: "[아이템 24] 멤버 클래스는 되도록 static으로 만들어라"
 date: 2020-07-05T11:41:14+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
-series: ["Effective Java 3/E"]
+series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 3"]
 author: ["Kyungchul Shin"]
 showToc: true

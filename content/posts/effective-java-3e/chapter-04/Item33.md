@@ -3,7 +3,7 @@ title: "[아이템 33] 타입 안전 이종 컨테이너를 고려하라"
 date: 2020-07-09T18:21:51+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
-series: ["Effective Java 3/E"]
+series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 4"]
 author: ["Kyungchul Shin"]
 showToc: true

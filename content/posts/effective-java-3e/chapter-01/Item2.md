@@ -3,7 +3,7 @@ title: "[아이템 2] 생성자에 매개변수가 많다면 빌더를 고려하
 date: 2020-06-18T17:21:20+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
-series: ["Effective Java 3/E"]
+series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 1"]
 author: ["Kyungchul Shin"]
 showToc: true

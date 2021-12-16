@@ -14,9 +14,9 @@ summary: series_list
 use: true
 seriesCover:
   - name: "BAEKJOON Online Judge"
-    image: ""
+    image: "/logo/logo-baekjoon.png"
     alt: "백준 온라인 저지"
-  - name: "Effective Java 3/E"
+  - name: "Effective Java 3E"
     image: "/logo/logo-effective-java-3e.png"
     alt: "Effective Java 3/E"
     chapter:

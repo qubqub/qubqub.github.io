@@ -3,7 +3,7 @@ title: "[아이템 19] 상속을 고려해 설계하고 문서화하라. 그렇�
 date: 2020-07-03T13:57:41+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
-series: ["Effective Java 3/E"]
+series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 3"]
 author: ["Kyungchul Shin"]
 showToc: true
