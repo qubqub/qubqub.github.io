@@ -8,7 +8,7 @@
 <meta name=description content="Posts - <Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.7b246acb8d761204b747ee1c4ee6f7bd6b4d3e54f37bbb43bbd724df5b995616.css integrity="sha256-eyRqy412EgS3R+4cTub3vWtNPlTze7tDu9ck31uZVhY=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.3f8578277c3297f8157e00e72e7f9c5a03b33825c3b89f449d881e3b913eb69e.css integrity="sha256-P4V4J3wyl/gVfgDnLn+cWgOzOCXDuJ9EnYgeO5E+tp4=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.png>
@@ -87,9 +87,7 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[Itemm 79] 과도한 동기화는 피하라. 과도한 동기화는 성능을 저하시키고 교차상태에 빠뜨릴 수 있다.
-liveness, safety failures를 피하려면 동기화 메서드나 동기화 블록 안에서는 제어를 절대로 클라이언트에게 양보하면 안 된다. ex) 동기화된 영역 안에서 재정의할 수 있는 메서드 호출 x, 클라이언트가 념겨준 함수 객체 호출 x
-과도한 동기화는 성능을을 저하 시킨다. 가변 클래스를 작성하거든 동기화를 전혀 하지 말고, 그 클래스를 동시에 사용해야 하는 클래스가 외부에서 알아서 동기화 하게 하던가, 동기화를 내부에서 수행해 스레드 안전한 클래스로 만들자....</p>
+<p>[Itemm 79] 과도한 동기화는 피하라. 과도한 동기화는 성능을 저하시키고 교차상태에 빠뜨릴 수 있다. liveness, safety failures를 피하려면 동기화 메서드나 동기화 블록 안에서는 제어를 절대로 클라이언트에게 양보하면 안 된다. ex) 동기화된 영역 안에서 재정의할 수 있는 메서드 호출 x, 클라이언트가 념겨준 함수 객체 호출 x 과도한 동기화는 성능을을 저하 시킨다. 가변 클래스를 작성하거든 동기화를 전혀 하지 말고, 그 클래스를 동시에 사용해야 하는 클래스가 외부에서 알아서 동기화 하게 하던가, 동기화를 내부에서 수행해 스레드 안전한 클래스로 만들자....</p>
 </section>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item79/></a>
@@ -112,10 +110,8 @@ liveness, safety failures를 피하려면 동기화 메서드나 동기화 블�
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 81] wait와 notify보다는 동시성 유틸리티를 애용하라. wait와 notify는 올바르게 사용하기가 아주 까다로우니 고수준 동시성 유틸리티를 사용하라.
-java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있다.
-실헹자 프레임워크 동시성 컬렉션 동기화 장치 동시성 컬렉션은 높은 동시성에 도달하기 위해 동기화를 각자의 내부에서 구현한다. 따라서 컬렉션에서 동기성을 무력화하는 건 불가능하며 외부에서 락을 추가로 사용하면 속도가 느려진다.
-동시성을 무력화하지 못하므로 여러 메서드를 원자적으로 묶어 호출하는 건 불가능하다. 그레서 여러 기본 동작을 하나의 원자적 동작으로 묶는 ‘상태 의존적 수정’ 메서드들이 추가되었다....</p>
+<p>[아이템 81] wait와 notify보다는 동시성 유틸리티를 애용하라. wait와 notify는 올바르게 사용하기가 아주 까다로우니 고수준 동시성 유틸리티를 사용하라. java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있다.
+실헹자 프레임워크 동시성 컬렉션 동기화 장치 동시성 컬렉션은 높은 동시성에 도달하기 위해 동기화를 각자의 내부에서 구현한다. 따라서 컬렉션에서 동기성을 무력화하는 건 불가능하며 외부에서 락을 추가로 사용하면 속도가 느려진다. 동시성을 무력화하지 못하므로 여러 메서드를 원자적으로 묶어 호출하는 건 불가능하다. 그레서 여러 기본 동작을 하나의 원자적 동작으로 묶는 ‘상태 의존적 수정’ 메서드들이 추가되었다....</p>
 </section>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item81/></a>
@@ -138,8 +134,7 @@ java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있�
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 83] 지연 초기화는 신중히 사용하라. 지연 초기화는 필드의 초기화 시점을 그 값이 처음 필요햔 시점까지 늦추는 것이다. 지연 초기화는 인스턴스 생성시 초기화 비용을 줄일 수 있지만, 지연 초기화하는 필드에 접근하는 비용은 커진다. 지연 초기화를 잘못사용하면 실제로 성능이 더 느려질 수도 있다.
-멀티 스레드 환경에서 지연 초기화를 하기에는 까다롭다. 지연 초기화하는 필드를 둘 이상 스레드가 공유한다면 동기화해야 한다. 일반적으로 일반적인 초기화가 지연 초기화보다 낫다.
+<p>[아이템 83] 지연 초기화는 신중히 사용하라. 지연 초기화는 필드의 초기화 시점을 그 값이 처음 필요햔 시점까지 늦추는 것이다. 지연 초기화는 인스턴스 생성시 초기화 비용을 줄일 수 있지만, 지연 초기화하는 필드에 접근하는 비용은 커진다. 지연 초기화를 잘못사용하면 실제로 성능이 더 느려질 수도 있다. 멀티 스레드 환경에서 지연 초기화를 하기에는 까다롭다. 지연 초기화하는 필드를 둘 이상 스레드가 공유한다면 동기화해야 한다. 일반적으로 일반적인 초기화가 지연 초기화보다 낫다.
 1 2 // 인스턴스 필드를 초기화하는 일반적인 방법 private final FieldType field = computerFieldValue(); 1 2 3 4 5 6 7 8 9 // 지연 초기화 - sychronized 방식 private FieldType field; private sychronized FieldType getField() { if (field == null) { field = computerFieldValue(); } return field; } 1 2 3 4 5 6 7 8 // 정적 필드용 지연 초기화 홀더 클래스 관용구 private static class FieldHolder { static final FieldType field = computerFieldValue(); } private static FieldType getField() { return FieldHolder....</p>
 </section>
 <footer class=entry-footer></footer>

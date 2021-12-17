@@ -8,7 +8,7 @@
 <meta name=description content="Posts - <Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.7b246acb8d761204b747ee1c4ee6f7bd6b4d3e54f37bbb43bbd724df5b995616.css integrity="sha256-eyRqy412EgS3R+4cTub3vWtNPlTze7tDu9ck31uZVhY=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.3f8578277c3297f8157e00e72e7f9c5a03b33825c3b89f449d881e3b913eb69e.css integrity="sha256-P4V4J3wyl/gVfgDnLn+cWgOzOCXDuJ9EnYgeO5E+tp4=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.png>
@@ -87,8 +87,7 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 44] 표준 함수형 인터페이스를 사용하라. java.util.function 패키지에 다양한 용도의 표준 함수형 인터페이스가 정의되어 있으므로 용도에 맞는 게 있다면 직접 구현하지 말고 표준 함수형 인터페이스를 활용합시다. 일관성을 높일 수 있고 디폴트 메서드를 많이 제공하므로 다른 코드와의 상호운용성도 증가할 것입니다. java.util.function에는 총 43개의 인터페이스가 있지만 기본 인터페이스 6개만 기억하면 나머지는 충분히 유추할 수 있으며 나머지는 필요할 때마다 찾아서 사용하면 됩니다.
-표준 함수형 인터페이스 대부분은 기본 타입만 지원합니다. 그렇다고 기본 함수형 인터페이스에 박싱된 기본 타입을 넣어서 사용하지 맙시다....</p>
+<p>[아이템 44] 표준 함수형 인터페이스를 사용하라. java.util.function 패키지에 다양한 용도의 표준 함수형 인터페이스가 정의되어 있으므로 용도에 맞는 게 있다면 직접 구현하지 말고 표준 함수형 인터페이스를 활용합시다. 일관성을 높일 수 있고 디폴트 메서드를 많이 제공하므로 다른 코드와의 상호운용성도 증가할 것입니다. java.util.function에는 총 43개의 인터페이스가 있지만 기본 인터페이스 6개만 기억하면 나머지는 충분히 유추할 수 있으며 나머지는 필요할 때마다 찾아서 사용하면 됩니다. 표준 함수형 인터페이스 대부분은 기본 타입만 지원합니다. 그렇다고 기본 함수형 인터페이스에 박싱된 기본 타입을 넣어서 사용하지 맙시다....</p>
 </section>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-06/item44/></a>
@@ -123,8 +122,7 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 47] 반환 타입으로는 스트림보다 컬렉션이 낫다. 사실 Stream 인터페이스 Iterable 인터페이스가 정의한 추상 메서드를 전부 포함하고 Iterable 인터페이스가 정의한 방식대로 동작합니다. 하지만 for-each로 스트림을 반복할 수 없는 이유는 Stream이 Iterable을 확장하지 않아서입니다.
-Collection인터페이스는 Iterable의 하위 타입이고 stream의 메서드도 제공하니 반복과 스트림을 동시에 지원합니다. 따라서 원소 시퀀수를 공개하는 공개 API의 반환타입에는 Collection이나 그 하위 타입을 사용하는게 일반적으로 좋습니다.
+<p>[아이템 47] 반환 타입으로는 스트림보다 컬렉션이 낫다. 사실 Stream 인터페이스 Iterable 인터페이스가 정의한 추상 메서드를 전부 포함하고 Iterable 인터페이스가 정의한 방식대로 동작합니다. 하지만 for-each로 스트림을 반복할 수 없는 이유는 Stream이 Iterable을 확장하지 않아서입니다. Collection인터페이스는 Iterable의 하위 타입이고 stream의 메서드도 제공하니 반복과 스트림을 동시에 지원합니다. 따라서 원소 시퀀수를 공개하는 공개 API의 반환타입에는 Collection이나 그 하위 타입을 사용하는게 일반적으로 좋습니다.
 정리 원소 시퀀스를 반환하는 메서드를 작성할 때는, 이를 스트림으로 처리하길 원하는 사용자와 반복으로 처리하길 원하는 사용자가 모두 있을 수 있음을 고려하라 컬렉션을 반환할 수 있다면 그렇게 하고 반환 전부터 이미 원소들을 컬렉션에 관리하고 있거나 컬렉션을 하나 더 만들어도 될 정도로 원소 개수가 적다면 ArrayList같은 표준 컬렉션에 담아 반환하라....</p>
 </section>
 <footer class=entry-footer></footer>

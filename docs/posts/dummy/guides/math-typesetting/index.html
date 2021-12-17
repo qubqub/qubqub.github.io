@@ -8,7 +8,7 @@
 <meta name=description content="A brief guide to setup KaTeX">
 <meta name=author content="Hugo Authors">
 <link rel=canonical href=https://qutrits.github.io/posts/dummy/guides/math-typesetting/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.7b246acb8d761204b747ee1c4ee6f7bd6b4d3e54f37bbb43bbd724df5b995616.css integrity="sha256-eyRqy412EgS3R+4cTub3vWtNPlTze7tDu9ck31uZVhY=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.3f8578277c3297f8157e00e72e7f9c5a03b33825c3b89f449d881e3b913eb69e.css integrity="sha256-P4V4J3wyl/gVfgDnLn+cWgOzOCXDuJ9EnYgeO5E+tp4=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -35,7 +35,7 @@
 <meta name=twitter:title content="Math Typesetting">
 <meta name=twitter:description content="A brief guide to setup KaTeX">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://qutrits.github.io/posts/"},{"@type":"ListItem","position":2,"name":"Math Typesetting","item":"https://qutrits.github.io/posts/dummy/guides/math-typesetting/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Math Typesetting","name":"Math Typesetting","description":"A brief guide to setup KaTeX","keywords":[],"articleBody":"Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.\nIn this example we will be using KaTeX\n Create a partial under /layouts/partials/math.html Within this partial reference the Auto-render Extension or host these scripts locally. Include the partial in your templates (extend_head.html) like so: refer ISSUE #236  1 2 3  {{ if or .Params.math .Site.Params.math }} {{ partial \"math.html\" . }} {{ end }}    To enable KaTex globally set the parameter math to true in a project’s configuration To enable KaTex on a per page basis include the parameter math: true in content files  Note: Use the online reference of Supported TeX Functions\n\r\rExamples \rInline math: \\(\\varphi = \\dfrac{1+\\sqrt5}{2}= 1.6180339887…\\)\rBlock math:\n$$\n\\varphi = 1+\\frac{1} {1+\\frac{1} {1+\\frac{1} {1+\\cdots} } }\n$$\n","wordCount":"127","inLanguage":"en","datePublished":"2019-03-08T00:00:00Z","dateModified":"2019-03-08T00:00:00Z","author":{"@type":"Person","name":"Hugo Authors"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/posts/dummy/guides/math-typesetting/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.png"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Math Typesetting","name":"Math Typesetting","description":"A brief guide to setup KaTeX","keywords":[],"articleBody":"Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.\nIn this example we will be using KaTeX\n Create a partial under /layouts/partials/math.html Within this partial reference the Auto-render Extension or host these scripts locally. Include the partial in your templates (extend_head.html) like so: refer ISSUE #236  1 2 3  {{ if or .Params.math .Site.Params.math }} {{ partial \"math.html\" . }} {{ end }}    To enable KaTex globally set the parameter math to true in a project’s configuration To enable KaTex on a per page basis include the parameter math: true in content files  Note: Use the online reference of Supported TeX Functions\n\r\rExamples \rInline math: \\(\\varphi = \\dfrac{1+\\sqrt5}{2}= 1.6180339887…\\)\rBlock math:\n$$ \\varphi = 1+\\frac{1} {1+\\frac{1} {1+\\frac{1} {1+\\cdots} } } $$\n","wordCount":"127","inLanguage":"en","datePublished":"2019-03-08T00:00:00Z","dateModified":"2019-03-08T00:00:00Z","author":{"@type":"Person","name":"Hugo Authors"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/posts/dummy/guides/math-typesetting/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.png"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -137,8 +137,8 @@ A brief guide to setup KaTeX
 Inline math: \(\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…\)
 </p>
 <p>Block math:</p>
-<p>$$<br>
-\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }<br>
+<p>$$
+\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
 $$</p>
 </div>
 <footer class=post-footer><div class=post-license-info>

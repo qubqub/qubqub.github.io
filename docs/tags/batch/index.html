@@ -8,7 +8,7 @@
 <meta name=description content="<Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/tags/batch/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.7b246acb8d761204b747ee1c4ee6f7bd6b4d3e54f37bbb43bbd724df5b995616.css integrity="sha256-eyRqy412EgS3R+4cTub3vWtNPlTze7tDu9ck31uZVhY=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.3f8578277c3297f8157e00e72e7f9c5a03b33825c3b89f449d881e3b913eb69e.css integrity="sha256-P4V4J3wyl/gVfgDnLn+cWgOzOCXDuJ9EnYgeO5E+tp4=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.png>
@@ -88,10 +88,7 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>오늘 면접에서 이전에 드로우콜을 공부했던 것과 관련해서 질문을 받았다. 배칭을 깨지 않고 오브젝트의 컬러를 바꿀 수 있는 방법을 말해보라고 하셨다.
-하지만 난 모른다고 답했다. 그런 방법이 있나? 배칭을 깨지 않고 컬러를 바꾸는 것은 불가능하다고 생각했다.
-그리고 그건 불가능한 게 맞다.
-하나의 머티리얼을 공유하는 오브젝트들이 여러 색깔을 낼 수 있는 것은 가능하다는 새로운 사실을 알아서 포스팅 해보려 한다.
+<p>오늘 면접에서 이전에 드로우콜을 공부했던 것과 관련해서 질문을 받았다. 배칭을 깨지 않고 오브젝트의 컬러를 바꿀 수 있는 방법을 말해보라고 하셨다. 하지만 난 모른다고 답했다. 그런 방법이 있나? 배칭을 깨지 않고 컬러를 바꾸는 것은 불가능하다고 생각했다. 그리고 그건 불가능한 게 맞다. 하나의 머티리얼을 공유하는 오브젝트들이 여러 색깔을 낼 수 있는 것은 가능하다는 새로운 사실을 알아서 포스팅 해보려 한다.
 MaterialPropertyBlock의 활용 🧐 Create -> Shader -> Standard Surface Shader 생성. [PerRendererData] 를 바꾸기 원하는 셰이더 프로퍼티 앞에 추가....</p>
 </section>
 <footer class=entry-footer><span title="2021-11-26 22:47:40 +0900 KST">2021년 11월 26일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
@@ -112,8 +109,7 @@ MaterialPropertyBlock의 활용 🧐 Create -> Shader -> Standard Surface Shader
 <section class=entry-content>
 <p>이전 포스트에서는 드로우콜 자체에 대해 알아보았다면, 이번 포스트에서는 드로우콜을 줄이기 위해 알아야하는 것과 드로우콜을 줄이는 방법에 대해 알아보겠다.
 Batch, Batching이 뭐야? 🧐 Batch: 이전 포스트에서 언급했던 DP Call과 render state change들을 합친 넓은 의미의 드로우콜. Batching: 드로우콜을 줄이는 작업(어떠한 조건 아래 다수의 Batch를 하나로 만드는 작업). 💚Batching 세부 설명
-Project Setting > Player 에서 사용이 체크가 되어있는지 확인.
-Static Batching: Static 플래그가 체크되어있는 정적인 오브젝트에 적용 됨. 적용 방법...</p>
+Project Setting > Player 에서 사용이 체크가 되어있는지 확인. Static Batching: Static 플래그가 체크되어있는 정적인 오브젝트에 적용 됨. 적용 방법 버텍스 연산을 런타임에 수행하지 않기때문에 Dynamic Batching 보다 효율적....</p>
 </section>
 <footer class=entry-footer><span title="2021-11-25 00:05:33 +0900 KST">2021년 11월 25일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
 <ul class=post-tags>

@@ -12,10 +12,7 @@
       <pubDate>Fri, 26 Nov 2021 22:47:40 +0900</pubDate>
       
       <guid>https://qutrits.github.io/posts/dummy/studying6_drawcall3/</guid>
-      <description>오늘 면접에서 이전에 드로우콜을 공부했던 것과 관련해서 질문을 받았다. 배칭을 깨지 않고 오브젝트의 컬러를 바꿀 수 있는 방법을 말해보라고 하셨다.
-하지만 난 모른다고 답했다. 그런 방법이 있나? 배칭을 깨지 않고 컬러를 바꾸는 것은 불가능하다고 생각했다.
-그리고 그건 불가능한 게 맞다.
-하나의 머티리얼을 공유하는 오브젝트들이 여러 색깔을 낼 수 있는 것은 가능하다는 새로운 사실을 알아서 포스팅 해보려 한다.
+      <description>오늘 면접에서 이전에 드로우콜을 공부했던 것과 관련해서 질문을 받았다. 배칭을 깨지 않고 오브젝트의 컬러를 바꿀 수 있는 방법을 말해보라고 하셨다. 하지만 난 모른다고 답했다. 그런 방법이 있나? 배칭을 깨지 않고 컬러를 바꾸는 것은 불가능하다고 생각했다. 그리고 그건 불가능한 게 맞다. 하나의 머티리얼을 공유하는 오브젝트들이 여러 색깔을 낼 수 있는 것은 가능하다는 새로운 사실을 알아서 포스팅 해보려 한다.
 MaterialPropertyBlock의 활용 🧐  Create -&amp;gt; Shader -&amp;gt; Standard Surface Shader 생성. [PerRendererData] 를 바꾸기 원하는 셰이더 프로퍼티 앞에 추가.</description>
     </item>
     
@@ -27,8 +24,7 @@ MaterialPropertyBlock의 활용 🧐  Create -&amp;gt; Shader -&amp;gt; Standard
       <guid>https://qutrits.github.io/posts/dummy/studying5_drawcall2/</guid>
       <description>이전 포스트에서는 드로우콜 자체에 대해 알아보았다면, 이번 포스트에서는 드로우콜을 줄이기 위해 알아야하는 것과 드로우콜을 줄이는 방법에 대해 알아보겠다.
 Batch, Batching이 뭐야? 🧐  Batch: 이전 포스트에서 언급했던 DP Call과 render state change들을 합친 넓은 의미의 드로우콜. Batching: 드로우콜을 줄이는 작업(어떠한 조건 아래 다수의 Batch를 하나로 만드는 작업).  💚Batching 세부 설명
-Project Setting &amp;gt; Player 에서 사용이 체크가 되어있는지 확인.
- Static Batching: Static 플래그가 체크되어있는 정적인 오브젝트에 적용 됨.   적용 방법</description>
+Project Setting &amp;gt; Player 에서 사용이 체크가 되어있는지 확인.  Static Batching: Static 플래그가 체크되어있는 정적인 오브젝트에 적용 됨.   적용 방법  버텍스 연산을 런타임에 수행하지 않기때문에 Dynamic Batching 보다 효율적.</description>
     </item>
     
     <item>

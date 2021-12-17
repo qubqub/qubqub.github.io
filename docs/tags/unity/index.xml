@@ -12,8 +12,7 @@
       <pubDate>Mon, 13 Dec 2021 17:46:19 +0900</pubDate>
       
       <guid>https://qutrits.github.io/posts/dummy/studying15_snap/</guid>
-      <description>아래 이미지는 만든 배너의 모습이다.
-UI리소스는 친구가 만들어줬다..ㅎㅎ
+      <description>아래 이미지는 만든 배너의 모습이다. UI리소스는 친구가 만들어줬다..ㅎㅎ
 💚 만들면서 고민한 것들.
  오브젝트 풀을 사용할 것인가?  게임 배너는 보통 오브젝트 풀을 사용할 만큼 갯수가 많지 않다. 그래서 사용하지 않기로 결정! 후에 인벤토리 같은 기능을 만들어 때 사용해보도록 하자!
  자동으로 움직이게 해보자!  한쪽 방향으로 움직이는 배너를 구현하였다. 각 배너마다 유저가 정보를 습득할 수 있는 시간 또한 주었다.
@@ -58,10 +57,7 @@ UI리소스는 친구가 만들어줬다..ㅎㅎ
       <pubDate>Fri, 26 Nov 2021 22:47:40 +0900</pubDate>
       
       <guid>https://qutrits.github.io/posts/dummy/studying6_drawcall3/</guid>
-      <description>오늘 면접에서 이전에 드로우콜을 공부했던 것과 관련해서 질문을 받았다. 배칭을 깨지 않고 오브젝트의 컬러를 바꿀 수 있는 방법을 말해보라고 하셨다.
-하지만 난 모른다고 답했다. 그런 방법이 있나? 배칭을 깨지 않고 컬러를 바꾸는 것은 불가능하다고 생각했다.
-그리고 그건 불가능한 게 맞다.
-하나의 머티리얼을 공유하는 오브젝트들이 여러 색깔을 낼 수 있는 것은 가능하다는 새로운 사실을 알아서 포스팅 해보려 한다.
+      <description>오늘 면접에서 이전에 드로우콜을 공부했던 것과 관련해서 질문을 받았다. 배칭을 깨지 않고 오브젝트의 컬러를 바꿀 수 있는 방법을 말해보라고 하셨다. 하지만 난 모른다고 답했다. 그런 방법이 있나? 배칭을 깨지 않고 컬러를 바꾸는 것은 불가능하다고 생각했다. 그리고 그건 불가능한 게 맞다. 하나의 머티리얼을 공유하는 오브젝트들이 여러 색깔을 낼 수 있는 것은 가능하다는 새로운 사실을 알아서 포스팅 해보려 한다.
 MaterialPropertyBlock의 활용 🧐  Create -&amp;gt; Shader -&amp;gt; Standard Surface Shader 생성. [PerRendererData] 를 바꾸기 원하는 셰이더 프로퍼티 앞에 추가.</description>
     </item>
     
@@ -73,8 +69,7 @@ MaterialPropertyBlock의 활용 🧐  Create -&amp;gt; Shader -&amp;gt; Standard
       <guid>https://qutrits.github.io/posts/dummy/studying5_drawcall2/</guid>
       <description>이전 포스트에서는 드로우콜 자체에 대해 알아보았다면, 이번 포스트에서는 드로우콜을 줄이기 위해 알아야하는 것과 드로우콜을 줄이는 방법에 대해 알아보겠다.
 Batch, Batching이 뭐야? 🧐  Batch: 이전 포스트에서 언급했던 DP Call과 render state change들을 합친 넓은 의미의 드로우콜. Batching: 드로우콜을 줄이는 작업(어떠한 조건 아래 다수의 Batch를 하나로 만드는 작업).  💚Batching 세부 설명
-Project Setting &amp;gt; Player 에서 사용이 체크가 되어있는지 확인.
- Static Batching: Static 플래그가 체크되어있는 정적인 오브젝트에 적용 됨.   적용 방법</description>
+Project Setting &amp;gt; Player 에서 사용이 체크가 되어있는지 확인.  Static Batching: Static 플래그가 체크되어있는 정적인 오브젝트에 적용 됨.   적용 방법  버텍스 연산을 런타임에 수행하지 않기때문에 Dynamic Batching 보다 효율적.</description>
     </item>
     
     <item>
@@ -104,8 +99,7 @@ Generic class가 뭐야? 🧐  일반적으로 클래스를 정의할 때, 클�
       <pubDate>Thu, 18 Nov 2021 01:32:38 +0900</pubDate>
       
       <guid>https://qutrits.github.io/posts/dummy/studying2/</guid>
-      <description>유니티에서 여러가지 연습을 하려고 생각하고 있었을 때, 나만의 tween을 만들어 보고싶다고 생각했다.
-DoTween을 사용할 때 여러 함수들이 transform, image 등에서 부터 바로 DoTween 함수를 사용할 수 있었던 것이 기억에 남았다.
+      <description>유니티에서 여러가지 연습을 하려고 생각하고 있었을 때, 나만의 tween을 만들어 보고싶다고 생각했다. DoTween을 사용할 때 여러 함수들이 transform, image 등에서 부터 바로 DoTween 함수를 사용할 수 있었던 것이 기억에 남았다.
 나도 이런식으로 바로바로 접근할 수 있으면 좋겠다고 생각을 해서 방법을 찾아보니, Extenstion Method를 이용하면 되는 것!
 Extenstion Method가 뭐야? 🧐  특수한 종류의 static 메서드. 다른 클래스의 인스턴스 메서드인 것 처럼 사용되는 기능. 클래스, 구조체, 인터페이스 등에 적용 가능.  왜 사용하는거야?</description>
     </item>

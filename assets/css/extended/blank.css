@@ -357,6 +357,7 @@ header.header {
   box-shadow: 0 0 0 1px var(--primary) inset;
 }
 
+.post-tags a:hover,
 .post-footer .post-license-info a:hover,
 .footer a:hover,
 .header .nav #menu a:hover,
@@ -366,6 +367,7 @@ header.header {
 .header .nav #theme-toggle:hover,
 .archive-year .archive-month .archive-month-header:hover,
 .post-meta .edit-post:hover,
+.series-main .series-control .info .page-button .button:hover,
 .profile .profile_inner .buttons .button:hover,
 .top-link:hover
 {
@@ -377,8 +379,8 @@ header.header {
 .main .post-single .toc-aside-summary:hover .toggle .lock,
 .main .archive-year .archive-month-header .toggle:hover .lock,
 .main .archive-year .archive-month-header .toggle:hover .unlock,
-.series-control .toggle .unlock:hover,
-.series-control .toggle .lock:hover,
+.series-main .series-control .toggle .unlock:hover,
+.series-main .series-control .toggle .lock:hover,
 .font-size-button .increase:hover,
 .font-size-button .decrease:hover,
 .font-size-button .default:hover path,

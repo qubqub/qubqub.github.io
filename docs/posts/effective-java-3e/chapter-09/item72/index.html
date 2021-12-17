@@ -5,11 +5,10 @@
 <meta name=robots content="index, follow">
 <title>&lt;Qutrits/></title>
 <meta name=keywords content>
-<meta name=description content="[아이템 72] 표준 예외를 사용하라. 자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다.
-Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 게 좋습니다. 다른 예외들의 상위 클래스이므로 즉 여러 예외를 포괄하기 때문에 안정적으로 테스트할 수 없습니다.">
+<meta name=description content="[아이템 72] 표준 예외를 사용하라. 자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다. Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 게 좋습니다. 다른 예외들의 상위 클래스이므로 즉 여러 예외를 포괄하기 때문에 안정적으로 테스트할 수 없습니다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-09/item72/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.7b246acb8d761204b747ee1c4ee6f7bd6b4d3e54f37bbb43bbd724df5b995616.css integrity="sha256-eyRqy412EgS3R+4cTub3vWtNPlTze7tDu9ck31uZVhY=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.3f8578277c3297f8157e00e72e7f9c5a03b33825c3b89f449d881e3b913eb69e.css integrity="sha256-P4V4J3wyl/gVfgDnLn+cWgOzOCXDuJ9EnYgeO5E+tp4=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -27,16 +26,14 @@ Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 �
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
 <script defer crossorigin=anonymous src=/assets/js/extended/custom.min.d341e239be3f0927f16c7989e165bb8f64eb5e85e6436089de01436382ec49d3.js integrity="sha256-00HiOb4/CSfxbHmJ4WW7j2TrXoXmQ2CJ3gFDY4LsSdM="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content>
-<meta property="og:description" content="[아이템 72] 표준 예외를 사용하라. 자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다.
-Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 게 좋습니다. 다른 예외들의 상위 클래스이므로 즉 여러 예외를 포괄하기 때문에 안정적으로 테스트할 수 없습니다.">
+<meta property="og:description" content="[아이템 72] 표준 예외를 사용하라. 자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다. Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 게 좋습니다. 다른 예외들의 상위 클래스이므로 즉 여러 예외를 포괄하기 때문에 안정적으로 테스트할 수 없습니다.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://qutrits.github.io/posts/effective-java-3e/chapter-09/item72/"><meta property="article:section" content="posts">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content>
-<meta name=twitter:description content="[아이템 72] 표준 예외를 사용하라. 자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다.
-Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 게 좋습니다. 다른 예외들의 상위 클래스이므로 즉 여러 예외를 포괄하기 때문에 안정적으로 테스트할 수 없습니다.">
+<meta name=twitter:description content="[아이템 72] 표준 예외를 사용하라. 자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다. Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 게 좋습니다. 다른 예외들의 상위 클래스이므로 즉 여러 예외를 포괄하기 때문에 안정적으로 테스트할 수 없습니다.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://qutrits.github.io/posts/"},{"@type":"ListItem","position":2,"name":"","item":"https://qutrits.github.io/posts/effective-java-3e/chapter-09/item72/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"","name":"","description":"[아이템 72] 표준 예외를 사용하라. 자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다.\nException, RuntimeException, Throwable, Error는 직적 재사용하지 않는 게 좋습니다. 다른 예외들의 상위 클래스이므로 즉 여러 예외를 포괄하기 때문에 안정적으로 테스트할 수 없습니다.","keywords":[],"articleBody":"[아이템 72] 표준 예외를 사용하라. 자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다.\nException, RuntimeException, Throwable, Error는 직적 재사용하지 않는 게 좋습니다. 다른 예외들의 상위 클래스이므로 즉 여러 예외를 포괄하기 때문에 안정적으로 테스트할 수 없습니다.\n","wordCount":"64","inLanguage":"en","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/posts/effective-java-3e/chapter-09/item72/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.png"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"","name":"","description":"[아이템 72] 표준 예외를 사용하라. 자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다. Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 게 좋습니다. 다른 예외들의 상위 클래스이므로 즉 여러 예외를 포괄하기 때문에 안정적으로 테스트할 수 없습니다.","keywords":[],"articleBody":"[아이템 72] 표준 예외를 사용하라. 자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다. Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 게 좋습니다. 다른 예외들의 상위 클래스이므로 즉 여러 예외를 포괄하기 때문에 안정적으로 테스트할 수 없습니다.\n","wordCount":"64","inLanguage":"en","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/posts/effective-java-3e/chapter-09/item72/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.png"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -102,8 +99,7 @@ Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 �
 </div>
 </header>
 <div class=post-content><h1 id=아이템-72-표준-예외를-사용하라>[아이템 72] 표준 예외를 사용하라.<a hidden class=anchor aria-hidden=true href=#아이템-72-표준-예외를-사용하라>#</a></h1>
-<p>자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다.<br>
-<br>
+<p>자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다.
 </p>
 <p><code>Exception</code>, <code>RuntimeException</code>, <code>Throwable</code>, <code>Error</code>는 직적 재사용하지 않는 게 좋습니다. 다른 예외들의 상위 클래스이므로 즉 여러 예외를 포괄하기 때문에 안정적으로 테스트할 수 없습니다.</p>
 </div>

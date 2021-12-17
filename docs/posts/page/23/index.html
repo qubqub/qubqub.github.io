@@ -8,7 +8,7 @@
 <meta name=description content="Posts - <Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.7b246acb8d761204b747ee1c4ee6f7bd6b4d3e54f37bbb43bbd724df5b995616.css integrity="sha256-eyRqy412EgS3R+4cTub3vWtNPlTze7tDu9ck31uZVhY=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.3f8578277c3297f8157e00e72e7f9c5a03b33825c3b89f449d881e3b913eb69e.css integrity="sha256-P4V4J3wyl/gVfgDnLn+cWgOzOCXDuJ9EnYgeO5E+tp4=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.png>
@@ -99,8 +99,7 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 70] 복구할 수 있는 상황에서는 검사 예외를, 프로그래밍 오류에는 런타임 예외를 시용하라. 자바에서는 기본적으로 오류는 checked exception, runtime exception, error 이렇게 세 가지로 나눌 수 있습니다. 100% 확실한 건 아니지만 일반적으로 사용하는 상황은 다음과 같습니다.
-호출 하는 쪽에서 복구하리라 여거지는 상황에서는 검사 예외를 사용합시다. 이것이 검사 예외랑 비검사 예외를 구분하는 가장 기본적인 규칙입니다. catch로 잡아서 처리하거나 thorws로 예외를 호출한쪽으로 전파하고 호출했을 때 발생할 수 있는 있다는 걸 API 사용자에게 알리는 것입니다....</p>
+<p>[아이템 70] 복구할 수 있는 상황에서는 검사 예외를, 프로그래밍 오류에는 런타임 예외를 시용하라. 자바에서는 기본적으로 오류는 checked exception, runtime exception, error 이렇게 세 가지로 나눌 수 있습니다. 100% 확실한 건 아니지만 일반적으로 사용하는 상황은 다음과 같습니다. 호출 하는 쪽에서 복구하리라 여거지는 상황에서는 검사 예외를 사용합시다. 이것이 검사 예외랑 비검사 예외를 구분하는 가장 기본적인 규칙입니다. catch로 잡아서 처리하거나 thorws로 예외를 호출한쪽으로 전파하고 호출했을 때 발생할 수 있는 있다는 걸 API 사용자에게 알리는 것입니다....</p>
 </section>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-09/item70/></a>
@@ -122,8 +121,7 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 72] 표준 예외를 사용하라. 자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다.
-Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 게 좋습니다. 다른 예외들의 상위 클래스이므로 즉 여러 예외를 포괄하기 때문에 안정적으로 테스트할 수 없습니다.</p>
+<p>[아이템 72] 표준 예외를 사용하라. 자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다. Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 게 좋습니다. 다른 예외들의 상위 클래스이므로 즉 여러 예외를 포괄하기 때문에 안정적으로 테스트할 수 없습니다.</p>
 </section>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-09/item72/></a>

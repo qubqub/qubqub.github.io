@@ -10,7 +10,7 @@
 반면 인터페이스의 준수 사항을 잘 지키고 모든 메서드를 구현한 클래스는 어느 계층에 있든 인터페이스를 구현할 수 있습니다.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item20/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.7b246acb8d761204b747ee1c4ee6f7bd6b4d3e54f37bbb43bbd724df5b995616.css integrity="sha256-eyRqy412EgS3R+4cTub3vWtNPlTze7tDu9ck31uZVhY=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.3f8578277c3297f8157e00e72e7f9c5a03b33825c3b89f449d881e3b913eb69e.css integrity="sha256-P4V4J3wyl/gVfgDnLn+cWgOzOCXDuJ9EnYgeO5E+tp4=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -229,7 +229,7 @@
 <p>자바가 제공하는 다중 구현 메커니즘은 인터페이스와 추상 클래스가 있습니다. 자바8 부터는 인터페이스에서 <code>defualt moethod</code>를 제공할 수 있게 되어서 두 메커니즘 모두 인스턴스 메서드를 구현 형태로 제공할 수 있습니다.</p>
 <p>추상 클래스와 인터페이스의 큰 차이점은 추상 클래스의 정의한 타입을 구현 클래스는 반드시 서브클래스가 된다는 점입니다. 자바에서는 단일 상속만 지원하기 때문에 이런 제약은 새로운 타입을 정의하는데 커다란 제약이 됩니다.</p>
 <p>반면 인터페이스의 준수 사항을 잘 지키고 모든 메서드를 구현한 클래스는 어느 계층에 있든 인터페이스를 구현할 수 있습니다. 기존 클래스에도 손쉽게 새로운 인터페이스를 구현해 넣을 수 있습니다. 그저 인터페이스가 요구하는 메서드를 (아직 없다면) 추가하고, 클래스 선언에 <code>implements</code> 구문을 추가하면 됩니다.</p>
-<p>반면 일반적으로 기존 클래스에 새로운 추상 클래스를 끼워넣는 일은 매우 간단합니다. 만약 두 클래스로 하나의 추상 클래스를 상속하길 원한다면, 그 추상 클래스는 계층구조상 두 클래스의 공통 조상이어야합니다. <br>
+<p>반면 일반적으로 기존 클래스에 새로운 추상 클래스를 끼워넣는 일은 매우 간단합니다. 만약 두 클래스로 하나의 추상 클래스를 상속하길 원한다면, 그 추상 클래스는 계층구조상 두 클래스의 공통 조상이어야합니다.
 이러한 방식은 클래스 계층구조에 커다란 혼란을 야기할 수 있습니다. 적절하지 않은 상황에서도 강제로 새로 추가된 추상 클래스의 모든 자손이 이를 상속하게 되는 것입니다.</p>
 <p>인터페이스는 <code>믹스인</code>(mixin) 정의에 안성맞춤입니다. <code>믹스인</code>이란 클래스가 구현할 수 있는 타입으로, <code>믹스인</code>을 구현한 클래스에 원래의 &lsquo;주된 타입&rsquo;외에도 특정 선택적 행위를 제공한다고 선언하는 효과를 줍니다.</p>
 <p>예컨대 <code>Comparable</code>은 자신을 구현한 클래스의 인스턴스들끼리는 순서를 정할 수 있다고 선언하는 <code>믹스인</code> 인터페이스입니다. 이처럼 대상 타입의 주된 기능에 선택적 기능을 &lsquo;혼합(mixed in)&lsquo;한다고 해서 <code>믹스인</code>이라고 불립니다.</p>
