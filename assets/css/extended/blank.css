@@ -1242,6 +1242,10 @@ header.header {
     margin-top: 7px;
     text-align: center;
   }
+
+  .post-meta .font-size-button .button {
+    vertical-align: -3px;
+  }
 }
 
 @media screen and (min-width: 1371px) {
@@ -1434,6 +1438,11 @@ header.header {
     margin-top: 7px;
     text-align: center;
   }
+
+
+  .post-meta .font-size-button .button {
+    vertical-align: -3px;
+  }
 }
 
 .tag-entry .entry-cover {
@@ -1478,7 +1487,6 @@ header.header {
 }
 
 .post-meta .font-size-button .button {
-  vertical-align: -3px;
   padding: 0 2.5px;
   margin: 0;
   cursor: pointer;
