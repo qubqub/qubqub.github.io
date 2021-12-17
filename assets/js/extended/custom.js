@@ -173,7 +173,6 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
             header.classList.remove(headerBottom);
             header.classList.remove(scrollDown);
             header.classList.add(scrollUp);
-            return;
           }
         } else {
           if (!header.classList.contains(headerBottom)) {
