@@ -1054,6 +1054,7 @@ header.header {
 
   .post-meta .font-size-button .button {
     vertical-align: 3px;
+    margin-left: -2px;
   }
 }
 
@@ -1249,6 +1250,7 @@ header.header {
 
   .post-meta .font-size-button .button {
     vertical-align: -3px;
+    margin-left: -2px;
   }
 }
 
@@ -1446,6 +1448,7 @@ header.header {
 
   .post-meta .font-size-button .button {
     vertical-align: -3px;
+    margin-left: -2px;
   }
 }
 
