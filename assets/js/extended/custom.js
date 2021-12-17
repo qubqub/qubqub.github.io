@@ -2,6 +2,19 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
+function elementDelayAnimation(_element, _transition, _direction, _from, _to, _startOpacity, endOpacity, _ms) {
+  if (_element) {
+    _element.style.opacity = _startOpacity;
+    _element.style.transition = _transition;
+    _element.style.transform = `translate${_direction.toUpperCase()}(${_from})`;
+    
+    sleep(_ms).then(() => {
+      _element.style.opacity = endOpacity;
+      _element.style.transform = `translate${_direction.toUpperCase()}(${_to})`;
+    });
+  }
+}
+
 if (window.innerWidth < 769) {
   if (!document.getElementById("menu").classList.contains("hidden")) {
     document.getElementById("menu").classList.add("hidden");
@@ -49,63 +62,27 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
     };
 
     DOMReady( function () {
-      if (document.querySelector(".main .post-single .post-header .post-title")) {
-        sleep(200).then(() => {
-          const _el = document.querySelector(".main .post-single .post-header .post-title");
-          _el.style.opacity = "1";
-          _el.style.transform = "translateY(0%)";
-        });
-      }
+      const _postTitle = document.querySelector(".main .post-single .post-header .post-title");
+      elementDelayAnimation(_postTitle, "all 0.4s ease-in-out 0s", "Y", "-20%", "0%", "0", "1", 200);
 
-      if (document.querySelector(".main .post-single .post-header .post-description")) {
-        sleep(235).then(() => {
-          const _el = document.querySelector(".main .post-single .post-header .post-description");
-          _el.style.opacity = "1";
-          _el.style.transform = "translateY(0%)";
-        });
-      }
+      const _postDescription = document.querySelector(".main .post-single .post-header .post-description");
+      elementDelayAnimation(_postDescription, "all 0.4s ease-in-out 0s", "Y", "-20%", "0%", "0", "1", 235);
 
-      if (document.querySelector(".main .post-single .post-header .post-meta")) {
-        sleep(270).then(() => {
-          const _el = document.querySelector(".main .post-single .post-header .post-meta");
-          _el.style.opacity = "1";
-          _el.style.transform = "translateY(0%)";
-        });
-      }
+      const _postMeta = document.querySelector(".main .post-single .post-header .post-meta");
+      elementDelayAnimation(_postMeta, "all 0.4s ease-in-out 0s", "Y", "-20%", "0%", "0", "1", 270);
 
-      if (document.querySelector(".main .post-single .series-main")) {
-        sleep(300).then(() => {
-          const _el = document.querySelector(".main .post-single .series-main");
-          _el.style.opacity = "1";
-          _el.style.transform = "translateY(0%)";
-        });
-      }
+      const _seriesMain = document.querySelector(".main .post-single .series-main");
+      elementDelayAnimation(_seriesMain, "all 0.4s ease-in-out 0s", "Y", "-2%", "0%", "0", "1", 300);
 
-      if (document.querySelector(".main .post-single .toc")) {
-        sleep(400).then(() => {
-          const _el = document.querySelector(".main .post-single .toc");
-          _el.style.opacity = "1";
-          _el.style.transform = "translateY(0%)";
-        });
-      }
+      const _toc = document.querySelector(".main .post-single .toc");
+      elementDelayAnimation(_toc, "all 0.4s ease-in-out 0s", "Y", "-1%", "0%", "0", "1", 400);
 
-      if (document.querySelector(".main .post-single .post-content")) {
-        sleep(700).then(() => {
-          const _el = document.querySelector(".main .post-single .post-content");
-          _el.style.opacity = "1";
-          _el.style.transform = "translateX(0%)";
-        });
-      }
+      const _postContent = document.querySelector(".main .post-single .post-content");
+      elementDelayAnimation(_postContent, "all 0.4s ease-in-out 0s", "X", "-1%", "0%", "0", "1", 700);
 
-      if (document.querySelector(".main .post-single .post-footer")) {
-        sleep(700).then(() => {
-          const _el = document.querySelector(".main .post-single .post-footer");
-          _el.style.opacity = "1";
-          _el.style.transform = "translateY(0%)";
-        });
-      }
-
-      document.querySelector("header.header").style.borderBottom = "none";
+      const _postFooter = document.querySelector(".main .post-single .post-footer");
+      elementDelayAnimation(_postFooter, "all 0.4s ease-in-out 0s", "Y", "3%", "0%", "0", "1", 700);
+      
       const scrollUp = "scroll-up";
       const scrollDown = "scroll-down";
       const headerBottom = "header-bottom";
@@ -115,7 +92,8 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
       const mainTocTop = mainToc?mainToc.offsetTop + mainToc.offsetParent.offsetTop - 1:0;
       const postHeaderEl = document.querySelector(".post-header");
       const tocIdList = [];
-
+      header.style.borderBottom = "none";
+      
       function updateScrollProgressBar () {
         let scrollHeight = _root.scrollHeight - heightInViewport(_progressbar) - window.innerHeight;
         let scrollPosition = currentScroll;
@@ -317,70 +295,57 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
         _hljs[i].style.width = "100%";
       }
     }
-  } else {
-    const postHeader = document.querySelector(".page-header");
-    if (postHeader) {
-      sleep(200).then(() => {
-        postHeader.style.opacity = "1";
-        postHeader.style.transform = "translateY(0%)";
-      });
-    }
-
-    const postEntry = document.querySelectorAll(".post-entry");
-    if (postEntry) {
-      sleep(300).then(() => {
-        for (let i = 0; i < postEntry.length; i++) {
-          sleep((i+1)*100).then(() => {
-            postEntry[i].style.opacity = "1";
-            postEntry[i].style.transform = "translateX(0%)";
-          });
+  } else { // page
+    const _postHeader = document.querySelector(".page-header");
+    elementDelayAnimation(_postHeader, "all 0.2s ease-out 0s", "Y", "-30%", "0%", "0", "1", 80);
+    
+    const _postEntry = document.querySelectorAll(".post-entry");
+    if (_postEntry) {
+      sleep(120).then(() => {
+        for (let i = 0; i < _postEntry.length; i++) {
+          elementDelayAnimation(_postEntry[i], "all 0.2s ease-out 0s", "X", "-4%", "0%", "0", "1", (i+1)*50);
         }
       });
     }
   }
 } else if (window.location.pathname.match(/^\/archives\/$/)) {
-  const archivePosts = document.querySelectorAll(".archive-year .archive-month");
-  const archiveYearHeader = document.querySelectorAll(".archive-year .archive-year-header");
-  const archiveEntry = document.querySelectorAll(".main .archive-year .archive-month .archive-month-header .toggle");
+  const _archiveHeader = document.querySelector(".main .page-header");
+  const _archivePosts = document.querySelectorAll(".archive-year .archive-month");
+  const _archiveYearHeader = document.querySelectorAll(".archive-year .archive-year-header");
+  const _archiveEntry = document.querySelectorAll(".main .archive-year .archive-month .archive-month-header .toggle");
 
-  if (archiveYearHeader) {
+  elementDelayAnimation(_archiveHeader, "all 0.3s ease-in-out 0s", "Y", "0%", "0%", "0", "1", 0);
+
+  if (_archiveYearHeader) {
     sleep(300).then(() => {
-      for (let i = 0; i < archiveYearHeader.length; i++) {
-        sleep((i+1)*100).then(() => {
-          archiveYearHeader[i].style.opacity = "1";
-          archiveYearHeader[i].style.transform = "translateY(0%)";
-        });
+      for (let i = 0; i < _archiveYearHeader.length; i++) {
+        elementDelayAnimation(_archiveYearHeader[i], "all 0.3s ease-in-out 0s", "Y", "-70%", "0%", "0", "1", (i+1)*100);
       }
     });
   }
 
-  if (archivePosts) {
-    for (let i = 0; i < archivePosts.length; i++) {
-      if (localStorage.getItem("lock-archives-"+archivePosts[i].dataset.key) === "false") {
-        archivePosts[i].querySelector(".archive-month-header .toggle").dataset.isLock = false;
-        archivePosts[i].querySelector(".archive-month-header .toggle .lock").classList.add("hide");
+  if (_archivePosts) {
+    for (let i = 0; i < _archivePosts.length; i++) {
+      if (localStorage.getItem("lock-archives-"+_archivePosts[i].dataset.key) === "false") {
+        _archivePosts[i].querySelector(".archive-month-header .toggle").dataset.isLock = false;
+        _archivePosts[i].querySelector(".archive-month-header .toggle .lock").classList.add("hide");
       } else {
-        archivePosts[i].querySelector(".archive-month-header .toggle").dataset.isLock = true;
-        archivePosts[i].querySelector(".archive-month-header .toggle .unlock").classList.add("hide");
+        _archivePosts[i].querySelector(".archive-month-header .toggle").dataset.isLock = true;
+        _archivePosts[i].querySelector(".archive-month-header .toggle .unlock").classList.add("hide");
       }
     }
 
     sleep(700).then(() => {
-      for (let i = 0; i < archivePosts.length; i++) {
-        sleep((i+1)*50).then(() => {
-          archivePosts[i].children[0].style.opacity = "1";
-          archivePosts[i].children[0].style.transform = "translateY(0%)";
-          archivePosts[i].children[1].style.opacity = "1";
-          archivePosts[i].children[1].style.transform = "translateX(0%)";
-        });
+      for (let i = 0; i < _archivePosts.length; i++) {
+        elementDelayAnimation(_archivePosts[i].children[0], "all 0.3s ease-in-out 0s", "Y", "-70%", "0%", "0", "1", (i+1)*50);
+        elementDelayAnimation(_archivePosts[i].children[1], "all 0.3s ease-in-out 0s", "X", "-20%", "0%", "0", "1", (i+1)*50);
       }
     });
   }
   
-  if (archiveEntry) {
-    for (let i = 0; i < archiveEntry.length; i++) {
-
-      archiveEntry[i].addEventListener("click", e => {
+  if (_archiveEntry) {
+    for (let i = 0; i < _archiveEntry.length; i++) {
+      _archiveEntry[i].addEventListener("click", e => {
         let _key = null;
         let _el = null;
         if (e.target.parentNode.dataset.key) {
@@ -393,8 +358,6 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
           _key = e.target.parentNode.parentNode.parentNode.dataset.key;
           _el = e.target.parentNode.parentNode.parentNode;
         }
-
-        console.log(_key);
 
         if (_el.querySelector(".toggle").dataset.isLock === "false") {
           localStorage.setItem("lock-archives-"+_key, true);
@@ -409,16 +372,18 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
           _el.querySelector(".toggle .unlock").classList.remove("hide");
           document.getElementById(_key).style.display = "block";
         }
-
       });
     }
   }
 } else if (window.location.pathname.match(/^\/tags\/$/)) {
-  const termList = document.querySelectorAll(".terms-tags li");
-  if (termList) {
+  const _termList = document.querySelectorAll(".main .terms-tags a");
+  const _termHeader = document.querySelector(".main .page-header");
+  elementDelayAnimation(_termHeader, "all 0.3s ease-in-out 0s", "Y", "0%", "0%", "0", "1", 0);
+
+  if (_termList) {
     let randomIndexArray = [];
-    for (i=0; i<termList.length; i++) {
-      randomNum = Math.floor(Math.random() * termList.length);
+    for (i=0; i<_termList.length; i++) {
+      randomNum = Math.floor(Math.random() * _termList.length);
       if (randomIndexArray.indexOf(randomNum) === -1) {
         randomIndexArray.push(randomNum);
       } else {
@@ -428,63 +393,87 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
     
     sleep(300).then(() => {
       for (let i = 0; i < randomIndexArray.length; i++) {
-        sleep((i+1)*20).then(() => {
-          termList[randomIndexArray[i]].children[0].style.opacity = "1";
-          termList[randomIndexArray[i]].children[0].style.transform = "translateY(0%)";
-        });
+        elementDelayAnimation(_termList[randomIndexArray[i]], "all 0.2s ease-out 0s", "Y", "-30%", "0%", "0", "1", (i+1)*17);
       }
     });
   }
 } else if (window.location.pathname.match(/^\/search\/$/)) {
-  const searchInput = document.querySelector("#searchInput");
-  if (searchInput) {
-    searchInput.style.width = "100%";
-  }
-} else if (window.location.pathname.match(/^\/series-list\/$/) ||
-            window.location.pathname.match(/^\/collection\/$/) ||
-            window.location.pathname.match(/^\/posts\/$/) ||
-            window.location.pathname.match(/^\/tags\/.+/) ||
-            window.location.pathname.match(/^\/categories\/.+/) ||
-            window.location.pathname.match(/^\/series\/.+/) ||
-            window.location.pathname.match(/^\/chapter\/.+/) ||
-            window.location.pathname === "/") {
+  const _searchHeader = document.querySelector(".main .page-header");
+  elementDelayAnimation(_searchHeader, "all 0.3s ease-in-out 0s", "Y", "-100%", "0%", "0", "1", 400);
 
-  if (document.querySelector(".page-header")) {
-    sleep(200).then(() => {
-      const postHeader = document.querySelector(".page-header");
-      postHeader.style.opacity = "1";
-      postHeader.style.transform = "translateY(0%)";
-    });
+  const _searchInput = document.querySelector("#searchInput");
+  if (_searchInput) {
+    _searchInput.style.width = "100%";
   }
+} else if (window.location.pathname.match(/^\/series-list\/$/)) {
+  const _seriesTitle = document.querySelector(".main .series-header .series-title");
+  const _seriesDescription = document.querySelector(".main .series-header .series-description-wrapper .series-description");
+  const _seriesSubDescriptions = document.querySelectorAll(".main .series-header .series-description-wrapper .series-sub-description-wrapper .series-sub-description");
+  const _seriesEntry = document.querySelectorAll(".main .post-entry");
   
-  if (document.querySelector(".post-entry")) {
-    sleep(300).then(() => {
-      const postEntry = document.querySelectorAll(".post-entry");
-      for (let i = 0; i < postEntry.length; i++) {
-        sleep((i+1)*100).then(() => {
-          postEntry[i].style.opacity = "1";
-          postEntry[i].style.transform = "translateX(0%)";
-        });
+  elementDelayAnimation(_seriesTitle, "all 0.2s ease-out 0s", "Y", "-30%", "0%", "0", "1", 200);
+  elementDelayAnimation(_seriesDescription, "all 0.2s ease-out 0s", "Y", "-30%", "0%", "0", "1", 400);
+
+  if (_seriesSubDescriptions) {
+    sleep(400).then(() => {
+      for (let i = 0; i < _seriesSubDescriptions.length; i++) {
+        // elementDelayAnimation(_seriesSubDescriptions[i], "all 0.2s ease-out 0s", "X", "-4%", "0%", "0", "1", (i+1)*250);
+        elementDelayAnimation(_seriesSubDescriptions[i], "all 0.2s ease-out 0s", "X", "-20%", "0%", "0", "1", 250);
       }
     });
   }
-} else if (window.location.pathname.match(/^\/links\/$/)) {
-  if (document.querySelector(".link-header")) { 
-    sleep(300).then(() => {
-      const linkHeader = document.querySelector(".link-header");
-      linkHeader.style.opacity = "1";
-      linkHeader.style.transform = "translateY(0%)";
+
+  if (_seriesEntry) {
+    sleep(850).then(() => {
+      for (let i = 0; i < _seriesEntry.length; i++) {
+        elementDelayAnimation(_seriesEntry[i], "all 0.2s ease-out 0s", "X", "-4%", "0%", "0", "1", (i+1)*100);
+      }
     });
   }
+} else if ( window.location.pathname.match(/^\/collection\/$/)) {
+  const _collectionTitle = document.querySelector(".main .collection-header .collection-title");
+  const _collectionDescription = document.querySelector(".main .collection-header .collection-description");
+  const _collectionEntry = document.querySelectorAll(".main .post-entry");
 
-  if (document.querySelectorAll(".links .button")) {
+  elementDelayAnimation(_collectionTitle, "all 0.2s ease-out 0s", "Y", "-30%", "0%", "0", "1", 200);
+  elementDelayAnimation(_collectionDescription, "all 0.2s ease-out 0s", "Y", "-30%", "0%", "0", "1", 400);
+
+  if (_collectionEntry) {
+    sleep(550).then(() => {
+      for (let i = 0; i < _collectionEntry.length; i++) {
+        elementDelayAnimation(_collectionEntry[i], "all 0.2s ease-out 0s", "X", "-4%", "0%", "0", "1", (i+1)*80);
+      }
+    });
+  }
+} else if ( window.location.pathname.match(/^\/posts\/$/) ||
+            window.location.pathname.match(/^\/tags\/.+/) ||
+            window.location.pathname.match(/^\/categories\/.+/) ||
+            window.location.pathname.match(/^\/series\/.+/) ||
+            window.location.pathname.match(/^\/chapter\/.+/)) {
+  const _postHeader = document.querySelector(".page-header");
+  elementDelayAnimation(_postHeader, "all 0.2s ease-out 0s", "Y", "-30%", "0%", "0", "1", 80);
+  
+  const _postEntry = document.querySelectorAll(".post-entry");
+  if (_postEntry) {
+    sleep(120).then(() => {
+      for (let i = 0; i < _postEntry.length; i++) {
+        elementDelayAnimation(_postEntry[i], "all 0.2s ease-out 0s", "X", "-4%", "0%", "0", "1", (i+1)*50);
+      }
+    });
+  }
+} else if (window.location.pathname === "/") {
+
+  
+
+} else if (window.location.pathname.match(/^\/links\/$/)) {
+  const _linkHeader = document.querySelector(".link-header");
+  elementDelayAnimation(_linkHeader, "all 0.3s ease-in-out 0s", "Y", "0%", "0%", "0", "1", 0);
+
+  const _linkButtons = document.querySelectorAll(".links .button");
+  if (_linkButtons) {
     sleep(700).then(() => {
-      const linksButton = document.querySelectorAll(".links .button");
-      for (let i = 0; i < linksButton.length; i++) {
-        sleep((i+1)*100).then(() => {
-          linksButton[i].style.opacity = "1";
-          linksButton[i].style.transform = "translateX(0%)";
-        });
+      for (let i = 0; i < _linkButtons.length; i++) {
+        elementDelayAnimation(_linkButtons[i], "all 0.4s ease-in-out 0s", "X", "-10%", "0%", "0", "1", (i+1)*100);
       }
     });
   }

@@ -1,9 +1,9 @@
 {{- define "main" }}
   {{- if .Params.use}}
-    <header class="page-header">
+    <header class="series-header">
       <h1 class="series-title">{{ .Title }}</h1>
       {{- if .Description }}
-      <div class="post-description">
+      <div class="series-description-wrapper">
         <h2 class="series-description">{{ .Description }}</h2>
         <div class="series-sub-description-wrapper">
           {{- if .Params.subDescription1 }}

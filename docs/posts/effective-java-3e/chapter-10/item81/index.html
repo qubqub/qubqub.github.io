@@ -9,7 +9,7 @@
  실헹자 프레임워크 동시성 컬렉션 동기화 장치  동시성 컬렉션은 높은 동시성에 도달하기 위해 동기화를 각자의 내부에서 구현한다. 따라서 컬렉션에서 동기성을 무력화하는 건 불가능하며 외부에서 락을 추가로 사용하면 속도가 느려진다. 동시성을 무력화하지 못하므로 여러 메서드를 원자적으로 묶어 호출하는 건 불가능하다. 그레서 여러 기본 동작을 하나의 원자적 동작으로 묶는 &lsquo;상태 의존적 수정&rsquo; 메서드들이 추가되었다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item81/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.863f6db2fa88cf2ec5bcfe8a0f95a42b32cb3fbb0cfc4c41ce41a70ebedbf2b8.css integrity="sha256-hj9tsvqIzy7FvP6KD5WkKzLLP7sM/ExBzkGnDr7b8rg=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.da395a38c7595fe43aced558f58ea507d76bf3d66b6e86043d83b2d84cb99ddf.css integrity="sha256-2jlaOMdZX+Q6ztVY9Y6lB9dr89ZrboYEPYOy2Ey5nd8=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -25,7 +25,7 @@
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.a76d119eb3c5f8be83ca1fbadd2c0ca833e946baa7f113066d679230c0917694.js integrity="sha256-p20RnrPF+L6Dyh+63SwMqDPpRrqn8RMGbWeSMMCRdpQ="></script>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.35945fb1020db7c575d7634873f07aa9f3153eb252ec069cbf4d008e8fa00edc.js integrity="sha256-NZRfsQINt8V112NIc/B6qfMVPrJS7Aacv00Ajo+gDtw="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 81] wait와 notify보다는 동시성 유틸리티를 애용하라. wait와 notify는 올바르게 사용하기가 아주 까다로우니 고수준 동시성 유틸리티를 사용하라. java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있다.
  실헹자 프레임워크 동시성 컬렉션 동기화 장치  동시성 컬렉션은 높은 동시성에 도달하기 위해 동기화를 각자의 내부에서 구현한다. 따라서 컬렉션에서 동기성을 무력화하는 건 불가능하며 외부에서 락을 추가로 사용하면 속도가 느려진다. 동시성을 무력화하지 못하므로 여러 메서드를 원자적으로 묶어 호출하는 건 불가능하다. 그레서 여러 기본 동작을 하나의 원자적 동작으로 묶는 &lsquo;상태 의존적 수정&rsquo; 메서드들이 추가되었다.">
