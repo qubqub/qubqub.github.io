@@ -182,9 +182,8 @@ if (urlPathName.match(/^\/posts\/.+/)) {
           }
         });
       }
-
+      let lastScroll = 0;
       window.addEventListener("scroll", () => {
-        let lastScroll = 0;
         currentScroll = window.pageYOffset;
         updateScrollProgressBar();
 
