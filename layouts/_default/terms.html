@@ -1,7 +1,7 @@
 {{- define "main" }}
 {{- if .Title }}
 <header class="page-header">
-  <h1>태그 🏷️</h1>
+  <h1>{{- i18n (lower .Title) }} 🏷️</h1>
   {{- if .Description }}
   <div class="post-description">
     {{ .Description }}

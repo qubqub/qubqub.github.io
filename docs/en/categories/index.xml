@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on &lt;Qutrits/&gt;</title>
+    <link>https://qutrits.github.io/en/categories/</link>
+    <description>Recent content in Categories on &lt;Qutrits/&gt;</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 13 Dec 2021 17:46:19 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/en/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>unity</title>
+      <link>https://qutrits.github.io/en/categories/unity/</link>
+      <pubDate>Mon, 13 Dec 2021 17:46:19 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/en/categories/unity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>algorithm</title>
+      <link>https://qutrits.github.io/en/categories/algorithm/</link>
+      <pubDate>Sun, 12 Dec 2021 23:15:57 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/en/categories/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>csharp</title>
+      <link>https://qutrits.github.io/en/categories/csharp/</link>
+      <pubDate>Tue, 07 Dec 2021 20:21:53 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/en/categories/csharp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://qutrits.github.io/en/categories/hugo/</link>
+      <pubDate>Sun, 14 Nov 2021 21:31:11 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/en/categories/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>https://qutrits.github.io/en/categories/java/</link>
+      <pubDate>Thu, 09 Jul 2020 18:21:51 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/en/categories/java/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

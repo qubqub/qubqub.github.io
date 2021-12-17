@@ -32,7 +32,7 @@
       {{- with $.Site.GetPage (printf "/%s/%s" "series" $name) }}
         <article class="post-entry" title="{{- i18n $name }}">
           {{ $seriesTitle := .Name }}
-          {{ $seriesId := index (split .Permalink "/") (sub (len (split .Permalink "/")) 2) }}
+          {{ $seriesId := index (split .RelPermalink "/") (sub (len (split .RelPermalink "/")) 2) }}
           {{- range where $seriesCover "name" $seriesTitle }}
             {{- if .image }}
               <figure class="series-content-cover">
@@ -53,7 +53,7 @@
               {{- range $key, $value := $taxonomy }}
                 {{ if (eq $seriesId $key) }}
                   {{ with (index $value.Pages (sub (len $value.Pages) 1)) }}
-                    <a class="entry-link" aria-label="{{ $seriesTitle }}" href="{{ .Permalink }}"></a>
+                    <a class="entry-link" aria-label="{{ $seriesTitle }}" href="{{ .RelPermalink }}"></a>
                   {{- end }}
                 {{- end }}
               {{- end }}
@@ -69,12 +69,12 @@
                   {{ $_chapterNumber := index $_splitChapter 1 }}
                   {{ with (index $value.Pages (sub (len $value.Pages) 1)) }}
                     {{ if (eq $seriesId $_seriesId) }}
-                      {{ $_chapterLink := .Permalink }}
+                      {{ $_chapterLink := .RelPermalink }}
                       {{- range where $seriesCover "name" $seriesTitle }}
                         {{- range .chapter }}
                           {{- if (eq .id $key) }}
                           <li>
-                            <a class="button chapter-link-button" href="{{ $_chapterLink }}">{{ $_chapterNumber }} 장 {{ .title }}</a>
+                            <a class="button chapter-link-button" href="{{ $_chapterLink }}">{{ if (eq (i18n "country_code") "en") }}{{ i18n "chapter" }} {{ end }}{{ $_chapterNumber }} {{ if (eq (i18n "country_code") "ko") }}{{ i18n "chapter" }}{{ end }} {{ .title }}</a>
                           </li>
                           {{- end }}
                         {{- end }}

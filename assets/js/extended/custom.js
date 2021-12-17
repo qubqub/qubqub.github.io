@@ -53,8 +53,15 @@ document.getElementById("menu-trigger").addEventListener("click", () => {
   }
 });
 
-if (window.location.pathname.match(/^\/posts\/.+/)) {
-  const urlSlug = window.location.pathname.match(/^(\/posts\/)([^/]+)/);
+let urlPathName = "";
+if (window.location.pathname.startsWith("/en/")) {
+  urlPathName = window.location.pathname.match(/^\/en(\/.*)$/)[1];
+} else {
+  urlPathName = window.location.pathname;
+}
+
+if (urlPathName.match(/^\/posts\/.+/)) {
+  const urlSlug = urlPathName.match(/^(\/posts\/)([^/]+)/);
   if (urlSlug[2] !== "page") {
     const DOMReady = function (callback) {
       document.readyState === "interactive" ||
@@ -131,7 +138,7 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
         asideTocToggle = asideTocSummay.querySelector(".toggle");
         asideTocList = asideToc.querySelectorAll(".inner-wrapper .inner ul>li");
 
-        if (localStorage.getItem("lock-aside-toc-"+window.location.pathname) === "true") {
+        if (localStorage.getItem("lock-aside-toc-"+urlPathName) === "true") {
           asideTocSummay.dataset.isLock = true;
           asideTocWrapper.classList.add("close");
           asideTocToggle.querySelector(".unlock").classList.add("hide");
@@ -160,14 +167,14 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
         asideTocSummay.addEventListener("click", () => {
           if (asideTocSummay.dataset.isLock === "false") {
             asideTocSummay.dataset.isLock = true;
-            localStorage.setItem("lock-aside-toc-"+window.location.pathname, true);
+            localStorage.setItem("lock-aside-toc-"+urlPathName, true);
             asideTocToggle.querySelector(".lock").classList.remove("hide");
             asideTocToggle.querySelector(".unlock").classList.add("hide");
             asideTocWrapper.classList.add("close");
             asideTocWrapper.classList.remove("open");
           } else {
             asideTocSummay.dataset.isLock = false;
-            localStorage.setItem("lock-aside-toc-"+window.location.pathname, false);
+            localStorage.setItem("lock-aside-toc-"+urlPathName, false);
             asideTocToggle.querySelector(".lock").classList.add("hide");
             asideTocToggle.querySelector(".unlock").classList.remove("hide");
             asideTocWrapper.classList.add("open");
@@ -308,7 +315,7 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
       });
     }
   }
-} else if (window.location.pathname.match(/^\/archives\/$/)) {
+} else if (urlPathName.match(/^\/archives\/$/)) {
   const _archiveHeader = document.querySelector(".main .page-header");
   const _archivePosts = document.querySelectorAll(".archive-year .archive-month");
   const _archiveYearHeader = document.querySelectorAll(".archive-year .archive-year-header");
@@ -375,7 +382,10 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
       });
     }
   }
-} else if (window.location.pathname.match(/^\/tags\/$/)) {
+} else if (urlPathName.match(/^\/tags\/$/)||
+            urlPathName.match(/^\/categories\/$/) ||
+            urlPathName.match(/^\/series\/$/) ||
+            urlPathName.match(/^\/chapter\/$/)) {
   const _termList = document.querySelectorAll(".main .terms-tags a");
   const _termHeader = document.querySelector(".main .page-header");
   elementDelayAnimation(_termHeader, "all 0.3s ease-in-out 0s", "Y", "0%", "0%", "0", "1", 0);
@@ -397,7 +407,7 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
       }
     });
   }
-} else if (window.location.pathname.match(/^\/search\/$/)) {
+} else if (urlPathName.match(/^\/search\/$/)) {
   const _searchHeader = document.querySelector(".main .page-header");
   elementDelayAnimation(_searchHeader, "all 0.3s ease-in-out 0s", "Y", "-100%", "0%", "0", "1", 400);
 
@@ -405,7 +415,7 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
   if (_searchInput) {
     _searchInput.style.width = "100%";
   }
-} else if (window.location.pathname.match(/^\/series-list\/$/)) {
+} else if (urlPathName.match(/^\/series-list\/$/)) {
   const _seriesTitle = document.querySelector(".main .series-header .series-title");
   const _seriesDescription = document.querySelector(".main .series-header .series-description-wrapper .series-description");
   const _seriesSubDescriptions = document.querySelectorAll(".main .series-header .series-description-wrapper .series-sub-description-wrapper .series-sub-description");
@@ -430,7 +440,7 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
       }
     });
   }
-} else if ( window.location.pathname.match(/^\/collection\/$/)) {
+} else if ( urlPathName.match(/^\/collection\/$/)) {
   const _collectionTitle = document.querySelector(".main .collection-header .collection-title");
   const _collectionDescription = document.querySelector(".main .collection-header .collection-description");
   const _collectionEntry = document.querySelectorAll(".main .post-entry");
@@ -445,11 +455,11 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
       }
     });
   }
-} else if ( window.location.pathname.match(/^\/posts\/$/) ||
-            window.location.pathname.match(/^\/tags\/.+/) ||
-            window.location.pathname.match(/^\/categories\/.+/) ||
-            window.location.pathname.match(/^\/series\/.+/) ||
-            window.location.pathname.match(/^\/chapter\/.+/)) {
+} else if ( urlPathName.match(/^\/posts\/$/) ||
+            urlPathName.match(/^\/tags\/.+/) ||
+            urlPathName.match(/^\/categories\/.+/) ||
+            urlPathName.match(/^\/series\/.+/) ||
+            urlPathName.match(/^\/chapter\/.+/)) {
   const _postHeader = document.querySelector(".page-header");
   elementDelayAnimation(_postHeader, "all 0.2s ease-out 0s", "Y", "-30%", "0%", "0", "1", 80);
   
@@ -461,11 +471,11 @@ if (window.location.pathname.match(/^\/posts\/.+/)) {
       }
     });
   }
-} else if (window.location.pathname === "/") {
+} else if (urlPathName === "/") {
 
-  
 
-} else if (window.location.pathname.match(/^\/links\/$/)) {
+
+} else if (urlPathName.match(/^\/links\/$/)) {
   const _linkHeader = document.querySelector(".link-header");
   elementDelayAnimation(_linkHeader, "all 0.3s ease-in-out 0s", "Y", "0%", "0%", "0", "1", 0);
 

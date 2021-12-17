@@ -20,7 +20,7 @@
             <section class="entry-content">
               <p>{{- i18n $name }}</p>
             </section>
-            <a class="entry-link" aria-label="{{ .Name }}" href="{{ .Permalink }}"></a>
+            <a class="entry-link" aria-label="{{ .Name }}" href="{{ .RelPermalink }}"></a>
           </article>
         {{- end }}
       {{- end }}
@@ -36,7 +36,7 @@
             <section class="entry-content">
               <p>{{- i18n $name }}</p>
             </section>
-            <a class="entry-link" aria-label="{{ .Name }}" href="{{ .Permalink }}"></a>
+            <a class="entry-link" aria-label="{{ .Name }}" href="{{ .RelPermalink }}"></a>
           </article>
         {{- end }}
       {{- end }}

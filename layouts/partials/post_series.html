@@ -23,7 +23,7 @@
 {{ $_totalChapterPage := "" }}
 
 {{ range .GetTerms "chapter" }}
-  {{ $_chapterId = index (split .Permalink "/") (sub (len (split .Permalink "/")) 2) }}
+  {{ $_chapterId = index (split .RelPermalink "/") (sub (len (split .RelPermalink "/")) 2) }}
   {{ $_chapterTitle = .LinkTitle }}
   {{ $_useChapter = true }}
   {{ $_chapterNumber = index (split $_chapterId "-") (sub (len (split $_chapterId "-")) 1) }}
@@ -57,22 +57,22 @@
             <div class="page-button">
               {{ with $_preChapterPages }}
                 <div class="left">
-                  <a class="button" href="{{ .Permalink }}">
+                  <a class="button" href="{{ .RelPermalink }}">
                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                       <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                     </svg>
                     <svg style="margin-left: -12px;" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                       <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                     </svg>
-                    {{ sub $_chapterNumber 1 }} 장
+                    {{ if (eq (i18n "country_code") "en") }}{{ i18n "chapter" }} {{ end }}{{ sub $_chapterNumber 1 }} {{ if (eq (i18n "country_code") "ko") }}{{ i18n "chapter" }}{{ end }}
                   </a>
                 </div>
               {{ end }}
 
               {{ with $_nextChapterPages }}
                 <div class="right">
-                  <a class="button" href="{{ .Permalink }}">
-                    {{ add $_chapterNumber 1 }} 장
+                  <a class="button" href="{{ .RelPermalink }}">
+                    {{ if (eq (i18n "country_code") "en") }}{{ i18n "chapter" }} {{ end }}{{ add $_chapterNumber 1 }} {{ if (eq (i18n "country_code") "ko") }}{{ i18n "chapter" }}{{ end }}
                     <svg style="margin-right: -12px;" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
                     </svg>
@@ -86,7 +86,7 @@
           </div>
         </div>
         
-        <h2><a href="{{ .Permalink }}">{{ index (split $_chapterTitle " Chapter ") 0 }} - {{ $_chapterNumber }}장 {{ i18n $_chapterId }}</a></h2>
+        <h2><a href="{{ .RelPermalink }}">{{ index (split $_chapterTitle " Chapter ") 0 }} - {{ if (eq (i18n "country_code") "en") }}{{ i18n "chapter" }}{{ end }} {{ $_chapterNumber }}{{ if (eq (i18n "country_code") "ko") }}{{ i18n "chapter" }}{{ end }} {{ i18n $_chapterId }}</a></h2>
         <svg width="32" height="48" fill="none" viewBox="0 0 32 48" class="series-corner-image">
           <path fill="#12B886" d="M32 0H0v48h.163l16-16L32 47.836V0z"></path>
         </svg>
@@ -100,7 +100,7 @@
                   {{ range $descPages }}
                     {{ with (index $value.Pages .) }}
                     <li hugo-nav="{{ .RelPermalink}}">
-                      <a href="{{ .Permalink}}" {{ if (eq $pageTitle .LinkTitle) }} class="current" {{ end }}>{{ .LinkTitle }}</a>
+                      <a href="{{ .RelPermalink}}" {{ if (eq $pageTitle .LinkTitle) }} class="current" {{ end }}>{{ .LinkTitle }}</a>
                     </li>
                     {{ end }}
                   {{ end }}
@@ -128,12 +128,12 @@
                     {{ range $index, $filePath := $value.Pages }}
                       {{ if (eq $index (add $_currentIdx 1)) }}
                         {{ $_prePageTitle = .LinkTitle }}
-                        {{ $_prePageLink = .Permalink }}
+                        {{ $_prePageLink = .RelPermalink }}
                       {{ end }}
 
                       {{ if (eq $index (sub $_currentIdx 1)) }}
                         {{ $_nextPageTitle = .LinkTitle }}
-                        {{ $_nextPageLink = .Permalink }}
+                        {{ $_nextPageLink = .RelPermalink }}
                       {{ end }}
                     {{ end }}
 
@@ -236,10 +236,10 @@
 {{ else }}
   {{ range $index, $seriesPath := (.GetTerms "series") }}
     {{ if (eq $index 0) }}
-      {{ $_seriesId = index (split .Permalink "/") (sub (len (split .Permalink "/")) 2) }}
+      {{ $_seriesId = index (split .RelPermalink "/") (sub (len (split .RelPermalink "/")) 2) }}
       {{ $_seriesTitle = .LinkTitle }}
       <div class="series-main">
-        <h2><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></h2>
+        <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
         <svg width="32" height="48" fill="none" viewBox="0 0 32 48" class="series-corner-image">
           <path fill="#12B886" d="M32 0H0v48h.163l16-16L32 47.836V0z"></path>
         </svg>
@@ -252,7 +252,7 @@
                   {{ range $descPages }}
                     {{ with (index $value.Pages .) }}
                     <li hugo-nav="{{ .RelPermalink}}">
-                      <a href="{{ .Permalink}}" {{ if (eq $pageTitle .LinkTitle) }} class="current" {{ end }}>{{ .LinkTitle }}</a>
+                      <a href="{{ .RelPermalink}}" {{ if (eq $pageTitle .LinkTitle) }} class="current" {{ end }}>{{ .LinkTitle }}</a>
                     </li>
                     {{ end }}
                   {{ end }}
@@ -280,12 +280,12 @@
                     {{ range $index, $filePath := $value.Pages }}
                       {{ if (eq $index (add $_currentIdx 1)) }}
                         {{ $_prePageTitle = .LinkTitle }}
-                        {{ $_prePageLink = .Permalink }}
+                        {{ $_prePageLink = .RelPermalink }}
                       {{ end }}
 
                       {{ if (eq $index (sub $_currentIdx 1)) }}
                         {{ $_nextPageTitle = .LinkTitle }}
-                        {{ $_nextPageLink = .Permalink }}
+                        {{ $_nextPageLink = .RelPermalink }}
                       {{ end }}
                     {{ end }}
 
