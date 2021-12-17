@@ -369,7 +369,8 @@ header.header {
 .post-meta .edit-post:hover,
 .series-main .series-control .info .page-button .button:hover,
 .profile .profile_inner .buttons .button:hover,
-.top-link:hover
+.top-link:hover,
+.main .toc-aside .inner-wrapper .inner ul li:not(.selected)>a:hover
 {
   transition: color 0.2s ease 0s;
   color: var(--main-color);
