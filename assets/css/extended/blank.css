@@ -1051,6 +1051,10 @@ header.header {
     margin-top: 7px;
     text-align: center;
   }
+
+  .post-meta .font-size-button .button {
+    vertical-align: 3px;
+  }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1370px) {
