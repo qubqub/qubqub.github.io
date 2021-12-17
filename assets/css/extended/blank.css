@@ -822,8 +822,8 @@ header.header {
   margin-top: 0;
 }
 
-.main .archive-year ~ .archive-year {
-  margin-top: 120px;
+.main .archive-year~.archive-year {
+  margin-top: 80px;
 }
 
 .post-content .highlight:not(table), .post-content pre {
@@ -992,7 +992,11 @@ header.header {
     padding-left: 0;
   }
 
-  .main .post-single  .toc-aside {
+  .main .post-single .toc-aside {
+    display: none !important;
+  }
+
+  .main .post-single .toc-aside-summary {
     display: none !important;
   }
 
@@ -1040,6 +1044,12 @@ header.header {
 
   .post-footer .post-license-info {
     padding: 1rem 0.5rem 1rem 0.5rem !important;
+  }
+
+  .post-footer .post-license-info .license-descript {
+    font-size: 15px;
+    margin-top: 7px;
+    text-align: center;
   }
 }
 
@@ -1226,6 +1236,12 @@ header.header {
   .post-content .highlight .lntd:nth-child(2) {
     padding-inline-start: 35px;
   }
+
+  .post-footer .post-license-info .license-descript {
+    font-size: 15px;
+    margin-top: 7px;
+    text-align: center;
+  }
 }
 
 @media screen and (min-width: 1371px) {
@@ -1310,7 +1326,7 @@ header.header {
   }
 
   .main .post-single .toc-aside::-webkit-scrollbar {
-    width: 0 !important
+    width: 0 !important;
   }
 
   .main .post-single .toc-aside .inner-wrapper .inner li ul {
@@ -1412,6 +1428,12 @@ header.header {
     padding: 10px;
     transition: visibility 0.1s, opacity 0.2s linear;
   }
+
+  .post-footer .post-license-info .license-descript {
+    font-size: 15px;
+    margin-top: 7px;
+    text-align: center;
+  }
 }
 
 .tag-entry .entry-cover {
@@ -1499,12 +1521,6 @@ header.header {
   border: 1px solid var(--primary);
   border-radius: var(--radius);
   word-break: keep-all;
-}
-
-.post-footer .post-license-info .license-descript {
-  font-size: 15px;
-  margin-top: 7px;
-  text-align: center;
 }
 
 .footer {
