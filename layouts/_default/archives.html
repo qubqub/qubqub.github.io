@@ -37,7 +37,7 @@
           </svg>
         </span>{{ $month }}<sup class="archive-count">&nbsp;&nbsp;{{ len .Pages }}</sup>
       </h3>
-      <div class="archive-posts" id="{{ $year }}-{{ $month }}" {{ if $_useElementAnimation }}style="animation-delay: {{ (mul (add (mul (add $ii 1) 200) 150) 0.001) | lang.NumFmt 2 }}s;" data-animation="true"{{- end }}>
+      <div class="archive-posts" id="{{ $year }}-{{ $month }}" {{ if $_useElementAnimation }}style="animation-delay: {{ (mul (add (mul (add $ii 1) 200) 350) 0.001) | lang.NumFmt 2 }}s;" data-animation="true"{{- end }}>
         {{- range .Pages }}
         {{- if eq .Kind "page" }}
         <div class="archive-entry">
