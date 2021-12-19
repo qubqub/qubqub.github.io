@@ -1484,6 +1484,14 @@ header.header {
   vertical-align: -0.14rem;
 }
 
+.header .nav .log {
+  margin-right: 0;
+}
+
+.header .nav #menu-trigger {
+  margin-left: 0;
+}
+
 .aside-display-font-size-info,
 .display-font-size-info,
 .series-main .series-control .page-button .left a,
