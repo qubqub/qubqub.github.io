@@ -960,7 +960,7 @@ header.header {
 
   .main .page-footer .pagination a {
     border-radius: var(--radius);
-    padding: 0 0.8rem;
+    padding: 0 0.7rem;
   }
   
   .pagination__link.pagination__link--first,
@@ -1541,6 +1541,25 @@ a.button,
   }
 }
 
+.breadcrumbs[data-animation=true] {
+  animation-name: breadcrumbs-animation-delay;
+  animation-duration: 0.2s;
+  animation-delay: 0.3s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
+}
+@keyframes breadcrumbs-animation-delay {
+  from {
+    opacity: 0;
+    transform: translateY(-12%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
 .post-title[data-animation=true] {
   animation-name: post-title-animation-delay;
   animation-duration: 0.2s;

@@ -11,7 +11,7 @@ Graph(그래프)는 무엇일까? 🧐 BFS, DFS를 알기전에 그래프라는 
  인접 행렬  1 2 3 4 5 6 7 8 9  int V; //정점의 갯수 int E; //간선의 갯수  int[,] Graph = new int[V, V]; //N x N 행렬  for (int i = 0; i < E; i++) { Graph[v1,v2] = 1;//방향 그래프 인접행렬로의 표현 }   인접 리스트  1 2 3 4 5 6 7 8 9 10 11 12 13  int V; //정점의 갯수 int E; //간선의 갯수  List<int>[] Graph = new List<int>[V + 1]; for (int i = 1; i < N + 1; i++) { Graph[i] = new List<int>(); foreach(v in AdjacencyVertices) { Graph[i].">
 <meta name=author content="Hyemi Oh">
 <link rel=canonical href=https://qutrits.github.io/posts/dummy/studying7_bfs_dfs/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.9d9b3c780b2ad900f9ed7d9cb559656fe08ab31eb10725e4e360c97930008601.css integrity="sha256-nZs8eAsq2QD57X2ctVllb+CKsx6xByXk42DJeTAAhgE=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.de284f4b6ed00befd2c6d5b862d8bf54455fbcebf41a33ae969925a7b317a7c3.css integrity="sha256-3ihPS27QC+/SxtW4Yti/VEVfvOv0GjOulpklp7MXp8M=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>

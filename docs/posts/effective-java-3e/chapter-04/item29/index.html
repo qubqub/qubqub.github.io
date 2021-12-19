@@ -9,7 +9,7 @@
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24  public class Stack<E> { private E[] elements; private int size = 0; private static final int DEFAULT_INITIAL_CAPACITY = 16; public Stack() { elements = (E[]) new Object[DEFAULT_INITIAL_CAPACITY]; // 경고 메세지 타입이 안전하지 않음  } public void push(E e) { ensoureCapaciy(); elements[size++] = e; } public E pop() { if (size == 0) { throw new EmptyStackException(); } E result = elements[--size]; elements[size] = null; return result; } .">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item29/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.9d9b3c780b2ad900f9ed7d9cb559656fe08ab31eb10725e4e360c97930008601.css integrity="sha256-nZs8eAsq2QD57X2ctVllb+CKsx6xByXk42DJeTAAhgE=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.de284f4b6ed00befd2c6d5b862d8bf54455fbcebf41a33ae969925a7b317a7c3.css integrity="sha256-3ihPS27QC+/SxtW4Yti/VEVfvOv0GjOulpklp7MXp8M=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
