@@ -84,27 +84,6 @@
 <h1>Posts</h1>
 </header>
 <article class=post-entry>
-<figure class=entry-cover><img loading=lazy src=https://qutrits.github.io/logo/logo-unity-01.png alt=unity>
-</figure>
-<header class=entry-header>
-<h2>Tween 만들기 프로젝트 근황
-</h2>
-</header>
-<section class=entry-content>
-<p>애니메이션 커브에 대해서 조금 더 알 수 있었던 핑퐁 기능 만들기였다.
-🍑 핑퐁 기능 추가!!!!
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 public static Tween SetEase(this Tween tween, AnimationCurve ease, bool pingpong = false) //ping pong: 다시 돌아오는 형태의 애니메이션 { if (!tween.IsPlaying) //트윈이 플레이 중이지 않을 때 수정!...</p>
-</section>
-<footer class=entry-footer><span title="2021-12-06 15:34:11 +0900 KST">December 6, 2021</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 min</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
-<ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/en/tags/tween/>Tween</a></li>
-<li><a class=button href=https://qutrits.github.io/en/tags/project/>Project</a></li>
-<li><a class=button href=https://qutrits.github.io/en/tags/animationcurve/>AnimationCurve</a></li>
-<li><a class=button href=https://qutrits.github.io/en/tags/unity/>unity</a></li>
-</ul></footer>
-<a class=entry-link aria-label="post link to Tween 만들기 프로젝트 근황" href=https://qutrits.github.io/en/posts/dummy/studying12_tweenmaking/></a>
-</article>
-<article class=post-entry>
 <header class=entry-header>
 <h2>inheritance: 상속
 </h2>
@@ -175,6 +154,27 @@ BFS의 장단점? 🧐 장점 경로가 여러 개인 경우에도 최적해를 
 <li><a class=button href=https://qutrits.github.io/en/tags/%EA%B9%8A%EC%9D%B4%EC%9A%B0%EC%84%A0%ED%83%90%EC%83%89/>깊이우선탐색</a></li>
 </ul></footer>
 <a class=entry-link aria-label="post link to BFS: 너비우선탐색, DFS: 깊이우선탐색(2)" href=https://qutrits.github.io/en/posts/dummy/studying8_bfs_dfs2/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>BFS: 너비우선탐색, DFS: 깊이우선탐색(1)
+</h2>
+</header>
+<section class=entry-content>
+<p>음… 나는 탐색알고리즘을 매우 어려워 하는 사람이다…😭😭 이것에 이어서 길찾기를 무서워하는데..😱 프로그래머로서 이런것들은 좀 이겨내야하지 않을까? 라는 생각이 들어서.. 원래 무서운 것은 몰라서 그런거라고 했으니, 나는 이 녀석들을 공부해서 안무서워해야겠다.😋😋😋
+Graph(그래프)는 무엇일까? 🧐 BFS, DFS를 알기전에 그래프라는 자료구조를 먼저 알아야한다.
+그래프는 정점(V)과 간선(E)들의 집합이다. 간선은 정점과 정점 사이를 직접 연결하는 선을 말한다. G = (V,E)로 수학적으로 표기한다. 💚 그래프의 표현방법
+인접 행렬 1 2 3 4 5 6 7 8 9 int V; //정점의 갯수 int E; //간선의 갯수 int[,] Graph = new int[V, V]; //N x N 행렬 for (int i = 0; i &lt; E; i++) { Graph[v1,v2] = 1;//방향 그래프 인접행렬로의 표현 } 인접 리스트 1 2 3 4 5 6 7 8 9 10 11 12 13 int V; //정점의 갯수 int E; //간선의 갯수 List&lt;int>[] Graph = new List&lt;int>[V + 1]; for (int i = 1; i &lt; N + 1; i++) { Graph[i] = new List&lt;int>(); foreach(v in AdjacencyVertices) { Graph[i]....</p>
+</section>
+<footer class=entry-footer><span title="2021-11-29 21:40:04 +0900 KST">November 29, 2021</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 min</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/en/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
+<li><a class=button href=https://qutrits.github.io/en/tags/bfs/>bfs</a></li>
+<li><a class=button href=https://qutrits.github.io/en/tags/dfs/>dfs</a></li>
+<li><a class=button href=https://qutrits.github.io/en/tags/%EB%84%88%EB%B9%84%EC%9A%B0%EC%84%A0%ED%83%90%EC%83%89/>너비우선탐색</a></li>
+<li><a class=button href=https://qutrits.github.io/en/tags/%EA%B9%8A%EC%9D%B4%EC%9A%B0%EC%84%A0%ED%83%90%EC%83%89/>깊이우선탐색</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to BFS: 너비우선탐색, DFS: 깊이우선탐색(1)" href=https://qutrits.github.io/en/posts/dummy/studying7_bfs_dfs/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

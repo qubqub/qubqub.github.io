@@ -30,19 +30,6 @@
     </item>
     
     <item>
-      <title>면접 퀴즈</title>
-      <link>https://qutrits.github.io/posts/dummy/interview1/</link>
-      <pubDate>Thu, 09 Dec 2021 17:17:48 +0900</pubDate>
-      
-      <guid>https://qutrits.github.io/posts/dummy/interview1/</guid>
-      <description>면접에서 받았던 퀴즈였다.
- 주사위 하나로 1~18를 같은 확률로 어떻게 하면 표현할 수 있을까?
- 면접 당시 나는 사칙연산에 빠져서 답을 도출해내지 못하였다. 하지만, 웬걸 집에가서 다시 생각해보니 바로 답이 떠오르지 않겠는가?ㅠㅠㅠ 너무 아쉽다.
-🧐 나의 해답 🧐
- 1회 주사위를 굴린다. 이때, 4 -&amp;gt; 1, 5 -&amp;gt; 2, 6 -&amp;gt; 3 으로 간주한다. 2회째 주사위를 굴린다. 첫 주사위가 1이라면, 1 ~ 6 의 값을, 2라면, 7 ~ 12의 값을, 3이었다면, 13 ~18의 값을 가질 수 있다.</description>
-    </item>
-    
-    <item>
       <title>GarbageCollection: 가비지 컬렉션</title>
       <link>https://qutrits.github.io/posts/dummy/studying14_gc/</link>
       <pubDate>Tue, 07 Dec 2021 20:21:53 +0900</pubDate>
