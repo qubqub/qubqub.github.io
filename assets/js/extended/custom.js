@@ -278,54 +278,54 @@ DOMReady( function () {
 
     }
   } else if (urlPathName.match(/^\/archives\/$/)) {
-    // const _archivePosts = document.querySelectorAll(".archive-year .archive-month");
-    // const _archiveEntry = document.querySelectorAll(".main .archive-year .archive-month .archive-month-header .toggle");
+    const _archivePosts = document.querySelectorAll(".archive-year .archive-month");
+    const _archiveEntry = document.querySelectorAll(".main .archive-year .archive-month .archive-month-header .toggle");
 
-    // if (_archivePosts) {
-    //   for (let i = 0; i < _archivePosts.length; i++) {
-    //     if (localStorage.getItem("lock-archives-"+_archivePosts[i].dataset.key) === "false") {
-    //       _archivePosts[i].querySelector(".archive-month-header .toggle").dataset.isLock = false;
-    //       _archivePosts[i].querySelector(".archive-month-header .toggle .lock").classList.add("hide");
-    //     } else {
-    //       _archivePosts[i].querySelector(".archive-month-header .toggle").dataset.isLock = true;
-    //       _archivePosts[i].querySelector(".archive-month-header .toggle .unlock").classList.add("hide");
-    //     }
-    //   }
-    // }
+    if (_archivePosts) {
+      for (let i = 0; i < _archivePosts.length; i++) {
+        if (localStorage.getItem("lock-archives-"+_archivePosts[i].dataset.key) === "false") {
+          _archivePosts[i].querySelector(".archive-month-header .toggle").dataset.isLock = false;
+          _archivePosts[i].querySelector(".archive-month-header .toggle .lock").classList.add("hide");
+        } else {
+          _archivePosts[i].querySelector(".archive-month-header .toggle").dataset.isLock = true;
+          _archivePosts[i].querySelector(".archive-month-header .toggle .unlock").classList.add("hide");
+        }
+      }
+    }
     
-    // if (_archiveEntry) {
-    //   for (let i = 0; i < _archiveEntry.length; i++) {
-    //     _archiveEntry[i].addEventListener("click", e => {
-    //       let _key = null;
-    //       let _el = null;
-    //       if (e.target.parentNode.dataset.key) {
-    //         _key = e.target.parentNode.dataset.key;
-    //         _el = e.target.parentNode;
-    //       } else if (e.target.parentNode.parentNode.dataset.key) {
-    //         _key = e.target.parentNode.parentNode.dataset.key;
-    //         _el = e.target.parentNode.parentNode;
-    //       } else if (e.target.parentNode.parentNode.parentNode.dataset.key) {
-    //         _key = e.target.parentNode.parentNode.parentNode.dataset.key;
-    //         _el = e.target.parentNode.parentNode.parentNode;
-    //       }
+    if (_archiveEntry) {
+      for (let i = 0; i < _archiveEntry.length; i++) {
+        _archiveEntry[i].addEventListener("click", e => {
+          let _key = null;
+          let _el = null;
+          if (e.target.parentNode.dataset.key) {
+            _key = e.target.parentNode.dataset.key;
+            _el = e.target.parentNode;
+          } else if (e.target.parentNode.parentNode.dataset.key) {
+            _key = e.target.parentNode.parentNode.dataset.key;
+            _el = e.target.parentNode.parentNode;
+          } else if (e.target.parentNode.parentNode.parentNode.dataset.key) {
+            _key = e.target.parentNode.parentNode.parentNode.dataset.key;
+            _el = e.target.parentNode.parentNode.parentNode;
+          }
 
-    //       if (_el.querySelector(".toggle").dataset.isLock === "false") {
-    //         localStorage.setItem("lock-archives-"+_key, true);
-    //         _el.querySelector(".toggle").dataset.isLock = true;
-    //         _el.querySelector(".toggle .unlock").classList.add("hide");
-    //         _el.querySelector(".toggle .lock").classList.remove("hide");
-    //         document.getElementById(_key).style.display = "none";
-    //       } else {
-    //         localStorage.setItem("lock-archives-"+_key, false);
-    //         _el.querySelector(".toggle").dataset.isLock = false;
-    //         _el.querySelector(".toggle .lock").classList.add("hide");
-    //         _el.querySelector(".toggle .unlock").classList.remove("hide");
-    //         document.getElementById(_key).style.animationDelay = "0s";
-    //         document.getElementById(_key).style.display = "block";
-    //       }
-    //     });
-    //   }
-    // }
+          if (_el.querySelector(".toggle").dataset.isLock === "false") {
+            localStorage.setItem("lock-archives-"+_key, true);
+            _el.querySelector(".toggle").dataset.isLock = true;
+            _el.querySelector(".toggle .unlock").classList.add("hide");
+            _el.querySelector(".toggle .lock").classList.remove("hide");
+            document.getElementById(_key).style.display = "none";
+          } else {
+            localStorage.setItem("lock-archives-"+_key, false);
+            _el.querySelector(".toggle").dataset.isLock = false;
+            _el.querySelector(".toggle .lock").classList.add("hide");
+            _el.querySelector(".toggle .unlock").classList.remove("hide");
+            document.getElementById(_key).style.animationDelay = "0s";
+            document.getElementById(_key).style.display = "block";
+          }
+        });
+      }
+    }
   } else if ( urlPathName.match(/^\/tags\/$/)||
               urlPathName.match(/^\/categories\/$/) ||
               urlPathName.match(/^\/series\/$/) ||
