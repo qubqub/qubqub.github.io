@@ -10,7 +10,7 @@ DOMReady( function () {
 
   function elementAnimationDelay(_element, _transition, _ms, _extraMs = 0, _direction, _opacity) {
     if (_element) {
-      _element.style.transition = _transition;
+      _element.style.transition = "opacity "+_transition+", transform "+_transition;
       _element.style.transitionDelay = ((_ms + _extraMs) * 0.001) + "s";
       _element.style.opacity = _opacity;
       _element.style.transform = `translate${_direction.toUpperCase()}(0%)`;
@@ -69,28 +69,28 @@ DOMReady( function () {
     if (urlSlug[2] !== "page") {
       
       const _postTitle = document.querySelector(".main .post-single .post-header .post-title");
-      elementAnimationDelay(_postTitle, "all 0.2s ease-in", 300, 0, "Y", "1");
+      elementAnimationDelay(_postTitle, "0.2s ease-in", 300, 0, "Y", "1");
 
       const _postDescription = document.querySelector(".main .post-single .post-header .post-description");
-      elementAnimationDelay(_postDescription, "all 0.2s ease-in", 335, 0, "Y", "1");
+      elementAnimationDelay(_postDescription, "0.2s ease-in", 335, 0, "Y", "1");
 
       const _postMeta = document.querySelector(".main .post-single .post-header .post-meta");
-      elementAnimationDelay(_postMeta, "all 0.2s ease-in", 370, 0, "Y", "1");
+      elementAnimationDelay(_postMeta, "0.2s ease-in", 370, 0, "Y", "1");
 
       const _seriesMain = document.querySelector(".main .post-single .series-main");
-      elementAnimationDelay(_seriesMain, "all 0.2s ease-in", 400, 0, "Y", "1");
+      elementAnimationDelay(_seriesMain, "0.2s ease-in", 400, 0, "Y", "1");
 
       // const _asideToc = document.querySelector(".main .post-single .toc-aside-wrapper");
-      // elementAnimationDelay(_asideToc, "all 0.2s ease-in", 600, 0, "X", "1");
+      // elementAnimationDelay(_asideToc, "0.2s ease-in", 600, 0, "X", "1");
 
       const _toc = document.querySelector(".main .post-single .toc");
-      elementAnimationDelay(_toc, "all 0.2s ease-in", 400, 0, "Y", "1");
+      elementAnimationDelay(_toc, "0.2s ease-in", 400, 0, "Y", "1");
 
       const _postContent = document.querySelector(".main .post-single .post-content");
-      elementAnimationDelay(_postContent, "all 0.2s ease-in", 600, 0, "X", "1");
+      elementAnimationDelay(_postContent, "0.2s ease-in", 600, 0, "X", "1");
 
       const _postFooter = document.querySelector(".main .post-single .post-footer");
-      elementAnimationDelay(_postFooter, "all 0.2s ease-in", 600, 0, "Y", "1");
+      elementAnimationDelay(_postFooter, "0.2s ease-in", 600, 0, "Y", "1");
       
       const scrollUp = "scroll-up";
       const scrollDown = "scroll-down";
@@ -306,12 +306,12 @@ DOMReady( function () {
       }
     } else { // page
       const _postHeader = document.querySelector(".page-header");
-      elementAnimationDelay(_postHeader, "all 0.2s ease-out", 80, 0, "Y", "1");
+      elementAnimationDelay(_postHeader, "0.2s ease-out", 80, 0, "Y", "1");
       
       const _postEntry = document.querySelectorAll(".post-entry");
       if (_postEntry) {
         for (let i = 0; i < _postEntry.length; i++) {
-          elementAnimationDelay(_postEntry[i], "all 0.2s ease-out", (i+1)*50, 120, "X", "1");
+          elementAnimationDelay(_postEntry[i], "0.2s ease-out", (i+1)*50, 120, "X", "1");
         }
       }
     }
@@ -321,11 +321,11 @@ DOMReady( function () {
     const _archiveYearHeader = document.querySelectorAll(".archive-year .archive-year-header");
     const _archiveEntry = document.querySelectorAll(".main .archive-year .archive-month .archive-month-header .toggle");
 
-    elementAnimationDelay(_archiveHeader, "all 0.3s ease-in-out", 0, 0, "Y", "1");
+    elementAnimationDelay(_archiveHeader, "0.3s ease-in-out", 0, 0, "Y", "1");
 
     if (_archiveYearHeader) {
       for (let i = 0; i < _archiveYearHeader.length; i++) {
-        elementAnimationDelay(_archiveYearHeader[i], "all 0.3s ease-in-out", (i+1)*100, 300, "Y", "1");
+        elementAnimationDelay(_archiveYearHeader[i], "0.3s ease-in-out", (i+1)*100, 300, "Y", "1");
       }
     }
 
@@ -341,8 +341,8 @@ DOMReady( function () {
       }
 
       for (let i = 0; i < _archivePosts.length; i++) {
-        elementAnimationDelay(_archivePosts[i].children[0], "all 0.3s ease-in-out", (i+1)*50, 700, "Y", "1");
-        elementAnimationDelay(_archivePosts[i].children[1], "all 0.3s ease-in-out", (i+1)*50, 700, "X", "1");
+        elementAnimationDelay(_archivePosts[i].children[0], "0.3s ease-in-out", (i+1)*50, 700, "Y", "1");
+        elementAnimationDelay(_archivePosts[i].children[1], "0.3s ease-in-out", (i+1)*50, 700, "X", "1");
       }
     }
     
@@ -384,7 +384,7 @@ DOMReady( function () {
               urlPathName.match(/^\/chapter\/$/)) {
     const _termList = document.querySelectorAll(".main .terms-tags a");
     const _termHeader = document.querySelector(".main .page-header");
-    elementAnimationDelay(_termHeader, "all 0.3s ease-in-out", 0, 0, "Y", "1");
+    elementAnimationDelay(_termHeader, "0.3s ease-in-out", 0, 0, "Y", "1");
 
     if (_termList) {
       let randomIndexArray = [];
@@ -398,7 +398,7 @@ DOMReady( function () {
       }
       
       for (let i = 0; i < randomIndexArray.length; i++) {
-        elementAnimationDelay(_termList[randomIndexArray[i]], "all 0.2s ease-out", (i+1)*17, 300, "Y", "1");
+        elementAnimationDelay(_termList[randomIndexArray[i]], "0.2s ease-out", (i+1)*17, 300, "Y", "1");
       }
     }
   } else if ( urlPathName.match(/^\/posts\/$/) ||
@@ -407,17 +407,17 @@ DOMReady( function () {
               urlPathName.match(/^\/series\/.+/) ||
               urlPathName.match(/^\/chapter\/.+/)) {
     const _postHeader = document.querySelector(".page-header");
-    elementAnimationDelay(_postHeader, "all 0.2s ease-out", 50, 0, "Y", "1");
+    elementAnimationDelay(_postHeader, "0.2s ease-out", 50, 0, "Y", "1");
 
     const _postEntry = document.querySelectorAll(".post-entry");
     if (_postEntry) {
       for (let i = 0; i < _postEntry.length; i++) {
-        elementAnimationDelay(_postEntry[i], "all 0.2s ease-out", ((i+1)*50)+120, 120, "X", "1");
+        elementAnimationDelay(_postEntry[i], "0.2s ease-out", ((i+1)*50)+120, 120, "X", "1");
       }
     }
   } else if (urlPathName.match(/^\/search\/$/)) {
     const _searchHeader = document.querySelector(".main .page-header");
-    elementAnimationDelay(_searchHeader, "all 0.3s ease-in-out", 400, 0, "Y", "1");
+    elementAnimationDelay(_searchHeader, "0.3s ease-in-out", 400, 0, "Y", "1");
 
     const _searchInput = document.querySelector("#searchInput");
     if (_searchInput) {
@@ -430,20 +430,20 @@ DOMReady( function () {
     const _seriesSubDescriptions = document.querySelector(".main .series-header .series-description-wrapper .series-sub-description-wrapper");
     const _seriesEntry = document.querySelectorAll(".main .post-entry");
     
-    elementAnimationDelay(_seriesTitle, "all 0.2s ease-out", 200, 0, "Y", "1");
-    elementAnimationDelay(_seriesDescription, "all 0.2s ease-out", 400, 0, "Y", "1");
+    elementAnimationDelay(_seriesTitle, "0.2s ease-out", 200, 0, "Y", "1");
+    elementAnimationDelay(_seriesDescription, "0.2s ease-out", 400, 0, "Y", "1");
 
     if (_seriesSubDescriptions) {
-      elementAnimationDelay(_seriesSubDescriptions, "all 0.2s ease-out", 250, 400, "X", "1");
+      elementAnimationDelay(_seriesSubDescriptions, "0.2s ease-out", 250, 400, "X", "1");
       // for (let i = 0; i < _seriesSubDescriptions.length; i++) {
-      //   // elementAnimationDelay(_seriesSubDescriptions[i], "all 0.2s ease-out", (i+1)*250, 400, "X", "1");
-      //   elementAnimationDelay(_seriesSubDescriptions[i], "all 0.2s ease-out", 250, 400, "X", "1");
+      //   // elementAnimationDelay(_seriesSubDescriptions[i], "0.2s ease-out", (i+1)*250, 400, "X", "1");
+      //   elementAnimationDelay(_seriesSubDescriptions[i], "0.2s ease-out", 250, 400, "X", "1");
       // }
     }
 
     if (_seriesEntry) {
       for (let i = 0; i < _seriesEntry.length; i++) {
-        elementAnimationDelay(_seriesEntry[i], "all 0.2s ease-out", (i+1)*100, 850, "X", "1");
+        elementAnimationDelay(_seriesEntry[i], "0.2s ease-out", (i+1)*100, 850, "X", "1");
       }
     }
   } else if ( urlPathName.match(/^\/collection\/$/)) {
@@ -451,12 +451,12 @@ DOMReady( function () {
     const _collectionDescription = document.querySelector(".main .collection-header .collection-description");
     const _collectionEntry = document.querySelectorAll(".main .post-entry");
 
-    elementAnimationDelay(_collectionTitle, "all 0.2s ease-out",200, 0, "Y", "1");
-    elementAnimationDelay(_collectionDescription, "all 0.2s ease-out", 400, 0, "Y", "1");
+    elementAnimationDelay(_collectionTitle, "0.2s ease-out",200, 0, "Y", "1");
+    elementAnimationDelay(_collectionDescription, "0.2s ease-out", 400, 0, "Y", "1");
 
     if (_collectionEntry) {
       for (let i = 0; i < _collectionEntry.length; i++) {
-        elementAnimationDelay(_collectionEntry[i], "all 0.2s ease-out", (i+1)*80, 550, "X", "1");
+        elementAnimationDelay(_collectionEntry[i], "0.2s ease-out", (i+1)*80, 550, "X", "1");
       }
     }
   } else if (urlPathName === "/") {
@@ -465,12 +465,12 @@ DOMReady( function () {
 
   } else if (urlPathName.match(/^\/links\/$/)) {
     const _linkHeader = document.querySelector(".link-header");
-    elementAnimationDelay(_linkHeader, "all 0.3s ease-in-out", 0, 0, "Y", "1");
+    elementAnimationDelay(_linkHeader, "0.3s ease-in-out", 0, 0, "Y", "1");
 
     const _linkButtons = document.querySelectorAll(".links .button");
     if (_linkButtons) {
       for (let i = 0; i < _linkButtons.length; i++) {
-        elementAnimationDelay(_linkButtons[i], "all 0.4s ease-in-out", (i+1)*100, 200, "X", "1");
+        elementAnimationDelay(_linkButtons[i], "0.4s ease-in-out", (i+1)*100, 200, "X", "1");
       }
     }
   }
