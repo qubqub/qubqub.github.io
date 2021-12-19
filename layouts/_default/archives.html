@@ -1,8 +1,8 @@
 {{- define "main" }}
 <header class="page-header">
-  <h1 class="archive-title" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{- end }}>{{ .Title }}</h1>
+  <h1 class="archive-title" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>{{ .Title }}</h1>
   {{- if .Description }}
-  <div class="archive-description" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{- end }}>
+  <div class="archive-description" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
     {{ .Description }}
   </div>
   {{- end }}

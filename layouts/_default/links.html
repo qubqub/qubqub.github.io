@@ -55,7 +55,7 @@
     margin-inline-start: 10px;
   }
 </style>
-<header class="link-header" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{- end }}>
+<header class="link-header" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
   <h1>Links</h1>
   {{- if (not .Site.Params.disableThemeToggle) }}
   <button id="theme-toggle-link" accesskey="t" title="(Alt + T)">

@@ -1,7 +1,7 @@
 {{- $headers := findRE "<h[1-6].*?>(.|\n])+?</h[1-6]>" .Content -}}
 {{- $has_headers := ge (len $headers) 1 -}}
 {{- if $has_headers -}}
-<div class="toc-aside-wrapper" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{- end }}>
+<div class="toc-aside-wrapper" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
     <div class="toc-aside-summary hide" accesskey="a" title="(Alt + A)">
         <span class="toggle">
             <svg class="lock" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 512 512">
