@@ -378,6 +378,10 @@ header.header {
   list-style: none;
 }
 
+.main .page-footer nav.pagination .pagination__item {
+  white-space: nowrap;
+}
+
 .main .page-footer nav.pagination .pagination__item--current a {
   color: var(--primary);
   background-color: var(--tertiary);
