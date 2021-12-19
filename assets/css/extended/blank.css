@@ -1983,7 +1983,7 @@ a.button,
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
-  will-change: opacity, transform;
+  will-change: width;
 }
 @keyframes search-input-animation-delay {
   from {
