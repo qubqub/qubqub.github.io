@@ -426,17 +426,19 @@ DOMReady( function () {
   } else if (urlPathName.match(/^\/series-list\/$/)) {
     const _seriesTitle = document.querySelector(".main .series-header .series-title");
     const _seriesDescription = document.querySelector(".main .series-header .series-description-wrapper .series-description");
-    const _seriesSubDescriptions = document.querySelectorAll(".main .series-header .series-description-wrapper .series-sub-description-wrapper .series-sub-description");
+    // const _seriesSubDescriptions = document.querySelectorAll(".main .series-header .series-description-wrapper .series-sub-description-wrapper .series-sub-description");
+    const _seriesSubDescriptions = document.querySelector(".main .series-header .series-description-wrapper .series-sub-description-wrapper");
     const _seriesEntry = document.querySelectorAll(".main .post-entry");
     
     elementDelayAnimation(_seriesTitle, "all 0.2s ease-out", 200, 0, "Y", "1");
     elementDelayAnimation(_seriesDescription, "all 0.2s ease-out", 400, 0, "Y", "1");
 
     if (_seriesSubDescriptions) {
-      for (let i = 0; i < _seriesSubDescriptions.length; i++) {
-        // elementDelayAnimation(_seriesSubDescriptions[i], "all 0.2s ease-out", (i+1)*250, 400, "X", "1");
-        elementDelayAnimation(_seriesSubDescriptions[i], "all 0.2s ease-out", 250, 400, "X", "1");
-      }
+      elementDelayAnimation(_seriesSubDescriptions, "all 0.2s ease-out", 250, 400, "X", "1");
+      // for (let i = 0; i < _seriesSubDescriptions.length; i++) {
+      //   // elementDelayAnimation(_seriesSubDescriptions[i], "all 0.2s ease-out", (i+1)*250, 400, "X", "1");
+      //   elementDelayAnimation(_seriesSubDescriptions[i], "all 0.2s ease-out", 250, 400, "X", "1");
+      // }
     }
 
     if (_seriesEntry) {

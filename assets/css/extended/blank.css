@@ -1573,10 +1573,15 @@ a.button,
   transform: translateY(-30%);
 }
 
-.series-sub-description {
+.series-sub-description-wrapper {
   opacity: 0;
   transform: translateX(-20%);
 }
+
+/* .series-sub-description {
+  opacity: 0;
+  transform: translateX(-20%);
+} */
 
 
 .collection-title {
