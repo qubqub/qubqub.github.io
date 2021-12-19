@@ -1524,7 +1524,6 @@ a.button,
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes series-list-open {
   from {
@@ -1545,7 +1544,6 @@ a.button,
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes post-title-animation-delay {
   from {
@@ -1565,7 +1563,6 @@ a.button,
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes post-description-animation-delay {
   from {
@@ -1585,7 +1582,6 @@ a.button,
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes post-meta-animation-delay {
   from {
@@ -1605,7 +1601,6 @@ a.button,
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes series-main-animation-delay {
   from {
@@ -1625,7 +1620,6 @@ a.button,
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes toc-animation-delay {
   from {
@@ -1645,7 +1639,6 @@ a.button,
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes toc-aside-animation-delay {
   from {
@@ -1665,7 +1658,6 @@ a.button,
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
   transition: font-size 0.1s ease 0s;
 }
 @keyframes post-content-animation-delay {
@@ -1686,7 +1678,6 @@ a.button,
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes post-footer-animation-delay {
   from {
@@ -1706,7 +1697,6 @@ a.button,
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes link-header-animation-delay {
   from {
@@ -1725,7 +1715,6 @@ a.button,
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes link-button-animation-delay {
   from {
@@ -1746,7 +1735,6 @@ a.button,
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes series-title-animation-delay {
   from {
@@ -1766,7 +1754,6 @@ a.button,
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes series-description-animation-delay {
   from {
@@ -1786,7 +1773,6 @@ a.button,
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes series-sub-description-wrapper-animation-delay {
   from {
@@ -1805,7 +1791,6 @@ a.button,
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes series-sub-description-animation-delay {
   from {
@@ -1824,7 +1809,6 @@ a.button,
   animation-duration: 0.2s;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes series-entry-animation-delay {
   from {
@@ -1845,7 +1829,6 @@ a.button,
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes archive-title-animation-delay {
   from {
@@ -1865,7 +1848,6 @@ a.button,
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes archive-description-animation-delay {
   from {
@@ -1884,7 +1866,6 @@ a.button,
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes archive-year-animation-delay {
   from {
@@ -1903,7 +1884,6 @@ a.button,
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes archive-month-animation-delay {
   from {
@@ -1922,7 +1902,6 @@ a.button,
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes archive-posts-animation-delay {
   from {
@@ -1943,7 +1922,6 @@ a.button,
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes search-title-animation-delay {
   from {
@@ -1963,7 +1941,6 @@ a.button,
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes search-description-animation-delay {
   from {
@@ -2002,7 +1979,6 @@ a.button,
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes terms-title-animation-delay {
   from {
@@ -2022,7 +1998,6 @@ a.button,
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes terms-description-animation-delay {
   from {
@@ -2041,7 +2016,6 @@ a.button,
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes term-animation-delay {
   from {
@@ -2062,7 +2036,6 @@ a.button,
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes collection-title-animation-delay {
   from {
@@ -2082,7 +2055,6 @@ a.button,
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes collection-description-animation-delay {
   from {
@@ -2102,7 +2074,6 @@ a.button,
   animation-duration: 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes page-title-animation-delay {
   from {
@@ -2121,7 +2092,6 @@ a.button,
   animation-duration: 0.2s;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-  will-change: opacity, transform;
 }
 @keyframes post-entry-animation-delay {
   from {
