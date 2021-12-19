@@ -11,7 +11,7 @@ DOMReady( function () {
   function elementDelayAnimation(_element, _transition, _ms, _extraMs = 0, _direction, _opacity) {
     if (_element) {
       _element.style.transition = _transition;
-      _element.style.transitionDelay = ((_ms + _extraMs) * 0.001)+"s";
+      _element.style.transitionDelay = ((_ms + _extraMs) * 0.001) + "s";
       _element.style.opacity = _opacity;
       _element.style.transform = `translate${_direction.toUpperCase()}(0%)`;
     }
