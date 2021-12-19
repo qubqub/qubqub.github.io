@@ -8,7 +8,7 @@
 <meta name=description content="Posts - <Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.de284f4b6ed00befd2c6d5b862d8bf54455fbcebf41a33ae969925a7b317a7c3.css integrity="sha256-3ihPS27QC+/SxtW4Yti/VEVfvOv0GjOulpklp7MXp8M=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.5c5853c9b5eb141f96ea7a324fcc02e5e564cedae430c2d538e93c7a3880fa0c.css integrity="sha256-XFhTybXrFB+W6noyT8wC5eVkztrkMMLVOOk8ejiA+gw=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.png>
@@ -90,89 +90,74 @@
 </header>
 <article class=post-entry style=animation-delay:.17s data-animation=true>
 <header class=entry-header>
-<h2>[아이템 27] 비검사 경고를 제거하라
+<h2>AlgorithmStudy_백준 11399
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 27] 비검사 경고를 제거하라. 제네릭에 관련된 수 많은 컴파일 경고들이 있습니다. 비검사 형변환 경고, 비검사 메서드 호출 경고, 비검사 매개변수화 가변인수 타입 경고, 비검사 변환 경고 등이 있습니다.
-제네릭에 익숙해질 수록 마주치는 경고 수는 줄어들겠지만 새로 작성한 코드가 한 번에 깨끗하게 컴파일되리라 기대하지는 맙시다.
-대부분의 비검사 경고는 쉽게 제거할 수 있습니다. 코드를 다음처럼 잘못 작성했다고 예시를 들어봅시다.
-1 Set&lt;Fruits> fruits = new Hashset(); 그러면 컴파일러는 무엇이 잘못 됐는지 설멸해 줄 것입니다....</p>
+<p>알고리즘 공부 백준 11399 🧐 ATM 👉문제 인하은행에는 ATM이 1대밖에 없다. 지금 이 ATM앞에 N명의 사람들이 줄을 서있다. 사람은 1번부터 N번까지 번호가 매겨져 있으며, i번 사람이 돈을 인출하는데 걸리는 시간은 Pi분이다.
+사람들이 줄을 서는 순서에 따라서, 돈을 인출하는데 필요한 시간의 합이 달라지게 된다. 예를 들어, 총 5명이 있고, P1 = 3, P2 = 1, P3 = 4, P4 = 3, P5 = 2 인 경우를 생각해보자. [1, 2, 3, 4, 5] 순서로 줄을 선다면, 1번 사람은 3분만에 돈을 뽑을 수 있다....</p>
 </section>
-<footer class=entry-footer><span title="2020-07-08 13:16:11 +0900 KST">2020년 7월 8일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2021-11-11 04:21:22 +0900 KST">2021년 11월 11일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
 <ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 27] 비검사 경고를 제거하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item27/></a>
+<a class=entry-link aria-label="post link to AlgorithmStudy_백준 11399" href=https://qutrits.github.io/posts/dummy/algorithm2/></a>
 </article>
 <article class=post-entry style=animation-delay:.22s data-animation=true>
 <header class=entry-header>
-<h2>[아이템 26] Raw 타입은 사용하지 마라
+<h2>AlgorithmStudy_백준 11720
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 26] Raw 타입은 사용하지 마라. raw type이란 제네릭 타입에서에서 타입 파라미터를 전혀 사용하지 않았을 때를 말합니다.
-1 2 // raw type List list = new ArrayList(); raw type은 타입 선언에서 제네릭 타입 정보가 전부 지워진 것처럼 동작하는데, 제네릭이 도래하기 전 코드와 호환성을 위해서 주로 존재합니다.
-1 2 // 문자열을 저장하는 컬렉션 private final List names = new ArrayList(); 위 코드를 사용하면 String대신 다른 타입을 넣어도 오류없이 실행됩니다....</p>
+<p>알고리즘 공부 백준 11720 🧐 숫자의 합 👉문제 N개의 숫자가 공백 없이 쓰여있다. 이 숫자를 모두 합해서 출력하는 프로그램을 작성하시오.
+👉입력 첫째 줄에 숫자의 개수 N (1 ≤ N ≤ 100)이 주어진다. 둘째 줄에 숫자 N개가 공백없이 주어진다.
+👉입력 입력으로 주어진 숫자 N개의 합을 출력한다.
+🍑풀이
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 using System; public class Program { public static void Main() { int count = int....</p>
 </section>
-<footer class=entry-footer><span title="2020-07-07 11:41:27 +0900 KST">2020년 7월 7일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2021-11-11 04:21:22 +0900 KST">2021년 11월 11일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
 <ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 26] Raw 타입은 사용하지 마라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item26/></a>
+<a class=entry-link aria-label="post link to AlgorithmStudy_백준 11720" href=https://qutrits.github.io/posts/dummy/algorithm1/></a>
 </article>
 <article class=post-entry style=animation-delay:.27s data-animation=true>
 <header class=entry-header>
-<h2>[아이템 25] 톱레벨 클래스는 한 파일에만 담으라
+<h2>[아이템 33] 타입 안전 이종 컨테이너를 고려하라
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 25] 톱레벨 클래스는 한 파일에만 담으라 1 2 3 4 5 public class Main { public static void main(String[] args) { System.out.println(Utensil.NAME + Dessert.NAME); } } 위 코드의 소스 파일은 Main 클래스 하나를 담고 있고, Main클래스는 다른 톱레벨 클래스 2개(Utensil Dessert)를 참조합니다.
-Utensil와 Dessert 클래스가 Utensil.java라는 한 파일에 정의되어 있다고 가정해봅시다.
-1 2 3 4 5 6 7 class Utensil { static final String NAME = "pan"; } class Dessert { static final String NAME = "cake"; } Main을 실행하면 “pancake"가 출력됩니다....</p>
+<p>[아이템 33] 타입 안전 이종 컨테이너를 고려하라. 타입 안전 이종 컨테이너 패턴이란 키를 매개변수화한 다음, 컨테이너에 값을 넣거나 뺄 때 매개변수화한 키를 함께 제공하는 방식입니다.
+1 2 3 4 5 // 타입 안전 이종 컨테이너 패턴 - API public class Favorites { public &lt;T> void putFavorite(Class&lt;T> type, T instance); public &lt;T> getFavorite(Class&lt;T> type); } 다음은 Favorite 클래스를 사용하는 예시입니다.
+1 2 3 4 5 6 7 8 9 10 // 타입 안전 이종 컨태이너 패턴 - 클라이언트 Favorites f = new Favorites(); f....</p>
 </section>
-<footer class=entry-footer><span title="2020-07-05 13:12:41 +0900 KST">2020년 7월 5일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-07-09 18:21:51 +0900 KST">2020년 7월 9일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 25] 톱레벨 클래스는 한 파일에만 담으라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item25/></a>
+<a class=entry-link aria-label="post link to [아이템 33] 타입 안전 이종 컨테이너를 고려하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item33/></a>
 </article>
 <article class=post-entry style=animation-delay:.32s data-animation=true>
 <header class=entry-header>
-<h2>[아이템 24] 멤버 클래스는 되도록 static으로 만들어라
+<h2>[아이템 32] 제네릭과 가변인수를 함께 쓸 때는 신중하라
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 24] 멤버 클래스는 되도록 static으로 만들어라. 중첩 클래스(nested class)는 자신을 감싼 바깥 클래스에서만 쓰어야 하며 그 이외 쓰임새가 있다면 톱레벨 클래스로 만들어야 합니다.
-중첩 클래스는 다음과 같이 네 종류로 나눌 수 있습니다.
-정적 멤버 클래스 (비정적)멤버 클래스 익명 클래스 지역 클래스 이 중 정적 멤버 클래스를 제외한 나머지는 내부 클래스(inner class)에 해당합니다.
-정적 멤버 클래스 정적 멤버 클래스는 다른 클래스 안에 선언되고, 바깥 클래스의 private 멤버에도 접근할 수 있다는 점만 제외하고는 일반 클래스외 똑같습니다....</p>
+<p>[아이템 32] 제네릭과 가변인수를 함께 쓸 때는 신중하라. 가변인수와 제네릭은 자바 5에 함께 추가되었는데 이 둘은 서로 어울리지 않습니다.
+가변인수(varargs)란 메서드에 넘기는 인수의 개수를 클라이언트가 조절할 수 있게 해주는 것입니다. 구현 방식에 허점이 있습나다. 가변인수 메서드를 호출하면 가변인수를 담기 위한 배열이 자동으로 하나 만들어집니다. 그런데 내부로 감춰야 했을 이 배열을 그만 클라이언트에 노출하는 문제가 생겼습니다. 그 결과 verargs 매개변수에 제네릭이나 매개변수화 타입이 포함되면 알기 어려운 컴파일 경고가 발생합니다.
+실체화 불가 타입은 런타임에 컴파일보다 타입 관련 정보를 적게 담고 있습니다....</p>
 </section>
-<footer class=entry-footer><span title="2020-07-05 11:41:14 +0900 KST">2020년 7월 5일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-07-09 16:12:48 +0900 KST">2020년 7월 9일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 24] 멤버 클래스는 되도록 static으로 만들어라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item24/></a>
-</article>
-<article class=post-entry style=animation-delay:.37s data-animation=true>
-<header class=entry-header>
-<h2>[아이템 23] 태그 달린 클래스보다는 클래스 계층구조를 활용하자
-</h2>
-</header>
-<section class=entry-content>
-<p>[아이템 23] 태그 달린 클래스보다는 클래스 계층구조를 활용하자. 때때로 두 가지 이상의 의미를 표현하고 인스턴스의 특징을 알려주는 태그 필드로 나타내는 클래스를 본 적이 있을겁니다.
-안 좋은 예시 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 public class Figure { enum Shape { RECTANGLE, CIRCLE }; // 태그 필드 - 현재 모양을 나타냅니다....</p>
-</section>
-<footer class=entry-footer><span title="2020-07-04 15:46:26 +0900 KST">2020년 7월 4일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
-<ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
-</ul></footer>
-<a class=entry-link aria-label="post link to [아이템 23] 태그 달린 클래스보다는 클래스 계층구조를 활용하자" href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item23/></a>
+<a class=entry-link aria-label="post link to [아이템 32] 제네릭과 가변인수를 함께 쓸 때는 신중하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item32/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -187,9 +172,6 @@ Utensil와 Dessert 클래스가 Utensil.java라는 한 파일에 정의되어 �
 </a>
 </li>
 <li class=pagination__item>
-<a href=/posts/page/7/ class=pagination__link>7</a>
-</li>
-<li class=pagination__item>
 <a href=/posts/page/8/ class=pagination__link>8</a>
 </li>
 <li class="pagination__item pagination__item--current">
@@ -198,16 +180,13 @@ Utensil와 Dessert 클래스가 Utensil.java라는 한 파일에 정의되어 �
 <li class=pagination__item>
 <a href=/posts/page/10/ class=pagination__link>10</a>
 </li>
-<li class=pagination__item>
-<a href=/posts/page/11/ class=pagination__link>11</a>
-</li>
 <li class="pagination__item pagination__item--next">
 <a href=https://qutrits.github.io/posts/page/10/ class="pagination__link pagination__link--next">
 다음 페이지<svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
-<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/15/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/18/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

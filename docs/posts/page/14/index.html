@@ -8,7 +8,7 @@
 <meta name=description content="Posts - <Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.de284f4b6ed00befd2c6d5b862d8bf54455fbcebf41a33ae969925a7b317a7c3.css integrity="sha256-3ihPS27QC+/SxtW4Yti/VEVfvOv0GjOulpklp7MXp8M=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.5c5853c9b5eb141f96ea7a324fcc02e5e564cedae430c2d538e93c7a3880fa0c.css integrity="sha256-XFhTybXrFB+W6noyT8wC5eVkztrkMMLVOOk8ejiA+gw=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.png>
@@ -90,69 +90,72 @@
 </header>
 <article class=post-entry style=animation-delay:.17s data-animation=true>
 <header class=entry-header>
-<h2>[아이템 2] 생성자에 매개변수가 많다면 빌더를 고려하라
+<h2>[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 2] 생성자에 매개변수가 많다면 빌더를 고려해라. 매개변수가 많아질 경우 정적 팩토리 메서드와 생성자는 사용하기 불편해집니다.
-첫번째 대안: 생성자를 이용할 경우 1 Nutritionfact cocaCola = new Nutritionfact(240, 8, 100, 0, 35); 이렇게 생성자를 만들 수 있지만 어떤 속성 값을 설정했는지 알기 힘듭니다. 매개변수의 수가 늘어날 수록 코드를 작성하거나 읽기 힘들어집니다. 문제는 매개변수 타입이 같은 상황에서 실수로 순서를 바꿔 입력할 경우 컴파일 시점에서 알 수 없고 런타임에 엉뚱하게 동작하게 됩니다....</p>
+<p>[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라. 잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 분리합니다.
+정보 은닉(캡슐화)의 장점 시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다....</p>
 </section>
-<footer class=entry-footer><span title="2020-06-18 17:21:20 +0900 KST">2020년 6월 18일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 4 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-07-02 12:52:21 +0900 KST">2020년 7월 2일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 2] 생성자에 매개변수가 많다면 빌더를 고려하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-01/item2/></a>
+<a class=entry-link aria-label="post link to [아이템 15] 클래스와 멤버의 접근 권한을 최소화하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item15/></a>
 </article>
 <article class=post-entry style=animation-delay:.22s data-animation=true>
 <header class=entry-header>
-<h2>[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라
+<h2>[아이템 14] Comparable를 구현할지 고려하라
 </h2>
 </header>
 <section class=entry-content>
-<p>[Iteam 1] 생성자 대신 정적 팩토리 메서드를 고려하라 일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메소드를 이용할 수 있다. Boolean 클래스에서 발췌한 예제 코드
-1 2 3 public static Boolean valueOf(boolean b) { return b ? Boolean.TRUE : Booelan.FALSE; } 장점 1. 이름을 가질 수 있다. 생성자에 넘기는 매개변수만으로 반활된 객체의 특성을 제대로 설명하지 못합니다.
-반면 정적 팩터리 메서드는 이름을 잘 지으면 반환될 객체의 특성을 쉽게 묘사할 수 있습니다....</p>
+<p>[아이템 14] Comparable를 구현할지 고려하라 자바에서는 Comparable과 Comparator이라는 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬기준을 구현하는 데 사용하고, Comparator은 기본 정렬기준 외에 다른 기준으로 정렬하고자 할 때 사용합니다. 여기서는 Comparable의 하나 밖에 없는 compareTo메서드에 대해서 알아봅시다.
+Comparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natural order가 있음을 의미합니다.
+그래서 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다.
+1 Arrays.sort(a); compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받는)보다 작으면 음의 정수를, 같으면 0을, 크면 양의 정수를 반환합니다....</p>
 </section>
-<footer class=entry-footer><span title="2020-06-18 15:49:20 +0900 KST">2020년 6월 18일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-06-27 17:11:39 +0900 KST">2020년 6월 27일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-01/item1/></a>
+<a class=entry-link aria-label="post link to [아이템 14] Comparable를 구현할지 고려하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-02/item14/></a>
 </article>
 <article class=post-entry style=animation-delay:.27s data-animation=true>
 <header class=entry-header>
-<h2>Archive
+<h2>[아이템 13] clone 재정의는 주의해서 진행하라
 </h2>
 </header>
 <section class=entry-content>
-<p>archives</p>
+<p>[아이템 13] clone 재정의는 주의해서 진행하라. 실무에서 Cloneable을 구현한 클래스는 clone 메서드를 public으로 제공하며, 사용자는 당연히 복제가 제대로 이뤄지리라 기대합니다. 하지만 clone 메서드의 일반 규약은 허술한 부분이 있습니다. 다음은 Object 명세에서 가져온 설명입니다.
+이 객체의 복사본을 생성해 반환합니다. ‘복사’의 정확한 뜻은 그 객체를 구현한 클래스에 따라 다를 수 있지만 일반적은 의도는 다음과 같습니다. 어떤 객체 x에 대해 다음 식은 참입니다.
+x.clone() != x x.clone.getClass() = x.getClass() x.clone().equals(x) clone을 사용하는 방법은 굉장히 쉽습니다....</p>
 </section>
-<footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to Archive" href=https://qutrits.github.io/posts/dummy/archives.fr/></a>
+<footer class=entry-footer><span title="2020-06-27 15:04:12 +0900 KST">2020년 6월 27일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 13] clone 재정의는 주의해서 진행하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-02/item13/></a>
 </article>
 <article class=post-entry style=animation-delay:.32s data-animation=true>
 <header class=entry-header>
-<h2>Archive
+<h2>[아이템 12] toString을 항상 재정의하라
 </h2>
 </header>
 <section class=entry-content>
-<p>archives</p>
+<p>[아이템 12] toString을 항상 재정의하라. toString을 오버라이딩 하지 않으면 기본적으로 클래스_이름@16진수로_표현한_해시코드를 반환합니다.
+이렇게 되면 객체의 특성을 알아볼 수 있으므로 toString을 재정의 할 필요가 있습니다.
+1 2 Student student = new Student("kim", 16); System.out.println(student); 위 코드를 실행하면 Student@abcd같은 형태로 콘솔에 출력되므로 객체의 특성을 파악하기가 힘듭니다.
+toString 재정의하는 좋은 방법. 객체가 가진 가진 주요 정보를 모두 반환하는 게 좋습니다. toString을 구현하면 반환값의 포맷을 문서화할지 정해야 합니다. 규칙이 명확해지는 장점이 있지만, 한번 명시하면 그 포맷에 얽매이게 됩니다....</p>
 </section>
-<footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to Archive" href=https://qutrits.github.io/posts/dummy/archives/></a>
-</article>
-<article class=post-entry style=animation-delay:.37s data-animation=true>
-<header class=entry-header>
-<h2>Search
-</h2>
-</header>
-<section class=entry-content>
-<p></p>
-</section>
-<footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to Search" href=https://qutrits.github.io/posts/dummy/search/></a>
+<footer class=entry-footer><span title="2020-06-27 14:31:22 +0900 KST">2020년 6월 27일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 12] toString을 항상 재정의하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-02/item12/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -165,12 +168,6 @@
 <a href=https://qutrits.github.io/posts/page/13/ class="pagination__link pagination__link--previous"><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
 이전 페이지
 </a>
-</li>
-<li class=pagination__item>
-<a href=/posts/page/11/ class=pagination__link>11</a>
-</li>
-<li class=pagination__item>
-<a href=/posts/page/12/ class=pagination__link>12</a>
 </li>
 <li class=pagination__item>
 <a href=/posts/page/13/ class=pagination__link>13</a>
@@ -187,7 +184,7 @@
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
-<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/15/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/18/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

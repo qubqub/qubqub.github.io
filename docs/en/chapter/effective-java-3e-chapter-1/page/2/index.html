@@ -8,7 +8,7 @@
 <meta name=description content="<Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/en/chapter/effective-java-3e-chapter-1/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.de284f4b6ed00befd2c6d5b862d8bf54455fbcebf41a33ae969925a7b317a7c3.css integrity="sha256-3ihPS27QC+/SxtW4Yti/VEVfvOv0GjOulpklp7MXp8M=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.5c5853c9b5eb141f96ea7a324fcc02e5e564cedae430c2d538e93c7a3880fa0c.css integrity="sha256-XFhTybXrFB+W6noyT8wC5eVkztrkMMLVOOk8ejiA+gw=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.png>
@@ -84,6 +84,22 @@
 </header>
 <article class="post-entry tag-entry" style=animation-delay:.17s data-animation=true>
 <header class=entry-header>
+<h2>[Item 5] Prefer dependency injection to hardwiring resources
+</h2>
+</header>
+<section class=entry-content>
+<p>[Item 5] Prefer dependency injection to hardwiring resources. 대부분의 클래스는 하나 이상의 리소스에 의존합니다. 이번 예제에서는 SpellChecker가 Lexicon를 의존하고 있는 모습입니다.
+부적절한 구현 정적 유틸리티를 잘못 사용한 예 - 유연하지 않고 테스트 할 수 없다 1 2 3 4 5 6 7 8 9 public class SpellChecker { private static final Lexicon dictionary = ...; private SpellChecker() { } public static boolean isValid(String word) { ... } public static List&lt;String> suggestions(String typo) { } } 싱글턴을 잘못 사용한 예 - 유연하지 않고 테스트하기 어렵다 1 2 3 4 5 6 7 8 9 10 public class SpellChecker { private final Lexicon dictionary = ....</p>
+</section>
+<footer class=entry-footer><span title="2020-06-19 17:15:21 +0900 KST">June 19, 2020</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 min</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/en/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/en/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [Item 5] Prefer dependency injection to hardwiring resources" href=https://qutrits.github.io/en/posts/effective-java-3e/chapter-01/item5/></a>
+</article>
+<article class="post-entry tag-entry" style=animation-delay:.22s data-animation=true>
+<header class=entry-header>
 <h2>[Item 4] Enforce noninstantiability with a private constructor
 </h2>
 </header>
@@ -99,7 +115,7 @@
 </ul></footer>
 <a class=entry-link aria-label="post link to [Item 4] Enforce noninstantiability with a private constructor" href=https://qutrits.github.io/en/posts/effective-java-3e/chapter-01/item4/></a>
 </article>
-<article class="post-entry tag-entry" style=animation-delay:.22s data-animation=true>
+<article class="post-entry tag-entry" style=animation-delay:.27s data-animation=true>
 <header class=entry-header>
 <h2>[Item 3] Enforce the singleton property with a private constructor or an enum type
 </h2>
@@ -116,7 +132,7 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9 public class Elvis { p
 </ul></footer>
 <a class=entry-link aria-label="post link to [Item 3] Enforce the singleton property with a private constructor or an enum type" href=https://qutrits.github.io/en/posts/effective-java-3e/chapter-01/item3/></a>
 </article>
-<article class="post-entry tag-entry" style=animation-delay:.27s data-animation=true>
+<article class="post-entry tag-entry" style=animation-delay:.32s data-animation=true>
 <header class=entry-header>
 <h2>[Item 2] Consider a builder when faced with many constructor parameters
 </h2>
@@ -131,23 +147,6 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9 public class Elvis { p
 <li><a class=button href=https://qutrits.github.io/en/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
 <a class=entry-link aria-label="post link to [Item 2] Consider a builder when faced with many constructor parameters" href=https://qutrits.github.io/en/posts/effective-java-3e/chapter-01/item2/></a>
-</article>
-<article class="post-entry tag-entry" style=animation-delay:.32s data-animation=true>
-<header class=entry-header>
-<h2>[Item 1] Consider static factory methods instead of constructors
-</h2>
-</header>
-<section class=entry-content>
-<p>[Iteam 1] Consider static factory methods instead of constructors. 일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메소드를 이용할 수 있다. Boolean 클래스에서 발췌한 예제 코드
-1 2 3 public static Boolean valueOf(boolean b) { return b ? Boolean.TRUE : Booelan.FALSE; } 장점 1. 이름을 가질 수 있다. 생성자에 넘기는 매개변수만으로 반활된 객체의 특성을 제대로 설명하지 못합니다.
-반면 정적 팩터리 메서드는 이름을 잘 지으면 반환될 객체의 특성을 쉽게 묘사할 수 있습니다....</p>
-</section>
-<footer class=entry-footer><span title="2020-06-18 15:49:20 +0900 KST">June 18, 2020</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 min</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
-<ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/en/tags/java/>Java</a></li>
-<li><a class=button href=https://qutrits.github.io/en/tags/effective-java-3e/>Effective Java 3E</a></li>
-</ul></footer>
-<a class=entry-link aria-label="post link to [Item 1] Consider static factory methods instead of constructors" href=https://qutrits.github.io/en/posts/effective-java-3e/chapter-01/item1/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -166,6 +165,18 @@ Prev Page
 </li>
 <li class="pagination__item pagination__item--current">
 <a>2</a>
+</li>
+<li class=pagination__item>
+<a href=/en/chapter/effective-java-3e-chapter-1/page/3/ class=pagination__link>3</a>
+</li>
+<li class="pagination__item pagination__item--next">
+<a href=https://qutrits.github.io/en/chapter/effective-java-3e-chapter-1/page/3/ class="pagination__link pagination__link--next">
+Next Page<svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+</a>
+</li>
+<li class="pagination__item pagination__item--last">
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/en/chapter/effective-java-3e-chapter-1/page/3/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+</a>
 </li>
 </ul>
 </nav>

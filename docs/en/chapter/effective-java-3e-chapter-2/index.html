@@ -8,7 +8,7 @@
 <meta name=description content="<Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/en/chapter/effective-java-3e-chapter-2/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.de284f4b6ed00befd2c6d5b862d8bf54455fbcebf41a33ae969925a7b317a7c3.css integrity="sha256-3ihPS27QC+/SxtW4Yti/VEVfvOv0GjOulpklp7MXp8M=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.5c5853c9b5eb141f96ea7a324fcc02e5e564cedae430c2d538e93c7a3880fa0c.css integrity="sha256-XFhTybXrFB+W6noyT8wC5eVkztrkMMLVOOk8ejiA+gw=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.png>
@@ -151,23 +151,27 @@ equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케�
 </ul></footer>
 <a class=entry-link aria-label="post link to [Item 11] Always override hashCode when you override equals" href=https://qutrits.github.io/en/posts/effective-java-3e/chapter-02/item11/></a>
 </article>
-<article class="post-entry tag-entry" style=animation-delay:.37s data-animation=true>
-<header class=entry-header>
-<h2>[Item 10] Obey the general contract when overriding equals
-</h2>
-</header>
-<section class=entry-content>
-<p>[Item 10] Obey the general contract when overriding equals. equals 메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다.여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.
-equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.
-반사성(reflexivity) null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다. 대칭성(symmetry) null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.equals(x)입니다. 잘못된 코드 - 대칭성 위반...</p>
-</section>
-<footer class=entry-footer><span title="2020-06-27 11:42:54 +0900 KST">June 27, 2020</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 min</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
-<ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/en/tags/java/>Java</a></li>
-<li><a class=button href=https://qutrits.github.io/en/tags/effective-java-3e/>Effective Java 3E</a></li>
-</ul></footer>
-<a class=entry-link aria-label="post link to [Item 10] Obey the general contract when overriding equals" href=https://qutrits.github.io/en/posts/effective-java-3e/chapter-02/item10/></a>
-</article>
+<footer class=page-footer>
+<nav class=pagination>
+<ul class=pagination>
+<li class="pagination__item pagination__item--current">
+<a>1</a>
+</li>
+<li class=pagination__item>
+<a href=/en/chapter/effective-java-3e-chapter-2/page/2/ class=pagination__link>2</a>
+</li>
+<li class="pagination__item pagination__item--next">
+<a href=https://qutrits.github.io/en/chapter/effective-java-3e-chapter-2/page/2/ class="pagination__link pagination__link--next">
+Next Page<svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+</a>
+</li>
+<li class="pagination__item pagination__item--last">
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/en/chapter/effective-java-3e-chapter-2/page/2/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+</a>
+</li>
+</ul>
+</nav>
+</footer>
 </main>
 <footer class=footer>
 <span>&copy; 2021 <a href=https://qutrits.github.io/en/>&lt;Qutrits/></a></span>

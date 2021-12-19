@@ -8,7 +8,7 @@
 <meta name=description content="<Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/chapter/effective-java-3e-chapter-3/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.de284f4b6ed00befd2c6d5b862d8bf54455fbcebf41a33ae969925a7b317a7c3.css integrity="sha256-3ihPS27QC+/SxtW4Yti/VEVfvOv0GjOulpklp7MXp8M=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.5c5853c9b5eb141f96ea7a324fcc02e5e564cedae430c2d538e93c7a3880fa0c.css integrity="sha256-XFhTybXrFB+W6noyT8wC5eVkztrkMMLVOOk8ejiA+gw=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.png>
@@ -88,6 +88,38 @@
 <h1 class=page-title data-animation=true>Effective Java 3E Chapter 3</h1>
 </header>
 <article class="post-entry tag-entry" style=animation-delay:.17s data-animation=true>
+<header class=entry-header>
+<h2>[아이템 17] 변경 가능성을 최소화하라
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 17] 변경 가능성을 최소화하라. 불변 클래스(Immutable Class)란 말 그대로 객체가 생성된 후에 더이상 값을 변경할 수 없는 것을 의미합니다. 자바에서는 대표적으로 String, Integer, Float,Long 등이 있습니다.불변 클래스의 장점
+클래스를 불변으로 만들기 위한 규칙 객체의 상태를 변경하는 메서드를 제공하지 않습니다. 클래스를 확장할 수 없도록 합니다. 모든 필드를 private final으로 선언합니다. 생성자 관리를 잘할 것 (밑에서 설명) 자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 public final class Calculator { private final int x; private final int y; public Calculator(int x, int y) { this....</p>
+</section>
+<footer class=entry-footer><span title="2020-07-02 14:11:51 +0900 KST">2020년 7월 2일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 17] 변경 가능성을 최소화하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item17/></a>
+</article>
+<article class="post-entry tag-entry" style=animation-delay:.22s data-animation=true>
+<header class=entry-header>
+<h2>[아이템 16] public 클래스에서는 public 필드가 아닌 접근 메서드를 사용하라
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 16] public 클래스에서는 public 필드가 아닌 접근 메서드를 사용하라. 1 2 3 4 5 // 부적적한 코드 public class Point { public int x; public int y; } 위 코드는 객체지향의 특징 중 하나인 캡슐화를 살리지 못했습니다.다음과 같이 추상화의 이점을 살려서 코드를 수정할 수 있습니다.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 public class Point { public int x; public int y; public Point(int x, int y) { this....</p>
+</section>
+<footer class=entry-footer><span title="2020-07-02 13:38:11 +0900 KST">2020년 7월 2일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 16] public 클래스에서는 public 필드가 아닌 접근 메서드를 사용하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item16/></a>
+</article>
+<article class="post-entry tag-entry" style=animation-delay:.27s data-animation=true>
 <header class=entry-header>
 <h2>[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라
 </h2>
