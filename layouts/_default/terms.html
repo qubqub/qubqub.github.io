@@ -38,7 +38,7 @@
       {{- end }}
 
       <li>
-        <a {{ if .Site.Params.useElementAnimation }}data-animation="true" style="animation-delay: {{ (mul (add (mul (add (index $suffleTermIndex $key) 1) 17) 300) 0.001) | lang.NumFmt 2 }}s; font-size: {{ $fontSize | lang.NumFmt 2 }}rem;"{{- else }}style="font-size: {{ $fontSize | lang.NumFmt 2 }}rem;"{{- end }} href="{{ .Permalink }}">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
+        <a {{ if .Site.Params.useElementAnimation }}data-animation="true" style="animation-delay: {{ (mul (add (mul (add (index $suffleTermIndex $key) 1) 17) 100) 0.001) | lang.NumFmt 2 }}s; font-size: {{ $fontSize | lang.NumFmt 2 }}rem;"{{- else }}style="font-size: {{ $fontSize | lang.NumFmt 2 }}rem;"{{- end }} href="{{ .Permalink }}">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
       </li>
     {{- end }}
   {{- end }}

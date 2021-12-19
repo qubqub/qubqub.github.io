@@ -30,7 +30,7 @@
       {{- $count := .Count }}
       
       {{- with $.Site.GetPage (printf "/%s/%s" "series" $name) }}
-        <article class="post-entry series-entry" title="{{- i18n $name }}" {{ if .Site.Params.useElementAnimation }}style="animation-delay: {{ (mul (add (mul (add $i 1) 150) 800) 0.001) | lang.NumFmt 2 }}s;" data-animation="true"{{- end }}>
+        <article class="post-entry series-entry" title="{{- i18n $name }}" {{ if .Site.Params.useElementAnimation }}style="animation-delay: {{ (mul (add (mul (add $i 1) 100) 100) 0.001) | lang.NumFmt 2 }}s;" data-animation="true"{{- end }}>
           {{ $seriesTitle := .Name }}
           {{ $seriesId := index (split .RelPermalink "/") (sub (len (split .RelPermalink "/")) 2) }}
           {{- range where $seriesCover "name" $seriesTitle }}
