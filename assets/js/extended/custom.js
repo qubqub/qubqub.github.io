@@ -382,25 +382,25 @@ DOMReady( function () {
               urlPathName.match(/^\/categories\/$/) ||
               urlPathName.match(/^\/series\/$/) ||
               urlPathName.match(/^\/chapter\/$/)) {
-    const _termList = document.querySelectorAll(".main .terms-tags a");
-    const _termHeader = document.querySelector(".main .page-header");
-    elementAnimationDelay(_termHeader, "0.3s ease-in-out", 0, 0, "Y", "1");
+    // const _termList = document.querySelectorAll(".main .terms-tags a");
+    // const _termHeader = document.querySelector(".main .page-header");
+    // elementAnimationDelay(_termHeader, "0.3s ease-in-out", 0, 0, "Y", "1");
 
-    if (_termList) {
-      let randomIndexArray = [];
-      for (i=0; i<_termList.length; i++) {
-        randomNum = Math.floor(Math.random() * _termList.length);
-        if (randomIndexArray.indexOf(randomNum) === -1) {
-          randomIndexArray.push(randomNum);
-        } else {
-          i--;
-        }
-      }
+    // if (_termList) {
+    //   let randomIndexArray = [];
+    //   for (i=0; i<_termList.length; i++) {
+    //     randomNum = Math.floor(Math.random() * _termList.length);
+    //     if (randomIndexArray.indexOf(randomNum) === -1) {
+    //       randomIndexArray.push(randomNum);
+    //     } else {
+    //       i--;
+    //     }
+    //   }
       
-      for (let i = 0; i < randomIndexArray.length; i++) {
-        elementAnimationDelay(_termList[randomIndexArray[i]], "0.2s ease-out", (i+1)*17, 300, "Y", "1");
-      }
-    }
+    //   for (let i = 0; i < randomIndexArray.length; i++) {
+    //     elementAnimationDelay(_termList[randomIndexArray[i]], "0.2s ease-out", (i+1)*17, 300, "Y", "1");
+    //   }
+    // }
   } else if ( urlPathName.match(/^\/posts\/$/) ||
               urlPathName.match(/^\/tags\/.+/) ||
               urlPathName.match(/^\/categories\/.+/) ||

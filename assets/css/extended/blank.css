@@ -1123,15 +1123,6 @@ header.header {
     list-style: none;
   }
 
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
   .main .post-single .toc-aside .inner-wrapper .inner {
     margin: 0;
     padding: 0;
@@ -1284,15 +1275,6 @@ header.header {
     padding-right: 0;
     list-style: none;
     margin-right: 0;
-  }
-
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
   }
 
   .main .post-single .toc-aside.reveal {
@@ -1514,6 +1496,24 @@ a.button,
   user-select: none;
 }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .post-title {
   opacity: 0;
   transform: translateY(-12%);
@@ -1584,21 +1584,6 @@ a.button,
 } */
 
 
-.collection-title {
-  opacity: 0;
-  transform: translateY(-30%);
-}
-
-.collection-description {
-  opacity: 0;
-  transform: translateY(-30%);
-}
-
-
-.terms-tags a {
-  opacity: 0;
-  transform: translateY(-30%);
-}
 
 
 
@@ -1618,12 +1603,60 @@ a.button,
 }
 
 
-.page-header {
-  opacity: 0;
-  transform: translateY(-50%);
-}
 
 .post-entry:not(.search-entry) {
   opacity: 0;
   transform: translateX(-4%);
+}
+
+
+.page-header[data-animation=true] {
+  animation-name: page-header-animation-delay;
+  animation-duration: 0.3s;
+  animation-delay: 1s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+@keyframes page-header-animation-delay {
+  from {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.terms-tags a[data-animation=true] {
+  animation-name: term-animation-delay;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+@keyframes term-animation-delay {
+  from {
+    opacity: 0;
+    transform: translateY(-30%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+
+
+.collection-title {
+  opacity: 0;
+  transform: translateY(-30%);
+}
+
+.collection-description {
+  opacity: 0;
+  transform: translateY(-30%);
 }

@@ -24,7 +24,7 @@
   </h2>
   {{- range .Pages.GroupByDate "January" }}
     {{ $month = .Key }}
-    <div class="archive-month" data-key="{{ $year }}-{{ $month }}">
+    <div class="archive-month" key="{{ $year }}-{{ $month }}">
       <h3 class="archive-month-header" data-key="{{ $year }}-{{ $month }}">
         <span class="toggle">
           <svg class="lock" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 512 512">

@@ -1,6 +1,6 @@
 {{- define "main" }}
 {{- if .Title }}
-<header class="page-header">
+<header class="page-header" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{- end }}>
   <h1>{{- i18n (lower .Title) }} 🏷️</h1>
   {{- if .Description }}
   <div class="post-description">
@@ -11,35 +11,36 @@
 {{- end }}
 
 <ul class="terms-tags">
+  {{ $suffleTermIndex := (seq (sub (len .Data.Terms.Alphabetical) 1) -1 0) | shuffle }}
+
   {{- $type := .Type }}
   {{/*  {{ range $.Site.Taxonomies.tags.ByCount }}  */}}
   {{- range $key, $value := .Data.Terms.Alphabetical }}
-  {{- $name := .Name }}
-  {{- $count := .Count }}
-  {{- with $.Site.GetPage (printf "/%s/%s" $type $name) }}
+    {{- $name := .Name }}
+    {{- $count := .Count }}
+    {{- with $.Site.GetPage (printf "/%s/%s" $type $name) }}
+      {{ $fontSize := mul (add (float (print "0" (substr (string $count) 0 -1) "." (substr (string $count) -1 1))) 1) 0.8 }}
 
-  {{ $fontSize := mul (add (float (print "0" (substr (string $count) 0 -1) "." (substr (string $count) -1 1))) 1) 0.8 }}
+      {{- if (gt 1 $fontSize) }}
+        {{ $fontSize = (mul $fontSize 0.9) }}
+      {{- else if (and (le 1 $fontSize) (ge 1.25 $fontSize)) }}
+        {{ $fontSize = (mul $fontSize 0.9) }}
+      {{- else if (and (lt 1.25 $fontSize) (ge 1.5 $fontSize)) }}
+        {{ $fontSize = (mul $fontSize 0.875) }}
+      {{- else if (and (lt 1.5 $fontSize) (ge 1.75 $fontSize)) }}
+        {{ $fontSize = (mul $fontSize 0.875) }}
+      {{- else if (and (lt 1.75 $fontSize) (ge 2 $fontSize)) }}
+        {{ $fontSize = (mul $fontSize 0.875) }}
+      {{- else if (and (lt 2 $fontSize) (ge 2.5 $fontSize)) }}
+        {{ $fontSize = (mul $fontSize 0.7) }}
+      {{- else if (lt 2.5 $fontSize) }}
+        {{ $fontSize = (mul 2.5 0.7) }}
+      {{- end }}
 
-  {{- if (gt 1 $fontSize) }}
-    {{ $fontSize = (mul $fontSize 0.9) }}
-  {{- else if (and (le 1 $fontSize) (ge 1.25 $fontSize)) }}
-    {{ $fontSize = (mul $fontSize 0.9) }}
-  {{- else if (and (lt 1.25 $fontSize) (ge 1.5 $fontSize)) }}
-    {{ $fontSize = (mul $fontSize 0.875) }}
-  {{- else if (and (lt 1.5 $fontSize) (ge 1.75 $fontSize)) }}
-    {{ $fontSize = (mul $fontSize 0.875) }}
-  {{- else if (and (lt 1.75 $fontSize) (ge 2 $fontSize)) }}
-    {{ $fontSize = (mul $fontSize 0.875) }}
-  {{- else if (and (lt 2 $fontSize) (ge 2.5 $fontSize)) }}
-    {{ $fontSize = (mul $fontSize 0.7) }}
-  {{- else if (lt 2.5 $fontSize) }}
-    {{ $fontSize = (mul 2.5 0.7) }}
-  {{- end }}
-
-  <li>
-    <a href="{{ .Permalink }}" style="font-size: {{ $fontSize }}rem;">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
-  </li>
-  {{- end }}
+      <li>
+        <a {{ if .Site.Params.useElementAnimation }}data-animation="true" style="animation-delay: {{ (mul (add (mul (add (index $suffleTermIndex $key) 1) 17) 300) 0.001) }}s; font-size: {{ $fontSize }}rem;"{{- else }}style="font-size: {{ $fontSize }}rem;"{{- end }} href="{{ .Permalink }}">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
+      </li>
+    {{- end }}
   {{- end }}
 </ul>
 {{- end }}{{/* end main */ -}}
