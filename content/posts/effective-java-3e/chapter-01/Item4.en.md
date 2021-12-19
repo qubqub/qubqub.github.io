@@ -1,5 +1,5 @@
 ---
-title: "[아이템 4] 인스턴스를 막으려거든 private 생성자를 사용하라"
+title: "[Item 4] Enforce noninstantiability with a private constructor"
 date: 2020-06-19T15:51:43+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 4] 인스턴스를 막으려거든 private 생성자를 사용하라
+## [Item 4] Enforce noninstantiability with a private constructor.
 
 java.lang.Math와 java.util.Arrays와 같이 static 메서드와 static 필드만을 담을 클래스는 인스턴스화를 하는 건 낭비가 됩니다.
    

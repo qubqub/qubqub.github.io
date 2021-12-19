@@ -1,5 +1,5 @@
 ---
-title: "[아이템 21] 인터페이스는 구현하는 쪽을 생각해 설계하라"
+title: "[Item 21] Design interfaces for posterity"
 date: 2020-07-04T11:14:32+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 21] 인터페이스는 구현하는 쪽을 생각해 설계하라.
+## [Item 21] Design interfaces for posterity.
 
 `JAVA 8`이전에는 기존 구현체를 깨뜨리지 않고 인터페이스에 새로운 메서드를 추가할 방법이 없었습니다. `JAVA 8`부터는 디폴트 메서드를 제공해서 이러한 문제점들을 해결해줬지만 위험이 완전히 사라진 것은 아닙니다.
    

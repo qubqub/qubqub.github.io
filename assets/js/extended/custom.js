@@ -8,15 +8,6 @@ DOMReady( function () {
     return new Promise((r) => setTimeout(r, ms));
   }
 
-  function elementAnimationDelay(_element, _transition, _ms, _extraMs = 0, _direction, _opacity) {
-    if (_element) {
-      _element.style.transition = "opacity "+_transition+", transform "+_transition;
-      _element.style.transitionDelay = ((_ms + _extraMs) * 0.001) + "s";
-      _element.style.opacity = _opacity;
-      _element.style.transform = `translate${_direction.toUpperCase()}(0%)`;
-    }
-  }
-
   if (window.innerWidth < 769) {
     if (!document.getElementById("menu").classList.contains("hidden")) {
       document.getElementById("menu").classList.add("hidden");
@@ -67,31 +58,6 @@ DOMReady( function () {
   if (urlPathName.match(/^\/posts\/.+/)) {
     const urlSlug = urlPathName.match(/^(\/posts\/)([^/]+)/);
     if (urlSlug[2] !== "page") {
-      
-      const _postTitle = document.querySelector(".main .post-single .post-header .post-title");
-      elementAnimationDelay(_postTitle, "0.2s ease-in", 300, 0, "Y", "1");
-
-      const _postDescription = document.querySelector(".main .post-single .post-header .post-description");
-      elementAnimationDelay(_postDescription, "0.2s ease-in", 335, 0, "Y", "1");
-
-      const _postMeta = document.querySelector(".main .post-single .post-header .post-meta");
-      elementAnimationDelay(_postMeta, "0.2s ease-in", 370, 0, "Y", "1");
-
-      const _seriesMain = document.querySelector(".main .post-single .series-main");
-      elementAnimationDelay(_seriesMain, "0.2s ease-in", 400, 0, "Y", "1");
-
-      // const _asideToc = document.querySelector(".main .post-single .toc-aside-wrapper");
-      // elementAnimationDelay(_asideToc, "0.2s ease-in", 600, 0, "X", "1");
-
-      const _toc = document.querySelector(".main .post-single .toc");
-      elementAnimationDelay(_toc, "0.2s ease-in", 400, 0, "Y", "1");
-
-      const _postContent = document.querySelector(".main .post-single .post-content");
-      elementAnimationDelay(_postContent, "0.2s ease-in", 600, 0, "X", "1");
-
-      const _postFooter = document.querySelector(".main .post-single .post-footer");
-      elementAnimationDelay(_postFooter, "0.2s ease-in", 600, 0, "Y", "1");
-      
       const scrollUp = "scroll-up";
       const scrollDown = "scroll-down";
       const headerBottom = "header-bottom";
@@ -305,29 +271,13 @@ DOMReady( function () {
         }
       }
     } else { // page
-      const _postHeader = document.querySelector(".page-header");
-      elementAnimationDelay(_postHeader, "0.2s ease-out", 80, 0, "Y", "1");
-      
-      const _postEntry = document.querySelectorAll(".post-entry");
-      if (_postEntry) {
-        for (let i = 0; i < _postEntry.length; i++) {
-          elementAnimationDelay(_postEntry[i], "0.2s ease-out", (i+1)*50, 120, "X", "1");
-        }
-      }
+
+
+
     }
   } else if (urlPathName.match(/^\/archives\/$/)) {
-    const _archiveHeader = document.querySelector(".main .page-header");
     const _archivePosts = document.querySelectorAll(".archive-year .archive-month");
-    const _archiveYearHeader = document.querySelectorAll(".archive-year .archive-year-header");
     const _archiveEntry = document.querySelectorAll(".main .archive-year .archive-month .archive-month-header .toggle");
-
-    elementAnimationDelay(_archiveHeader, "0.3s ease-in-out", 0, 0, "Y", "1");
-
-    if (_archiveYearHeader) {
-      for (let i = 0; i < _archiveYearHeader.length; i++) {
-        elementAnimationDelay(_archiveYearHeader[i], "0.3s ease-in-out", (i+1)*100, 300, "Y", "1");
-      }
-    }
 
     if (_archivePosts) {
       for (let i = 0; i < _archivePosts.length; i++) {
@@ -338,11 +288,6 @@ DOMReady( function () {
           _archivePosts[i].querySelector(".archive-month-header .toggle").dataset.isLock = true;
           _archivePosts[i].querySelector(".archive-month-header .toggle .unlock").classList.add("hide");
         }
-      }
-
-      for (let i = 0; i < _archivePosts.length; i++) {
-        elementAnimationDelay(_archivePosts[i].children[0], "0.3s ease-in-out", (i+1)*50, 700, "Y", "1");
-        elementAnimationDelay(_archivePosts[i].children[1], "0.3s ease-in-out", (i+1)*50, 700, "X", "1");
       }
     }
     
@@ -373,6 +318,7 @@ DOMReady( function () {
             _el.querySelector(".toggle").dataset.isLock = false;
             _el.querySelector(".toggle .lock").classList.add("hide");
             _el.querySelector(".toggle .unlock").classList.remove("hide");
+            document.getElementById(_key).style.animationDelay = "0s";
             document.getElementById(_key).style.display = "block";
           }
         });
@@ -382,96 +328,36 @@ DOMReady( function () {
               urlPathName.match(/^\/categories\/$/) ||
               urlPathName.match(/^\/series\/$/) ||
               urlPathName.match(/^\/chapter\/$/)) {
-    // const _termList = document.querySelectorAll(".main .terms-tags a");
-    // const _termHeader = document.querySelector(".main .page-header");
-    // elementAnimationDelay(_termHeader, "0.3s ease-in-out", 0, 0, "Y", "1");
+    
 
-    // if (_termList) {
-    //   let randomIndexArray = [];
-    //   for (i=0; i<_termList.length; i++) {
-    //     randomNum = Math.floor(Math.random() * _termList.length);
-    //     if (randomIndexArray.indexOf(randomNum) === -1) {
-    //       randomIndexArray.push(randomNum);
-    //     } else {
-    //       i--;
-    //     }
-    //   }
-      
-    //   for (let i = 0; i < randomIndexArray.length; i++) {
-    //     elementAnimationDelay(_termList[randomIndexArray[i]], "0.2s ease-out", (i+1)*17, 300, "Y", "1");
-    //   }
-    // }
+    
   } else if ( urlPathName.match(/^\/posts\/$/) ||
               urlPathName.match(/^\/tags\/.+/) ||
               urlPathName.match(/^\/categories\/.+/) ||
               urlPathName.match(/^\/series\/.+/) ||
               urlPathName.match(/^\/chapter\/.+/)) {
-    const _postHeader = document.querySelector(".page-header");
-    elementAnimationDelay(_postHeader, "0.2s ease-out", 50, 0, "Y", "1");
-
-    const _postEntry = document.querySelectorAll(".post-entry");
-    if (_postEntry) {
-      for (let i = 0; i < _postEntry.length; i++) {
-        elementAnimationDelay(_postEntry[i], "0.2s ease-out", ((i+1)*50)+120, 120, "X", "1");
-      }
-    }
-  } else if (urlPathName.match(/^\/search\/$/)) {
-    const _searchHeader = document.querySelector(".main .page-header");
-    elementAnimationDelay(_searchHeader, "0.3s ease-in-out", 400, 0, "Y", "1");
-
-    const _searchInput = document.querySelector("#searchInput");
-    if (_searchInput) {
-      _searchInput.style.width = "100%";
-    }
-  } else if (urlPathName.match(/^\/series-list\/$/)) {
-    const _seriesTitle = document.querySelector(".main .series-header .series-title");
-    const _seriesDescription = document.querySelector(".main .series-header .series-description-wrapper .series-description");
-    // const _seriesSubDescriptions = document.querySelectorAll(".main .series-header .series-description-wrapper .series-sub-description-wrapper .series-sub-description");
-    const _seriesSubDescriptions = document.querySelector(".main .series-header .series-description-wrapper .series-sub-description-wrapper");
-    const _seriesEntry = document.querySelectorAll(".main .post-entry");
     
-    elementAnimationDelay(_seriesTitle, "0.2s ease-out", 200, 0, "Y", "1");
-    elementAnimationDelay(_seriesDescription, "0.2s ease-out", 400, 0, "Y", "1");
 
-    if (_seriesSubDescriptions) {
-      elementAnimationDelay(_seriesSubDescriptions, "0.2s ease-out", 250, 400, "X", "1");
-      // for (let i = 0; i < _seriesSubDescriptions.length; i++) {
-      //   // elementAnimationDelay(_seriesSubDescriptions[i], "0.2s ease-out", (i+1)*250, 400, "X", "1");
-      //   elementAnimationDelay(_seriesSubDescriptions[i], "0.2s ease-out", 250, 400, "X", "1");
-      // }
-    }
+    
+  } else if (urlPathName.match(/^\/search\/$/)) {
+    
 
-    if (_seriesEntry) {
-      for (let i = 0; i < _seriesEntry.length; i++) {
-        elementAnimationDelay(_seriesEntry[i], "0.2s ease-out", (i+1)*100, 850, "X", "1");
-      }
-    }
+
+  } else if (urlPathName.match(/^\/series-list\/$/)) {
+    
+
+
   } else if ( urlPathName.match(/^\/collection\/$/)) {
-    const _collectionTitle = document.querySelector(".main .collection-header .collection-title");
-    const _collectionDescription = document.querySelector(".main .collection-header .collection-description");
-    const _collectionEntry = document.querySelectorAll(".main .post-entry");
+    
 
-    elementAnimationDelay(_collectionTitle, "0.2s ease-out",200, 0, "Y", "1");
-    elementAnimationDelay(_collectionDescription, "0.2s ease-out", 400, 0, "Y", "1");
 
-    if (_collectionEntry) {
-      for (let i = 0; i < _collectionEntry.length; i++) {
-        elementAnimationDelay(_collectionEntry[i], "0.2s ease-out", (i+1)*80, 550, "X", "1");
-      }
-    }
   } else if (urlPathName === "/") {
 
 
 
   } else if (urlPathName.match(/^\/links\/$/)) {
-    const _linkHeader = document.querySelector(".link-header");
-    elementAnimationDelay(_linkHeader, "0.3s ease-in-out", 0, 0, "Y", "1");
+    
 
-    const _linkButtons = document.querySelectorAll(".links .button");
-    if (_linkButtons) {
-      for (let i = 0; i < _linkButtons.length; i++) {
-        elementAnimationDelay(_linkButtons[i], "0.4s ease-in-out", (i+1)*100, 200, "X", "1");
-      }
-    }
+
   }
 });

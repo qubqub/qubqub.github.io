@@ -1,5 +1,5 @@
 ---
-title: "[아이템 18] 상속보다는 컴포지션을 사용하라"
+title: "[Item 18] Favor composition over inheritance"
 date: 2020-07-03T11:42:22+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,8 +20,8 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 18] 상속보다는 컴포지션을 사용하라.
-우선 이번 아이템에서 다루는 상속은 클래스가 다른 클래스를 확장하는 것을 말합니다.   
+## [Item 18] Favor composition over inheritance.
+우선 이번 Item에서 다루는 상속은 클래스가 다른 클래스를 확장하는 것을 말합니다.   
 상속 같은 경우 상위 클래스가 구현 방식에 따라 하위 클래스 동작에 영향을 미칠 수 있습니다.
 
 ### 예제를 위한 코드

@@ -1,5 +1,5 @@
 ---
-title: "[아이템 17] 변경 가능성을 최소화하라"
+title: "[Item 17] Minimize mutability"
 date: 2020-07-02T14:11:51+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 17] 변경 가능성을 최소화하라.
+## [Item 17] Minimize mutability.
 
 **불변** 클래스(Immutable Class)란 말 그대로 객체가 생성된 후에 더이상 값을 변경할 수 없는 것을 의미합니다. 자바에서는 대표적으로 `String`, `Integer`, `Float`,`Long` 등이 있습니다.</br>
 **불변 클래스의 장점**

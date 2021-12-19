@@ -1,5 +1,5 @@
 ---
-title: "[아이템 16] public 클래스에서는 public 필드가 아닌 접근 메서드를 사용하라"
+title: "[Item 16] In public classes, use accessor methods, not public fields"
 date: 2020-07-02T13:38:11+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 16] public 클래스에서는 public 필드가 아닌 접근 메서드를 사용하라.
+## [Item 16] In public classes, use accessor methods, not public fields.
 
 ``` java
 // 부적적한 코드

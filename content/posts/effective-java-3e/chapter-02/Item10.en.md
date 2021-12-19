@@ -1,5 +1,5 @@
 ---
-title: "[아이템 10] equals는 일반 규약을 지켜 재정의하라"
+title: "[Item 10] Obey the general contract when overriding equals"
 date: 2020-06-27T11:42:54+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 10] equals는 일반 규약을 지켜 재정의하라.
+## [Item 10] Obey the general contract when overriding equals.
 equals 메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다.여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.
    
 equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.

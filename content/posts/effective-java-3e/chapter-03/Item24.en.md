@@ -1,5 +1,5 @@
 ---
-title: "[아이템 24] 멤버 클래스는 되도록 static으로 만들어라"
+title: "[Item 24] Favor static member classes over nonstatic"
 date: 2020-07-05T11:41:14+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 24] 멤버 클래스는 되도록 static으로 만들어라.
+## [Item 24] Favor static member classes over nonstatic.
 
 중첩 클래스(`nested class`)는 자신을 감싼 바깥 클래스에서만 쓰어야 하며 그 이외 쓰임새가 있다면 톱레벨 클래스로 만들어야 합니다.
    

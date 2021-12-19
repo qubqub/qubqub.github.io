@@ -1,5 +1,5 @@
 ---
-title: "[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라"
+title: "[Item 11] Always override hashCode when you override equals"
 date: 2020-06-27T13:18:21+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 11] equals를 재정의하려거든 hashCode도 재정의하라.
+## [Item 11] Always override hashCode when you override equals.
 
 `equals`와 `hasoCode`를 재정의 하지 않으면 `HashMap`이나 `HashSet`에서 같은 원소를 사용할 때 문제가 발생합니다.
    

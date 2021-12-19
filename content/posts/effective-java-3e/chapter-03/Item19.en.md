@@ -1,5 +1,5 @@
 ---
-title: "[아이템 19] 상속을 고려해 설계하고 문서화하라. 그렇지 않았다면 상속을 금지하라"
+title: "[Item 19] Design and document for inheritance or else prohibit it"
 date: 2020-07-03T13:57:41+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 19] 상속을 고려해 설계하고 문서화하라. 그렇지 않았다면 상속을 금지하라.
+## [Item 19] Design and document for inheritance or else prohibit it.
 
 여기서 말하는 **외부**란 프로그래머의 통제권 밖에 있어서 언제 어떤식으로 변경될지 모른다는 뜻입니다.
 ### **상속을 고려한 문서화**
@@ -37,5 +37,5 @@ ShowBreadCrumbs: true
 
 ## 정리
 - 상속을 하려면 문서화를 해야 하며, 문서화 한 것은 반드시 지켜야 합니다.
-- 클래스를 확장해야 할 명확한 이유가 없으면 [`아이템17`](/posts/effective-java-3e/chapter-03/item17/)에서 다뤘던 방식으로 상속을 금지합시다.
+- 클래스를 확장해야 할 명확한 이유가 없으면 [`Item17`](/posts/effective-java-3e/chapter-03/item17/)에서 다뤘던 방식으로 상속을 금지합시다.
 

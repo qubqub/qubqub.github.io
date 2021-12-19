@@ -1,5 +1,5 @@
 ---
-title: "[아이템 33] 타입 안전 이종 컨테이너를 고려하라"
+title: "[Item 33] Consider typesafe heterogeneous containers"
 date: 2020-07-09T18:21:51+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 33] 타입 안전 이종 컨테이너를 고려하라.
+## [Item 33] Consider typesafe heterogeneous containers.
 
 타입 안전 이종 컨테이너 패턴이란 키를 매개변수화한 다음, 컨테이너에 값을 넣거나 뺄 때 매개변수화한 키를 함께 제공하는 방식입니다.
 

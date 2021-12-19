@@ -1,5 +1,5 @@
 ---
-title: "[아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하여라"
+title: "[Item 5] Prefer dependency injection to hardwiring resources"
 date: 2020-06-19T17:15:21+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하여라.
+## [Item 5] Prefer dependency injection to hardwiring resources.
 
 대부분의 클래스는 하나 이상의 리소스에 의존합니다. 이번 예제에서는 `SpellChecker`가 `Lexicon`를 의존하고 있는 모습입니다.
    

@@ -1,5 +1,5 @@
 ---
-title: "[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라"
+title: "[Item 15] Minimize the accessibility of classes and members"
 date: 2020-07-02T12:52:21+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,8 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 15] 클래스와 멤버의 접근 권한을 최소화하라.
-
+## [Item 15] Minimize the accessibility of classes and members.
 
 잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 **분리**합니다. 
 

@@ -1,5 +1,5 @@
 ---
-title: "[아이템 13] clone 재정의는 주의해서 진행하라"
+title: "[Item 13] Override clone judiciously "
 date: 2020-06-27T15:04:12+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 13] clone 재정의는 주의해서 진행하라.
+## [Item 13] Override clone judiciously .
 
 실무에서 `Cloneable`을 구현한 클래스는 clone 메서드를 public으로 제공하며, 사용자는 당연히 복제가 제대로 이뤄지리라 기대합니다.
 하지만 clone 메서드의 일반 규약은 허술한 부분이 있습니다. 다음은 Object 명세에서 가져온 설명입니다.

@@ -1,5 +1,5 @@
 ---
-title: "[아이템 8] finalizer와 cleaner 사용을 피하라"
+title: "[Item 8] Avoid finalizers and cleaners"
 date: 2020-06-20T15:12:33+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 8] `finalizer`와 `cleaner` 사용을 피하라
+## [Item 8] Avoid finalizers and cleaners.
 
 자바에서는 두 가지 객체 소멸자를 제공합니다. 바로 `finalizer`와 `cleaner`입니다. `finalizer`는 예측 불가능하며 일반적으로 불필요하며 오작동 낮은 성능과 같은 문제점들이 있습니다. 자바 9부터는 사용 자제(`deprecated`) API로 지정했습니다.
    

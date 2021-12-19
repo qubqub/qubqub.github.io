@@ -1,5 +1,5 @@
 ---
-title: "[아이템 29] 이왕이면 제네릭 타입으로 만들라"
+title: "[Item 29] Favor generic types"
 date: 2020-07-08T16:53:15+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,9 +20,9 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 29] 이왕이면 제네릭 타입으로 만들라.
+## [Item 29] Favor generic types.
 
-[`아이템7`](/posts/effective-java-3e/chapter-01/item7/)에서 다루었던 스택 코드를 제네릭으로 변형한 코드입니다.
+[`Item7`](/posts/effective-java-3e/chapter-01/item7/)에서 다루었던 스택 코드를 제네릭으로 변형한 코드입니다.
 
 ```java
 public class Stack<E> {

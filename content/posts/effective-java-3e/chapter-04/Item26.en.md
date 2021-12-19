@@ -1,5 +1,5 @@
 ---
-title: "[아이템 26] Raw 타입은 사용하지 마라"
+title: "[Item 26] Don’t use raw types"
 date: 2020-07-07T11:41:27+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 26] Raw 타입은 사용하지 마라.
+## [Item 26] Don’t use raw types.
 
 `raw type`이란 제네릭 타입에서에서 타입 파라미터를 전혀 사용하지 않았을 때를 말합니다.
 

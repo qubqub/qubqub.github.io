@@ -1,5 +1,5 @@
 ---
-title: "[아이템 12] toString을 항상 재정의하라"
+title: "[Item 12] Always override toString"
 date: 2020-06-27T14:31:22+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 12] toString을 항상 재정의하라.
+## [Item 12] Always override toString.
 toString을 오버라이딩 하지 않으면 기본적으로 **클래스_이름@16진수로_표현한_해시코드**를 반환합니다.
 
 이렇게 되면 객체의 특성을 알아볼 수 있으므로 `toString`을 재정의 할 필요가 있습니다.

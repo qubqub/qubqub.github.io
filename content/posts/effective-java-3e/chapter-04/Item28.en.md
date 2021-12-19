@@ -1,5 +1,5 @@
 ---
-title: "[아이템 28] 배열보다는 리스트를 사용하라"
+title: "[Item 28] Prefer lists to arrays"
 date: 2020-07-08T14:21:51+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 28] 배열보다는 리스트를 사용하라.
+## [Item 28] Prefer lists to arrays.
 
 ### 배열과 제네릭 타입의 차이
 첫번째 차이점. 배열은 공변 입니다. 어려워 보이는 단어지만 뜻은 간단합니다. `Sub`가 `Super`의 하위 타입이라면 배열 `Sub[]`는 배열 `Super[]`의 하위 타입이 됩니다.   

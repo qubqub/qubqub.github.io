@@ -1,5 +1,5 @@
 ---
-title: "[아이템 23] 태그 달린 클래스보다는 클래스 계층구조를 활용하자"
+title: "[Item 23] Prefer class hierarchies to tagged classes"
 date: 2020-07-04T15:46:26+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 23] 태그 달린 클래스보다는 클래스 계층구조를 활용하자.
+## [Item 23] Prefer class hierarchies to tagged classes.
 
 때때로 두 가지 이상의 의미를 표현하고 인스턴스의 특징을 알려주는 태그 필드로 나타내는 클래스를 본 적이 있을겁니다.
 

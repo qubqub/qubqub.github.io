@@ -1,5 +1,5 @@
 ---
-title: "[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라"
+title: "[Item 1] Consider static factory methods instead of constructors"
 date: 2020-06-18T15:49:20+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [Iteam 1] 생성자 대신 정적 팩토리 메서드를 고려하라
+## [Iteam 1] Consider static factory methods instead of constructors.
 
 ### 일반적으로 사용하는 public 생성자 대신,  별도로 **정적 팩토리 메소드**를 이용할 수 있다.
 _Boolean 클래스에서 발췌한 예제 코드_

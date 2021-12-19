@@ -1,5 +1,5 @@
 ---
-title: "[아이템 31] 한정적 와일드카드를 사용해 API 유연성을 높여라"
+title: "[Item 31] Use bounded wildcards to increase API flexibility"
 date: 2020-07-09T13:42:19+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,11 +20,11 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 31] 한정적 와일드카드를 사용해 API 유연성을 높여라.
+## [Item 31] Use bounded wildcards to increase API flexibility.
 
 때론 불공변 방식보다 유연한 무언가가 필요할 때가 있습니다.
    
-[`아이템29`](/posts/effective-java-3e/chapter-04/item29/)의 Stack 클래스를 떠올려보면
+[`Item29`](/posts/effective-java-3e/chapter-04/item29/)의 Stack 클래스를 떠올려보면
 
 ``` java
 public class Stack<T> {
@@ -95,16 +95,16 @@ public void popAll(Collection<E super E> dst) {
 **클래스 사용자가 와일드카드 타입을 신경 써야 한다면 그 API에 무슨 문제가 있을 가능성이 큽니다.**
 
 ``` java
-// 아이템30 에서 사용했던 코드
+// Item30 에서 사용했던 코드
 public static <E extends Comparable<E>> E max(List<E> c);
 ```
 
-[`아이템30`](/posts/effective-java-3e/chapter-04/item30/)
+[`Item30`](/posts/effective-java-3e/chapter-04/item30/)
 
 위 코드를 와일드카드 타입을 사용해 다듬은 모습입니다.
 
 ``` java
-// 아이템30 에서 사용했던 코드
+// Item30 에서 사용했던 코드
 public static <E extends Comparable<? super E>> E max(List<? extends E> c);
 ```
 

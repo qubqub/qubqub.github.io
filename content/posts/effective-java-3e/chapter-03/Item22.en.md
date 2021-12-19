@@ -1,5 +1,5 @@
 ---
-title: "[아이템 22] 인터페이스는 타입을 정의하는 용도로만 사용하라"
+title: "[Item 22] Use interfaces only to define types"
 date: 2020-07-04T13:21:14+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 22] 인터페이스는 타입을 정의하는 용도로만 사용하라.
+## [Item 22] Use interfaces only to define types.
 
 인터페이스는 자신을 구현한 클래스의 인스턴스를 참조할 수 있는 타입 역할을 합니다. 그러므로 인터페이스를 구현한 클래스는 클라이언트에게 자신의 인스턴스로 무엇을 할 수 있는지 말해주는 것입니다. 인터페이스를 다른 용도로 사용하는 것은 부적절합니다.
    

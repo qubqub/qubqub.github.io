@@ -1,5 +1,5 @@
 ---
-title: "[아이템 32] 제네릭과 가변인수를 함께 쓸 때는 신중하라"
+title: "[Item 32] Combine generics and varargs judiciously"
 date: 2020-07-09T16:12:48+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 32] 제네릭과 가변인수를 함께 쓸 때는 신중하라.
+## [Item 32] Combine generics and varargs judiciously.
 
 가변인수와 제네릭은 자바 5에 함께 추가되었는데 이 둘은 서로 어울리지 않습니다.   
 가변인수(`varargs`)란 메서드에 넘기는 인수의 개수를 클라이언트가 조절할 수 있게 해주는 것입니다. 구현 방식에 허점이 있습나다. 가변인수 메서드를 호출하면 가변인수를 담기 위한 배열이 자동으로 하나 만들어집니다. 그런데 내부로 감춰야 했을 이 배열을 그만  클라이언트에 노출하는 문제가 생겼습니다. 그 결과 `verargs` 매개변수에 제네릭이나 매개변수화 타입이 포함되면 알기 어려운 컴파일 경고가 발생합니다.

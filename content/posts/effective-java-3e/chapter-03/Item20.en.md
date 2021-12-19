@@ -1,5 +1,5 @@
 ---
-title: "[아이템 20] 추상 클래스보다는 인터페이스를 우선하라"
+title: "[Item 20] Prefer interfaces to abstract classes"
 date: 2020-07-03T14:21:15+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 20] 추상 클래스보다는 인터페이스를 우선하라.
+## [Item 20] Prefer interfaces to abstract classes.
 
 자바가 제공하는 다중 구현 메커니즘은 인터페이스와 추상 클래스가 있습니다. 자바8 부터는 인터페이스에서   `defualt moethod`를 제공할 수 있게 되어서 두 메커니즘 모두 인스턴스 메서드를 구현 형태로 제공할 수 있습니다.
    

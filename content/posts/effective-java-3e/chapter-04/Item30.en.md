@@ -1,5 +1,5 @@
 ---
-title: "[아이템 30] 이왕이면 제네릭 메서드로 만들라"
+title: "[Item 30] Favor generic methods"
 date: 2020-07-09T10:24:41+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 30] 이왕이면 제네릭 메서드로 만들라.
+## [Item 30] Favor generic methods.
 
 제네릭 메서드는 대표적으로 `Collections`의 알고리즘 메서드(binarySearch, sort 등..)가 있습니다. 사용 방법은 리턴타입 앞에다 타입을 명시해주면 됩니다. 다음은 두 집합의 합집합을 반환하는 문제가 있는 메서드입니다.
 

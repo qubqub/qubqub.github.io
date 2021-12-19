@@ -1,5 +1,5 @@
 ---
-title: "[아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라"
+title: "[Item 3] Enforce the singleton property with a private constructor or an enum type"
 date: 2020-06-18T19:09:20+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라
+## [Item 3] Enforce the singleton property with a private constructor or an enum type.
 
 싱글턴(singletone)이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.   
 싱글턴을 만드는 방식은 보통 둘 중 하나입니다. 

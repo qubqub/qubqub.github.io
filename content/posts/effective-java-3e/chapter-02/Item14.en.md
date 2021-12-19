@@ -1,5 +1,5 @@
 ---
-title: "[아이템 14] Comparable를 구현할지 고려하라"
+title: "[Item 14] Consider implementing Comparable"
 date: 2020-06-27T17:11:39+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 14] Comparable를 구현할지 고려하라
+## [Item 14] Consider implementing Comparable.
 자바에서는 `Comparable`과 `Comparator`이라는 정렬 인터페이스를 제공합니다. `Comparable`은 기본 정렬기준을 구현하는 데 사용하고, `Comparator`은 기본 정렬기준 외에 다른 기준으로 정렬하고자 할 때 사용합니다. 여기서는 `Comparable`의 하나 밖에 없는 `compareTo`메서드에 대해서 알아봅시다.
    
 `Comparable`을 구현했다는 것은 그 클래스의 인스턴스들에는 `natural order`가 있음을 의미합니다.   

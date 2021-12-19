@@ -1,5 +1,5 @@
 ---
-title: "[아이템 25] 톱레벨 클래스는 한 파일에만 담으라"
+title: "[Item 25] Limit source files to a single top-level class"
 date: 2020-07-05T13:12:41+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["java"]
@@ -20,7 +20,7 @@ ShowBreadCrumbs: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## [아이템 25] 톱레벨 클래스는 한 파일에만 담으라
+## [Item 25] Limit source files to a single top-level class.
 ``` java
 public class Main {
     public static void main(String[] args) {
