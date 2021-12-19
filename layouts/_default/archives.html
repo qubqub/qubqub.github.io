@@ -55,13 +55,6 @@
         {{- end }}
       </div>
     </div>
-    <script>
-      if (localStorage.getItem("lock-archives-{{ $year }}-{{ $month }}") === "false") {
-        document.getElementById("{{ $year }}-{{ $month }}").style.display = "block";
-      } else {
-        document.getElementById("{{ $year }}-{{ $month }}").style.display = "none";
-      }
-    </script>
   {{- end }}
 </div>
 {{- end }}

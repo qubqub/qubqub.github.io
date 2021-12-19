@@ -47,15 +47,15 @@ DOMReady( function () {
   });
 
   let urlPathName = "";
-  let urlContryCode = "";
-  if (window.location.pathname.match(/^\/.{2}\//)) {
-    let urlSulg = window.location.pathname.match(/^\/(.{2})(\/.*)$/)
-    urlContryCode = urlSulg[1];
-    urlPathName = urlSulg[2];
-  } else {
-    urlPathName = window.location.pathname;
-  }
-
+  // let urlContryCode = "";
+  // if (window.location.pathname.match(/^\/.{2}\//)) {
+  //   let urlSulg = window.location.pathname.match(/^\/(.{2})(\/.*)$/)
+  //   urlContryCode = urlSulg[1];
+  //   urlPathName = urlSulg[2];
+  // } else {
+  //   urlPathName = window.location.pathname;
+  // }
+  urlPathName = window.location.pathname;
   if (urlPathName.match(/^\/posts\/.+/)) {
     const urlSlug = urlPathName.match(/^(\/posts\/)([^/]+)/);
     if (urlSlug[2] !== "page") {
@@ -286,9 +286,11 @@ DOMReady( function () {
         if (localStorage.getItem("lock-archives-"+_archivePosts[i].dataset.key) === "false") {
           _archivePosts[i].querySelector(".archive-month-header .toggle").dataset.isLock = false;
           _archivePosts[i].querySelector(".archive-month-header .toggle .lock").classList.add("hide");
+          document.getElementById(_archivePosts[i].dataset.key).style.display = "block";
         } else {
           _archivePosts[i].querySelector(".archive-month-header .toggle").dataset.isLock = true;
           _archivePosts[i].querySelector(".archive-month-header .toggle .unlock").classList.add("hide");
+          document.getElementById(_archivePosts[i].dataset.key).style.display = "none";
         }
       }
     }
