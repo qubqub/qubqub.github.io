@@ -960,12 +960,12 @@ header.header {
 
   .main .page-footer .pagination a {
     border-radius: var(--radius);
-    padding: 0 0.9rem;
+    padding: 0 0.8rem;
   }
   
   .pagination__link.pagination__link--first,
   .pagination__link.pagination__link--last {
-    padding: 0 0.6rem !important;
+    padding: 0 0.5rem !important;
     white-space: nowrap;
   }
   
