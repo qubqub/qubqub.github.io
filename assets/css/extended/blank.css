@@ -172,33 +172,6 @@ header.header {
   padding: 10px 0 5px 10px;
 }
 
-.link-header,
-.links .button,
-.main .archive-year .archive-year-header,
-.main .archive-year .archive-month .archive-posts,
-.main .archive-year .archive-month .archive-month-header,
-.post-entry:not(.search-entry),
-.page-header,
-.post-title,
-.post-meta,
-.post-description,
-
-
-.series-title,
-.series-description,
-.series-sub-description,
-.series-main,
-
-.collection-title,
-.collection-description,
-
-.toc,
-.post-content,
-.post-footer,
-.terms-tags a {
-  opacity: 0;
-}
-
 .main .collection-header,
 .main .series-header {
   margin: 24px auto var(--content-gap);
@@ -1531,4 +1504,113 @@ a.button,
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.post-title {
+  opacity: 0;
+  transform: translateY(-12%);
+}
+.post-description{
+  opacity: 0;
+  transform: translateY(-12%);
+}
+.post-meta {
+  opacity: 0;
+  transform: translateY(-12%);
+}
+
+.series-main {
+  opacity: 0;
+  transform: translateY(-2%);
+}
+
+.toc {
+  opacity: 0;
+  transform: translateY(-20%);
+}
+
+/* .toc-aside-wrapper {
+  opacity: 0;
+  transform: translateX(10%);
+} */
+
+.post-content {
+  opacity: 0;
+  transform: translateX(-1%);
+}
+.post-footer {
+  opacity: 0;
+  transform: translateY(3%);
+}
+
+
+
+.link-header {
+  opacity: 0;
+  transform: translateY(-60%);
+}
+
+.links .button {
+  opacity: 0;
+  transform: translateX(-10%);
+}
+
+.series-title {
+  opacity: 0;
+  transform: translateY(-30%);
+}
+
+.series-description {
+  opacity: 0;
+  transform: translateY(-30%);
+}
+
+.series-sub-description {
+  opacity: 0;
+  transform: translateX(-20%);
+}
+
+
+.collection-title {
+  opacity: 0;
+  transform: translateY(-30%);
+}
+
+.collection-description {
+  opacity: 0;
+  transform: translateY(-30%);
+}
+
+
+.terms-tags a {
+  opacity: 0;
+  transform: translateY(-30%);
+}
+
+
+
+.main .archive-year .archive-year-header {
+  opacity: 0;
+  transform: translateY(-70%);
+}
+
+.main .archive-year .archive-month .archive-month-header {
+  opacity: 0;
+  transform: translateY(-70%);
+}
+
+.main .archive-year .archive-month .archive-posts {
+  opacity: 0;
+  transform: translateX(-5%);
+}
+
+
+.page-header {
+  opacity: 0;
+  transform: translateY(-50%);
+}
+
+.post-entry:not(.search-entry) {
+  opacity: 0;
+  transform: translateX(-4%);
 }
