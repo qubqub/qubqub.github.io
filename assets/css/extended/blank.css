@@ -669,7 +669,7 @@ header.header {
 .pagination__link.pagination__link--first,
 .pagination__link.pagination__link--last {
   padding: 0 0.8rem !important;
-  white-space:nowrap;
+  white-space: nowrap;
 }
 
 .main .page-footer .pagination ul li:not(:last-child) {
@@ -960,13 +960,13 @@ header.header {
 
   .main .page-footer .pagination a {
     border-radius: var(--radius);
-    padding: 0 15px;
+    padding: 0 0.9rem;
   }
   
   .pagination__link.pagination__link--first,
   .pagination__link.pagination__link--last {
-    padding: 0 0.65rem !important;
-    white-space:nowrap;
+    padding: 0 0.6rem !important;
+    white-space: nowrap;
   }
   
   .main .page-footer .pagination ul li:not(:last-child) {
