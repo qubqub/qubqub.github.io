@@ -753,23 +753,7 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
       <description>links</description>
     </item>
     
-    <item>
-      <title>모아보기 🗂️</title>
-      <link>https://qutrits.github.io/collection/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://qutrits.github.io/collection/</guid>
-      <description>공부하면서 정리한 것들 모아보기. 📒</description>
-    </item>
     
-    <item>
-      <title>시리즈</title>
-      <link>https://qutrits.github.io/series-list/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://qutrits.github.io/series-list/</guid>
-      <description>ser·ies</description>
-    </item>
     
   </channel>
 </rss>
