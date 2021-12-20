@@ -298,18 +298,8 @@ DOMReady( function () {
     if (_archiveEntry) {
       for (let i = 0; i < _archiveEntry.length; i++) {
         _archiveEntry[i].addEventListener("click", e => {
-          let _key = null;
-          let _el = null;
-          if (e.target.parentNode.dataset.key) {
-            _key = e.target.parentNode.dataset.key;
-            _el = e.target.parentNode;
-          } else if (e.target.parentNode.parentNode.dataset.key) {
-            _key = e.target.parentNode.parentNode.dataset.key;
-            _el = e.target.parentNode.parentNode;
-          } else if (e.target.parentNode.parentNode.parentNode.dataset.key) {
-            _key = e.target.parentNode.parentNode.parentNode.dataset.key;
-            _el = e.target.parentNode.parentNode.parentNode;
-          }
+          const _key = e.target.parentNode.dataset.key && e.target.parentNode.parentNode.dataset.key && e.target.parentNode.parentNode.parentNode.dataset.key;
+          const _el = e.target.parentNode && e.target.parentNode.parentNode && e.target.parentNode.parentNode.parentNode;
 
           if (_el.querySelector(".toggle").dataset.isLock === "false") {
             localStorage.setItem("lock-archives-"+_key, true);
