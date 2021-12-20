@@ -1929,7 +1929,7 @@ a.button,
 @keyframes archive-posts-animation-delay {
   from {
     opacity: 0;
-    transform: translateX(-5%);
+    transform: translateX(-3%);
   }
 
   to {
