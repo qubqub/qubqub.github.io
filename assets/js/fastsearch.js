@@ -83,7 +83,7 @@ sInput.onkeyup = function (e) {
             let resultSet = ''; // our results bucket
 
             for (let item in results) {
-                resultSet += `<li class="post-entry search-entry"><header class="entry-header">${results[item].item.title}&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight:500; vertical-align:2px;">»</span></header>` +
+                resultSet += `<li class="post-entry search-entry"><header class="entry-header">${results[item].item.title}&nbsp;»</header>` +
                     `<a href="${results[item].item.permalink}" aria-label="${results[item].item.title}"></a></li>`
             }
 
@@ -91,6 +91,14 @@ sInput.onkeyup = function (e) {
             resultsAvailable = true;
             first = resList.firstChild;
             last = resList.lastChild;
+
+            // setTimeout(() => {
+            //     const postEntry = document.querySelectorAll(".post-entry");
+            //     for (let i = 0; i < postEntry.length; i++) {
+            //         postEntry[i].style.opacity = "1";
+            //         postEntry[i].style.transform = "translateX(0%)";
+            //     }
+            // }, 10);
         } else {
             resultsAvailable = false;
             resList.innerHTML = '';

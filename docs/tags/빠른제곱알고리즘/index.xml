@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>빠른제곱알고리즘 on &lt;Qutrits/&gt;</title>
+    <link>https://qutrits.github.io/tags/%EB%B9%A0%EB%A5%B8%EC%A0%9C%EA%B3%B1%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</link>
+    <description>Recent content in 빠른제곱알고리즘 on &lt;Qutrits/&gt;</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 16 Dec 2021 23:08:56 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/tags/%EB%B9%A0%EB%A5%B8%EC%A0%9C%EA%B3%B1%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AlgorithmStudy_백준 11727</title>
+      <link>https://qutrits.github.io/posts/algorithm21_11727/</link>
+      <pubDate>Thu, 16 Dec 2021 23:08:56 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/algorithm21_11727/</guid>
+      <description>dp문제에 너무 약한 나&amp;hellip; 문제를 작게 쪼개서 푸는 방법을 잘 생각해봐야겠다..
+알고리즘 공부 백준 11727 🧐 제로 👉문제 2×n 직사각형을 1×2, 2×1과 2×2 타일로 채우는 방법의 수를 구하는 프로그램을 작성하시오.
+아래 그림은 2×17 직사각형을 채운 한가지 예이다.
+👉입력 첫째 줄에 n이 주어진다. (1 ≤ n ≤ 1,000)
+👉출력 첫째 줄에 2×n 크기의 직사각형을 채우는 방법의 수를 10,007로 나눈 나머지를 출력한다.
+🍑풀이
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73  using System; namespace Algorithm21 { class Beakjoon11727 { private static long mod = 10007; static void Main(string[] args) { var n = int.</description>
+    </item>
+    
+  </channel>
+</rss>

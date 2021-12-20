@@ -1,18 +1,19 @@
 {{- define "main" }}
+
 <article class="post-single">
   <header class="post-header">
     {{ partial "breadcrumbs.html" . }}
-    <h1 class="post-title" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
+    <h1 class="post-title">
       {{ .Title }}
       {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
     </h1>
     {{- if .Description }}
-    <div class="post-description" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
+    <div class="post-description">
       {{ .Description }}
     </div>
     {{- end }}
     {{- if not (.Param "hideMeta") }}
-    <div class="post-meta" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
+    <div class="post-meta">
       {{- partial "post_meta.html" . -}}
       {{- partial "translation_list.html" . -}}
       {{- partial "edit_post.html" . -}}
@@ -30,19 +31,16 @@
   {{- if (.Param "ShowToc") }}
   {{- partial "toc.html" . }}
   {{- end }}
-  {{- if (.Param "ShowTocAside") }}
-  {{- partial "toc-aside.html" . }}
-  {{- end }}
 
   {{- if .Content }}
-  <div class="post-content" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
+  <div class="post-content">
     {{- if not (.Param "disableAnchoredHeadings") }}
     {{- partial "anchored_headings.html" .Content -}}
     {{- else }}{{ .Content }}{{ end }}
   </div>
   {{- end }}
 
-  <footer class="post-footer" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
+  <footer class="post-footer">
     {{- if (.Param "ShowCreativeCommons") }}
     {{- partial "creative_commons.html" . }}
     {{- end }}
@@ -59,4 +57,5 @@
   {{- partial "comments.html" . }}
   {{- end }}
 </article>
+
 {{- end }}{{/* end main */}}

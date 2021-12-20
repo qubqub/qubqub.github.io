@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>static on &lt;Qutrits/&gt;</title>
+    <link>https://qutrits.github.io/tags/static/</link>
+    <description>Recent content in static on &lt;Qutrits/&gt;</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 17 Dec 2021 23:54:11 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/tags/static/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>static: 정적</title>
+      <link>https://qutrits.github.io/posts/studying18_static/</link>
+      <pubDate>Fri, 17 Dec 2021 23:54:11 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/studying18_static/</guid>
+      <description>static&amp;hellip; 여러곳에 사용을 해봤던 keyword 이지만, 정작 확실하게 아는걸까?
+그래서 공부를 해보았다!
+static이 뭐야? 🧐  keyword 중 하나로 클래스, 필드, 속성, 메소드 등의 앞에 붙을 수 있다.    특정 개체가 아닌 형식에 속하는 정적 멤버를 선언 할 수 있습니다.   static class에 대해 알아보자! 🧐  class 앞에 static keyword를 사용하여 정의한다. 정적 클래스는 모든 클래스 멤버가 static으로 구성되어있다. non-static 클래스와 다르게 인스턴스가 불가능하다.(new 사용 불가!) 이름 자체로 클래스 멤버에 접근 가능하다.</description>
+    </item>
+    
+  </channel>
+</rss>

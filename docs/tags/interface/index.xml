@@ -8,10 +8,10 @@
     <lastBuildDate>Wed, 01 Dec 2021 20:57:53 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/tags/interface/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>interface: 인터페이스</title>
-      <link>https://qutrits.github.io/posts/dummy/studying9_interface/</link>
+      <link>https://qutrits.github.io/posts/studying9_interface/</link>
       <pubDate>Wed, 01 Dec 2021 20:57:53 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/posts/dummy/studying9_interface/</guid>
+      <guid>https://qutrits.github.io/posts/studying9_interface/</guid>
       <description>interface(인터페이스)가 뭐야? 🧐 나는 인터페이스을 기능들의 묶음이라고 이해했다.
 Can Do를 알려주는 역할을 한다.
 interface(인터페이스)는 어떤 상황에서 사용해야할까? 🧐 💚 예시 만약 조류라는 클래스가 있다고 하자. 이 클래스를 상속 받는 참새와 앵무새 파생 클래스가 있다. 새는 날 수 있으니까 Fly()를 조류 클래스에 추가를 했다. 하지만 이후에 펭귄과 슈가글라이더를 만들어달라는 요청을 받았다. 하지만 생각해보니 펭귄은 날 수 없는데 슈가글라이더는 조류가 아닌데도 날 수 있지않은가?

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Fitts&#39;Law on &lt;Qutrits/&gt;</title>
+    <link>https://qutrits.github.io/tags/fittslaw/</link>
+    <description>Recent content in Fitts&#39;Law on &lt;Qutrits/&gt;</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 19 Dec 2021 17:46:38 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/tags/fittslaw/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>피츠의 법칙</title>
+      <link>https://qutrits.github.io/posts/sutdying22_ux2/</link>
+      <pubDate>Sun, 19 Dec 2021 17:46:38 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/sutdying22_ux2/</guid>
+      <description>🔎피츠의 법칙  대상에 도달하는 시간은 대상까지의 거리와 대상의 크기와 함수 관계에 있다.
+  터치 대상의 크기는 사용자가 정확하게 선택할 수 있을 정도로 충분히 커야한다. 터치 대상 사이에 충분한 거리를 확보해야 한다. 터치 대상은 인터페이스상에서 쉽게 도달할 수 있는 영역에 배치해야 한다.  💛 피츠의 법칙 적용 사례 💚 폼 텍스트 레이블 (form text label)  폼 텍스트 레이블은 피츠의 법칙을 보여주는 흔한 예다. 디자이너와 개발자가 텍스트 레이블 요소와 입력을 연결해두면 레이블을 탭하거나 클릭해도 입력이 선택된다.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -23,7 +23,7 @@
 {{ $_totalChapterPage := "" }}
 
 {{ range .GetTerms "chapter" }}
-  {{ $_chapterId = index (split .RelPermalink "/") (sub (len (split .RelPermalink "/")) 2) }}
+  {{ $_chapterId = index (split .Permalink "/") (sub (len (split .Permalink "/")) 2) }}
   {{ $_chapterTitle = .LinkTitle }}
   {{ $_useChapter = true }}
   {{ $_chapterNumber = index (split $_chapterId "-") (sub (len (split $_chapterId "-")) 1) }}
@@ -50,29 +50,29 @@
 {{ if $_useChapter }}
   {{ range $index, $chapterPath := (.GetTerms "chapter") }}
     {{ if (eq $index 0) }}
-      <div class="series-main" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
+      <div class="series-main">
         <div class="chapter-control">
           <div class="info">
             <div class="chapter-number">{{ $_chapterNumber }} / {{ $_totalChapterPage }}</div>
             <div class="page-button">
               {{ with $_preChapterPages }}
                 <div class="left">
-                  <a class="button" href="{{ .RelPermalink }}">
+                  <a class="button" href="{{ .Permalink }}">
                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                       <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                     </svg>
                     <svg style="margin-left: -12px;" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                       <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                     </svg>
-                    {{ if (eq (i18n "country_code") "en") }}{{ i18n "chapter" }} {{ end }}{{ sub $_chapterNumber 1 }} {{ if (eq (i18n "country_code") "ko") }}{{ i18n "chapter" }}{{ end }}
+                    {{ sub $_chapterNumber 1 }} 장
                   </a>
                 </div>
               {{ end }}
 
               {{ with $_nextChapterPages }}
                 <div class="right">
-                  <a class="button" href="{{ .RelPermalink }}">
-                    {{ if (eq (i18n "country_code") "en") }}{{ i18n "chapter" }} {{ end }}{{ add $_chapterNumber 1 }} {{ if (eq (i18n "country_code") "ko") }}{{ i18n "chapter" }}{{ end }}
+                  <a class="button" href="{{ .Permalink }}">
+                    {{ add $_chapterNumber 1 }} 장
                     <svg style="margin-right: -12px;" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
                     </svg>
@@ -86,7 +86,7 @@
           </div>
         </div>
         
-        <h2><a href="{{ .RelPermalink }}">{{ index (split $_chapterTitle " Chapter ") 0 }} - {{ if (eq (i18n "country_code") "en") }}{{ i18n "chapter" }}{{ end }} {{ $_chapterNumber }}{{ if (eq (i18n "country_code") "ko") }}{{ i18n "chapter" }}{{ end }} {{ i18n $_chapterId }}</a></h2>
+        <h2><a href="{{ .Permalink }}">{{ index (split $_chapterTitle " Chapter ") 0 }} - {{ $_chapterNumber }}장 {{ i18n $_chapterId }}</a></h2>
         <svg width="32" height="48" fill="none" viewBox="0 0 32 48" class="series-corner-image">
           <path fill="#12B886" d="M32 0H0v48h.163l16-16L32 47.836V0z"></path>
         </svg>
@@ -100,21 +100,14 @@
                   {{ range $descPages }}
                     {{ with (index $value.Pages .) }}
                     <li hugo-nav="{{ .RelPermalink}}">
-                      <a href="{{ .RelPermalink}}" {{ if (eq $pageTitle .LinkTitle) }} class="current" {{ end }}>{{ .LinkTitle }}</a>
+                      <a href="{{ .Permalink}}" {{ if (eq $pageTitle .LinkTitle) }} class="current" {{ end }}>{{ .LinkTitle }}</a>
                     </li>
                     {{ end }}
                   {{ end }}
                 </ol>
 
                 <div class="series-control">
-                  <div class="toggle">
-                    <svg class="lock" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 512 512">
-                      <path d="M363.908,212.282v-90.978C363.908,54.434,309.509,0,242.606,0c-66.884,0-121.302,54.434-121.302,121.304v90.978 c-33.498,0-60.653,27.158-60.653,60.648v151.629c0,33.5,27.155,60.653,60.653,60.653h242.604c33.491,0,60.653-27.153,60.653-60.653 V272.93C424.562,239.439,397.399,212.282,363.908,212.282z M257.77,359.257v50.139c0,8.382-6.781,15.163-15.163,15.163 c-8.382,0-15.164-6.781-15.164-15.163v-50.139c-8.9-5.269-15.161-14.57-15.161-25.673c0-16.765,13.579-30.327,30.324-30.327 c16.745,0,30.326,13.562,30.326,30.327C272.933,344.687,266.665,353.989,257.77,359.257z M303.255,212.282h-121.3v-90.978 c0-33.465,27.2-60.653,60.651-60.653c33.435,0,60.648,27.188,60.648,60.653V212.282z"/>
-                    </svg>
-                    <svg class="unlock" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 512 512">
-                      <path d="M424.562,212.282h-60.653H242.607v-90.978C242.607,54.434,188.206,0,121.305,0C54.419,0,0.001,54.434,0.001,121.304v90.978 h60.651v-90.978c0-33.465,27.205-60.653,60.653-60.653c33.435,0,60.651,27.188,60.651,60.653v90.978 c-33.493,0-60.651,27.158-60.651,60.648v151.629c0,33.5,27.158,60.653,60.651,60.653h242.606c33.491,0,60.649-27.153,60.649-60.653 V272.93C485.212,239.439,458.054,212.282,424.562,212.282z M318.424,359.257v50.139c0,8.382-6.786,15.163-15.168,15.163 c-8.377,0-15.158-6.781-15.158-15.163v-50.139c-8.887-5.269-15.164-14.57-15.164-25.673c0-16.765,13.562-30.327,30.322-30.327 c16.765,0,30.331,13.562,30.331,30.327C333.587,344.687,327.306,353.989,318.424,359.257z"/>
-                    </svg>
-                  </div>
+                  <div class="toggle" onclick="series_toggle(this, '{{ $_chapterTitle }}')">🔒</div>
                   <div class="info">
                     {{ range $index, $filePath := $value.Pages }}
                       {{ if (eq $pageTitle .LinkTitle) }}
@@ -128,12 +121,12 @@
                     {{ range $index, $filePath := $value.Pages }}
                       {{ if (eq $index (add $_currentIdx 1)) }}
                         {{ $_prePageTitle = .LinkTitle }}
-                        {{ $_prePageLink = .RelPermalink }}
+                        {{ $_prePageLink = .Permalink }}
                       {{ end }}
 
                       {{ if (eq $index (sub $_currentIdx 1)) }}
                         {{ $_nextPageTitle = .LinkTitle }}
-                        {{ $_nextPageLink = .RelPermalink }}
+                        {{ $_nextPageLink = .Permalink }}
                       {{ end }}
                     {{ end }}
 
@@ -183,10 +176,6 @@
 
       </div>
       <script>
-        const seriesLock = localStorage.getItem("lock-series-{{ $_chapterTitle }}");
-        const seriesList = document.querySelector(".series-main .series-list");
-        const seriesToggleButton = document.querySelector(".series-main .series-control .toggle");
-
         window.addEventListener('DOMContentLoaded', function () {
           if (localStorage.getItem("series-main-{{ $_seriesId }}") === "true") {
             const seriesOffsetTop = document.querySelector(".series-main");
@@ -195,28 +184,13 @@
           }
         });
 
-        document.querySelector(".series-main .series-control .toggle").addEventListener("click", () => {
-          if (seriesList.style.display==="none" || seriesList.style.display==="") {
-            localStorage.setItem("lock-series-{{ $_chapterTitle }}", false);
-            seriesToggleButton.querySelector(".lock").classList.add("hide");
-            seriesToggleButton.querySelector(".unlock").classList.remove("hide");
-            seriesList.style.display = "block";
-          } else if (seriesList.style.display==="block") {
-            localStorage.setItem("lock-series-{{ $_chapterTitle }}", true);
-            seriesToggleButton.querySelector(".lock").classList.remove("hide");
-            seriesToggleButton.querySelector(".unlock").classList.add("hide");
-            seriesList.style.display = "none";
-          }
-        });
-        
-        if (seriesLock === "false") {
-          seriesList.style.display ="block";
-          seriesToggleButton.querySelector(".lock").classList.add("hide");
-          seriesToggleButton.querySelector(".unlock").classList.remove("hide");
+        const seriesToggle = localStorage.getItem("lock-series-{{ $_chapterTitle }}");
+        if (seriesToggle === "false") {
+          document.querySelector(".series-main .series-list").style.display ="block";
+          document.querySelector(".series-main .series-control .toggle").innerText = "🔓";
         } else {
-          seriesList.style.display ="none";
-          seriesToggleButton.querySelector(".lock").classList.remove("hide");
-          seriesToggleButton.querySelector(".unlock").classList.add("hide");
+          document.querySelector(".series-main .series-list").style.display ="none";
+          document.querySelector(".series-main .series-control .toggle").innerText = "🔒";
         }
 
         const seriesAnchor = [
@@ -236,10 +210,10 @@
 {{ else }}
   {{ range $index, $seriesPath := (.GetTerms "series") }}
     {{ if (eq $index 0) }}
-      {{ $_seriesId = index (split .RelPermalink "/") (sub (len (split .RelPermalink "/")) 2) }}
+      {{ $_seriesId = index (split .Permalink "/") (sub (len (split .Permalink "/")) 2) }}
       {{ $_seriesTitle = .LinkTitle }}
-      <div class="series-main" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
-        <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+      <div class="series-main">
+        <h2><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></h2>
         <svg width="32" height="48" fill="none" viewBox="0 0 32 48" class="series-corner-image">
           <path fill="#12B886" d="M32 0H0v48h.163l16-16L32 47.836V0z"></path>
         </svg>
@@ -252,21 +226,14 @@
                   {{ range $descPages }}
                     {{ with (index $value.Pages .) }}
                     <li hugo-nav="{{ .RelPermalink}}">
-                      <a href="{{ .RelPermalink}}" {{ if (eq $pageTitle .LinkTitle) }} class="current" {{ end }}>{{ .LinkTitle }}</a>
+                      <a href="{{ .Permalink}}" {{ if (eq $pageTitle .LinkTitle) }} class="current" {{ end }}>{{ .LinkTitle }}</a>
                     </li>
                     {{ end }}
                   {{ end }}
                 </ol>
 
                 <div class="series-control">
-                  <div class="toggle">
-                    <svg class="lock" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 512 512">
-                      <path d="M363.908,212.282v-90.978C363.908,54.434,309.509,0,242.606,0c-66.884,0-121.302,54.434-121.302,121.304v90.978 c-33.498,0-60.653,27.158-60.653,60.648v151.629c0,33.5,27.155,60.653,60.653,60.653h242.604c33.491,0,60.653-27.153,60.653-60.653 V272.93C424.562,239.439,397.399,212.282,363.908,212.282z M257.77,359.257v50.139c0,8.382-6.781,15.163-15.163,15.163 c-8.382,0-15.164-6.781-15.164-15.163v-50.139c-8.9-5.269-15.161-14.57-15.161-25.673c0-16.765,13.579-30.327,30.324-30.327 c16.745,0,30.326,13.562,30.326,30.327C272.933,344.687,266.665,353.989,257.77,359.257z M303.255,212.282h-121.3v-90.978 c0-33.465,27.2-60.653,60.651-60.653c33.435,0,60.648,27.188,60.648,60.653V212.282z"/>
-                    </svg>
-                    <svg class="unlock" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 512 512">
-                      <path d="M424.562,212.282h-60.653H242.607v-90.978C242.607,54.434,188.206,0,121.305,0C54.419,0,0.001,54.434,0.001,121.304v90.978 h60.651v-90.978c0-33.465,27.205-60.653,60.653-60.653c33.435,0,60.651,27.188,60.651,60.653v90.978 c-33.493,0-60.651,27.158-60.651,60.648v151.629c0,33.5,27.158,60.653,60.651,60.653h242.606c33.491,0,60.649-27.153,60.649-60.653 V272.93C485.212,239.439,458.054,212.282,424.562,212.282z M318.424,359.257v50.139c0,8.382-6.786,15.163-15.168,15.163 c-8.377,0-15.158-6.781-15.158-15.163v-50.139c-8.887-5.269-15.164-14.57-15.164-25.673c0-16.765,13.562-30.327,30.322-30.327 c16.765,0,30.331,13.562,30.331,30.327C333.587,344.687,327.306,353.989,318.424,359.257z"/>
-                    </svg>
-                  </div>
+                  <div class="toggle" onclick="series_toggle(this, '{{ $_seriesTitle }}')">🔒</div>
                   <div class="info">
                     {{ range $index, $filePath := $value.Pages }}
                       {{ if (eq $pageTitle .LinkTitle) }}
@@ -280,12 +247,12 @@
                     {{ range $index, $filePath := $value.Pages }}
                       {{ if (eq $index (add $_currentIdx 1)) }}
                         {{ $_prePageTitle = .LinkTitle }}
-                        {{ $_prePageLink = .RelPermalink }}
+                        {{ $_prePageLink = .Permalink }}
                       {{ end }}
 
                       {{ if (eq $index (sub $_currentIdx 1)) }}
                         {{ $_nextPageTitle = .LinkTitle }}
-                        {{ $_nextPageLink = .RelPermalink }}
+                        {{ $_nextPageLink = .Permalink }}
                       {{ end }}
                     {{ end }}
 
@@ -334,10 +301,6 @@
         {{ end }}
       </div>
       <script>
-        const seriesLock = localStorage.getItem("lock-series-{{ $_seriesTitle }}");
-        const seriesList = document.querySelector(".series-main .series-list");
-        const seriesToggleButton = document.querySelector(".series-main .series-control .toggle");
-
         window.addEventListener('DOMContentLoaded', function () {
           if (localStorage.getItem("series-main-{{ $_seriesId }}") === "true") {
             const seriesOffsetTop = document.querySelector(".series-main");
@@ -346,28 +309,13 @@
           }
         });
 
-        document.querySelector(".series-main .series-control .toggle").addEventListener("click", () => {
-          if (seriesList.style.display==="none" || seriesList.style.display==="") {
-            localStorage.setItem("lock-series-{{ $_seriesTitle }}", false);
-            seriesToggleButton.querySelector(".lock").classList.add("hide");
-            seriesToggleButton.querySelector(".unlock").classList.remove("hide");
-            seriesList.style.display = "block";
-          } else if (seriesList.style.display==="block") {
-            localStorage.setItem("lock-series-{{ $_seriesTitle }}", true);
-            seriesToggleButton.querySelector(".lock").classList.remove("hide");
-            seriesToggleButton.querySelector(".unlock").classList.add("hide");
-            seriesList.style.display = "none";
-          }
-        });
-
-        if (seriesLock === "false") {
-          seriesList.style.display ="block";
-          seriesToggleButton.querySelector(".lock").classList.add("hide");
-          seriesToggleButton.querySelector(".unlock").classList.remove("hide");
+        const seriesToggle = localStorage.getItem("lock-series-{{ $_seriesTitle }}");
+        if (seriesToggle === "false") {
+          document.querySelector(".series-main .series-list").style.display ="block";
+          document.querySelector(".series-main .series-control .toggle").innerText = "🔓";
         } else {
-          seriesList.style.display ="none";
-          seriesToggleButton.querySelector(".lock").classList.remove("hide");
-          seriesToggleButton.querySelector(".unlock").classList.add("hide");
+          document.querySelector(".series-main .series-list").style.display ="none";
+          document.querySelector(".series-main .series-control .toggle").innerText = "🔒";
         }
 
         const seriesAnchor = [

@@ -5,49 +5,49 @@
     <link>https://qutrits.github.io/categories/</link>
     <description>Recent content in Categories on &lt;Qutrits/&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 13 Dec 2021 17:46:19 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Dec 2021 17:46:38 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>unity</title>
-      <link>https://qutrits.github.io/categories/unity/</link>
-      <pubDate>Mon, 13 Dec 2021 17:46:19 +0900</pubDate>
+      <title>uxui</title>
+      <link>https://qutrits.github.io/categories/uxui/</link>
+      <pubDate>Sun, 19 Dec 2021 17:46:38 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/categories/unity/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>algorithm</title>
-      <link>https://qutrits.github.io/categories/algorithm/</link>
-      <pubDate>Sun, 12 Dec 2021 23:15:57 +0900</pubDate>
-      
-      <guid>https://qutrits.github.io/categories/algorithm/</guid>
+      <guid>https://qutrits.github.io/categories/uxui/</guid>
       <description></description>
     </item>
     
     <item>
       <title>csharp</title>
       <link>https://qutrits.github.io/categories/csharp/</link>
-      <pubDate>Tue, 07 Dec 2021 20:21:53 +0900</pubDate>
+      <pubDate>Sun, 19 Dec 2021 14:29:54 +0900</pubDate>
       
       <guid>https://qutrits.github.io/categories/csharp/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>hugo</title>
-      <link>https://qutrits.github.io/categories/hugo/</link>
-      <pubDate>Sun, 14 Nov 2021 21:31:11 +0900</pubDate>
+      <title>git</title>
+      <link>https://qutrits.github.io/categories/git/</link>
+      <pubDate>Fri, 17 Dec 2021 21:20:43 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/categories/hugo/</guid>
+      <guid>https://qutrits.github.io/categories/git/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>java</title>
-      <link>https://qutrits.github.io/categories/java/</link>
-      <pubDate>Thu, 09 Jul 2020 18:21:51 +0900</pubDate>
+      <title>algorithm</title>
+      <link>https://qutrits.github.io/categories/algorithm/</link>
+      <pubDate>Thu, 16 Dec 2021 23:08:56 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/categories/java/</guid>
+      <guid>https://qutrits.github.io/categories/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unity</title>
+      <link>https://qutrits.github.io/categories/unity/</link>
+      <pubDate>Mon, 13 Dec 2021 17:46:19 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/categories/unity/</guid>
       <description></description>
     </item>
     

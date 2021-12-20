@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ienumerable on &lt;Qutrits/&gt;</title>
+    <link>https://qutrits.github.io/tags/ienumerable/</link>
+    <description>Recent content in ienumerable on &lt;Qutrits/&gt;</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 19 Dec 2021 14:29:54 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/tags/ienumerable/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IEnumerable과 IEnumerator 그리고 foreach</title>
+      <link>https://qutrits.github.io/posts/studying21_ienumerator_ienumerable/</link>
+      <pubDate>Sun, 19 Dec 2021 14:29:54 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/studying21_ienumerator_ienumerable/</guid>
+      <description>✏️ 포스팅 목적 IEmerable, IEnumerator 항상 사용하는 List, Array 같은 Collection 들은 이 인터페이스들을 가지고 있는데, 어떤 것들인지 잘 알지 못하는 것 같아 공부를 해보려 한다!
+IEnumerable가 뭐야? 🧐  열거가능한(enumerable) 오브젝트를 위한 IEnumerator를 반환한다. 열거자(enumerator)는 컬렉션의 모든 컨텐츠에 접근하는 간단한 방법을 제공한다.  🍑 IEnumerable
+1 2 3 4  public interface IEnumerable { IEnumerator GetEnumerator(); }   IEnumerator가 뭐야? 🧐  iterator   객체 지향적 프로그래밍에서 배열이나 그와 유사한 자료 구조의 내부의 요소를 순회(traversing)하는 객체이다.</description>
+    </item>
+    
+  </channel>
+</rss>
