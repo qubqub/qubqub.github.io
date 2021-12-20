@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>GarbageCollection on &lt;Qutrits/&gt;</title>
+    <link>https://qutrits.github.io/tags/garbagecollection/</link>
+    <description>Recent content in GarbageCollection on &lt;Qutrits/&gt;</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 07 Dec 2021 20:21:53 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/tags/garbagecollection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GarbageCollection: 가비지 컬렉션</title>
+      <link>https://qutrits.github.io/posts/dummy/studying14_gc/</link>
+      <pubDate>Tue, 07 Dec 2021 20:21:53 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/dummy/studying14_gc/</guid>
+      <description>가비지 컬렉션가 뭐야? 🧐 게임이 실행이 될 때, 메모리를 데이터를 저장하기 위해 사용을 한다. 메모리엔 코드(실행할코드), 데이터(전역변수, 정적변수), 스택메모리(값타입/지역변수)와 힙메모리(사용자동적할당역역/레퍼런스타입)가 있는데, 가비지 컬렉터는 힙메모리를 청소하는 역할이다.
+그렇다면 왜 스택메모리를 청소해주는 것은 없을까? 필요없기 때문이다. 스택메모리에 저장되는 데이터들은 스코프를 벗어나면 메모리가 즉시 해제가된다. 이와 반면에 힙메모리는 스코프를 벗어나도 즉시 메모리 해제가 이루어지지않는다. 힙메모리에서 사용하지않는, 불필요한 메모리들을 정리해 다시 사용이 가능하도록 작업하는 것이 바로 가비지 컬렉션이다.
+힙 변수생성할 때 무슨 일이 일어날까? 🧐  힙공간에 사용가능한 메모리가 있는지, 변수를 할당할 수 있을 지 확인한다.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>interface on &lt;Qutrits/&gt;</title>
+    <link>https://qutrits.github.io/tags/interface/</link>
+    <description>Recent content in interface on &lt;Qutrits/&gt;</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 01 Dec 2021 20:57:53 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/tags/interface/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>interface: 인터페이스</title>
+      <link>https://qutrits.github.io/posts/dummy/studying9_interface/</link>
+      <pubDate>Wed, 01 Dec 2021 20:57:53 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/dummy/studying9_interface/</guid>
+      <description>interface(인터페이스)가 뭐야? 🧐 나는 인터페이스을 기능들의 묶음이라고 이해했다.
+Can Do를 알려주는 역할을 한다.
+interface(인터페이스)는 어떤 상황에서 사용해야할까? 🧐 💚 예시 만약 조류라는 클래스가 있다고 하자. 이 클래스를 상속 받는 참새와 앵무새 파생 클래스가 있다. 새는 날 수 있으니까 Fly()를 조류 클래스에 추가를 했다. 하지만 이후에 펭귄과 슈가글라이더를 만들어달라는 요청을 받았다. 하지만 생각해보니 펭귄은 날 수 없는데 슈가글라이더는 조류가 아닌데도 날 수 있지않은가?
+이렇게 같은 부모 클래스를 가지고 있지않음에도 수행할 수 있는 기능은 같은 경우(슈가글라이더) 또는 같은 클래스를 상속을 받았지만 그 클래스의 기능이 필요하지 않는 경우가 있다(펭귄).</description>
+    </item>
+    
+  </channel>
+</rss>
