@@ -10,7 +10,7 @@
 반면 인터페이스의 준수 사항을 잘 지키고 모든 메서드를 구현한 클래스는 어느 계층에 있든 인터페이스를 구현할 수 있습니다.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item20/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.360a18abd1e281b82531f8acb73d4defe4714b898ebe35f3b44a1b8417816b43.css integrity="sha256-NgoYq9HigbglMfistz1N7+RxS4mOvjXztEobhBeBa0M=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.b2d748d14ce480e36fd6800759026e6d1533e20c2dfd6d123f663418f153f82e.css integrity="sha256-stdI0UzkgONv1oAHWQJubRUz4gwt/W0SP2Y0GPFT+C4=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -26,7 +26,7 @@
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.a1d11f303d5e68e439426c6f78c45df79e0dcb33305ec70f03cc3b79a9066a5e.js integrity="sha256-odEfMD1eaOQ5QmxveMRd954NyzMwXscPA8w7eakGal4="></script>
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.9282d9e201f69d3c07a79fec61d9b7f2d87925098decc32811758581af0a5333.js integrity="sha256-koLZ4gH2nTwHp5/sYdm38th5JQmN7MMoEXWFga8KUzM="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="[아이템 20] 추상 클래스보다는 인터페이스를 우선하라">
 <meta property="og:description" content="[아이템 20] 추상 클래스보다는 인터페이스를 우선하라. 자바가 제공하는 다중 구현 메커니즘은 인터페이스와 추상 클래스가 있습니다. 자바8 부터는 인터페이스에서 defualt moethod를 제공할 수 있게 되어서 두 메커니즘 모두 인스턴스 메서드를 구현 형태로 제공할 수 있습니다.
 추상 클래스와 인터페이스의 큰 차이점은 추상 클래스의 정의한 타입을 구현 클래스는 반드시 서브클래스가 된다는 점입니다. 자바에서는 단일 상속만 지원하기 때문에 이런 제약은 새로운 타입을 정의하는데 커다란 제약이 됩니다.

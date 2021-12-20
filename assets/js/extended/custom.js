@@ -8,11 +8,6 @@ DOMReady( function () {
   //   return new Promise((r) => setTimeout(r, ms));
   // }
 
-  function offTransition (_el) {
-    _el.style.opacity = "1";
-    _el.style.transform = "none";
-  }
-
   if (window.innerWidth < 769) {
     if (!document.getElementById("menu").classList.contains("hidden")) {
       document.getElementById("menu").classList.add("hidden");
@@ -51,15 +46,15 @@ DOMReady( function () {
     }
   });
 
-  let urlPathName = "";
-  let urlContryCode = "";
-  if (window.location.pathname.match(/^\/.{2}\//)) {
-    let urlSulg = window.location.pathname.match(/^\/(.{2})(\/.*)$/)
-    urlContryCode = urlSulg[1];
-    urlPathName = urlSulg[2];
-  } else {
-    urlPathName = window.location.pathname;
-  }
+  let urlPathName = window.location.pathname;
+  // let urlContryCode = "";
+  // if (window.location.pathname.match(/^\/.{2}\//)) {
+  //   let urlSulg = window.location.pathname.match(/^\/(.{2})(\/.*)$/)
+  //   // urlContryCode = urlSulg[1];
+  //   urlPathName = urlSulg[2];
+  // } else {
+  //   urlPathName = window.location.pathname;
+  // }
 
   if (urlPathName.match(/^\/posts\/.+/)) {
     const urlSlug = urlPathName.match(/^(\/posts\/)([^/]+)/);
@@ -277,55 +272,22 @@ DOMReady( function () {
         }
       }
     } else { // page
-      const _pageHeader = document.querySelector(".main .page-header .page-title");
-      if (_pageHeader.dataset.animation) {
-        const _postEntry = document.querySelectorAll(".main .post-entry");
-        for (let i = 0; i < _postEntry.length; i++) {
-          offTransition(_postEntry[i]);
-        }
-      }
+      
     }
   } else if (urlPathName.match(/^\/archives\/$/)) {
-    const _archiveTitle = document.querySelector(".main .page-header .archive-title");
     const _archiveMonths = document.querySelectorAll(".archive-year .archive-month");
     const _archiveToggle = document.querySelectorAll(".main .archive-year .archive-month .archive-month-header .toggle");
-
-    if (_archiveTitle.dataset.animation) {
-      const _archiveYearHeader = document.querySelectorAll(".main .archive-year .archive-year-header");
-      const _archiveMonthHeader = document.querySelectorAll(".main .archive-year .archive-month .archive-month-header");
-      const _archiveEntry = document.querySelectorAll(".main .archive-year .archive-month .archive-posts");
-      for (let i = 0; i < _archiveYearHeader.length; i++) {
-        offTransition(_archiveYearHeader[i]);
-      }
-
-      for (let i = 0; i < _archiveMonthHeader.length; i++) {
-        offTransition(_archiveMonthHeader[i]);
-      }
-
-      for (let i = 0; i < _archiveEntry.length; i++) {
-        // if (localStorage.getItem("lock-archives-"+_archiveEntry[i].dataset.key) === "false") {
-        //   _archiveEntry[i].style.display = "block";
-        // } else {
-        //   _archiveEntry[i].style.display = "none";
-        // }
-        offTransition(_archiveEntry[i]);
-      }
-    }
 
     if (_archiveMonths) {
       for (let i = 0; i < _archiveMonths.length; i++) {
         if (localStorage.getItem("lock-archives-"+_archiveMonths[i].dataset.key) === "false") {
           _archiveMonths[i].querySelector(".archive-month-header .toggle").dataset.isLock = false;
           _archiveMonths[i].querySelector(".archive-month-header .toggle .lock").classList.add("hide");
-          // if (!_archiveTitle.dataset.animation) {
-            document.getElementById(_archiveMonths[i].dataset.key).style.display = "block";
-          // }
+          document.getElementById(_archiveMonths[i].dataset.key).style.display = "block";
         } else {
           _archiveMonths[i].querySelector(".archive-month-header .toggle").dataset.isLock = true;
           _archiveMonths[i].querySelector(".archive-month-header .toggle .unlock").classList.add("hide");
-          // if (!_archiveTitle.dataset.animation) {
-            document.getElementById(_archiveMonths[i].dataset.key).style.display = "none";
-          // }
+          document.getElementById(_archiveMonths[i].dataset.key).style.display = "none";
         }
       }
     }
@@ -368,57 +330,22 @@ DOMReady( function () {
               urlPathName.match(/^\/categories\/$/) ||
               urlPathName.match(/^\/series\/$/) ||
               urlPathName.match(/^\/chapter\/$/)) {
-    const _isTransition = document.querySelector(".terms-tags");
-    if (_isTransition.dataset.animation) {
-      const _terms = document.querySelectorAll(".terms-tags a");
-      for (let i = 0; i < _terms.length; i++) {
-        offTransition(_terms[i]);
-      }
-    }
+                
   } else if ( urlPathName.match(/^\/posts\/$/) ||
               urlPathName.match(/^\/tags\/.+/) ||
               urlPathName.match(/^\/categories\/.+/) ||
               urlPathName.match(/^\/series\/.+/) ||
               urlPathName.match(/^\/chapter\/.+/)) {
-    const _pageHeader = document.querySelector(".main .page-header .page-title");
-    if (_pageHeader.dataset.animation) {
-      const _postEntry = document.querySelectorAll(".main .post-entry");
-      for (let i = 0; i < _postEntry.length; i++) {
-        offTransition(_postEntry[i]);
-      }
-    }
+                
   } else if (urlPathName.match(/^\/search\/$/)) {
-    const _searchInput = document.querySelector(".main #searchbox #searchInput");
-    if (_searchInput.dataset.animation) {
-      _searchInput.style.width = "100%";
-    }
+    
   } else if (urlPathName.match(/^\/series-list\/$/)) {
-    const _seriesHeader = document.querySelector(".main .series-header .series-title");
-    if (_seriesHeader.dataset.animation) {
-      const _seriesEntry = document.querySelectorAll(".main .series-entry");
-      for (let i = 0; i < _seriesEntry.length; i++) {
-        offTransition(_seriesEntry[i]);
-      }
-    }
+    
   } else if ( urlPathName.match(/^\/collection\/$/)) {
-    const _collectionHeader = document.querySelector(".main .collection-header .collection-title");
-    if (_collectionHeader.dataset.animation) {
-      const _postEntry = document.querySelectorAll(".main .post-entry");
-      for (let i = 0; i < _postEntry.length; i++) {
-        offTransition(_postEntry[i]);
-      }
-    }
-  // } else if (urlPathName === "/") {
-
-
-
+    
+  } else if (urlPathName === "/") {
+    
   } else if (urlPathName.match(/^\/links\/$/)) {
-    const _linkHeader = document.querySelector(".main .link-header");
-    if (_linkHeader.dataset.animation) {
-      const _linkButtons = document.querySelectorAll(".main .links a");
-      for (let i = 0; i < _linkButtons.length; i++) {
-        offTransition(_linkButtons[i]);
-      }
-    }
+    
   }
 });

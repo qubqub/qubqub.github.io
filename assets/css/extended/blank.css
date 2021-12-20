@@ -1523,13 +1523,70 @@ a.button,
 }
 
 .main .post-single .series-main .series-list {
-  animation-name: series-list-open;
+  animation-name: slide-in-down-2;
   animation-duration: 0.1s;
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: both;
 }
-@keyframes series-list-open {
+
+@keyframes slide-in-down-70 {
+  from {
+    opacity: 0;
+    transform: translateY(-70%);
+    -webkit-transform: translateY(-70%);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
+@keyframes slide-in-down-30 {
+  from {
+    opacity: 0;
+    transform: translateY(-30%);
+    -webkit-transform: translateY(-30%);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
+@keyframes slide-in-down-5 {
+  from {
+    opacity: 0;
+    transform: translateY(-3%);
+    -webkit-transform: translateY(-3%);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
+@keyframes slide-in-down-3 {
+  from {
+    opacity: 0;
+    transform: translateY(-3%);
+    -webkit-transform: translateY(-3%);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
+@keyframes slide-in-down-2 {
   from {
     opacity: 0;
     transform: translateY(-2%);
@@ -1543,19 +1600,11 @@ a.button,
   }
 }
 
-.main .post-single .post-header .breadcrumbs[data-animation=true] {
-  animation-name: breadcrumbs-animation-delay;
-  animation-duration: 0.2s;
-  animation-delay: 0.2s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
-}
-@keyframes breadcrumbs-animation-delay {
+@keyframes slide-in-right-10 {
   from {
     opacity: 0;
-    transform: translateY(-30%);
-    -webkit-transform: translateY(-30%);
+    transform: translateX(10%);
+    -webkit-transform: translateX(10%);
   }
 
   to {
@@ -1564,19 +1613,12 @@ a.button,
     -webkit-transform: none;
   }
 }
-.main .post-single .post-header .post-title[data-animation=true] {
-  animation-name: post-title-animation-delay;
-  animation-duration: 0.2s;
-  animation-delay: 0.2s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
-}
-@keyframes post-title-animation-delay {
+
+@keyframes slide-in-right-5 {
   from {
     opacity: 0;
-    transform: translateY(-30%);
-    -webkit-transform: translateY(-30%);
+    transform: translateX(5%);
+    -webkit-transform: translateX(5%);
   }
 
   to {
@@ -1585,99 +1627,8 @@ a.button,
     -webkit-transform: none;
   }
 }
-.main .post-single .post-header .post-description[data-animation=true] {
-  animation-name: post-description-animation-delay;
-  animation-duration: 0.2s;
-  animation-delay: 0.25s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
-}
-@keyframes post-description-animation-delay {
-  from {
-    opacity: 0;
-    transform: translateY(-30%);
-    -webkit-transform: translateY(-30%);
-  }
 
-  to {
-    opacity: 1;
-    transform: none;
-    -webkit-transform: none;
-  }
-}
-.main .post-single .post-header .post-meta[data-animation=true] {
-  animation-name: post-meta-animation-delay;
-  animation-duration: 0.2s;
-  animation-delay: 0.3s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
-}
-@keyframes post-meta-animation-delay {
-  from {
-    opacity: 0;
-    transform: translateY(-30%);
-    -webkit-transform: translateY(-30%);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-    -webkit-transform: none;
-  }
-}
-.main .post-single .series-main[data-animation=true] {
-  animation-name: series-main-animation-delay;
-  animation-duration: 0.2s;
-  animation-delay: 0.4s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
-}
-@keyframes series-main-animation-delay {
-  from {
-    opacity: 0;
-    transform: translateY(-3%);
-    -webkit-transform: translateY(-3%);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-    -webkit-transform: none;
-  }
-}
-.main .post-single .toc[data-animation=true] {
-  animation-name: toc-animation-delay;
-  animation-duration: 0.2s;
-  animation-delay: 0.5s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
-}
-@keyframes toc-animation-delay {
-  from {
-    opacity: 0;
-    transform: translateY(-5%);
-    -webkit-transform: translateY(-5%);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-    -webkit-transform: none;
-  }
-}
-/* .main .post-single .toc-aside-wrapper .toc-aside[data-animation=true] {
-  animation-name: toc-aside-animation-delay;
-  animation-duration: 0.2s;
-  animation-delay: 0.6s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
-}
-@keyframes toc-aside-animation-delay {
+@keyframes slide-in-right-4 {
   from {
     opacity: 0;
     transform: translateX(4%);
@@ -1689,17 +1640,37 @@ a.button,
     transform: none;
     -webkit-transform: none;
   }
-} */
-.main .post-single .post-content[data-animation=true] {
-  animation-name: post-content-animation-delay;
-  animation-duration: 0.2s;
-  animation-delay: 0.6s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
-  transition: font-size 0.1s ease 0s;
 }
-@keyframes post-content-animation-delay {
+
+@keyframes slide-in-left-10 {
+  from {
+    opacity: 0;
+    transform: translateX(-10%);
+    -webkit-transform: translateX(-10%);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
+@keyframes slide-in-left-3 {
+  from {
+    opacity: 0;
+    transform: translateX(-3%);
+    -webkit-transform: translateX(-3%);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
+@keyframes slide-in-left-1 {
   from {
     opacity: 0;
     transform: translateX(-1%);
@@ -1712,15 +1683,8 @@ a.button,
     -webkit-transform: none;
   }
 }
-.main .post-single .post-footer[data-animation=true] {
-  animation-name: post-footer-animation-delay;
-  animation-duration: 0.2s;
-  animation-delay: 0.6s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
-}
-@keyframes post-footer-animation-delay {
+
+@keyframes slide-in-up-3 {
   from {
     opacity: 0;
     transform: translateY(3%);
@@ -1734,65 +1698,152 @@ a.button,
   }
 }
 
+@keyframes slide-in-width-0-100 {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.main .post-single .post-header .breadcrumbs[data-animation=true] {
+  animation-name: slide-in-down-30;
+  animation-duration: 0.2s;
+  animation-delay: 0.2s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+.main .post-single .post-header .post-title[data-animation=true] {
+  animation-name: slide-in-down-30;
+  animation-duration: 0.2s;
+  animation-delay: 0.2s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+.main .post-single .post-header .post-description[data-animation=true] {
+  animation-name: slide-in-down-30;
+  animation-duration: 0.2s;
+  animation-delay: 0.25s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+.main .post-single .post-header .post-meta[data-animation=true] {
+  animation-name: slide-in-down-30;
+  animation-duration: 0.2s;
+  animation-delay: 0.3s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+.main .post-single .series-main[data-animation=true] {
+  animation-name: slide-in-down-3;
+  animation-duration: 0.2s;
+  animation-delay: 0.4s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+.main .post-single .toc[data-animation=true] {
+  animation-name: slide-in-down-5;
+  animation-duration: 0.2s;
+  animation-delay: 0.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+/* .main .post-single .toc-aside-wrapper .toc-aside[data-animation=true] {
+  animation-name: slide-in-right-4;
+  animation-duration: 0.2s;
+  animation-delay: 0.6s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+} */
+.main .post-single .post-content[data-animation=true] {
+  animation-name: slide-in-left-1;
+  animation-duration: 0.2s;
+  animation-delay: 0.6s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  transition: font-size 0.1s ease 0s;
+}
+.main .post-single .post-footer[data-animation=true] {
+  animation-name: slide-in-up-3;
+  animation-duration: 0.2s;
+  animation-delay: 0.6s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
 .main .terms-tags a[data-animation=true] {
-  opacity: 0;
-  transform: translateY(-30%);
-  transition-property: opacity, transform;
-  transition-duration: 300ms;
-  transition-timing-function: ease-out;
+  animation-name: slide-in-down-30;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
 
 .main .archive-year .archive-year-header[data-animation=true] {
-  opacity: 0;
-  transform: translateY(-70%);
-  transition-property: opacity, transform;
-  transition-duration: 300ms;
-  transition-timing-function: ease-in-out;
-  transition-delay: 200ms;
+  animation-name: slide-in-down-70;
+  animation-duration: 0.3s;
+  animation-delay: 0.2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
+
 .main .archive-year .archive-month .archive-month-header[data-animation=true] {
-  opacity: 0;
-  transform: translateY(-70%);
-  transition-property: opacity, transform;
-  transition-duration: 300ms;
-  transition-timing-function: ease-in-out;
+  animation-name: slide-in-down-70;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
+
 .main .archive-year .archive-month .archive-posts[data-animation=true] {
-  opacity: 0;
-  transform: translateX(-3%);
-  transition-property: opacity, transform;
-  transition-duration: 300ms;
-  transition-timing-function: ease-in-out;
+  animation-name: slide-in-left-3;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
 
 .main .post-entry:not(.search-entry):not(.series-entry)[data-animation=true] {
-  opacity: 0;
-  transform: translateX(-5%);
-  transition-property: opacity, transform;
-  transition-duration: 200ms;
-  transition-timing-function: ease-out;
+  animation-name: slide-in-left-5;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
 
 .main .series-entry[data-animation=true] {
-  opacity: 0;
-  transform: translateX(-4%);
-  transition-property: opacity, transform;
-  transition-duration: 200ms;
-  transition-timing-function: ease-out;
+  animation-name: slide-in-left-4;
+  animation-duration: 0.2s;
+  animation-delay: 0.1s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
 
 #searchbox #searchInput[data-animation=true] {
-  width: 0%;
-  transition-property: width;
-  transition-duration: 200ms;
-  transition-delay: 100ms;
-  transition-timing-function: ease-out;
+  animation-name: slide-in-width-0-100;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
 
 .main .links .button[data-animation=true] {
-  opacity: 0;
-  transform: translateX(-10%);
-  transition-property: opacity, transform;
-  transition-duration: 400ms;
-  transition-timing-function: ease-in-out;
+  animation-name: slide-in-left-10;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
