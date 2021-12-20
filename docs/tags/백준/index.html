@@ -1,4 +1,4 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ko dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
@@ -19,6 +19,8 @@
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.89.4">
 <link rel=alternate type=application/rss+xml href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/index.xml>
+<link rel=alternate hreflang=ko href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/>
+<link rel=alternate hreflang=en href=https://qutrits.github.io/en/tags/%EB%B0%B1%EC%A4%80/>
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
@@ -41,33 +43,38 @@
 <span class=logo-switches>
 <button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button>
+<ul class=lang-switch><li>|</li>
+<li>
+<a href=https://qutrits.github.io/en/ title=English aria-label="EN 🇺🇸">En</a>
+</li>
+</ul>
 </span>
 </div>
 <button id=menu-trigger aria-haspopup=menu aria-label="Menu Button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
 </button>
 <ul id=menu class="main-menu hidden">
 <li>
-<a href=https://qutrits.github.io/series-list/ title=시리즈>
+<a href=https://qutrits.github.io/series-list title=시리즈>
 <span>시리즈</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/collection/ title=모아보기>
+<a href=https://qutrits.github.io/collection title=모아보기>
 <span>모아보기</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/archives/ title="기록 보관소">
+<a href=https://qutrits.github.io/archives title="기록 보관소">
 <span>기록 보관소</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/search/ title="검색 (Alt + /)" accesskey=/>
+<a href=https://qutrits.github.io/search title=검색>
 <span>검색</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/tags/ title=태그>
+<a href=https://qutrits.github.io/tags title=태그>
 <span>태그</span>
 </a>
 </li>
@@ -80,29 +87,6 @@
 </header>
 <article class="post-entry tag-entry" style=transition-delay:170ms data-animation=true>
 <header class=entry-header>
-<h2>AlgorithmStudy_백준 11727
-</h2>
-</header>
-<section class=entry-content>
-<p>dp문제에 너무 약한 나… 문제를 작게 쪼개서 푸는 방법을 잘 생각해봐야겠다..
-알고리즘 공부 백준 11727 🧐 제로 👉문제 2×n 직사각형을 1×2, 2×1과 2×2 타일로 채우는 방법의 수를 구하는 프로그램을 작성하시오.
-아래 그림은 2×17 직사각형을 채운 한가지 예이다.
-👉입력 첫째 줄에 n이 주어진다. (1 ≤ n ≤ 1,000)
-👉출력 첫째 줄에 2×n 크기의 직사각형을 채우는 방법의 수를 10,007로 나눈 나머지를 출력한다.
-🍑풀이
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 using System; namespace Algorithm21 { class Beakjoon11727 { private static long mod = 10007; static void Main(string[] args) { var n = int....</p>
-</section>
-<footer class=entry-footer><span title="2021-12-16 23:08:56 +0900 KST">December 16, 2021</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 min</span>
-<ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/%EB%B9%A0%EB%A5%B8%EC%A0%9C%EA%B3%B1%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>빠른제곱알고리즘</a></li>
-</ul></footer>
-<a class=entry-link aria-label="post link to AlgorithmStudy_백준 11727" href=https://qutrits.github.io/posts/algorithm21_11727/></a>
-</article>
-<article class="post-entry tag-entry" style=transition-delay:220ms data-animation=true>
-<header class=entry-header>
 <h2>AlgorithmStudy_백준 2667
 </h2>
 </header>
@@ -110,15 +94,15 @@
 <p>알고리즘 문제는 github에 repository를 만든 후에 포스팅하지않으려고 했는데, 이 문제는 공유해서 올리면 좋을거 같아서 올렸다!! 오랜만에…ㅎㅎ
 알고리즘 공부 백준 2667 🧐 제로 👉문제 &lt;그림 1>과 같이 정사각형 모양의 지도가 있다. 1은 집이 있는 곳을, 0은 집이 없는 곳을 나타낸다. 철수는 이 지도를 가지고 연결된 집의 모임인 단지를 정의하고, 단지에 번호를 붙이려 한다. 여기서 연결되었다는 것은 어떤 집이 좌우, 혹은 아래위로 다른 집이 있는 경우를 말한다. 대각선상에 집이 있는 경우는 연결된 것이 아니다....</p>
 </section>
-<footer class=entry-footer><span title="2021-12-12 23:15:57 +0900 KST">December 12, 2021</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 min</span>
+<footer class=entry-footer><span title="2021-12-12 23:15:57 +0900 KST">2021년 12월 12일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to AlgorithmStudy_백준 2667" href=https://qutrits.github.io/posts/algorithm19_2667/></a>
+<a class=entry-link aria-label="post link to AlgorithmStudy_백준 2667" href=https://qutrits.github.io/posts/dummy/algorithm19_2667/></a>
 </article>
-<article class="post-entry tag-entry" style=transition-delay:270ms data-animation=true>
+<article class="post-entry tag-entry" style=transition-delay:220ms data-animation=true>
 <header class=entry-header>
 <h2>AlgorithmStudy_백준 10773
 </h2>
@@ -130,15 +114,15 @@
 재민이는 이렇게 모든 수를 받아 적은 후 그 수의 합을 알고 싶어 한다. 재민이를 도와주자!
 👉입력 첫 번째 줄에 정수 K가 주어진다. (1 ≤ K ≤ 100,000)...</p>
 </section>
-<footer class=entry-footer><span title="2021-11-26 23:48:46 +0900 KST">November 26, 2021</span>
+<footer class=entry-footer><span title="2021-11-26 23:48:46 +0900 KST">2021년 11월 26일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to AlgorithmStudy_백준 10773" href=https://qutrits.github.io/posts/algorithm15_10773/></a>
+<a class=entry-link aria-label="post link to AlgorithmStudy_백준 10773" href=https://qutrits.github.io/posts/dummy/algorithm15_10773/></a>
 </article>
-<article class="post-entry tag-entry" style=transition-delay:320ms data-animation=true>
+<article class="post-entry tag-entry" style=transition-delay:270ms data-animation=true>
 <header class=entry-header>
 <h2>AlgorithmStudy_백준 11068
 </h2>
@@ -146,15 +130,15 @@
 <section class=entry-content>
 <p>알고리즘 공부 백준 11068 🧐 회문인 수 👉문제 어떤 수를 왼쪽부터 읽어도, 오른쪽부터 읽어도 같을 때 이 수를 회문인 수라고 한다. 예를 들어, 747은 회문인 수이다. 255도 회문인 수인데, 16진수로 표현하면 FF이기 때문이다. 양의 정수를 입력받았을 때, 이 수가 어떤 B진법 (2 ≤ B ≤ 64)으로 표현하면 회문이 되는 경우가 있는지 알려주는 프로그램을 작성하시오. B진법이란, 한 자리에서 수를 표현할 때 쓸 수 있는 수의 가짓수가 B라는 뜻이다. 예를 들어, 십진법에서 B는 10이다....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-26 00:18:15 +0900 KST">November 26, 2021</span>
+<footer class=entry-footer><span title="2021-11-26 00:18:15 +0900 KST">2021년 11월 26일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to AlgorithmStudy_백준 11068" href=https://qutrits.github.io/posts/algorithm14_11068/></a>
+<a class=entry-link aria-label="post link to AlgorithmStudy_백준 11068" href=https://qutrits.github.io/posts/dummy/algorithm14_11068/></a>
 </article>
-<article class="post-entry tag-entry" style=transition-delay:370ms data-animation=true>
+<article class="post-entry tag-entry" style=transition-delay:320ms data-animation=true>
 <header class=entry-header>
 <h2>AlgorithmStudy_백준 2941
 </h2>
@@ -165,13 +149,31 @@
 dž는 무조건 하나의 알파벳으로 쓰이고, d와 ž가 분리된 것으로 보지 않는다. lj와 nj도 마찬가지이다. 위 목록에 없는 알파벳은 한 글자씩 센다.
 👉입력 첫째 줄에 최대 100글자의 단어가 주어진다....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-23 22:12:06 +0900 KST">November 23, 2021</span>
+<footer class=entry-footer><span title="2021-11-23 22:12:06 +0900 KST">2021년 11월 23일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to AlgorithmStudy_백준 2941" href=https://qutrits.github.io/posts/algorithm13/></a>
+<a class=entry-link aria-label="post link to AlgorithmStudy_백준 2941" href=https://qutrits.github.io/posts/dummy/algorithm13/></a>
+</article>
+<article class="post-entry tag-entry" style=transition-delay:370ms data-animation=true>
+<header class=entry-header>
+<h2>AlgorithmStudy_백준 4673
+</h2>
+</header>
+<section class=entry-content>
+<p>알고리즘 공부 백준 4673 🧐 셀프 넘버 👉문제 셀프 넘버는 1949년 인도 수학자 D.R. Kaprekar가 이름 붙였다. 양의 정수 n에 대해서 d(n)을 n과 n의 각 자리수를 더하는 함수라고 정의하자. 예를 들어, d(75) = 75+7+5 = 87이다.
+양의 정수 n이 주어졌을 때, 이 수를 시작해서 n, d(n), d(d(n)), d(d(d(n))), …과 같은 무한 수열을 만들 수 있다.
+예를 들어, 33으로 시작한다면 다음 수는 33 + 3 + 3 = 39이고, 그 다음 수는 39 + 3 + 9 = 51, 다음 수는 51 + 5 + 1 = 57이다....</p>
+</section>
+<footer class=entry-footer><span title="2021-11-22 21:13:41 +0900 KST">2021년 11월 22일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to AlgorithmStudy_백준 4673" href=https://qutrits.github.io/posts/dummy/algorithm12/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -187,7 +189,7 @@ dž는 무조건 하나의 알파벳으로 쓰이고, d와 ž가 분리된 것�
 </li>
 <li class="pagination__item pagination__item--next">
 <a href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/page/2/ class="pagination__link pagination__link--next">
-Next Page<svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+다음 페이지<svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 <li class="pagination__item pagination__item--last">

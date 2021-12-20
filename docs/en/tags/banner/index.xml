@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>banner on &lt;Qutrits/&gt;</title>
+    <link>https://qutrits.github.io/en/tags/banner/</link>
+    <description>Recent content in banner on &lt;Qutrits/&gt;</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 13 Dec 2021 17:46:19 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/en/tags/banner/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>배너를 만들어보자!</title>
+      <link>https://qutrits.github.io/en/posts/dummy/studying15_snap/</link>
+      <pubDate>Mon, 13 Dec 2021 17:46:19 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/en/posts/dummy/studying15_snap/</guid>
+      <description>아래 이미지는 만든 배너의 모습이다.
+UI리소스는 친구가 만들어줬다..ㅎㅎ
+💚 만들면서 고민한 것들.
+ 오브젝트 풀을 사용할 것인가?  게임 배너는 보통 오브젝트 풀을 사용할 만큼 갯수가 많지 않다. 그래서 사용하지 않기로 결정! 후에 인벤토리 같은 기능을 만들어 때 사용해보도록 하자!
+ 자동으로 움직이게 해보자!  한쪽 방향으로 움직이는 배너를 구현하였다. 각 배너마다 유저가 정보를 습득할 수 있는 시간 또한 주었다.
+ Snap 기능  유저가 스크롤 뷰를 조작해 해당 배너의 위치를 기준으로 일정부분을 움직였다면, 조작을 끝냈을 때 이전 배너, 다음 배너 또는 원래 배너로 다시 positioning!</description>
+    </item>
+    
+  </channel>
+</rss>

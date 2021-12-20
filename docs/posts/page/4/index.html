@@ -1,4 +1,4 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ko dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
@@ -19,6 +19,8 @@
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.89.4">
 <link rel=alternate type=application/rss+xml href=https://qutrits.github.io/posts/index.xml>
+<link rel=alternate hreflang=ko href=https://qutrits.github.io/posts/>
+<link rel=alternate hreflang=en href=https://qutrits.github.io/en/posts/>
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
@@ -42,33 +44,38 @@
 <span class=logo-switches>
 <button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button>
+<ul class=lang-switch><li>|</li>
+<li>
+<a href=https://qutrits.github.io/en/ title=English aria-label="EN 🇺🇸">En</a>
+</li>
+</ul>
 </span>
 </div>
 <button id=menu-trigger aria-haspopup=menu aria-label="Menu Button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
 </button>
 <ul id=menu class="main-menu hidden">
 <li>
-<a href=https://qutrits.github.io/series-list/ title=시리즈>
+<a href=https://qutrits.github.io/series-list title=시리즈>
 <span>시리즈</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/collection/ title=모아보기>
+<a href=https://qutrits.github.io/collection title=모아보기>
 <span>모아보기</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/archives/ title="기록 보관소">
+<a href=https://qutrits.github.io/archives title="기록 보관소">
 <span>기록 보관소</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/search/ title="검색 (Alt + /)" accesskey=/>
+<a href=https://qutrits.github.io/search title=검색>
 <span>검색</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/tags/ title=태그>
+<a href=https://qutrits.github.io/tags title=태그>
 <span>태그</span>
 </a>
 </li>
@@ -80,101 +87,100 @@
 <h1 class=page-title data-animation=true>Posts</h1>
 </header>
 <article class=post-entry style=transition-delay:170ms data-animation=true>
+<figure class=entry-cover><img loading=lazy src=https://qutrits.github.io/log/logo-csharp.png alt=c#>
+</figure>
 <header class=entry-header>
-<h2>interface: 인터페이스
+<h2>Generic: 제너릭 클래스
 </h2>
 </header>
 <section class=entry-content>
-<p>interface(인터페이스)가 뭐야? 🧐 나는 인터페이스을 기능들의 묶음이라고 이해했다.
-Can Do를 알려주는 역할을 한다.
-interface(인터페이스)는 어떤 상황에서 사용해야할까? 🧐 💚 예시 만약 조류라는 클래스가 있다고 하자. 이 클래스를 상속 받는 참새와 앵무새 파생 클래스가 있다. 새는 날 수 있으니까 Fly()를 조류 클래스에 추가를 했다. 하지만 이후에 펭귄과 슈가글라이더를 만들어달라는 요청을 받았다. 하지만 생각해보니 펭귄은 날 수 없는데 슈가글라이더는 조류가 아닌데도 날 수 있지않은가?
-이렇게 같은 부모 클래스를 가지고 있지않음에도 수행할 수 있는 기능은 같은 경우(슈가글라이더) 또는 같은 클래스를 상속을 받았지만 그 클래스의 기능이 필요하지 않는 경우가 있다(펭귄)....</p>
+<p>유니티에서 쓸 Tween을 만들고 있는 중이다.
+Tween에서 여러가지 클래스를 처리하고 싶어서 Generic class를 활용하기로 하였다.
+Generic class가 뭐야? 🧐 일반적으로 클래스를 정의할 때, 클래스 내의 모든 데이타 타입을 지정해 주게 된다. 하지만 어떤 경우는 클래스의 거의 모든 부분이 동일한데 일부 데이타 타입만이 다른 경우가 있을 수 있다.
+이런 경우 C#의 제네릭 타입(Generic Type)을 사용할 수 있는데, 제네릭 타입에서는 int, float, double 같은 데이타 요소 타입을 확정하지 않고 이 데이타 타입 자체를 타입파라미터(Type Parameter)로 받아들이도록 클래스를 정의한다....</p>
 </section>
-<footer class=entry-footer><span title="2021-12-01 20:57:53 +0900 KST">December 1, 2021</span>
+<footer class=entry-footer><span title="2021-11-23 23:32:06 +0900 KST">2021년 11월 23일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
 <ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/interface/>interface</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/unity/>unity</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/generic/>Generic</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to interface: 인터페이스" href=https://qutrits.github.io/posts/studying9_interface/></a>
+<a class=entry-link aria-label="post link to Generic: 제너릭 클래스" href=https://qutrits.github.io/posts/dummy/studying3_generic/></a>
 </article>
 <article class=post-entry style=transition-delay:220ms data-animation=true>
 <header class=entry-header>
-<h2>BFS: 너비우선탐색, DFS: 깊이우선탐색(2)
+<h2>AlgorithmStudy_백준 2941
 </h2>
 </header>
 <section class=entry-content>
-<p>음… ㅋㅋ 면접보고 왔는데 bfs/dfs의 장단점을 물어보셨다. 나는 뭔지만 공부했고 구현해보는 데에만 집중한 나머지 장단점이 뭔지 궁금해하지 않았다는 사실…!😱 그래서 오늘 공부해보려고 한다.
-BFS의 장단점? 🧐 장점 경로가 여러 개인 경우에도 최적해를 보장한다. 최단 경로가 존재한다면 최적해를 찾을 수 있다. 왜?: 한 노드의 자식들을 모두 탐색하기 때문에. 단점 노드의 수가 많아지면 탐색해야하는 노드의 수도 많아진다. DFS의 장단점? 🧐 장점 최선의 경우 가장 빠름....</p>
+<p>알고리즘 공부 백준 2941 🧐 크로아티아 알파벳 👉문제 예전에는 운영체제에서 크로아티아 알파벳을 입력할 수가 없었다. 따라서, 다음과 같이 크로아티아 알파벳을 변경해서 입력했다.
+예를 들어, ljes=njak은 크로아티아 알파벳 6개(lj, e, š, nj, a, k)로 이루어져 있다. 단어가 주어졌을 때, 몇 개의 크로아티아 알파벳으로 이루어져 있는지 출력한다.
+dž는 무조건 하나의 알파벳으로 쓰이고, d와 ž가 분리된 것으로 보지 않는다. lj와 nj도 마찬가지이다. 위 목록에 없는 알파벳은 한 글자씩 센다.
+👉입력 첫째 줄에 최대 100글자의 단어가 주어진다....</p>
 </section>
-<footer class=entry-footer><span title="2021-12-01 20:08:00 +0900 KST">December 1, 2021</span>
-<ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/bfs/>bfs</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/dfs/>dfs</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/%EB%84%88%EB%B9%84%EC%9A%B0%EC%84%A0%ED%83%90%EC%83%89/>너비우선탐색</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/%EA%B9%8A%EC%9D%B4%EC%9A%B0%EC%84%A0%ED%83%90%EC%83%89/>깊이우선탐색</a></li>
-</ul></footer>
-<a class=entry-link aria-label="post link to BFS: 너비우선탐색, DFS: 깊이우선탐색(2)" href=https://qutrits.github.io/posts/studying8_bfs_dfs2/></a>
-</article>
-<article class=post-entry style=transition-delay:270ms data-animation=true>
-<header class=entry-header>
-<h2>BFS: 너비우선탐색, DFS: 깊이우선탐색(1)
-</h2>
-</header>
-<section class=entry-content>
-<p>음… 나는 탐색알고리즘을 매우 어려워 하는 사람이다…😭😭 이것에 이어서 길찾기를 무서워하는데..😱 프로그래머로서 이런것들은 좀 이겨내야하지 않을까? 라는 생각이 들어서.. 원래 무서운 것은 몰라서 그런거라고 했으니, 나는 이 녀석들을 공부해서 안무서워해야겠다.😋😋😋
-Graph(그래프)는 무엇일까? 🧐 BFS, DFS를 알기전에 그래프라는 자료구조를 먼저 알아야한다.
-그래프는 정점(V)과 간선(E)들의 집합이다. 간선은 정점과 정점 사이를 직접 연결하는 선을 말한다. G = (V,E)로 수학적으로 표기한다. 💚 그래프의 표현방법
-인접 행렬 1 2 3 4 5 6 7 8 9 int V; //정점의 갯수 int E; //간선의 갯수 int[,] Graph = new int[V, V]; //N x N 행렬 for (int i = 0; i &lt; E; i++) { Graph[v1,v2] = 1;//방향 그래프 인접행렬로의 표현 } 인접 리스트 1 2 3 4 5 6 7 8 9 10 11 12 13 int V; //정점의 갯수 int E; //간선의 갯수 List&lt;int>[] Graph = new List&lt;int>[V + 1]; for (int i = 1; i &lt; N + 1; i++) { Graph[i] = new List&lt;int>(); foreach(v in AdjacencyVertices) { Graph[i]....</p>
-</section>
-<footer class=entry-footer><span title="2021-11-29 21:40:04 +0900 KST">November 29, 2021</span>
-<ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/bfs/>bfs</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/dfs/>dfs</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/%EB%84%88%EB%B9%84%EC%9A%B0%EC%84%A0%ED%83%90%EC%83%89/>너비우선탐색</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/%EA%B9%8A%EC%9D%B4%EC%9A%B0%EC%84%A0%ED%83%90%EC%83%89/>깊이우선탐색</a></li>
-</ul></footer>
-<a class=entry-link aria-label="post link to BFS: 너비우선탐색, DFS: 깊이우선탐색(1)" href=https://qutrits.github.io/posts/studying7_bfs_dfs/></a>
-</article>
-<article class=post-entry style=transition-delay:320ms data-animation=true>
-<header class=entry-header>
-<h2>AlgorithmStudy_백준 10773
-</h2>
-</header>
-<section class=entry-content>
-<p>알고리즘 공부 백준 10773 🧐 제로 👉문제 나코더 기장 재민이는 동아리 회식을 준비하기 위해서 장부를 관리하는 중이다.
-재현이는 재민이를 도와서 돈을 관리하는 중인데, 애석하게도 항상 정신없는 재현이는 돈을 실수로 잘못 부르는 사고를 치기 일쑤였다.
-재현이는 잘못된 수를 부를 때마다 0을 외쳐서, 가장 최근에 재민이가 쓴 수를 지우게 시킨다.
-재민이는 이렇게 모든 수를 받아 적은 후 그 수의 합을 알고 싶어 한다. 재민이를 도와주자!
-👉입력 첫 번째 줄에 정수 K가 주어진다. (1 ≤ K ≤ 100,000)...</p>
-</section>
-<footer class=entry-footer><span title="2021-11-26 23:48:46 +0900 KST">November 26, 2021</span>
+<footer class=entry-footer><span title="2021-11-23 22:12:06 +0900 KST">2021년 11월 23일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to AlgorithmStudy_백준 10773" href=https://qutrits.github.io/posts/algorithm15_10773/></a>
+<a class=entry-link aria-label="post link to AlgorithmStudy_백준 2941" href=https://qutrits.github.io/posts/dummy/algorithm13/></a>
 </article>
-<article class=post-entry style=transition-delay:370ms data-animation=true>
-<figure class=entry-cover><img loading=lazy src=https://qutrits.github.io/logo/logo-unity-01.png alt=unity>
-</figure>
+<article class=post-entry style=transition-delay:270ms data-animation=true>
 <header class=entry-header>
-<h2>Draw Call: 드로우콜(3)
+<h2>AlgorithmStudy_백준 4673
 </h2>
 </header>
 <section class=entry-content>
-<p>오늘 면접에서 이전에 드로우콜을 공부했던 것과 관련해서 질문을 받았다. 배칭을 깨지 않고 오브젝트의 컬러를 바꿀 수 있는 방법을 말해보라고 하셨다. 하지만 난 모른다고 답했다. 그런 방법이 있나? 배칭을 깨지 않고 컬러를 바꾸는 것은 불가능하다고 생각했다. 그리고 그건 불가능한 게 맞다. 하나의 머티리얼을 공유하는 오브젝트들이 여러 색깔을 낼 수 있는 것은 가능하다는 새로운 사실을 알아서 포스팅 해보려 한다.
-MaterialPropertyBlock의 활용 🧐 Create -> Shader -> Standard Surface Shader 생성. [PerRendererData] 를 바꾸기 원하는 셰이더 프로퍼티 앞에 추가....</p>
+<p>알고리즘 공부 백준 4673 🧐 셀프 넘버 👉문제 셀프 넘버는 1949년 인도 수학자 D.R. Kaprekar가 이름 붙였다. 양의 정수 n에 대해서 d(n)을 n과 n의 각 자리수를 더하는 함수라고 정의하자. 예를 들어, d(75) = 75+7+5 = 87이다.
+양의 정수 n이 주어졌을 때, 이 수를 시작해서 n, d(n), d(d(n)), d(d(d(n))), …과 같은 무한 수열을 만들 수 있다.
+예를 들어, 33으로 시작한다면 다음 수는 33 + 3 + 3 = 39이고, 그 다음 수는 39 + 3 + 9 = 51, 다음 수는 51 + 5 + 1 = 57이다....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-26 22:47:40 +0900 KST">November 26, 2021</span>
+<footer class=entry-footer><span title="2021-11-22 21:13:41 +0900 KST">2021년 11월 22일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
 <ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/unity/>unity</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/drawcall/>DrawCall</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/batch/>Batch</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to Draw Call: 드로우콜(3)" href=https://qutrits.github.io/posts/studying6_drawcall3/></a>
+<a class=entry-link aria-label="post link to AlgorithmStudy_백준 4673" href=https://qutrits.github.io/posts/dummy/algorithm12/></a>
+</article>
+<article class=post-entry style=transition-delay:320ms data-animation=true>
+<header class=entry-header>
+<h2>Extenstion Method: 확장 메서드
+</h2>
+</header>
+<section class=entry-content>
+<p>유니티에서 여러가지 연습을 하려고 생각하고 있었을 때, 나만의 tween을 만들어 보고싶다고 생각했다.
+DoTween을 사용할 때 여러 함수들이 transform, image 등에서 부터 바로 DoTween 함수를 사용할 수 있었던 것이 기억에 남았다.
+나도 이런식으로 바로바로 접근할 수 있으면 좋겠다고 생각을 해서 방법을 찾아보니, Extenstion Method를 이용하면 되는 것!
+Extenstion Method가 뭐야? 🧐 특수한 종류의 static 메서드. 다른 클래스의 인스턴스 메서드인 것 처럼 사용되는 기능. 클래스, 구조체, 인터페이스 등에 적용 가능. 왜 사용하는거야?...</p>
+</section>
+<footer class=entry-footer><span title="2021-11-18 01:32:38 +0900 KST">2021년 11월 18일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/unity/>unity</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/extenstion-method/>Extenstion Method</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to Extenstion Method: 확장 메서드" href=https://qutrits.github.io/posts/dummy/studying2/></a>
+</article>
+<article class=post-entry style=transition-delay:370ms data-animation=true>
+<header class=entry-header>
+<h2>AlgorithmStudy_백준 13116
+</h2>
+</header>
+<section class=entry-content>
+<p>알고리즘 공부 백준 13116 🧐 잃어버린 괄호 👉문제 혹시 2007학년도 대학수학능력시험 수리영역 가형 이산수학 30번 문제를 아는가? 여러분은 수능을 치는 수험생의 마음으로 이 문제를 해결해야만 한다.
+하지만 우리는 저작권 위반으로 판사님을 뵙고 싶지 않았기 때문에 이 문제를 직접 수록할 수는 없었다. 아래 링크 중 하나를 클릭해서 pdf 파일을 내려받아 가장 마지막 페이지를 보면, 위의 그림과 아주 유사한 문제가 하나 있을 것이다. 여러분은 바로 그 문제를 해결해야만 한다.
+이미지 보러가기
+문제를 그대로 내면 재미없기 때문에, 우리는 위 그림과 같이 33과 79가 적혀 있던 부분을 하얀색 직사각형으로 가렸다....</p>
+</section>
+<footer class=entry-footer><span title="2021-11-17 23:11:14 +0900 KST">2021년 11월 17일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to AlgorithmStudy_백준 13116" href=https://qutrits.github.io/posts/dummy/algorithm11/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -185,7 +191,7 @@ MaterialPropertyBlock의 활용 🧐 Create -> Shader -> Standard Surface Shader
 </li>
 <li class="pagination__item pagination__item--previous">
 <a href=https://qutrits.github.io/posts/page/3/ class="pagination__link pagination__link--previous"><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-Prev Page
+이전 페이지
 </a>
 </li>
 <li class=pagination__item>
@@ -199,11 +205,11 @@ Prev Page
 </li>
 <li class="pagination__item pagination__item--next">
 <a href=https://qutrits.github.io/posts/page/5/ class="pagination__link pagination__link--next">
-Next Page<svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+다음 페이지<svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
-<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/9/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/15/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

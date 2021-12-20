@@ -1,4 +1,4 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ko dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
@@ -19,6 +19,8 @@
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.89.4">
 <link rel=alternate type=application/rss+xml href=https://qutrits.github.io/posts/index.xml>
+<link rel=alternate hreflang=ko href=https://qutrits.github.io/posts/>
+<link rel=alternate hreflang=en href=https://qutrits.github.io/en/posts/>
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
@@ -42,33 +44,38 @@
 <span class=logo-switches>
 <button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button>
+<ul class=lang-switch><li>|</li>
+<li>
+<a href=https://qutrits.github.io/en/ title=English aria-label="EN 🇺🇸">En</a>
+</li>
+</ul>
 </span>
 </div>
 <button id=menu-trigger aria-haspopup=menu aria-label="Menu Button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
 </button>
 <ul id=menu class="main-menu hidden">
 <li>
-<a href=https://qutrits.github.io/series-list/ title=시리즈>
+<a href=https://qutrits.github.io/series-list title=시리즈>
 <span>시리즈</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/collection/ title=모아보기>
+<a href=https://qutrits.github.io/collection title=모아보기>
 <span>모아보기</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/archives/ title="기록 보관소">
+<a href=https://qutrits.github.io/archives title="기록 보관소">
 <span>기록 보관소</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/search/ title="검색 (Alt + /)" accesskey=/>
+<a href=https://qutrits.github.io/search title=검색>
 <span>검색</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/tags/ title=태그>
+<a href=https://qutrits.github.io/tags title=태그>
 <span>태그</span>
 </a>
 </li>
@@ -81,102 +88,86 @@
 </header>
 <article class=post-entry style=transition-delay:170ms data-animation=true>
 <header class=entry-header>
-<h2>AlgorithmStudy_백준 9461
+<h2>AlgorithmStudy_백준 1712
 </h2>
 </header>
 <section class=entry-content>
-<p>알고리즘 공부 백준 9461 🧐 파도반 수열 👉문제 아래의 그림과 같이 삼각형이 나선 모양으로 놓여져 있다. 첫 삼각형은 정삼각형으로 변의 길이는 1이다. 그 다음에는 다음과 같은 과정으로 정삼각형을 계속 추가한다. 나선에서 가장 긴 변의 길이를 k라 했을 때, 그 변에 길이가 k인 정삼각형을 추가한다.
-파도반 수열 P(N)은 나선에 있는 정삼각형의 변의 길이이다. P(1)부터 P(10)까지 첫 10개 숫자는 1, 1, 1, 2, 2, 3, 4, 5, 7, 9이다.
-N이 주어졌을 때, P(N)을 구하는 프로그램을 작성하시오....</p>
+<p>알고리즘 공부 백준 1712 🧐 숫자의 합 👉문제 월드전자는 노트북을 제조하고 판매하는 회사이다. 노트북 판매 대수에 상관없이 매년 임대료, 재산세, 보험료, 급여 등 A만원의 고정 비용이 들며, 한 대의 노트북을 생산하는 데에는 재료비와 인건비 등 총 B만원의 가변 비용이 든다고 한다.
+예를 들어 A=1,000, B=70이라고 하자. 이 경우 노트북을 한 대 생산하는 데는 총 1,070만원이 들며, 열 대 생산하는 데는 총 1,700만원이 든다.
+노트북 가격이 C만원으로 책정되었다고 한다. 일반적으로 생산 대수를 늘려 가다 보면 어느 순간 총 수입(판매비용)이 총 비용(=고정비용+가변비용)보다 많아지게 된다....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-15 00:26:56 +0900 KST">November 15, 2021</span>
+<footer class=entry-footer><span title="2021-11-11 00:00:00 +0000 UTC">2021년 11월 11일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to AlgorithmStudy_백준 9461" href=https://qutrits.github.io/posts/algorithm9/></a>
+<a class=entry-link aria-label="post link to AlgorithmStudy_백준 1712" href=https://qutrits.github.io/posts/dummy/algorithm3/></a>
 </article>
 <article class=post-entry style=transition-delay:220ms data-animation=true>
 <header class=entry-header>
-<h2>Hugo와 MarkDown: Text Color
+<h2>My First Post
 </h2>
 </header>
 <section class=entry-content>
-<p>블로그를 Hugo를 이용해서 만들었는데, 열심히 html 코드로 텍스트에 컬러를 넣었지만 빌드를 하고 보니 텍스에 컬러가 적용이 되어있지않았다!
-알고 보니.. MarkDown에서는 본래 text color change를 지원하지 않는다.
-그리고 이것을 html을 이용해서 그 기능을 수행했던 것. 그런데 Hugo자체에서 html을 막아놨던 것!😑😑
-그냥 사용하는 방법으로는 unsafe를 True로 바꾸면 되지만... (막은데에는 이유가 있을거라고 생각하고...다른 방법을 선택!)
-그래서 이런 html코드를 수행해주는 새로운 코드들을 적용 시켜줘야하는데 고것이 바로 Shortcode!
-참조
-Shortcode란 🧐 Shortcodes are simple snippets inside your content files calling built-in or custom templates....</p>
+<p>블로그 처음 만든날.. 이제부터 여기에 공부한 거 매일매일 올릴거야 진짜루 매일매일 할꼬야 왜 안고쳐지는거지 ? 1 2 3 4 private void A() { } </p>
 </section>
-<footer class=entry-footer><span title="2021-11-14 21:31:11 +0900 KST">November 14, 2021</span>
-<ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/markdown/>MarkDown</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4/>마크다운</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/hugo/>Hugo</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/%ED%9C%B4%EA%B3%A0/>휴고</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/shortcode/>Shortcode</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/textcolor/>TextColor</a></li>
-</ul></footer>
-<a class=entry-link aria-label="post link to Hugo와 MarkDown: Text Color" href=https://qutrits.github.io/posts/markdown1/></a>
+<footer class=entry-footer><span title="2021-11-11 05:19:14 +0900 KST">2021년 11월 11일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh</footer>
+<a class=entry-link aria-label="post link to My First Post" href=https://qutrits.github.io/posts/dummy/my-first-post/></a>
 </article>
 <article class=post-entry style=transition-delay:270ms data-animation=true>
 <header class=entry-header>
-<h2>AlgorithmStudy_백준 1181
+<h2>AlgorithmStudy_백준 11399
 </h2>
 </header>
 <section class=entry-content>
-<p>알고리즘 공부 백준 1181 🧐 단어 정렬 👉문제 알파벳 소문자로 이루어진 N개의 단어가 들어오면 아래와 같은 조건에 따라 정렬하는 프로그램을 작성하시오.
-길이가 짧은 것부터 길이가 같으면 사전 순으로 👉입력 첫째 줄에 단어의 개수 N이 주어진다. (1 ≤ N ≤ 20,000) 둘째 줄부터 N개의 줄에 걸쳐 알파벳 소문자로 이루어진 단어가 한 줄에 하나씩 주어진다. 주어지는 문자열의 길이는 50을 넘지 않는다.
-👉출력 조건에 따라 정렬하여 단어들을 출력한다. 단, 같은 단어가 여러 번 입력된 경우에는 한 번씩만 출력한다....</p>
+<p>알고리즘 공부 백준 11399 🧐 ATM 👉문제 인하은행에는 ATM이 1대밖에 없다. 지금 이 ATM앞에 N명의 사람들이 줄을 서있다. 사람은 1번부터 N번까지 번호가 매겨져 있으며, i번 사람이 돈을 인출하는데 걸리는 시간은 Pi분이다.
+사람들이 줄을 서는 순서에 따라서, 돈을 인출하는데 필요한 시간의 합이 달라지게 된다. 예를 들어, 총 5명이 있고, P1 = 3, P2 = 1, P3 = 4, P4 = 3, P5 = 2 인 경우를 생각해보자. [1, 2, 3, 4, 5] 순서로 줄을 선다면, 1번 사람은 3분만에 돈을 뽑을 수 있다....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-12 23:39:46 +0900 KST">November 12, 2021</span>
+<footer class=entry-footer><span title="2021-11-11 04:21:22 +0900 KST">2021년 11월 11일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to AlgorithmStudy_백준 1181" href=https://qutrits.github.io/posts/algorithm8/></a>
+<a class=entry-link aria-label="post link to AlgorithmStudy_백준 11399" href=https://qutrits.github.io/posts/dummy/algorithm2/></a>
 </article>
 <article class=post-entry style=transition-delay:320ms data-animation=true>
 <header class=entry-header>
-<h2>AlgorithmStudy_백준 1929
+<h2>AlgorithmStudy_백준 11720
 </h2>
 </header>
 <section class=entry-content>
-<p>알고리즘 공부 백준 1929 🧐 소수 구하기 👉문제 M이상 N이하의 소수를 모두 출력하는 프로그램을 작성하시오.
-👉입력 첫째 줄에 자연수 M과 N이 빈 칸을 사이에 두고 주어진다. (1 ≤ M ≤ N ≤ 1,000,000) M이상 N이하의 소수가 하나 이상 있는 입력만 주어진다.
-👉출력 한 줄에 하나씩, 증가하는 순서대로 소수를 출력한다.
+<p>알고리즘 공부 백준 11720 🧐 숫자의 합 👉문제 N개의 숫자가 공백 없이 쓰여있다. 이 숫자를 모두 합해서 출력하는 프로그램을 작성하시오.
+👉입력 첫째 줄에 숫자의 개수 N (1 ≤ N ≤ 100)이 주어진다. 둘째 줄에 숫자 N개가 공백없이 주어진다.
+👉입력 입력으로 주어진 숫자 N개의 합을 출력한다.
 🍑풀이
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 using System; using System....</p>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 using System; public class Program { public static void Main() { int count = int....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-12 23:39:46 +0900 KST">November 12, 2021</span>
+<footer class=entry-footer><span title="2021-11-11 04:21:22 +0900 KST">2021년 11월 11일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Hyemi Oh
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to AlgorithmStudy_백준 1929" href=https://qutrits.github.io/posts/algorithm7/></a>
+<a class=entry-link aria-label="post link to AlgorithmStudy_백준 11720" href=https://qutrits.github.io/posts/dummy/algorithm1/></a>
 </article>
 <article class=post-entry style=transition-delay:370ms data-animation=true>
 <header class=entry-header>
-<h2>AlgorithmStudy_백준 11866
+<h2>[아이템 33] 타입 안전 이종 컨테이너를 고려하라
 </h2>
 </header>
 <section class=entry-content>
-<p>알고리즘 공부 백준 11866 🧐 오세푸스 문제 👉문제 요세푸스 문제는 다음과 같다.
-1번부터 N번까지 N명의 사람이 원을 이루면서 앉아있고, 양의 정수 K(≤ N)가 주어진다. 이제 순서대로 K번째 사람을 제거한다. 한 사람이 제거되면 남은 사람들로 이루어진 원을 따라 이 과정을 계속해 나간다. 이 과정은 N명의 사람이 모두 제거될 때까지 계속된다. 원에서 사람들이 제거되는 순서를 (N, K)-요세푸스 순열이라고 한다. 예를 들어 (7, 3)-요세푸스 순열은 &lt;3, 6, 2, 7, 5, 1, 4>이다.
-N과 K가 주어지면 (N, K)-요세푸스 순열을 구하는 프로그램을 작성하시오....</p>
+<p>[아이템 33] 타입 안전 이종 컨테이너를 고려하라. 타입 안전 이종 컨테이너 패턴이란 키를 매개변수화한 다음, 컨테이너에 값을 넣거나 뺄 때 매개변수화한 키를 함께 제공하는 방식입니다.
+1 2 3 4 5 // 타입 안전 이종 컨테이너 패턴 - API public class Favorites { public &lt;T> void putFavorite(Class&lt;T> type, T instance); public &lt;T> getFavorite(Class&lt;T> type); } 다음은 Favorite 클래스를 사용하는 예시입니다.
+1 2 3 4 5 6 7 8 9 10 // 타입 안전 이종 컨태이너 패턴 - 클라이언트 Favorites f = new Favorites(); f....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-12 04:21:22 +0900 KST">November 12, 2021</span>
+<footer class=entry-footer><span title="2020-07-09 18:21:51 +0900 KST">2020년 7월 9일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/csharp/>csharp</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/>알고리즘</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/%EB%B0%B1%EC%A4%80/> 백준</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to AlgorithmStudy_백준 11866" href=https://qutrits.github.io/posts/algorithm6/></a>
+<a class=entry-link aria-label="post link to [아이템 33] 타입 안전 이종 컨테이너를 고려하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item33/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -187,7 +178,7 @@ N과 K가 주어지면 (N, K)-요세푸스 순열을 구하는 프로그램을 �
 </li>
 <li class="pagination__item pagination__item--previous">
 <a href=https://qutrits.github.io/posts/page/6/ class="pagination__link pagination__link--previous"><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-Prev Page
+이전 페이지
 </a>
 </li>
 <li class=pagination__item>
@@ -201,11 +192,11 @@ Prev Page
 </li>
 <li class="pagination__item pagination__item--next">
 <a href=https://qutrits.github.io/posts/page/8/ class="pagination__link pagination__link--next">
-Next Page<svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+다음 페이지<svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
-<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/9/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/15/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

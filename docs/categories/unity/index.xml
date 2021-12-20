@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>unity on &lt;Qutrits/&gt;</title>
+    <link>https://qutrits.github.io/categories/unity/</link>
+    <description>Recent content in unity on &lt;Qutrits/&gt;</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 13 Dec 2021 17:46:19 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/categories/unity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>배너를 만들어보자!</title>
+      <link>https://qutrits.github.io/posts/dummy/studying15_snap/</link>
+      <pubDate>Mon, 13 Dec 2021 17:46:19 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/dummy/studying15_snap/</guid>
+      <description>아래 이미지는 만든 배너의 모습이다.
+UI리소스는 친구가 만들어줬다..ㅎㅎ
+💚 만들면서 고민한 것들.
+ 오브젝트 풀을 사용할 것인가?  게임 배너는 보통 오브젝트 풀을 사용할 만큼 갯수가 많지 않다. 그래서 사용하지 않기로 결정! 후에 인벤토리 같은 기능을 만들어 때 사용해보도록 하자!
+ 자동으로 움직이게 해보자!  한쪽 방향으로 움직이는 배너를 구현하였다. 각 배너마다 유저가 정보를 습득할 수 있는 시간 또한 주었다.
+ Snap 기능  유저가 스크롤 뷰를 조작해 해당 배너의 위치를 기준으로 일정부분을 움직였다면, 조작을 끝냈을 때 이전 배너, 다음 배너 또는 원래 배너로 다시 positioning!</description>
+    </item>
+    
+    <item>
+      <title>타이머를 이용해 스킬아이콘을 만들어보자!</title>
+      <link>https://qutrits.github.io/posts/dummy/studying13_timer/</link>
+      <pubDate>Mon, 06 Dec 2021 15:58:16 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/dummy/studying13_timer/</guid>
+      <description>🍑 타이머
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  public class Timer : MonoBehaviour { private Coroutine curTimer; public void StartTimer(int time, Action&amp;lt;float&amp;gt; onValueChanged) { //진행되던 타이머가 있다면 멈추고 새로 시작  if (curTimer != null) { StopCoroutine(curTimer); } curTimer = StartCoroutine(CoStartTimer(time, onValueChanged)); } //타이머를 진행할 시간, 시간이 바뀔때마다 어떠한 행동을할건지  IEnumerator CoStartTimer(int time, Action&amp;lt;float&amp;gt; onValueChanged) { float timer = 0; while (true) { //타이머가 지정된 시간을 넘기면 break!</description>
+    </item>
+    
+    <item>
+      <title>Tween 만들기 프로젝트 근황</title>
+      <link>https://qutrits.github.io/posts/dummy/studying12_tweenmaking/</link>
+      <pubDate>Mon, 06 Dec 2021 15:34:11 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/dummy/studying12_tweenmaking/</guid>
+      <description>애니메이션 커브에 대해서 조금 더 알 수 있었던 핑퐁 기능 만들기였다.
+🍑 핑퐁 기능 추가!!!!
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30  public static Tween SetEase(this Tween tween, AnimationCurve ease, bool pingpong = false) //ping pong: 다시 돌아오는 형태의 애니메이션 { if (!tween.IsPlaying) //트윈이 플레이 중이지 않을 때 수정!</description>
+    </item>
+    
+    <item>
+      <title>Draw Call: 드로우콜(3)</title>
+      <link>https://qutrits.github.io/posts/dummy/studying6_drawcall3/</link>
+      <pubDate>Fri, 26 Nov 2021 22:47:40 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/dummy/studying6_drawcall3/</guid>
+      <description>오늘 면접에서 이전에 드로우콜을 공부했던 것과 관련해서 질문을 받았다. 배칭을 깨지 않고 오브젝트의 컬러를 바꿀 수 있는 방법을 말해보라고 하셨다.
+하지만 난 모른다고 답했다. 그런 방법이 있나? 배칭을 깨지 않고 컬러를 바꾸는 것은 불가능하다고 생각했다.
+그리고 그건 불가능한 게 맞다.
+하나의 머티리얼을 공유하는 오브젝트들이 여러 색깔을 낼 수 있는 것은 가능하다는 새로운 사실을 알아서 포스팅 해보려 한다.
+MaterialPropertyBlock의 활용 🧐  Create -&amp;gt; Shader -&amp;gt; Standard Surface Shader 생성. [PerRendererData] 를 바꾸기 원하는 셰이더 프로퍼티 앞에 추가.</description>
+    </item>
+    
+    <item>
+      <title>Draw Call: 드로우콜(2)</title>
+      <link>https://qutrits.github.io/posts/dummy/studying5_drawcall2/</link>
+      <pubDate>Thu, 25 Nov 2021 00:05:33 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/dummy/studying5_drawcall2/</guid>
+      <description>이전 포스트에서는 드로우콜 자체에 대해 알아보았다면, 이번 포스트에서는 드로우콜을 줄이기 위해 알아야하는 것과 드로우콜을 줄이는 방법에 대해 알아보겠다.
+Batch, Batching이 뭐야? 🧐  Batch: 이전 포스트에서 언급했던 DP Call과 render state change들을 합친 넓은 의미의 드로우콜. Batching: 드로우콜을 줄이는 작업(어떠한 조건 아래 다수의 Batch를 하나로 만드는 작업).  💚Batching 세부 설명
+Project Setting &amp;gt; Player 에서 사용이 체크가 되어있는지 확인.
+ Static Batching: Static 플래그가 체크되어있는 정적인 오브젝트에 적용 됨.   적용 방법</description>
+    </item>
+    
+    <item>
+      <title>Draw Call: 드로우콜(1)</title>
+      <link>https://qutrits.github.io/posts/dummy/studying4_drawcall1/</link>
+      <pubDate>Wed, 24 Nov 2021 23:19:40 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/posts/dummy/studying4_drawcall1/</guid>
+      <description>오늘 비대면 면접을 보았는데, 이전 프로젝트에서 드로우콜을 줄이려는 노력을 했냐고 물어보셨다.
+나는 딱히 드로우콜에 대해서 생각을 해본 적이 별로 없어서 없다고 말했지만, 이 부분에 대해 좀 더 알 필요가 있다고 생각했다. 그래서 오늘의 공부는 드로우콜!
+Draw Call이 뭐야? 🧐  간단 요약 정의: CPU가 GPU에 오브젝트를 그리라는 명령을 호출하는 것.
+  💚세부 설명
+ 오브젝트가 실제 화면에 렌더링 되려면 CPU -&amp;gt; GPU 정보 전달 필요함. 정보: 메시, 텍스처, 쉐이더, 트랜스폼, 알파블렌딩 여부 등이 존재.</description>
+    </item>
+    
+  </channel>
+</rss>
