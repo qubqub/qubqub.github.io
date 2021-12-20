@@ -10,7 +10,7 @@
 힙 변수생성할 때 무슨 일이 일어날까? 🧐  힙공간에 사용가능한 메모리가 있는지, 변수를 할당할 수 있을 지 확인한다.">
 <meta name=author content="Hyemi Oh">
 <link rel=canonical href=https://qutrits.github.io/posts/dummy/studying14_gc/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.360a18abd1e281b82531f8acb73d4defe4714b898ebe35f3b44a1b8417816b43.css integrity="sha256-NgoYq9HigbglMfistz1N7+RxS4mOvjXztEobhBeBa0M=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.58afeeb859abb90677eb97ba085e9e04d4340f588ac4ae2ccba157c9ae63a939.css integrity="sha256-WK/uuFmruQZ365e6CF6eBNQ0D1iKxK4sy6FXya5jqTk=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -27,7 +27,7 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.a1d11f303d5e68e439426c6f78c45df79e0dcb33305ec70f03cc3b79a9066a5e.js integrity="sha256-odEfMD1eaOQ5QmxveMRd954NyzMwXscPA8w7eakGal4="></script><meta property="og:title" content="GarbageCollection: 가비지 컬렉션">
+<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.ef1c5e4983e3b4ee19b7d345a7c759d97d6787c6a2f06b89d8b02bbd6a4a5aef.js integrity="sha256-7xxeSYPjtO4Zt9NFp8dZ2X1nh8ai8GuJ2LArvWpKWu8="></script><meta property="og:title" content="GarbageCollection: 가비지 컬렉션">
 <meta property="og:description" content="가비지 컬렉션가 뭐야? 🧐 게임이 실행이 될 때, 메모리를 데이터를 저장하기 위해 사용을 한다. 메모리엔 코드(실행할코드), 데이터(전역변수, 정적변수), 스택메모리(값타입/지역변수)와 힙메모리(사용자동적할당역역/레퍼런스타입)가 있는데, 가비지 컬렉터는 힙메모리를 청소하는 역할이다.
 그렇다면 왜 스택메모리를 청소해주는 것은 없을까? 필요없기 때문이다. 스택메모리에 저장되는 데이터들은 스코프를 벗어나면 메모리가 즉시 해제가된다. 이와 반면에 힙메모리는 스코프를 벗어나도 즉시 메모리 해제가 이루어지지않는다. 힙메모리에서 사용하지않는, 불필요한 메모리들을 정리해 다시 사용이 가능하도록 작업하는 것이 바로 가비지 컬렉션이다.
 힙 변수생성할 때 무슨 일이 일어날까? 🧐  힙공간에 사용가능한 메모리가 있는지, 변수를 할당할 수 있을 지 확인한다.">
