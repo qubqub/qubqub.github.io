@@ -1527,7 +1527,7 @@ a.button,
   animation-duration: 0.1s;
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
-  animation-fill-mode: backwards;
+  animation-fill-mode: both;
 }
 @keyframes series-list-open {
   from {
@@ -1544,7 +1544,7 @@ a.button,
 .breadcrumbs[data-animation=true] {
   animation-name: breadcrumbs-animation-delay;
   animation-duration: 0.2s;
-  animation-delay: 0.3s;
+  animation-delay: 0.2s;
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
@@ -1552,7 +1552,7 @@ a.button,
 @keyframes breadcrumbs-animation-delay {
   from {
     opacity: 0;
-    transform: translateY(-12%);
+    transform: translateY(-30%);
   }
 
   to {
@@ -1563,7 +1563,7 @@ a.button,
 .post-title[data-animation=true] {
   animation-name: post-title-animation-delay;
   animation-duration: 0.2s;
-  animation-delay: 0.3s;
+  animation-delay: 0.2s;
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
@@ -1571,7 +1571,7 @@ a.button,
 @keyframes post-title-animation-delay {
   from {
     opacity: 0;
-    transform: translateY(-12%);
+    transform: translateY(-30%);
   }
 
   to {
@@ -1582,7 +1582,7 @@ a.button,
 .post-description[data-animation=true] {
   animation-name: post-description-animation-delay;
   animation-duration: 0.2s;
-  animation-delay: 0.335s;
+  animation-delay: 0.25s;
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
@@ -1590,7 +1590,7 @@ a.button,
 @keyframes post-description-animation-delay {
   from {
     opacity: 0;
-    transform: translateY(-12%);
+    transform: translateY(-30%);
   }
 
   to {
@@ -1601,7 +1601,7 @@ a.button,
 .post-meta[data-animation=true] {
   animation-name: post-meta-animation-delay;
   animation-duration: 0.2s;
-  animation-delay: 0.37s;
+  animation-delay: 0.3s;
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
@@ -1609,7 +1609,7 @@ a.button,
 @keyframes post-meta-animation-delay {
   from {
     opacity: 0;
-    transform: translateY(-12%);
+    transform: translateY(-30%);
   }
 
   to {
@@ -1628,7 +1628,7 @@ a.button,
 @keyframes series-main-animation-delay {
   from {
     opacity: 0;
-    transform: translateY(-2%);
+    transform: translateY(-3%);
   }
 
   to {
@@ -1639,7 +1639,7 @@ a.button,
 .toc[data-animation=true] {
   animation-name: toc-animation-delay;
   animation-duration: 0.2s;
-  animation-delay: 0.4s;
+  animation-delay: 0.5s;
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
@@ -1647,7 +1647,7 @@ a.button,
 @keyframes toc-animation-delay {
   from {
     opacity: 0;
-    transform: translateY(-2%);
+    transform: translateY(-5%);
   }
 
   to {
@@ -1655,7 +1655,7 @@ a.button,
     transform: translateY(0%);
   }
 }
-/* .toc-aside-wrapper[data-animation=true] {
+/* .toc-aside-wrapper .toc-aside[data-animation=true] {
   animation-name: toc-aside-animation-delay;
   animation-duration: 0.2s;
   animation-delay: 0.6s;
@@ -1666,7 +1666,7 @@ a.button,
 @keyframes toc-aside-animation-delay {
   from {
     opacity: 0;
-    transform: translateX(10%);
+    transform: translateX(4%);
   }
 
   to {
@@ -1978,7 +1978,7 @@ a.button,
 } */
 #searchbox #searchInput[data-animation=true] {
   animation-name: search-input-animation-delay;
-  animation-duration: 0.3s;
+  animation-duration: 0.2s;
   animation-delay: 0.1s;
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
@@ -2035,7 +2035,7 @@ a.button,
 } */
 .terms-tags a[data-animation=true] {
   animation-name: term-animation-delay;
-  animation-duration: 0.2s;
+  animation-duration: 0.1s;
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
