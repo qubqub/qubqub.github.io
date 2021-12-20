@@ -178,7 +178,7 @@ minify:
 #                   url: "#"
 
 params:
-    # useElementAnimation: true
+    useElementAnimation: true
     # displayFullLangName: true
     useUtterances: true
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
@@ -347,8 +347,8 @@ taxonomies:
 markup:
     # goldmark:
     #     renderer:
-    #     hardWraps: true
-    #     unsafe: true
+    #         hardWraps: true
+    #         unsafe: true
     highlight:
         # anchorLineNos: true
         codeFences: true
