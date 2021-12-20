@@ -2,7 +2,7 @@
 {{- /*     Insert any custom code (web-analytics, resources, etc.) - it will appear in the <head></head> section of every page. */ -}}
 {{- /*     Can be overwritten by partial with the same name in the global layouts. */ -}}
 {{- /* custom.js */}}
-{{- partial "google-analytics.html" . -}}
+{{/*  {{- partial "google-analytics.html" . -}}  */}}
 
 {{- if .Site.Params.assets.useCustomJs }}
   {{- if not .Site.Params.assets.disableFingerprinting }}
