@@ -48,7 +48,7 @@
         {{- $class = "post-entry tag-entry" }}
       {{- end }}
 
-      <article class="{{ $class }}" {{ if .Site.Params.useElementAnimation }}style="transition-delay: {{ add (mul (add $index 1) 50) 120 }}ms;" data-animation="true"{{ end }}>
+      <article class="{{ $class }}" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
         {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
         {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
         <header class="entry-header">

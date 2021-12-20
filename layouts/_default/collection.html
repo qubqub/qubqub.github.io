@@ -13,7 +13,7 @@
         {{- $name := .Name }}
         {{- $count := .Count }}
         {{- with $.Site.GetPage (printf "/%s/%s" "categories" $name) }}
-          <article class="post-entry" title="{{- i18n $name }}" {{ if .Site.Params.useElementAnimation }}data-animation="true" style="animation-duration: 0.2s; transition-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
+          <article class="post-entry" title="{{- i18n $name }}" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
             <header class="entry-header">
               <h2>📄 {{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup></h2>
             </header>
@@ -29,7 +29,7 @@
         {{- $name := .Name }}
         {{- $count := .Count }}
         {{- with $.Site.GetPage (printf "/%s/%s" "tags" $name) }}
-          <article class="post-entry" title="{{- i18n $name }}" {{ if .Site.Params.useElementAnimation }}data-animation="true" style="animation-duration: 0.2s; transition-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
+          <article class="post-entry" title="{{- i18n $name }}" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
             <header class="entry-header">
               <h2>📄 {{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup></h2>
             </header>
@@ -54,7 +54,7 @@
       </header>
     {{- end }}
     {{- range $i, $v := .Params.menu }}
-      <article class="post-entry" title="{{ .description }}" {{ if $_useElementAnimation }}data-animation="true" style="animation-duration: 0.2s; transition-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
+      <article class="post-entry" title="{{ .description }}" {{ if $_useElementAnimation }}data-animation="true"{{ end }}>
         {{- if not .cover.hidden }}
           <figure class="collection-cover">
             <img loading="lazy" src="{{ (.cover.image) | absURL }}" alt="{{ .cover.alt }}">
