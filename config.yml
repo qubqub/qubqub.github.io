@@ -9,7 +9,7 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 enableEmoji: true
-# googleAnalytics: UA-215417930-1
+googleAnalytics: UA-215417930-1
 # disqusShortname: https-qutrits-github-io
 
 minify:
@@ -39,93 +39,93 @@ menu:
           url: /tags/
           weight: 90
 
-defaultContentLanguage: ko
-languages:
-    ko:
-        languageName: KO 🇰🇷
-        languageAltTitle: Korean
-        weight: 1
-        profileMode:
-            enabled: true
-            title: "반갑습니다!"
-            imageUrl: "/icon/profile_pic.png"
-            imageTitle: my image
-            imageWidth: 120
-            imageHeight: 120
-            # subtitle: "이곳은 한국어 페이지입니다."
-            buttons:
-                - name: 시리즈
-                  url: series-list
-                - name: 모아보기
-                  url: collection
-                - name: 기록 보관소
-                  url: archives
-                - name: 검색
-                  url: search
-                - name: 태그
-                  url: tags
-        menu:
-            main:
-                - name: 시리즈
-                  url: series-list
-                  weight: 5
-                - name: 모아보기
-                  url: collection
-                  weight: 10
-                - name: 기록 보관소
-                  url: archives
-                  weight: 15
-                - name: 검색
-                  url: search
-                  weight: 20
-                - name: 태그
-                  url: tags
-                  weight: 25
-    en:
-        languageName: EN 🇺🇸
-        languageAltTitle: English
-        weight: 2
-        profileMode:
-            enabled: true
-            title: "Hello there!"
-            imageUrl: "/icon/profile_pic.png"
-            imageTitle: my image
-            imageWidth: 120
-            imageHeight: 120
-            # subtitle: "Hello, there!"
-            buttons:
-                # - name: Series
-                #   url: series-list
-                # - name: Collection
-                #   url: collection
-                - name: Posts
-                  url: posts
-                - name: Archives
-                  url: archives
-                - name: Search
-                  url: search
-                - name: Tags
-                  url: tags
-        menu:
-            main:
-                # - name: Series
-                #   url: series-list
-                #   weight: 5
-                # - name: Collection
-                #   url: collection
-                #   weight: 10
-                - name: Posts
-                  url: posts
-                  weight: 10
-                - name: Archives
-                  url: archives
-                  weight: 15
-                - name: Search
-                  url: search
-                  weight: 20
-                - name: Tags
-                  url: tags
-                  weight: 25
+# defaultContentLanguage: ko
+# languages:
+#     ko:
+#         languageName: KO 🇰🇷
+#         languageAltTitle: Korean
+#         weight: 1
+#         profileMode:
+#             enabled: true
+#             title: "반갑습니다!"
+#             imageUrl: "/icon/profile_pic.png"
+#             imageTitle: my image
+#             imageWidth: 120
+#             imageHeight: 120
+#             # subtitle: "이곳은 한국어 페이지입니다."
+#             buttons:
+#                 - name: 시리즈
+#                   url: series-list
+#                 - name: 모아보기
+#                   url: collection
+#                 - name: 기록 보관소
+#                   url: archives
+#                 - name: 검색
+#                   url: search
+#                 - name: 태그
+#                   url: tags
+#         menu:
+#             main:
+#                 - name: 시리즈
+#                   url: series-list
+#                   weight: 5
+#                 - name: 모아보기
+#                   url: collection
+#                   weight: 10
+#                 - name: 기록 보관소
+#                   url: archives
+#                   weight: 15
+#                 - name: 검색
+#                   url: search
+#                   weight: 20
+#                 - name: 태그
+#                   url: tags
+#                   weight: 25
+#     en:
+#         languageName: EN 🇺🇸
+#         languageAltTitle: English
+#         weight: 2
+#         profileMode:
+#             enabled: true
+#             title: "Hello there!"
+#             imageUrl: "/icon/profile_pic.png"
+#             imageTitle: my image
+#             imageWidth: 120
+#             imageHeight: 120
+#             # subtitle: "Hello, there!"
+#             buttons:
+#                 # - name: Series
+#                 #   url: series-list
+#                 # - name: Collection
+#                 #   url: collection
+#                 - name: Posts
+#                   url: posts
+#                 - name: Archives
+#                   url: archives
+#                 - name: Search
+#                   url: search
+#                 - name: Tags
+#                   url: tags
+#         menu:
+#             main:
+#                 # - name: Series
+#                 #   url: series-list
+#                 #   weight: 5
+#                 # - name: Collection
+#                 #   url: collection
+#                 #   weight: 10
+#                 - name: Posts
+#                   url: posts
+#                   weight: 10
+#                 - name: Archives
+#                   url: archives
+#                   weight: 15
+#                 - name: Search
+#                   url: search
+#                   weight: 20
+#                 - name: Tags
+#                   url: tags
+#                   weight: 25
     # fa:
     #     languagedirection: rtl
     #     weight: 3
@@ -190,7 +190,6 @@ params:
     # images: ["<link or path of image for opengraph, twitter-cards>"]
     # DateFormat: "January 2, 2006"
     # DateFormat: "2006년 1월 2일"
-    DateFormat: "2006년 1월 2일"
     defaultTheme: auto # dark, light
     disableThemeToggle: false
 
@@ -229,23 +228,23 @@ params:
         iconWidth: 25
 
     # profile-mode
-    # profileMode:
-    #     enabled: true # needs to be explicitly set
-    #     title: <Qutrits/>
-    #     subtitle: "반갑습니다."
-    #     imageUrl: "/icon/profile_pic.png"
-    #     imageWidth: 120
-    #     imageHeight: 120
-    #     imageTitle: my image
-    #     buttons:
-    #     - name: Posts
-    #       url: posts
-    #     - name: Series
-    #       url: series-list
-    #     - name: Archives
-    #       url: archives
-    #     - name: Tags
-    #       url: tags
+    profileMode:
+        enabled: true # needs to be explicitly set
+        title: "반갑습니다."
+        # subtitle: "반갑습니다."
+        imageUrl: "/icon/profile_pic.png"
+        imageWidth: 120
+        imageHeight: 120
+        imageTitle: my image
+        buttons:
+        - name: Posts
+          url: posts
+        - name: Series
+          url: series-list
+        - name: Archives
+          url: archives
+        - name: Tags
+          url: tags
 
     # home-info mode
     # homeInfoParams:
@@ -309,32 +308,7 @@ outputs:
         - HTML
         - RSS
         - JSON # is necessary
-# menu:
-#     main:
-#         # - identifier: series
-#         #   name: 시리즈
-#         #   url: /series-list/
-#         #   weight: 10
-#         - identifier: series
-#           name: 시리즈
-#           url: /series-list/
-#           weight: 10
-#         - identifier: collection
-#           name: 모아보기
-#           url: /collection/
-#           weight: 20
-#         - identifier: Archive
-#           name: 기록 보관소
-#           url: /archives/
-#           weight: 70
-#         - identifier: Search
-#           name: 검색
-#           url: /search/
-#           weight: 80
-#         - identifier: Tags
-#           name: 태그
-#           url: /tags/
-#           weight: 90
+
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 

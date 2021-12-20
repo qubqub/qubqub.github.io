@@ -4,32 +4,12 @@
   <url>
     <loc>https://qutrits.github.io/</loc>
     <lastmod>2021-12-13T17:46:19+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://qutrits.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="https://qutrits.github.io/"
-                />
   </url><url>
     <loc>https://qutrits.github.io/tags/banner/</loc>
     <lastmod>2021-12-13T17:46:19+09:00</lastmod>
   </url><url>
     <loc>https://qutrits.github.io/categories/</loc>
     <lastmod>2021-12-13T17:46:19+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://qutrits.github.io/en/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="https://qutrits.github.io/categories/"
-                />
   </url><url>
     <loc>https://qutrits.github.io/posts/</loc>
     <lastmod>2021-12-13T17:46:19+09:00</lastmod>
@@ -39,16 +19,6 @@
   </url><url>
     <loc>https://qutrits.github.io/tags/</loc>
     <lastmod>2021-12-13T17:46:19+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://qutrits.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="https://qutrits.github.io/tags/"
-                />
   </url><url>
     <loc>https://qutrits.github.io/tags/unity/</loc>
     <lastmod>2021-12-13T17:46:19+09:00</lastmod>
@@ -76,16 +46,6 @@
   </url><url>
     <loc>https://qutrits.github.io/series/</loc>
     <lastmod>2021-12-12T23:15:57+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://qutrits.github.io/en/series/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="https://qutrits.github.io/series/"
-                />
   </url><url>
     <loc>https://qutrits.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</loc>
     <lastmod>2021-12-12T23:15:57+09:00</lastmod>
@@ -290,16 +250,6 @@
   </url><url>
     <loc>https://qutrits.github.io/chapter/</loc>
     <lastmod>2020-07-09T18:21:51+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://qutrits.github.io/en/chapter/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="https://qutrits.github.io/chapter/"
-                />
   </url><url>
     <loc>https://qutrits.github.io/tags/effective-java-3e/</loc>
     <lastmod>2020-07-09T18:21:51+09:00</lastmod>
