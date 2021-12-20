@@ -55,7 +55,7 @@
     margin-inline-start: 10px;
   }
 </style>
-<header class="link-header" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
+<header class="link-header" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
   <h1>Links</h1>
   {{- if (not .Site.Params.disableThemeToggle) }}
   <button id="theme-toggle-link" accesskey="t" title="(Alt + T)">
@@ -81,11 +81,11 @@
   {{- end }}
 </header>
 <ul class="links">
-  {{ $_useElementAnimation := .Site.Params.useElementAnimation }}
+  {{ $_useAnimation := .Site.Params.useAnimation }}
   {{- range $i, $v := .Params.links }}
     {{- if (and .name .url) }}
     <li>
-      <a class="button" href="{{ .url }}" rel="noopener" title="{{ .title }}" {{ if $_useElementAnimation }}style="animation-delay: {{ add (mul (add $i 1) 100) 200 }}ms" data-animation="true"{{- end }}>
+      <a class="button" href="{{ .url }}" rel="noopener" title="{{ .title }}" {{ if $_useAnimation }}style="animation-delay: {{ add (mul (add $i 1) 100) 200 }}ms" data-animation="true"{{- end }}>
         {{ partial "svg.html" . }}{{ .title }}
       </a>
     </li>

@@ -1656,6 +1656,34 @@ a.button,
   }
 }
 
+@keyframes slide-in-left-5 {
+  from {
+    opacity: 0;
+    transform: translateX(-5%);
+    -webkit-transform: translateX(-5%);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
+@keyframes slide-in-left-4 {
+  from {
+    opacity: 0;
+    transform: translateX(-4%);
+    -webkit-transform: translateX(-4%);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
 @keyframes slide-in-left-3 {
   from {
     opacity: 0;

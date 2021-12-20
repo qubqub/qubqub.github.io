@@ -1,5 +1,5 @@
 {{- if (.Param "ShowBreadCrumbs") -}}
-<div class="breadcrumbs" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
+<div class="breadcrumbs" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
     {{- $url := replace .Parent.Permalink (printf "%s" .Site.BaseURL) "" }}
     {{- $lang_url := strings.TrimPrefix (printf "%s/" .Lang) $url -}}
 

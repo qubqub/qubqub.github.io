@@ -1,16 +1,16 @@
 {{- define "main" }}
 {{- if .Title }}
 <header class="page-header">
-  <h1 class="terms-title" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>{{ i18n (lower .Title) }} 🏷️</h1>
+  <h1 class="terms-title" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>{{ i18n (lower .Title) }} 🏷️</h1>
   {{- if .Description }}
-  <div class="terms-description" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
+  <div class="terms-description" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
     {{ .Description }}
   </div>
   {{- end }}
 </header>
 {{- end }}
 
-<ul class="terms-tags" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
+<ul class="terms-tags" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
   {{ $suffleTermIndex := (seq (sub (len .Data.Terms.Alphabetical) 1) -1 0) | shuffle }}
 
   {{- $type := .Type }}
@@ -38,7 +38,7 @@
       {{- end }}
 
       <li>
-        <a {{ if .Site.Params.useElementAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add (index $suffleTermIndex $key) 1) 20) 100 }}ms; font-size: {{ $fontSize | lang.NumFmt 2 }}rem;"{{ else }}style="font-size: {{ $fontSize | lang.NumFmt 2 }}rem;"{{ end }} href="{{ .Permalink }}">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
+        <a {{ if .Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add (index $suffleTermIndex $key) 1) 20) 100 }}ms; font-size: {{ $fontSize | lang.NumFmt 2 }}rem;"{{ else }}style="font-size: {{ $fontSize | lang.NumFmt 2 }}rem;"{{ end }} href="{{ .Permalink }}">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
       </li>
     {{- end }}
   {{- end }}

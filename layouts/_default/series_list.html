@@ -1,25 +1,25 @@
 {{- define "main" }}
   {{- if .Params.use}}
     <header class="series-header">
-      <h1 class="series-title" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>{{ .Title }}</h1>
+      <h1 class="series-title" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>{{ .Title }}</h1>
       {{- if .Description }}
-      <div class="series-description-wrapper" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
-        <h2 class="series-description" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>{{ .Description }}</h2>
-        <div class="series-sub-description-wrapper" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
+      <div class="series-description-wrapper" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
+        <h2 class="series-description" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>{{ .Description }}</h2>
+        <div class="series-sub-description-wrapper" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
           {{- if .Params.subDescription1 }}
-          <h4 class="series-sub-description" {{ if .Site.Params.useElementAnimation }}style="animation-delay: 650ms;" data-animation="true"{{ end }}>{{ .Params.subDescription1 }}</h4>
+          <h4 class="series-sub-description" {{ if .Site.Params.useAnimation }}style="animation-delay: 650ms;" data-animation="true"{{ end }}>{{ .Params.subDescription1 }}</h4>
           {{- end }}
           {{- if .Params.subDescription2 }}
-          <h4 class="series-sub-description" {{ if .Site.Params.useElementAnimation }}style="animation-delay: 900ms;" data-animation="true"{{ end }}>{{ .Params.subDescription2 }}</h4>
+          <h4 class="series-sub-description" {{ if .Site.Params.useAnimation }}style="animation-delay: 900ms;" data-animation="true"{{ end }}>{{ .Params.subDescription2 }}</h4>
           {{- end }}
           {{- if .Params.subDescription3 }}
-          <h4 class="series-sub-description" {{ if .Site.Params.useElementAnimation }}style="animation-delay: 1150ms;" data-animation="true"{{ end }}>{{ .Params.subDescription3 }}</h4>
+          <h4 class="series-sub-description" {{ if .Site.Params.useAnimation }}style="animation-delay: 1150ms;" data-animation="true"{{ end }}>{{ .Params.subDescription3 }}</h4>
           {{- end }}
         <div>
       </div>
       {{- end }}
       {{- if .Params.cover.image }}
-        <figure class="series-cover" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
+        <figure class="series-cover" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
           <img loading="lazy" src="{{ (.Params.cover.image) | absURL }}" alt="{{ .Params.cover.alt }}">
         </figure>
       {{- end }}
@@ -30,7 +30,7 @@
       {{- $count := .Count }}
       
       {{- with $.Site.GetPage (printf "/%s/%s" "series" $name) }}
-        <article class="post-entry series-entry" title="{{- i18n $name }}" {{ if .Site.Params.useElementAnimation }}style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;" data-animation="true"{{ end }}>
+        <article class="post-entry series-entry" title="{{- i18n $name }}" {{ if .Site.Params.useAnimation }}style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;" data-animation="true"{{ end }}>
           {{ $seriesTitle := .Name }}
           {{ $seriesId := index (split .RelPermalink "/") (sub (len (split .RelPermalink "/")) 2) }}
           {{- range where $seriesCover "name" $seriesTitle }}

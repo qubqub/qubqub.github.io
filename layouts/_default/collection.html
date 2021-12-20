@@ -1,9 +1,9 @@
 {{- define "main" }}
   {{- if or (.Params.useTag) (.Params.useCategory)}}
     <header class="collection-header">
-      <h1 class="collection-title" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>{{ .Title }}</h1>
+      <h1 class="collection-title" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>{{ .Title }}</h1>
       {{- if .Description }}
-      <div class="collection-description" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
+      <div class="collection-description" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
         {{ .Description }}
       </div>
       {{- end }}
@@ -13,7 +13,7 @@
         {{- $name := .Name }}
         {{- $count := .Count }}
         {{- with $.Site.GetPage (printf "/%s/%s" "categories" $name) }}
-          <article class="post-entry" title="{{- i18n $name }}" {{ if .Site.Params.useElementAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
+          <article class="post-entry" title="{{- i18n $name }}" {{ if .Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
             <header class="entry-header">
               <h2>📄 {{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup></h2>
             </header>
@@ -29,7 +29,7 @@
         {{- $name := .Name }}
         {{- $count := .Count }}
         {{- with $.Site.GetPage (printf "/%s/%s" "tags" $name) }}
-          <article class="post-entry" title="{{- i18n $name }}" {{ if .Site.Params.useElementAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
+          <article class="post-entry" title="{{- i18n $name }}" {{ if .Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
             <header class="entry-header">
               <h2>📄 {{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup></h2>
             </header>
@@ -42,19 +42,19 @@
       {{- end }}
     {{- end }}
   {{- else }}{{/* custom */ -}}
-    {{ $_useElementAnimation := .Site.Params.useElementAnimation }}
+    {{ $_useAnimation := .Site.Params.useAnimation }}
     {{- if .Title }}
       <header class="collection-header">
-        <h1 class="collection-title" {{ if $_useElementAnimation }}data-animation="true"{{ end }}>{{ .Title }}</h1>
+        <h1 class="collection-title" {{ if $_useAnimation }}data-animation="true"{{ end }}>{{ .Title }}</h1>
         {{- if .Description }}
-        <div class="collection-description" {{ if $_useElementAnimation }}data-animation="true"{{ end }}>
+        <div class="collection-description" {{ if $_useAnimation }}data-animation="true"{{ end }}>
           {{ .Description }}
         </div>
         {{- end }}
       </header>
     {{- end }}
     {{- range $i, $v := .Params.menu }}
-      <article class="post-entry" title="{{ .description }}" {{ if $_useElementAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
+      <article class="post-entry" title="{{ .description }}" {{ if $_useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
         {{- if not .cover.hidden }}
           <figure class="collection-cover">
             <img loading="lazy" src="{{ (.cover.image) | absURL }}" alt="{{ .cover.alt }}">

@@ -7,9 +7,9 @@
     {{- if not .IsHome | and .Title }}
       <header class="page-header">
         {{- partial "breadcrumbs.html" . }}
-        <h1 class="page-title" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>{{ .Title }}</h1>
+        <h1 class="page-title" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>{{ .Title }}</h1>
         {{- if .Description }}
-        <div class="page-description" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
+        <div class="page-description" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
           {{ .Description | markdownify }}
         </div>
         {{- end }}
@@ -48,7 +48,7 @@
         {{- $class = "post-entry tag-entry" }}
       {{- end }}
 
-      <article class="{{ $class }}" {{ if .Site.Params.useElementAnimation }}style="animation-delay: {{ add (mul (add $index 1) 50) 120 }}ms;" data-animation="true"{{ end }}>
+      <article class="{{ $class }}" {{ if .Site.Params.useAnimation }}style="animation-delay: {{ add (mul (add $index 1) 50) 120 }}ms;" data-animation="true"{{ end }}>
         {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
         {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
         <header class="entry-header">

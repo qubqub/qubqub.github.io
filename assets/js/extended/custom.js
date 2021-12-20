@@ -271,9 +271,10 @@ DOMReady( function () {
           _hljs[i].style.width = "100%";
         }
       }
-    } else { // page
-      
     }
+    // else { // page
+      
+    // }
   } else if (urlPathName.match(/^\/archives\/$/)) {
     const _archiveMonths = document.querySelectorAll(".archive-year .archive-month");
     const _archiveToggle = document.querySelectorAll(".main .archive-year .archive-month .archive-month-header .toggle");
@@ -326,26 +327,26 @@ DOMReady( function () {
       }
     }
   }
-  else if ( urlPathName.match(/^\/tags\/$/)||
-              urlPathName.match(/^\/categories\/$/) ||
-              urlPathName.match(/^\/series\/$/) ||
-              urlPathName.match(/^\/chapter\/$/)) {
+  // else if ( urlPathName.match(/^\/tags\/$/)||
+  //             urlPathName.match(/^\/categories\/$/) ||
+  //             urlPathName.match(/^\/series\/$/) ||
+  //             urlPathName.match(/^\/chapter\/$/)) {
                 
-  } else if ( urlPathName.match(/^\/posts\/$/) ||
-              urlPathName.match(/^\/tags\/.+/) ||
-              urlPathName.match(/^\/categories\/.+/) ||
-              urlPathName.match(/^\/series\/.+/) ||
-              urlPathName.match(/^\/chapter\/.+/)) {
+  // } else if ( urlPathName.match(/^\/posts\/$/) ||
+  //             urlPathName.match(/^\/tags\/.+/) ||
+  //             urlPathName.match(/^\/categories\/.+/) ||
+  //             urlPathName.match(/^\/series\/.+/) ||
+  //             urlPathName.match(/^\/chapter\/.+/)) {
                 
-  } else if (urlPathName.match(/^\/search\/$/)) {
+  // } else if (urlPathName.match(/^\/search\/$/)) {
     
-  } else if (urlPathName.match(/^\/series-list\/$/)) {
+  // } else if (urlPathName.match(/^\/series-list\/$/)) {
     
-  } else if ( urlPathName.match(/^\/collection\/$/)) {
+  // } else if ( urlPathName.match(/^\/collection\/$/)) {
     
-  } else if (urlPathName === "/") {
+  // } else if (urlPathName === "/") {
     
-  } else if (urlPathName.match(/^\/links\/$/)) {
+  // } else if (urlPathName.match(/^\/links\/$/)) {
     
-  }
+  // }
 });
