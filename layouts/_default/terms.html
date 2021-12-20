@@ -10,7 +10,7 @@
 </header>
 {{- end }}
 
-<ul class="terms-tags">
+<ul class="terms-tags" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
   {{ $suffleTermIndex := (seq (sub (len .Data.Terms.Alphabetical) 1) -1 0) | shuffle }}
 
   {{- $type := .Type }}
@@ -38,7 +38,7 @@
       {{- end }}
 
       <li>
-        <a {{ if .Site.Params.useElementAnimation }}data-animation="true" style="animation-delay: {{ (mul (add (mul (add (index $suffleTermIndex $key) 1) 20) 100) 0.001) | lang.NumFmt 2 }}s; font-size: {{ $fontSize | lang.NumFmt 2 }}rem;"{{- else }}style="font-size: {{ $fontSize | lang.NumFmt 2 }}rem;"{{ end }} href="{{ .Permalink }}">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
+        <a {{ if .Site.Params.useElementAnimation }}data-animation="true" style="transition-delay: {{ add (mul (add (index $suffleTermIndex $key) 1) 20) 100 }}ms; font-size: {{ $fontSize | lang.NumFmt 2 }}rem;"{{- else }}style="font-size: {{ $fontSize | lang.NumFmt 2 }}rem;"{{ end }} href="{{ .Permalink }}">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
       </li>
     {{- end }}
   {{- end }}
