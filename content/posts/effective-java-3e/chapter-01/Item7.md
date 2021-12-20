@@ -2,7 +2,7 @@
 title: "[아이템 7] 다 쓴 객체 참조를 해제하라"
 date: 2020-06-20T12:15:43+09:00
 tags: ["Java", "Effective Java 3E"]
-categories: ["java"]
+categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 1"]
 author: ["Kyungchul Shin"]

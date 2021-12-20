@@ -2,7 +2,7 @@
 title: "[아이템 22] 인터페이스는 타입을 정의하는 용도로만 사용하라"
 date: 2020-07-04T13:21:14+09:00
 tags: ["Java", "Effective Java 3E"]
-categories: ["java"]
+categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 3"]
 author: ["Kyungchul Shin"]

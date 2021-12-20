@@ -2,7 +2,7 @@
 title: "[아이템 23] 태그 달린 클래스보다는 클래스 계층구조를 활용하자"
 date: 2020-07-04T15:46:26+09:00
 tags: ["Java", "Effective Java 3E"]
-categories: ["java"]
+categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 3"]
 author: ["Kyungchul Shin"]

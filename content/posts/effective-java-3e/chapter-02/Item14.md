@@ -2,7 +2,7 @@
 title: "[아이템 14] Comparable를 구현할지 고려하라"
 date: 2020-06-27T17:11:39+09:00
 tags: ["Java", "Effective Java 3E"]
-categories: ["java"]
+categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 2"]
 author: ["Kyungchul Shin"]

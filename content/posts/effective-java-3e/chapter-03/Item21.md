@@ -2,7 +2,7 @@
 title: "[아이템 21] 인터페이스는 구현하는 쪽을 생각해 설계하라"
 date: 2020-07-04T11:14:32+09:00
 tags: ["Java", "Effective Java 3E"]
-categories: ["java"]
+categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 3"]
 author: ["Kyungchul Shin"]

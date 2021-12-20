@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>java on &lt;Qutrits/&gt;</title>
-    <link>https://qutrits.github.io/categories/java/</link>
-    <description>Recent content in java on &lt;Qutrits/&gt;</description>
+    <title>Effective Java 3E on &lt;Qutrits/&gt;</title>
+    <link>https://qutrits.github.io/categories/effective-java-3e/</link>
+    <description>Recent content in Effective Java 3E on &lt;Qutrits/&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 09 Jul 2020 18:21:51 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Jul 2020 18:21:51 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/categories/effective-java-3e/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[아이템 33] 타입 안전 이종 컨테이너를 고려하라</title>
       <link>https://qutrits.github.io/posts/effective-java-3e/chapter-04/item33/</link>

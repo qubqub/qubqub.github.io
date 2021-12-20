@@ -2,7 +2,7 @@
 title: "[아이템 27] 비검사 경고를 제거하라"
 date: 2020-07-08T13:16:11+09:00
 tags: ["Java", "Effective Java 3E"]
-categories: ["java"]
+categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 4"]
 author: ["Kyungchul Shin"]

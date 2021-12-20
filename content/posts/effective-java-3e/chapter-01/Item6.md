@@ -2,7 +2,7 @@
 title: "[아이템 6] 불피요한 객체를 생성을 피하라"
 date: 2020-06-19T18:33:20+09:00
 tags: ["Java", "Effective Java 3E"]
-categories: ["java"]
+categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 1"]
 author: ["Kyungchul Shin"]

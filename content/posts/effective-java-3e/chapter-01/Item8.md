@@ -2,7 +2,7 @@
 title: "[아이템 8] finalizer와 cleaner 사용을 피하라"
 date: 2020-06-20T15:12:33+09:00
 tags: ["Java", "Effective Java 3E"]
-categories: ["java"]
+categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 1"]
 author: ["Kyungchul Shin"]

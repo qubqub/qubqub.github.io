@@ -2,7 +2,7 @@
 title: "[아이템 12] toString을 항상 재정의하라"
 date: 2020-06-27T14:31:22+09:00
 tags: ["Java", "Effective Java 3E"]
-categories: ["java"]
+categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 2"]
 author: ["Kyungchul Shin"]

@@ -2,7 +2,7 @@
 title: "[아이템 32] 제네릭과 가변인수를 함께 쓸 때는 신중하라"
 date: 2020-07-09T16:12:48+09:00
 tags: ["Java", "Effective Java 3E"]
-categories: ["java"]
+categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 4"]
 author: ["Kyungchul Shin"]

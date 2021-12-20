@@ -2,7 +2,7 @@
 title: "[아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하여라"
 date: 2020-06-19T17:15:21+09:00
 tags: ["Java", "Effective Java 3E"]
-categories: ["java"]
+categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 1"]
 author: ["Kyungchul Shin"]
