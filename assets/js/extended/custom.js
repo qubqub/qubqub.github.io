@@ -4,9 +4,9 @@ const DOMReady = function (callback) {
 };
 
 DOMReady( function () {
-  function sleep(ms) {
-    return new Promise((r) => setTimeout(r, ms));
-  }
+  // function sleep(ms) {
+  //   return new Promise((r) => setTimeout(r, ms));
+  // }
 
   if (window.innerWidth < 769) {
     if (!document.getElementById("menu").classList.contains("hidden")) {
@@ -47,15 +47,15 @@ DOMReady( function () {
   });
 
   let urlPathName = "";
-  // let urlContryCode = "";
-  // if (window.location.pathname.match(/^\/.{2}\//)) {
-  //   let urlSulg = window.location.pathname.match(/^\/(.{2})(\/.*)$/)
-  //   urlContryCode = urlSulg[1];
-  //   urlPathName = urlSulg[2];
-  // } else {
-  //   urlPathName = window.location.pathname;
-  // }
-  urlPathName = window.location.pathname;
+  let urlContryCode = "";
+  if (window.location.pathname.match(/^\/.{2}\//)) {
+    let urlSulg = window.location.pathname.match(/^\/(.{2})(\/.*)$/)
+    urlContryCode = urlSulg[1];
+    urlPathName = urlSulg[2];
+  } else {
+    urlPathName = window.location.pathname;
+  }
+
   if (urlPathName.match(/^\/posts\/.+/)) {
     const urlSlug = urlPathName.match(/^(\/posts\/)([^/]+)/);
     if (urlSlug[2] !== "page") {
