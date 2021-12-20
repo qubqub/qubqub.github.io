@@ -58,6 +58,42 @@
   # translation: "copied!"
   translation: <div class="tooltip">Copied!</div><span class="octicon done" style="color:#3fb950;"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon-check"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></span>
 
+- id: january
+  translation: "1월"
+
+- id: february
+  translation: "2월"
+
+- id: march
+  translation: "3월"
+
+- id: april
+  translation: "4월"
+
+- id: may
+  translation: "5월"
+
+- id: june
+  translation: "6월"
+
+- id: july
+  translation: "7월"
+
+- id: august
+  translation: "8월"
+
+- id: september
+  translation: "9월"
+
+- id: october
+  translation: "10월"
+
+- id: november
+  translation: "11월"
+
+- id: december
+  translation: "12월"
+
 - id: effective-java-3e-chapter-1
   translation: "객체 생성과 파괴"
 
