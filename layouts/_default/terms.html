@@ -1,43 +1,46 @@
 {{- define "main" }}
 {{- if .Title }}
 <header class="page-header">
-  <h1>태그 🏷️</h1>
+  <h1 class="terms-title" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>{{ i18n (lower .Title) }} 🏷️</h1>
   {{- if .Description }}
-  <div class="post-description">
+  <div class="terms-description" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
     {{ .Description }}
   </div>
   {{- end }}
 </header>
 {{- end }}
 
-<ul class="terms-tags">
+<ul class="terms-tags" {{ if .Site.Params.useElementAnimation }}data-animation="true"{{ end }}>
+  {{ $suffleTermIndex := (seq (sub (len .Data.Terms.Alphabetical) 1) -1 0) | shuffle }}
+
   {{- $type := .Type }}
   {{/*  {{ range $.Site.Taxonomies.tags.ByCount }}  */}}
   {{- range $key, $value := .Data.Terms.Alphabetical }}
-  {{- $name := .Name }}
-  {{- $count := .Count }}
-  {{- with $.Site.GetPage (printf "/%s/%s" $type $name) }}
+    {{- $name := .Name }}
+    {{- $count := .Count }}
+    {{- with $.Site.GetPage (printf "/%s/%s" $type $name) }}
+      {{ $fontSize := mul (add (float (print "0" (substr (string $count) 0 -1) "." (substr (string $count) -1 1))) 1) 0.8 }}
 
-  {{/*  {{- (int (substr (string $count) 0 1)) }}  */}}
+      {{- if (gt 1 $fontSize) }}
+        {{ $fontSize = (mul $fontSize 0.9) }}
+      {{- else if (and (le 1 $fontSize) (ge 1.25 $fontSize)) }}
+        {{ $fontSize = (mul $fontSize 0.9) }}
+      {{- else if (and (lt 1.25 $fontSize) (ge 1.5 $fontSize)) }}
+        {{ $fontSize = (mul $fontSize 0.875) }}
+      {{- else if (and (lt 1.5 $fontSize) (ge 1.75 $fontSize)) }}
+        {{ $fontSize = (mul $fontSize 0.875) }}
+      {{- else if (and (lt 1.75 $fontSize) (ge 2 $fontSize)) }}
+        {{ $fontSize = (mul $fontSize 0.875) }}
+      {{- else if (and (lt 2 $fontSize) (ge 2.5 $fontSize)) }}
+        {{ $fontSize = (mul $fontSize 0.7) }}
+      {{- else if (lt 2.5 $fontSize) }}
+        {{ $fontSize = (mul 2.5 0.7) }}
+      {{- end }}
 
-  {{/*  {{- if 1 lt (int (substr (string $count) 0 1)) }}
-    크다
-  {{- end }}  */}}
-
-  {{ $fontSize := mul (add (float (print "0" (substr (string $count) 0 -1) "." (substr (string $count) -1 1))) 1) 0.8 }}
-
-  {{- if (lt 1 $fontSize) }}
-    {{- if lt 2.5 $fontSize }}
-      {{ $fontSize = 2.5 }}
+      <li>
+        <a {{ if .Site.Params.useElementAnimation }}data-animation="true" style="transition-delay: {{ add (mul (add (index $suffleTermIndex $key) 1) 20) 100 }}ms; font-size: {{ $fontSize | lang.NumFmt 2 }}rem;"{{ else }}style="font-size: {{ $fontSize | lang.NumFmt 2 }}rem;"{{ end }} href="{{ .Permalink }}">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
+      </li>
     {{- end }}
-  {{- else }}
-    {{ $fontSize = 1 }}
-  {{- end }}
-
-  <li>
-    <a href="{{ .Permalink }}" style="font-size: {{ $fontSize }}rem;">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
-  </li>
-  {{- end }}
   {{- end }}
 </ul>
 {{- end }}{{/* end main */ -}}

@@ -1,33 +1,43 @@
+- id: country_code
+  translation: "en"
+
+- id: date_format
+  translation: "January 2, 2006"
+
+- id: creative_commons
+  translation: 'This material is available under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank">Attribution-ShareAlike 4.0 International License.</a>'
+
+- id: edit_post
+  translation: "Suggest Changes"
+
 - id: prev_page
-  # translation: "Prev Page"
-  translation: "이전 페이지"
+  translation: "Prev Page"
 
 - id: next_page
-  # translation: "Next Page"
-  translation: "다음 페이지"
+  translation: "Next Page"
 
 - id: first_page
-  # translation: "Prev Page"
-  translation: "처음"
+  translation: "Prev Page"
 
 - id: last_page
-  # translation: "Next Page"
-  translation: "마지막"
+  translation: "Next Page"
 
 - id: read_time
   translation:
-    # one : "1 min"
-    # other: "{{ .Count }} min"
-    one : <span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"></path></svg> 1 분 소요</span>
-    other: <span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"></path></svg> {{ .Count }} 분 소요</span>
+    one : <span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"></path></svg> 1 min</span>
+    other: <span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"></path></svg> {{ .Count }} min</span>
+
+- id: tags
+  translation: "Tags"
+
+- id: chapter
+  translation: "Chapter."
 
 - id: toc
-  # translation: "On this page"
-  translation: "목차"
+  translation: "On this page"
 
 - id: translations
-  # translation: "Translations"
-  translation: "번역"
+  translation: "Translations"
 
 - id: home
   translation: "Home"
@@ -39,6 +49,39 @@
 - id: code_copied
   # translation: "copied!"
   translation: <div class="tooltip">Copied!</div><span class="octicon done" style="color:#3fb950;"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon-check"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></span>
+
+- id: effective-java-3e-chapter-1
+  translation: "Creating and Destroying Objects"
+
+- id: effective-java-3e-chapter-2
+  translation: "Methods Common to All Objects"
+
+- id: effective-java-3e-chapter-3
+  translation: "Classes and Interfaces"
+
+- id: effective-java-3e-chapter-4
+  translation: "Generics"
+
+- id: effective-java-3e-chapter-5
+  translation: "Enums and Annotations"
+
+- id: effective-java-3e-chapter-6
+  translation: "Lambdas and Streams"
+
+- id: effective-java-3e-chapter-7
+  translation: "Methods"
+
+- id: effective-java-3e-chapter-8
+  translation: "General Programming"
+
+- id: effective-java-3e-chapter-9
+  translation: "Exceptions"
+
+- id: effective-java-3e-chapter-10
+  translation: "Concurrency"
+
+- id: effective-java-3e-chapter-11
+  translation: "Serialization"
 
 - id: html
   translation: '하이퍼 텍스트 마크업 언어는 웹 페이지를 위한 지배적인 마크업 언어다. 또한, HTML은 제목, 단락, 목록 등과 같은 본문을 위한 구조적 의미를 나타내는 것뿐만 아니라 링크, 인용과 그 밖의 항목으로 구조적 문서를 만들 수 있는 방법을 제공한다.'
@@ -643,8 +686,11 @@
 - id: 아키텍트
   translation: "소프트웨어 아키텍트는 전문가로 간주되는 소프트웨어 개발자로서, 고수준의 설계적 결정을 수행하고 소프트웨어 코딩 표준, 도구, 플랫폼을 포함한 기술 표준을 지시한다."
 
-- id: effective-java-3/e
+- id: effective-java-3e
   translation: "자바 6 출시 직후 출간된 『이펙티브 자바 2판』 이후로 자바는 커다란 변화를 겪었다. 그래서 졸트상에 빛나는 이 책도 자바 언어와 라이브러리의 최신 기능을 십분 활용하도록 내용 전반을 철저히 다시 썼다. 모던 자바가 여러 패러다임을 지원하기 시작하면서 자바 개발자들에게는 구체적인 모범 사례가 더욱 절실해졌고, 관련 조언을 이 책에 담아낸 것이다. 이번 3판에는 자바 7, 8, 9에서 자바 언어와 라이브러리에 추가된 특성들을 녹여냈다. 특히 그동안 객체 지향에 치중하던 자바에 새로 도입된 함수형 프로그래밍 요소도 자세히 알아본다. 람다(lambda)와 스트림(stream)만을 다룬 장을 포함하여 새로운 아이템도 많이 추가되었다."
+
+- id: baekjoon-online-judge
+  translation: "백준 온라인 저지(Baekjoon Online Judge, BOJ)는 컴퓨터 프로그래밍 알고리즘 문제 풀이 서비스를 제공해주는 웹사이트이다."
 
 - id: hugo
   translation: "휴고는 Go로 작성된 정적 사이트 생성기이다. 2013년 Steve Francia에 의해 처음 개발된 휴고는 현재의 수석 개발자 Bjørn Erik Pedersen의 도움을 받아 기능, 성능 면에서 큰 향상을 이루었다."
