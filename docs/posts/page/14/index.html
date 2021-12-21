@@ -19,8 +19,6 @@
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.89.4">
 <link rel=alternate type=application/rss+xml href=https://qutrits.github.io/posts/index.xml>
-<link rel=alternate hreflang=ko href=https://qutrits.github.io/posts/>
-<link rel=alternate hreflang=en href=https://qutrits.github.io/en/posts/>
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
@@ -45,38 +43,33 @@
 <span class=logo-switches>
 <button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button>
-<ul class=lang-switch><li>|</li>
-<li>
-<a href=https://qutrits.github.io/en/ title=English aria-label="EN 🇺🇸">EN 🇺🇸</a>
-</li>
-</ul>
 </span>
 </div>
 <button id=menu-trigger aria-haspopup=menu aria-label="Menu Button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
 </button>
 <ul id=menu class="main-menu hidden">
 <li>
-<a href=https://qutrits.github.io/series-list title=시리즈>
+<a href=https://qutrits.github.io/series-list/ title=시리즈>
 <span>시리즈</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/collection title=모아보기>
+<a href=https://qutrits.github.io/collection/ title=모아보기>
 <span>모아보기</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/archives title="기록 보관소">
+<a href=https://qutrits.github.io/archives/ title="기록 보관소">
 <span>기록 보관소</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/search title=검색>
+<a href=https://qutrits.github.io/search/ title="검색 (Alt + /)" accesskey=/>
 <span>검색</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/tags title=태그>
+<a href=https://qutrits.github.io/tags/ title=태그>
 <span>태그</span>
 </a>
 </li>
@@ -93,13 +86,26 @@
 </h2>
 </header>
 <section class=entry-content>
+<p>[아이템 65] 리플렉션보다는 인터페이스를 사용하라. 리플렉션 기능을 활용하면 클래스에 접근 할 수 있습니다. Class객체가 주어지면 생성자, 메서드, 필드에 해당하는 Consturct, Method, Field 인스턴스를 가져올 수 있고 그 인스턴스들로는 그 클래스의 시그니처 등을 가져올 수 있습니다.
+Method.invoke는 어떤 클래스의 어떤 객체가 가진 어떤 메서드라도 호출할 수 있게 해줍니다 물론 장점만있는 건 아닙니다. 단점은 다음과 같습니다.
+컴파일타임 타입 검사가 주는 이점을 하나도 누릴 수 없다. 예외 검사도 마찬가지입니다. 리플렉션 기능으로 존재하지 않는 혹은 접근할 수 없는 메서드를 호출하려고하면 런타임 오류가 발생합니다....</p>
+</section>
+<footer class=entry-footer></footer>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item65/></a>
+</article>
+<article class=post-entry style=animation-delay:220ms data-animation=true>
+<header class=entry-header>
+<h2>
+</h2>
+</header>
+<section class=entry-content>
 <p>[아이템 66] 네이티브 메서드는 신중히 사용하라. 자바 네이티브 인터페이스는 자바 프로그램이 네이티브 메서드를 호출하는 기술입니다. 네이티브 메서드란 C나 C++같읕 네이비티브 프로그래밍 언어로 작성한 메서드를 말합니다. 네이티브 메서드의 주요 쓰임은 세 가지가 있습니다.
 레지스트리 같은 플랫폼 특화 기능을 사용한다. 네이티브 코드로 작성된 기존 라이브러리를 사용한다. 성능 개선을 목적으로 성능에 결정적인 영향을 주는 영역만 따로 네이티브 언어로 작성한다. 자바 9부터는 process API를 추가해 OS 프로세스에 접근하는 길을 열어주었고 자바에서 네이티브 메서드를 사용할 필요가 점점 줄어드는 추세입니다....</p>
 </section>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item66/></a>
 </article>
-<article class=post-entry style=animation-delay:220ms data-animation=true>
+<article class=post-entry style=animation-delay:270ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -112,7 +118,7 @@ API 설계할 때 성능에 주는 영향을 고려하라....</p>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item67/></a>
 </article>
-<article class=post-entry style=animation-delay:270ms data-animation=true>
+<article class=post-entry style=animation-delay:320ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -123,7 +129,7 @@ API 설계할 때 성능에 주는 영향을 고려하라....</p>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item68/></a>
 </article>
-<article class=post-entry style=animation-delay:320ms data-animation=true>
+<article class=post-entry style=animation-delay:370ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -134,18 +140,6 @@ API 설계할 때 성능에 주는 영향을 고려하라....</p>
 </section>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-09/item69/></a>
-</article>
-<article class=post-entry style=animation-delay:370ms data-animation=true>
-<header class=entry-header>
-<h2>
-</h2>
-</header>
-<section class=entry-content>
-<p>[아이템 70] 복구할 수 있는 상황에서는 검사 예외를, 프로그래밍 오류에는 런타임 예외를 시용하라. 자바에서는 기본적으로 오류는 checked exception, runtime exception, error 이렇게 세 가지로 나눌 수 있습니다. 100% 확실한 건 아니지만 일반적으로 사용하는 상황은 다음과 같습니다.
-호출 하는 쪽에서 복구하리라 여거지는 상황에서는 검사 예외를 사용합시다. 이것이 검사 예외랑 비검사 예외를 구분하는 가장 기본적인 규칙입니다. catch로 잡아서 처리하거나 thorws로 예외를 호출한쪽으로 전파하고 호출했을 때 발생할 수 있는 있다는 걸 API 사용자에게 알리는 것입니다....</p>
-</section>
-<footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-09/item70/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -174,7 +168,7 @@ API 설계할 때 성능에 주는 영향을 고려하라....</p>
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
-<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/18/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/19/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>
