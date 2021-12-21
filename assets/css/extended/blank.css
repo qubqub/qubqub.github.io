@@ -351,7 +351,10 @@ header.header {
 .series-main .series-control .info .page-button .button:hover,
 .profile .profile_inner .buttons .button:hover,
 .top-link:hover,
-.main .toc-aside .inner-wrapper .inner ul li:not(.selected)>a:hover
+.main .toc-aside .inner-wrapper .inner ul li:not(.selected)>a:hover,
+.post-single .post-header .breadcrumbs a:hover,
+.series-main .chapter-control .page-button a:hover,
+.post-footer .paginav a:hover
 {
   transition: color 0.2s ease 0s;
   color: var(--main-color);
@@ -825,16 +828,12 @@ header.header {
   }
 }
 
-#menu-trigger {
-  display: none;
-}
-
 @media screen and (max-width: 768px) {
   #menu.main-menu.hidden {
     display: none;
   }  
 
-  #menu.main-menu.reveal {
+  #menu.main-menu {
     list-style: none;
     position: absolute;
     right: 0;
@@ -1001,6 +1000,10 @@ header.header {
 }
 
 @media screen and (min-width: 769px) and (max-width: 1370px) {
+  #menu-trigger {
+    display: none;
+  }
+
   .post-content .highlight td:nth-child(2) pre code.hljs {
     padding-inline-start: 12px;
   }
@@ -1183,6 +1186,10 @@ header.header {
 }
 
 @media screen and (min-width: 1371px) {
+  #menu-trigger {
+    display: none;
+  }
+
   .post-content .highlight td:nth-child(2) pre code.hljs {
     padding-inline-start: 12px;
   }

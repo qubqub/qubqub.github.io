@@ -11,7 +11,9 @@ ShowBreadCrumbs: false
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
 ShowCreativeCommons: true
+showContentProgressbar: true
 showToc: true
+showAsideToc: true
 TocOpen: false
 comments: true
 disableShare: false

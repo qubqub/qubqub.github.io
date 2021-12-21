@@ -6,7 +6,8 @@ categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 2"]
 author: ["Kyungchul Shin"]
-ShowToc: true
+showToc: true
+showAsideToc: true
 TocOpen: false
 ShowTocAside: true
 draft: false
@@ -16,6 +17,7 @@ ShowReadingTime: true
 ShowPostNavLinks: false
 ShowCodeCopyButtons: true
 ShowBreadCrumbs: true
+showContentProgressbar: true
 # cover:
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"

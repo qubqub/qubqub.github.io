@@ -9,7 +9,7 @@
 1 2 3 4 5  static Random ran = new Randon(); static int random(int n) { return Math.abs(ran.nextInt()) % n; }   이 코드에는 세 가지 문제점이 있습니다. 첫 번째. n이 그리 크지 않은 2의 제곱수라면 얼마 지나지 않아 같은 수열이 반복됩니다. 두 번째, n이 2의 제곱수가 아니라면 몇몇 숫자가 평균적으로 더 반복됩니다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item59/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.2013d9c11238423c5ec986f9906766ee593f2aa4edb2404f09d533030a736563.css integrity="sha256-IBPZwRI4QjxeyYb5kGdm7lk/KqTtskBPCdUzAwpzZWM=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.42e9e3e5ae3a547da59202786f9ed89c7a20393b607ce9539c9deb453e557349.css integrity="sha256-Qunj5a46VH2lkgJ4b57YnHogOTtgfOlTnJ3rRT5Vc0k=" rel="preload stylesheet" as=style>
 <link rel=preload href=/icon/home.webp as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.png>
@@ -25,7 +25,6 @@
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
-<script defer crossorigin=anonymous src=/assets/js/extended/custom.min.2689b93bf84fffec39b34bfa6a0a97bc2c8b2a69dde8c8eb4d8077cd4bb9f0ab.js integrity="sha256-Jom5O/hP/+w5s0v6agqXvCyLKmnd6MjrTYB3zUu58Ks="></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 59] 라이브러리를 익히고 사용하라. 0부터 명시한 수 까지 무작위 정수를 하나 생성하려고 합니다. 다음은 흔히 마주할 수 있는 문제있는 메서드입니다.
 1 2 3 4 5  static Random ran = new Randon(); static int random(int n) { return Math.abs(ran.nextInt()) % n; }   이 코드에는 세 가지 문제점이 있습니다. 첫 번째. n이 그리 크지 않은 2의 제곱수라면 얼마 지나지 않아 같은 수열이 반복됩니다. 두 번째, n이 2의 제곱수가 아니라면 몇몇 숫자가 평균적으로 더 반복됩니다.">
@@ -81,7 +80,7 @@
 </ul>
 </nav>
 </header>
-<main class=main>
+<script>let b=document.querySelector("#menu-trigger"),m=document.querySelector("#menu");b.addEventListener("click",function(){m.classList.toggle("hidden")}),document.body.addEventListener("click",function(a){b.contains(a.target)||m.classList.add("hidden")})</script><main class=main>
 <article class=post-single>
 <header class=post-header>
 <h1 class=post-title data-animation=true>
@@ -178,6 +177,7 @@
 </div>
 </footer>
 </article>
+<script>const DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};DOMReady(function(){let b=0;const a=document.querySelector("header.header"),f=document.querySelector(".post-header"),c="scroll-up",d="scroll-down",e="header-bottom";let g=0;window.addEventListener("scroll",()=>{if(b=window.pageYOffset,b<=0)(!a.classList.contains(c)||a.classList.contains(e))&&(a.classList.remove(e),a.classList.remove(d),a.classList.add(c));else{a.classList.contains(e)||a.classList.add(e);const h=f.offsetHeight+f.offsetTop+f.offsetParent.offsetTop-1;b>h&&(b>g?a.classList.contains(c)&&(a.classList.remove(c),a.classList.add(d)):b<g&&a.classList.contains(d)&&(a.classList.remove(d),a.classList.add(c)))}g=b})})</script>
 </main>
 <footer class=footer>
 <span>&copy; 2021 <a href=https://qutrits.github.io/>&lt;Qutrits/></a></span>

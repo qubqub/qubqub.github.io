@@ -126,3 +126,46 @@
         </ul>
     </nav>
 </header>
+<script>
+    let b = document.querySelector("#menu-trigger");
+    let m = document.querySelector("#menu");
+    b.addEventListener("click", function () {
+        m.classList.toggle("hidden");
+    });
+    document.body.addEventListener("click", function (a) {
+        b.contains(a.target) || m.classList.add("hidden");
+    });
+</script>
+{{- if (.Param "showContentProgressbar") }}
+<script>
+    function updateScrollProgressBar () {
+        let scrollHeight = _root.scrollHeight - heightInViewport(_progressbar) - window.innerHeight;
+        let scrollPosition = currentScroll;
+        let scrollPercentage = scrollPosition / scrollHeight * 100;
+        _progressbar.style.width = scrollPercentage + "%";
+    }
+
+    function heightInViewport (el) {
+    var elH = el.offsetHeight,
+        H = document.body.offsetHeight,
+        r = el.getBoundingClientRect(),
+        t = r.top,
+        b = r.bottom;
+    return Math.max(0, t > 0 ? Math.min(elH, H - t) : Math.min(b, H));
+    }
+
+    const _root = document.querySelector("html");
+    const _body = document.querySelector("body");
+    const progressEl = document.createElement("div");
+    progressEl.classList.add("progress-bar-container__progress");
+    _body.prepend(progressEl);
+
+    const _progressbar = document.querySelector(".progress-bar-container__progress");
+    const _config = { childList: true, subtree: true, characterData: true, attributes: true };
+    new MutationObserver(updateScrollProgressBar).observe(_progressbar, _config);
+
+    window.addEventListener("scroll", () => {
+        updateScrollProgressBar();
+    });
+</script>
+{{- end }}
