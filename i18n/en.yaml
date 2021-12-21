@@ -50,6 +50,42 @@
   # translation: "copied!"
   translation: <div class="tooltip">Copied!</div><span class="octicon done" style="color:#3fb950;"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon-check"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></span>
 
+- id: january
+  translation: "January"
+
+- id: february
+  translation: "February"
+
+- id: march
+  translation: "March"
+
+- id: april
+  translation: "April"
+
+- id: may
+  translation: "May"
+
+- id: june
+  translation: "June"
+
+- id: july
+  translation: "July"
+
+- id: august
+  translation: "August"
+
+- id: september
+  translation: "September"
+
+- id: october
+  translation: "October"
+
+- id: november
+  translation: "November"
+
+- id: december
+  translation: "December"
+
 - id: effective-java-3e-chapter-1
   translation: "Creating and Destroying Objects"
 

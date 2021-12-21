@@ -46,15 +46,15 @@ DOMReady( function () {
     }
   });
 
-  let urlPathName = window.location.pathname;
-  // let urlContryCode = "";
-  // if (window.location.pathname.match(/^\/.{2}\//)) {
-  //   let urlSulg = window.location.pathname.match(/^\/(.{2})(\/.*)$/)
-  //   // urlContryCode = urlSulg[1];
-  //   urlPathName = urlSulg[2];
-  // } else {
-  //   urlPathName = window.location.pathname;
-  // }
+  let urlPathName = "";
+  let urlContryCode = "";
+  if (window.location.pathname.match(/^\/.{2}\//)) {
+    let urlSulg = window.location.pathname.match(/^\/(.{2})(\/.*)$/)
+    urlContryCode = urlSulg[1];
+    urlPathName = urlSulg[2];
+  } else {
+    urlPathName = window.location.pathname;
+  }
 
   if (urlPathName.match(/^\/posts\/.+/)) {
     const urlSlug = urlPathName.match(/^(\/posts\/)([^/]+)/);
