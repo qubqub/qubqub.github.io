@@ -34,7 +34,7 @@
 </head>
 <body class=list id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
-<script>function loding_indicator(b,a){if(b){const b=document.createElement("div");b.id="loading-indicator",b.innerHTML='<div class="spinner"></div>',a.parentNode.insertBefore(b,a.nextSibling)}else a.parentNode.removeChild(document.getElementById("loading-indicator"))}</script>
+<script>function loding_indicator(b,a){if(b===!0){const b=document.createElement("div");b.id="loading-indicator",b.innerHTML='<div class="spinner"></div>',a.parentNode.insertBefore(b,a.nextSibling)}else{const a=document.getElementById("loading-indicator");a.parentNode.removeChild(a)}}</script>
 <header class="header scroll-up">
 <nav class=nav>
 <div class=logo>
@@ -82,16 +82,16 @@
 </header>
 <ul class=terms-tags data-animation=true>
 <li>
-<a data-animation=true style=animation-delay:180ms;font-size:1.33rem href=https://qutrits.github.io/chapter/effective-java-3e-chapter-1/>Effective Java 3E Chapter 1 <sup><strong><sup>9</sup></strong></sup> </a>
+<a data-animation=true style=animation-delay:120ms;font-size:1.33rem href=https://qutrits.github.io/chapter/effective-java-3e-chapter-1/>Effective Java 3E Chapter 1 <sup><strong><sup>9</sup></strong></sup> </a>
 </li>
 <li>
-<a data-animation=true style=animation-delay:120ms;font-size:1.08rem href=https://qutrits.github.io/chapter/effective-java-3e-chapter-2/>Effective Java 3E Chapter 2 <sup><strong><sup>5</sup></strong></sup> </a>
+<a data-animation=true style=animation-delay:180ms;font-size:1.08rem href=https://qutrits.github.io/chapter/effective-java-3e-chapter-2/>Effective Java 3E Chapter 2 <sup><strong><sup>5</sup></strong></sup> </a>
 </li>
 <li>
-<a data-animation=true style=animation-delay:140ms;font-size:1.47rem href=https://qutrits.github.io/chapter/effective-java-3e-chapter-3/>Effective Java 3E Chapter 3 <sup><strong><sup>11</sup></strong></sup> </a>
+<a data-animation=true style=animation-delay:160ms;font-size:1.47rem href=https://qutrits.github.io/chapter/effective-java-3e-chapter-3/>Effective Java 3E Chapter 3 <sup><strong><sup>11</sup></strong></sup> </a>
 </li>
 <li>
-<a data-animation=true style=animation-delay:160ms;font-size:1.26rem href=https://qutrits.github.io/chapter/effective-java-3e-chapter-4/>Effective Java 3E Chapter 4 <sup><strong><sup>8</sup></strong></sup> </a>
+<a data-animation=true style=animation-delay:140ms;font-size:1.26rem href=https://qutrits.github.io/chapter/effective-java-3e-chapter-4/>Effective Java 3E Chapter 4 <sup><strong><sup>8</sup></strong></sup> </a>
 </li>
 </ul>
 </main>

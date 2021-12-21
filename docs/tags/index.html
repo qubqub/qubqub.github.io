@@ -34,7 +34,7 @@
 </head>
 <body class=list id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
-<script>function loding_indicator(b,a){if(b){const b=document.createElement("div");b.id="loading-indicator",b.innerHTML='<div class="spinner"></div>',a.parentNode.insertBefore(b,a.nextSibling)}else a.parentNode.removeChild(document.getElementById("loading-indicator"))}</script>
+<script>function loding_indicator(b,a){if(b===!0){const b=document.createElement("div");b.id="loading-indicator",b.innerHTML='<div class="spinner"></div>',a.parentNode.insertBefore(b,a.nextSibling)}else{const a=document.getElementById("loading-indicator");a.parentNode.removeChild(a)}}</script>
 <header class="header scroll-up">
 <nav class=nav>
 <div class=logo>
@@ -82,10 +82,10 @@
 </header>
 <ul class=terms-tags data-animation=true>
 <li>
-<a data-animation=true style=animation-delay:140ms;font-size:1.75rem href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E <sup><strong><sup>33</sup></strong></sup> </a>
+<a data-animation=true style=animation-delay:120ms;font-size:1.75rem href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E <sup><strong><sup>33</sup></strong></sup> </a>
 </li>
 <li>
-<a data-animation=true style=animation-delay:120ms;font-size:1.75rem href=https://qutrits.github.io/tags/java/>Java <sup><strong><sup>33</sup></strong></sup> </a>
+<a data-animation=true style=animation-delay:140ms;font-size:1.75rem href=https://qutrits.github.io/tags/java/>Java <sup><strong><sup>33</sup></strong></sup> </a>
 </li>
 </ul>
 </main>

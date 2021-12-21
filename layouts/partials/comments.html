@@ -3,7 +3,7 @@
 {{- if (and (.Param "useUtterances") (.Param "utterancesRepo")) -}}
 <div class="button" id="comments" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>{{ i18n "load_comments" }}</div>
 <script>
-    function load_comments (_target) {
+    function load_comments (_target, _callback) {
         // github-light, github-dark, preferred-color-scheme, github-dark-orange, icy-dark, dark-blue, photon-dark, boxy-light, gruvbox-dark
         let _theme = "preferred-color-scheme";
         if (localStorage.getItem("pref-theme") === null) {
@@ -24,12 +24,12 @@
         const _script = document.createElement('script');
         _script.setAttribute("src", "https://utteranc.es/client.js");
         _script.setAttribute("repo", _utterancesRepo);
-        // label (optional)
-        // _script.setAttribute("label", "");
+        // _script.setAttribute("label", ""); // label (optional)
         _script.setAttribute("issue-term", _utterancesMapping);
         _script.setAttribute("theme", _theme);
         _script.setAttribute("crossorigin", "anonymous");
-        _script.setAttribute("async", "");
+        _script.onload = _callback;
+        //_script.async = true;
 
         _target.parentNode.insertBefore(_script, _target.nextSibling);
     }
@@ -39,10 +39,7 @@
         const _postFooter = document.querySelector(".main .post-single .post-footer");
         commentButton.parentNode.removeChild(commentButton);
         loding_indicator(true, _postFooter);
-        load_comments(_postFooter);
-        setTimeout(() => {
-            loding_indicator(false, _postFooter);
-        }, 200);
+        load_comments(_postFooter, loding_indicator);
     });
 </script>
 {{- else }}

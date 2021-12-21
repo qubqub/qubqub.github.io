@@ -40,13 +40,14 @@
 {{- end }}
 <script>
     function loding_indicator (_state, _target) {
-        if (_state) {
+        if (_state === true) {
             const _wrapper = document.createElement("div");
             _wrapper.id = "loading-indicator";
             _wrapper.innerHTML = '<div class="spinner"></div>';
             _target.parentNode.insertBefore(_wrapper, _target.nextSibling);
         } else {
-            _target.parentNode.removeChild(document.getElementById("loading-indicator"));
+            const _el = document.getElementById("loading-indicator");
+            _el.parentNode.removeChild(_el);
         }
     }
 </script>
