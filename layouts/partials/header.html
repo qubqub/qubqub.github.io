@@ -38,6 +38,18 @@
 
 </script>
 {{- end }}
+<script>
+    function loding_indicator (_state, _target) {
+        if (_state) {
+            const _wrapper = document.createElement("div");
+            _wrapper.id = "loading-indicator";
+            _wrapper.innerHTML = '<div class="spinner"></div>';
+            _target.parentNode.insertBefore(_wrapper, _target.nextSibling);
+        } else {
+            _target.parentNode.removeChild(document.getElementById("loading-indicator"));
+        }
+    }
+</script>
 
 <header class="header scroll-up">
     <nav class="nav">

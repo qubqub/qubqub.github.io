@@ -1,12 +1,49 @@
 {{- /* Comments area start */ -}}
 {{- /* to add comments read => https://gohugo.io/content-management/comments/ */ -}}
-{{- if (.Param "useUtterances") -}}
-<script src="https://utteranc.es/client.js"
-        repo="qutrits/blog-comments"
-        issue-term="pathname"
-        theme="preferred-color-scheme"
-        crossorigin="anonymous"
-        async>
+{{- if (and (.Param "useUtterances") (.Param "utterancesRepo")) -}}
+<div class="button" id="comments" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>{{ i18n "load_comments" }}</div>
+<script>
+    function load_comments (_target) {
+        // github-light, github-dark, preferred-color-scheme, github-dark-orange, icy-dark, dark-blue, photon-dark, boxy-light, gruvbox-dark
+        let _theme = "preferred-color-scheme";
+        if (localStorage.getItem("pref-theme") === null) {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) { // dark
+                _theme = "github-dark";
+            } else { // light
+                _theme = "github-light";
+            }
+        } else {
+            if (localStorage.getItem("pref-theme") === "dark") { // dark
+                _theme = "github-dark";
+            } else { // light
+                _theme = "github-light";
+            }
+        }
+        const _utterancesRepo = '{{ .Param "utterancesRepo" }}';
+        const _utterancesMapping = '{{ .Param "utterancesMapping" }}';
+        const _script = document.createElement('script');
+        _script.setAttribute("src", "https://utteranc.es/client.js");
+        _script.setAttribute("repo", _utterancesRepo);
+        // label (optional)
+        // _script.setAttribute("label", "");
+        _script.setAttribute("issue-term", _utterancesMapping);
+        _script.setAttribute("theme", _theme);
+        _script.setAttribute("crossorigin", "anonymous");
+        _script.setAttribute("async", "");
+
+        _target.parentNode.insertBefore(_script, _target.nextSibling);
+    }
+
+    const commentButton = document.querySelector(".main .post-single #comments");
+    commentButton.addEventListener("click", (e) => {
+        const _postFooter = document.querySelector(".main .post-single .post-footer");
+        commentButton.parentNode.removeChild(commentButton);
+        loding_indicator(true, _postFooter);
+        load_comments(_postFooter);
+        setTimeout(() => {
+            loding_indicator(false, _postFooter);
+        }, 300);
+    });
 </script>
 {{- else }}
 {{ template "_internal/disqus.html" . }}
