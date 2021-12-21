@@ -86,19 +86,6 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 60] 정확한 답이 필요하다면 float와 double은 피하라. float와 dobule은 과학과 공학 계산용으로 설계 되었습니다. 이진 부동소수점 연산에 쓰이며, 넓은 범위의 수를 빠르게 정밀한 ‘근사치’로 계산하도록 설계되었습니다. 따라서 정확한 계산 결과가 필요할 때는 사용하면 안 됩니다. 특 히 금용 관련 계산과 맞지 않습니다. 0.1 혹은 10의 음의 거듭 제곱수(10^-1, 10-^2)를 표현할 수 없기 때문입니다.
-예를 들어 1.03달러에서 42센트를 사용하고 남은 돈을 계산한다고 가정해봅시다.
-1 System.out.println(1.03 - 0.42); 이 코드는 0....</p>
-</section>
-<footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item60/></a>
-</article>
-<article class=post-entry style=animation-delay:220ms data-animation=true>
-<header class=entry-header>
-<h2>
-</h2>
-</header>
-<section class=entry-content>
 <p>[아이템 61] 박싱된 기본 타입보다는 기본 타입을 사용하라. 자바의 데이터 타입은 기본형과 참조형이 있습니다. 기본형에 대응하는 참조 타입이 하나씩 있으며 이를 박싱된 기본 타입이라 합니다. 기본 타입과 박싱된 기본 타입은 분명한 차이가 있으며 용도에 맞게 사용해야합니다.
 박싱된 기본 타입은 값 뿐만 아니라 식별성이 더해졌습니다. 즉 값이 같아도 서로 다르게 식별될 수 있습니다. 그리고 박싱 타입은 null을 가질 수 있습니다. 추가로 기본 타입은 박싱 타입보다 메모리와 시간 측면에서 더 효율적입니다.
 1 2 3 // 잘못 구현된 비교자 Comparator&lt;Integer> naturalOrder = (i, j) -> (i &lt; j) ?...</p>
@@ -106,7 +93,7 @@
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item61/></a>
 </article>
-<article class=post-entry style=animation-delay:270ms data-animation=true>
+<article class=post-entry style=animation-delay:220ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -118,7 +105,7 @@
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item62/></a>
 </article>
-<article class=post-entry style=animation-delay:320ms data-animation=true>
+<article class=post-entry style=animation-delay:270ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -130,7 +117,7 @@
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item63/></a>
 </article>
-<article class=post-entry style=animation-delay:370ms data-animation=true>
+<article class=post-entry style=animation-delay:320ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -141,6 +128,19 @@
 </section>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item64/></a>
+</article>
+<article class=post-entry style=animation-delay:370ms data-animation=true>
+<header class=entry-header>
+<h2>
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 65] 리플렉션보다는 인터페이스를 사용하라. 리플렉션 기능을 활용하면 클래스에 접근 할 수 있습니다. Class객체가 주어지면 생성자, 메서드, 필드에 해당하는 Consturct, Method, Field 인스턴스를 가져올 수 있고 그 인스턴스들로는 그 클래스의 시그니처 등을 가져올 수 있습니다.
+Method.invoke는 어떤 클래스의 어떤 객체가 가진 어떤 메서드라도 호출할 수 있게 해줍니다 물론 장점만있는 건 아닙니다. 단점은 다음과 같습니다.
+컴파일타임 타입 검사가 주는 이점을 하나도 누릴 수 없다. 예외 검사도 마찬가지입니다. 리플렉션 기능으로 존재하지 않는 혹은 접근할 수 없는 메서드를 호출하려고하면 런타임 오류가 발생합니다....</p>
+</section>
+<footer class=entry-footer></footer>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item65/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -169,7 +169,7 @@
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
-<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/19/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/18/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

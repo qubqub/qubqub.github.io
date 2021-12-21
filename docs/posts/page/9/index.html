@@ -86,18 +86,6 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 40] @Override 애너테이션을 일관되게 사용하여라. @Override애너테이션은 상위 타입 메서드를 재정의 했다는 뜻으로 메서드 선언에 달 수 있습니다.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 // 버그를 찾아보자 public class Bigram { private final char first; private final char second; public Bigram(char first, char second) { this....</p>
-</section>
-<footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-05/item40/></a>
-</article>
-<article class=post-entry style=animation-delay:220ms data-animation=true>
-<header class=entry-header>
-<h2>
-</h2>
-</header>
-<section class=entry-content>
 <p>[아이템 41] 정의하려는 것이 타입이라면 마커 인터페이스를 사용하라. 마커 인터페이스란 메서드 선언을 포함하지 않고, 단지 구현하는 클래스의 특정 속성을 표시해주는 것입니다. 대표적으로 Serializable인터페이스가 있습니다.
 마커 애너테이션이 등장하면서 마커 인터페이스가 구식이 되었다는 얘기가 있는데, 이는 사실이 아닙니다. 마커 인터페이스는 마커 애너테이션 보다 좋은 점도 있습니다.
 첫 째로 마커 인터페이스는 이를 구현한 클래스의 인스턴스들을 구분하는 타입을 쓸 수 있지만, 마커 애너테이션은 그렇지 않습니다. 마커 인터페이스는 타입이고 마커 애너테이션을 사용하면 런타임에야 발견할 수 있습니다....</p>
@@ -105,7 +93,7 @@
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-05/item41/></a>
 </article>
-<article class=post-entry style=animation-delay:270ms data-animation=true>
+<article class=post-entry style=animation-delay:220ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -117,7 +105,7 @@
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-06/item42/></a>
 </article>
-<article class=post-entry style=animation-delay:320ms data-animation=true>
+<article class=post-entry style=animation-delay:270ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -135,7 +123,7 @@
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-06/item43/></a>
 </article>
-<article class=post-entry style=animation-delay:370ms data-animation=true>
+<article class=post-entry style=animation-delay:320ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -146,6 +134,18 @@
 </section>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-06/item44/></a>
+</article>
+<article class=post-entry style=animation-delay:370ms data-animation=true>
+<header class=entry-header>
+<h2>
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 45] 스트림은 주의해서 사용하라. 스트림이 제공하는 핵심 개념 중 핵심은 두 가지로 나눌 수 있습니다.
+스트림은 데이터 원소의 유한 혹은 무한 시퀀스를 뜻합니다. 스트림 파이프라인은 이 원소들로 수행하는 연산 단계를 표현하는 개념입니다. 스트림은 소스 스트림으로 시작해서 종단(최종) 연산(terminal operation)으로 끝나며, 그 사이에 하나 이상의 중간 연산자가 있을 수 있습니다. 중간 연산자는 어떠한 방식으로 변환(transform) 합니다. 최종 연산은 원소를 정렬해 컬렉션에 담거나, 특정 원소 하나를 선택하거나, 모든 원소를 출력하는 식입니다....</p>
+</section>
+<footer class=entry-footer></footer>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-06/item45/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -174,7 +174,7 @@
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
-<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/19/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/18/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

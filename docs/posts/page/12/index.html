@@ -86,25 +86,13 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 55] 옵셔널 반환은 신중히 하라 자바 8이전에는 메서드가 특정 값을 반환할 수 없을때 취할 수 있는 선택지가 두 가지가 있었습니다. 예외를 던지거나, null을 반환하는 것입니다. 두 방법 모두 허점이 있습니다. 예외는 진짜 예외적인 상황에서만 사용해야 하며 예외를 생성할 때 스택 추적 전체를 캡쳐하므로 바용도 만만치 않습니다. null을 반환할 수 있는 메서드를 호출하면 null 처리를 별도로 해줘야합니다. null 처리를 무시하면 나중에 NPE가 발생할 수 있습니다.
-자바 8부터는 Optional을 지원했습니다. Optional&lt;T>는 null이 아닌 T타입 참조를 하나 담거나, 아무것도 담지 않을 수 있습니다....</p>
-</section>
-<footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-07/item55/></a>
-</article>
-<article class=post-entry style=animation-delay:220ms data-animation=true>
-<header class=entry-header>
-<h2>
-</h2>
-</header>
-<section class=entry-content>
 <p>[아이템 56] 공개된 API 요소에는 항상 문서화 주석을 작성하라. javadocd이라는 유틸리티를 이용하면 소스코드 파일에서 문서화 주석이라는 특수한 형태로 기술된 설명을 추려 API 문서로 변환해줍니다.
 메서드용 문서화 주석에는 해당 메서드와 클라이어트 사이의 규약을 명료하게 기술해야 합니다. 핵심 포인트는 how가 아닌 what입니다. 무엇을 하는지에 대한 설명이 있어야 합니다. 또한 메서드를 호출하기위한 조건, 수행된 후에 만족해야 하는 사후조건, 부작용도 모두 나열되어야 합니다. 잘 쓰인 문서인지 확인하는 유일한 방법은 자바독 유틸리티가 생성한 웹페이지를 읽어보는 길뿐입니다....</p>
 </section>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-07/item56/></a>
 </article>
-<article class=post-entry style=animation-delay:270ms data-animation=true>
+<article class=post-entry style=animation-delay:220ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -117,7 +105,7 @@
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item57/></a>
 </article>
-<article class=post-entry style=animation-delay:320ms data-animation=true>
+<article class=post-entry style=animation-delay:270ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -130,7 +118,7 @@
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item58/></a>
 </article>
-<article class=post-entry style=animation-delay:370ms data-animation=true>
+<article class=post-entry style=animation-delay:320ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -141,6 +129,19 @@
 </section>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item59/></a>
+</article>
+<article class=post-entry style=animation-delay:370ms data-animation=true>
+<header class=entry-header>
+<h2>
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 60] 정확한 답이 필요하다면 float와 double은 피하라. float와 dobule은 과학과 공학 계산용으로 설계 되었습니다. 이진 부동소수점 연산에 쓰이며, 넓은 범위의 수를 빠르게 정밀한 ‘근사치’로 계산하도록 설계되었습니다. 따라서 정확한 계산 결과가 필요할 때는 사용하면 안 됩니다. 특 히 금용 관련 계산과 맞지 않습니다. 0.1 혹은 10의 음의 거듭 제곱수(10^-1, 10-^2)를 표현할 수 없기 때문입니다.
+예를 들어 1.03달러에서 42센트를 사용하고 남은 돈을 계산한다고 가정해봅시다.
+1 System.out.println(1.03 - 0.42); 이 코드는 0....</p>
+</section>
+<footer class=entry-footer></footer>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-08/item60/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -169,7 +170,7 @@
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
-<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/19/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/18/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

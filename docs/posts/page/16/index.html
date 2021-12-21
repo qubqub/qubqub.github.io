@@ -86,25 +86,13 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 75] 예외 상세 메시지에 실패 관련 정보를 담으라. 스택 트레이스는 예외 객체의 toString 메서드를 호출해 얻는 문자열입니다. toString 메서드에 발생 원인에 대한 정보는 가능한 많을 수록 좋습니다. 물론 장황하지 않고 필요한 정보만 담는 것입니다. 가장 좋은 건 발생한 예외에 관여된 모든 매개변수와 필드의 값을 실패 메세지에 담는 것입니다. 물론 보안관 관련된 정보는 유의해서 다루어야 합니다.
-ex) IndexOutOfBoundsException의 상세 메세지에는 범위의 최솟값, 최댓값, 범위를 벗어난 인덱스의 값을 담는 것입니다....</p>
-</section>
-<footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-09/item75/></a>
-</article>
-<article class=post-entry style=animation-delay:220ms data-animation=true>
-<header class=entry-header>
-<h2>
-</h2>
-</header>
-<section class=entry-content>
 <p>[아이템 76] 가능한 한 실패 원자적으로 만들라. 여기서 말하는 실패 원자적이란 호출한 메서드가 실패하더라도 해당 객체는 호출 전 상태로 유지되는 것입니다. 가장 간단한 방법은 불변 객채로 설계하는 것입니다. 가변 객체일 경우 작업 수행 전에 유효성을 검사합는 것입니다.
 1 2 3 4 5 6 7 8 public Object pop() { if (size == 0) { throw new EmptyStachException(); } Object result = el[--size]; el[size] = null; // 참조 해제 return result; } 유효성 검사하는 부분이 없어도 ArrayOutOfBoundsException을 던지지만 이는 추상화 수준에 상황에 어울리지 않습니다....</p>
 </section>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-09/item76/></a>
 </article>
-<article class=post-entry style=animation-delay:270ms data-animation=true>
+<article class=post-entry style=animation-delay:220ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -116,7 +104,7 @@ ex) IndexOutOfBoundsException의 상세 메세지에는 범위의 최솟값, 최
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-09/item77/></a>
 </article>
-<article class=post-entry style=animation-delay:320ms data-animation=true>
+<article class=post-entry style=animation-delay:270ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -128,7 +116,7 @@ ex) IndexOutOfBoundsException의 상세 메세지에는 범위의 최솟값, 최
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item78/></a>
 </article>
-<article class=post-entry style=animation-delay:370ms data-animation=true>
+<article class=post-entry style=animation-delay:320ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -140,6 +128,18 @@ liveness, safety failures를 피하려면 동기화 메서드나 동기화 블�
 </section>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item79/></a>
+</article>
+<article class=post-entry style=animation-delay:370ms data-animation=true>
+<header class=entry-header>
+<h2>
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 80] 스레드보다는 실행자, 태스크, 스트림을 애용하라. Excutor Framework는 인터페이스 기반의 유연한 태스크 실행 기능을 담고 있다.
+1 2 3 ExecutorService exec = Executors.newSingleThreadExecutor(); exec.excute(runnable); // 이 실행자에게 task를 넘김 exec.shutdown(); // graceful하게 종료 (이 작업이 실패하면 VM 자체가 종료되지 않을 것) 이 외에도 다양한 기능을 실행할 수 있다. 실행자 서비스를 사용하기에 까다로운 애플리케이션도 있는데, 가벼운 서버라면 Executors.newCachedThreadPool이 일반적으로 좋은 선택이지만 CachedThreadPool은 무거운 프로덕션 서버에는 좋지 못하다....</p>
+</section>
+<footer class=entry-footer></footer>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item80/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -168,7 +168,7 @@ liveness, safety failures를 피하려면 동기화 메서드나 동기화 블�
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
-<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/19/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/18/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

@@ -86,18 +86,6 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 45] 스트림은 주의해서 사용하라. 스트림이 제공하는 핵심 개념 중 핵심은 두 가지로 나눌 수 있습니다.
-스트림은 데이터 원소의 유한 혹은 무한 시퀀스를 뜻합니다. 스트림 파이프라인은 이 원소들로 수행하는 연산 단계를 표현하는 개념입니다. 스트림은 소스 스트림으로 시작해서 종단(최종) 연산(terminal operation)으로 끝나며, 그 사이에 하나 이상의 중간 연산자가 있을 수 있습니다. 중간 연산자는 어떠한 방식으로 변환(transform) 합니다. 최종 연산은 원소를 정렬해 컬렉션에 담거나, 특정 원소 하나를 선택하거나, 모든 원소를 출력하는 식입니다....</p>
-</section>
-<footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-06/item45/></a>
-</article>
-<article class=post-entry style=animation-delay:220ms data-animation=true>
-<header class=entry-header>
-<h2>
-</h2>
-</header>
-<section class=entry-content>
 <p>[아이템 46] 스트림에서는 부작용이 없는 함수를 사용하라. 스트림 패러다임의 핵심은 계산을 일련의 변환으로 재구성하는 부분입니다. 이때 각 변환 단계는 가능한 한 이전 단계의 결과를 받아 처리하는 순수 함수여야 하는데, 순수 함수란 입력만이 결과에 영향을 주는 함수를 말합니다. 즉 다른 가변 상태를 참조하지 않고, 함수 스스로도 다른 상태를 변경하지 않습니다.
 다음은 텍스트 파일에서 단어별 수를 세어 빈도표를 만드는 코드입니다.
 1 2 3 4 5 6 7 // 스트림을 이해하지 못한 코드 - 따라 하지 말 것 Map&lt;String, Long> freq = new HashMap&lt;>(); try (Stream&lt;String> words = new Scanner(file)....</p>
@@ -105,7 +93,7 @@
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-06/item46/></a>
 </article>
-<article class=post-entry style=animation-delay:270ms data-animation=true>
+<article class=post-entry style=animation-delay:220ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -118,7 +106,7 @@ Collection인터페이스는 Iterable의 하위 타입이고 stream의 메서드
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-06/item47/></a>
 </article>
-<article class=post-entry style=animation-delay:320ms data-animation=true>
+<article class=post-entry style=animation-delay:270ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -130,7 +118,7 @@ Collection인터페이스는 Iterable의 하위 타입이고 stream의 메서드
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-06/item48/></a>
 </article>
-<article class=post-entry style=animation-delay:370ms data-animation=true>
+<article class=post-entry style=animation-delay:320ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -142,6 +130,19 @@ Collection인터페이스는 Iterable의 하위 타입이고 stream의 메서드
 </section>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-07/item49/></a>
+</article>
+<article class=post-entry style=animation-delay:370ms data-animation=true>
+<header class=entry-header>
+<h2>
+</h2>
+</header>
+<section class=entry-content>
+<p>[Item50] 적시에 방어적 복사본을 만들라 이번 아이템에서는 지난 Item17에 다루었던 불변에 대한 주제가 포함되어있습니다. 어떤 객체든 객체의 허락 없이는 외부에서 함부로 내부를 수정하게 하는 일이 없아야 합니다. 하지만 주의를 기울이지 않으면 자신도 모르게 내부를 수정하도록 코드를 짜는 경우가 생길 수 있습니다.
+다음은 부주의로 일어날 수 있는 상황을 예시로 든 코드입니다.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 public final class Period { private final Date date; private final Date end; public Period(Date start, Date end) { if (start....</p>
+</section>
+<footer class=entry-footer></footer>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-07/item50/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -170,7 +171,7 @@ Collection인터페이스는 Iterable의 하위 타입이고 stream의 메서드
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
-<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/19/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/18/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

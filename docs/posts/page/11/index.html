@@ -86,26 +86,13 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[Item50] 적시에 방어적 복사본을 만들라 이번 아이템에서는 지난 Item17에 다루었던 불변에 대한 주제가 포함되어있습니다. 어떤 객체든 객체의 허락 없이는 외부에서 함부로 내부를 수정하게 하는 일이 없아야 합니다. 하지만 주의를 기울이지 않으면 자신도 모르게 내부를 수정하도록 코드를 짜는 경우가 생길 수 있습니다.
-다음은 부주의로 일어날 수 있는 상황을 예시로 든 코드입니다.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 public final class Period { private final Date date; private final Date end; public Period(Date start, Date end) { if (start....</p>
-</section>
-<footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-07/item50/></a>
-</article>
-<article class=post-entry style=animation-delay:220ms data-animation=true>
-<header class=entry-header>
-<h2>
-</h2>
-</header>
-<section class=entry-content>
 <p>[아이템 51] 메서드 시그니처를 신중히 설계하라. 메서드 이름을 신중히 짓자. 항상 표준 명명 규칙을 따라야합니다. 이름만 보고 이해할 수 있고, 일관성있게 짓는 것이 핵심입니다. 그 다음 목표는 개발자 커뮤니티에서 널리 받아들여지는 이름을 사용하는 것입니다. 되도록이면 긴 이름은 피하는 것이 좋습니다. 물론 조직내에 규율이 있다면 그 규율을 지키는 게 우선입니다.
 편의 메서드를 너무 만들지 말자. 메서드가 너무 많은 클래스는 파악하고 유지보수 하기도 힘들고 객체지향 SOLID원칙 중 Single Responsiblity Principle에 위반될 수도 있습니다....</p>
 </section>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-07/item51/></a>
 </article>
-<article class=post-entry style=animation-delay:270ms data-animation=true>
+<article class=post-entry style=animation-delay:220ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -117,7 +104,7 @@
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-07/item52/></a>
 </article>
-<article class=post-entry style=animation-delay:320ms data-animation=true>
+<article class=post-entry style=animation-delay:270ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -129,7 +116,7 @@
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-07/item53/></a>
 </article>
-<article class=post-entry style=animation-delay:370ms data-animation=true>
+<article class=post-entry style=animation-delay:320ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -140,6 +127,18 @@
 </section>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-07/item54/></a>
+</article>
+<article class=post-entry style=animation-delay:370ms data-animation=true>
+<header class=entry-header>
+<h2>
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 55] 옵셔널 반환은 신중히 하라 자바 8이전에는 메서드가 특정 값을 반환할 수 없을때 취할 수 있는 선택지가 두 가지가 있었습니다. 예외를 던지거나, null을 반환하는 것입니다. 두 방법 모두 허점이 있습니다. 예외는 진짜 예외적인 상황에서만 사용해야 하며 예외를 생성할 때 스택 추적 전체를 캡쳐하므로 바용도 만만치 않습니다. null을 반환할 수 있는 메서드를 호출하면 null 처리를 별도로 해줘야합니다. null 처리를 무시하면 나중에 NPE가 발생할 수 있습니다.
+자바 8부터는 Optional을 지원했습니다. Optional&lt;T>는 null이 아닌 T타입 참조를 하나 담거나, 아무것도 담지 않을 수 있습니다....</p>
+</section>
+<footer class=entry-footer></footer>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-07/item55/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -168,7 +167,7 @@
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
-<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/19/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/18/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

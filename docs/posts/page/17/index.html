@@ -86,18 +86,6 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 80] 스레드보다는 실행자, 태스크, 스트림을 애용하라. Excutor Framework는 인터페이스 기반의 유연한 태스크 실행 기능을 담고 있다.
-1 2 3 ExecutorService exec = Executors.newSingleThreadExecutor(); exec.excute(runnable); // 이 실행자에게 task를 넘김 exec.shutdown(); // graceful하게 종료 (이 작업이 실패하면 VM 자체가 종료되지 않을 것) 이 외에도 다양한 기능을 실행할 수 있다. 실행자 서비스를 사용하기에 까다로운 애플리케이션도 있는데, 가벼운 서버라면 Executors.newCachedThreadPool이 일반적으로 좋은 선택이지만 CachedThreadPool은 무거운 프로덕션 서버에는 좋지 못하다....</p>
-</section>
-<footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item80/></a>
-</article>
-<article class=post-entry style=animation-delay:220ms data-animation=true>
-<header class=entry-header>
-<h2>
-</h2>
-</header>
-<section class=entry-content>
 <p>[아이템 81] wait와 notify보다는 동시성 유틸리티를 애용하라. wait와 notify는 올바르게 사용하기가 아주 까다로우니 고수준 동시성 유틸리티를 사용하라.
 java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있다.
 실헹자 프레임워크 동시성 컬렉션 동기화 장치 동시성 컬렉션은 높은 동시성에 도달하기 위해 동기화를 각자의 내부에서 구현한다. 따라서 컬렉션에서 동기성을 무력화하는 건 불가능하며 외부에서 락을 추가로 사용하면 속도가 느려진다.
@@ -106,7 +94,7 @@ java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있�
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item81/></a>
 </article>
-<article class=post-entry style=animation-delay:270ms data-animation=true>
+<article class=post-entry style=animation-delay:220ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -118,7 +106,7 @@ java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있�
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item82/></a>
 </article>
-<article class=post-entry style=animation-delay:320ms data-animation=true>
+<article class=post-entry style=animation-delay:270ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -131,7 +119,7 @@ java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있�
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item83/></a>
 </article>
-<article class=post-entry style=animation-delay:370ms data-animation=true>
+<article class=post-entry style=animation-delay:320ms data-animation=true>
 <header class=entry-header>
 <h2>
 </h2>
@@ -141,6 +129,19 @@ java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있�
 </section>
 <footer class=entry-footer></footer>
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-10/item84/></a>
+</article>
+<article class=post-entry style=animation-delay:370ms data-animation=true>
+<header class=entry-header>
+<h2>
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 85] 자바 직렬화의 대안을 찾으라. 자바의 역직렬화에는 치명적인 단점이 있습니다. 신롸할 수 없는 스트림을 역직렬화하면 원격 코드 실행, 서비스 거부 등의 공격으로 이어질 수 있습니다.
+역직렬화 폭탄이란 서비스 거부 공격을 유발하는 스트림입니다.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 static byte[] bomb() { Set&lt;Object> root = new HashSet&lt;>(); Set&lt;Object> s1 = root; Set&lt;Object> s2 = new HashSet&lt;>(); for (int i = 0; i &lt; 100; i++) { Set&lt;Object> t1 = new HashSet&lt;>(); Set&lt;Object> t2 = new HashSet&lt;>(); t1....</p>
+</section>
+<footer class=entry-footer></footer>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/posts/effective-java-3e/chapter-11/item85/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
@@ -169,7 +170,7 @@ java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있�
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
-<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/19/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<a class="pagination__link pagination__link--last" href=https://qutrits.github.io/posts/page/18/><svg style="margin-right:-10px;vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-3px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>
