@@ -67,7 +67,8 @@
                   {{ $_splitChapter := split $key "-chapter-" }}
                   {{ $_seriesId := index $_splitChapter 0 }}
                   {{ $_chapterNumber := index $_splitChapter 1 }}
-                  {{ with (index $value.Pages (sub (len $value.Pages) 1)) }}
+                  {{/*  {{ with (index $value.Pages (sub (len $value.Pages) 1)) }}  */}}
+                  {{ with (index $value.Pages 0) }}
                     {{ if (eq $seriesId $_seriesId) }}
                       {{ $_chapterLink := .RelPermalink }}
                       {{- range where $seriesCover "name" $seriesTitle }}

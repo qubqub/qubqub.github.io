@@ -83,88 +83,90 @@
 </header>
 <article class=post-entry style=animation-delay:170ms data-animation=true>
 <header class=entry-header>
-<h2>[아이템 13] clone 재정의는 주의해서 진행하라
+<h2>[아이템 31] 한정적 와일드카드를 사용해 API 유연성을 높여라
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 13] clone 재정의는 주의해서 진행하라. 실무에서 Cloneable을 구현한 클래스는 clone 메서드를 public으로 제공하며, 사용자는 당연히 복제가 제대로 이뤄지리라 기대합니다.
-하지만 clone 메서드의 일반 규약은 허술한 부분이 있습니다. 다음은 Object 명세에서 가져온 설명입니다.
-이 객체의 복사본을 생성해 반환합니다. ‘복사’의 정확한 뜻은 그 객체를 구현한 클래스에 따라 다를 수 있지만 일반적은 의도는 다음과 같습니다. 어떤 객체 x에 대해 다음 식은 참입니다.
-x.clone() != x x.clone.getClass() = x.getClass() x.clone().equals(x) clone을 사용하는 방법은 굉장히 쉽습니다....</p>
+<p>[아이템 31] 한정적 와일드카드를 사용해 API 유연성을 높여라. 때론 불공변 방식보다 유연한 무언가가 필요할 때가 있습니다.
+아이템29의 Stack 클래스를 떠올려보면
+1 2 3 4 5 6 public class Stack&lt;T> { public Stack(); public void push (E e); public E pop(); public boolean isEmpty(); } 여기서 일련의 원소를 스택에 넣는 메서드를 추가한다고 하면
+1 2 3 4 5 public void pushAll(Iterable&lt;E> src) { for (E e : src) { push(e); } } Iterable src의 원소 타입의 스택의 원소 타입과 일치하면 잘 작동합니다....</p>
 </section>
-<footer class=entry-footer><span title="2020-06-27 15:04:12 +0900 KST">2020년 6월 27일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-07-09 13:42:19 +0900 KST">2020년 7월 9일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 4 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 13] clone 재정의는 주의해서 진행하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-02/item13/></a>
+<a class=entry-link aria-label="post link to [아이템 31] 한정적 와일드카드를 사용해 API 유연성을 높여라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item31/></a>
 </article>
 <article class=post-entry style=animation-delay:220ms data-animation=true>
 <header class=entry-header>
-<h2>[아이템 12] toString을 항상 재정의하라
+<h2>[아이템 20] 추상 클래스보다는 인터페이스를 우선하라
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 12] toString을 항상 재정의하라. toString을 오버라이딩 하지 않으면 기본적으로 클래스_이름@16진수로_표현한_해시코드를 반환합니다.
-이렇게 되면 객체의 특성을 알아볼 수 있으므로 toString을 재정의 할 필요가 있습니다.
-1 2 Student student = new Student("kim", 16); System.out.println(student); 위 코드를 실행하면 Student@abcd같은 형태로 콘솔에 출력되므로 객체의 특성을 파악하기가 힘듭니다.
-toString 재정의하는 좋은 방법. 객체가 가진 가진 주요 정보를 모두 반환하는 게 좋습니다. toString을 구현하면 반환값의 포맷을 문서화할지 정해야 합니다. 규칙이 명확해지는 장점이 있지만, 한번 명시하면 그 포맷에 얽매이게 됩니다....</p>
+<p>[아이템 20] 추상 클래스보다는 인터페이스를 우선하라. 자바가 제공하는 다중 구현 메커니즘은 인터페이스와 추상 클래스가 있습니다. 자바8 부터는 인터페이스에서 defualt moethod를 제공할 수 있게 되어서 두 메커니즘 모두 인스턴스 메서드를 구현 형태로 제공할 수 있습니다.
+추상 클래스와 인터페이스의 큰 차이점은 추상 클래스의 정의한 타입을 구현 클래스는 반드시 서브클래스가 된다는 점입니다. 자바에서는 단일 상속만 지원하기 때문에 이런 제약은 새로운 타입을 정의하는데 커다란 제약이 됩니다.
+반면 인터페이스의 준수 사항을 잘 지키고 모든 메서드를 구현한 클래스는 어느 계층에 있든 인터페이스를 구현할 수 있습니다....</p>
 </section>
-<footer class=entry-footer><span title="2020-06-27 14:31:22 +0900 KST">2020년 6월 27일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-07-03 14:21:15 +0900 KST">2020년 7월 3일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 12] toString을 항상 재정의하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-02/item12/></a>
+<a class=entry-link aria-label="post link to [아이템 20] 추상 클래스보다는 인터페이스를 우선하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item20/></a>
 </article>
 <article class=post-entry style=animation-delay:270ms data-animation=true>
 <header class=entry-header>
-<h2>[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라
+<h2>[아이템 6] 불피요한 객체를 생성을 피하라
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라. equals와 hasoCode를 재정의 하지 않으면 HashMap이나 HashSet에서 같은 원소를 사용할 때 문제가 발생합니다.
-equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 hashCode메서드는 여러번 호출해도 일관된 값을 반환해야 합니다. equals가 두 객체를 같다고 판단하면 hashCode 또한 같은 값을 반환해야 합니다. equals가 두 객체를 다르다고 판단해도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다....</p>
+<p>[아이템 6] 불피요한 객체를 생성을 피하라 기능이 똑같은 객체를 매번 생성하기 보다는 객체를 재사용하는 것이 적절합니다. 특히 불변 객체는 항상 재사용할 수 있습니다.
+문자열 생성 방법 객체 생성 방식 - 피해야되는 예시 1 String str = new String("hello"); 이 방식을 이용하면 똑같은 문자열을 생성하더라도 항상 새로운 객체를 생성하므로 낭비가 됩니다.
+리터럴 방식 1 String str = "hello"; 리터럴 방식을 사용하면 JVM에서 동일한 문자열이 존재한다면 그 리터럴을 재사용합니다....</p>
 </section>
-<footer class=entry-footer><span title="2020-06-27 13:18:21 +0900 KST">2020년 6월 27일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-06-19 18:33:20 +0900 KST">2020년 6월 19일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 11] equals를 재정의하려거든 hashCode도 재정의하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-02/item11/></a>
+<a class=entry-link aria-label="post link to [아이템 6] 불피요한 객체를 생성을 피하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-01/item6/></a>
 </article>
 <article class=post-entry style=animation-delay:320ms data-animation=true>
 <header class=entry-header>
-<h2>[아이템 10] equals는 일반 규약을 지켜 재정의하라
+<h2>[아이템 32] 제네릭과 가변인수를 함께 쓸 때는 신중하라
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 10] equals는 일반 규약을 지켜 재정의하라. equals 메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다.여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.
-equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.
-반사성(reflexivity) null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다. 대칭성(symmetry) null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.equals(x)입니다. 잘못된 코드 - 대칭성 위반...</p>
+<p>[아이템 32] 제네릭과 가변인수를 함께 쓸 때는 신중하라. 가변인수와 제네릭은 자바 5에 함께 추가되었는데 이 둘은 서로 어울리지 않습니다.
+가변인수(varargs)란 메서드에 넘기는 인수의 개수를 클라이언트가 조절할 수 있게 해주는 것입니다. 구현 방식에 허점이 있습나다. 가변인수 메서드를 호출하면 가변인수를 담기 위한 배열이 자동으로 하나 만들어집니다. 그런데 내부로 감춰야 했을 이 배열을 그만 클라이언트에 노출하는 문제가 생겼습니다. 그 결과 verargs 매개변수에 제네릭이나 매개변수화 타입이 포함되면 알기 어려운 컴파일 경고가 발생합니다.
+실체화 불가 타입은 런타임에 컴파일보다 타입 관련 정보를 적게 담고 있습니다....</p>
 </section>
-<footer class=entry-footer><span title="2020-06-27 11:42:54 +0900 KST">2020년 6월 27일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-07-09 16:12:48 +0900 KST">2020년 7월 9일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 10] equals는 일반 규약을 지켜 재정의하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-02/item10/></a>
+<a class=entry-link aria-label="post link to [아이템 32] 제네릭과 가변인수를 함께 쓸 때는 신중하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item32/></a>
 </article>
 <article class=post-entry style=animation-delay:370ms data-animation=true>
 <header class=entry-header>
-<h2>[아이템 9] try-finally보다는 try-with-resources를 사용하라
+<h2>[아이템 21] 인터페이스는 구현하는 쪽을 생각해 설계하라
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 9] try-finally보다는 try-with-resources를 사용하라 자바 라이브러리에는 InputStream, OutputStream, java.sql.Connection과 같이 직접 close를 해야 하는 자원들 있습니다. 클라이언트는 실수로 자원을 닫아주지 않는 경우 예상치 못한 성능 문제로 이어질 수 있습니다.
-1 2 3 4 5 6 7 8 9 static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path)); try { return br.readLine(); } finally { br.close(); } } } 나쁘진 않지만 자원을 더 사용하게 되면 살수가 나올 가능성이 큽니다....</p>
+<p>[아이템 21] 인터페이스는 구현하는 쪽을 생각해 설계하라. JAVA 8이전에는 기존 구현체를 깨뜨리지 않고 인터페이스에 새로운 메서드를 추가할 방법이 없었습니다. JAVA 8부터는 디폴트 메서드를 제공해서 이러한 문제점들을 해결해줬지만 위험이 완전히 사라진 것은 아닙니다.
+JAVA 8이전까지는 인터페이스에 새로운 메소드가 추가될리 없다는 암묵적인 가정으로 작성되었습니다.
+즉 디폴트 메서드는 구현한 클래스에 동의 없이 무작정 삽입되었습니다. JAVA 8에서는 핵심 컬렉션 인터페이스들에 다수의 디폴트 메서드가 추가되었습니다. 주로 람다를 활용하기 위해서입니다.
+자바라이브러리의 디폴트 메서드는 코드 품질이 높고 범용적이라 대부분 잘 작동하지만, 생각할 수 있는 모든 상황에서 불변식을 해치지 않는 디폴트 메서드를 작성하기란 어려운 법입니다....</p>
 </section>
-<footer class=entry-footer><span title="2020-06-20 17:12:16 +0900 KST">2020년 6월 20일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-07-04 11:14:32 +0900 KST">2020년 7월 4일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 9] try-finally보다는 try-with-resources를 사용하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-01/item9/></a>
+<a class=entry-link aria-label="post link to [아이템 21] 인터페이스는 구현하는 쪽을 생각해 설계하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item21/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

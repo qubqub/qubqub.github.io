@@ -37,11 +37,11 @@
     {{ $_totalChapterPage = len $taxonomy }}
     {{ range $key, $value := $taxonomy }}
       {{ if (eq $key $_preChapterId)}}
-        {{ $_preChapterPages = index $value 0 }}
+        {{ $_preChapterPages = index $value (sub (len $value) 1) }}
       {{ end }}
 
       {{ if (eq $key $_nextChapterId)}}
-        {{ $_nextChapterPages = index $value (sub (len $value) 1) }}
+        {{ $_nextChapterPages = index $value 0 }}
       {{ end }}
     {{ end }}
   {{ end }}
@@ -96,14 +96,16 @@
             {{ range $key, $value := $taxonomy }}
               {{ if (eq $key $_chapterId)}}
                 <ol class="series-list">
-                  {{ $descPages := seq (sub (len $value.Pages) 1) -1 0 }} {{/* sort in reverse order */}}
-                  {{ range $descPages }}
-                    {{ with (index $value.Pages .) }}
+                  {{/* sort in reverse order */}}
+                  {{/*  {{ $descPages := seq (sub (len $value.Pages) 1) -1 0 }}  */}}
+                  {{/*  {{ range $descPages }}  */}}
+                    {{/*  {{ with (index $value.Pages .) }}  */}}
+                  {{ range $value.Pages }}
                     <li hugo-nav="{{ .RelPermalink}}">
                       <a href="{{ .RelPermalink}}" {{ if (eq $pageTitle .LinkTitle) }} class="current" {{ end }}>{{ .LinkTitle }}</a>
                     </li>
-                    {{ end }}
                   {{ end }}
+                    {{/*  {{ end }}  */}}
                 </ol>
 
                 <div class="series-control">
@@ -122,16 +124,17 @@
                       {{ end }}
                     {{ end }}
                     <div class="series-number">
-                      {{ sub (len $value.Pages) $_currentIdx }} / {{ len $value.Pages }}
+                      {{/*  {{ sub (len $value.Pages) $_currentIdx }} / {{ len $value.Pages }}  */}}
+                      {{ add $_currentIdx 1 }} / {{ len $value.Pages }}
                     </div>
 
                     {{ range $index, $filePath := $value.Pages }}
-                      {{ if (eq $index (add $_currentIdx 1)) }}
+                      {{ if (eq $index (sub $_currentIdx 1)) }}
                         {{ $_prePageTitle = .LinkTitle }}
                         {{ $_prePageLink = .RelPermalink }}
                       {{ end }}
 
-                      {{ if (eq $index (sub $_currentIdx 1)) }}
+                      {{ if (eq $index (add $_currentIdx 1)) }}
                         {{ $_nextPageTitle = .LinkTitle }}
                         {{ $_nextPageLink = .RelPermalink }}
                       {{ end }}
@@ -248,13 +251,15 @@
             {{ range $key, $value := $taxonomy }}
               {{ if (eq $key $_seriesId)}}
                 <ol class="series-list">
-                  {{ $descPages := seq (sub (len $value.Pages) 1) -1 0 }} {{/* sort in reverse order */}}
-                  {{ range $descPages }}
-                    {{ with (index $value.Pages .) }}
+                  {{/* sort in reverse order */}}
+                  {{/*  {{ $descPages := seq (sub (len $value.Pages) 1) -1 0 }}  */}}
+                  {{/*  {{ range $descPages }}  */}}
+                    {{/*  {{ with (index $value.Pages .) }}  */}}
+                  {{ range $value.Pages }}
                     <li hugo-nav="{{ .RelPermalink}}">
                       <a href="{{ .RelPermalink}}" {{ if (eq $pageTitle .LinkTitle) }} class="current" {{ end }}>{{ .LinkTitle }}</a>
                     </li>
-                    {{ end }}
+                    {{/*  {{ end }}  */}}
                   {{ end }}
                 </ol>
 
@@ -274,16 +279,17 @@
                       {{ end }}
                     {{ end }}
                     <div class="series-number">
-                      {{ sub (len $value.Pages) $_currentIdx }} / {{ len $value.Pages }}
+                      {{/*  {{ sub (len $value.Pages) $_currentIdx }} / {{ len $value.Pages }}  */}}
+                      {{ add $_currentIdx 1 }} / {{ len $value.Pages }}
                     </div>
 
                     {{ range $index, $filePath := $value.Pages }}
-                      {{ if (eq $index (add $_currentIdx 1)) }}
+                      {{ if (eq $index (sub $_currentIdx 1)) }}
                         {{ $_prePageTitle = .LinkTitle }}
                         {{ $_prePageLink = .RelPermalink }}
                       {{ end }}
 
-                      {{ if (eq $index (sub $_currentIdx 1)) }}
+                      {{ if (eq $index (add $_currentIdx 1)) }}
                         {{ $_nextPageTitle = .LinkTitle }}
                         {{ $_nextPageLink = .RelPermalink }}
                       {{ end }}
