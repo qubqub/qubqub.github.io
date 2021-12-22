@@ -2002,8 +2002,8 @@ a.button,
   animation-fill-mode: both;
 }
 
-.main .links .button[data-animation=true] {
-  animation-name: slide-in-left-10;
+.main .links .link-wrapper[data-animation=true] {
+  animation-name: slide-in-left-5;
   animation-duration: 0.4s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;

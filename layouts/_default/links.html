@@ -85,9 +85,11 @@
   {{- range $i, $v := .Params.links }}
     {{- if (and .name .url) }}
     <li>
-      <a class="button" href="{{ .url }}" rel="noopener" title="{{ .title }}" {{ if $_useAnimation }}style="animation-delay: {{ add (mul (add $i 1) 100) 200 }}ms" data-animation="true"{{- end }}>
-        {{ partial "svg.html" . }}{{ .title }}
-      </a>
+      <div class="link-wrapper" {{ if $_useAnimation }}style="animation-delay: {{ add (mul (add $i 1) 100) 200 }}ms" data-animation="true"{{- end }}>
+        <a class="button" href="{{ .url }}" rel="noopener" title="{{ .title }}">
+          {{ partial "svg.html" . }}{{ .title }}
+        </a>
+      </div>
     </li>
     {{- end }}
   {{- end }}
