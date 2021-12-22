@@ -1173,6 +1173,10 @@ header.header {
     padding-inline-end: 2rem;
   }
 
+  .main .post-single .toc-aside .inner-wrapper .inner a>strong {
+    font-weight: unset;
+  }
+  
   .main .post-single .toc-aside .inner-wrapper .inner .selected>a {
     display: block;
     transition: all 0.125s ease-in 0s;
@@ -1363,6 +1367,10 @@ header.header {
     margin: 0;
     padding: 0;
     padding-inline-end: 2rem;
+  }
+
+  .main .post-single .toc-aside .inner-wrapper .inner a>strong {
+    font-weight: unset;
   }
 
   .main .post-single .toc-aside .inner-wrapper .inner .selected>a {
