@@ -52,7 +52,8 @@
             {{- if (eq $taxonomy_term "series") }}
               {{- range $key, $value := $taxonomy }}
                 {{ if (eq $seriesId $key) }}
-                  {{ with (index $value.Pages (sub (len $value.Pages) 1)) }}
+                  {{/* with (index $value.Pages (sub (len $value.Pages) 1)) */}}
+                  {{ with (index $value.Pages 0) }}
                     <a class="entry-link" aria-label="{{ $seriesTitle }}" href="{{ .RelPermalink }}"></a>
                   {{- end }}
                 {{- end }}

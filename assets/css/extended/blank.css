@@ -360,7 +360,8 @@ header.header {
 .terms-tags a:hover,
 .font-size-button .button:hover,
 .aside-font-size-button .button:hover,
-.top-link:hover {
+.top-link:hover,
+.main .post-single div#comments:hover {
   transition: box-shadow 0.2s ease 0s, transform .1s;
   box-shadow: 0 0 0 1px var(--primary) inset;
 }
@@ -1894,7 +1895,7 @@ a.button,
   animation-iteration-count: 1;
   animation-fill-mode: both;
 }
-.main .post-single #comments[data-animation=true] {
+.main .post-single .comments-wrapper[data-animation=true] {
   animation-name: slide-in-up-20;
   animation-duration: 0.2s;
   animation-delay: 0.6s;
@@ -1903,7 +1904,7 @@ a.button,
   animation-fill-mode: both;
 }
 
-.main .terms-tags a[data-animation=true] {
+.main .terms-tags .terms-wrapper[data-animation=true] {
   animation-name: slide-in-down-30;
   animation-duration: 0.3s;
   animation-timing-function: ease-out;
@@ -1937,6 +1938,14 @@ a.button,
 }
 
 .main .post-entry:not(.search-entry):not(.series-entry)[data-animation=true] {
+  animation-name: slide-in-left-5;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+.main .collection-entry[data-animation=true] {
   animation-name: slide-in-left-5;
   animation-duration: 0.2s;
   animation-timing-function: ease-out;
