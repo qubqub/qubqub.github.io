@@ -239,12 +239,5 @@
         }
         lastScroll = currentScroll;
     });
-
-    window.onload = function() {
-        const _hljs = document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");
-        for (let i = 0; i < _hljs.length; i++) {
-            _hljs[i].style.width = "100%";
-        }
-    }
 </script>
 {{- end }}
