@@ -47,7 +47,8 @@
             _target.parentNode.insertBefore(_wrapper, _target.nextSibling);
         } else {
             const _el = document.getElementById("loading-indicator");
-            _el.parentNode.removeChild(_el);
+            _el.classList.add("scale-zero");
+            //_el.parentNode.removeChild(_el);
         }
     }
 </script>

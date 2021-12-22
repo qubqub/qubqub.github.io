@@ -306,6 +306,11 @@ header.header {
   height: 100%;
   text-align: center;
 }
+
+.scale-zero {
+  transform: scale(0);
+  transition: all 0.125s ease-in 0s;
+}
   
 @keyframes spinner {
   from {transform: rotate(0deg); }
