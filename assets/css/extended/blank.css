@@ -870,6 +870,10 @@ header.header {
 }
 
 @media screen and (max-width: 768px) {
+  .main .archive-year .archive-month-header .toggle {
+    vertical-align: -4px;
+  }
+  
   #menu.main-menu.hidden {
     display: none;
   }  
@@ -1044,7 +1048,7 @@ header.header {
   .main .archive-year .archive-month-header .toggle {
     vertical-align: top;
   }
-  
+
   #menu-trigger {
     display: none;
   }
