@@ -30,66 +30,79 @@
       {{- $count := .Count }}
       
       {{- with $.Site.GetPage (printf "/%s/%s" "series" $name) }}
-        <article class="post-entry series-entry" title="{{- i18n $name }}" {{ if .Site.Params.useAnimation }}style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;" data-animation="true"{{ end }}>
-          {{ $seriesTitle := .Name }}
-          {{ $seriesId := index (split .RelPermalink "/") (sub (len (split .RelPermalink "/")) 2) }}
-          {{- range where $seriesCover "name" $seriesTitle }}
-            {{- if .image }}
-              <figure class="series-content-cover">
-                <img loading="lazy" src="{{ .image | absURL }}" alt="{{ .alt }}">
-              </figure>
+        <div class="series-entry-wrapper" {{ if .Site.Params.useAnimation }}style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;" data-animation="true"{{ end }}>
+          <article class="series-entry button" title="{{- i18n $name }}">
+            {{ $seriesTitle := .Name }}
+            {{ $seriesId := index (split .RelPermalink "/") (sub (len (split .RelPermalink "/")) 2) }}
+            {{- range where $seriesCover "name" $seriesTitle }}
+              {{- if .image }}
+                <figure class="series-content-cover">
+                  <img loading="lazy" src="{{ .image | absURL }}" alt="{{ .alt }}">
+                </figure>
+              {{- end }}
             {{- end }}
-          {{- end }}
 
-          <header class="entry-header">
-            <h2>🗂️ {{ $seriesTitle }} <sup><strong><sup>{{ $count }}</sup></strong></sup></h2>
-          </header>
-          <section class="entry-content">
-            <p>{{- i18n $name }}</p>
-          </section>
-          
-          {{- range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
-            {{- if (eq $taxonomy_term "series") }}
-              {{- range $key, $value := $taxonomy }}
-                {{ if (eq $seriesId $key) }}
-                  {{/* with (index $value.Pages (sub (len $value.Pages) 1)) */}}
-                  {{ with (index $value.Pages 0) }}
-                    <a class="entry-link" aria-label="{{ $seriesTitle }}" href="{{ .RelPermalink }}"></a>
+            <header class="entry-header">
+              <h2>🗂️ {{ $seriesTitle }} <sup><strong><sup>{{ $count }}</sup></strong></sup></h2>
+            </header>
+            <section class="entry-content">
+              <p>{{- i18n $name }}</p>
+            </section>
+            
+            {{- range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
+              {{- if (eq $taxonomy_term "series") }}
+                {{- range $key, $value := $taxonomy }}
+                  {{ if (eq $seriesId $key) }}
+                    {{/* with (index $value.Pages (sub (len $value.Pages) 1)) */}}
+                    {{ with (index $value.Pages 0) }}
+                      <a class="entry-link" aria-label="{{ $seriesTitle }}" href="{{ .RelPermalink }}"></a>
+                    {{- end }}
                   {{- end }}
                 {{- end }}
               {{- end }}
             {{- end }}
-          {{- end }}
-          
-          <ul class="post-tags">
-            {{- range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
-              {{- if (eq $taxonomy_term "chapter") }}
-                {{- range $key, $value := $taxonomy }}
-                  {{ $_splitChapter := split $key "-chapter-" }}
-                  {{ $_seriesId := index $_splitChapter 0 }}
-                  {{ $_chapterNumber := index $_splitChapter 1 }}
-                  {{/*  {{ with (index $value.Pages (sub (len $value.Pages) 1)) }}  */}}
-                  {{ with (index $value.Pages 0) }}
-                    {{ if (eq $seriesId $_seriesId) }}
-                      {{ $_chapterLink := .RelPermalink }}
-                      {{- range where $seriesCover "name" $seriesTitle }}
-                        {{- range .chapter }}
-                          {{- if (eq .id $key) }}
-                          <li>
-                            <a class="button chapter-link-button" href="{{ $_chapterLink }}">{{ if (eq (i18n "country_code") "en") }}{{ i18n "chapter" }} {{ end }}{{ $_chapterNumber }} {{ if (eq (i18n "country_code") "ko") }}{{ i18n "chapter" }}{{ end }} {{ .title }}</a>
-                          </li>
+            
+            <ul class="post-tags">
+              {{- range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
+                {{- if (eq $taxonomy_term "chapter") }}
+                  {{- range $key, $value := $taxonomy }}
+                    {{ $_splitChapter := split $key "-chapter-" }}
+                    {{ $_seriesId := index $_splitChapter 0 }}
+                    {{ $_chapterNumber := index $_splitChapter 1 }}
+                    {{/*  {{ with (index $value.Pages (sub (len $value.Pages) 1)) }}  */}}
+                    {{ with (index $value.Pages 0) }}
+                      {{ if (eq $seriesId $_seriesId) }}
+                        {{ $_chapterLink := .RelPermalink }}
+                        {{- range where $seriesCover "name" $seriesTitle }}
+                          {{- range .chapter }}
+                            {{- if (eq .id $key) }}
+                            <li>
+                              <a class="button chapter-link-button" href="{{ $_chapterLink }}">{{ if (eq (i18n "country_code") "en") }}{{ i18n "chapter" }} {{ end }}{{ $_chapterNumber }} {{ if (eq (i18n "country_code") "ko") }}{{ i18n "chapter" }}{{ end }} {{ .title }}</a>
+                            </li>
+                            {{- end }}
                           {{- end }}
                         {{- end }}
-                      {{- end }}
-                    {{ end }}
+                      {{ end }}
+                    {{- end }}
                   {{- end }}
                 {{- end }}
               {{- end }}
-            {{- end }}
-          </ul>
-          
-        </article>
+            </ul>
+          </article>
+        </div>
       {{- end }}
     {{- end }}
   {{- end }}
+  <script>
+    const _seriesTags = document.querySelectorAll(".main .series-entry-wrapper .series-entry .post-tags a");
+    for (let i = 0; i < _seriesTags.length; i++) {
+      _seriesTags[i].addEventListener("mouseover", (e) => {
+        e.target.parentNode.parentNode.parentNode.classList.remove("button");
+      });
+
+      _seriesTags[i].addEventListener("mouseout", (e) => {
+        e.target.parentNode.parentNode.parentNode.classList.add("button");
+      });
+    }
+  </script>
 {{- end }}{{/* end main */ -}}

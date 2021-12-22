@@ -45,31 +45,34 @@
       {{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
         {{- $class = "first-entry" }}
       {{- else if $term }}
-        {{- $class = "post-entry tag-entry" }}
+        {{/*- $class = "post-entry" */}}
+        {{- $class = "article-entry button" }}
       {{- end }}
 
-      <article class="{{ $class }}" {{ if .Site.Params.useAnimation }}style="animation-delay: {{ add (mul (add $index 1) 50) 120 }}ms;" data-animation="true"{{ end }}>
-        {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
-        {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
-        <header class="entry-header">
-          <h2>
-            {{- .Title }}
-            {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
-          </h2>
-        </header>
-        {{- if (ne (.Param "hideSummary") true) }}
-        <section class="entry-content">
-          <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-        </section>
-        {{- end }}
-        {{- if not (.Param "hideMeta") }}
-        <footer class="entry-footer">
-          {{- partial "post_meta.html" . -}}
-          {{- partial "post_tags.html" . -}}
-        </footer>
-        {{- end }}
-        <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-      </article>
+      <div class="post-entry-wrapper" {{ if .Site.Params.useAnimation }}style="animation-delay: {{ add (mul (add $index 1) 50) 120 }}ms;" data-animation="true"{{ end }}>
+        <article class="{{ $class }}">
+          {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
+          {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
+          <header class="entry-header">
+            <h2>
+              {{- .Title }}
+              {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+            </h2>
+          </header>
+          {{- if (ne (.Param "hideSummary") true) }}
+          <section class="entry-content">
+            <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+          </section>
+          {{- end }}
+          {{- if not (.Param "hideMeta") }}
+          <footer class="entry-footer">
+            {{- partial "post_meta.html" . -}}
+            {{- partial "post_tags.html" . -}}
+          </footer>
+          {{- end }}
+          <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+        </article>
+      </div>
     {{- end }}
 
     {{- if gt $paginator.TotalPages 1 }}
@@ -184,5 +187,16 @@
     {{- end }}
 
   {{- end }}{{/* end profileMode */}}
+<script>
+  const _articleTags = document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");
+  for (let i = 0; i < _articleTags.length; i++) {
+    _articleTags[i].addEventListener("mouseover", (e) => {
+      e.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button");
+    });
 
+    _articleTags[i].addEventListener("mouseout", (e) => {
+      e.target.parentNode.parentNode.parentNode.parentNode.classList.add("button");
+    });
+  }
+</script>
 {{- end }}{{- /* end main */ -}}

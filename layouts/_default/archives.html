@@ -40,7 +40,7 @@
       <div class="archive-posts" id="{{ $year }}-{{ $month }}" data-key="{{ $year }}-{{ $month }}" {{ if $_useAnimation }}style="animation-delay: {{ add (mul (add $ii 1) 170) 350 }}ms;" data-animation="true"{{- end }}>
         {{- range .Pages }}
         {{- if eq .Kind "page" }}
-        <div class="archive-entry">
+        <div class="archive-entry button">
           <h3 class="archive-entry-title">
             {{- .Title | markdownify }}
             {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
@@ -65,6 +65,17 @@
   DOMReady( function () {
     const _archiveMonths = document.querySelectorAll(".archive-year .archive-month");
     const _archiveToggle = document.querySelectorAll(".main .archive-year .archive-month .archive-month-header .toggle");
+    const _archiveTags = document.querySelectorAll(".archive-posts .archive-entry .archive-meta .post-tags a");
+
+    for (let i = 0; i < _archiveTags.length; i++) {
+      _archiveTags[i].addEventListener("mouseover", (e) => {
+        e.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button");
+      });
+
+      _archiveTags[i].addEventListener("mouseout", (e) => {
+        e.target.parentNode.parentNode.parentNode.parentNode.classList.add("button");
+      });
+    }
 
     if (_archiveMonths) {
       for (let i = 0; i < _archiveMonths.length; i++) {
