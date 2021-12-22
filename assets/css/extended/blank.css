@@ -1060,6 +1060,10 @@ header.header {
     justify-content: center;
   }
 
+  .main .page-footer nav.pagination .pagination__item.pagination__item--current a {
+    padding: 0 0.9rem;
+  }
+
   .main .page-footer .pagination a {
     border-radius: var(--radius);
     padding: 0 0.8rem;
