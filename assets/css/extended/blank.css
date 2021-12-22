@@ -1047,6 +1047,19 @@ header.header {
     margin-left: auto;
   }
 
+  .page-footer ul.pagination .pagination__item--current:first-of-type {
+    margin-left: 100px;
+  }
+
+  .page-footer ul.pagination .pagination__item--current:last-of-type {
+    margin-right: 100px;
+  }
+
+  .main .page-footer nav.pagination .pagination__item.pagination__item--current {
+    width: 100%;
+    justify-content: center;
+  }
+
   .main .page-footer .pagination a {
     border-radius: var(--radius);
     padding: 0 0.8rem;
