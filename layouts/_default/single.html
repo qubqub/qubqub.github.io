@@ -86,7 +86,7 @@
         if (!header.classList.contains(headerBottom)) {
           header.classList.add(headerBottom);
         }
-
+        
         const postHeaderOffsetHeight = (postHeaderEl.offsetHeight + postHeaderEl.offsetTop + postHeaderEl.offsetParent.offsetTop - 1);
         if (currentScroll > postHeaderOffsetHeight) {
           if (currentScroll > lastScroll) {
@@ -94,10 +94,6 @@
             if (header.classList.contains(scrollUp)) {
               header.classList.remove(scrollUp);
               header.classList.add(scrollDown);
-              {{/*  if (document.getElementById("menu").classList.contains("reveal")) {
-                document.getElementById("menu").classList.remove("reveal");
-                document.getElementById("menu").classList.add("hidden");
-              }  */}}
             }
           } else if (currentScroll < lastScroll) {
             // up

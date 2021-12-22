@@ -42,7 +42,7 @@
         load_comments(_postFooter, loding_indicator);
     });
 </script>
-{{- else }}
+{{- else if (.Param "disqusShortname") }}
 {{ template "_internal/disqus.html" . }}
 {{- end }}
 {{- /* Comments area end */ -}}
