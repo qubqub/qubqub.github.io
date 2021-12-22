@@ -1178,21 +1178,16 @@ header.header {
   }
   
   .main .post-single .toc-aside .inner-wrapper .inner .selected>a {
-    display: block;
-    transition: all 0.125s ease-in 0s;
     transform: scale(1.05);
+    transition: all 0.125s ease-in 0s;
     color: var(--primary);
   }
 
   .main .post-single .toc-aside .inner-wrapper .inner a {
+    transition: all 0.125s ease-in 0s;
+    display: inline-block;
     box-shadow: none;
     color: var(--secondary);
-  }
-  
-  .main .post-single .toc-aside .inner-wrapper .inner li {
-    display: block;
-    transition: all 0.125s ease-in 0s;
-    
   }
 
   .top-link {
@@ -1374,21 +1369,16 @@ header.header {
   }
 
   .main .post-single .toc-aside .inner-wrapper .inner .selected>a {
-    display: block;
-    transition: all 0.125s ease-in 0s;
     transform: scale(1.05);
+    transition: all 0.125s ease-in 0s;
     color: var(--primary);
   }
 
   .main .post-single .toc-aside .inner-wrapper .inner a {
+    transition: all 0.125s ease-in 0s;
+    display: inline-block;
     box-shadow: none;
     color: var(--secondary);
-  }
-  
-  .main .post-single .toc-aside .inner-wrapper .inner li {
-    display: block;
-    transition: all 0.125s ease-in 0s;
-    
   }
 
   .main .post-single .toc-aside-summary {
