@@ -60,11 +60,11 @@
   {{- end }}
 </article>
 <script>
-  const DOMReady = function (callback) {
+  const single_DOMReady = function (callback) {
     document.readyState === "interactive" ||
       document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
   };
-  DOMReady( function () {
+  single_DOMReady( function () {
     let currentScroll = 0;
     const header = document.querySelector("header.header");
     const postHeaderEl = document.querySelector(".post-header");

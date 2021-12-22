@@ -38,20 +38,6 @@
 
 </script>
 {{- end }}
-<script>
-    function loding_indicator (_state, _target) {
-        if (_state === true) {
-            const _wrapper = document.createElement("div");
-            _wrapper.id = "loading-indicator";
-            _wrapper.innerHTML = '<div class="spinner"></div>';
-            _target.parentNode.insertBefore(_wrapper, _target.nextSibling);
-        } else {
-            const _el = document.getElementById("loading-indicator");
-            _el.classList.add("scale-zero");
-            //_el.parentNode.removeChild(_el);
-        }
-    }
-</script>
 
 <header class="header scroll-up">
     <nav class="nav">
@@ -153,36 +139,58 @@
         b.contains(a.target) || m.classList.add("hidden");
     });
 </script>
+
+<script>
+    function loding_indicator (_state, _target) {
+        if (_state === true) {
+            const _wrapper = document.createElement("div");
+            _wrapper.id = "loading-indicator";
+            _wrapper.innerHTML = '<div class="spinner"></div>';
+            _target.parentNode.insertBefore(_wrapper, _target.nextSibling);
+        } else {
+            const _el = document.getElementById("loading-indicator");
+            _el.classList.add("scale-zero");
+            //_el.parentNode.removeChild(_el);
+        }
+    }
+</script>
+
 {{- if (.Param "showContentProgressbar") }}
 <script>
-    function updateScrollProgressBar () {
-        let scrollHeight = _root.scrollHeight - heightInViewport(_progressbar) - window.innerHeight;
-        let scrollPosition = currentScroll;
-        let scrollPercentage = scrollPosition / scrollHeight * 100;
-        _progressbar.style.width = scrollPercentage + "%";
-    }
+    const header_DOMReady = function (callback) {
+        document.readyState === "interactive" ||
+            document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+    };
+    header_DOMReady( function () {
+        function updateScrollProgressBar () {
+            let scrollHeight = _root.scrollHeight - heightInViewport(_progressbar) - window.innerHeight;
+            let scrollPosition = window.pageYOffset;
+            let scrollPercentage = scrollPosition / scrollHeight * 100;
+            _progressbar.style.width = scrollPercentage + "%";
+        }
 
-    function heightInViewport (el) {
-    var elH = el.offsetHeight,
-        H = document.body.offsetHeight,
-        r = el.getBoundingClientRect(),
-        t = r.top,
-        b = r.bottom;
-    return Math.max(0, t > 0 ? Math.min(elH, H - t) : Math.min(b, H));
-    }
+        function heightInViewport (el) {
+        var elH = el.offsetHeight,
+            H = document.body.offsetHeight,
+            r = el.getBoundingClientRect(),
+            t = r.top,
+            b = r.bottom;
+        return Math.max(0, t > 0 ? Math.min(elH, H - t) : Math.min(b, H));
+        }
 
-    const _root = document.querySelector("html");
-    const _body = document.querySelector("body");
-    const progressEl = document.createElement("div");
-    progressEl.classList.add("progress-bar-container__progress");
-    _body.prepend(progressEl);
+        const _root = document.querySelector("html");
+        const _body = document.querySelector("body");
+        const progressEl = document.createElement("div");
+        progressEl.classList.add("progress-bar-container__progress");
+        _body.prepend(progressEl);
 
-    const _progressbar = document.querySelector(".progress-bar-container__progress");
-    const _config = { childList: true, subtree: true, characterData: true, attributes: true };
-    new MutationObserver(updateScrollProgressBar).observe(_progressbar, _config);
+        const _progressbar = document.querySelector(".progress-bar-container__progress");
+        const _config = { childList: true, subtree: true, characterData: true, attributes: true };
+        new MutationObserver(updateScrollProgressBar).observe(_progressbar, _config);
 
-    window.addEventListener("scroll", () => {
-        updateScrollProgressBar();
+        window.addEventListener("scroll", () => {
+            updateScrollProgressBar();
+        });
     });
 </script>
 {{- end }}

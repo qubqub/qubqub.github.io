@@ -23,48 +23,76 @@
 </span>
 <span class="display-font-size-info">100%</span>
 <script>
-  localStorage.setItem("post-content-font-size", 100);
-  document.getElementById("font-size-increase").addEventListener("click", e => {
-    if (localStorage.getItem("post-content-font-size")) {
-      let _fontSize = parseInt(localStorage.getItem("post-content-font-size"));
-
-      if (_fontSize+5 > 200) return;
-
-      document.querySelector(".post-single .post-content").style.fontSize = (_fontSize+10) + "%";
-      document.querySelector(".display-font-size-info").innerText = (_fontSize+10) + "%";
-      document.querySelector(".aside-display-font-size-info").innerText = (_fontSize+10) + "%";
-      localStorage.setItem("post-content-font-size", _fontSize+10);
+  const postFontSize_DOMReady = function (callback) {
+    document.readyState === "interactive" ||
+      document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+  };
+  postFontSize_DOMReady( function () {
+    if (!localStorage.getItem("post-content-font-size")) {
+      localStorage.setItem("post-content-font-size", 100);
     } else {
-      document.querySelector(".post-single .post-content").style.fontSize = "105%";
-      document.querySelector(".display-font-size-info").innerText = "105%";
-      document.querySelector(".aside-display-font-size-info").innerText = "105%";
-      localStorage.setItem("post-content-font-size", 105);
+      const _postContent = document.querySelector(".main .post-single .post-content");
+      const _displayFontSizeInfo = document.querySelector(".display-font-size-info");
+      const _asideDisplayFontSizeInfo = document.querySelector(".aside-display-font-size-info");
+      _postContent.style.fontSize = localStorage.getItem("post-content-font-size") + "%";
+      _displayFontSizeInfo.innerText = localStorage.getItem("post-content-font-size") + "%";
+      _asideDisplayFontSizeInfo.innerText = localStorage.getItem("post-content-font-size") + "%";
     }
-  });
+    const _fontSizeDefault = document.getElementById("font-size-default");
+    const _fontSizeDecrease = document.getElementById("font-size-decrease");
+    const _fontSizeIncrease = document.getElementById("font-size-increase");
+    
+    _fontSizeIncrease.addEventListener("click", e => {
+      if (localStorage.getItem("post-content-font-size")) {
+        let _fontSize = parseInt(localStorage.getItem("post-content-font-size"));
 
-  document.getElementById("font-size-decrease").addEventListener("click", e => {
-    if (localStorage.getItem("post-content-font-size")) {
-      let _fontSize = parseInt(localStorage.getItem("post-content-font-size"));
+        if (_fontSize+10 > 200) return;
 
-      if (_fontSize-5 < 50) return;
+        const _postContent = document.querySelector(".main .post-single .post-content");
+        const _displayFontSizeInfo = document.querySelector(".display-font-size-info");
+        const _asideDisplayFontSizeInfo = document.querySelector(".aside-display-font-size-info");
+        _postContent.style.fontSize = (_fontSize+10) + "%";
+        _displayFontSizeInfo.innerText = (_fontSize+10) + "%";
+        _asideDisplayFontSizeInfo.innerText = (_fontSize+10) + "%";
+        localStorage.setItem("post-content-font-size", _fontSize+10);
+      } else {
+        _postContent.style.fontSize = "105%";
+        _displayFontSizeInfo.innerText = "105%";
+        _asideDisplayFontSizeInfo.innerText = "105%";
+        localStorage.setItem("post-content-font-size", 105);
+      }
+    });
 
-      document.querySelector(".post-single .post-content").style.fontSize = (_fontSize-10) + "%";
-      document.querySelector(".display-font-size-info").innerText = (_fontSize-10) + "%";
-      document.querySelector(".aside-display-font-size-info").innerText = (_fontSize-10) + "%";
-      localStorage.setItem("post-content-font-size", _fontSize-10);
-    } else {
-      document.querySelector(".post-single .post-content").style.fontSize = "95%";
-      document.querySelector(".display-font-size-info").innerText = "95%";
-      document.querySelector(".aside-display-font-size-info").innerText = "95%";
-      localStorage.setItem("post-content-font-size", 95);
-    }
-  });
+    _fontSizeDecrease.addEventListener("click", e => {
+      if (localStorage.getItem("post-content-font-size")) {
+        let _fontSize = parseInt(localStorage.getItem("post-content-font-size"));
 
-  document.getElementById("font-size-default").addEventListener("click", e => {
-    document.querySelector(".post-single .post-content").style.fontSize = "100%";
-    document.querySelector(".display-font-size-info").innerText = "100%";
-    document.querySelector(".aside-display-font-size-info").innerText = "100%";
-    localStorage.setItem("post-content-font-size", 100);
+        if (_fontSize-5 < 50) return;
+
+        const _postContent = document.querySelector(".main .post-single .post-content");
+        const _displayFontSizeInfo = document.querySelector(".display-font-size-info");
+        const _asideDisplayFontSizeInfo = document.querySelector(".aside-display-font-size-info");
+        _postContent.style.fontSize = (_fontSize-10) + "%";
+        _displayFontSizeInfo.innerText = (_fontSize-10) + "%";
+        _asideDisplayFontSizeInfo.innerText = (_fontSize-10) + "%";
+        localStorage.setItem("post-content-font-size", _fontSize-10);
+      } else {
+        _postContent.style.fontSize = "95%";
+        _displayFontSizeInfo.innerText = "95%";
+        _asideDisplayFontSizeInfo.innerText = "95%";
+        localStorage.setItem("post-content-font-size", 95);
+      }
+    });
+
+    _fontSizeDefault.addEventListener("click", e => {
+      const _postContent = document.querySelector(".main .post-single .post-content");
+      const _displayFontSizeInfo = document.querySelector(".display-font-size-info");
+      const _asideDisplayFontSizeInfo = document.querySelector(".aside-display-font-size-info");
+      postContent.style.fontSize = "100%";
+      _displayFontSizeInfo.innerText = "100%";
+      _asideDisplayFontSizeInfo.innerText = "100%";
+      localStorage.setItem("post-content-font-size", 100);
+    });
   });
 </script>
 {{- end }}
