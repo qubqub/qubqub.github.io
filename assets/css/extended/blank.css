@@ -195,7 +195,6 @@ header.header {
 .main .archive-year .archive-month-header .toggle {
   font-size: 1rem;
   margin-right: 0.5rem;
-  vertical-align: top;
 }
 
 .progress-bar-container__progress {
@@ -1042,6 +1041,10 @@ header.header {
 }
 
 @media screen and (min-width: 769px) and (max-width: 1370px) {
+  .main .archive-year .archive-month-header .toggle {
+    vertical-align: top;
+  }
+  
   #menu-trigger {
     display: none;
   }
@@ -1231,6 +1234,10 @@ header.header {
 }
 
 @media screen and (min-width: 1371px) {
+  .main .archive-year .archive-month-header .toggle {
+    vertical-align: top;
+  }
+
   #menu-trigger {
     display: none;
   }
