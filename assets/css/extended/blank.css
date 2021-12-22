@@ -159,6 +159,17 @@ header.header {
   transition: all 0.2s ease-in-out;
 }
 
+.header .nav .logo a svg {
+  background-color: var(--tertiary);
+  fill: var(--secondary);
+  border-radius: 5px;
+  padding: 1px;
+  vertical-align: middle;
+  pointer-events: none;
+  transform: translate(0,-10%);
+  margin-inline-end: 8px;
+}
+
 .header .nav .logo a img {
   background-color: var(--tertiary);
   border-radius: 5px;
@@ -408,7 +419,8 @@ header.header {
 .font-size-button .default:hover path,
 .aside-font-size-button .increase:hover,
 .aside-font-size-button .decrease:hover,
-.aside-font-size-button .default:hover path
+.aside-font-size-button .default:hover path,
+.header .nav .logo a:hover svg
 {
   transition: color 0.2s ease 0s;
   fill: var(--main-color);

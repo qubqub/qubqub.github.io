@@ -63,6 +63,9 @@
                 <img src="{{- .Site.Params.label.icon -}}" alt="logo" aria-label="logo"
                     height="{{- .Site.Params.label.iconHeight | default " 30px" -}}">
                 {{- end -}}
+                {{- if .Site.Params.label.iconSvg }}
+                {{- .Site.Params.label.iconSvg | safeHTML -}}
+                {{- end -}}
                 {{- $label_text -}}
             </a>
             {{- end }}
