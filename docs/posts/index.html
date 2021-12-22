@@ -83,56 +83,6 @@
 </header>
 <article class=post-entry style=animation-delay:170ms data-animation=true>
 <header class=entry-header>
-<h2>[아이템 26] Raw 타입은 사용하지 마라
-</h2>
-</header>
-<section class=entry-content>
-<p>[아이템 26] Raw 타입은 사용하지 마라. raw type이란 제네릭 타입에서에서 타입 파라미터를 전혀 사용하지 않았을 때를 말합니다.
-1 2 // raw type List list = new ArrayList(); raw type은 타입 선언에서 제네릭 타입 정보가 전부 지워진 것처럼 동작하는데, 제네릭이 도래하기 전 코드와 호환성을 위해서 주로 존재합니다.
-1 2 // 문자열을 저장하는 컬렉션 private final List names = new ArrayList(); 위 코드를 사용하면 String대신 다른 타입을 넣어도 오류없이 실행됩니다....</p>
-</section>
-<footer class=entry-footer><span title="2020-07-07 11:41:27 +0900 KST">2020년 7월 7일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
-<ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
-</ul></footer>
-<a class=entry-link aria-label="post link to [아이템 26] Raw 타입은 사용하지 마라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item26/></a>
-</article>
-<article class=post-entry style=animation-delay:220ms data-animation=true>
-<header class=entry-header>
-<h2>[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라
-</h2>
-</header>
-<section class=entry-content>
-<p>[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라. 잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 분리합니다.
-정보 은닉(캡슐화)의 장점 시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다....</p>
-</section>
-<footer class=entry-footer><span title="2020-07-02 12:52:21 +0900 KST">2020년 7월 2일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
-<ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
-</ul></footer>
-<a class=entry-link aria-label="post link to [아이템 15] 클래스와 멤버의 접근 권한을 최소화하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-03/item15/></a>
-</article>
-<article class=post-entry style=animation-delay:270ms data-animation=true>
-<header class=entry-header>
-<h2>[아이템 10] equals는 일반 규약을 지켜 재정의하라
-</h2>
-</header>
-<section class=entry-content>
-<p>[아이템 10] equals는 일반 규약을 지켜 재정의하라. equals 메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다.여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.
-equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.
-반사성(reflexivity) null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다. 대칭성(symmetry) null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.equals(x)입니다. 잘못된 코드 - 대칭성 위반...</p>
-</section>
-<footer class=entry-footer><span title="2020-06-27 11:42:54 +0900 KST">2020년 6월 27일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
-<ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
-</ul></footer>
-<a class=entry-link aria-label="post link to [아이템 10] equals는 일반 규약을 지켜 재정의하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-02/item10/></a>
-</article>
-<article class=post-entry style=animation-delay:320ms data-animation=true>
-<header class=entry-header>
 <h2>[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라
 </h2>
 </header>
@@ -148,23 +98,71 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 </ul></footer>
 <a class=entry-link aria-label="post link to [아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-01/item1/></a>
 </article>
-<article class=post-entry style=animation-delay:370ms data-animation=true>
+<article class=post-entry style=animation-delay:220ms data-animation=true>
 <header class=entry-header>
-<h2>[아이템 27] 비검사 경고를 제거하라
+<h2>[아이템 2] 생성자에 매개변수가 많다면 빌더를 고려하라
 </h2>
 </header>
 <section class=entry-content>
-<p>[아이템 27] 비검사 경고를 제거하라. 제네릭에 관련된 수 많은 컴파일 경고들이 있습니다. 비검사 형변환 경고, 비검사 메서드 호출 경고, 비검사 매개변수화 가변인수 타입 경고, 비검사 변환 경고 등이 있습니다.
-제네릭에 익숙해질 수록 마주치는 경고 수는 줄어들겠지만 새로 작성한 코드가 한 번에 깨끗하게 컴파일되리라 기대하지는 맙시다.
-대부분의 비검사 경고는 쉽게 제거할 수 있습니다. 코드를 다음처럼 잘못 작성했다고 예시를 들어봅시다.
-1 Set&lt;Fruits> fruits = new Hashset(); 그러면 컴파일러는 무엇이 잘못 됐는지 설멸해 줄 것입니다....</p>
+<p>[아이템 2] 생성자에 매개변수가 많다면 빌더를 고려해라. 매개변수가 많아질 경우 정적 팩토리 메서드와 생성자는 사용하기 불편해집니다.
+첫번째 대안: 생성자를 이용할 경우 1 Nutritionfact cocaCola = new Nutritionfact(240, 8, 100, 0, 35); 이렇게 생성자를 만들 수 있지만 어떤 속성 값을 설정했는지 알기 힘듭니다. 매개변수의 수가 늘어날 수록 코드를 작성하거나 읽기 힘들어집니다. 문제는 매개변수 타입이 같은 상황에서 실수로 순서를 바꿔 입력할 경우 컴파일 시점에서 알 수 없고 런타임에 엉뚱하게 동작하게 됩니다....</p>
 </section>
-<footer class=entry-footer><span title="2020-07-08 13:16:11 +0900 KST">2020년 7월 8일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-06-18 17:21:20 +0900 KST">2020년 6월 18일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 4 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 27] 비검사 경고를 제거하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-04/item27/></a>
+<a class=entry-link aria-label="post link to [아이템 2] 생성자에 매개변수가 많다면 빌더를 고려하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-01/item2/></a>
+</article>
+<article class=post-entry style=animation-delay:270ms data-animation=true>
+<header class=entry-header>
+<h2>[아이템 3] private 생성자나 열거 타입으로 싱글턴임을 보증하라
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 3] private 생성자나 열거 타입으로 싱글턴임을 보증하라 싱글턴(singletone)이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.
+싱글턴을 만드는 방식은 보통 둘 중 하나입니다.
+public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9 public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { ....</p>
+</section>
+<footer class=entry-footer><span title="2020-06-18 19:09:20 +0900 KST">2020년 6월 18일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-01/item3/></a>
+</article>
+<article class=post-entry style=animation-delay:320ms data-animation=true>
+<header class=entry-header>
+<h2>[아이템 4] 인스턴스를 막으려거든 private 생성자를 사용하라
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 4] 인스턴스를 막으려거든 private 생성자를 사용하라 java.lang.Math와 java.util.Arrays와 같이 static 메서드와 static 필드만을 담을 클래스는 인스턴스화를 하는 건 낭비가 됩니다.
+매개변수 없는 생성자를 만들지 않으면 기본생성자가 생성이 되는데 이것을 방치하면 클라이언트 입장에서는 정적 멤버만 담은 유틸리티 클래스인지 알 수 없으므로 인스턴스화를 시킬 가능성이 있습니다. 이를 방지하기 위해 private 생성자를 만들어서 인스턴스화를 막을 수 있습니다.
+1 2 3 4 5 public class UtilityClass { private UtilityClass() { } } private 생성자이므로 상속을 시도하려는 클래스에서는 생성자를 호출할 수 없기 때문에 상속도 불가능 합니다....</p>
+</section>
+<footer class=entry-footer><span title="2020-06-19 15:51:43 +0900 KST">2020년 6월 19일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 4] 인스턴스를 막으려거든 private 생성자를 사용하라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-01/item4/></a>
+</article>
+<article class=post-entry style=animation-delay:370ms data-animation=true>
+<header class=entry-header>
+<h2>[아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하여라
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하여라. 대부분의 클래스는 하나 이상의 리소스에 의존합니다. 이번 예제에서는 SpellChecker가 Lexicon를 의존하고 있는 모습입니다.
+부적절한 구현 정적 유틸리티를 잘못 사용한 예 - 유연하지 않고 테스트 할 수 없다 1 2 3 4 5 6 7 8 9 public class SpellChecker { private static final Lexicon dictionary = ...; private SpellChecker() { } public static boolean isValid(String word) { ... } public static List&lt;String> suggestions(String typo) { } } 싱글턴을 잘못 사용한 예 - 유연하지 않고 테스트하기 어렵다 1 2 3 4 5 6 7 8 9 10 public class SpellChecker { private final Lexicon dictionary = ....</p>
+</section>
+<footer class=entry-footer><span title="2020-06-19 17:15:21 +0900 KST">2020년 6월 19일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하여라" href=https://qutrits.github.io/posts/effective-java-3e/chapter-01/item5/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

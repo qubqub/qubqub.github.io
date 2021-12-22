@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 4"]
-weight: 8
+weight: 33
 author: ["Kyungchul Shin"]
 showToc: true
 showAsideToc: true
