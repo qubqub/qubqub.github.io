@@ -1041,15 +1041,10 @@ header.header {
     border-radius: var(--radius);
     padding: 0 0.75rem;
   }
-  
-  .pagination__item.pagination__item--current a {
-    background: none !important;
-    padding: 0 0.5rem !important;
-  }
 
   .pagination__link.pagination__link--first,
   .pagination__link.pagination__link--last {
-    padding: 0 0.5rem !important;
+    padding: 0 0.45rem !important;
     white-space: nowrap;
   }
   
