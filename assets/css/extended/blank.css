@@ -1176,7 +1176,7 @@ header.header {
   }
 
   .main .post-single .toc-aside {
-    max-width: 20rem;
+    /* max-width: 20rem; */
     padding: 0 0.75rem;
     font-size: 0.875rem;
     max-height: calc(100vh - 128px);
@@ -1340,7 +1340,7 @@ header.header {
   }
 
   .main .post-single .toc-aside {
-    max-width: 20rem;
+    /* max-width: 20rem; */
     margin-left: 4rem;
     padding: 0 0.75rem;
     font-size: 0.875rem;
