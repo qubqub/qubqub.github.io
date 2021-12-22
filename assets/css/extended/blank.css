@@ -1039,17 +1039,22 @@ header.header {
 
   .main .page-footer .pagination a {
     border-radius: var(--radius);
-    padding: 0 0.9rem;
+    padding: 0 0.75rem;
   }
   
+  .pagination__item.pagination__item--current a {
+    background: none !important;
+    padding: 0 0.5rem !important;
+  }
+
   .pagination__link.pagination__link--first,
   .pagination__link.pagination__link--last {
-    padding: 0 0.6rem !important;
+    padding: 0 0.5rem !important;
     white-space: nowrap;
   }
   
   .main .page-footer .pagination ul li:not(:last-child) {
-    margin-right: 0.45rem;
+    margin-right: 0.4rem;
   }
 
   .main .page-footer nav.pagination .pagination__item.pagination__item--next {
