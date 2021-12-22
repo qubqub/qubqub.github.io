@@ -1178,7 +1178,6 @@ header.header {
     transition: all 0.125s ease-in 0s;
     transform: scale(1.05);
     color: var(--primary);
-    font-weight: 600;
   }
 
   .main .post-single .toc-aside .inner-wrapper .inner a {
@@ -1371,7 +1370,6 @@ header.header {
     transition: all 0.125s ease-in 0s;
     transform: scale(1.05);
     color: var(--primary);
-    font-weight: 600;
   }
 
   .main .post-single .toc-aside .inner-wrapper .inner a {
