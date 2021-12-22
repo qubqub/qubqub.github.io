@@ -1049,7 +1049,7 @@ header.header {
 
   .main .page-footer .pagination a {
     border-radius: var(--radius);
-    padding: 0 0.7rem;
+    padding: 0 0.8rem;
   }
 
   .pagination__link.pagination__link--first,
@@ -1058,7 +1058,7 @@ header.header {
     white-space: nowrap;
   }
 
-  .main .page-footer nav.pagination .pagination__item:not(.pagination__item--next):not(.pagination__item--last):not(.pagination__item--first):not(.pagination__item--previous) {
+  .main .page-footer nav.pagination .pagination__item:not(.pagination__item--current):not(.pagination__item--next):not(.pagination__item--last):not(.pagination__item--first):not(.pagination__item--previous) {
     display: none;
   }
 
