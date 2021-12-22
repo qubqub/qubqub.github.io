@@ -1048,11 +1048,11 @@ header.header {
   }
 
   .page-footer ul.pagination .pagination__item--current:first-of-type {
-    margin-left: 100px;
+    margin-left: 95px;
   }
 
   .page-footer ul.pagination .pagination__item--current:last-of-type {
-    margin-right: 100px;
+    margin-right: 95px;
   }
 
   .main .page-footer nav.pagination .pagination__item.pagination__item--current {
