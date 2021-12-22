@@ -82,82 +82,78 @@
 
 {{- if (.Param "ShowFontSizeButton") }}
 <script>
-  if (window.location.pathname.match(/^\/posts\/.+/)) {
-    const urlSlug = window.location.pathname.match(/^(\/posts\/)([^/]+)/);
-    if (urlSlug[2] !== "page") {
-      localStorage.setItem("post-content-font-size", 100);
-      const asideIncreaseFont = document.getElementById("aside-font-size-increase");
-      const asideDecreaseFont = document.getElementById("aside-font-size-decrease");
-      const asideDefaultFont = document.getElementById("aside-font-size-default");
-      const displayFontSizeInfo = document.querySelector(".display-font-size-info");
-      const asideDisplayFontSizeInfo = document.querySelector(".aside-display-font-size-info");
+  const postContent = document.querySelector(".main .post-single .post-content");
+  if (postContent) {
+    localStorage.setItem("post-content-font-size", 100);
+    const adiseFontsizeButtonWrapper = document.getElementById("aside-font-size-button");
+    const asideIncreaseFont = adiseFontsizeButtonWrapper.querySelector("#aside-font-size-increase");
+    const asideDecreaseFont = adiseFontsizeButtonWrapper.querySelector("#aside-font-size-decrease");
+    const asideDefaultFont = adiseFontsizeButtonWrapper.querySelector("#aside-font-size-default");
+    const displayFontSizeInfo = document.querySelector(".display-font-size-info");
+    const asideDisplayFontSizeInfo = document.querySelector(".aside-display-font-size-info");
+    const postFooter = document.querySelector(".post-single .post-header .post-meta .post-footer");
 
-      const postContent = document.querySelector(".post-content");
-      const adiseFontsizeButtonWrapper = document.getElementById("aside-font-size-button");
-      const postFooter = document.querySelector(".post-footer");
-
-      window.addEventListener("scroll", () => {
-        const postContentRect = postContent.getBoundingClientRect();
-        const postContentTop = postContentRect.top;
-        const postContentHeight = postContentRect.height;
-        const scrollEnd = Math.ceil(window.pageYOffset + window.innerHeight) >= document.body.scrollHeight;
-        if (0 >= postContentTop) {
-          if (0 >= postContentTop+postContentHeight || (scrollEnd && window.innerWidth < 769)) {
-            adiseFontsizeButtonWrapper.style.visibility = "hidden";
-            adiseFontsizeButtonWrapper.style.opacity = "1";
-          } else {
-            adiseFontsizeButtonWrapper.style.visibility = "visible";
-            adiseFontsizeButtonWrapper.style.opacity = "1";
-          }
-        } else {
+    window.addEventListener("scroll", () => {
+      const postContentRect = postContent.getBoundingClientRect();
+      const postContentTop = postContentRect.top;
+      const postContentHeight = postContentRect.height;
+      const scrollEnd = Math.ceil(window.pageYOffset + window.innerHeight) >= document.body.scrollHeight;
+      if (0 >= postContentTop) {
+        if (0 >= postContentTop+postContentHeight || (scrollEnd && window.innerWidth < 769)) {
           adiseFontsizeButtonWrapper.style.visibility = "hidden";
           adiseFontsizeButtonWrapper.style.opacity = "1";
-        }
-      });
-
-      asideIncreaseFont.addEventListener("click", function () {
-        if (localStorage.getItem("post-content-font-size")) {
-          let _fontSize = parseInt(localStorage.getItem("post-content-font-size"));
-
-          if (_fontSize+5 > 200) return;
-
-          postContent.style.fontSize = (_fontSize+10) + "%";
-          displayFontSizeInfo.innerText = (_fontSize+10) + "%";
-          asideDisplayFontSizeInfo.innerText = (_fontSize+10) + "%";
-          localStorage.setItem("post-content-font-size", _fontSize+10);
         } else {
-          postContent.style.fontSize = "110%";
-          displayFontSizeInfo.innerText = "110%";
-          asideDisplayFontSizeInfo.innerText = "110%";
-          localStorage.setItem("post-content-font-size", 110);
+          adiseFontsizeButtonWrapper.style.visibility = "visible";
+          adiseFontsizeButtonWrapper.style.opacity = "1";
         }
-      });
+      } else {
+        adiseFontsizeButtonWrapper.style.visibility = "hidden";
+        adiseFontsizeButtonWrapper.style.opacity = "1";
+      }
+    });
 
-      asideDecreaseFont.addEventListener("click", function () {
-        if (localStorage.getItem("post-content-font-size")) {
-          let _fontSize = parseInt(localStorage.getItem("post-content-font-size"));
+    asideIncreaseFont.addEventListener("click", function () {
+      if (localStorage.getItem("post-content-font-size")) {
+        let _fontSize = parseInt(localStorage.getItem("post-content-font-size"));
 
-          if (_fontSize-5 < 50) return;
+        if (_fontSize+5 > 200) return;
 
-          postContent.style.fontSize = (_fontSize-10) + "%";
-          displayFontSizeInfo.innerText = (_fontSize-10) + "%";
-          asideDisplayFontSizeInfo.innerText = (_fontSize-10) + "%";
-          localStorage.setItem("post-content-font-size", _fontSize-10);
-        } else {
-          postContent.style.fontSize = "90%";
-          displayFontSizeInfo.innerText = "90%";
-          asideDisplayFontSizeInfo.innerText = "90%";
-          localStorage.setItem("post-content-font-size", 90);
-        }
-      });
+        postContent.style.fontSize = (_fontSize+10) + "%";
+        displayFontSizeInfo.innerText = (_fontSize+10) + "%";
+        asideDisplayFontSizeInfo.innerText = (_fontSize+10) + "%";
+        localStorage.setItem("post-content-font-size", _fontSize+10);
+      } else {
+        postContent.style.fontSize = "110%";
+        displayFontSizeInfo.innerText = "110%";
+        asideDisplayFontSizeInfo.innerText = "110%";
+        localStorage.setItem("post-content-font-size", 110);
+      }
+    });
 
-      asideDefaultFont.addEventListener("click", function () {
-        postContent.style.fontSize = "100%";
-        displayFontSizeInfo.innerText = "100%";
-        asideDisplayFontSizeInfo.innerText = "100%";
-        localStorage.setItem("post-content-font-size", 100);
-      });
-    }
+    asideDecreaseFont.addEventListener("click", function () {
+      if (localStorage.getItem("post-content-font-size")) {
+        let _fontSize = parseInt(localStorage.getItem("post-content-font-size"));
+
+        if (_fontSize-5 < 50) return;
+
+        postContent.style.fontSize = (_fontSize-10) + "%";
+        displayFontSizeInfo.innerText = (_fontSize-10) + "%";
+        asideDisplayFontSizeInfo.innerText = (_fontSize-10) + "%";
+        localStorage.setItem("post-content-font-size", _fontSize-10);
+      } else {
+        postContent.style.fontSize = "90%";
+        displayFontSizeInfo.innerText = "90%";
+        asideDisplayFontSizeInfo.innerText = "90%";
+        localStorage.setItem("post-content-font-size", 90);
+      }
+    });
+
+    asideDefaultFont.addEventListener("click", function () {
+      postContent.style.fontSize = "100%";
+      displayFontSizeInfo.innerText = "100%";
+      asideDisplayFontSizeInfo.innerText = "100%";
+      localStorage.setItem("post-content-font-size", 100);
+    });
   }
 </script>
 {{- end }}
