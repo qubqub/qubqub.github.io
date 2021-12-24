@@ -1,8 +1,8 @@
 {{- /* Comments area start */ -}}
 {{- /* to add comments read => https://gohugo.io/content-management/comments/ */ -}}
 {{- if (and (.Param "useUtterances") (.Param "utterancesRepo")) -}}
-<div class="comments-wrapper" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
-    <div class="button" id="comments">{{ i18n "load_comments" }}</div>
+<div class="comments-button-wrapper" id="comments-button" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
+    <div class="comments-button button">{{ i18n "load_comments" }}</div>
 </div>
 <script>
     function load_comments (_target, _callback) {
@@ -36,7 +36,7 @@
         _target.parentNode.insertBefore(_script, _target.nextSibling);
     }
 
-    const commentButton = document.querySelector(".main .post-single #comments");
+    const commentButton = document.querySelector(".main .post-single #comments-button");
     commentButton.addEventListener("click", (e) => {
         const _postFooter = document.querySelector(".main .post-single .post-footer");
         commentButton.parentNode.removeChild(commentButton);

@@ -10,14 +10,13 @@ author: ["Kyungchul Shin"]
 showToc: true
 showAsideToc: true
 TocOpen: false
-ShowTocAside: true
 draft: false
 hidemeta: false
 comments: true
 ShowReadingTime: true
 ShowPostNavLinks: false
 ShowCodeCopyButtons: true
-ShowBreadCrumbs: true
+ShowBreadCrumbs: false
 showContentProgressbar: true
 # cover:
 #   hidden: true

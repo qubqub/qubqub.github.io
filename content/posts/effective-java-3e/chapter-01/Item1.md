@@ -14,9 +14,9 @@ draft: false
 hidemeta: false
 comments: true
 showReadingTime: true
-showPostNavLinks: true
+showPostNavLinks: false
 showCodeCopyButtons: true
-ShowBreadCrumbs: true
+ShowBreadCrumbs: false
 showContentProgressbar: true
 # cover:
 #   hidden: true
