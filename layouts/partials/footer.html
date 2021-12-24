@@ -89,25 +89,24 @@
     const asideDecreaseFont = adiseFontsizeButtonWrapper.querySelector("#aside-font-size-decrease");
     const asideDefaultFont = adiseFontsizeButtonWrapper.querySelector("#aside-font-size-default");
     const displayFontSizeInfo = document.querySelector(".display-font-size-info");
-    const asideDisplayFontSizeInfo = document.querySelector(".aside-display-font-size-info");
+    const asideDisplayFontSizeInfo = adiseFontsizeButtonWrapper.querySelector(".aside-display-font-size-info");
     const postFooter = document.querySelector(".post-single .post-header .post-meta .post-footer");
+    const postHeader = document.querySelector(".post-header");
+    const postHeaderBottom = (postHeader.offsetHeight + postHeader.offsetTop + postHeader.offsetParent.offsetTop - 1);
 
     window.addEventListener("scroll", () => {
-      const postContentRect = postContent.getBoundingClientRect();
-      const postContentTop = postContentRect.top;
-      const postContentHeight = postContentRect.height;
       const scrollEnd = Math.ceil(window.pageYOffset + window.innerHeight) >= document.body.scrollHeight;
-      if (0 >= postContentTop) {
-        if (0 >= postContentTop+postContentHeight || (scrollEnd && window.innerWidth < 769)) {
+      if (postHeaderBottom < window.pageYOffset) {
+        if ((scrollEnd && window.innerWidth < 769)) {
           adiseFontsizeButtonWrapper.style.visibility = "hidden";
-          adiseFontsizeButtonWrapper.style.opacity = "1";
+          adiseFontsizeButtonWrapper.style.opacity = "0";
         } else {
           adiseFontsizeButtonWrapper.style.visibility = "visible";
           adiseFontsizeButtonWrapper.style.opacity = "1";
         }
       } else {
         adiseFontsizeButtonWrapper.style.visibility = "hidden";
-        adiseFontsizeButtonWrapper.style.opacity = "1";
+        adiseFontsizeButtonWrapper.style.opacity = "0";
       }
     });
 
