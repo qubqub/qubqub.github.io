@@ -186,53 +186,58 @@
 
       </div>
       <script>
-        const seriesLock = localStorage.getItem("lock-series-{{ $_chapterTitle }}");
-        const seriesList = document.querySelector(".series-main .series-list");
-        const seriesToggleButton = document.querySelector(".series-main .series-control .toggle");
-
-        window.addEventListener('DOMContentLoaded', function () {
+        const series_DOMReady = function (callback) {
+          document.readyState === "interactive" ||
+            document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+        };
+        series_DOMReady( function () {
+          const seriesLock = localStorage.getItem("lock-series-{{ $_chapterTitle }}");
+          const seriesList = document.querySelector(".series-main .series-list");
+          const seriesToggleButton = document.querySelector(".series-main .series-control .toggle");
+  
           if (localStorage.getItem("series-main-{{ $_seriesId }}") === "true") {
             const seriesOffsetTop = document.querySelector(".series-main");
-            window.scrollTo(0, seriesOffsetTop.offsetTop + seriesOffsetTop.offsetParent.offsetTop - 10);
+            window.scrollTo(0, seriesOffsetTop.offsetTop + seriesOffsetTop.offsetParent.offsetTop);
             localStorage.removeItem("series-main-{{ $_seriesId }}");
           }
-        });
-
-        document.querySelector(".series-main .series-control .toggle").addEventListener("click", () => {
-          if (seriesList.style.display==="none" || seriesList.style.display==="") {
-            localStorage.setItem("lock-series-{{ $_chapterTitle }}", false);
+  
+          document.querySelector(".series-main .series-control .toggle").addEventListener("click", () => {
+            if (seriesList.style.display==="none" || seriesList.style.display==="") {
+              localStorage.setItem("lock-series-{{ $_chapterTitle }}", false);
+              seriesToggleButton.querySelector(".lock").classList.add("hide");
+              seriesToggleButton.querySelector(".unlock").classList.remove("hide");
+              seriesList.style.display = "block";
+            } else if (seriesList.style.display==="block") {
+              localStorage.setItem("lock-series-{{ $_chapterTitle }}", true);
+              seriesToggleButton.querySelector(".lock").classList.remove("hide");
+              seriesToggleButton.querySelector(".unlock").classList.add("hide");
+              seriesList.style.display = "none";
+            }
+          });
+          
+          if (seriesLock === "false") {
+            seriesList.style.display ="block";
             seriesToggleButton.querySelector(".lock").classList.add("hide");
             seriesToggleButton.querySelector(".unlock").classList.remove("hide");
-            seriesList.style.display = "block";
-          } else if (seriesList.style.display==="block") {
-            localStorage.setItem("lock-series-{{ $_chapterTitle }}", true);
+          } else {
+            seriesList.style.display ="none";
             seriesToggleButton.querySelector(".lock").classList.remove("hide");
             seriesToggleButton.querySelector(".unlock").classList.add("hide");
-            seriesList.style.display = "none";
+          }
+  
+          const seriesAnchor = [
+            ...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)"),
+            ...document.querySelectorAll(".series-main .series-list li a"),
+            ...document.querySelectorAll(".series-control .page-button a:not(.disabled)")
+          ];
+  
+          for (let i = 0; i < seriesAnchor.length; i++) {
+            seriesAnchor[i].addEventListener("click", e => {
+              localStorage.setItem("series-main-{{ $_seriesId }}", true);
+            });
           }
         });
         
-        if (seriesLock === "false") {
-          seriesList.style.display ="block";
-          seriesToggleButton.querySelector(".lock").classList.add("hide");
-          seriesToggleButton.querySelector(".unlock").classList.remove("hide");
-        } else {
-          seriesList.style.display ="none";
-          seriesToggleButton.querySelector(".lock").classList.remove("hide");
-          seriesToggleButton.querySelector(".unlock").classList.add("hide");
-        }
-
-        const seriesAnchor = [
-          ...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)"),
-          ...document.querySelectorAll(".series-main .series-list li a"),
-          ...document.querySelectorAll(".series-control .page-button a:not(.disabled)")
-        ];
-
-        for (let i = 0; i < seriesAnchor.length; i++) {
-          seriesAnchor[i].addEventListener("click", e => {
-            localStorage.setItem("series-main-{{ $_seriesId }}", true);
-          });
-        }
       </script>
     {{ end }}
   {{ end }}
@@ -340,52 +345,56 @@
         {{ end }}
       </div>
       <script>
-        const seriesLock = localStorage.getItem("lock-series-{{ $_seriesTitle }}");
-        const seriesList = document.querySelector(".series-main .series-list");
-        const seriesToggleButton = document.querySelector(".series-main .series-control .toggle");
-
-        window.addEventListener('DOMContentLoaded', function () {
+        const series_DOMReady = function (callback) {
+          document.readyState === "interactive" ||
+            document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+        };
+        series_DOMReady( function () {
+          const seriesLock = localStorage.getItem("lock-series-{{ $_seriesTitle }}");
+          const seriesList = document.querySelector(".series-main .series-list");
+          const seriesToggleButton = document.querySelector(".series-main .series-control .toggle");
+  
           if (localStorage.getItem("series-main-{{ $_seriesId }}") === "true") {
             const seriesOffsetTop = document.querySelector(".series-main");
             window.scrollTo(0, seriesOffsetTop.offsetTop + seriesOffsetTop.offsetParent.offsetTop - 10);
             localStorage.removeItem("series-main-{{ $_seriesId }}");
           }
-        });
-
-        document.querySelector(".series-main .series-control .toggle").addEventListener("click", () => {
-          if (seriesList.style.display==="none" || seriesList.style.display==="") {
-            localStorage.setItem("lock-series-{{ $_seriesTitle }}", false);
+  
+          document.querySelector(".series-main .series-control .toggle").addEventListener("click", () => {
+            if (seriesList.style.display==="none" || seriesList.style.display==="") {
+              localStorage.setItem("lock-series-{{ $_seriesTitle }}", false);
+              seriesToggleButton.querySelector(".lock").classList.add("hide");
+              seriesToggleButton.querySelector(".unlock").classList.remove("hide");
+              seriesList.style.display = "block";
+            } else if (seriesList.style.display==="block") {
+              localStorage.setItem("lock-series-{{ $_seriesTitle }}", true);
+              seriesToggleButton.querySelector(".lock").classList.remove("hide");
+              seriesToggleButton.querySelector(".unlock").classList.add("hide");
+              seriesList.style.display = "none";
+            }
+          });
+  
+          if (seriesLock === "false") {
+            seriesList.style.display ="block";
             seriesToggleButton.querySelector(".lock").classList.add("hide");
             seriesToggleButton.querySelector(".unlock").classList.remove("hide");
-            seriesList.style.display = "block";
-          } else if (seriesList.style.display==="block") {
-            localStorage.setItem("lock-series-{{ $_seriesTitle }}", true);
+          } else {
+            seriesList.style.display ="none";
             seriesToggleButton.querySelector(".lock").classList.remove("hide");
             seriesToggleButton.querySelector(".unlock").classList.add("hide");
-            seriesList.style.display = "none";
+          }
+  
+          const seriesAnchor = [
+            ...document.querySelectorAll(".series-main .series-list li a"),
+            ...document.querySelectorAll(".series-control .page-button a:not(.disabled)")
+          ];
+  
+          for (let i = 0; i < seriesAnchor.length; i++) {
+            seriesAnchor[i].addEventListener("click", e => {
+              localStorage.setItem("series-main-{{ $_seriesId }}", true);
+            });
           }
         });
-
-        if (seriesLock === "false") {
-          seriesList.style.display ="block";
-          seriesToggleButton.querySelector(".lock").classList.add("hide");
-          seriesToggleButton.querySelector(".unlock").classList.remove("hide");
-        } else {
-          seriesList.style.display ="none";
-          seriesToggleButton.querySelector(".lock").classList.remove("hide");
-          seriesToggleButton.querySelector(".unlock").classList.add("hide");
-        }
-
-        const seriesAnchor = [
-          ...document.querySelectorAll(".series-main .series-list li a"),
-          ...document.querySelectorAll(".series-control .page-button a:not(.disabled)")
-        ];
-
-        for (let i = 0; i < seriesAnchor.length; i++) {
-          seriesAnchor[i].addEventListener("click", e => {
-            localStorage.setItem("series-main-{{ $_seriesId }}", true);
-          });
-        }
       </script>
     {{ end }}
   {{ end }}

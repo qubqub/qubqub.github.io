@@ -71,6 +71,11 @@
     const headerBottom = "header-bottom";
     const headerAdjHeight = header.offsetHeight * -1;
     let headerMarginTop = 0;
+
+    if (window.pageYOffset > header.offsetHeight) {
+      headerMarginTop = headerAdjHeight;
+    }
+
     window.addEventListener("scroll", () => {
       currentScroll = window.pageYOffset;
 

@@ -291,7 +291,7 @@ volatile으로 필드를 선언하면 동기화를 생략해도 되고, 속도�
 </div>
 </footer>
 </article>
-<script>const single_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};single_DOMReady(function(){let c=0,f=0;const b=document.querySelector("header.header"),d="header-bottom",e=b.offsetHeight*-1;let a=0;window.addEventListener("scroll",()=>{c=window.pageYOffset,c<=0?(b.style.marginTop="0px",b.classList.contains(d)&&b.classList.remove(d)):(c>f?e<a&&(a-=5,a<e&&(a=e)):0>a&&(a+=5,a>0&&(a=0)),b.style.marginTop=`${a}px`,b.classList.contains(d)||b.classList.add(d)),f=c}),window.onload=function(){const a=document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");for(let b=0;b<a.length;b++)a[b].style.width="100%"}})</script>
+<script>const single_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};single_DOMReady(function(){let c=0,f=0;const b=document.querySelector("header.header"),d="header-bottom",e=b.offsetHeight*-1;let a=0;window.pageYOffset>b.offsetHeight&&(a=e),window.addEventListener("scroll",()=>{c=window.pageYOffset,c<=0?(b.style.marginTop="0px",b.classList.contains(d)&&b.classList.remove(d)):(c>f?e<a&&(a-=5,a<e&&(a=e)):0>a&&(a+=5,a>0&&(a=0)),b.style.marginTop=`${a}px`,b.classList.contains(d)||b.classList.add(d)),f=c}),window.onload=function(){const a=document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");for(let b=0;b<a.length;b++)a[b].style.width="100%"}})</script>
 </main>
 <footer class=footer>
 <span>&copy; 2021 <a href=https://qutrits.github.io/>&lt;Qutrits/></a></span>
