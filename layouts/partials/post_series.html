@@ -196,8 +196,9 @@
           const seriesToggleButton = document.querySelector(".series-main .series-control .toggle");
   
           if (localStorage.getItem("series-main-{{ $_seriesId }}") === "true") {
-            const seriesOffsetTop = document.querySelector(".series-main");
-            window.scrollTo(0, seriesOffsetTop.offsetTop + seriesOffsetTop.offsetParent.offsetTop);
+            const seriesMain = document.querySelector(".series-main");
+            const seriesRect = seriesMain.getBoundingClientRect();
+            window.scrollTo(0, seriesRect.top);
             localStorage.removeItem("series-main-{{ $_seriesId }}");
           }
   
@@ -355,8 +356,9 @@
           const seriesToggleButton = document.querySelector(".series-main .series-control .toggle");
   
           if (localStorage.getItem("series-main-{{ $_seriesId }}") === "true") {
-            const seriesOffsetTop = document.querySelector(".series-main");
-            window.scrollTo(0, seriesOffsetTop.offsetTop + seriesOffsetTop.offsetParent.offsetTop - 10);
+            const seriesMain = document.querySelector(".series-main");
+            const seriesRect = seriesMain.getBoundingClientRect();
+            window.scrollTo(0, seriesRect.top);
             localStorage.removeItem("series-main-{{ $_seriesId }}");
           }
   
