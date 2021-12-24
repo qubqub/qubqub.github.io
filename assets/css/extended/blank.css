@@ -149,14 +149,16 @@ body {
 }
 
 header.header {
-  position: sticky;
+  /* position: sticky; */
+  position: fixed;
+  width: 100%;
   top: 0;
   z-index: 2;
   background-color: inherit;
   opacity: 0.95;
   /* border-bottom: 1px solid var(--primary); */
   border-bottom: none;
-  transition: all 0.2s ease-in-out;
+  /* transition: all 0.2s ease-in-out; */
 }
 
 .header .nav .logo a svg {
@@ -178,6 +180,7 @@ header.header {
 
 .main {
   max-width: calc(var(--main-width) + var(--gap) * 5);
+  margin-top: 3rem;
 }
 
 .main .post-single .utterances {
@@ -218,6 +221,7 @@ header.header {
   position: fixed;
   z-index: 9999;
   background-color: var(--main-color);
+  top: 0;
   height: 0.15vh;
   width: 0%;
   border-radius: 16px;

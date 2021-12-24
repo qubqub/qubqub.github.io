@@ -35,11 +35,10 @@
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark');
     }
-
 </script>
 {{- end }}
 
-<header class="header scroll-up">
+<header class="header header-bottom">
     <nav class="nav">
         <div class="logo">
             {{- $label_text := (.Site.Params.label.text | default .Site.Title) }}

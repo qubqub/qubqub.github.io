@@ -66,44 +66,37 @@
   };
   single_DOMReady( function () {
     let currentScroll = 0;
-    const header = document.querySelector("header.header");
-    const postHeaderEl = document.querySelector(".post-header");
-
-    const scrollUp = "scroll-up";
-    const scrollDown = "scroll-down";
-    const headerBottom = "header-bottom";
-
     let lastScroll = 0;
+    const header = document.querySelector("header.header");
+    const headerBottom = "header-bottom";
+    const headerAdjHeight = header.offsetHeight * -1;
+    let headerMarginTop = 0;
     window.addEventListener("scroll", () => {
       currentScroll = window.pageYOffset;
+
       if (currentScroll <= 0) {
-        if (!header.classList.contains(scrollUp) || header.classList.contains(headerBottom)) {
+        header.style.marginTop = "0px";
+        if (header.classList.contains(headerBottom)) {
           header.classList.remove(headerBottom);
-          header.classList.remove(scrollDown);
-          header.classList.add(scrollUp);
         }
       } else {
+        if (currentScroll > lastScroll) { // scroll down
+          if (headerAdjHeight < headerMarginTop) {
+            headerMarginTop -= 5;
+            if (headerMarginTop < headerAdjHeight) headerMarginTop = headerAdjHeight;
+          }
+        } else { // scoll up
+          if (0 > headerMarginTop) {
+            headerMarginTop += 5;
+            if (headerMarginTop > 0) headerMarginTop = 0;
+          }
+        }
+        header.style.marginTop = `${headerMarginTop}px`;
         if (!header.classList.contains(headerBottom)) {
           header.classList.add(headerBottom);
         }
-        
-        const postHeaderOffsetHeight = (postHeaderEl.offsetHeight + postHeaderEl.offsetTop + postHeaderEl.offsetParent.offsetTop - 1);
-        if (currentScroll > postHeaderOffsetHeight) {
-          if (currentScroll > lastScroll) {
-            // down
-            if (header.classList.contains(scrollUp)) {
-              header.classList.remove(scrollUp);
-              header.classList.add(scrollDown);
-            }
-          } else if (currentScroll < lastScroll) {
-            // up
-            if (header.classList.contains(scrollDown)) {
-              header.classList.remove(scrollDown);
-              header.classList.add(scrollUp);
-            }
-          }
-        }
       }
+      
       lastScroll = currentScroll;
     });
 
