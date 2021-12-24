@@ -225,7 +225,7 @@ header.header {
   height: 0.15vh;
   width: 0%;
   border-radius: 16px;
-  box-shadow : 0px 0px 15px 5px rgba(255, 255, 190, .1);
+  box-shadow : 0px 0px 15px 5px rgba(18, 184, 134, .1);
   transition: width 0.125s ease-out 0s;
 }
 
