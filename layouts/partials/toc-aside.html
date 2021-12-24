@@ -107,9 +107,10 @@
     tocAside_DOMReady( function () {
         const tocIdList = [];
         const mainToc = document.querySelector(".main .post-single>.toc");
-        const mainTocTop = mainToc?(mainToc.offsetTop + mainToc.offsetParent.offsetTop - 1):0;
+        //const mainTocTop = mainToc?(mainToc.offsetTop + mainToc.offsetParent.offsetTop - 1):0;
         const asideToc = document.querySelector(".main .toc-aside");
         const postHeaderEl = document.querySelector(".post-header");
+        const postHeaderBottom = (postHeaderEl.offsetHeight + postHeaderEl.offsetTop + postHeaderEl.offsetParent.offsetTop - 1);
         let asideTocSummay = null;
         let asideTocWrapper = null;
         let asideTocToggle = null;
@@ -134,15 +135,15 @@
                 tocIdList[i] = decodeURI(asideTocList[i].firstElementChild.hash.substring(1));
             }
 
-            if (mainTocTop === 0) {
-                mainTocTop = (postHeaderEl.offsetHeight + postHeaderEl.offsetTop + postHeaderEl.offsetParent.offsetTop - 1);
-            }
+            //if (mainTocTop === 0) {
+                //mainTocTop = (postHeaderEl.offsetHeight + postHeaderEl.offsetTop + postHeaderEl.offsetParent.offsetTop - 1);
+            //}
         
-            if (mainTocTop < window.pageYOffset) {
+            if (postHeaderBottom < window.pageYOffset) {
                 asideToc.classList.remove("hide");
                 asideToc.classList.add("reveal");
                 asideTocSummay.classList.remove("hide");
-            } else if(mainTocTop >= window.pageYOffset) {
+            } else if(postHeaderBottom >= window.pageYOffset) {
                 asideToc.classList.add("hide");
             }
         
@@ -173,11 +174,11 @@
             if (asideToc) {
                 const scrollEnd = Math.ceil(currentScroll + window.innerHeight) >= document.body.scrollHeight;
         
-                if (mainTocTop < currentScroll && asideToc.classList.contains("hide")) {
+                if (postHeaderBottom < currentScroll && asideToc.classList.contains("hide")) {
                     asideToc.classList.remove("hide");
                     asideToc.classList.add("reveal");
                     asideTocSummay.classList.remove("hide");
-                } else if(mainTocTop >= currentScroll && asideToc.classList.contains("reveal")) {
+                } else if(postHeaderBottom >= currentScroll && asideToc.classList.contains("reveal")) {
                     asideToc.scrollTop = 0;
                     asideToc.classList.remove("reveal");
                     asideToc.classList.add("hide");
