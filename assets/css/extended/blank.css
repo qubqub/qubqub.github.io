@@ -1585,7 +1585,7 @@ header.header {
   z-index: 1;
   padding-inline-start: 8px;
   padding-inline-end: 8px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 14px;
   margin: 0;
 }
