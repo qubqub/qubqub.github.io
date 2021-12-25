@@ -1005,6 +1005,7 @@ header.header {
   .aside-font-size-button .button {
     cursor: pointer;
     margin: 0;
+    margin-left: auto;
     display: block;
     margin-bottom: 5px;
     width: 30px;
@@ -1167,6 +1168,7 @@ header.header {
   .aside-font-size-button .button {
     cursor: pointer;
     margin: 0;
+    margin-left: auto;
     display: block;
     margin-bottom: 8px;
     width: 42px;
@@ -1376,6 +1378,7 @@ header.header {
   .aside-font-size-button .button {
     cursor: pointer;
     margin: 0;
+    margin-left: auto;
     display: block;
     margin-bottom: 8px;
     width: 42px;
