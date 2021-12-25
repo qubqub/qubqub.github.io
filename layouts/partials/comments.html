@@ -5,43 +5,63 @@
     <div class="comments-button button">{{ i18n "load_comments" }}</div>
 </div>
 <script>
-    function load_comments (_target, _callback) {
-        // github-light, github-dark, preferred-color-scheme, github-dark-orange, icy-dark, dark-blue, photon-dark, boxy-light, gruvbox-dark
-        let _theme = "preferred-color-scheme";
-        if (localStorage.getItem("pref-theme") === null) {
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) { // dark
-                _theme = "github-dark";
-            } else { // light
-                _theme = "github-light";
-            }
-        } else {
-            if (localStorage.getItem("pref-theme") === "dark") { // dark
-                _theme = "github-dark";
-            } else { // light
-                _theme = "github-light";
-            }
-        }
-        const _utterancesRepo = '{{ .Param "utterancesRepo" }}';
-        const _utterancesMapping = '{{ .Param "utterancesMapping" }}';
-        const _script = document.createElement('script');
-        _script.setAttribute("src", "https://utteranc.es/client.js");
-        _script.setAttribute("repo", _utterancesRepo);
-        // _script.setAttribute("label", ""); // label (optional)
-        _script.setAttribute("issue-term", _utterancesMapping);
-        _script.setAttribute("theme", _theme);
-        _script.setAttribute("crossorigin", "anonymous");
-        _script.onload = _callback;
-        //_script.async = true;
-
-        _target.parentNode.insertBefore(_script, _target.nextSibling);
-    }
-
-    const commentButton = document.querySelector(".main .post-single #comments-button");
-    commentButton.addEventListener("click", (e) => {
+    const comments_DOMReady = function (callback) {
+        document.readyState === "interactive" ||
+            document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+    };
+    comments_DOMReady( function () {
         const _postFooter = document.querySelector(".main .post-single .post-footer");
-        commentButton.parentNode.removeChild(commentButton);
-        loding_indicator(true, _postFooter);
-        load_comments(_postFooter, loding_indicator);
+        const _commentsButton = document.querySelector(".main .post-single #comments-button");
+        const _postFooterBottom = (_postFooter.offsetHeight + _postFooter.offsetTop + _postFooter.offsetParent.offsetTop - 1);
+        let _isLoadComments = false;
+        
+        window.addEventListener("scroll", () => {
+            if (window.pageYOffset+window.innerHeight > _postFooterBottom && !_isLoadComments) {
+                _isLoadComments = true;
+                _commentsButton.parentNode.removeChild(_commentsButton);
+                loding_indicator(true, _postFooter);
+                load_comments(_postFooter, loding_indicator);
+            }
+        });
+
+        // _commentsButton.addEventListener("click", (e) => {
+        //     _commentsButton.parentNode.removeChild(_commentsButton);
+        //     loding_indicator(true, _postFooter);
+        //     load_comments(_postFooter, loding_indicator);
+        // });
+
+        function load_comments (_target, _callback) {
+            // github-light, github-dark, preferred-color-scheme, github-dark-orange, icy-dark, dark-blue, photon-dark, boxy-light, gruvbox-dark
+            let _theme = "preferred-color-scheme";
+            if (localStorage.getItem("pref-theme") === null) {
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) { // dark
+                    _theme = "github-dark";
+                } else { // light
+                    _theme = "github-light";
+                }
+            } else {
+                if (localStorage.getItem("pref-theme") === "dark") { // dark
+                    _theme = "github-dark";
+                } else { // light
+                    _theme = "github-light";
+                }
+            }
+            const _utterancesRepo = '{{ .Param "utterancesRepo" }}';
+            const _utterancesMapping = '{{ .Param "utterancesMapping" }}';
+            const _script = document.createElement('script');
+            _script.setAttribute("src", "https://utteranc.es/client.js");
+            _script.setAttribute("repo", _utterancesRepo);
+            // _script.setAttribute("label", ""); // label (optional)
+            _script.setAttribute("issue-term", _utterancesMapping);
+            _script.setAttribute("theme", _theme);
+            _script.setAttribute("crossorigin", "anonymous");
+            _script.onload = _callback;
+            //_script.async = true;
+
+            _target.parentNode.insertBefore(_script, _target.nextSibling);
+        }
+
+        
     });
 </script>
 {{- else if (.Param "disqusShortname") }}
