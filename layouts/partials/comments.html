@@ -10,17 +10,20 @@
             document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
     };
     comments_DOMReady( function () {
+        const _postContent = document.querySelector(".main .post-single .post-content");
         const _postFooter = document.querySelector(".main .post-single .post-footer");
         const _commentsButton = document.querySelector(".main .post-single #comments-button");
-        const _postFooterBottom = (_postFooter.offsetHeight + _postFooter.offsetTop + _postFooter.offsetParent.offsetTop - 1);
+        const _postContentBottom = (_postContent.offsetHeight + _postContent.offsetTop + _postContent.offsetParent.offsetTop);
         let _isLoadComments = false;
         
         window.addEventListener("scroll", () => {
-            if (window.pageYOffset+window.innerHeight > _postFooterBottom && !_isLoadComments) {
-                _isLoadComments = true;
-                _commentsButton.parentNode.removeChild(_commentsButton);
-                loding_indicator(true, _postFooter);
-                load_comments(_postFooter, loding_indicator);
+            if (!_isLoadComments) {
+                if (window.pageYOffset+window.innerHeight > _postContentBottom) {
+                    _isLoadComments = true;
+                    _commentsButton.parentNode.removeChild(_commentsButton);
+                    loding_indicator(true, _postFooter);
+                    load_comments(_postFooter, loding_indicator);
+                }
             }
         });
 
