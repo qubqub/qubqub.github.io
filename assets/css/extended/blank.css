@@ -387,12 +387,18 @@ header.header {
 }
 
 .header .nav .logo .logo-switches #theme-toggle {
-  font-size: 36px;
   margin: auto 8px;
+  font-size: 36px;
 }
-.header .nav .logo .logo-switches #theme-toggle svg {
+.header .nav .logo .logo-switches #theme-toggle #sun {
+  /* vertical-align: sub; */
   width: 24px;
   height: 24px;
+}
+.header .nav .logo .logo-switches #theme-toggle #moon {
+  vertical-align: 1px;
+  width: 22px;
+  height: 22px;
 }
 
 .scale-zero {
