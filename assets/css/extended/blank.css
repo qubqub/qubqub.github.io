@@ -388,15 +388,15 @@ header.header {
 
 .header .nav .logo .logo-switches #theme-toggle {
   margin: auto 8px;
-  font-size: 36px;
+  font-size: 38px;
 }
 .header .nav .logo .logo-switches #theme-toggle #sun {
   /* vertical-align: sub; */
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
 }
 .header .nav .logo .logo-switches #theme-toggle #moon {
-  vertical-align: 1px;
+  vertical-align: 2px;
   width: 22px;
   height: 22px;
 }
