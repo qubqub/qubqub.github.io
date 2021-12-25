@@ -183,6 +183,10 @@ header.header {
   margin-top: 3rem;
 }
 
+.main .post-single .post-header .breadcrumbs {
+  margin-bottom: 0.5rem
+}
+
 .main .post-single .utterances {
   max-width: none;
 }
@@ -969,13 +973,13 @@ header.header {
   }
 
   .display-font-size-info {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     height: 1.3rem;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: center;
-    margin-inline-start: 5px;
+    margin-inline-start: 3px;
   }
 
   .aside-display-font-size-info {
@@ -1131,18 +1135,18 @@ header.header {
   }
 
   .display-font-size-info {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     height: 1.3rem;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: center;
-    margin-inline-start: 5px;
+    margin-inline-start: 3px;
   }
 
   .aside-display-font-size-info {
     margin-bottom: 2px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -1340,13 +1344,13 @@ header.header {
   }
 
   .display-font-size-info {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     height: 1.3rem;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: center;
-    margin-inline-start: 5px;
+    margin-inline-start: 3px;
   }
 
   .aside-display-font-size-info {
@@ -1555,6 +1559,8 @@ header.header {
 }
 
 .post-meta .font-size-button .button {
+  width: 20px;
+  height: 20px;
   padding: 0 2.5px;
   margin: 0;
   cursor: pointer;
