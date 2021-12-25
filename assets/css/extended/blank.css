@@ -584,6 +584,7 @@ header.header {
   background: var(--entry);
   border-radius: var(--radius);
   border: 1px solid var(--border);
+  padding-bottom: 1rem;
 }
 
 .article-entry {
@@ -1630,6 +1631,7 @@ header.header {
 .main .first-entry .entry-footer .post-tags,
 .main .article-entry .entry-footer .post-tags,
 .main .archive-year .archive-month .archive-posts .archive-entry .archive-meta .post-tags,
+.main .series-entry .post-tags,
 .main .post-entry .entry-footer .post-tags,
 .main .post-single .post-header .post-meta .post-tags {
   width: 100%;
@@ -1638,9 +1640,10 @@ header.header {
   margin-top: 10px;
 }
 
-.post-entry .post-tags .chapter-link-button {
+.series-entry .post-tags .chapter-link-button {
   font-size: 1rem;
   line-height: 1rem;
+  padding: 8px;
 }
 
 .post-tags a {

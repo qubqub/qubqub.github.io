@@ -9,7 +9,7 @@
 1 2 3  ExecutorService exec = Executors.newSingleThreadExecutor(); exec.excute(runnable); // 이 실행자에게 task를 넘김 exec.shutdown(); // graceful하게 종료 (이 작업이 실패하면 VM 자체가 종료되지 않을 것)   이 외에도 다양한 기능을 실행할 수 있다. 실행자 서비스를 사용하기에 까다로운 애플리케이션도 있는데, 가벼운 서버라면 Executors.newCachedThreadPool이 일반적으로 좋은 선택이지만 CachedThreadPool은 무거운 프로덕션 서버에는 좋지 못하다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-10/item80/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.c8eb8e94171d1bd73936be4169eb5ca2c07ddcffed12f88cdd87f8c65aa73764.css integrity="sha256-yOuOlBcdG9c5Nr5BaetcosB93P/tEviM3Yf4xlqnN2Q=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.b851ea3911426b41bb2e41e6a51501d3d02cd9ec96d9a38ac96c44e61807e62b.css integrity="sha256-uFHqORFCa0G7LkHmpRUB09As2eyW2aOKyWxE5hgH5is=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
