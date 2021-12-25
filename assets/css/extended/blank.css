@@ -1594,6 +1594,14 @@ header.header {
   word-break: keep-all;
 }
 
+.post-footer .post-license-info .button {
+  background: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  transition: none;
+}
+
 .footer {
   font-size: 0.85rem;
 }
