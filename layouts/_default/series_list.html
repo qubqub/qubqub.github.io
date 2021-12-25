@@ -53,8 +53,7 @@
               {{- if (eq $taxonomy_term "series") }}
                 {{- range $key, $value := $taxonomy }}
                   {{ if (eq $seriesId $key) }}
-                    {{/* with (index $value.Pages (sub (len $value.Pages) 1)) */}}
-                    {{ with (index $value.Pages 0) }}
+                    {{ with (index $value.Pages (sub (len $value.Pages) 1)) }}
                       <a class="entry-link" aria-label="{{ $seriesTitle }}" href="{{ .RelPermalink }}"></a>
                     {{- end }}
                   {{- end }}
@@ -69,8 +68,7 @@
                     {{ $_splitChapter := split $key "-chapter-" }}
                     {{ $_seriesId := index $_splitChapter 0 }}
                     {{ $_chapterNumber := index $_splitChapter 1 }}
-                    {{/*  {{ with (index $value.Pages (sub (len $value.Pages) 1)) }}  */}}
-                    {{ with (index $value.Pages 0) }}
+                    {{ with (index $value.Pages (sub (len $value.Pages) 1)) }}
                       {{ if (eq $seriesId $_seriesId) }}
                         {{ $_chapterLink := .RelPermalink }}
                         {{- range where $seriesCover "name" $seriesTitle }}

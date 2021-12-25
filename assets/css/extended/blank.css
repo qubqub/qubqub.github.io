@@ -1311,13 +1311,21 @@ header.header {
 }
 
 @media screen and (min-width: 1371px) {
+  /* .main .page-footer nav.pagination .pagination__item.pagination__item--first span:before {
+    content: "처음";
+  }
+
+  .main .page-footer nav.pagination .pagination__item.pagination__item--last span:before {
+    content: "끝";
+  }
+
   .main .page-footer nav.pagination .pagination__item.pagination__item--previous span:before {
-    content: "이전 페이지";
+    content: "이전";
   }
 
   .main .page-footer nav.pagination .pagination__item.pagination__item--next span:before {
-    content: "다음 페이지";
-  }
+    content: "다음";
+  } */
 
   .main .archive-year .archive-month-header .toggle {
     vertical-align: top;

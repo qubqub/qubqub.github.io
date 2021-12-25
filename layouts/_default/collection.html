@@ -1,5 +1,5 @@
 {{- define "main" }}
-  {{- if or (.Params.useTag) (.Params.useCategory)}}
+  {{- if or (.Params.useTag) (.Params.useCategory) (.Params.useSection)}}
     <header class="collection-header">
       <h1 class="collection-title" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>{{ .Title }}</h1>
       {{- if .Description }}
@@ -8,12 +8,26 @@
       </div>
       {{- end }}
     </header>
-    {{- if .Params.useCategory }}{{/* category */ -}}
+    {{- if .Params.useSection }}{{/* section */ -}}
+      {{- range $i, $v := .Site.Sections }}
+        <div class="collection-entry" {{ if $.Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
+          <article class="post-entry" title="{{- i18n .Name }}">
+            <header class="entry-header">
+              <h2>📄 {{ .Name }} <sup><strong><sup>{{ len (where site.RegularPages "Section" .Section) }}</sup></strong></sup></h2>
+            </header>
+            <section class="entry-content">
+              <p>{{- .Description }}</p>
+            </section>
+            <a class="entry-link" aria-label="{{ .Name }}" href="{{ .RelPermalink }}"></a>
+          </article>
+        </div>
+      {{- end }}
+    {{- else if .Params.useCategory }}{{/* category */ -}}
       {{- range $i, $v := $.Site.Taxonomies.categories.ByCount }}
         {{- $name := .Name }}
         {{- $count := .Count }}
         {{- with $.Site.GetPage (printf "/%s/%s" "categories" $name) }}
-        <div class="collection-entry" {{ if .Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
+        <div class="collection-entry" {{ if $.Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
           <article class="post-entry" title="{{- i18n $name }}">
             <header class="entry-header">
               <h2>📄 {{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup></h2>
@@ -31,7 +45,7 @@
         {{- $name := .Name }}
         {{- $count := .Count }}
         {{- with $.Site.GetPage (printf "/%s/%s" "tags" $name) }}
-        <div class="collection-entry" {{ if .Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
+        <div class="collection-entry" {{ if $.Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
           <article class="post-entry" title="{{- i18n $name }}">
             <header class="entry-header">
               <h2>📄 {{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup></h2>
@@ -58,7 +72,7 @@
       </header>
     {{- end }}
     {{- range $i, $v := .Params.menu }}
-    <div class="collection-entry" {{ if .Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
+    <div class="collection-entry" {{ if $.Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
       <article class="post-entry" title="{{ .description }}">
         {{- if not .cover.hidden }}
           <figure class="collection-cover">
