@@ -2250,8 +2250,8 @@ a.button,
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 1.4rem;
-  vertical-align: -2px;
+  font-size: 1.1em;
+  vertical-align: -1px;
 }
 
 .user-fa-action-3d-rotation:before {

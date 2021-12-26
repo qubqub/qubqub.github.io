@@ -36,7 +36,9 @@ _Boolean 클래스에서 발췌한 예제 코드_
 
 클래스는 클라이언트에 `public` 생성자 대신 (혹은 생성자와 함께) 정적 팩터리 메서드를 제공할 수 있다. 이 방식에는 장점과 단점이 모두 존재한다. 먼저 정적 팩터리 메서드가 생성자보다 좋은 장점 다섯 가지를 알아보자.
 <br>
-## 장점
+
+## <i class="user-fa-action-done-all" aria-hidden="true"></i> 장점
+<br>
 
 ### 첫 번째, 이름을 가질 수 있다.
 
@@ -88,9 +90,9 @@ public static <E extends Enum<E>> EnumSet<E> noneOf(Class<E> elementType) {
         return new JumboEnumSet<>(elementType, universe);
 }
 ```
-<br>
 
 클라이언트는 이 두 클래스의 존재를 모른다. 만약 원소가 적을 때 `RegularEnumSet`을 사용할 이점이 없어진다면 다음 릴리스 때는 이를 삭제해도 아무 문제가 없다. 비슷하게, 성능을 더 개선한 세 번때, 네 번째 클래스를 다음 릴리스에 추가할 수도 있다. 클라이언트는 팩터리가 건네주는 객체가 어느 클래스의 인스턴스인지 알 수도 없고 알 필요도 없다. `EnumSet`의 하위 클래스이기만 하면 되는 것이다.
+<br>
 
 ### 다섯 번째, 정적 팩터리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.
 
@@ -107,11 +109,13 @@ public static <E extends Enum<E>> EnumSet<E> noneOf(Class<E> elementType) {
 <br>
 이제 단점을 알아볼 차례다.
 
-## 단점
+## <i class="user-fa-action-done-all" aria-hidden="true"></i> 단점
+<br>
 
 ### 첫 번째, 상속을 하려면 `public`이나 `protected` 생성자가 필요하니 정적 팩터리 메서드만 제공하면 하위 클래스를 만들 수 없다.
 
 앞서 이야기한 컬렉션 프레임워크의 유틸리티 구현 클래스들은 상속할 수 없다는 이야기다. 어찌 보면 이 제약은 상속`is-a`보다 컴포지션`has-a`을 사용[`아이템 18`](/effective-java-3e/chapter-03/item18/)하도록 유도하고 불변 타입[`아이템 17`](/effective-java-3e/chapter-03/item17/)으로 만들려면 이 제약을 지켜야 한다는 점에서 오히려 장점으로 받아들일 수도 있다.
+<br>
 
 ### 두 번째, 정적 팩터리 메서드는 프로그래머가 찾기 어렵다.
 
@@ -120,31 +124,31 @@ public static <E extends Enum<E>> EnumSet<E> noneOf(Class<E> elementType) {
 다음은 정적 팩터리 메서드에 흔히 사용하는 명명 방식들이다.
 
 - `from` <i class="user-fa-navigation-arrow-forward" aria-hidden="true"></i> 매개변수를 하나 받아서 해당 타입의 인스턴스를 반환하는 형변환 매서드
-<i class="user-fa-action-done-all" aria-hidden="true"></i>　Date d = Date.from(instant);
+<i class="user-fa-action-done" aria-hidden="true"></i> Date d = Date.from(instant);
 <br>
 - `of` <i class="user-fa-navigation-arrow-forward" aria-hidden="true"></i> 여러 매개변수를 받아 적합한 타입의 인스턴스를 반환하는 집계 메서드
-<i class="user-fa-action-done-all" aria-hidden="true"></i>　Set<Rank> faceCards = EnumSet.of(JACK, QUEEN, KING);
+<i class="user-fa-action-done" aria-hidden="true"></i> Set<Rank> faceCards = EnumSet.of(JACK, QUEEN, KING);
 <br>
 - `valueOf` <i class="user-fa-navigation-arrow-forward" aria-hidden="true"></i> _`from`_ 과 _`of`_ 의 더 자세한 버전
-<i class="user-fa-action-done-all" aria-hidden="true"></i>　BigInteger prime = BigInteger.valueOf(Integer.MAX_VALUE);
+<i class="user-fa-action-done" aria-hidden="true"></i> BigInteger prime = BigInteger.valueOf(Integer.MAX_VALUE);
 <br>
 - `instance` 혹은 `getInstance` <i class="user-fa-navigation-arrow-forward" aria-hidden="true"></i> (매개변수를 받는다면) 매개변수로 명시한 인스턴스를 반환하지만, 같은 인스턴스임을 보장하지 않는다.
-<i class="user-fa-action-done-all" aria-hidden="true"></i>　StackWalker luke = StackWalker.getInstance(options);
+<i class="user-fa-action-done" aria-hidden="true"></i> StackWalker luke = StackWalker.getInstance(options);
 <br>
 - `create` 혹은 `newInstance` <i class="user-fa-navigation-arrow-forward" aria-hidden="true"></i> _`instance`_ 혹은 _`getInstance`_ 와 같지만, 매번 새로운 인스턴스를 생성해 반환함을 보장한다.
-<i class="user-fa-action-done-all" aria-hidden="true"></i>　Object newArray = Array.newInstance(classObject, arrayLen);
+<i class="user-fa-action-done" aria-hidden="true"></i> Object newArray = Array.newInstance(classObject, arrayLen);
 <br>
 - `getType` <i class="user-fa-navigation-arrow-forward" aria-hidden="true"></i> _`getInstance`_ 와 같으나, 생성할 클래스가 아닌 다른 클래스에 팩터리 메서드를 정의할 때 쓴다. _"Type"_ 은 팩터리 메서드가 반환할 객체의 타입이다.
-<i class="user-fa-action-done-all" aria-hidden="true"></i>　FileStore fs = Files.getFileStore(path);
+<i class="user-fa-action-done" aria-hidden="true"></i> FileStore fs = Files.getFileStore(path);
 <br>
 - `newType` <i class="user-fa-navigation-arrow-forward" aria-hidden="true"></i> _`newInstance`_ 와 같으나, 생성할 클래스가 아닌 다른 클래스에 팩터리 메서드를 정의할 때 쓴다. _"Type"_ 은 팩터리 메서드가 반환할 객체의 타입이다.
-<i class="user-fa-action-done-all" aria-hidden="true"></i>　BufferedReader br = Files.newBufferedReader(path);
+<i class="user-fa-action-done" aria-hidden="true"></i> BufferedReader br = Files.newBufferedReader(path);
 <br>
 - `type` <i class="user-fa-navigation-arrow-forward" aria-hidden="true"></i> _`getType`_ 과 _`newType`_ 의 간결한 버전
-<i class="user-fa-action-done-all" aria-hidden="true"></i>　List<Complaint> litany = Collections.list(legacyLitany);
+<i class="user-fa-action-done" aria-hidden="true"></i> List<Complaint> litany = Collections.list(legacyLitany);
 <br>
 <br>
 
-<i class="user-fa-av-new-releases" aria-hidden="true"></i> 핵심정리
+## <i class="user-fa-av-new-releases" aria-hidden="true"></i> 핵심정리
 
 정적 팩터리 메서드와 `public` 생성자는 각자의 쓰임새가 있으니 상대적인 장단점을 이해하고 사용하는 것이 좋다. 그렇다고 하더라도 정적 팩터리를 사용하는 게 유리한 경우가 더 많으므로 무작정 `public` 생성자를 제공하던 습관이 있다면 고치자.
