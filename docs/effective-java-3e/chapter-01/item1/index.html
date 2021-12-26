@@ -5,13 +5,11 @@
 <meta name=robots content="index, follow">
 <title>[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라 | &lt;Qutrits/></title>
 <meta name=keywords content="Java,Effective Java 3E">
-<meta name=description content="일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메서드를 이용할 수 있다. 1 2 3  public static Boolean valueOf(boolean b) { return b ? Boolean.TRUE : Booelan.FALSE; }   Boolean 클래스에서 발췌한 예제 코드
-장점 1. 이름을 가질 수 있다. 생성자에 넘기는 매개변수만으로 반환될 객체의 특성을 제대로 설명하지 못합니다.
-반면 정적 팩터리 메서드는 이름을 잘 지으면 반환될 객체의 특성을 쉽게 묘사할 수 있습니다.
-하나의 시그니처로는 생성자를 하나만 만들 수 있으며 입력 매개변수들의 순서를 다르게 한 생성자를 추가하는 식으로 이 제한을 피할 수는 있지만, 이 역시 객체의 특성을 살리기 힘들고 좋지 않은 방식입니다.">
+<meta name=description content="클라이언트가 클래스의 인스턴스를 얻는 전통적인 수단은 public 생성자다. 하지만 모든 프로그래머가 꼭 알아둬야 할 기법이 하나 더 있다. 클래스는 생성자와 별도로 정적 팩터리 메서드static factory method를 제공할 수 있다. 그 클래스의 인스턴스를 반환하는 단순한 정적 메서드 말이다. 다음 코드는 boolean 기본 타입의 박싱 클래스boxed class인 Boolean에서 발췌한 간단한 예다. 이 메서드는 기본 타입인 boolean 값을 받아 Boolean 객체 참조로 변환해준다.
+1 2 3  public static Boolean valueOf(boolean b) { return b ?">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-01/item1/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.b2ed11c8cbefda6b385e40083d9d9077adaa66022fd8f0f0e5cb9efb9ac5384f.css integrity="sha256-su0RyMvv2ms4XkAIPZ2Qd62qZgIv2PDw5cue+5rFOE8=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.45511d043aa8f0069841abf7bd57d3ff6ffee72b987ac3312cfe48b068887c31.css integrity="sha256-RVEdBDqo8AaYQav3vVfT/2/+5yuYesMxLP5IsGiIfDE=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -27,10 +25,8 @@
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라">
-<meta property="og:description" content="일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메서드를 이용할 수 있다. 1 2 3  public static Boolean valueOf(boolean b) { return b ? Boolean.TRUE : Booelan.FALSE; }   Boolean 클래스에서 발췌한 예제 코드
-장점 1. 이름을 가질 수 있다. 생성자에 넘기는 매개변수만으로 반환될 객체의 특성을 제대로 설명하지 못합니다.
-반면 정적 팩터리 메서드는 이름을 잘 지으면 반환될 객체의 특성을 쉽게 묘사할 수 있습니다.
-하나의 시그니처로는 생성자를 하나만 만들 수 있으며 입력 매개변수들의 순서를 다르게 한 생성자를 추가하는 식으로 이 제한을 피할 수는 있지만, 이 역시 객체의 특성을 살리기 힘들고 좋지 않은 방식입니다.">
+<meta property="og:description" content="클라이언트가 클래스의 인스턴스를 얻는 전통적인 수단은 public 생성자다. 하지만 모든 프로그래머가 꼭 알아둬야 할 기법이 하나 더 있다. 클래스는 생성자와 별도로 정적 팩터리 메서드static factory method를 제공할 수 있다. 그 클래스의 인스턴스를 반환하는 단순한 정적 메서드 말이다. 다음 코드는 boolean 기본 타입의 박싱 클래스boxed class인 Boolean에서 발췌한 간단한 예다. 이 메서드는 기본 타입인 boolean 값을 받아 Boolean 객체 참조로 변환해준다.
+1 2 3  public static Boolean valueOf(boolean b) { return b ?">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://qutrits.github.io/effective-java-3e/chapter-01/item1/"><meta property="article:section" content="effective-java-3e">
 <meta property="article:published_time" content="2020-06-18T15:49:20+09:00">
@@ -38,12 +34,10 @@
 <meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item33/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item32/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item31/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item30/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item29/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item28/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라">
-<meta name=twitter:description content="일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메서드를 이용할 수 있다. 1 2 3  public static Boolean valueOf(boolean b) { return b ? Boolean.TRUE : Booelan.FALSE; }   Boolean 클래스에서 발췌한 예제 코드
-장점 1. 이름을 가질 수 있다. 생성자에 넘기는 매개변수만으로 반환될 객체의 특성을 제대로 설명하지 못합니다.
-반면 정적 팩터리 메서드는 이름을 잘 지으면 반환될 객체의 특성을 쉽게 묘사할 수 있습니다.
-하나의 시그니처로는 생성자를 하나만 만들 수 있으며 입력 매개변수들의 순서를 다르게 한 생성자를 추가하는 식으로 이 제한을 피할 수는 있지만, 이 역시 객체의 특성을 살리기 힘들고 좋지 않은 방식입니다.">
+<meta name=twitter:description content="클라이언트가 클래스의 인스턴스를 얻는 전통적인 수단은 public 생성자다. 하지만 모든 프로그래머가 꼭 알아둬야 할 기법이 하나 더 있다. 클래스는 생성자와 별도로 정적 팩터리 메서드static factory method를 제공할 수 있다. 그 클래스의 인스턴스를 반환하는 단순한 정적 메서드 말이다. 다음 코드는 boolean 기본 타입의 박싱 클래스boxed class인 Boolean에서 발췌한 간단한 예다. 이 메서드는 기본 타입인 boolean 값을 받아 Boolean 객체 참조로 변환해준다.
+1 2 3  public static Boolean valueOf(boolean b) { return b ?">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Effctive Java 3/E","item":"https://qutrits.github.io/effective-java-3e/"},{"@type":"ListItem","position":2,"name":"1장 객체 생성과 파괴","item":"https://qutrits.github.io/effective-java-3e/chapter-01/"},{"@type":"ListItem","position":3,"name":"[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라","item":"https://qutrits.github.io/effective-java-3e/chapter-01/item1/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라","name":"[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라","description":"일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메서드를 이용할 수 있다. 1 2 3  public static Boolean valueOf(boolean b) { return b ? Boolean.TRUE : Booelan.FALSE; }   Boolean 클래스에서 발췌한 예제 코드\n장점 1. 이름을 가질 수 있다. 생성자에 넘기는 매개변수만으로 반환될 객체의 특성을 제대로 설명하지 못합니다.\n반면 정적 팩터리 메서드는 이름을 잘 지으면 반환될 객체의 특성을 쉽게 묘사할 수 있습니다.\n하나의 시그니처로는 생성자를 하나만 만들 수 있으며 입력 매개변수들의 순서를 다르게 한 생성자를 추가하는 식으로 이 제한을 피할 수는 있지만, 이 역시 객체의 특성을 살리기 힘들고 좋지 않은 방식입니다.","keywords":["Java","Effective Java 3E"],"articleBody":"일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메서드를 이용할 수 있다. 1 2 3  public static Boolean valueOf(boolean b) { return b ? Boolean.TRUE : Booelan.FALSE; }   Boolean 클래스에서 발췌한 예제 코드\n장점 1. 이름을 가질 수 있다. 생성자에 넘기는 매개변수만으로 반환될 객체의 특성을 제대로 설명하지 못합니다.\n반면 정적 팩터리 메서드는 이름을 잘 지으면 반환될 객체의 특성을 쉽게 묘사할 수 있습니다.\n하나의 시그니처로는 생성자를 하나만 만들 수 있으며 입력 매개변수들의 순서를 다르게 한 생성자를 추가하는 식으로 이 제한을 피할 수는 있지만, 이 역시 객체의 특성을 살리기 힘들고 좋지 않은 방식입니다.\n정적 팩토리 메서드는 이러한 제약이 없으며 시그니처가 같은 생성자가 여러 개 필요하다 싶으면\n생성자를 정적 팩터리 메서드로 바꾸고 각각의 차이를 잘 드러내는 이름을 지어내는 방법을 사용할 수 있습니다.\n2. 호출될 때마다 인스턴스를 새로 생성하지 않아도 된다. 불변 클래스immutable class는 미리 만들어 놓거나 새로 생성한 인스턴스를 캐싱하여 재활용하는 식으로 불필요한 객체 생성을 피할 수 있습니다. 따라서 객체가 자주 요청되는 상황이라면 성능을 상당히 끌어 올릴 수 있습니다. Boolean.valueOf(boolean)메서드도 그 경우에 해당됩니다.\n3. 반환 타입의 하위 타입 객체를 반환할 수 있는 능력이 있다. 반환할 객체의 클래스를 선택할 수 있는 유연함이 있습니다. 반환할 객체의 하위 타입의 인스턴스를 반환할 수 있습니다. API를 작성할때 이러한 유연성을 이용하여 구현 클래스를 공개하지 않고도 그 객체를 반환할 수 있어 API를 작게 유지할 수 있습니다.\n자바 컬렉션 프레임워크는 핵심 인터페이스들에 수정 불가나 동기화 등의 기능을 덧붙인\n총 45개의 유틸리티 구현체를 제공하는데, 이 구현체는 대부분 단 하나의 인스턴스화 불가 클래스인java.util.Collections에서 정적 팩터리 메서드를 통해 얻도록 했습니다.\n컬렉션 프레임워크는 이 45개의 클래스를 공개하지 않기 때문에 API의 외견을 훨씬 작게 만들 수 있었습니다.\n여기서 API의 크기는 프로그래머가 API를 사용하기 위해 익혀야하는 개념의 수와 난이도를 의미합니다. 클라이언트가 구현체가 아닌 인터페이스를 다루게 되므로 역할과 구현을 나눠 결합도를 낮출 수 있습니다.\n4. 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다. 장점 3에서 말했듯이 하위 타입이기만 하면 어떤 클래스의 객체를 반환하던 상관 없습니다.\n가령 EumSet클래스는 public생성자 없이 오직 정적 펙토리 메서드만 제공합니다.\nnonOf 메서드를 살펴보면 원소 수에 따라 RegularEnumSet 이나 JumboEnumSet 인스턴스를 반환 합니다.\n1 2 3 4 5 6 7 8 9 10  public static E extends EnumE EnumSetE noneOf(ClassE elementType) { Enum[] universe = getUniverse(elementType); if (universe == null) throw new ClassCastException(elementType + \" not an enum\"); if (universe.length  64) return new RegularEnumSet(elementType, universe); else return new JumboEnumSet(elementType, universe); }   \n5. 정적 팩토리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다. 대표적인 프레워크로는 JDBC가 있습니다. 구현체를 클라이언트에 제공하는 역할을 프레임워크가 통제하여, 클라이언트를 구현체로부터 분리해줍니다.\n서비스 제공자 프레임워크는 3개의 핵심 컴포넌트로 이루어집니다. (제공자는 서비스의 구현체를 의미합니다)\n 서비스 인터페이스 (구현체의 동작을 정의) 제공자 등록 API (제공자가 구현체를 등록할 때 사용) 서비스 접근 API (클라이언트가 서비스의 인스터스를 얻을 때 사용)  서비스 접근 API를 사용할 때 원하는 구현체의 조건을 명시할 수 있습니다. 조건을 명시하지 않으면 기본 구현체를 반화하거나 지원하는 구현체들을 하나씩 돌아가면서 반환합니다.\n단점 1. 상속을 하려면 public이나 protected생성자가 필요하기 때문에 정적 팩토리 메서드만 제공하면 하위 클래스를 만들 수 없다. 이 제약은 상속is-a보다 컴포지션has-a을 사용하도록 유도하고 불변 타입으로 만들려면 이 제약을 지켜야 한다는 점에서 오히려 장점으로 받아들일 수도 있습니다.\n2. 정적 팩토리 메서드는 프로그래머가 찾기 어렵다. 생성자처럼 API설명에 명확히 드러나지 않으므로 사용자는 정적 팩토리 메서드 사용 방식 클래스를 인스턴스화 시킬 방법을 알아내야 합니다. 그러므로 API 문서를 잘 정리하고 메서드 이름도 널리 알려진 규약을 따르는 게 좋습니다.\n","wordCount":"522","inLanguage":"ko","datePublished":"2020-06-18T15:49:20+09:00","dateModified":"2020-06-18T15:49:20+09:00","author":[{"@type":"Person","name":"Kyungchul Shin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/effective-java-3e/chapter-01/item1/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.webp"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라","name":"[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라","description":"클라이언트가 클래스의 인스턴스를 얻는 전통적인 수단은 public 생성자다. 하지만 모든 프로그래머가 꼭 알아둬야 할 기법이 하나 더 있다. 클래스는 생성자와 별도로 정적 팩터리 메서드static factory method를 제공할 수 있다. 그 클래스의 인스턴스를 반환하는 단순한 정적 메서드 말이다. 다음 코드는 boolean 기본 타입의 박싱 클래스boxed class인 Boolean에서 발췌한 간단한 예다. 이 메서드는 기본 타입인 boolean 값을 받아 Boolean 객체 참조로 변환해준다.\n1 2 3  public static Boolean valueOf(boolean b) { return b ?","keywords":["Java","Effective Java 3E"],"articleBody":"클라이언트가 클래스의 인스턴스를 얻는 전통적인 수단은 public 생성자다. 하지만 모든 프로그래머가 꼭 알아둬야 할 기법이 하나 더 있다. 클래스는 생성자와 별도로 정적 팩터리 메서드static factory method를 제공할 수 있다. 그 클래스의 인스턴스를 반환하는 단순한 정적 메서드 말이다. 다음 코드는 boolean 기본 타입의 박싱 클래스boxed class인 Boolean에서 발췌한 간단한 예다. 이 메서드는 기본 타입인 boolean 값을 받아 Boolean 객체 참조로 변환해준다.\n1 2 3  public static Boolean valueOf(boolean b) { return b ? Boolean.TRUE : Booelan.FALSE; }   Boolean 클래스에서 발췌한 예제 코드\n  지금 얘기하는 정적 팩터리 메서드는 팩토리 메서드 패턴[Gamma95] 1 에서의 팩터리 메서드Factory Method와 다르다. 디자인 패턴 중에는 이와 일치하는 패턴은 없다.\n 클래스는 클라이언트에 public 생성자 대신 (혹은 생성자와 함께) 정적 팩터리 메서드를 제공할 수 있다. 이 방식에는 장점과 단점이 모두 존재한다. 먼저 정적 팩터리 메서드가 생성자보다 좋은 장점 다섯 가지를 알아보자.\n장점 첫 번째, 이름을 가질 수 있다. 생성자에 넘기는 매겨변수와 생성자 자체만으로는 반환될 객체의 특성을 제대로 설명하지 못한다. 반면 정적 팩터리는 이름만 잘 지으면 반환될 객체의 특성을 쉽게 묘사할 수 있다. 예컨대 생성자인 BigInteger(int, int, Random)과 정적 팩터리 메서드인 BigInteger.probablePrime중 어느 쪽이 ‘값이 소수인 BigInteger를 반환한다’ 는 의미를 더 잘 설명할 것 같은지 생각해 보라.\n BigInteger.probablePrime은 JAVA 4 에서 추가됐다.\n하나의 시그니처로는 생성자를 하나만 만들 수 있다. 입력 매개변수들의 순서를 다르게 한 생성자를 새로 추가하는 식으로 이 제한을 피해볼 수도 있지만, 좋지 않은 발상이다. 그런 API를 사용하는 개발자는 각 생성자가 어떤 역할을 하는지 정확히 기억하기 어려워 엉뚱한 것을 호출하는 실수를 할 수 있다. 코드를 읽는 사람도 클래스 설명 문서를 찾아보지 않고는 의미를 알지 못할 것이다.\n이름을 가질 수 있는 정적 팩터리 메서드에는 이런 제약이 없다. 한 클래스에 시그니처가 같은 생성자가 여러 개 필요할 것 같으면, 생성자를 정적 택터리 메서드로 바꾸고 각각의 차이를 잘 드러내는 이름을 지어주자.\n두 번째, 호출될 때마다 인스턴스를 새로 생성하지는 않아도 된다. 이 덕분에 불변 클래스immutable class; 아이템 17는 인스턴스를 미리 만들어 놓거나 새로 생성한 인스턴스를 캐싱하여 재활용하는 식으로 불필요한 객체 생성을 피할 수 있다. 대표적 예인 Boolean.valueOf(boolean) 메서드는 객체를 아예 생성하지 않는다. 따라서 (특히 생성 비용이 큰) 같은 객체가 자주 요청되는 상황이라면 성능을 상당히 끌어올려 준다.\n플라이웨이트 패턴 [Gamma95] 2 도 이와 비슷한 기법이라 할 수 있다.\n반복되는 요청에 같은 객체를 반환하는 식으로 정적 팩터리 방식의 클래스는 언제 어느 인스턴스를 살아 있게 할지를 철저히 통제할 수 있다. 이런 클래스를 인스턴스 통제instance-controlled 클래스라 한다. 그렇다면 인스턴스를 통제하는 이유는 무엇일까? 인스턴스를 통제하면 클래스를 싱글턴singleton; 아이템 3으로 만들 수도, 인스턴스화 불가noninstantiable; 아이템 4로 만들 수도 있다. 또한 불변 값 클래스아이템 17에서 동치인 인스턴스가 단 하나뿐임을 보장할 수 있다.\n　a == b일 때만 a.equals(b)가 성립\n인스턴스 통제는 플라이웨이트 패턴[Gamma95] 2 의 근간이 되며, 열거 타입아이템 34은 인스턴스가 하나만 만들어짐을 보장한다.\n세 번째, 반환 타입의 하위 타입 객체를 반환할 수 있는 능력이 있다. 이 능력은 반환할 객체의 클래스를 자유롭게 선택할 수 있게 하는 ‘엄청난 유연성’ 을 선물한다. API를 만들 때 이 유연성을 응용하면 구현 클래스를 공개하지 않고도 그 객체를 반환할 수 있어 API를 작게 유지할 수 있다. 이는 인터페이스를 정적 팩터리 메서드의 반환 타입으로 사용하는 인터페이스 기반 프레임워크아이템 20를 만드는 핵심 기술이기도 하다.\nJAVA 8 전에는 인터페이스에 정적 메서드를 선언할 수 없었다. 그렇기 때문에 이름이 “Type” 인 인터페이스를 반환하는 정적 메서드가 필요하면, “Types\"라는 (인스턴스화 불가인) 동반 클래스companion class를 만들어 그 안에 정의하는 것이 관례였다. 예컨대 자바 컬렉션 프레임워크는 핵심 인터페이스들에 수정 불가나 동시화 등의 기능을 덧붙인 총 45개의 유틸리티 구현체를 제공하는데, 이 구현체 대부분을 단 하나의 인스턴스화 불가 클래스인 java.util.collections에서 정적 팩터리 메서드를 통해 얻도록 했다.\n컬렉션 프레임워크는 이 45개 클래스를 공개하지 않기 때문에 API 외견을 훨씬 작게 만들 수 있었다. API가 작아진 것은 물론 개념적인 무게, 즉 프로그래머가 API를 사용하기 위해 익혀야 하는 개념의 수와 난이도도 낮췄다. 프로그래머는 명시한 인터페이스대로 동작하는 객체를 얻을 것임을 알기에 굳이 별도 문서를 찾아가며 실제 구현 클래스가 무엇인지 알아보지 않아도 된다. 나아가 정적 팩터리 메서드를 사용하는 클라이언트는 얻은 객체를 (그 구현 클래스가 아닌) 인터페이스만으로 다루게 된다.아이템 64 물론 이는 일반적으로 좋은 습관이다.\nJAVA 8부터는 인터페이스가 정적 메서드를 가질 수 없다는 제한이 풀렸기 때문에 인스턴스화 불가 동반 클래스를 둘 이유가 별로 없다. 동반 클래스에 두었던 public 정적 멤버들 상당수를 그냥 인터페이스 자체에 두면 되는 것이다. 하지만 정적 메서드들을 구현하기 위한 코드 중 많은 부분은 여전히 별도의 package-private 클래스에 두어야 할 수 있다. JAVA 8에서도 인터페이스에는 public 정적 멤버만 허용하기 때문이다. JAVA 9에서는 private 정적 메서드까지 허락하지만 정적 필드와 정적 멤버 클래스는 여전히 public이어야 한다.\n네 번째, 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다. 반환 타입의 하위 타입이기만 하면 어떤 클래스의 객체를 반환하든 상관없다. 심지어 다음 릴리스에서는 또 다른 클래스의 객체를 반환해도 된다. 가령 EnumSet 클래스아이템 36는 public 생성자 없이 오직 정적 팩터리만 제공하는데, OpenJDK에서는 원소의 수에 따라 두 가지 하위 클래스 중 하나의 인스턴스를 반환한다. (대다수에 해당하는) 원소가 64개 이하면 원소들을 long변수 하나로 관리하는 RegularEnumSet의 인스턴스를, 65개 이상이면 long배열로 관리하는 JumboEnumSet의 인스턴스를 반환한다.\n1 2 3 4 5 6 7 8 9 10  public static E extends EnumE EnumSetE noneOf(ClassE elementType) { Enum[] universe = getUniverse(elementType); if (universe == null) throw new ClassCastException(elementType + \" not an enum\"); if (universe.length  64) return new RegularEnumSet(elementType, universe); else return new JumboEnumSet(elementType, universe); }   \n클라이언트는 이 두 클래스의 존재를 모른다. 만약 원소가 적을 때 RegularEnumSet을 사용할 이점이 없어진다면 다음 릴리스 때는 이를 삭제해도 아무 문제가 없다. 비슷하게, 성능을 더 개선한 세 번때, 네 번째 클래스를 다음 릴리스에 추가할 수도 있다. 클라이언트는 팩터리가 건네주는 객체가 어느 클래스의 인스턴스인지 알 수도 없고 알 필요도 없다. EnumSet의 하위 클래스이기만 하면 되는 것이다.\n다섯 번째, 정적 팩터리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다. 이런 유연함은 서비스 제공자 프레임워크service provider framework를 만드는 근간이 된다. 대표적인 서비스 제공자 프레임워크로는 JDBC3 가 있다. 서비스 제공자 프레임워크에서의 제공자provider는 서비스의 구현체다. 그리고 이 구현체들을 클라이언트에 제공하는 역할을 프레임워크가 통제하여, 클라이언트를 구현체로부터 분리해준다.\n서비스 제공자 프레임워크는 3개의 핵심 컴포넌트로 이뤄진다. 구현체의 동작을 정의하는 서비스 인터페이스service interface, 제공자가 구현체를 등록할 때 사용하는 제공자 등록 APIprovider registration API, 클라이언트가 서비스의 인스턴스를 얻을 때 사용하는 서비스 접근 APIservice access API가 그 주인공이다. 클라이언트는 서비스 접근 API를 사용할 때 원하는 구현체의 조건을 명시할 수 있다. 조건을 명시하지 않으면 기본 구현체를 반환하거나 지원하는 구현체들을 하나씩 돌아가며 반환한다. 이 서비스 접근 API가 바로 서비스 제공자 프레임워크의 근간이라고 한 ‘유연한 정적 팩터리’의 실체다.\n3개의 핵심 컴포넌트와 더불어 종종 서비스 제공자 인터페이스service provider interface라는 네 번째 컴포넌트가 쓰이기도 한다. 이 컴포넌트는 서비스 인터페이스의 인스턴스를 생성하는 팩터리 객체를 설명해준다. 서비스 제공자 인터페이스가 없다면 각 구현체를 인스턴스로 만들 때 리플렉션아이템 65을 사용해야 한다. JDBC3 에서는 Connection이 서비스 인터페이스 역할을, DriverManager.registerDriver가 제공자 등록 API 역할을, DriverManager.getConnection이 서비스 접근 API 역할을, Driver가 서비스 제공자 인터페이스 역할을 수행한다.\n서비스 제공자 프레임워크 패턴에는 여러 변형이 있다. 예컨대 서비스 접근 API는 공급자가 제공하는 것보다 더 풍부한 서비스 인터페이스를 클라이언트에 반환할 수 있다. _브리지 패턴[Gamma95] 4_이라 알려진 것이다. 의존 객체 주입dependency injection 프레임워크아이템 5도 강력한 서비스 제공자라고 생각할 수 있다. JAVA 6부터는 java.util.ServiceLoader라는 범용 서비스 제공자 프레임워크가 제공되어 프레임워크를 직접 만들 필요가 거의 없어졌다.아이템 59 한편, JDBC3는 JAVA 6 전에 등장한 개념이라 ServiceLoader를 사용하지 않는다.\n이제 단점을 알아볼 차례다.\r단점 첫 번째, 상속을 하려면 public이나 protected 생성자가 필요하니 정적 팩터리 메서드만 제공하면 하위 클래스를 만들 수 없다. 앞서 이야기한 컬렉션 프레임워크의 유틸리티 구현 클래스들은 상속할 수 없다는 이야기다. 어찌 보면 이 제약은 상속is-a보다 컴포지션has-a을 사용아이템 18하도록 유도하고 불변 타입아이템 17으로 만들려면 이 제약을 지켜야 한다는 점에서 오히려 장점으로 받아들일 수도 있다.\n두 번째, 정적 팩터리 메서드는 프로그래머가 찾기 어렵다. 생성자처럼 API 설명에 명확히 드러나지 않으니 사용자는 정적 팩터리 메서드 방식 클래스를 인스턴스화할 방법을 알아내야 한다. 이 일을 언젠가 자바독이 알아서 처리해 줬으면 좋겠으나, 그날이 오기까지는 API 문서를 잘 써놓고 메서드 이름도 널리 알려진 규약을 따라 짓는 식으로 문제를 완화해줘야 한다.\n다음은 정적 팩터리 메서드에 흔히 사용하는 명명 방식들이다.\n from  매개변수를 하나 받아서 해당 타입의 인스턴스를 반환하는 형변환 매서드\n　Date d = Date.from(instant);\n of  여러 매개변수를 받아 적합한 타입의 인스턴스를 반환하는 집계 메서드\n　Set faceCards = EnumSet.of(JACK, QUEEN, KING);\n valueOf  from 과 of 의 더 자세한 버전\n　BigInteger prime = BigInteger.valueOf(Integer.MAX_VALUE);\n instance 혹은 getInstance  (매개변수를 받는다면) 매개변수로 명시한 인스턴스를 반환하지만, 같은 인스턴스임을 보장하지 않는다.\n　StackWalker luke = StackWalker.getInstance(options);\n create 혹은 newInstance  instance 혹은 getInstance 와 같지만, 매번 새로운 인스턴스를 생성해 반환함을 보장한다.\n　Object newArray = Array.newInstance(classObject, arrayLen);\n getType  getInstance 와 같으나, 생성할 클래스가 아닌 다른 클래스에 팩터리 메서드를 정의할 때 쓴다. “Type” 은 팩터리 메서드가 반환할 객체의 타입이다.\n　FileStore fs = Files.getFileStore(path);\n newType  newInstance 와 같으나, 생성할 클래스가 아닌 다른 클래스에 팩터리 메서드를 정의할 때 쓴다. “Type” 은 팩터리 메서드가 반환할 객체의 타입이다.\n　BufferedReader br = Files.newBufferedReader(path);\n type  getType 과 newType 의 간결한 버전\n　List litany = Collections.list(legacyLitany);\n   핵심정리\n정적 팩터리 메서드와 public 생성자는 각자의 쓰임새가 있으니 상대적인 장단점을 이해하고 사용하는 것이 좋다. 그렇다고 하더라도 정적 팩터리를 사용하는 게 유리한 경우가 더 많으므로 무작정 public 생성자를 제공하던 습관이 있다면 고치자.\n  Factory method pattern in [GoF] Design Patterns ↩︎\n Flyweight pattern in [GoF] Design Patterns ↩︎\n Java Database Connectivity ↩︎\n Bridge pattern in [GoF] Design Patterns ↩︎\n   ","wordCount":"1415","inLanguage":"ko","datePublished":"2020-06-18T15:49:20+09:00","dateModified":"2020-06-18T15:49:20+09:00","author":[{"@type":"Person","name":"Kyungchul Shin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/effective-java-3e/chapter-01/item1/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.webp"}}}</script>
 </head>
 <body>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -98,7 +92,7 @@
 <h1 class=post-title data-animation=true>
 [아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라
 </h1>
-<div class=post-meta data-animation=true><span title="2020-06-18 15:49:20 +0900 KST">2020년 6월 18일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin&nbsp;&nbsp;|&nbsp;&nbsp;<a class=edit-post href=https://github.com/qutrits/qutrits.github.io/blob/main/content/effective-java-3e/chapter-01/Item1.md rel="noopener noreferrer" target=_blank>수정사항 제안</a>
+<div class=post-meta data-animation=true><span title="2020-06-18 15:49:20 +0900 KST">2020년 6월 18일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 7 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin&nbsp;&nbsp;|&nbsp;&nbsp;<a class=edit-post href=https://github.com/qutrits/qutrits.github.io/blob/main/content/effective-java-3e/chapter-01/Item1.md rel="noopener noreferrer" target=_blank>수정사항 제안</a>
 &nbsp;&nbsp;|&nbsp;&nbsp;<span class=font-size-button>
 <a id=font-size-default aria-label="Increase Font size" title="Go to Top (Alt + G)" accesskey=e><svg class="button default" viewBox="0 0 24 24"><path d="M7.20711 2.54289c.39052.39053.39052 1.02369.0 1.41422L5.41421 5.75H13.25c4.4183.0 8 3.58172 8 8 0 4.4183-3.5817 8-8 8-4.41828.0-8-3.5817-8-8 0-.552300000000001.44772-1 1-1s1 .447699999999999 1 1c0 3.3137 2.68629 6 6 6 3.3137.0 6-2.6863 6-6s-2.6863-6-6-6H5.41421l1.7929 1.79289c.39052.39053.39052 1.02371.0 1.41421C6.81658 11.3476 6.18342 11.3476 5.79289 10.9571l-3.5-3.49999c-.39052-.39053-.39052-1.02369.0-1.41422l3.5-3.5c.39053-.39052 1.02369-.39052 1.41422.0z" fill="#212121"/></svg>
 </a>
@@ -188,26 +182,24 @@
 </summary>
 <div class=inner><ul>
 <li>
-<a href=#%ec%9d%bc%eb%b0%98%ec%a0%81%ec%9c%bc%eb%a1%9c-%ec%82%ac%ec%9a%a9%ed%95%98%eb%8a%94-public-%ec%83%9d%ec%84%b1%ec%9e%90-%eb%8c%80%ec%8b%a0--%eb%b3%84%eb%8f%84%eb%a1%9c-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%a9%94%ec%84%9c%eb%93%9c%eb%a5%bc-%ec%9d%b4%ec%9a%a9%ed%95%a0-%ec%88%98-%ec%9e%88%eb%8b%a4 aria-label="일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메서드를 이용할 수 있다.">일반적으로 사용하는 public 생성자 대신, 별도로 <strong>정적 팩토리 메서드</strong>를 이용할 수 있다.</a></li>
+<a href=#%ec%9e%a5%ec%a0%90 aria-label=장점>장점</a><ul>
 <li>
-<a href=#%ec%9e%a5%ec%a0%90 aria-label=장점><strong>장점</strong></a><ul>
+<a href=#%ec%b2%ab-%eb%b2%88%ec%a7%b8-%ec%9d%b4%eb%a6%84%ec%9d%84-%ea%b0%80%ec%a7%88-%ec%88%98-%ec%9e%88%eb%8b%a4 aria-label="첫 번째, 이름을 가질 수 있다.">첫 번째, 이름을 가질 수 있다.</a></li>
 <li>
-<a href=#1-%ec%9d%b4%eb%a6%84%ec%9d%84-%ea%b0%80%ec%a7%88-%ec%88%98-%ec%9e%88%eb%8b%a4 aria-label="1. 이름을 가질 수 있다.">1. 이름을 가질 수 있다.</a></li>
+<a href=#%eb%91%90-%eb%b2%88%ec%a7%b8-%ed%98%b8%ec%b6%9c%eb%90%a0-%eb%95%8c%eb%a7%88%eb%8b%a4-%ec%9d%b8%ec%8a%a4%ed%84%b4%ec%8a%a4%eb%a5%bc-%ec%83%88%eb%a1%9c-%ec%83%9d%ec%84%b1%ed%95%98%ec%a7%80%eb%8a%94-%ec%95%8a%ec%95%84%eb%8f%84-%eb%90%9c%eb%8b%a4 aria-label="두 번째, 호출될 때마다 인스턴스를 새로 생성하지는 않아도 된다.">두 번째, 호출될 때마다 인스턴스를 새로 생성하지는 않아도 된다.</a></li>
 <li>
-<a href=#2-%ed%98%b8%ec%b6%9c%eb%90%a0-%eb%95%8c%eb%a7%88%eb%8b%a4-%ec%9d%b8%ec%8a%a4%ed%84%b4%ec%8a%a4%eb%a5%bc-%ec%83%88%eb%a1%9c-%ec%83%9d%ec%84%b1%ed%95%98%ec%a7%80-%ec%95%8a%ec%95%84%eb%8f%84-%eb%90%9c%eb%8b%a4 aria-label="2. 호출될 때마다 인스턴스를 새로 생성하지 않아도 된다.">2. 호출될 때마다 인스턴스를 새로 생성하지 않아도 된다.</a></li>
+<a href=#%ec%84%b8-%eb%b2%88%ec%a7%b8-%eb%b0%98%ed%99%98-%ed%83%80%ec%9e%85%ec%9d%98-%ed%95%98%ec%9c%84-%ed%83%80%ec%9e%85-%ea%b0%9d%ec%b2%b4%eb%a5%bc-%eb%b0%98%ed%99%98%ed%95%a0-%ec%88%98-%ec%9e%88%eb%8a%94-%eb%8a%a5%eb%a0%a5%ec%9d%b4-%ec%9e%88%eb%8b%a4 aria-label="세 번째, 반환 타입의 하위 타입 객체를 반환할 수 있는 능력이 있다.">세 번째, 반환 타입의 하위 타입 객체를 반환할 수 있는 능력이 있다.</a></li>
 <li>
-<a href=#3-%eb%b0%98%ed%99%98-%ed%83%80%ec%9e%85%ec%9d%98-%ed%95%98%ec%9c%84-%ed%83%80%ec%9e%85-%ea%b0%9d%ec%b2%b4%eb%a5%bc-%eb%b0%98%ed%99%98%ed%95%a0-%ec%88%98-%ec%9e%88%eb%8a%94-%eb%8a%a5%eb%a0%a5%ec%9d%b4-%ec%9e%88%eb%8b%a4 aria-label="3. 반환 타입의 하위 타입 객체를 반환할 수 있는 능력이 있다.">3. 반환 타입의 하위 타입 객체를 반환할 수 있는 능력이 있다.</a></li>
+<a href=#%eb%84%a4-%eb%b2%88%ec%a7%b8-%ec%9e%85%eb%a0%a5-%eb%a7%a4%ea%b0%9c%eb%b3%80%ec%88%98%ec%97%90-%eb%94%b0%eb%9d%bc-%eb%a7%a4%eb%b2%88-%eb%8b%a4%eb%a5%b8-%ed%81%b4%eb%9e%98%ec%8a%a4%ec%9d%98-%ea%b0%9d%ec%b2%b4%eb%a5%bc-%eb%b0%98%ed%99%98%ed%95%a0-%ec%88%98-%ec%9e%88%eb%8b%a4 aria-label="네 번째, 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.">네 번째, 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.</a></li>
 <li>
-<a href=#4-%ec%9e%85%eb%a0%a5-%eb%a7%a4%ea%b0%9c%eb%b3%80%ec%88%98%ec%97%90-%eb%94%b0%eb%9d%bc-%eb%a7%a4%eb%b2%88-%eb%8b%a4%eb%a5%b8-%ed%81%b4%eb%9e%98%ec%8a%a4%ec%9d%98-%ea%b0%9d%ec%b2%b4%eb%a5%bc-%eb%b0%98%ed%99%98%ed%95%a0-%ec%88%98-%ec%9e%88%eb%8b%a4 aria-label="4. 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.">4. 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.</a></li>
-<li>
-<a href=#5-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%a9%94%ec%84%9c%eb%93%9c%eb%a5%bc-%ec%9e%91%ec%84%b1%ed%95%98%eb%8a%94-%ec%8b%9c%ec%a0%90%ec%97%90%eb%8a%94-%eb%b0%98%ed%99%98%ed%95%a0-%ea%b0%9d%ec%b2%b4%ec%9d%98-%ed%81%b4%eb%9e%98%ec%8a%a4%ea%b0%80-%ec%a1%b4%ec%9e%ac%ed%95%98%ec%a7%80-%ec%95%8a%ec%95%84%eb%8f%84-%eb%90%9c%eb%8b%a4 aria-label="5. 정적 팩토리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.">5. 정적 팩토리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.</a></li></ul>
+<a href=#%eb%8b%a4%ec%84%af-%eb%b2%88%ec%a7%b8-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%84%b0%eb%a6%ac-%eb%a9%94%ec%84%9c%eb%93%9c%eb%a5%bc-%ec%9e%91%ec%84%b1%ed%95%98%eb%8a%94-%ec%8b%9c%ec%a0%90%ec%97%90%eb%8a%94-%eb%b0%98%ed%99%98%ed%95%a0-%ea%b0%9d%ec%b2%b4%ec%9d%98-%ed%81%b4%eb%9e%98%ec%8a%a4%ea%b0%80-%ec%a1%b4%ec%9e%ac%ed%95%98%ec%a7%80-%ec%95%8a%ec%95%84%eb%8f%84-%eb%90%9c%eb%8b%a4 aria-label="다섯 번째, 정적 팩터리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.">다섯 번째, 정적 팩터리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.</a></li></ul>
 </li>
 <li>
 <a href=#%eb%8b%a8%ec%a0%90 aria-label=단점>단점</a><ul>
 <li>
-<a href=#1-%ec%83%81%ec%86%8d%ec%9d%84-%ed%95%98%eb%a0%a4%eb%a9%b4-public%ec%9d%b4%eb%82%98-protected%ec%83%9d%ec%84%b1%ec%9e%90%ea%b0%80-%ed%95%84%ec%9a%94%ed%95%98%ea%b8%b0-%eb%95%8c%eb%ac%b8%ec%97%90-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%a9%94%ec%84%9c%eb%93%9c%eb%a7%8c-%ec%a0%9c%ea%b3%b5%ed%95%98%eb%a9%b4-%ed%95%98%ec%9c%84-%ed%81%b4%eb%9e%98%ec%8a%a4%eb%a5%bc-%eb%a7%8c%eb%93%a4-%ec%88%98-%ec%97%86%eb%8b%a4 aria-label="1. 상속을 하려면 public이나 protected생성자가 필요하기 때문에 정적 팩토리 메서드만 제공하면 하위 클래스를 만들 수 없다.">1. 상속을 하려면 <code>public</code>이나 <code>protected</code>생성자가 필요하기 때문에 정적 팩토리 메서드만 제공하면 하위 클래스를 만들 수 없다.</a></li>
+<a href=#%ec%b2%ab-%eb%b2%88%ec%a7%b8-%ec%83%81%ec%86%8d%ec%9d%84-%ed%95%98%eb%a0%a4%eb%a9%b4-public%ec%9d%b4%eb%82%98-protected-%ec%83%9d%ec%84%b1%ec%9e%90%ea%b0%80-%ed%95%84%ec%9a%94%ed%95%98%eb%8b%88-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%84%b0%eb%a6%ac-%eb%a9%94%ec%84%9c%eb%93%9c%eb%a7%8c-%ec%a0%9c%ea%b3%b5%ed%95%98%eb%a9%b4-%ed%95%98%ec%9c%84-%ed%81%b4%eb%9e%98%ec%8a%a4%eb%a5%bc-%eb%a7%8c%eb%93%a4-%ec%88%98-%ec%97%86%eb%8b%a4 aria-label="첫 번째, 상속을 하려면 public이나 protected 생성자가 필요하니 정적 팩터리 메서드만 제공하면 하위 클래스를 만들 수 없다.">첫 번째, 상속을 하려면 <code>public</code>이나 <code>protected</code> 생성자가 필요하니 정적 팩터리 메서드만 제공하면 하위 클래스를 만들 수 없다.</a></li>
 <li>
-<a href=#2-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%a9%94%ec%84%9c%eb%93%9c%eb%8a%94-%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%a8%b8%ea%b0%80-%ec%b0%be%ea%b8%b0-%ec%96%b4%eb%a0%b5%eb%8b%a4 aria-label="2. 정적 팩토리 메서드는 프로그래머가 찾기 어렵다.">2. 정적 팩토리 메서드는 프로그래머가 찾기 어렵다.</a>
+<a href=#%eb%91%90-%eb%b2%88%ec%a7%b8-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%84%b0%eb%a6%ac-%eb%a9%94%ec%84%9c%eb%93%9c%eb%8a%94-%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%a8%b8%ea%b0%80-%ec%b0%be%ea%b8%b0-%ec%96%b4%eb%a0%b5%eb%8b%a4 aria-label="두 번째, 정적 팩터리 메서드는 프로그래머가 찾기 어렵다.">두 번째, 정적 팩터리 메서드는 프로그래머가 찾기 어렵다.</a>
 </li>
 </ul>
 </li>
@@ -225,26 +217,24 @@
 <div class=inner-wrapper>
 <div class=inner><ul>
 <li>
-<a href=#%ec%9d%bc%eb%b0%98%ec%a0%81%ec%9c%bc%eb%a1%9c-%ec%82%ac%ec%9a%a9%ed%95%98%eb%8a%94-public-%ec%83%9d%ec%84%b1%ec%9e%90-%eb%8c%80%ec%8b%a0--%eb%b3%84%eb%8f%84%eb%a1%9c-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%a9%94%ec%84%9c%eb%93%9c%eb%a5%bc-%ec%9d%b4%ec%9a%a9%ed%95%a0-%ec%88%98-%ec%9e%88%eb%8b%a4 aria-label="일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메서드를 이용할 수 있다.">일반적으로 사용하는 public 생성자 대신, 별도로 <strong>정적 팩토리 메서드</strong>를 이용할 수 있다.</a></li>
+<a href=#%ec%9e%a5%ec%a0%90 aria-label=장점>장점</a><ul>
 <li>
-<a href=#%ec%9e%a5%ec%a0%90 aria-label=장점><strong>장점</strong></a><ul>
+<a href=#%ec%b2%ab-%eb%b2%88%ec%a7%b8-%ec%9d%b4%eb%a6%84%ec%9d%84-%ea%b0%80%ec%a7%88-%ec%88%98-%ec%9e%88%eb%8b%a4 aria-label="첫 번째, 이름을 가질 수 있다.">첫 번째, 이름을 가질 수 있다.</a></li>
 <li>
-<a href=#1-%ec%9d%b4%eb%a6%84%ec%9d%84-%ea%b0%80%ec%a7%88-%ec%88%98-%ec%9e%88%eb%8b%a4 aria-label="1. 이름을 가질 수 있다.">1. 이름을 가질 수 있다.</a></li>
+<a href=#%eb%91%90-%eb%b2%88%ec%a7%b8-%ed%98%b8%ec%b6%9c%eb%90%a0-%eb%95%8c%eb%a7%88%eb%8b%a4-%ec%9d%b8%ec%8a%a4%ed%84%b4%ec%8a%a4%eb%a5%bc-%ec%83%88%eb%a1%9c-%ec%83%9d%ec%84%b1%ed%95%98%ec%a7%80%eb%8a%94-%ec%95%8a%ec%95%84%eb%8f%84-%eb%90%9c%eb%8b%a4 aria-label="두 번째, 호출될 때마다 인스턴스를 새로 생성하지는 않아도 된다.">두 번째, 호출될 때마다 인스턴스를 새로 생성하지는 않아도 된다.</a></li>
 <li>
-<a href=#2-%ed%98%b8%ec%b6%9c%eb%90%a0-%eb%95%8c%eb%a7%88%eb%8b%a4-%ec%9d%b8%ec%8a%a4%ed%84%b4%ec%8a%a4%eb%a5%bc-%ec%83%88%eb%a1%9c-%ec%83%9d%ec%84%b1%ed%95%98%ec%a7%80-%ec%95%8a%ec%95%84%eb%8f%84-%eb%90%9c%eb%8b%a4 aria-label="2. 호출될 때마다 인스턴스를 새로 생성하지 않아도 된다.">2. 호출될 때마다 인스턴스를 새로 생성하지 않아도 된다.</a></li>
+<a href=#%ec%84%b8-%eb%b2%88%ec%a7%b8-%eb%b0%98%ed%99%98-%ed%83%80%ec%9e%85%ec%9d%98-%ed%95%98%ec%9c%84-%ed%83%80%ec%9e%85-%ea%b0%9d%ec%b2%b4%eb%a5%bc-%eb%b0%98%ed%99%98%ed%95%a0-%ec%88%98-%ec%9e%88%eb%8a%94-%eb%8a%a5%eb%a0%a5%ec%9d%b4-%ec%9e%88%eb%8b%a4 aria-label="세 번째, 반환 타입의 하위 타입 객체를 반환할 수 있는 능력이 있다.">세 번째, 반환 타입의 하위 타입 객체를 반환할 수 있는 능력이 있다.</a></li>
 <li>
-<a href=#3-%eb%b0%98%ed%99%98-%ed%83%80%ec%9e%85%ec%9d%98-%ed%95%98%ec%9c%84-%ed%83%80%ec%9e%85-%ea%b0%9d%ec%b2%b4%eb%a5%bc-%eb%b0%98%ed%99%98%ed%95%a0-%ec%88%98-%ec%9e%88%eb%8a%94-%eb%8a%a5%eb%a0%a5%ec%9d%b4-%ec%9e%88%eb%8b%a4 aria-label="3. 반환 타입의 하위 타입 객체를 반환할 수 있는 능력이 있다.">3. 반환 타입의 하위 타입 객체를 반환할 수 있는 능력이 있다.</a></li>
+<a href=#%eb%84%a4-%eb%b2%88%ec%a7%b8-%ec%9e%85%eb%a0%a5-%eb%a7%a4%ea%b0%9c%eb%b3%80%ec%88%98%ec%97%90-%eb%94%b0%eb%9d%bc-%eb%a7%a4%eb%b2%88-%eb%8b%a4%eb%a5%b8-%ed%81%b4%eb%9e%98%ec%8a%a4%ec%9d%98-%ea%b0%9d%ec%b2%b4%eb%a5%bc-%eb%b0%98%ed%99%98%ed%95%a0-%ec%88%98-%ec%9e%88%eb%8b%a4 aria-label="네 번째, 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.">네 번째, 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.</a></li>
 <li>
-<a href=#4-%ec%9e%85%eb%a0%a5-%eb%a7%a4%ea%b0%9c%eb%b3%80%ec%88%98%ec%97%90-%eb%94%b0%eb%9d%bc-%eb%a7%a4%eb%b2%88-%eb%8b%a4%eb%a5%b8-%ed%81%b4%eb%9e%98%ec%8a%a4%ec%9d%98-%ea%b0%9d%ec%b2%b4%eb%a5%bc-%eb%b0%98%ed%99%98%ed%95%a0-%ec%88%98-%ec%9e%88%eb%8b%a4 aria-label="4. 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.">4. 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.</a></li>
-<li>
-<a href=#5-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%a9%94%ec%84%9c%eb%93%9c%eb%a5%bc-%ec%9e%91%ec%84%b1%ed%95%98%eb%8a%94-%ec%8b%9c%ec%a0%90%ec%97%90%eb%8a%94-%eb%b0%98%ed%99%98%ed%95%a0-%ea%b0%9d%ec%b2%b4%ec%9d%98-%ed%81%b4%eb%9e%98%ec%8a%a4%ea%b0%80-%ec%a1%b4%ec%9e%ac%ed%95%98%ec%a7%80-%ec%95%8a%ec%95%84%eb%8f%84-%eb%90%9c%eb%8b%a4 aria-label="5. 정적 팩토리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.">5. 정적 팩토리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.</a></li></ul>
+<a href=#%eb%8b%a4%ec%84%af-%eb%b2%88%ec%a7%b8-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%84%b0%eb%a6%ac-%eb%a9%94%ec%84%9c%eb%93%9c%eb%a5%bc-%ec%9e%91%ec%84%b1%ed%95%98%eb%8a%94-%ec%8b%9c%ec%a0%90%ec%97%90%eb%8a%94-%eb%b0%98%ed%99%98%ed%95%a0-%ea%b0%9d%ec%b2%b4%ec%9d%98-%ed%81%b4%eb%9e%98%ec%8a%a4%ea%b0%80-%ec%a1%b4%ec%9e%ac%ed%95%98%ec%a7%80-%ec%95%8a%ec%95%84%eb%8f%84-%eb%90%9c%eb%8b%a4 aria-label="다섯 번째, 정적 팩터리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.">다섯 번째, 정적 팩터리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.</a></li></ul>
 </li>
 <li>
 <a href=#%eb%8b%a8%ec%a0%90 aria-label=단점>단점</a><ul>
 <li>
-<a href=#1-%ec%83%81%ec%86%8d%ec%9d%84-%ed%95%98%eb%a0%a4%eb%a9%b4-public%ec%9d%b4%eb%82%98-protected%ec%83%9d%ec%84%b1%ec%9e%90%ea%b0%80-%ed%95%84%ec%9a%94%ed%95%98%ea%b8%b0-%eb%95%8c%eb%ac%b8%ec%97%90-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%a9%94%ec%84%9c%eb%93%9c%eb%a7%8c-%ec%a0%9c%ea%b3%b5%ed%95%98%eb%a9%b4-%ed%95%98%ec%9c%84-%ed%81%b4%eb%9e%98%ec%8a%a4%eb%a5%bc-%eb%a7%8c%eb%93%a4-%ec%88%98-%ec%97%86%eb%8b%a4 aria-label="1. 상속을 하려면 public이나 protected생성자가 필요하기 때문에 정적 팩토리 메서드만 제공하면 하위 클래스를 만들 수 없다.">1. 상속을 하려면 <code>public</code>이나 <code>protected</code>생성자가 필요하기 때문에 정적 팩토리 메서드만 제공하면 하위 클래스를 만들 수 없다.</a></li>
+<a href=#%ec%b2%ab-%eb%b2%88%ec%a7%b8-%ec%83%81%ec%86%8d%ec%9d%84-%ed%95%98%eb%a0%a4%eb%a9%b4-public%ec%9d%b4%eb%82%98-protected-%ec%83%9d%ec%84%b1%ec%9e%90%ea%b0%80-%ed%95%84%ec%9a%94%ed%95%98%eb%8b%88-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%84%b0%eb%a6%ac-%eb%a9%94%ec%84%9c%eb%93%9c%eb%a7%8c-%ec%a0%9c%ea%b3%b5%ed%95%98%eb%a9%b4-%ed%95%98%ec%9c%84-%ed%81%b4%eb%9e%98%ec%8a%a4%eb%a5%bc-%eb%a7%8c%eb%93%a4-%ec%88%98-%ec%97%86%eb%8b%a4 aria-label="첫 번째, 상속을 하려면 public이나 protected 생성자가 필요하니 정적 팩터리 메서드만 제공하면 하위 클래스를 만들 수 없다.">첫 번째, 상속을 하려면 <code>public</code>이나 <code>protected</code> 생성자가 필요하니 정적 팩터리 메서드만 제공하면 하위 클래스를 만들 수 없다.</a></li>
 <li>
-<a href=#2-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%a9%94%ec%84%9c%eb%93%9c%eb%8a%94-%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%a8%b8%ea%b0%80-%ec%b0%be%ea%b8%b0-%ec%96%b4%eb%a0%b5%eb%8b%a4 aria-label="2. 정적 팩토리 메서드는 프로그래머가 찾기 어렵다.">2. 정적 팩토리 메서드는 프로그래머가 찾기 어렵다.</a>
+<a href=#%eb%91%90-%eb%b2%88%ec%a7%b8-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%84%b0%eb%a6%ac-%eb%a9%94%ec%84%9c%eb%93%9c%eb%8a%94-%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%a8%b8%ea%b0%80-%ec%b0%be%ea%b8%b0-%ec%96%b4%eb%a0%b5%eb%8b%a4 aria-label="두 번째, 정적 팩터리 메서드는 프로그래머가 찾기 어렵다.">두 번째, 정적 팩터리 메서드는 프로그래머가 찾기 어렵다.</a>
 </li>
 </ul>
 </li>
@@ -254,7 +244,7 @@
 </div>
 </div>
 <script>const tocAside_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};tocAside_DOMReady(function(){const g=[],k=document.querySelector(".main .post-single>.toc"),b=document.querySelector(".main .toc-aside"),i=document.querySelector(".post-header"),h=i.offsetHeight+i.offsetTop+i.offsetParent.offsetTop-1;let c=null,e=null,f=null,a=null;if(b){c=document.querySelector(".main .toc-aside-summary"),e=b.querySelector(".inner-wrapper"),f=c.querySelector(".toggle"),a=b.querySelectorAll(".inner-wrapper .inner ul>li"),localStorage.getItem("lock-aside-toc-"+window.location.pathname)==="true"?(c.dataset.isLock=!0,e.classList.add("close"),f.querySelector(".unlock").classList.add("hide")):(c.dataset.isLock=!1,e.classList.add("open"),f.querySelector(".lock").classList.add("hide"));for(let b=0;b<a.length;b++)g[b]=decodeURI(a[b].firstElementChild.hash.substring(1));h<window.pageYOffset?(b.classList.remove("hide"),b.classList.add("reveal"),c.classList.remove("hide")):h>=window.pageYOffset&&b.classList.add("hide"),c.addEventListener("click",()=>{c.dataset.isLock==="false"?(c.dataset.isLock=!0,localStorage.setItem("lock-aside-toc-"+window.location.pathname,!0),f.querySelector(".lock").classList.remove("hide"),f.querySelector(".unlock").classList.add("hide"),e.classList.add("close"),e.classList.remove("open")):(c.dataset.isLock=!1,localStorage.setItem("lock-aside-toc-"+window.location.pathname,!1),f.querySelector(".lock").classList.add("hide"),f.querySelector(".unlock").classList.remove("hide"),e.classList.add("open"),e.classList.remove("close"))})}let d=0,j=0;window.addEventListener("scroll",()=>{if(d=window.pageYOffset,b){const k=Math.ceil(d+window.innerHeight)>=document.body.scrollHeight;h<d&&b.classList.contains("hide")?(b.classList.remove("hide"),b.classList.add("reveal"),c.classList.remove("hide")):h>=d&&b.classList.contains("reveal")&&(b.scrollTop=0,b.classList.remove("reveal"),b.classList.add("hide"),c.classList.add("hide"));let f=null,i=null,e=null,l=null;if(g.map((c,b)=>{l=document.getElementById(c);const g=l.getBoundingClientRect(),h=g.top;d+h-1<=d&&(f=a[b],e=b)}),e!==null){if(k){for(let b=0;b<a.length;b++){if(!a[b].classList.contains("selected"))continue;a[b].classList.remove("selected")}a[g.length-1].classList.add("selected"),i=a[g.length-1]}else{if(f===i&&e>0){j=d;return}for(let b=0;b<a.length;b++){if(!a[b].classList.contains("selected"))continue;a[b].classList.remove("selected")}f.classList.add("selected"),i=f}e!==null&&b.scroll({behavior:'smooth',top:e*20})}else if(k)a[g.length-1].classList.add("selected"),i=a[g.length-1];else{if(b.querySelector(".selected")===null){j=d;return}for(let b=0;b<a.length;b++){if(!a[b].classList.contains("selected"))continue;a[b].classList.remove("selected")}}}j=d})})</script>
-<div class=post-content data-animation=true><h2 id=일반적으로-사용하는-public-생성자-대신--별도로-정적-팩토리-메서드를-이용할-수-있다>일반적으로 사용하는 public 생성자 대신, 별도로 <strong>정적 팩토리 메서드</strong>를 이용할 수 있다.<a hidden class=anchor aria-hidden=true href=#일반적으로-사용하는-public-생성자-대신--별도로-정적-팩토리-메서드를-이용할-수-있다>#</a></h2>
+<div class=post-content data-animation=true><p>클라이언트가 클래스의 인스턴스를 얻는 전통적인 수단은 <code>public</code> 생성자다. 하지만 모든 프로그래머가 꼭 알아둬야 할 기법이 하나 더 있다. 클래스는 생성자와 별도로 정적 팩터리 메서드<code>static factory method</code>를 제공할 수 있다. 그 클래스의 인스턴스를 반환하는 단순한 정적 메서드 말이다. 다음 코드는 <code>boolean</code> 기본 타입의 박싱 클래스<code>boxed class</code>인 <code>Boolean</code>에서 발췌한 간단한 예다. 이 메서드는 기본 타입인 <code>boolean</code> 값을 받아 <code>Boolean</code> 객체 참조로 변환해준다.</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -267,30 +257,34 @@
 <span class=o>}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><em>Boolean 클래스에서 발췌한 예제 코드</em><br>
+</div><p><em>Boolean 클래스에서 발췌한 예제 코드</em></p>
+<hr>
+<p><i class=user-fa-action-info-outline aria-hidden=true></i> 지금 얘기하는 정적 팩터리 메서드는 <em><strong>팩토리 메서드 패턴[Gamma95] <sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></strong></em> 에서의 팩터리 메서드<code>Factory Method</code>와 다르다. 디자인 패턴 중에는 이와 일치하는 패턴은 없다.</p>
+<hr>
+<p>클래스는 클라이언트에 <code>public</code> 생성자 대신 (혹은 생성자와 함께) 정적 팩터리 메서드를 제공할 수 있다. 이 방식에는 장점과 단점이 모두 존재한다. 먼저 정적 팩터리 메서드가 생성자보다 좋은 장점 다섯 가지를 알아보자.<br>
 <br></p>
-<h2 id=장점><strong>장점</strong><a hidden class=anchor aria-hidden=true href=#장점>#</a></h2>
-<h3 id=1-이름을-가질-수-있다>1. 이름을 가질 수 있다.<a hidden class=anchor aria-hidden=true href=#1-이름을-가질-수-있다>#</a></h3>
-<p>생성자에 넘기는 매개변수만으로 반환될 객체의 특성을 제대로 설명하지 못합니다.<br>
-반면 정적 팩터리 메서드는 이름을 잘 지으면 반환될 객체의 특성을 쉽게 묘사할 수 있습니다.<br>
-하나의 시그니처로는 생성자를 하나만 만들 수 있으며 입력 매개변수들의 순서를 다르게 한 생성자를 추가하는 식으로 이 제한을 피할 수는 있지만, 이 역시 객체의 특성을 살리기 힘들고 좋지 않은 방식입니다.</p>
-<p>정적 팩토리 메서드는 이러한 제약이 없으며 시그니처가 같은 생성자가 여러 개 필요하다 싶으면<br>
-생성자를 정적 팩터리 메서드로 바꾸고 각각의 차이를 잘 드러내는 이름을 지어내는 방법을 사용할 수 있습니다.<br>
+<h2 id=장점>장점<a hidden class=anchor aria-hidden=true href=#장점>#</a></h2>
+<h3 id=첫-번째-이름을-가질-수-있다>첫 번째, 이름을 가질 수 있다.<a hidden class=anchor aria-hidden=true href=#첫-번째-이름을-가질-수-있다>#</a></h3>
+<p>생성자에 넘기는 매겨변수와 생성자 자체만으로는 반환될 객체의 특성을 제대로 설명하지 못한다. 반면 정적 팩터리는 이름만 잘 지으면 반환될 객체의 특성을 쉽게 묘사할 수 있다. 예컨대 생성자인 <code>BigInteger(int, int, Random)</code>과 정적 팩터리 메서드인 <code>BigInteger.probablePrime</code>중 어느 쪽이 <em>&lsquo;값이 소수인 BigInteger를 반환한다&rsquo;</em> 는 의미를 더 잘 설명할 것 같은지 생각해 보라.<br>
+<i class=user-fa-action-info-outline aria-hidden=true></i> <code>BigInteger.probablePrime</code>은 <code>JAVA 4</code> 에서 추가됐다.</p>
+<p>하나의 시그니처로는 생성자를 하나만 만들 수 있다. 입력 매개변수들의 순서를 다르게 한 생성자를 새로 추가하는 식으로 이 제한을 피해볼 수도 있지만, 좋지 않은 발상이다. 그런 API를 사용하는 개발자는 각 생성자가 어떤 역할을 하는지 정확히 기억하기 어려워 엉뚱한 것을 호출하는 실수를 할 수 있다. 코드를 읽는 사람도 클래스 설명 문서를 찾아보지 않고는 의미를 알지 못할 것이다.</p>
+<p>이름을 가질 수 있는 정적 팩터리 메서드에는 이런 제약이 없다. 한 클래스에 시그니처가 같은 생성자가 여러 개 필요할 것 같으면, 생성자를 정적 택터리 메서드로 바꾸고 각각의 차이를 잘 드러내는 이름을 지어주자.<br>
 <br></p>
-<h3 id=2-호출될-때마다-인스턴스를-새로-생성하지-않아도-된다>2. 호출될 때마다 인스턴스를 새로 생성하지 않아도 된다.<a hidden class=anchor aria-hidden=true href=#2-호출될-때마다-인스턴스를-새로-생성하지-않아도-된다>#</a></h3>
-<p>불변 클래스<code>immutable class</code>는 미리 만들어 놓거나 새로 생성한 인스턴스를 캐싱하여 재활용하는 식으로 불필요한 객체 생성을 피할 수 있습니다. 따라서 객체가 자주 요청되는 상황이라면 성능을 상당히 끌어 올릴 수 있습니다. <code>Boolean.valueOf(boolean)</code>메서드도 그 경우에 해당됩니다.<br>
+<h3 id=두-번째-호출될-때마다-인스턴스를-새로-생성하지는-않아도-된다>두 번째, 호출될 때마다 인스턴스를 새로 생성하지는 않아도 된다.<a hidden class=anchor aria-hidden=true href=#두-번째-호출될-때마다-인스턴스를-새로-생성하지는-않아도-된다>#</a></h3>
+<p>이 덕분에 불변 클래스<code>immutable class</code>; <a href=/effective-java-3e/chapter-03/item17/><code>아이템 17</code></a>는 인스턴스를 미리 만들어 놓거나 새로 생성한 인스턴스를 캐싱하여 재활용하는 식으로 불필요한 객체 생성을 피할 수 있다. 대표적 예인 <code>Boolean.valueOf(boolean)</code> 메서드는 객체를 아예 생성하지 않는다. 따라서 (특히 생성 비용이 큰) 같은 객체가 자주 요청되는 상황이라면 성능을 상당히 끌어올려 준다.<br>
+<em><strong>플라이웨이트 패턴 [Gamma95] <sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></strong></em> 도 이와 비슷한 기법이라 할 수 있다.</p>
+<p>반복되는 요청에 같은 객체를 반환하는 식으로 정적 팩터리 방식의 클래스는 언제 어느 인스턴스를 살아 있게 할지를 철저히 통제할 수 있다. 이런 클래스를 인스턴스 통제<code>instance-controlled</code> 클래스라 한다. 그렇다면 인스턴스를 통제하는 이유는 무엇일까? 인스턴스를 통제하면 클래스를 싱글턴<code>singleton</code>; <a href=/effective-java-3e/chapter-01/item3/><code>아이템 3</code></a>으로 만들 수도, 인스턴스화 불가<code>noninstantiable</code>; <a href=/effective-java-3e/chapter-01/item4/><code>아이템 4</code></a>로 만들 수도 있다. 또한 불변 값 클래스<a href=/effective-java-3e/chapter-03/item17/><code>아이템 17</code></a>에서 동치인 인스턴스가 단 하나뿐임을 보장할 수 있다.</p>
+<p>　<strong>a == b일 때만 a.equals(b)가 성립</strong></p>
+<p>인스턴스 통제는 <em><strong>플라이웨이트 패턴[Gamma95] <sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></strong></em> 의 근간이 되며, 열거 타입<a href=/effective-java-3e/chapter-05/item34/><code>아이템 34</code></a>은 인스턴스가 하나만 만들어짐을 보장한다.<br>
 <br></p>
-<h3 id=3-반환-타입의-하위-타입-객체를-반환할-수-있는-능력이-있다>3. 반환 타입의 하위 타입 객체를 반환할 수 있는 능력이 있다.<a hidden class=anchor aria-hidden=true href=#3-반환-타입의-하위-타입-객체를-반환할-수-있는-능력이-있다>#</a></h3>
-<p>반환할 객체의 클래스를 선택할 수 있는 유연함이 있습니다. 반환할 객체의 하위 타입의 인스턴스를 반환할 수 있습니다. API를 작성할때 이러한 유연성을 이용하여 구현 클래스를 공개하지 않고도 그 객체를 반환할 수 있어 API를 작게 유지할 수 있습니다.</p>
-<p>자바 컬렉션 프레임워크는 핵심 인터페이스들에 수정 불가나 동기화 등의 기능을 덧붙인<br>
-총 45개의 유틸리티 구현체를 제공하는데, 이 구현체는 대부분 단 하나의 인스턴스화 불가 클래스인<code>java.util.Collections</code>에서 정적 팩터리 메서드를 통해 얻도록 했습니다.</p>
-<p>컬렉션 프레임워크는 이 45개의 클래스를 공개하지 않기 때문에 API의 외견을 훨씬 작게 만들 수 있었습니다.</p>
-<p>여기서 API의 크기는 프로그래머가 API를 사용하기 위해 익혀야하는 개념의 수와 난이도를 의미합니다. 클라이언트가 구현체가 아닌 인터페이스를 다루게 되므로 역할과 구현을 나눠 결합도를 낮출 수 있습니다.<br>
+<h3 id=세-번째-반환-타입의-하위-타입-객체를-반환할-수-있는-능력이-있다>세 번째, 반환 타입의 하위 타입 객체를 반환할 수 있는 능력이 있다.<a hidden class=anchor aria-hidden=true href=#세-번째-반환-타입의-하위-타입-객체를-반환할-수-있는-능력이-있다>#</a></h3>
+<p>이 능력은 반환할 객체의 클래스를 자유롭게 선택할 수 있게 하는 <strong>&lsquo;엄청난 유연성&rsquo;</strong> 을 선물한다. API를 만들 때 이 유연성을 응용하면 구현 클래스를 공개하지 않고도 그 객체를 반환할 수 있어 API를 작게 유지할 수 있다. 이는 인터페이스를 정적 팩터리 메서드의 반환 타입으로 사용하는 인터페이스 기반 프레임워크<a href=/effective-java-3e/chapter-03/item20/><code>아이템 20</code></a>를 만드는 핵심 기술이기도 하다.</p>
+<p><code>JAVA 8</code> 전에는 인터페이스에 정적 메서드를 선언할 수 없었다. 그렇기 때문에 이름이 &ldquo;Type&rdquo; 인 인터페이스를 반환하는 정적 메서드가 필요하면, &ldquo;Types"라는 (인스턴스화 불가인) 동반 클래스<code>companion class</code>를 만들어 그 안에 정의하는 것이 관례였다. 예컨대 자바 컬렉션 프레임워크는 핵심 인터페이스들에 수정 불가나 동시화 등의 기능을 덧붙인 총 45개의 유틸리티 구현체를 제공하는데, 이 구현체 대부분을 단 하나의 인스턴스화 불가 클래스인 <code>java.util.collections</code>에서 정적 팩터리 메서드를 통해 얻도록 했다.</p>
+<p>컬렉션 프레임워크는 이 45개 클래스를 공개하지 않기 때문에 API 외견을 훨씬 작게 만들 수 있었다. API가 작아진 것은 물론 개념적인 무게, 즉 프로그래머가 API를 사용하기 위해 익혀야 하는 개념의 수와 난이도도 낮췄다. 프로그래머는 명시한 인터페이스대로 동작하는 객체를 얻을 것임을 알기에 굳이 별도 문서를 찾아가며 실제 구현 클래스가 무엇인지 알아보지 않아도 된다. 나아가 정적 팩터리 메서드를 사용하는 클라이언트는 얻은 객체를 (그 구현 클래스가 아닌) 인터페이스만으로 다루게 된다.<a href=/effective-java-3e/chapter-08/item64/><code>아이템 64</code></a> 물론 이는 일반적으로 좋은 습관이다.</p>
+<p><code>JAVA 8</code>부터는 인터페이스가 정적 메서드를 가질 수 없다는 제한이 풀렸기 때문에 인스턴스화 불가 동반 클래스를 둘 이유가 별로 없다. 동반 클래스에 두었던 <code>public</code> 정적 멤버들 상당수를 그냥 인터페이스 자체에 두면 되는 것이다. 하지만 정적 메서드들을 구현하기 위한 코드 중 많은 부분은 여전히 별도의 <code>package-private</code> 클래스에 두어야 할 수 있다. <code>JAVA 8</code>에서도 인터페이스에는 <code>public</code> 정적 멤버만 허용하기 때문이다. <code>JAVA 9</code>에서는 <code>private</code> 정적 메서드까지 허락하지만 정적 필드와 정적 멤버 클래스는 여전히 <code>public</code>이어야 한다.<br>
 <br></p>
-<h3 id=4-입력-매개변수에-따라-매번-다른-클래스의-객체를-반환할-수-있다>4. 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.<a hidden class=anchor aria-hidden=true href=#4-입력-매개변수에-따라-매번-다른-클래스의-객체를-반환할-수-있다>#</a></h3>
-<p><code>장점 3</code>에서 말했듯이 하위 타입이기만 하면 어떤 클래스의 객체를 반환하던 상관 없습니다.<br>
-가령 <code>EumSet</code>클래스는 <code>public</code>생성자 없이 오직 정적 펙토리 메서드만 제공합니다.</p>
-<p><code>nonOf</code> 메서드를 살펴보면 원소 수에 따라 <code>RegularEnumSet</code> 이나 <code>JumboEnumSet</code> 인스턴스를 반환 합니다.</p>
+<h3 id=네-번째-입력-매개변수에-따라-매번-다른-클래스의-객체를-반환할-수-있다>네 번째, 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.<a hidden class=anchor aria-hidden=true href=#네-번째-입력-매개변수에-따라-매번-다른-클래스의-객체를-반환할-수-있다>#</a></h3>
+<p>반환 타입의 하위 타입이기만 하면 어떤 클래스의 객체를 반환하든 상관없다. 심지어 다음 릴리스에서는 또 다른 클래스의 객체를 반환해도 된다. 가령 <code>EnumSet</code> 클래스<a href=/effective-java-3e/chapter-05/item36/><code>아이템 36</code></a>는 <code>public</code> 생성자 없이 오직 정적 팩터리만 제공하는데, <code>OpenJDK</code>에서는 원소의 수에 따라 두 가지 하위 클래스 중 하나의 인스턴스를 반환한다. (대다수에 해당하는) 원소가 64개 이하면 원소들을 <code>long</code>변수 하나로 관리하는 <code>RegularEnumSet</code>의 인스턴스를, 65개 이상이면 <code>long</code>배열로 관리하는 <code>JumboEnumSet</code>의 인스턴스를 반환한다.</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt> 1
@@ -318,22 +312,66 @@
 </code></pre></td></tr></table>
 </div>
 </div><br>
-<h3 id=5-정적-팩토리-메서드를-작성하는-시점에는-반환할-객체의-클래스가-존재하지-않아도-된다>5. 정적 팩토리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.<a hidden class=anchor aria-hidden=true href=#5-정적-팩토리-메서드를-작성하는-시점에는-반환할-객체의-클래스가-존재하지-않아도-된다>#</a></h3>
-<p>대표적인 프레워크로는 <code>JDBC</code>가 있습니다. 구현체를 클라이언트에 제공하는 역할을 프레임워크가 통제하여, 클라이언트를 구현체로부터 분리해줍니다.</p>
-<p>서비스 제공자 프레임워크는 3개의 핵심 컴포넌트로 이루어집니다. (제공자는 서비스의 구현체를 의미합니다)</p>
-<ul>
-<li>서비스 인터페이스 (구현체의 동작을 정의)</li>
-<li>제공자 등록 API (제공자가 구현체를 등록할 때 사용)</li>
-<li>서비스 접근 API (클라이언트가 서비스의 인스터스를 얻을 때 사용)</li>
-</ul>
-<p>서비스 접근 API를 사용할 때 원하는 구현체의 조건을 명시할 수 있습니다. 조건을 명시하지 않으면 기본 구현체를 반화하거나 지원하는 구현체들을 하나씩 돌아가면서 반환합니다.<br>
-<br></p>
+<p>클라이언트는 이 두 클래스의 존재를 모른다. 만약 원소가 적을 때 <code>RegularEnumSet</code>을 사용할 이점이 없어진다면 다음 릴리스 때는 이를 삭제해도 아무 문제가 없다. 비슷하게, 성능을 더 개선한 세 번때, 네 번째 클래스를 다음 릴리스에 추가할 수도 있다. 클라이언트는 팩터리가 건네주는 객체가 어느 클래스의 인스턴스인지 알 수도 없고 알 필요도 없다. <code>EnumSet</code>의 하위 클래스이기만 하면 되는 것이다.</p>
+<h3 id=다섯-번째-정적-팩터리-메서드를-작성하는-시점에는-반환할-객체의-클래스가-존재하지-않아도-된다>다섯 번째, 정적 팩터리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.<a hidden class=anchor aria-hidden=true href=#다섯-번째-정적-팩터리-메서드를-작성하는-시점에는-반환할-객체의-클래스가-존재하지-않아도-된다>#</a></h3>
+<p>이런 유연함은 서비스 제공자 프레임워크<code>service provider framework</code>를 만드는 근간이 된다. 대표적인 서비스 제공자 프레임워크로는 <code>JDBC</code><sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup> 가 있다. 서비스 제공자 프레임워크에서의 제공자<code>provider</code>는 서비스의 구현체다. 그리고 이 구현체들을 클라이언트에 제공하는 역할을 프레임워크가 통제하여, 클라이언트를 구현체로부터 분리해준다.</p>
+<p>서비스 제공자 프레임워크는 3개의 핵심 컴포넌트로 이뤄진다. 구현체의 동작을 정의하는 서비스 인터페이스<code>service interface</code>, 제공자가 구현체를 등록할 때 사용하는 제공자 등록 API<code>provider registration API</code>, 클라이언트가 서비스의 인스턴스를 얻을 때 사용하는 서비스 접근 API<code>service access API</code>가 그 주인공이다. 클라이언트는 서비스 접근 API를 사용할 때 원하는 구현체의 조건을 명시할 수 있다. 조건을 명시하지 않으면 기본 구현체를 반환하거나 지원하는 구현체들을 하나씩 돌아가며 반환한다. 이 서비스 접근 API가 바로 서비스 제공자 프레임워크의 근간이라고 한 &lsquo;유연한 정적 팩터리&rsquo;의 실체다.</p>
+<p>3개의 핵심 컴포넌트와 더불어 종종 서비스 제공자 인터페이스<code>service provider interface</code>라는 네 번째 컴포넌트가 쓰이기도 한다. 이 컴포넌트는 서비스 인터페이스의 인스턴스를 생성하는 팩터리 객체를 설명해준다. 서비스 제공자 인터페이스가 없다면 각 구현체를 인스턴스로 만들 때 리플렉션<a href=/effective-java-3e/chapter-08/item65/><code>아이템 65</code></a>을 사용해야 한다. <code>JDBC</code><sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup> 에서는 <code>Connection</code>이 서비스 인터페이스 역할을, <code>DriverManager.registerDriver</code>가 제공자 등록 API 역할을, <code>DriverManager.getConnection</code>이 서비스 접근 API 역할을, <code>Driver</code>가 서비스 제공자 인터페이스 역할을 수행한다.</p>
+<p>서비스 제공자 프레임워크 패턴에는 여러 변형이 있다. 예컨대 서비스 접근 API는 공급자가 제공하는 것보다 더 풍부한 서비스 인터페이스를 클라이언트에 반환할 수 있다. _<strong>브리지 패턴[Gamma95] <sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup></strong>_이라 알려진 것이다. 의존 객체 주입<code>dependency injection</code> 프레임워크<a href=/effective-java-3e/chapter-01/item5/><code>아이템 5</code></a>도 강력한 서비스 제공자라고 생각할 수 있다. <code>JAVA 6</code>부터는 <code>java.util.ServiceLoader</code>라는 범용 서비스 제공자 프레임워크가 제공되어 프레임워크를 직접 만들 필요가 거의 없어졌다.<a href=/effective-java-3e/chapter-08/item59/><code>아이템 59</code></a> 한편, <code>JDBC</code><sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>는 <code>JAVA 6</code> 전에 등장한 개념이라 <code>ServiceLoader</code>를 사용하지 않는다.</p>
+<br>
+이제 단점을 알아볼 차례다.
 <h2 id=단점>단점<a hidden class=anchor aria-hidden=true href=#단점>#</a></h2>
-<h3 id=1-상속을-하려면-public이나-protected생성자가-필요하기-때문에-정적-팩토리-메서드만-제공하면-하위-클래스를-만들-수-없다>1. 상속을 하려면 <code>public</code>이나 <code>protected</code>생성자가 필요하기 때문에 정적 팩토리 메서드만 제공하면 하위 클래스를 만들 수 없다.<a hidden class=anchor aria-hidden=true href=#1-상속을-하려면-public이나-protected생성자가-필요하기-때문에-정적-팩토리-메서드만-제공하면-하위-클래스를-만들-수-없다>#</a></h3>
-<p>이 제약은 상속<code>is-a</code>보다 컴포지션<code>has-a</code>을 사용하도록 유도하고 불변 타입으로 만들려면 이 제약을 지켜야 한다는 점에서 오히려 장점으로 받아들일 수도 있습니다.<br>
-<br></p>
-<h3 id=2-정적-팩토리-메서드는-프로그래머가-찾기-어렵다>2. 정적 팩토리 메서드는 프로그래머가 찾기 어렵다.<a hidden class=anchor aria-hidden=true href=#2-정적-팩토리-메서드는-프로그래머가-찾기-어렵다>#</a></h3>
-<p>생성자처럼 API설명에 명확히 드러나지 않으므로 사용자는 정적 팩토리 메서드 사용 방식 클래스를 인스턴스화 시킬 방법을 알아내야 합니다. 그러므로 API 문서를 잘 정리하고 메서드 이름도 널리 알려진 규약을 따르는 게 좋습니다.</p>
+<h3 id=첫-번째-상속을-하려면-public이나-protected-생성자가-필요하니-정적-팩터리-메서드만-제공하면-하위-클래스를-만들-수-없다>첫 번째, 상속을 하려면 <code>public</code>이나 <code>protected</code> 생성자가 필요하니 정적 팩터리 메서드만 제공하면 하위 클래스를 만들 수 없다.<a hidden class=anchor aria-hidden=true href=#첫-번째-상속을-하려면-public이나-protected-생성자가-필요하니-정적-팩터리-메서드만-제공하면-하위-클래스를-만들-수-없다>#</a></h3>
+<p>앞서 이야기한 컬렉션 프레임워크의 유틸리티 구현 클래스들은 상속할 수 없다는 이야기다. 어찌 보면 이 제약은 상속<code>is-a</code>보다 컴포지션<code>has-a</code>을 사용<a href=/effective-java-3e/chapter-03/item18/><code>아이템 18</code></a>하도록 유도하고 불변 타입<a href=/effective-java-3e/chapter-03/item17/><code>아이템 17</code></a>으로 만들려면 이 제약을 지켜야 한다는 점에서 오히려 장점으로 받아들일 수도 있다.</p>
+<h3 id=두-번째-정적-팩터리-메서드는-프로그래머가-찾기-어렵다>두 번째, 정적 팩터리 메서드는 프로그래머가 찾기 어렵다.<a hidden class=anchor aria-hidden=true href=#두-번째-정적-팩터리-메서드는-프로그래머가-찾기-어렵다>#</a></h3>
+<p>생성자처럼 API 설명에 명확히 드러나지 않으니 사용자는 정적 팩터리 메서드 방식 클래스를 인스턴스화할 방법을 알아내야 한다. 이 일을 언젠가 자바독이 알아서 처리해 줬으면 좋겠으나, 그날이 오기까지는 API 문서를 잘 써놓고 메서드 이름도 널리 알려진 규약을 따라 짓는 식으로 문제를 완화해줘야 한다.</p>
+<p>다음은 정적 팩터리 메서드에 흔히 사용하는 명명 방식들이다.</p>
+<ul>
+<li><code>from</code> <i class=user-fa-navigation-arrow-forward aria-hidden=true></i> 매개변수를 하나 받아서 해당 타입의 인스턴스를 반환하는 형변환 매서드<br>
+<i class=user-fa-action-done-all aria-hidden=true></i>　Date d = Date.from(instant);<br>
+<br></li>
+<li><code>of</code> <i class=user-fa-navigation-arrow-forward aria-hidden=true></i> 여러 매개변수를 받아 적합한 타입의 인스턴스를 반환하는 집계 메서드<br>
+<i class=user-fa-action-done-all aria-hidden=true></i>　Set<rank> faceCards = EnumSet.of(JACK, QUEEN, KING);<br>
+<br></li>
+<li><code>valueOf</code> <i class=user-fa-navigation-arrow-forward aria-hidden=true></i> <em><code>from</code></em> 과 <em><code>of</code></em> 의 더 자세한 버전<br>
+<i class=user-fa-action-done-all aria-hidden=true></i>　BigInteger prime = BigInteger.valueOf(Integer.MAX_VALUE);<br>
+<br></li>
+<li><code>instance</code> 혹은 <code>getInstance</code> <i class=user-fa-navigation-arrow-forward aria-hidden=true></i> (매개변수를 받는다면) 매개변수로 명시한 인스턴스를 반환하지만, 같은 인스턴스임을 보장하지 않는다.<br>
+<i class=user-fa-action-done-all aria-hidden=true></i>　StackWalker luke = StackWalker.getInstance(options);<br>
+<br></li>
+<li><code>create</code> 혹은 <code>newInstance</code> <i class=user-fa-navigation-arrow-forward aria-hidden=true></i> <em><code>instance</code></em> 혹은 <em><code>getInstance</code></em> 와 같지만, 매번 새로운 인스턴스를 생성해 반환함을 보장한다.<br>
+<i class=user-fa-action-done-all aria-hidden=true></i>　Object newArray = Array.newInstance(classObject, arrayLen);<br>
+<br></li>
+<li><code>getType</code> <i class=user-fa-navigation-arrow-forward aria-hidden=true></i> <em><code>getInstance</code></em> 와 같으나, 생성할 클래스가 아닌 다른 클래스에 팩터리 메서드를 정의할 때 쓴다. <em>&ldquo;Type&rdquo;</em> 은 팩터리 메서드가 반환할 객체의 타입이다.<br>
+<i class=user-fa-action-done-all aria-hidden=true></i>　FileStore fs = Files.getFileStore(path);<br>
+<br></li>
+<li><code>newType</code> <i class=user-fa-navigation-arrow-forward aria-hidden=true></i> <em><code>newInstance</code></em> 와 같으나, 생성할 클래스가 아닌 다른 클래스에 팩터리 메서드를 정의할 때 쓴다. <em>&ldquo;Type&rdquo;</em> 은 팩터리 메서드가 반환할 객체의 타입이다.<br>
+<i class=user-fa-action-done-all aria-hidden=true></i>　BufferedReader br = Files.newBufferedReader(path);<br>
+<br></li>
+<li><code>type</code> <i class=user-fa-navigation-arrow-forward aria-hidden=true></i> <em><code>getType</code></em> 과 <em><code>newType</code></em> 의 간결한 버전<br>
+<i class=user-fa-action-done-all aria-hidden=true></i>　List<complaint> litany = Collections.list(legacyLitany);<br>
+<br><br>
+<br></li>
+</ul>
+<p><i class=user-fa-av-new-releases aria-hidden=true></i> 핵심정리</p>
+<p>정적 팩터리 메서드와 <code>public</code> 생성자는 각자의 쓰임새가 있으니 상대적인 장단점을 이해하고 사용하는 것이 좋다. 그렇다고 하더라도 정적 팩터리를 사용하는 게 유리한 경우가 더 많으므로 무작정 <code>public</code> 생성자를 제공하던 습관이 있다면 고치자.</p>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p><a href=https://ko.wikipedia.org/wiki/%ED%8C%A9%ED%86%A0%EB%A6%AC_%EB%A9%94%EC%84%9C%EB%93%9C_%ED%8C%A8%ED%84%B4>Factory method pattern</a> in <a href=https://ko.wikipedia.org/wiki/%EB%94%94%EC%9E%90%EC%9D%B8_%ED%8C%A8%ED%84%B4_(%EC%B1%85)>[GoF] Design Patterns</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:2 role=doc-endnote>
+<p><a href=https://ko.wikipedia.org/wiki/%ED%94%8C%EB%9D%BC%EC%9D%B4%EC%9B%A8%EC%9D%B4%ED%8A%B8_%ED%8C%A8%ED%84%B4>Flyweight pattern</a> in <a href=https://ko.wikipedia.org/wiki/%EB%94%94%EC%9E%90%EC%9D%B8_%ED%8C%A8%ED%84%B4_(%EC%B1%85)>[GoF] Design Patterns</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:3 role=doc-endnote>
+<p><a href=https://ko.wikipedia.org/wiki/JDBC>Java Database Connectivity</a>&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:4 role=doc-endnote>
+<p><a href=https://ko.wikipedia.org/wiki/%EB%B8%8C%EB%A6%AC%EC%A7%80_%ED%8C%A8%ED%84%B4>Bridge pattern</a> in <a href=https://ko.wikipedia.org/wiki/%EB%94%94%EC%9E%90%EC%9D%B8_%ED%8C%A8%ED%84%B4_(%EC%B1%85)>[GoF] Design Patterns</a>&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 </div>
 <footer class=post-footer data-animation=true><div class=post-license-info>
 <a class=button rel=license href=https://creativecommons.org/licenses/by-sa/4.0/deed.ko target=_blank>
