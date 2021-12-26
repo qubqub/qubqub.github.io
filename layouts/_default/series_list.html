@@ -40,6 +40,11 @@
                   <img loading="lazy" src="{{ .image | absURL }}" alt="{{ .alt }}">
                 </figure>
               {{- end }}
+              {{- if .imageSvg }}
+                <figure class="series-content-cover">
+                  {{ .imageSvg | safeHTML }}
+                </figure>
+              {{- end }}
             {{- end }}
 
             <header class="entry-header">
@@ -92,15 +97,21 @@
     {{- end }}
   {{- end }}
   <script>
-    const _seriesTags = document.querySelectorAll(".main .series-entry-wrapper .series-entry .post-tags a");
-    for (let i = 0; i < _seriesTags.length; i++) {
-      _seriesTags[i].addEventListener("mouseover", (e) => {
-        e.target.parentNode.parentNode.parentNode.classList.remove("button");
-      });
+    const seriesList_DOMReady = function (callback) {
+      document.readyState === "interactive" ||
+        document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+    };
+    seriesList_DOMReady( function () {
+      const _seriesTags = document.querySelectorAll(".main .series-entry-wrapper .series-entry .post-tags a");
+      for (let i = 0; i < _seriesTags.length; i++) {
+        _seriesTags[i].addEventListener("mouseover", (e) => {
+          e.target.parentNode.parentNode.parentNode.classList.remove("button");
+        });
 
-      _seriesTags[i].addEventListener("mouseout", (e) => {
-        e.target.parentNode.parentNode.parentNode.classList.add("button");
-      });
-    }
+        _seriesTags[i].addEventListener("mouseout", (e) => {
+          e.target.parentNode.parentNode.parentNode.classList.add("button");
+        });
+      }
+    });
   </script>
 {{- end }}{{/* end main */ -}}

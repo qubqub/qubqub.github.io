@@ -649,6 +649,14 @@ header.header {
   margin: 0 auto;
 }
 
+.series-content-cover svg {
+  border-radius: var(--radius);
+  pointer-events: none;
+  width: 25%;
+  /* height: auto; */
+  margin: 0 auto;
+}
+
 .series-main {
   margin: 2rem 0.1rem 2rem;
   padding: 2rem 1.5rem 1rem;
