@@ -57,7 +57,7 @@
             <div class="page-button">
               {{ with $_preChapterPages }}
                 <div class="left">
-                  <a class="button" href="{{ .RelPermalink }}">
+                  <a class="button" href="{{ .RelPermalink }}" aria-label="이전 장" accesskey="{" title="(이전 장) Alt + Shift + [">
                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                       <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                     </svg>
@@ -71,7 +71,7 @@
 
               {{ with $_nextChapterPages }}
                 <div class="right">
-                  <a class="button" href="{{ .RelPermalink }}">
+                  <a class="button" href="{{ .RelPermalink }}" aria-label="다음 장" accesskey="}" title="(다음 장) Alt + Shift + ]">
                     {{ if (eq (i18n "country_code") "en") }}{{ i18n "chapter" }} {{ end }}{{ add $_chapterNumber 1 }} {{ if (eq (i18n "country_code") "ko") }}{{ i18n "chapter" }}{{ end }}
                     <svg style="margin-right: -12px;" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
@@ -142,7 +142,7 @@
                     <div class="page-button">
                       {{ if $_prePageLink }}
                         <div class="left">
-                          <a class="button" href="{{ $_prePageLink }}" aria-label="이전 페이지" accesskey="[" title="이전 페이지 (Alt + [)">
+                          <a class="button" href="{{ $_prePageLink }}" aria-label="이전 페이지" accesskey="[" title="(이전 페이지) Alt + [">
                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                               <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                             </svg>
@@ -150,7 +150,7 @@
                         </div>
                       {{ else }}
                         <div class="left">
-                          <a class="button disabled">
+                          <a class="button disabled" title="(이전 페이지) Alt + [">
                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                               <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                             </svg>
@@ -160,7 +160,7 @@
                       
                       {{ if $_nextPageLink }}
                         <div class="right">
-                          <a class="button" href="{{ $_nextPageLink }}" aria-label="다음 페이지" accesskey="]" title="다음 페이지 (Alt + ])">
+                          <a class="button" href="{{ $_nextPageLink }}" aria-label="다음 페이지" accesskey="]" title="(다음 페이지) Alt + ]">
                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                               <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
                             </svg>
@@ -168,7 +168,7 @@
                         </div>
                       {{ else }}
                         <div class="right">
-                          <a class="button disabled">
+                          <a class="button disabled" title="(다음 페이지) Alt + ]">
                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                               <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
                             </svg>
@@ -316,7 +316,7 @@
                     <div class="page-button">
                       {{ if $_prePageLink }}
                         <div class="left">
-                          <a class="button" href="{{ $_prePageLink }}" aria-label="이전 페이지" accesskey="[" title="이전 페이지 (Alt + [)">
+                          <a class="button" href="{{ $_prePageLink }}" aria-label="이전 페이지" accesskey="[" title="이전 페이지 Alt + [">
                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                               <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                             </svg>
@@ -324,7 +324,7 @@
                         </div>
                       {{ else }}
                         <div class="left">
-                          <a class="button disabled">
+                          <a class="button disabled" title="이전 페이지 Alt + [">
                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                               <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                             </svg>
@@ -334,7 +334,7 @@
                       
                       {{ if $_nextPageLink }}
                         <div class="right">
-                          <a class="button" href="{{ $_nextPageLink }}" aria-label="다음 페이지" accesskey="]" title="다음 페이지 (Alt + ])">
+                          <a class="button" href="{{ $_nextPageLink }}" aria-label="다음 페이지" accesskey="]" title="다음 페이지 Alt + ]">
                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                               <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
                             </svg>
@@ -342,7 +342,7 @@
                         </div>
                       {{ else }}
                         <div class="right">
-                          <a class="button disabled">
+                          <a class="button disabled" title="다음 페이지 Alt + ]">
                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                               <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
                             </svg>
