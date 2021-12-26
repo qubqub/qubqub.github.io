@@ -734,7 +734,7 @@ header.header {
 
 .series-main .chapter-control .left a {
   width: 100%;
-  height: 1.7rem;
+  height: 1.8rem;
   display: flex;
   -webkit-box-align: center;
   align-items: center;
@@ -749,7 +749,7 @@ header.header {
 
 .series-main .chapter-control .right a {
   width: 100%;
-  height: 1.7rem;
+  height: 1.8rem;
   display: flex;
   -webkit-box-align: center;
   align-items: center;
