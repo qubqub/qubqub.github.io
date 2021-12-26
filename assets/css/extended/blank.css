@@ -299,6 +299,7 @@ header.header {
 .terms-tags a:hover,
 .series-main .series-control .page-button a:hover,
 .series-entry:hover,
+.collection-entry:hover,
 .list-entry:hover {
   transition: box-shadow 0.2s ease 0s, transform .1s;
   box-shadow: 0 0 0 1px var(--primary) inset;
@@ -609,6 +610,7 @@ header.header {
   margin-bottom: var(--gap);
   padding: var(--gap);
   padding-bottom: 1rem;
+  padding-top: 1.4rem;
   background: var(--entry);
   border-radius: var(--radius);
   transition: transform .1s;
