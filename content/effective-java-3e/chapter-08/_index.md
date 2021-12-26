@@ -1,5 +1,6 @@
 ---
 title: 8장 일반적인 프로그래밍 원칙
-summary: Chapter 8：General Programming
-description: Chapter 8：General Programming
+# summary: Chapter 8：General Programming
+summary: 이번 장에서는 자바 언어의 핵심 요소에 집중한다. 지역변수, 제어구조, 라이브러리, 데이터 타입, 그리고 언어 경계를 넘나드는 기능인 리플렉션과 네이티브 메서드를 다룬다. 마지막으로는 최적화와 명명 규칙을 논한다.
+description: 이번 장에서는 자바 언어의 핵심 요소에 집중한다. 지역변수, 제어구조, 라이브러리, 데이터 타입, 그리고 언어 경계를 넘나드는 기능인 리플렉션과 네이티브 메서드를 다룬다. 마지막으로는 최적화와 명명 규칙을 논한다.
 ---

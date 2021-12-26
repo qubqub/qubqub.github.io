@@ -5,7 +5,7 @@
 <meta name=robots content="index, follow">
 <title>3장 클래스와 인터페이스 | &lt;Qutrits/></title>
 <meta name=keywords content>
-<meta name=description content="Chapter 3：Classes and Interfaces">
+<meta name=description content="추상화의 기본 단위인 클래스와 인터페이스는 자바 언어의 심장과도 같다. 그래서 자바 언어에는 클래스와 인터페이스 설계에 사용하는 강력한 요소가 많이 있다. 이번 장에서는 이런 요소를 적절히 활용하여 클래스와 인터페이스를 쓰기 편하고, 견고하며, 유연하게 만드는 방법을 안내한다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-03/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.045b57560f646383f8b5c8e5a7c3cd62a0fe270eec379126b659fcf3dff76103.css integrity="sha256-BFtXVg9kY4P4tcjlp8PNYqD+Jw7sN5Emtln889/3YQM=" rel="preload stylesheet" as=style>
@@ -24,12 +24,12 @@
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="3장 클래스와 인터페이스">
-<meta property="og:description" content="Chapter 3：Classes and Interfaces">
+<meta property="og:description" content="추상화의 기본 단위인 클래스와 인터페이스는 자바 언어의 심장과도 같다. 그래서 자바 언어에는 클래스와 인터페이스 설계에 사용하는 강력한 요소가 많이 있다. 이번 장에서는 이런 요소를 적절히 활용하여 클래스와 인터페이스를 쓰기 편하고, 견고하며, 유연하게 만드는 방법을 안내한다.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://qutrits.github.io/effective-java-3e/chapter-03/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="3장 클래스와 인터페이스">
-<meta name=twitter:description content="Chapter 3：Classes and Interfaces">
+<meta name=twitter:description content="추상화의 기본 단위인 클래스와 인터페이스는 자바 언어의 심장과도 같다. 그래서 자바 언어에는 클래스와 인터페이스 설계에 사용하는 강력한 요소가 많이 있다. 이번 장에서는 이런 요소를 적절히 활용하여 클래스와 인터페이스를 쓰기 편하고, 견고하며, 유연하게 만드는 방법을 안내한다.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Effctive Java 3/E","item":"https://qutrits.github.io/effective-java-3e/"},{"@type":"ListItem","position":2,"name":"3장 클래스와 인터페이스","item":"https://qutrits.github.io/effective-java-3e/chapter-03/"}]}</script>
 </head>
 <body class=list>
@@ -79,7 +79,7 @@
 <header class=page-header>
 <h1 class=page-title data-animation=true>3장 클래스와 인터페이스</h1>
 <div class="page-description abstracted" data-animation=true>
-Chapter 3：Classes and Interfaces
+추상화의 기본 단위인 클래스와 인터페이스는 자바 언어의 심장과도 같다. 그래서 자바 언어에는 클래스와 인터페이스 설계에 사용하는 강력한 요소가 많이 있다. 이번 장에서는 이런 요소를 적절히 활용하여 클래스와 인터페이스를 쓰기 편하고, 견고하며, 유연하게 만드는 방법을 안내한다.
 </div>
 </header>
 <div class=post-entry-wrapper style=animation-delay:170ms data-animation=true>

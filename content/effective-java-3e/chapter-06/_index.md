@@ -1,5 +1,6 @@
 ---
 title: 6장 람다와 스트림
-summary: Chapter 6：Lambdas and Streams
-description: Chapter 6：Lambdas and Streams
+# summary: Chapter 6：Lambdas and Streams
+summary: 자바 8에서 함수형 인터페이스, 람다, 메서드 참조라는 개념이 추가되면서 함수 객체를 더 쉽게 만들 수 있게 되었다. 이외 함께 스트림 API까지 추가되어 데이터 원소의 시퀀스 처리를 라이브러리 차원에서 지원하기 시작했다. 이번 장에서는 이 기능들을 효과적으로 사용하는 방법을 알아보겠다.
+description: 자바 8에서 함수형 인터페이스, 람다, 메서드 참조라는 개념이 추가되면서 함수 객체를 더 쉽게 만들 수 있게 되었다. 이외 함께 스트림 API까지 추가되어 데이터 원소의 시퀀스 처리를 라이브러리 차원에서 지원하기 시작했다. 이번 장에서는 이 기능들을 효과적으로 사용하는 방법을 알아보겠다.
 ---

@@ -5,7 +5,7 @@
 <meta name=robots content="index, follow">
 <title>5장 열거 타입과 애너테이션 | &lt;Qutrits/></title>
 <meta name=keywords content>
-<meta name=description content="Chapter 5：Enums and Annotations">
+<meta name=description content="자바에는 특수한 목적의 참조 타입 두 가지가 있다. 하나는 클래스의 일종인 열거 타입(enum; 열거형)이고, 다른 하나는 인터페이스의 일종인 애너테이션(annotation)이다. 이번 장에서는 이 타입들을 올바르게 사용하는 방법을 알아본다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-05/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.045b57560f646383f8b5c8e5a7c3cd62a0fe270eec379126b659fcf3dff76103.css integrity="sha256-BFtXVg9kY4P4tcjlp8PNYqD+Jw7sN5Emtln889/3YQM=" rel="preload stylesheet" as=style>
@@ -24,12 +24,12 @@
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="5장 열거 타입과 애너테이션">
-<meta property="og:description" content="Chapter 5：Enums and Annotations">
+<meta property="og:description" content="자바에는 특수한 목적의 참조 타입 두 가지가 있다. 하나는 클래스의 일종인 열거 타입(enum; 열거형)이고, 다른 하나는 인터페이스의 일종인 애너테이션(annotation)이다. 이번 장에서는 이 타입들을 올바르게 사용하는 방법을 알아본다.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://qutrits.github.io/effective-java-3e/chapter-05/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="5장 열거 타입과 애너테이션">
-<meta name=twitter:description content="Chapter 5：Enums and Annotations">
+<meta name=twitter:description content="자바에는 특수한 목적의 참조 타입 두 가지가 있다. 하나는 클래스의 일종인 열거 타입(enum; 열거형)이고, 다른 하나는 인터페이스의 일종인 애너테이션(annotation)이다. 이번 장에서는 이 타입들을 올바르게 사용하는 방법을 알아본다.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Effctive Java 3/E","item":"https://qutrits.github.io/effective-java-3e/"},{"@type":"ListItem","position":2,"name":"5장 열거 타입과 애너테이션","item":"https://qutrits.github.io/effective-java-3e/chapter-05/"}]}</script>
 </head>
 <body class=list>
@@ -79,7 +79,7 @@
 <header class=page-header>
 <h1 class=page-title data-animation=true>5장 열거 타입과 애너테이션</h1>
 <div class="page-description abstracted" data-animation=true>
-Chapter 5：Enums and Annotations
+자바에는 특수한 목적의 참조 타입 두 가지가 있다. 하나는 클래스의 일종인 열거 타입(enum; 열거형)이고, 다른 하나는 인터페이스의 일종인 애너테이션(annotation)이다. 이번 장에서는 이 타입들을 올바르게 사용하는 방법을 알아본다.
 </div>
 </header>
 <div class=post-entry-wrapper style=animation-delay:170ms data-animation=true>

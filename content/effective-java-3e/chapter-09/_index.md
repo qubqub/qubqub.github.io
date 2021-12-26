@@ -1,5 +1,6 @@
 ---
 title: 9장 예외
-summary: Chapter 9：Exceptions
-description: Chapter 9：Exceptions
+# summary: Chapter 9：Exceptions
+summary: 예외를 제대로 활용한다면 프로그램의 가독성, 신뢰성, 유지보수성이 높아지지만, 잘못 사용한다면 반대의 효과만 나타난다. 이번 장에서는 예외를 효과적으로 활용하는 지침을 다룬다.
+description: 예외를 제대로 활용한다면 프로그램의 가독성, 신뢰성, 유지보수성이 높아지지만, 잘못 사용한다면 반대의 효과만 나타난다. 이번 장에서는 예외를 효과적으로 활용하는 지침을 다룬다.
 ---
