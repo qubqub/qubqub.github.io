@@ -8,7 +8,7 @@
 <meta name=description content="<Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/tags/java/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.045b57560f646383f8b5c8e5a7c3cd62a0fe270eec379126b659fcf3dff76103.css integrity="sha256-BFtXVg9kY4P4tcjlp8PNYqD+Jw7sN5Emtln889/3YQM=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c5df87640c8c1a8485ab0e83ab35a3e876e293029dae1eacf32b803c35afd0c8.css integrity="sha256-xd+HZAyMGoSFqw6DqzWj6HbikwKdrh6s8yuAPDWv0Mg=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -78,8 +78,8 @@
 <header class=page-header>
 <h1 class=page-title data-animation=true>Java</h1>
 </header>
-<div class=post-entry-wrapper style=animation-delay:170ms data-animation=true>
-<article class="article-entry button" title="[아이템 3] private 생성자나 열거 타입으로 싱글턴임을 보증하라 싱글턴(singletone)이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.
+<div class=list-entry-wrapper style=animation-delay:170ms data-animation=true>
+<article class="list-entry button" title="[아이템 3] private 생성자나 열거 타입으로 싱글턴임을 보증하라 싱글턴(singletone)이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.
 싱글턴을 만드는 방식은 보통 둘 중 하나입니다.
 public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { .">
 <header class=entry-header>
@@ -99,8 +99,8 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9 public class Elvis { p
 <a class=entry-link aria-label="post link to [아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라" href=https://qutrits.github.io/effective-java-3e/chapter-01/item3/></a>
 </article>
 </div>
-<div class=post-entry-wrapper style=animation-delay:220ms data-animation=true>
-<article class="article-entry button" title="[아이템 2] 생성자에 매개변수가 많다면 빌더를 고려해라. 매개변수가 많아질 경우 정적 팩토리 메서드와 생성자는 사용하기 불편해집니다.
+<div class=list-entry-wrapper style=animation-delay:220ms data-animation=true>
+<article class="list-entry button" title="[아이템 2] 생성자에 매개변수가 많다면 빌더를 고려해라. 매개변수가 많아질 경우 정적 팩토리 메서드와 생성자는 사용하기 불편해집니다.
 첫번째 대안: 생성자를 이용할 경우 1  Nutritionfact cocaCola = new Nutritionfact(240, 8, 100, 0, 35);   이렇게 생성자를 만들 수 있지만 어떤 속성 값을 설정했는지 알기 힘듭니다. 매개변수의 수가 늘어날 수록 코드를 작성하거나 읽기 힘들어집니다. 문제는 매개변수 타입이 같은 상황에서 실수로 순서를 바꿔 입력할 경우 컴파일 시점에서 알 수 없고 런타임에 엉뚱하게 동작하게 됩니다.">
 <header class=entry-header>
 <h2>[아이템 2] 생성자에 매개변수가 많다면 빌더를 고려하라
@@ -118,8 +118,8 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9 public class Elvis { p
 <a class=entry-link aria-label="post link to [아이템 2] 생성자에 매개변수가 많다면 빌더를 고려하라" href=https://qutrits.github.io/effective-java-3e/chapter-01/item2/></a>
 </article>
 </div>
-<div class=post-entry-wrapper style=animation-delay:270ms data-animation=true>
-<article class="article-entry button" title="일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메서드를 이용할 수 있다. 1 2 3  public static Boolean valueOf(boolean b) { return b ? Boolean.TRUE : Booelan.FALSE; }   Boolean 클래스에서 발췌한 예제 코드
+<div class=list-entry-wrapper style=animation-delay:270ms data-animation=true>
+<article class="list-entry button" title="일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메서드를 이용할 수 있다. 1 2 3  public static Boolean valueOf(boolean b) { return b ? Boolean.TRUE : Booelan.FALSE; }   Boolean 클래스에서 발췌한 예제 코드
 장점 1. 이름을 가질 수 있다. 생성자에 넘기는 매개변수만으로 반환될 객체의 특성을 제대로 설명하지 못합니다.
 반면 정적 팩터리 메서드는 이름을 잘 지으면 반환될 객체의 특성을 쉽게 묘사할 수 있습니다.
 하나의 시그니처로는 생성자를 하나만 만들 수 있으며 입력 매개변수들의 순서를 다르게 한 생성자를 추가하는 식으로 이 제한을 피할 수는 있지만, 이 역시 객체의 특성을 살리기 힘들고 좋지 않은 방식입니다.">
@@ -172,7 +172,7 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9 public class Elvis { p
 </ul>
 </nav>
 </footer>
-<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
+<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .list-entry-wrapper .list-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
 </main>
 <footer class=footer>
 <span>&copy; 2021 <a href=https://qutrits.github.io/>&lt;Qutrits/></a></span>

@@ -8,7 +8,7 @@
 <meta name=description content="<Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/series/effective-java-3e/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.045b57560f646383f8b5c8e5a7c3cd62a0fe270eec379126b659fcf3dff76103.css integrity="sha256-BFtXVg9kY4P4tcjlp8PNYqD+Jw7sN5Emtln889/3YQM=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c5df87640c8c1a8485ab0e83ab35a3e876e293029dae1eacf32b803c35afd0c8.css integrity="sha256-xd+HZAyMGoSFqw6DqzWj6HbikwKdrh6s8yuAPDWv0Mg=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -78,8 +78,8 @@
 <header class=page-header>
 <h1 class=page-title data-animation=true>Effective Java 3E</h1>
 </header>
-<div class=post-entry-wrapper style=animation-delay:170ms data-animation=true>
-<article class="article-entry button" title='[아이템 28] 배열보다는 리스트를 사용하라. 배열과 제네릭 타입의 차이 첫번째 차이점. 배열은 공변 입니다. 어려워 보이는 단어지만 뜻은 간단합니다. Sub가 Super의 하위 타입이라면 배열 Sub[]는 배열 Super[]의 하위 타입이 됩니다.
+<div class=list-entry-wrapper style=animation-delay:170ms data-animation=true>
+<article class="list-entry button" title='[아이템 28] 배열보다는 리스트를 사용하라. 배열과 제네릭 타입의 차이 첫번째 차이점. 배열은 공변 입니다. 어려워 보이는 단어지만 뜻은 간단합니다. Sub가 Super의 하위 타입이라면 배열 Sub[]는 배열 Super[]의 하위 타입이 됩니다.
 반면, 제네릭은 불공변입니다. 즉 서로 다른 타입 Type1과 Type2가 있을 때, List<Type1>은 List<Type2>의 하위 타입도 아니고 상위 타입도 아닙니다.
 이것만 보면 제네릭에 문제가 있다고 생각할 수 있지만, 사실 문제가 있는 건 배열 쪽입니다. 다음은 문법상 허용되는 코드입니다.
 1 2 3  // 런타임 에러 Object[] objectArray = new Long[1]; objectArray[0] = "타입이 달라 넣을 수 없다.'>
@@ -101,8 +101,8 @@
 <a class=entry-link aria-label="post link to [아이템 28] 배열보다는 리스트를 사용하라" href=https://qutrits.github.io/effective-java-3e/chapter-04/item28/></a>
 </article>
 </div>
-<div class=post-entry-wrapper style=animation-delay:220ms data-animation=true>
-<article class="article-entry button" title="[아이템 27] 비검사 경고를 제거하라. 제네릭에 관련된 수 많은 컴파일 경고들이 있습니다. 비검사 형변환 경고, 비검사 메서드 호출 경고, 비검사 매개변수화 가변인수 타입 경고, 비검사 변환 경고 등이 있습니다.
+<div class=list-entry-wrapper style=animation-delay:220ms data-animation=true>
+<article class="list-entry button" title="[아이템 27] 비검사 경고를 제거하라. 제네릭에 관련된 수 많은 컴파일 경고들이 있습니다. 비검사 형변환 경고, 비검사 메서드 호출 경고, 비검사 매개변수화 가변인수 타입 경고, 비검사 변환 경고 등이 있습니다.
 제네릭에 익숙해질 수록 마주치는 경고 수는 줄어들겠지만 새로 작성한 코드가 한 번에 깨끗하게 컴파일되리라 기대하지는 맙시다.
 대부분의 비검사 경고는 쉽게 제거할 수 있습니다. 코드를 다음처럼 잘못 작성했다고 예시를 들어봅시다.
 1  Set<Fruits> fruits = new Hashset();   그러면 컴파일러는 무엇이 잘못 됐는지 설멸해 줄 것입니다.">
@@ -124,8 +124,8 @@
 <a class=entry-link aria-label="post link to [아이템 27] 비검사 경고를 제거하라" href=https://qutrits.github.io/effective-java-3e/chapter-04/item27/></a>
 </article>
 </div>
-<div class=post-entry-wrapper style=animation-delay:270ms data-animation=true>
-<article class="article-entry button" title="[아이템 26] Raw 타입은 사용하지 마라. raw type이란 제네릭 타입에서에서 타입 파라미터를 전혀 사용하지 않았을 때를 말합니다.
+<div class=list-entry-wrapper style=animation-delay:270ms data-animation=true>
+<article class="list-entry button" title="[아이템 26] Raw 타입은 사용하지 마라. raw type이란 제네릭 타입에서에서 타입 파라미터를 전혀 사용하지 않았을 때를 말합니다.
 1 2  // raw type List list = new ArrayList();   raw type은 타입 선언에서 제네릭 타입 정보가 전부 지워진 것처럼 동작하는데, 제네릭이 도래하기 전 코드와 호환성을 위해서 주로 존재합니다.
 1 2  // 문자열을 저장하는 컬렉션 private final List names = new ArrayList();   위 코드를 사용하면 String대신 다른 타입을 넣어도 오류없이 실행됩니다.">
 <header class=entry-header>
@@ -145,8 +145,8 @@
 <a class=entry-link aria-label="post link to [아이템 26] Raw 타입은 사용하지 마라" href=https://qutrits.github.io/effective-java-3e/chapter-04/item26/></a>
 </article>
 </div>
-<div class=post-entry-wrapper style=animation-delay:320ms data-animation=true>
-<article class="article-entry button" title='[아이템 25] 톱레벨 클래스는 한 파일에만 담으라 1 2 3 4 5  public class Main { public static void main(String[] args) { System.out.println(Utensil.NAME + Dessert.NAME); } }   위 코드의 소스 파일은 Main 클래스 하나를 담고 있고, Main클래스는 다른 톱레벨 클래스 2개(Utensil Dessert)를 참조합니다.
+<div class=list-entry-wrapper style=animation-delay:320ms data-animation=true>
+<article class="list-entry button" title='[아이템 25] 톱레벨 클래스는 한 파일에만 담으라 1 2 3 4 5  public class Main { public static void main(String[] args) { System.out.println(Utensil.NAME + Dessert.NAME); } }   위 코드의 소스 파일은 Main 클래스 하나를 담고 있고, Main클래스는 다른 톱레벨 클래스 2개(Utensil Dessert)를 참조합니다.
 Utensil와 Dessert 클래스가 Utensil.java라는 한 파일에 정의되어 있다고 가정해봅시다.
 1 2 3 4 5 6 7  class Utensil { static final String NAME = "pan"; } class Dessert { static final String NAME = "cake"; }   Main을 실행하면 &ldquo;pancake"가 출력됩니다.'>
 <header class=entry-header>
@@ -166,8 +166,8 @@ Utensil와 Dessert 클래스가 Utensil.java라는 한 파일에 정의되어 �
 <a class=entry-link aria-label="post link to [아이템 25] 톱레벨 클래스는 한 파일에만 담으라" href=https://qutrits.github.io/effective-java-3e/chapter-03/item25/></a>
 </article>
 </div>
-<div class=post-entry-wrapper style=animation-delay:370ms data-animation=true>
-<article class="article-entry button" title="[아이템 24] 멤버 클래스는 되도록 static으로 만들어라. 중첩 클래스(nested class)는 자신을 감싼 바깥 클래스에서만 쓰어야 하며 그 이외 쓰임새가 있다면 톱레벨 클래스로 만들어야 합니다.
+<div class=list-entry-wrapper style=animation-delay:370ms data-animation=true>
+<article class="list-entry button" title="[아이템 24] 멤버 클래스는 되도록 static으로 만들어라. 중첩 클래스(nested class)는 자신을 감싼 바깥 클래스에서만 쓰어야 하며 그 이외 쓰임새가 있다면 톱레벨 클래스로 만들어야 합니다.
 중첩 클래스는 다음과 같이 네 종류로 나눌 수 있습니다.
  정적 멤버 클래스 (비정적)멤버 클래스 익명 클래스 지역 클래스  이 중 정적 멤버 클래스를 제외한 나머지는 내부 클래스(inner class)에 해당합니다.
 정적 멤버 클래스 정적 멤버 클래스는 다른 클래스 안에 선언되고, 바깥 클래스의 private 멤버에도 접근할 수 있다는 점만 제외하고는 일반 클래스외 똑같습니다.">
@@ -230,7 +230,7 @@ Utensil와 Dessert 클래스가 Utensil.java라는 한 파일에 정의되어 �
 </ul>
 </nav>
 </footer>
-<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
+<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .list-entry-wrapper .list-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
 </main>
 <footer class=footer>
 <span>&copy; 2021 <a href=https://qutrits.github.io/>&lt;Qutrits/></a></span>

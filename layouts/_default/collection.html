@@ -10,8 +10,8 @@
     </header>
     {{- if .Params.useSection }}{{/* section */ -}}
       {{- range $i, $v := .Site.Sections }}
-        <div class="collection-entry" {{ if $.Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
-          <article class="post-entry" title="{{- i18n .Name }}">
+        <div class="collection-entry-wrapper" {{ if $.Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
+          <article class="collection-entry button" title="{{- i18n .Name }}">
             <header class="entry-header">
               <h2>📄 {{ .Name }} <sup><strong><sup>{{ len (where site.RegularPages "Section" .Section) }}</sup></strong></sup></h2>
             </header>
@@ -27,8 +27,8 @@
         {{- $name := .Name }}
         {{- $count := .Count }}
         {{- with $.Site.GetPage (printf "/%s/%s" "categories" $name) }}
-        <div class="collection-entry" {{ if $.Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
-          <article class="post-entry" title="{{- i18n $name }}">
+        <div class="collection-entry-wrapper" {{ if $.Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
+          <article class="collection-entry button" title="{{- i18n $name }}">
             <header class="entry-header">
               <h2>📄 {{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup></h2>
             </header>
@@ -45,8 +45,8 @@
         {{- $name := .Name }}
         {{- $count := .Count }}
         {{- with $.Site.GetPage (printf "/%s/%s" "tags" $name) }}
-        <div class="collection-entry" {{ if $.Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
-          <article class="post-entry" title="{{- i18n $name }}">
+        <div class="collection-entry-wrapper" {{ if $.Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
+          <article class="collection-entry button" title="{{- i18n $name }}">
             <header class="entry-header">
               <h2>📄 {{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup></h2>
             </header>
@@ -72,8 +72,8 @@
       </header>
     {{- end }}
     {{- range $i, $v := .Params.menu }}
-    <div class="collection-entry" {{ if $.Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
-      <article class="post-entry" title="{{ .description }}">
+    <div class="collection-entry-wrapper" {{ if $.Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
+      <article class="collection-entry button" title="{{ .description }}">
         {{- if not .cover.hidden }}
           <figure class="collection-cover">
             <img loading="lazy" src="{{ (.cover.image) | absURL }}" alt="{{ .cover.alt }}">

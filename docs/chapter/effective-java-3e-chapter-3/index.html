@@ -8,7 +8,7 @@
 <meta name=description content="<Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/chapter/effective-java-3e-chapter-3/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.045b57560f646383f8b5c8e5a7c3cd62a0fe270eec379126b659fcf3dff76103.css integrity="sha256-BFtXVg9kY4P4tcjlp8PNYqD+Jw7sN5Emtln889/3YQM=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c5df87640c8c1a8485ab0e83ab35a3e876e293029dae1eacf32b803c35afd0c8.css integrity="sha256-xd+HZAyMGoSFqw6DqzWj6HbikwKdrh6s8yuAPDWv0Mg=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -78,8 +78,8 @@
 <header class=page-header>
 <h1 class=page-title data-animation=true>Effective Java 3E Chapter 3</h1>
 </header>
-<div class=post-entry-wrapper style=animation-delay:170ms data-animation=true>
-<article class="article-entry button" title='[아이템 25] 톱레벨 클래스는 한 파일에만 담으라 1 2 3 4 5  public class Main { public static void main(String[] args) { System.out.println(Utensil.NAME + Dessert.NAME); } }   위 코드의 소스 파일은 Main 클래스 하나를 담고 있고, Main클래스는 다른 톱레벨 클래스 2개(Utensil Dessert)를 참조합니다.
+<div class=list-entry-wrapper style=animation-delay:170ms data-animation=true>
+<article class="list-entry button" title='[아이템 25] 톱레벨 클래스는 한 파일에만 담으라 1 2 3 4 5  public class Main { public static void main(String[] args) { System.out.println(Utensil.NAME + Dessert.NAME); } }   위 코드의 소스 파일은 Main 클래스 하나를 담고 있고, Main클래스는 다른 톱레벨 클래스 2개(Utensil Dessert)를 참조합니다.
 Utensil와 Dessert 클래스가 Utensil.java라는 한 파일에 정의되어 있다고 가정해봅시다.
 1 2 3 4 5 6 7  class Utensil { static final String NAME = "pan"; } class Dessert { static final String NAME = "cake"; }   Main을 실행하면 &ldquo;pancake"가 출력됩니다.'>
 <header class=entry-header>
@@ -99,8 +99,8 @@ Utensil와 Dessert 클래스가 Utensil.java라는 한 파일에 정의되어 �
 <a class=entry-link aria-label="post link to [아이템 25] 톱레벨 클래스는 한 파일에만 담으라" href=https://qutrits.github.io/effective-java-3e/chapter-03/item25/></a>
 </article>
 </div>
-<div class=post-entry-wrapper style=animation-delay:220ms data-animation=true>
-<article class="article-entry button" title="[아이템 24] 멤버 클래스는 되도록 static으로 만들어라. 중첩 클래스(nested class)는 자신을 감싼 바깥 클래스에서만 쓰어야 하며 그 이외 쓰임새가 있다면 톱레벨 클래스로 만들어야 합니다.
+<div class=list-entry-wrapper style=animation-delay:220ms data-animation=true>
+<article class="list-entry button" title="[아이템 24] 멤버 클래스는 되도록 static으로 만들어라. 중첩 클래스(nested class)는 자신을 감싼 바깥 클래스에서만 쓰어야 하며 그 이외 쓰임새가 있다면 톱레벨 클래스로 만들어야 합니다.
 중첩 클래스는 다음과 같이 네 종류로 나눌 수 있습니다.
  정적 멤버 클래스 (비정적)멤버 클래스 익명 클래스 지역 클래스  이 중 정적 멤버 클래스를 제외한 나머지는 내부 클래스(inner class)에 해당합니다.
 정적 멤버 클래스 정적 멤버 클래스는 다른 클래스 안에 선언되고, 바깥 클래스의 private 멤버에도 접근할 수 있다는 점만 제외하고는 일반 클래스외 똑같습니다.">
@@ -122,8 +122,8 @@ Utensil와 Dessert 클래스가 Utensil.java라는 한 파일에 정의되어 �
 <a class=entry-link aria-label="post link to [아이템 24] 멤버 클래스는 되도록 static으로 만들어라" href=https://qutrits.github.io/effective-java-3e/chapter-03/item24/></a>
 </article>
 </div>
-<div class=post-entry-wrapper style=animation-delay:270ms data-animation=true>
-<article class="article-entry button" title="[아이템 23] 태그 달린 클래스보다는 클래스 계층구조를 활용하자. 때때로 두 가지 이상의 의미를 표현하고 인스턴스의 특징을 알려주는 태그 필드로 나타내는 클래스를 본 적이 있을겁니다.
+<div class=list-entry-wrapper style=animation-delay:270ms data-animation=true>
+<article class="list-entry button" title="[아이템 23] 태그 달린 클래스보다는 클래스 계층구조를 활용하자. 때때로 두 가지 이상의 의미를 표현하고 인스턴스의 특징을 알려주는 태그 필드로 나타내는 클래스를 본 적이 있을겁니다.
 안 좋은 예시 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36  public class Figure { enum Shape { RECTANGLE, CIRCLE }; // 태그 필드 - 현재 모양을 나타냅니다.">
 <header class=entry-header>
 <h2>[아이템 23] 태그 달린 클래스보다는 클래스 계층구조를 활용하자
@@ -141,8 +141,8 @@ Utensil와 Dessert 클래스가 Utensil.java라는 한 파일에 정의되어 �
 <a class=entry-link aria-label="post link to [아이템 23] 태그 달린 클래스보다는 클래스 계층구조를 활용하자" href=https://qutrits.github.io/effective-java-3e/chapter-03/item23/></a>
 </article>
 </div>
-<div class=post-entry-wrapper style=animation-delay:320ms data-animation=true>
-<article class="article-entry button" title="[아이템 22] 인터페이스는 타입을 정의하는 용도로만 사용하라. 인터페이스는 자신을 구현한 클래스의 인스턴스를 참조할 수 있는 타입 역할을 합니다. 그러므로 인터페이스를 구현한 클래스는 클라이언트에게 자신의 인스턴스로 무엇을 할 수 있는지 말해주는 것입니다. 인터페이스를 다른 용도로 사용하는 것은 부적절합니다.
+<div class=list-entry-wrapper style=animation-delay:320ms data-animation=true>
+<article class="list-entry button" title="[아이템 22] 인터페이스는 타입을 정의하는 용도로만 사용하라. 인터페이스는 자신을 구현한 클래스의 인스턴스를 참조할 수 있는 타입 역할을 합니다. 그러므로 인터페이스를 구현한 클래스는 클라이언트에게 자신의 인스턴스로 무엇을 할 수 있는지 말해주는 것입니다. 인터페이스를 다른 용도로 사용하는 것은 부적절합니다.
 이 지침에 맞지 않는 예로 소위 상수 인터페이스라는 것이 있습니다. 상수 인터페이스는 메서드가 없이, 상수를 뜻하는 static final 필드로만 가득 찬 인터페이스를 뜻합니다.
 1 2 3 4 5 6 7  public interface PhysicalConstants { static final double AVOGADROS_NUMBER = 6.">
 <header class=entry-header>
@@ -162,8 +162,8 @@ Utensil와 Dessert 클래스가 Utensil.java라는 한 파일에 정의되어 �
 <a class=entry-link aria-label="post link to [아이템 22] 인터페이스는 타입을 정의하는 용도로만 사용하라" href=https://qutrits.github.io/effective-java-3e/chapter-03/item22/></a>
 </article>
 </div>
-<div class=post-entry-wrapper style=animation-delay:370ms data-animation=true>
-<article class="article-entry button" title="[아이템 21] 인터페이스는 구현하는 쪽을 생각해 설계하라. JAVA 8이전에는 기존 구현체를 깨뜨리지 않고 인터페이스에 새로운 메서드를 추가할 방법이 없었습니다. JAVA 8부터는 디폴트 메서드를 제공해서 이러한 문제점들을 해결해줬지만 위험이 완전히 사라진 것은 아닙니다.
+<div class=list-entry-wrapper style=animation-delay:370ms data-animation=true>
+<article class="list-entry button" title="[아이템 21] 인터페이스는 구현하는 쪽을 생각해 설계하라. JAVA 8이전에는 기존 구현체를 깨뜨리지 않고 인터페이스에 새로운 메서드를 추가할 방법이 없었습니다. JAVA 8부터는 디폴트 메서드를 제공해서 이러한 문제점들을 해결해줬지만 위험이 완전히 사라진 것은 아닙니다.
 JAVA 8이전까지는 인터페이스에 새로운 메소드가 추가될리 없다는 암묵적인 가정으로 작성되었습니다.
 즉 디폴트 메서드는 구현한 클래스에 동의 없이 무작정 삽입되었습니다. JAVA 8에서는 핵심 컬렉션 인터페이스들에 다수의 디폴트 메서드가 추가되었습니다. 주로 람다를 활용하기 위해서입니다.
 자바라이브러리의 디폴트 메서드는 코드 품질이 높고 범용적이라 대부분 잘 작동하지만, 생각할 수 있는 모든 상황에서 불변식을 해치지 않는 디폴트 메서드를 작성하기란 어려운 법입니다.">
@@ -210,7 +210,7 @@ JAVA 8이전까지는 인터페이스에 새로운 메소드가 추가될리 없
 </ul>
 </nav>
 </footer>
-<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
+<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .list-entry-wrapper .list-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
 </main>
 <footer class=footer>
 <span>&copy; 2021 <a href=https://qutrits.github.io/>&lt;Qutrits/></a></span>

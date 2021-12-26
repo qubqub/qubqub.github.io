@@ -39,17 +39,17 @@
     {{- $term := .Data.Term }}
     {{- range $index, $page := $paginator.Pages }}
 
-      {{- $class := "post-entry" }}
+      {{- $class := "list-entry button" }}
 
       {{- $user_preferred := or .Site.Params.disableSpecial1stPost .Site.Params.homeInfoParams }}
       {{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
         {{- $class = "first-entry" }}
       {{- else if $term }}
         {{/*- $class = "post-entry" */}}
-        {{- $class = "article-entry button" }}
+        {{- $class = "list-entry button" }}
       {{- end }}
 
-      <div class="post-entry-wrapper" {{ if .Site.Params.useAnimation }}style="animation-delay: {{ add (mul (add $index 1) 50) 120 }}ms;" data-animation="true"{{ end }}>
+      <div class="list-entry-wrapper" {{ if .Site.Params.useAnimation }}style="animation-delay: {{ add (mul (add $index 1) 50) 120 }}ms;" data-animation="true"{{ end }}>
         <article class="{{ $class }}" title="{{ .Summary }}">
           {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
           {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
@@ -195,7 +195,7 @@
       document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
   };
   list_DOMReady( function () {
-    const _articleTags = document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");
+    const _articleTags = document.querySelectorAll(".main .list-entry-wrapper .list-entry .entry-footer .post-tags a");
     for (let i = 0; i < _articleTags.length; i++) {
       _articleTags[i].addEventListener("mouseover", (e) => {
         e.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button");

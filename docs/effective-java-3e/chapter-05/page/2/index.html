@@ -8,7 +8,7 @@
 <meta name=description content="자바에는 특수한 목적의 참조 타입 두 가지가 있다. 하나는 클래스의 일종인 열거 타입(enum; 열거형)이고, 다른 하나는 인터페이스의 일종인 애너테이션(annotation)이다. 이번 장에서는 이 타입들을 올바르게 사용하는 방법을 알아본다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-05/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.045b57560f646383f8b5c8e5a7c3cd62a0fe270eec379126b659fcf3dff76103.css integrity="sha256-BFtXVg9kY4P4tcjlp8PNYqD+Jw7sN5Emtln889/3YQM=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c5df87640c8c1a8485ab0e83ab35a3e876e293029dae1eacf32b803c35afd0c8.css integrity="sha256-xd+HZAyMGoSFqw6DqzWj6HbikwKdrh6s8yuAPDWv0Mg=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -82,8 +82,8 @@
 자바에는 특수한 목적의 참조 타입 두 가지가 있다. 하나는 클래스의 일종인 열거 타입(enum; 열거형)이고, 다른 하나는 인터페이스의 일종인 애너테이션(annotation)이다. 이번 장에서는 이 타입들을 올바르게 사용하는 방법을 알아본다.
 </div>
 </header>
-<div class=post-entry-wrapper style=animation-delay:170ms data-animation=true>
-<article class=post-entry title="[아이템 39] 명명 패턴보다 애너테이션을 사용하라. 명명 패턴의 대표적인 예로 JUnit 3까지는 테스트 메서드 이름을 test로 시작하지 않으면 이 메서드를 그냥 지나쳤서 테스트를 통과했다고 오해하는 경우도 있었습니다.
+<div class=list-entry-wrapper style=animation-delay:170ms data-animation=true>
+<article class="list-entry button" title="[아이템 39] 명명 패턴보다 애너테이션을 사용하라. 명명 패턴의 대표적인 예로 JUnit 3까지는 테스트 메서드 이름을 test로 시작하지 않으면 이 메서드를 그냥 지나쳤서 테스트를 통과했다고 오해하는 경우도 있었습니다.
 JUnit 4부터는 이러한 문제점을 해결하기 위해 애너테이션을 전면 도입했습니다. 이번 예제에서는 자동으로 수행되는 간단한 테스트용 애너테이션으로, 예외가 발생하면 해당 테스트를 실패로 처리합니다.
 1 2 3 4 5 6 7 8  /** * 테스트 메서드임을 선언하는 애너테이션 * 매개변수 없는 정적 메서드 전용 */ @Retention(RetentionPolicy.">
 <header class=entry-header>
@@ -99,8 +99,8 @@ JUnit 4부터는 이러한 문제점을 해결하기 위해 애너테이션을 �
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/effective-java-3e/chapter-05/item39/></a>
 </article>
 </div>
-<div class=post-entry-wrapper style=animation-delay:220ms data-animation=true>
-<article class=post-entry title="[아이템 40] @Override 애너테이션을 일관되게 사용하여라. @Override애너테이션은 상위 타입 메서드를 재정의 했다는 뜻으로 메서드 선언에 달 수 있습니다.
+<div class=list-entry-wrapper style=animation-delay:220ms data-animation=true>
+<article class="list-entry button" title="[아이템 40] @Override 애너테이션을 일관되게 사용하여라. @Override애너테이션은 상위 타입 메서드를 재정의 했다는 뜻으로 메서드 선언에 달 수 있습니다.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29  // 버그를 찾아보자  public class Bigram { private final char first; private final char second; public Bigram(char first, char second) { this.">
 <header class=entry-header>
 <h2>
@@ -114,8 +114,8 @@ JUnit 4부터는 이러한 문제점을 해결하기 위해 애너테이션을 �
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/effective-java-3e/chapter-05/item40/></a>
 </article>
 </div>
-<div class=post-entry-wrapper style=animation-delay:270ms data-animation=true>
-<article class=post-entry title="[아이템 41] 정의하려는 것이 타입이라면 마커 인터페이스를 사용하라. 마커 인터페이스란 메서드 선언을 포함하지 않고, 단지 구현하는 클래스의 특정 속성을 표시해주는 것입니다. 대표적으로 Serializable인터페이스가 있습니다.
+<div class=list-entry-wrapper style=animation-delay:270ms data-animation=true>
+<article class="list-entry button" title="[아이템 41] 정의하려는 것이 타입이라면 마커 인터페이스를 사용하라. 마커 인터페이스란 메서드 선언을 포함하지 않고, 단지 구현하는 클래스의 특정 속성을 표시해주는 것입니다. 대표적으로 Serializable인터페이스가 있습니다.
 마커 애너테이션이 등장하면서 마커 인터페이스가 구식이 되었다는 얘기가 있는데, 이는 사실이 아닙니다. 마커 인터페이스는 마커 애너테이션 보다 좋은 점도 있습니다.
 첫 째로 마커 인터페이스는 이를 구현한 클래스의 인스턴스들을 구분하는 타입을 쓸 수 있지만, 마커 애너테이션은 그렇지 않습니다. 마커 인터페이스는 타입이고 마커 애너테이션을 사용하면 런타임에야 발견할 수 있습니다.">
 <header class=entry-header>
@@ -153,7 +153,7 @@ JUnit 4부터는 이러한 문제점을 해결하기 위해 애너테이션을 �
 </ul>
 </nav>
 </footer>
-<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
+<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .list-entry-wrapper .list-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
 </main>
 <footer class=footer>
 <span>&copy; 2021 <a href=https://qutrits.github.io/>&lt;Qutrits/></a></span>

@@ -8,7 +8,7 @@
 <meta name=description content="스레드는 여러 활동을 동시에 수행할 수 있게 해준다. 하지만 동시성 프로그래밍은 단일 스레드 프로그래밍보다 어렵다. 잘못된 수 있는 일이 늘어나고 문제를 재현하기도 어려워지기 때문이다. 그렇다고 동시성 프로그래밍으로부터 언제까지나 도망 다닐 수는 없다. 자바 플랫폼 자체에 내재되어 있을 뿐 아니라, 오늘날 어디서나 쓰이는 멀티코어 프로세서의 힘을 제대로 활용하려면 반드시 내 것으로 만들어야만 하는 기술익 때문이다. 그래서 이번 장에는 동시성 프로그램을 명확하고 정확하게 만들고 잘 문서화하는 데 도움이 도는 조언들을 담았다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-10/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.045b57560f646383f8b5c8e5a7c3cd62a0fe270eec379126b659fcf3dff76103.css integrity="sha256-BFtXVg9kY4P4tcjlp8PNYqD+Jw7sN5Emtln889/3YQM=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c5df87640c8c1a8485ab0e83ab35a3e876e293029dae1eacf32b803c35afd0c8.css integrity="sha256-xd+HZAyMGoSFqw6DqzWj6HbikwKdrh6s8yuAPDWv0Mg=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -82,8 +82,8 @@
 스레드는 여러 활동을 동시에 수행할 수 있게 해준다. 하지만 동시성 프로그래밍은 단일 스레드 프로그래밍보다 어렵다. 잘못된 수 있는 일이 늘어나고 문제를 재현하기도 어려워지기 때문이다. 그렇다고 동시성 프로그래밍으로부터 언제까지나 도망 다닐 수는 없다. 자바 플랫폼 자체에 내재되어 있을 뿐 아니라, 오늘날 어디서나 쓰이는 멀티코어 프로세서의 힘을 제대로 활용하려면 반드시 내 것으로 만들어야만 하는 기술익 때문이다. 그래서 이번 장에는 동시성 프로그램을 명확하고 정확하게 만들고 잘 문서화하는 데 도움이 도는 조언들을 담았다.
 </div>
 </header>
-<div class=post-entry-wrapper style=animation-delay:170ms data-animation=true>
-<article class=post-entry title="[아이템 78] 공유중인 가변 데이터는 동기화해 사용하라. 동기화란 특정 메서드나 블럭에 한 쓰레드가 접근했을 때, 해당 객체에 락을 걸고 다른 쓰레드가 접근하지 못하도록 하는 것이다.
+<div class=list-entry-wrapper style=animation-delay:170ms data-animation=true>
+<article class="list-entry button" title="[아이템 78] 공유중인 가변 데이터는 동기화해 사용하라. 동기화란 특정 메서드나 블럭에 한 쓰레드가 접근했을 때, 해당 객체에 락을 걸고 다른 쓰레드가 접근하지 못하도록 하는 것이다.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  public class StopThread { private static boolean stopRequested; public static void main(String[] args) throws InterruptedException { Thread backgroundThread = new Thread(() -> { int i = 0; while (!">
 <header class=entry-header>
 <h2>
@@ -97,8 +97,8 @@
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/effective-java-3e/chapter-10/item78/></a>
 </article>
 </div>
-<div class=post-entry-wrapper style=animation-delay:220ms data-animation=true>
-<article class=post-entry title="[Itemm 79] 과도한 동기화는 피하라. 과도한 동기화는 성능을 저하시키고 교차상태에 빠뜨릴 수 있다.
+<div class=list-entry-wrapper style=animation-delay:220ms data-animation=true>
+<article class="list-entry button" title="[Itemm 79] 과도한 동기화는 피하라. 과도한 동기화는 성능을 저하시키고 교차상태에 빠뜨릴 수 있다.
 
 liveness, safety failures를 피하려면 동기화 메서드나 동기화 블록 안에서는 제어를 절대로 클라이언트에게 양보하면 안 된다. ex) 동기화된 영역 안에서 재정의할 수 있는 메서드 호출 x, 클라이언트가 념겨준 함수 객체 호출 x
   과도한 동기화는 성능을을 저하 시킨다. 가변 클래스를 작성하거든 동기화를 전혀 하지 말고, 그 클래스를 동시에 사용해야 하는 클래스가 외부에서 알아서 동기화 하게 하던가, 동기화를 내부에서 수행해 스레드 안전한 클래스로 만들자.">
@@ -115,8 +115,8 @@ liveness, safety failures를 피하려면 동기화 메서드나 동기화 블�
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/effective-java-3e/chapter-10/item79/></a>
 </article>
 </div>
-<div class=post-entry-wrapper style=animation-delay:270ms data-animation=true>
-<article class=post-entry title="[아이템 80] 스레드보다는 실행자, 태스크, 스트림을 애용하라. Excutor Framework는 인터페이스 기반의 유연한 태스크 실행 기능을 담고 있다.
+<div class=list-entry-wrapper style=animation-delay:270ms data-animation=true>
+<article class="list-entry button" title="[아이템 80] 스레드보다는 실행자, 태스크, 스트림을 애용하라. Excutor Framework는 인터페이스 기반의 유연한 태스크 실행 기능을 담고 있다.
 1 2 3  ExecutorService exec = Executors.newSingleThreadExecutor(); exec.excute(runnable); // 이 실행자에게 task를 넘김 exec.shutdown(); // graceful하게 종료 (이 작업이 실패하면 VM 자체가 종료되지 않을 것)   이 외에도 다양한 기능을 실행할 수 있다. 실행자 서비스를 사용하기에 까다로운 애플리케이션도 있는데, 가벼운 서버라면 Executors.newCachedThreadPool이 일반적으로 좋은 선택이지만 CachedThreadPool은 무거운 프로덕션 서버에는 좋지 못하다.">
 <header class=entry-header>
 <h2>
@@ -130,8 +130,8 @@ liveness, safety failures를 피하려면 동기화 메서드나 동기화 블�
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/effective-java-3e/chapter-10/item80/></a>
 </article>
 </div>
-<div class=post-entry-wrapper style=animation-delay:320ms data-animation=true>
-<article class=post-entry title="[아이템 81] wait와 notify보다는 동시성 유틸리티를 애용하라. wait와 notify는 올바르게 사용하기가 아주 까다로우니 고수준 동시성 유틸리티를 사용하라.
+<div class=list-entry-wrapper style=animation-delay:320ms data-animation=true>
+<article class="list-entry button" title="[아이템 81] wait와 notify보다는 동시성 유틸리티를 애용하라. wait와 notify는 올바르게 사용하기가 아주 까다로우니 고수준 동시성 유틸리티를 사용하라.
 
 java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있다.
  실헹자 프레임워크 동시성 컬렉션 동기화 장치  동시성 컬렉션은 높은 동시성에 도달하기 위해 동기화를 각자의 내부에서 구현한다. 따라서 컬렉션에서 동기성을 무력화하는 건 불가능하며 외부에서 락을 추가로 사용하면 속도가 느려진다.
@@ -151,8 +151,8 @@ java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있�
 <a class=entry-link aria-label="post link to " href=https://qutrits.github.io/effective-java-3e/chapter-10/item81/></a>
 </article>
 </div>
-<div class=post-entry-wrapper style=animation-delay:370ms data-animation=true>
-<article class=post-entry title="[아이템 82] 스레드 안전성 수준을 문서화하라. 일반적으로 스레드 안정성이 높은 순
+<div class=list-entry-wrapper style=animation-delay:370ms data-animation=true>
+<article class="list-entry button" title="[아이템 82] 스레드 안전성 수준을 문서화하라. 일반적으로 스레드 안정성이 높은 순
  불변: 외부 동기화가 필요없다. 대표적으로 String, Long, BigInteger 무조건적 스레드 안전: 이 클래스의 인스턴스는 수정될 수 있으나, 내부에서 충실히 동기화하여 별도의 외부 동기화 없이 사용해도 안전 대표적으로 ConcurrentHashMap 조건부 스레드 안전: 일부 메서드는 동시에 사용하려면 외부 동기화가 필요. Collections.synchronized 래퍼 메서드가 반환한 컬렉션이 여기 속함 스레드 비안전: 동시에 시용하려면 메서드 호출을 클라이언트가 선택한 외부 동기화 메커니즘으로 감싸야한다. ArrayList, HashMap 같은 기본 컬렉션.">
 <header class=entry-header>
 <h2>
@@ -188,7 +188,7 @@ java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있�
 </ul>
 </nav>
 </footer>
-<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
+<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .list-entry-wrapper .list-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
 </main>
 <footer class=footer>
 <span>&copy; 2021 <a href=https://qutrits.github.io/>&lt;Qutrits/></a></span>
