@@ -398,7 +398,8 @@ header.header {
   height: 26px;
 }
 .header .nav .logo .logo-switches #theme-toggle #moon {
-  vertical-align: 4px;
+  vertical-align: 3px;
+  margin-left: 3px;
   width: 20px;
   height: 20px;
 }
