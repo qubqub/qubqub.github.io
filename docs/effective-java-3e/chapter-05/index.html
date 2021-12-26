@@ -8,7 +8,7 @@
 <meta name=description content="Chapter 5：Enums and Annotations">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-05/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.0b0f1dfd4f3c7b1e13d40cd1ae3e94fb63589de86880c8505156d6623f7974e9.css integrity="sha256-Cw8d/U88ex4T1AzRrj6U+2NYnehogMhQUVbWYj95dOk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.fccad35ff40d5554b96cc4fd3d3da45ce7693a12bbc2ee783dff55869ce7c2ae.css integrity="sha256-/MrTX/QNVVS5bMT9PT2kXOdpOhK7wu54Pf9Vhpznwq4=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -78,12 +78,13 @@
 <script>function loding_indicator(b,a){if(b===!0){const b=document.createElement("div");b.id="loading-indicator",b.innerHTML='<div class="spinner"></div>',a.parentNode.insertBefore(b,a.nextSibling)}else{const a=document.getElementById("loading-indicator");a.classList.add("scale-zero")}}</script><main class=main>
 <header class=page-header>
 <h1 class=page-title data-animation=true>5장 열거 타입과 애너테이션</h1>
-<div class=page-description data-animation=true>
+<div class="page-description abstracted" data-animation=true>
 Chapter 5：Enums and Annotations
 </div>
 </header>
 <div class=post-entry-wrapper style=animation-delay:170ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 34] int 상수 대신 열거 타입을 사용하라. 열거 타입이란 일정 개수의 상수 값을 정의하고 그 이외 값들은 허용하지 않는 타입입니다. 대표적으로 사계절, 요일, 태양계의 행성 등이 있습니다.
+열거 타입을 지원하기 전 코드 1 2 3 4 5  // 정수 열거 패턴 - 상당히 취약하다. public static final int EAST = 0; public static final int WEST = 1; public static final int SOUTH = 2; public static final int NORTH = 3;   이 코드는 타입의 안전성을 보장할 수 없고 표현력도 좋지 않습니다.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -97,7 +98,8 @@ Chapter 5：Enums and Annotations
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:220ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 35] ordinal 메서드 대신 인스턴스 필드를 사용하라 대부분 열거 타입 상수는 자연스럽게 하나의 정숫값에 대응됩니다. 모든 엵 ㅓ타입은 해당 상수가 그 열거 타입에서 몇 번째 위치인지를 반환하는 ordinal 이라는 메서드를 제공합니다.
+1 2 3 4 5 6 7 8 9 10  // ordinal을 잘못 사용한 예 public enum FRUITS { APPLE, BANANA, ORANGE; public int numberOfFruits() { return ordinal() + 1; } }   상수 선언 순서를 바꾸는 순간 numberOfFruits는 오작동하며 이미 사용중인 정수와 값이 같은 상수는 추가할 수 없고 중간에 값을 비울 수도 없습니다.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -111,7 +113,8 @@ Chapter 5：Enums and Annotations
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:270ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 36] 비트 필드 대신 EnumSet을 사용하라. 열거한 값들이 집합으로 사용될 경우, 예전에는 상수에 서로 다른 2의 거듭제곱 값을 할당한 정수 열거 패턴을 사용해왔습니다.
+1 2 3 4 5 6 7 8 9 10  // 비트 필드 열거 상수 - 구닥다리 기법  public class Text { public static final int STYLE_BOLD = 1 << 0; // 1  public static final int STYLE_ITALIC = 1 << 1; // 2  public static final int STYLE_UNDERLINE = 1 << 2; // 4  public static final int STYLE_STRIKETHROUGH = 1 << 3; // 8  // 매개변수 styles는 0개 이상의 STYLE_ 상수를 비트별 OR한 값입니다.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -125,7 +128,7 @@ Chapter 5：Enums and Annotations
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:320ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 37] ordinal 인덱싱 대신 EnumMap을 사용하라. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  public class Plant { enum LifeCycle { ANNUAL, PERENNIAL, BIENNIAL } final String name; final LifeCycle lifeCycle; Plant(String name, LifeCycle lifeCycle) { this.name = name; this.lifeCycle = lifeCycle; } @Override public String toString() { return name; } }   식물을 간단히 나타낸 코드입니다. 이들을 생애주기 별로 묶어봅시다.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -138,7 +141,9 @@ Chapter 5：Enums and Annotations
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:370ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 38] 확장할 수 있는 열거 타입이 필요하면 인터페이스를 사용하라. 열거 타입은 확장할 수 없게 설계 되었습니다. 확장한 타입의 원소는 기반 타입의 원소로 취급하지만 그 반대는 성립하지 않는다면 어폐가 있고 기반 타입과 확장된 타입들의 원소를 모두를 순회할 방법도 마땅치 않으며 확장성을 높이려면 고려할 요소가 늘어나 설계와 구현이 더 복잡해지기 때문입니다.
+
+그러나 연산 코드는 확장할 수 있는 열거 타입과 어울립니다. API가 제공하는 기본 연산 외에 사용자가 확장 연산을 추가할 수 있도록 열어줘야 할 때가 있습니다.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -173,7 +178,7 @@ Chapter 5：Enums and Annotations
 </ul>
 </nav>
 </footer>
-<script>const _articleTags=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let a=0;a<_articleTags.length;a++)_articleTags[a].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),_articleTags[a].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")})</script>
+<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
 </main>
 <footer class=footer>
 <span>&copy; 2021 <a href=https://qutrits.github.io/>&lt;Qutrits/></a></span>

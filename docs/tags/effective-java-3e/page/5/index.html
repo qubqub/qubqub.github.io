@@ -8,7 +8,7 @@
 <meta name=description content="<Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/tags/effective-java-3e/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.0b0f1dfd4f3c7b1e13d40cd1ae3e94fb63589de86880c8505156d6623f7974e9.css integrity="sha256-Cw8d/U88ex4T1AzRrj6U+2NYnehogMhQUVbWYj95dOk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.fccad35ff40d5554b96cc4fd3d3da45ce7693a12bbc2ee783dff55869ce7c2ae.css integrity="sha256-/MrTX/QNVVS5bMT9PT2kXOdpOhK7wu54Pf9Vhpznwq4=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -79,7 +79,10 @@
 <h1 class=page-title data-animation=true>Effective Java 3E</h1>
 </header>
 <div class=post-entry-wrapper style=animation-delay:170ms data-animation=true>
-<article class="article-entry button">
+<article class="article-entry button" title="[아이템 13] clone 재정의는 주의해서 진행하라. 실무에서 Cloneable을 구현한 클래스는 clone 메서드를 public으로 제공하며, 사용자는 당연히 복제가 제대로 이뤄지리라 기대합니다.
+하지만 clone 메서드의 일반 규약은 허술한 부분이 있습니다. 다음은 Object 명세에서 가져온 설명입니다.
+이 객체의 복사본을 생성해 반환합니다. &lsquo;복사&rsquo;의 정확한 뜻은 그 객체를 구현한 클래스에 따라 다를 수 있지만 일반적은 의도는 다음과 같습니다. 어떤 객체 x에 대해 다음 식은 참입니다.
+ x.clone() != x x.clone.getClass() = x.getClass() x.clone().equals(x)  clone을 사용하는 방법은 굉장히 쉽습니다.">
 <header class=entry-header>
 <h2>[아이템 13] clone 재정의는 주의해서 진행하라
 </h2>
@@ -99,7 +102,10 @@ x.clone() != x x.clone.getClass() = x.getClass() x.clone().equals(x) clone을 �
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:220ms data-animation=true>
-<article class="article-entry button">
+<article class="article-entry button" title='[아이템 12] toString을 항상 재정의하라. toString을 오버라이딩 하지 않으면 기본적으로 클래스_이름@16진수로_표현한_해시코드를 반환합니다.
+이렇게 되면 객체의 특성을 알아볼 수 있으므로 toString을 재정의 할 필요가 있습니다.
+1 2  Student student = new Student("kim", 16); System.out.println(student);   위 코드를 실행하면 Student@abcd같은 형태로 콘솔에 출력되므로 객체의 특성을 파악하기가 힘듭니다.
+toString 재정의하는 좋은 방법.  객체가 가진 가진 주요 정보를 모두 반환하는 게 좋습니다. toString을 구현하면 반환값의 포맷을 문서화할지 정해야 합니다.  규칙이 명확해지는 장점이 있지만, 한번 명시하면 그 포맷에 얽매이게 됩니다.'>
 <header class=entry-header>
 <h2>[아이템 12] toString을 항상 재정의하라
 </h2>
@@ -119,7 +125,8 @@ toString 재정의하는 좋은 방법. 객체가 가진 가진 주요 정보를
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:270ms data-animation=true>
-<article class="article-entry button">
+<article class="article-entry button" title="[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라. equals와 hasoCode를 재정의 하지 않으면 HashMap이나 HashSet에서 같은 원소를 사용할 때 문제가 발생합니다.
+ equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 hashCode메서드는 여러번 호출해도 일관된 값을 반환해야 합니다. equals가 두 객체를 같다고 판단하면 hashCode 또한 같은 값을 반환해야 합니다. equals가 두 객체를 다르다고 판단해도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.">
 <header class=entry-header>
 <h2>[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라
 </h2>
@@ -137,7 +144,9 @@ equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케�
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:320ms data-animation=true>
-<article class="article-entry button">
+<article class="article-entry button" title="[아이템 10] equals는 일반 규약을 지켜 재정의하라. equals 메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다.여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.
+equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.
+반사성(reflexivity)  null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.  대칭성(symmetry)  null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.equals(x)입니다.  잘못된 코드 - 대칭성 위반">
 <header class=entry-header>
 <h2>[아이템 10] equals는 일반 규약을 지켜 재정의하라
 </h2>
@@ -156,7 +165,8 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:370ms data-animation=true>
-<article class="article-entry button">
+<article class="article-entry button" title="[아이템 9] try-finally보다는 try-with-resources를 사용하라 자바 라이브러리에는 InputStream, OutputStream, java.sql.Connection과 같이 직접 close를 해야 하는 자원들 있습니다. 클라이언트는 실수로 자원을 닫아주지 않는 경우 예상치 못한 성능 문제로 이어질 수 있습니다.
+1 2 3 4 5 6 7 8 9  static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path)); try { return br.readLine(); } finally { br.close(); } } }   나쁘진 않지만 자원을 더 사용하게 되면 살수가 나올 가능성이 큽니다.">
 <header class=entry-header>
 <h2>[아이템 9] try-finally보다는 try-with-resources를 사용하라
 </h2>
@@ -214,7 +224,7 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 </ul>
 </nav>
 </footer>
-<script>const _articleTags=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let a=0;a<_articleTags.length;a++)_articleTags[a].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),_articleTags[a].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")})</script>
+<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
 </main>
 <footer class=footer>
 <span>&copy; 2021 <a href=https://qutrits.github.io/>&lt;Qutrits/></a></span>

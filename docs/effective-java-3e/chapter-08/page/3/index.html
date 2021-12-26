@@ -8,7 +8,7 @@
 <meta name=description content="Chapter 8：General Programming">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-08/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.0b0f1dfd4f3c7b1e13d40cd1ae3e94fb63589de86880c8505156d6623f7974e9.css integrity="sha256-Cw8d/U88ex4T1AzRrj6U+2NYnehogMhQUVbWYj95dOk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.fccad35ff40d5554b96cc4fd3d3da45ce7693a12bbc2ee783dff55869ce7c2ae.css integrity="sha256-/MrTX/QNVVS5bMT9PT2kXOdpOhK7wu54Pf9Vhpznwq4=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -78,12 +78,14 @@
 <script>function loding_indicator(b,a){if(b===!0){const b=document.createElement("div");b.id="loading-indicator",b.innerHTML='<div class="spinner"></div>',a.parentNode.insertBefore(b,a.nextSibling)}else{const a=document.getElementById("loading-indicator");a.classList.add("scale-zero")}}</script><main class=main>
 <header class=page-header>
 <h1 class=page-title data-animation=true>8장 일반적인 프로그래밍 원칙</h1>
-<div class=page-description data-animation=true>
+<div class="page-description abstracted" data-animation=true>
 Chapter 8：General Programming
 </div>
 </header>
 <div class=post-entry-wrapper style=animation-delay:170ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 67] 최적화는 신중히 하라. 최적화는 좋은 결과보다 해로운 결과로 이어지기 쉽고, 자칫하면 빠르지도 않고 제대로 동작하지 않는 소프트웨어를 탄생시키는 것과 같습니다. 그러므로 최적화 할때는 득과실을 잘 생각해봐야 합니다.
+성능을 제한하는 설계를 피하라 완성 후 변경하기가 가장 어려운 설계 요소는 바로 컴포넌트끼리 혹은 외부 시스템과의 소통 방식입니다. 대표적으로 API, 네트워크 프로토콜 등이 있습ㄴ디ㅏ. 이런 설계 요소들은 완성 후에는 변경하기 어려우며 동시에 시스템 성능을 심각하게 제한할 수 있습니다.
+API 설계할 때 성능에 주는 영향을 고려하라.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -98,7 +100,7 @@ API 설계할 때 성능에 주는 영향을 고려하라....</p>
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:220ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 68] 일반적으로 통용되는 명명 규칙을 따르라. 자바이 명명 규칙은 크게 철자와 문법, 두 범주로 나뉘고 명명 규칙을 지켜야 좋은 프로그래밍이 될 수 있습니다. 대표적으로 메서드와 필드 내임의 첫 글자는 소문자를 사용합니다. 하지만 상수 필드의 경우 예외입니다. 상수는 모두 대무자를 이용하며 단어 사이는 _로 구분 합니다. ex)MAX_VALUE.. 상수 필드는 값이 static final 필드를 말합니다. 타입 매개변수 같은 경우 한 문자로 표현되며, 임의의 타입에는 T를, 컬렉션 원소의 타입은 E, 맵의 키와 값에는 K, V를, 예외는 X, 메서드의 반환 타입에는 R을 사용합니다.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -135,7 +137,7 @@ API 설계할 때 성능에 주는 영향을 고려하라....</p>
 </ul>
 </nav>
 </footer>
-<script>const _articleTags=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let a=0;a<_articleTags.length;a++)_articleTags[a].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),_articleTags[a].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")})</script>
+<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
 </main>
 <footer class=footer>
 <span>&copy; 2021 <a href=https://qutrits.github.io/>&lt;Qutrits/></a></span>

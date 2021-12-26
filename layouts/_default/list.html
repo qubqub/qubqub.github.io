@@ -9,7 +9,7 @@
         {{- partial "breadcrumbs.html" . }}
         <h1 class="page-title" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>{{ .Title }}</h1>
         {{- if .Description }}
-        <div class="page-description" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
+        <div class="page-description abstracted" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
           {{ .Description | markdownify }}
         </div>
         {{- end }}
@@ -50,7 +50,7 @@
       {{- end }}
 
       <div class="post-entry-wrapper" {{ if .Site.Params.useAnimation }}style="animation-delay: {{ add (mul (add $index 1) 50) 120 }}ms;" data-animation="true"{{ end }}>
-        <article class="{{ $class }}">
+        <article class="{{ $class }}" title="{{ .Summary }}">
           {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
           {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
           <header class="entry-header">
@@ -190,15 +190,34 @@
 
   {{- end }}{{/* end profileMode */}}
 <script>
-  const _articleTags = document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");
-  for (let i = 0; i < _articleTags.length; i++) {
-    _articleTags[i].addEventListener("mouseover", (e) => {
-      e.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button");
-    });
+  const list_DOMReady = function (callback) {
+    document.readyState === "interactive" ||
+      document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+  };
+  list_DOMReady( function () {
+    const _articleTags = document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");
+    for (let i = 0; i < _articleTags.length; i++) {
+      _articleTags[i].addEventListener("mouseover", (e) => {
+        e.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button");
+      });
 
-    _articleTags[i].addEventListener("mouseout", (e) => {
-      e.target.parentNode.parentNode.parentNode.parentNode.classList.add("button");
-    });
-  }
+      _articleTags[i].addEventListener("mouseout", (e) => {
+        e.target.parentNode.parentNode.parentNode.parentNode.classList.add("button");
+      });
+    }
+
+    const _description = document.querySelector(".page-description");
+    if (_description) {
+      _description.addEventListener("click", (e) => {
+        if (e.target.classList.contains("abstracted")) {
+          e.target.classList.remove("abstracted");
+          e.target.classList.add("zoom-out");
+        } else {
+          e.target.classList.remove("zoom-out");
+          e.target.classList.add("abstracted");
+        }
+      });
+    }
+  });
 </script>
 {{- end }}{{- /* end main */ -}}

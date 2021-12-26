@@ -8,7 +8,7 @@
 <meta name=description content="Contains posts related to Effctive Java 3/E">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.0b0f1dfd4f3c7b1e13d40cd1ae3e94fb63589de86880c8505156d6623f7974e9.css integrity="sha256-Cw8d/U88ex4T1AzRrj6U+2NYnehogMhQUVbWYj95dOk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.fccad35ff40d5554b96cc4fd3d3da45ce7693a12bbc2ee783dff55869ce7c2ae.css integrity="sha256-/MrTX/QNVVS5bMT9PT2kXOdpOhK7wu54Pf9Vhpznwq4=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -78,12 +78,12 @@
 <script>function loding_indicator(b,a){if(b===!0){const b=document.createElement("div");b.id="loading-indicator",b.innerHTML='<div class="spinner"></div>',a.parentNode.insertBefore(b,a.nextSibling)}else{const a=document.getElementById("loading-indicator");a.classList.add("scale-zero")}}</script><main class=main>
 <header class=page-header>
 <h1 class=page-title data-animation=true>Effctive Java 3/E</h1>
-<div class=page-description data-animation=true>
+<div class="page-description abstracted" data-animation=true>
 Contains posts related to Effctive Java 3/E
 </div>
 </header>
 <div class=post-entry-wrapper style=animation-delay:170ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="Chapter 4：Generics">
 <header class=entry-header>
 <h2>4장 제네릭
 </h2>
@@ -96,7 +96,7 @@ Contains posts related to Effctive Java 3/E
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:220ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="Chapter 3：Classes and Interfaces">
 <header class=entry-header>
 <h2>3장 클래스와 인터페이스
 </h2>
@@ -109,20 +109,20 @@ Contains posts related to Effctive Java 3/E
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:270ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="Object는 객체를 만들 수 있는 구체 클래스지만 기본적으로는 상속해서 사용하도록 설계되었다. Object에서 final이 아닌 메서드(equals, hashCode, toString, clone, finalize)는 모두 재정의(overriding)를 염두에 두고 설계된 것이라 재정의 시 지켜야 하는 일반 규약이 명확히 정의되어 있다. 그래서 Object를 상속하는 클래스, 즉 모든 클랙스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다. 메서드를 잘못 구현하면 대상 클래스가 이 규약을 준수한다고 가정 하는 클래스(HashMap과 HashSet 등)를 오작동하게 만들 수 있다. 이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다. 그중 finalize 메서드는 아이템 8에서 다뤘으니 더 이상 언급하지 않는다. Comparable.compareTo의 경우 Object의 메서드는 아니지만 성격이 비슷하여 이번 장에서 함께 다룬다.">
 <header class=entry-header>
 <h2>2장 모든 객체의 공통 메서드
 </h2>
 </header>
 <section class=entry-content>
-<p>Chapter 2：Methods Common to All Objects</p>
+<p>Object는 객체를 만들 수 있는 구체 클래스지만 기본적으로는 상속해서 사용하도록 설계되었다. Object에서 final이 아닌 메서드(equals, hashCode, toString, clone, finalize)는 모두 재정의(overriding)를 염두에 두고 설계된 것이라 재정의 시 지켜야 하는 일반 규약이 명확히 정의되어 있다. 그래서 Object를 상속하는 클래스, 즉 모든 클랙스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다. 메서드를 잘못 구현하면 대상 클래스가 이 규약을 준수한다고 가정 하는 클래스(HashMap과 HashSet 등)를 오작동하게 만들 수 있다. 이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다. 그중 finalize 메서드는 아이템 8에서 다뤘으니 더 이상 언급하지 않는다. Comparable.compareTo의 경우 Object의 메서드는 아니지만 성격이 비슷하여 이번 장에서 함께 다룬다.</p>
 </section>
 <footer class=entry-footer><span title="2020-06-27 17:11:39 +0900 KST">2020년 6월 27일</span></footer>
 <a class=entry-link aria-label="post link to 2장 모든 객체의 공통 메서드" href=https://qutrits.github.io/effective-java-3e/chapter-02/></a>
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:320ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="Chapter 1：Creating and Destroying Objects">
 <header class=entry-header>
 <h2>1장 객체 생성과 파괴
 </h2>
@@ -135,7 +135,7 @@ Contains posts related to Effctive Java 3/E
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:370ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="Chapter 10：Concurrency">
 <header class=entry-header>
 <h2>10장 동시성
 </h2>
@@ -172,7 +172,7 @@ Contains posts related to Effctive Java 3/E
 </ul>
 </nav>
 </footer>
-<script>const _articleTags=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let a=0;a<_articleTags.length;a++)_articleTags[a].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),_articleTags[a].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")})</script>
+<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
 </main>
 <footer class=footer>
 <span>&copy; 2021 <a href=https://qutrits.github.io/>&lt;Qutrits/></a></span>

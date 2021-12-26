@@ -8,7 +8,7 @@
 <meta name=description content="Chapter 4：Generics">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-04/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.0b0f1dfd4f3c7b1e13d40cd1ae3e94fb63589de86880c8505156d6623f7974e9.css integrity="sha256-Cw8d/U88ex4T1AzRrj6U+2NYnehogMhQUVbWYj95dOk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.fccad35ff40d5554b96cc4fd3d3da45ce7693a12bbc2ee783dff55869ce7c2ae.css integrity="sha256-/MrTX/QNVVS5bMT9PT2kXOdpOhK7wu54Pf9Vhpznwq4=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -78,12 +78,15 @@
 <script>function loding_indicator(b,a){if(b===!0){const b=document.createElement("div");b.id="loading-indicator",b.innerHTML='<div class="spinner"></div>',a.parentNode.insertBefore(b,a.nextSibling)}else{const a=document.getElementById("loading-indicator");a.classList.add("scale-zero")}}</script><main class=main>
 <header class=page-header>
 <h1 class=page-title data-animation=true>4장 제네릭</h1>
-<div class=page-description data-animation=true>
+<div class="page-description abstracted" data-animation=true>
 Chapter 4：Generics
 </div>
 </header>
 <div class=post-entry-wrapper style=animation-delay:170ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title='[아이템 28] 배열보다는 리스트를 사용하라. 배열과 제네릭 타입의 차이 첫번째 차이점. 배열은 공변 입니다. 어려워 보이는 단어지만 뜻은 간단합니다. Sub가 Super의 하위 타입이라면 배열 Sub[]는 배열 Super[]의 하위 타입이 됩니다.
+반면, 제네릭은 불공변입니다. 즉 서로 다른 타입 Type1과 Type2가 있을 때, List<Type1>은 List<Type2>의 하위 타입도 아니고 상위 타입도 아닙니다.
+이것만 보면 제네릭에 문제가 있다고 생각할 수 있지만, 사실 문제가 있는 건 배열 쪽입니다. 다음은 문법상 허용되는 코드입니다.
+1 2 3  // 런타임 에러 Object[] objectArray = new Long[1]; objectArray[0] = "타입이 달라 넣을 수 없다.'>
 <header class=entry-header>
 <h2>[아이템 28] 배열보다는 리스트를 사용하라
 </h2>
@@ -103,7 +106,10 @@ Chapter 4：Generics
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:220ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 27] 비검사 경고를 제거하라. 제네릭에 관련된 수 많은 컴파일 경고들이 있습니다. 비검사 형변환 경고, 비검사 메서드 호출 경고, 비검사 매개변수화 가변인수 타입 경고, 비검사 변환 경고 등이 있습니다.
+제네릭에 익숙해질 수록 마주치는 경고 수는 줄어들겠지만 새로 작성한 코드가 한 번에 깨끗하게 컴파일되리라 기대하지는 맙시다.
+대부분의 비검사 경고는 쉽게 제거할 수 있습니다. 코드를 다음처럼 잘못 작성했다고 예시를 들어봅시다.
+1  Set<Fruits> fruits = new Hashset();   그러면 컴파일러는 무엇이 잘못 됐는지 설멸해 줄 것입니다.">
 <header class=entry-header>
 <h2>[아이템 27] 비검사 경고를 제거하라
 </h2>
@@ -123,7 +129,9 @@ Chapter 4：Generics
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:270ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 26] Raw 타입은 사용하지 마라. raw type이란 제네릭 타입에서에서 타입 파라미터를 전혀 사용하지 않았을 때를 말합니다.
+1 2  // raw type List list = new ArrayList();   raw type은 타입 선언에서 제네릭 타입 정보가 전부 지워진 것처럼 동작하는데, 제네릭이 도래하기 전 코드와 호환성을 위해서 주로 존재합니다.
+1 2  // 문자열을 저장하는 컬렉션 private final List names = new ArrayList();   위 코드를 사용하면 String대신 다른 타입을 넣어도 오류없이 실행됩니다.">
 <header class=entry-header>
 <h2>[아이템 26] Raw 타입은 사용하지 마라
 </h2>
@@ -163,7 +171,7 @@ Chapter 4：Generics
 </ul>
 </nav>
 </footer>
-<script>const _articleTags=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let a=0;a<_articleTags.length;a++)_articleTags[a].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),_articleTags[a].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")})</script>
+<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
 </main>
 <footer class=footer>
 <span>&copy; 2021 <a href=https://qutrits.github.io/>&lt;Qutrits/></a></span>

@@ -8,7 +8,7 @@
 <meta name=description content="Chapter 8：General Programming">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-08/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.0b0f1dfd4f3c7b1e13d40cd1ae3e94fb63589de86880c8505156d6623f7974e9.css integrity="sha256-Cw8d/U88ex4T1AzRrj6U+2NYnehogMhQUVbWYj95dOk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.fccad35ff40d5554b96cc4fd3d3da45ce7693a12bbc2ee783dff55869ce7c2ae.css integrity="sha256-/MrTX/QNVVS5bMT9PT2kXOdpOhK7wu54Pf9Vhpznwq4=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -78,12 +78,13 @@
 <script>function loding_indicator(b,a){if(b===!0){const b=document.createElement("div");b.id="loading-indicator",b.innerHTML='<div class="spinner"></div>',a.parentNode.insertBefore(b,a.nextSibling)}else{const a=document.getElementById("loading-indicator");a.classList.add("scale-zero")}}</script><main class=main>
 <header class=page-header>
 <h1 class=page-title data-animation=true>8장 일반적인 프로그래밍 원칙</h1>
-<div class=page-description data-animation=true>
+<div class="page-description abstracted" data-animation=true>
 Chapter 8：General Programming
 </div>
 </header>
 <div class=post-entry-wrapper style=animation-delay:170ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title='[아이템 62] 다른 타입이 적절하다면 문자열 사용을 피하라. 문자열은 다른 값 타입을 대신하기엔 적절하지 않습니다.
+1 2  // 흔한 타입을 문자열로 처리한 부적절한 예 String compoundKey = className + "#" + i.next();   두 요소를 구분해주는 #이 두 요소 중 하나에서 쓰였다면 혼란을 초래할 수 있습니다. 각 요소를 개별로 접근하려면 문자열을 파싱해야 해서 느리고, 귀찮고, 오류 가능성도 커집니다. 이럴 경우 전용 클래스를 새로 만드는 편이 낫습니다. 보통 private 정적 멤버 클래스로 선언합니다.'>
 <header class=entry-header>
 <h2>
 </h2>
@@ -97,7 +98,8 @@ Chapter 8：General Programming
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:220ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title='# [아이템 63] 문자열 연결은 느리니 주의하라. 문자열 연결 연산자로 문자열을 n개를 잇는 시간은 n^2에 비례합니다. 문자열은 immutable이라 두 문자열을 연결할 경우 양쪽의 내용을 모두 복사해야 하므로 성능 저하는 피할 수 없습니다.
+1 2 3 4 5 6 7  public String statement() { String result = ""; for (int i = 0; i < numItems(); i++) { result += lineForItem(); // 문자열연결  } return result; }   StringBuilder를 활용하면 성능을 크게 개선할 수 있습니다.'>
 <header class=entry-header>
 <h2>
 </h2>
@@ -111,7 +113,8 @@ Chapter 8：General Programming
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:270ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 64] 객체는 인터페이스를 사용해 참조하라. 1 2  // 좋은 예 Set<Student> student = new HashSet<>();   1 2  // 나쁜 예. 클래스 참조 HashSet<Student> student = new HashSet<>();   인터페이스를 활용하면 유연함을 얻을 수 있습니다. 구현체를 교체하고 싶으면 구현 클래스만 바꾸면 됩니다.
+1 2  // HashSet -> LinkedHashSet 교체 Set<Student> student = new LinkedHashSet<>();   하지만 구현체를 바꿀 경우 주의할 점이 있습니다. 기존 구현체만의 특별한 기능을 제공하는 게 있다면, 바꿀 구현체에도 있는지 혹은 사이드 이펙트도 충분히 고려해야 합니다.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -125,7 +128,10 @@ Chapter 8：General Programming
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:320ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 65] 리플렉션보다는 인터페이스를 사용하라. 리플렉션 기능을 활용하면 클래스에 접근 할 수 있습니다. Class객체가 주어지면 생성자, 메서드, 필드에 해당하는 Consturct, Method, Field 인스턴스를 가져올 수 있고 그 인스턴스들로는 그 클래스의 시그니처 등을 가져올 수 있습니다.
+
+Method.invoke는 어떤 클래스의 어떤 객체가 가진 어떤 메서드라도 호출할 수 있게 해줍니다 물론 장점만있는 건 아닙니다. 단점은 다음과 같습니다.
+ 컴파일타임 타입 검사가 주는 이점을 하나도 누릴 수 없다. 예외 검사도 마찬가지입니다. 리플렉션 기능으로 존재하지 않는 혹은 접근할 수 없는 메서드를 호출하려고하면 런타임 오류가 발생합니다.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -140,7 +146,8 @@ Method.invoke는 어떤 클래스의 어떤 객체가 가진 어떤 메서드라
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:370ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 66] 네이티브 메서드는 신중히 사용하라. 자바 네이티브 인터페이스는 자바 프로그램이 네이티브 메서드를 호출하는 기술입니다. 네이티브 메서드란 C나 C++같읕 네이비티브 프로그래밍 언어로 작성한 메서드를 말합니다. 네이티브 메서드의 주요 쓰임은 세 가지가 있습니다.
+ 레지스트리 같은 플랫폼 특화 기능을 사용한다. 네이티브 코드로 작성된 기존 라이브러리를 사용한다. 성능 개선을 목적으로 성능에 결정적인 영향을 주는 영역만 따로 네이티브 언어로 작성한다.  자바 9부터는 process API를 추가해 OS 프로세스에 접근하는 길을 열어주었고 자바에서 네이티브 메서드를 사용할 필요가 점점 줄어드는 추세입니다.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -188,7 +195,7 @@ Method.invoke는 어떤 클래스의 어떤 객체가 가진 어떤 메서드라
 </ul>
 </nav>
 </footer>
-<script>const _articleTags=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let a=0;a<_articleTags.length;a++)_articleTags[a].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),_articleTags[a].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")})</script>
+<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
 </main>
 <footer class=footer>
 <span>&copy; 2021 <a href=https://qutrits.github.io/>&lt;Qutrits/></a></span>

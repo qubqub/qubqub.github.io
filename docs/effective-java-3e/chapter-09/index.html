@@ -8,7 +8,7 @@
 <meta name=description content="Chapter 9：Exceptions">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-09/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.0b0f1dfd4f3c7b1e13d40cd1ae3e94fb63589de86880c8505156d6623f7974e9.css integrity="sha256-Cw8d/U88ex4T1AzRrj6U+2NYnehogMhQUVbWYj95dOk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.fccad35ff40d5554b96cc4fd3d3da45ce7693a12bbc2ee783dff55869ce7c2ae.css integrity="sha256-/MrTX/QNVVS5bMT9PT2kXOdpOhK7wu54Pf9Vhpznwq4=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -78,12 +78,13 @@
 <script>function loding_indicator(b,a){if(b===!0){const b=document.createElement("div");b.id="loading-indicator",b.innerHTML='<div class="spinner"></div>',a.parentNode.insertBefore(b,a.nextSibling)}else{const a=document.getElementById("loading-indicator");a.classList.add("scale-zero")}}</script><main class=main>
 <header class=page-header>
 <h1 class=page-title data-animation=true>9장 예외</h1>
-<div class=page-description data-animation=true>
+<div class="page-description abstracted" data-animation=true>
 Chapter 9：Exceptions
 </div>
 </header>
 <div class=post-entry-wrapper style=animation-delay:170ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 69] 예외는 진짜 예외 상황에서만 사용하라. 예외는 반드시 예외 상황에서만 사용해야한다. 일반적인 제어 흐름용으로 사용하면 안 됩니다.
+1 2 3 4 5 6 7 8  try { int i = 0; while (true) { index[i++].doSomething(); } } catch (ArrayIndexOutOfBoundsException) { .. }   코드가 장황하고 직관적이지 않습니다. 성능도 일반적인 제어 흐름보다 느립니다.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -97,7 +98,10 @@ Chapter 9：Exceptions
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:220ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 70] 복구할 수 있는 상황에서는 검사 예외를, 프로그래밍 오류에는 런타임 예외를 시용하라. 자바에서는 기본적으로 오류는 checked exception, runtime exception, error 이렇게 세 가지로 나눌 수 있습니다. 100% 확실한 건 아니지만 일반적으로 사용하는 상황은 다음과 같습니다.
+
+
+호출 하는 쪽에서 복구하리라 여거지는 상황에서는 검사 예외를 사용합시다. 이것이 검사 예외랑 비검사 예외를 구분하는 가장 기본적인 규칙입니다. catch로 잡아서 처리하거나 thorws로 예외를 호출한쪽으로 전파하고 호출했을 때 발생할 수 있는 있다는 걸 API 사용자에게 알리는 것입니다.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -111,7 +115,7 @@ Chapter 9：Exceptions
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:270ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 71] 필요 없는 검사 예외 사용은 피하라. 검사 예외를 필요한 곳에만 사용하면 프로그램의 안전성을 높여주지만, 과하게 사용하면 오히려 쓰기 불편한 API가 됩니다. API를 제대로 사용해도 발생할 수 있는 예외이거나, 프로그래머가 의미 잇는 조치를 취할 수 있는 경우 둘 중 어디에도 해당하지 않는다면 비검사 예외를 사용하는 것이 좋습니다.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -124,7 +128,10 @@ Chapter 9：Exceptions
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:320ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 72] 표준 예외를 사용하라. 자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다.
+
+
+Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 게 좋습니다. 다른 예외들의 상위 클래스이므로 즉 여러 예외를 포괄하기 때문에 안정적으로 테스트할 수 없습니다.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -138,7 +145,8 @@ Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 �
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:370ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 73] 추상화 수준에 맞는 예외를 던져라. 메서드가 저수준 예외를 처리하지 않고 바깥으로 전파해버릴 경우 예상치 못한 예외를 접하고 당황할 수가 있습니다. 이 문제를 피하려면 상위 계층에서 저수주 예외를 잡아 자신의 추상화 수준에 맞는 예외를 던져야 합니다. 이를 예외 번역이라 부릅니다.
+1 2 3 4 5 6  try { ... } catch (LowLevelException e) { // 추상화 수준에 맞게 번역.  throw new HighLevelException(..); }   AbstractSequentialList에서 수행하는 예외번역의 예시">
 <header class=entry-header>
 <h2>
 </h2>
@@ -173,7 +181,7 @@ Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 �
 </ul>
 </nav>
 </footer>
-<script>const _articleTags=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let a=0;a<_articleTags.length;a++)_articleTags[a].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),_articleTags[a].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")})</script>
+<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
 </main>
 <footer class=footer>
 <span>&copy; 2021 <a href=https://qutrits.github.io/>&lt;Qutrits/></a></span>

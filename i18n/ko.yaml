@@ -100,35 +100,68 @@
 - id: effective-java-3e-chapter-1
   translation: "객체 생성과 파괴"
 
+- id: effective-java-3e-chapter-1-description
+  translation: "이번 장은 객체의 생성과 파괴를 다룬다. 객체를 만들어야 할 때와 만들지 만들지 말아야 할 때를 구분하는 법, 올바른 객체 생성 방법과 불필요한 생성을 피하는 방법, 제때 파괴됨을 보장하고 파괴 전에 수행해야 할 정리 작업을 관리하는 요령을 알아본다."
+
 - id: effective-java-3e-chapter-2
   translation: "모든 객체의 공통 메서드"
+
+- id: effective-java-3e-chapter-2-description
+  translation: "Object는 객체를 만들 수 있는 구체 클래스지만 기본적으로는 상속해서 사용하도록 설계되었다. Object에서 final이 아닌 메서드(equals, hashCode, toString, clone, finalize)는 모두 재정의(overriding)를 염두에 두고 설계된 것이라 재정의 시 지켜야 하는 일반 규약이 명확히 정의되어 있다. 그래서 Object를 상속하는 클래스, 즉 모든 클랙스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다. 메서드를 잘못 구현하면 대상 클래스가 이 규약을 준수한다고 가정 하는 클래스(HashMap과 HashSet 등)를 오작동하게 만들 수 있다. 이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다. 그중 finalize 메서드는 아이템 8에서 다뤘으니 더 이상 언급하지 않는다. Comparable.compareTo의 경우 Object의 메서드는 아니지만 성격이 비슷하여 이번 장에서 함께 다룬다."
 
 - id: effective-java-3e-chapter-3
   translation: "클래스와 인터페이스"
 
+- id: effective-java-3e-chapter-3-description
+  translation: "추상화의 기본 단위인 클래스와 인터페이스는 자바 언어의 심장과도 같다. 그래서 자바 언어에는 클래스와 인터페이스 설계에 사용하는 강력한 요소가 많이 있다. 이번 장에서는 이런 요소를 적절히 활용하여 클래스와 인터페이스를 쓰기 편하고, 견고하며, 유연하게 만드는 방법을 안내한다."
+
 - id: effective-java-3e-chapter-4
   translation: "제네릭"
+
+- id: effective-java-3e-chapter-4-description
+  translation: "제네릭(generic)은 자바 5부터 사용할 수 있다. 제네릭을 지원하기 전에는 컬렉션에서 객체를 꺼낼 때마다 형변환을 해야 했다. 그래서 누군가 실수로 엉뚱한 타입의 객체를 넣어두면 런타임에 형변환 오류가 나곤 했다. 반면, 제네릭을 사용하면 컬렉션이 담을 수 있는 타입을 컴파일러에 알려주게 된다. 그래서 컴파일러는 알아서 형변환 코드를 추가할 수 있게 되고, 엉뚱한 타입의 객체를 넣으려는 시도를 컴파일 과정에서 차단하여 더 안전하고 명확한 프로그램을 만들어준다. 꼭 컬렉션이 아니더라도 이러한 이점을 누릴 수 있으나, 코드가 복잡해진다는 단점이 따라온다. 이번 장에서는 제네릭의 이점을 최대로 살리고 단점을 최소화하는 방법을 이야기한다."
 
 - id: effective-java-3e-chapter-5
   translation: "열거 타입과 애너테이션"
 
+- id: effective-java-3e-chapter-5-description
+  translation: "자바에는 특수한 목적의 참조 타입 두 가지가 있다. 하나는 클래스의 일종인 열거 타입(enum; 열거형)이고, 다른 하나는 인터페이스의 일종인 애너테이션(annotation)이다. 이번 장에서는 이 타입들을 올바르게 사용하는 방법을 알아본다."
+
 - id: effective-java-3e-chapter-6
   translation: "람다와 스트림"
+
+- id: effective-java-3e-chapter-6-description
+  translation: "자바 8에서 함수형 인터페이스, 람다, 메서드 참조라는 개념이 추가되면서 함수 객체를 더 쉽게 만들 수 있게 되었다. 이외 함께 스트림 API까지 추가되어 데이터 원소의 시퀀스 처리를 라이브러리 차원에서 지원하기 시작했다. 이번 장에서는 이 기능들을 효과적으로 사용하는 방법을 알아보겠다."
 
 - id: effective-java-3e-chapter-7
   translation: "메서드"
 
+- id: effective-java-3e-chapter-7-description
+  translation: "이번 장에서는 메서드를 설계할 때 주의할 점들을 살펴본다. 구체적으로는 매개변수와 반환값을 어떻게 처리해야 하는지, 메서드 시그니처는 어떻게 설계해야 하는지, 문서화는 어떻게 해야 하는지를 다룬다. 이번 장의 내용 중 상당 부분은 메서드뿐 아니라 생성자에도 적용된다. 그리고 '4장 클래스와 인터페이스'와 마찬가지로 이번 장도 사용성, 견고성, 유연성에 집중할 것이다."
+
 - id: effective-java-3e-chapter-8
   translation: "일반적인 프로그래밍 원칙"
+
+- id: effective-java-3e-chapter-8-description
+  translation: "이번 장에서는 자바 언어의 핵심 요소에 집중한다. 지역변수, 제어구조, 라이브러리, 데이터 타입, 그리고 언어 경계를 넘나드는 기능인 리플렉션과 네이티브 메서드를 다룬다. 마지막으로는 최적화와 명명 규칙을 논한다."
 
 - id: effective-java-3e-chapter-9
   translation: "예외"
 
+- id: effective-java-3e-chapter-9-description
+  translation: "예외를 제대로 활용한다면 프로그램의 가독성, 신뢰성, 유지보수성이 높아지지만, 잘못 사용한다면 반대의 효과만 나타난다. 이번 장에서는 예외를 효과적으로 활용하는 지침을 다룬다."
+
 - id: effective-java-3e-chapter-10
   translation: "동시성"
 
+- id: effective-java-3e-chapter-10-description
+  translation: "스레드는 여러 활동을 동시에 수행할 수 있게 해준다. 하지만 동시성 프로그래밍은 단일 스레드 프로그래밍보다 어렵다. 잘못된 수 있는 일이 늘어나고 문제를 재현하기도 어려워지기 때문이다. 그렇다고 동시성 프로그래밍으로부터 언제까지나 도망 다닐 수는 없다. 자바 플랫폼 자체에 내재되어 있을 뿐 아니라, 오늘날 어디서나 쓰이는 멀티코어 프로세서의 힘을 제대로 활용하려면 반드시 내 것으로 만들어야만 하는 기술익 때문이다. 그래서 이번 장에는 동시성 프로그램을 명확하고 정확하게 만들고 잘 문서화하는 데 도움이 도는 조언들을 담았다."
+
 - id: effective-java-3e-chapter-11
   translation: "직렬화"
+
+- id: effective-java-3e-chapter-11-description
+  translation: "이번 장은 객체 직렬화를 다룬다. 객체 직렬화란 자바가 객체를 바이트 스트림으로 인코딩하고(직렬화) 그 바이트 스트림으로부터 다시 객체를 재구성하는(역직렬화) 매커니즘이다. 직렬화된 객체는 다른 VM에 전송하거나 디스크에 저장한 후 나중에 역직렬화할 수 있다. 이번 장은 직렬화가 품고 있는 위험과 그 위험을 최소화하는 방법에 집중한다."
 
 - id: html
   translation: '하이퍼 텍스트 마크업 언어는 웹 페이지를 위한 지배적인 마크업 언어다. 또한, HTML은 제목, 단락, 목록 등과 같은 본문을 위한 구조적 의미를 나타내는 것뿐만 아니라 링크, 인용과 그 밖의 항목으로 구조적 문서를 만들 수 있는 방법을 제공한다.'

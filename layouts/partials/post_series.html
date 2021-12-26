@@ -90,7 +90,9 @@
         <svg width="32" height="48" fill="none" viewBox="0 0 32 48" class="series-corner-image">
           <path fill="#12B886" d="M32 0H0v48h.163l16-16L32 47.836V0z"></path>
         </svg>
-
+        {{ if (i18n (print $_chapterId "-description")) }}
+        <div class="series-main-description abstracted">{{ i18n (print $_chapterId "-description") }}</div>
+        {{ end }}
         {{ range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
           {{ if (eq $taxonomy_term "chapter") }}
             {{ range $key, $value := $taxonomy }}
@@ -212,6 +214,19 @@
               seriesList.style.display = "none";
             }
           });
+
+          const _description = document.querySelector(".series-main-description");
+          if (_description) {
+            _description.addEventListener("click", (e) => {
+              if (e.target.classList.contains("abstracted")) {
+                e.target.classList.remove("abstracted");
+                e.target.classList.add("zoom-out");
+              } else {
+                e.target.classList.remove("zoom-out");
+                e.target.classList.add("abstracted");
+              }
+            });
+          }
           
           if (seriesLock === "false") {
             seriesList.style.display ="block";
@@ -249,6 +264,9 @@
         <svg width="32" height="48" fill="none" viewBox="0 0 32 48" class="series-corner-image">
           <path fill="#12B886" d="M32 0H0v48h.163l16-16L32 47.836V0z"></path>
         </svg>
+        {{ if (i18n (print $_seriesId "-description")) }}
+        <div class="series-main-description abstracted">{{ i18n (print $_seriesId "-description") }}</div>
+        {{ end }}
         {{ range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
           {{ if (eq $taxonomy_term "series") }}
             {{ range $key, $value := $taxonomy }}
@@ -369,6 +387,19 @@
               seriesList.style.display = "none";
             }
           });
+
+          const _description = document.querySelector(".series-main-description");
+          if (_description) {
+            _description.addEventListener("click", (e) => {
+              if (e.target.classList.contains("abstracted")) {
+                e.target.classList.remove("abstracted");
+                e.target.classList.add("zoom-out");
+              } else {
+                e.target.classList.remove("zoom-out");
+                e.target.classList.add("abstracted");
+              }
+            });
+          }
   
           if (seriesLock === "false") {
             seriesList.style.display ="block";

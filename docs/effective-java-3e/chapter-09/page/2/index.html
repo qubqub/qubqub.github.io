@@ -8,7 +8,7 @@
 <meta name=description content="Chapter 9：Exceptions">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-09/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.0b0f1dfd4f3c7b1e13d40cd1ae3e94fb63589de86880c8505156d6623f7974e9.css integrity="sha256-Cw8d/U88ex4T1AzRrj6U+2NYnehogMhQUVbWYj95dOk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.fccad35ff40d5554b96cc4fd3d3da45ce7693a12bbc2ee783dff55869ce7c2ae.css integrity="sha256-/MrTX/QNVVS5bMT9PT2kXOdpOhK7wu54Pf9Vhpznwq4=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -78,12 +78,12 @@
 <script>function loding_indicator(b,a){if(b===!0){const b=document.createElement("div");b.id="loading-indicator",b.innerHTML='<div class="spinner"></div>',a.parentNode.insertBefore(b,a.nextSibling)}else{const a=document.getElementById("loading-indicator");a.classList.add("scale-zero")}}</script><main class=main>
 <header class=page-header>
 <h1 class=page-title data-animation=true>9장 예외</h1>
-<div class=page-description data-animation=true>
+<div class="page-description abstracted" data-animation=true>
 Chapter 9：Exceptions
 </div>
 </header>
 <div class=post-entry-wrapper style=animation-delay:170ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 74] 메서드가 던지는 모든 예외를 문서화하라. 검사 예외는 항상 따로따로 선언하고, 각 예외가 발생하는 상황을 자바독의 @throws 태그를 사용하여 정확히 문서화를 합시다. 상위 클래스 하나로 선언하는 일은 삼가는 게 좋습니다. 어떤 예외를 호출하는지 명확하게 알 수 없고, 같은 맥락에서 다른 예외가 발생할 여지가 있을 경우 이러한 것까지 다 삼켜버릴 수 있기 때문입니다. 비검사 예외 같은 경우 메서드 선언에 throws를 넣는 건 권장하지 않습니다. 검사냐 비검사냐에 따라 API 사용자가 할 일이 달라지므로 이 둘은 확실히 구분해두는 것이 좋습니다.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -96,7 +96,10 @@ Chapter 9：Exceptions
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:220ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 75] 예외 상세 메시지에 실패 관련 정보를 담으라. 스택 트레이스는 예외 객체의 toString 메서드를 호출해 얻는 문자열입니다. toString 메서드에 발생 원인에 대한 정보는 가능한 많을 수록 좋습니다. 물론 장황하지 않고 필요한 정보만 담는 것입니다. 가장 좋은 건 발생한 예외에 관여된 모든 매개변수와 필드의 값을 실패 메세지에 담는 것입니다. 물론 보안관 관련된 정보는 유의해서 다루어야 합니다.
+
+
+ex) IndexOutOfBoundsException의 상세 메세지에는 범위의 최솟값, 최댓값, 범위를 벗어난 인덱스의 값을 담는 것입니다.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -110,7 +113,8 @@ ex) IndexOutOfBoundsException의 상세 메세지에는 범위의 최솟값, 최
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:270ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 76] 가능한 한 실패 원자적으로 만들라. 여기서 말하는 실패 원자적이란 호출한 메서드가 실패하더라도 해당 객체는 호출 전 상태로 유지되는 것입니다. 가장 간단한 방법은 불변 객채로 설계하는 것입니다. 가변 객체일 경우 작업 수행 전에 유효성을 검사합는 것입니다.
+1 2 3 4 5 6 7 8  public Object pop() { if (size == 0) { throw new EmptyStachException(); } Object result = el[--size]; el[size] = null; // 참조 해제  return result; }   유효성 검사하는 부분이 없어도 ArrayOutOfBoundsException을 던지지만 이는 추상화 수준에 상황에 어울리지 않습니다.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -124,7 +128,8 @@ ex) IndexOutOfBoundsException의 상세 메세지에는 범위의 최솟값, 최
 </article>
 </div>
 <div class=post-entry-wrapper style=animation-delay:320ms data-animation=true>
-<article class=post-entry>
+<article class=post-entry title="[아이템 77] 예외를 무시하지 마라. 발생할 수 있는 실수
+1 2 3 4 5  try { ... } catch (IllegalArgumentException e){ }   초보 프로그래머가 할 수 있는 실수입니다. catch 블록에서 아무것도 하지 않으면 catch가 존재할 이유가 없어지는 것과 마찬가지입니다. 예외가 발생허더라도 계속 지나칠 수 있습니다. 이는 심각한 결함으로 이어질 수 있습니다. 만약 예외를 무시하기로 결정한 부분이라면 IllegalArgumentException ignored로 바꿔놓는 것이 좋습니다.">
 <header class=entry-header>
 <h2>
 </h2>
@@ -159,7 +164,7 @@ ex) IndexOutOfBoundsException의 상세 메세지에는 범위의 최솟값, 최
 </ul>
 </nav>
 </footer>
-<script>const _articleTags=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let a=0;a<_articleTags.length;a++)_articleTags[a].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),_articleTags[a].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")})</script>
+<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .post-entry-wrapper .article-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
 </main>
 <footer class=footer>
 <span>&copy; 2021 <a href=https://qutrits.github.io/>&lt;Qutrits/></a></span>
