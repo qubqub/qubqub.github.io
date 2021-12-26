@@ -103,7 +103,7 @@ public static <E extends Enum<E>> EnumSet<E> noneOf(Class<E> elementType) {
 
 3개의 핵심 컴포넌트와 더불어 종종 서비스 제공자 인터페이스`service provider interface`라는 네 번째 컴포넌트가 쓰이기도 한다. 이 컴포넌트는 서비스 인터페이스의 인스턴스를 생성하는 팩터리 객체를 설명해준다. 서비스 제공자 인터페이스가 없다면 각 구현체를 인스턴스로 만들 때 리플렉션[`아이템 65`](/effective-java-3e/chapter-08/item65/)을 사용해야 한다. `JDBC`[^3] 에서는 `Connection`이 서비스 인터페이스 역할을, `DriverManager.registerDriver`가 제공자 등록 API 역할을, `DriverManager.getConnection`이 서비스 접근 API 역할을, `Driver`가 서비스 제공자 인터페이스 역할을 수행한다.
 
-서비스 제공자 프레임워크 패턴에는 여러 변형이 있다. 예컨대 서비스 접근 API는 공급자가 제공하는 것보다 더 풍부한 서비스 인터페이스를 클라이언트에 반환할 수 있다. _**브리지 패턴[Gamma95] [^4]**_이라 알려진 것이다. 의존 객체 주입`dependency injection` 프레임워크[`아이템 5`](/effective-java-3e/chapter-01/item5/)도 강력한 서비스 제공자라고 생각할 수 있다. `JAVA 6`부터는 `java.util.ServiceLoader`라는 범용 서비스 제공자 프레임워크가 제공되어 프레임워크를 직접 만들 필요가 거의 없어졌다.[`아이템 59`](/effective-java-3e/chapter-08/item59/) 한편, `JDBC`[^3]는 `JAVA 6` 전에 등장한 개념이라 `ServiceLoader`를 사용하지 않는다.
+서비스 제공자 프레임워크 패턴에는 여러 변형이 있다. 예컨대 서비스 접근 API는 공급자가 제공하는 것보다 더 풍부한 서비스 인터페이스를 클라이언트에 반환할 수 있다. _**브리지 패턴[Gamma95] [^4]**_ 이라 알려진 것이다. 의존 객체 주입`dependency injection` 프레임워크[`아이템 5`](/effective-java-3e/chapter-01/item5/)도 강력한 서비스 제공자라고 생각할 수 있다. `JAVA 6`부터는 `java.util.ServiceLoader`라는 범용 서비스 제공자 프레임워크가 제공되어 프레임워크를 직접 만들 필요가 거의 없어졌다.[`아이템 59`](/effective-java-3e/chapter-08/item59/) 한편, `JDBC`[^3]는 `JAVA 6` 전에 등장한 개념이라 `ServiceLoader`를 사용하지 않는다.
 [^4]: [Bridge pattern](https://ko.wikipedia.org/wiki/%EB%B8%8C%EB%A6%AC%EC%A7%80_%ED%8C%A8%ED%84%B4) in [[GoF] Design Patterns](https://ko.wikipedia.org/wiki/%EB%94%94%EC%9E%90%EC%9D%B8_%ED%8C%A8%ED%84%B4_(%EC%B1%85))
 
 <br>
