@@ -11,7 +11,7 @@
 1 2 3 4 5  public void pushAll(Iterable<E> src) { for (E e : src) { push(e); } }   Iterable src의 원소 타입의 스택의 원소 타입과 일치하면 잘 작동합니다.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-04/item31/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.b9cd541b1bf0ceca2ab5062d0ed9ec91724eb62b60b936d336a03754b1af8c55.css integrity="sha256-uc1UGxvwzsoqtQYtDtnskXJOtitguTbTNqA3VLGvjFU=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.bff093a615e4d0bb2e2e9ff6e2e0dde9bb507d2738383de228d84544bb8ca3ff.css integrity="sha256-v/CTphXk0LsuLp/24uDd6btQfSc4OD3iKNhFRLuMo/8=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -92,8 +92,12 @@
 <script>const header_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};header_DOMReady(function(){function b(){let b=e.scrollHeight-d(a)-window.innerHeight,c=window.pageYOffset,f=c/b*100;a.style.width=f+"%"}function d(a){var e=a.offsetHeight,b=document.body.offsetHeight,c=a.getBoundingClientRect(),d=c.top,f=c.bottom;return Math.max(0,d>0?Math.min(e,b-d):Math.min(f,b))}const e=document.querySelector("html"),f=document.querySelector("body"),c=document.createElement("div");c.classList.add("progress-bar-container__progress"),f.prepend(c);const a=document.querySelector(".progress-bar-container__progress"),g={childList:!0,subtree:!0,characterData:!0,attributes:!0};new MutationObserver(b).observe(a,g),window.addEventListener("scroll",()=>{b()})})</script><main class=main>
 <article class=post-single>
 <header class=post-header>
-<div class=breadcrumbs data-animation=true><a href=https://qutrits.github.io/>Home</a><svg style="margin-right:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-<a href=https://qutrits.github.io/effective-java-3e/>Effctive Java 3/E</a><svg style="margin-right:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<div class=breadcrumbs data-animation=true><a href=https://qutrits.github.io/>Home</a>
+&nbsp;<svg style="margin-right:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+&nbsp;
+<a href=https://qutrits.github.io/effective-java-3e/>Effctive Java 3/E</a>
+&nbsp;<svg style="margin-right:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+&nbsp;
 <a href=https://qutrits.github.io/effective-java-3e/chapter-04/>4장 제네릭</a></div>
 <h1 class=post-title data-animation=true>
 [아이템 31] 한정적 와일드카드를 사용해 API 유연성을 높여라

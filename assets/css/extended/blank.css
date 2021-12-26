@@ -237,7 +237,7 @@ header.header {
   /* margin-top: 3rem; */
 }
 
-.main .post-single .post-header .breadcrumbs {
+.main .breadcrumbs {
   align-items: center;
   margin-bottom: 0.5rem
 }
@@ -655,6 +655,14 @@ header.header {
   width: 25%;
   /* height: auto; */
   margin: 0 auto;
+}
+
+.page-header .page-icon svg,
+.list-entry .entry-header .entry-icon svg,
+.collection-entry .entry-header .series-icon svg,
+.series-entry .entry-header .series-icon svg {
+  width: 1.1em;
+  vertical-align: -3px;
 }
 
 .series-main {

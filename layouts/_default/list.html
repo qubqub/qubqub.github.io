@@ -7,7 +7,10 @@
     {{- if not .IsHome | and .Title }}
       <header class="page-header">
         {{- partial "breadcrumbs.html" . }}
-        <h1 class="page-title" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>{{ .Title }}</h1>
+        <h1 class="page-title" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
+          {{- if .Params.icon }}<span class="page-icon">{{- .Params.icon | safeHTML }}</span>{{- end }}
+          {{ .Title }}
+        </h1>
         {{- if .Description }}
         <div class="page-description abstracted" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
           {{ .Description | markdownify }}
@@ -55,6 +58,7 @@
           {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
           <header class="entry-header">
             <h2>
+              {{- if .Params.icon }}<span class="entry-icon">{{- .Params.icon | safeHTML }}</span>&nbsp; {{- end }}
               {{- .Title }}
               {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
             </h2>

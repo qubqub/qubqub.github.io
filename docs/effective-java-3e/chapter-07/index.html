@@ -8,7 +8,7 @@
 <meta name=description content="이번 장에서는 메서드를 설계할 때 주의할 점들을 살펴본다. 구체적으로는 매개변수와 반환값을 어떻게 처리해야 하는지, 메서드 시그니처는 어떻게 설계해야 하는지, 문서화는 어떻게 해야 하는지를 다룬다. 이번 장의 내용 중 상당 부분은 메서드뿐 아니라 생성자에도 적용된다. 그리고 '4장 클래스와 인터페이스'와 마찬가지로 이번 장도 사용성, 견고성, 유연성에 집중할 것이다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-07/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.b9cd541b1bf0ceca2ab5062d0ed9ec91724eb62b60b936d336a03754b1af8c55.css integrity="sha256-uc1UGxvwzsoqtQYtDtnskXJOtitguTbTNqA3VLGvjFU=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.bff093a615e4d0bb2e2e9ff6e2e0dde9bb507d2738383de228d84544bb8ca3ff.css integrity="sha256-v/CTphXk0LsuLp/24uDd6btQfSc4OD3iKNhFRLuMo/8=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -76,8 +76,13 @@
 </header>
 <script>let b=document.querySelector("#menu-trigger"),m=document.querySelector("#menu");b.addEventListener("click",function(){m.classList.toggle("hidden")}),document.body.addEventListener("click",function(a){b.contains(a.target)||m.classList.add("hidden")})</script>
 <script>function loding_indicator(b,a){if(b===!0){const b=document.createElement("div");b.id="loading-indicator",b.innerHTML='<div class="spinner"></div>',a.parentNode.insertBefore(b,a.nextSibling)}else{const a=document.getElementById("loading-indicator");a.classList.add("scale-zero")}}</script><main class=main>
-<header class=page-header>
-<h1 class=page-title data-animation=true>7장 메서드</h1>
+<header class=page-header><div class=breadcrumbs data-animation=true><a href=https://qutrits.github.io/>Home</a>
+&nbsp;<svg style="margin-right:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+&nbsp;
+<a href=https://qutrits.github.io/effective-java-3e/>Effctive Java 3/E</a></div>
+<h1 class=page-title data-animation=true><span class=page-icon><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Java</title><path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211.0.0.552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149M8.276 15.933s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308.0.0.384.389.987.602-5.679 1.661-12.007.13-7.942-1.218m4.84-4.458c1.158 1.333-.304 2.533-.304 2.533s2.939-1.518 1.589-3.418c-1.261-1.772-2.228-2.652 3.007-5.688.0-.001-8.216 2.051-4.292 6.573m6.214 9.029s.679.559-.747.991c-2.712.822-11.288 1.069-13.669.033-.856-.373.75-.89 1.254-.998.527-.114.828-.093.828-.093-.953-.671-6.156 1.317-2.643 1.887 9.58 1.553 17.462-.7 14.977-1.82M9.292 13.21s-4.362 1.036-1.544 1.412c1.189.159 3.561.123 5.77-.062 1.806-.152 3.618-.477 3.618-.477s-.637.272-1.098.587c-4.429 1.165-12.986.623-10.522-.568 2.082-1.006 3.776-.892 3.776-.892m7.824 4.374c4.503-2.34 2.421-4.589.968-4.285-.355.074-.515.138-.515.138s.132-.207.385-.297c2.875-1.011 5.086 2.981-.928 4.562.0-.001.07-.062.09-.118M14.401.0s2.494 2.494-2.365 6.33c-3.896 3.077-.888 4.832-.001 6.836-2.274-2.053-3.943-3.858-2.824-5.539 1.644-2.469 6.197-3.665 5.19-7.627M9.734 23.924c4.322.277 10.959-.153 11.116-2.198.0.0-.302.775-3.572 1.391-3.688.694-8.239.613-10.937.168.0-.001.553.457 3.393.639"/></svg></span>
+7장 메서드
+</h1>
 <div class="page-description abstracted" data-animation=true>
 이번 장에서는 메서드를 설계할 때 주의할 점들을 살펴본다. 구체적으로는 매개변수와 반환값을 어떻게 처리해야 하는지, 메서드 시그니처는 어떻게 설계해야 하는지, 문서화는 어떻게 해야 하는지를 다룬다. 이번 장의 내용 중 상당 부분은 메서드뿐 아니라 생성자에도 적용된다. 그리고 &lsquo;4장 클래스와 인터페이스&rsquo;와 마찬가지로 이번 장도 사용성, 견고성, 유연성에 집중할 것이다.
 </div>

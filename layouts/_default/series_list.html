@@ -45,15 +45,15 @@
                   {{ .imageSvg | safeHTML }}
                 </figure>
               {{- end }}
+              <header class="entry-header">
+                <h2>
+                  <span class="series-icon">{{- (.seriesIcon | safeHTML) | default "🗂️" }}</span> {{ $seriesTitle }} <sup><strong><sup>{{ $count }}</sup></strong></sup>
+                </h2>
+              </header>
             {{- end }}
-
-            <header class="entry-header">
-              <h2>🗂️ {{ $seriesTitle }} <sup><strong><sup>{{ $count }}</sup></strong></sup></h2>
-            </header>
             <section class="entry-content">
               <p>{{- i18n $name }}</p>
             </section>
-            
             {{- range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
               {{- if (eq $taxonomy_term "series") }}
                 {{- range $key, $value := $taxonomy }}

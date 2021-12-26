@@ -13,7 +13,7 @@
         <div class="collection-entry-wrapper" {{ if $.Site.Params.useAnimation }}data-animation="true" style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;"{{ end }}>
           <article class="collection-entry button" title="{{- i18n .Name }}">
             <header class="entry-header">
-              <h2>📄 {{ .Name }} <sup><strong><sup>{{ len (where site.RegularPages "Section" .Section) }}</sup></strong></sup></h2>
+              <h2><span class="series-icon">{{- (.Params.icon | safeHTML) | default "📄" }}</span> {{ .Name }} <sup><strong><sup>{{ len (where site.RegularPages "Section" .Section) }}</sup></strong></sup></h2>
             </header>
             <section class="entry-content">
               <p>{{- .Description }}</p>
@@ -80,7 +80,7 @@
           </figure>
         {{- end }}
         <header class="entry-header">
-          <h2>{{ .title }}</h2>
+          <h2><span class="series-icon">{{- .icon | safeHTML }}</span> {{ .title }}</h2>
         </header>
         <section class="entry-content">
           <p>{{ .description }}</p>
