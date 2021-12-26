@@ -8,7 +8,7 @@
 <meta name=description content="Object는 객체를 만들 수 있는 구체 클래스지만 기본적으로는 상속해서 사용하도록 설계되었다. Object에서 final이 아닌 메서드(equals, hashCode, toString, clone, finalize)는 모두 재정의(overriding)를 염두에 두고 설계된 것이라 재정의 시 지켜야 하는 일반 규약이 명확히 정의되어 있다. 그래서 Object를 상속하는 클래스, 즉 모든 클랙스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다. 메서드를 잘못 구현하면 대상 클래스가 이 규약을 준수한다고 가정 하는 클래스(HashMap과 HashSet 등)를 오작동하게 만들 수 있다. 이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다. 그중 finalize 메서드는 아이템 8에서 다뤘으니 더 이상 언급하지 않는다. Comparable.compareTo의 경우 Object의 메서드는 아니지만 성격이 비슷하여 이번 장에서 함께 다룬다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-02/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.52059ce3e3f8c6bbc10ca6fba1a821a77a78140a436890f587ac3940333b00f2.css integrity="sha256-UgWc4+P4xrvBDKb7oaghp3p4FApDaJD1h6w5QDM7API=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.045b57560f646383f8b5c8e5a7c3cd62a0fe270eec379126b659fcf3dff76103.css integrity="sha256-BFtXVg9kY4P4tcjlp8PNYqD+Jw7sN5Emtln889/3YQM=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
