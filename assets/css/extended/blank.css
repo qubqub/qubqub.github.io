@@ -1055,7 +1055,7 @@ header.header {
   }
 
   .aside-display-font-size-info {
-    margin-bottom: 2px;
+    margin-bottom: 5px;
     font-size: 0.7rem;
     display: flex;
     -webkit-box-align: center;
@@ -1218,7 +1218,7 @@ header.header {
   }
 
   .aside-display-font-size-info {
-    margin-bottom: 2px;
+    margin-bottom: 5px;
     font-size: 1.1rem;
     display: flex;
     -webkit-box-align: center;
@@ -1428,7 +1428,7 @@ header.header {
   }
 
   .aside-display-font-size-info {
-    margin-bottom: 2px;
+    margin-bottom: 5px;
     font-size: 1.1rem;
     display: flex;
     -webkit-box-align: center;
