@@ -1846,8 +1846,38 @@ a.button,
   cursor: zoom-in;
 }
 
+.abstracted:before {
+  content: "\e89b";
+  font-family: "Material-Design-Icons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.2em;
+  vertical-align: -2px;
+}
+
 .zoom-out {
   cursor: zoom-out;
+}
+
+.zoom-out:before {
+  content: "\e89e";
+  font-family: "Material-Design-Icons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.2em;
+  vertical-align: -2px;
 }
 
 .main .post-single .series-main .series-list {
