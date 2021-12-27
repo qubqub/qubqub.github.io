@@ -1889,6 +1889,26 @@ a.button,
   animation-fill-mode: both;
 }
 
+@keyframes slide-in-down-70-rebound {
+  0% {
+    opacity: 0;
+    transform: translateY(-70%);
+    -webkit-transform: translateY(-70%);
+  }
+
+  70% {
+    opacity: 0.7;
+    transform: translateY(10%);
+    -webkit-transform: translateY(10%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
 @keyframes slide-in-down-70 {
   from {
     opacity: 0;
@@ -1897,6 +1917,26 @@ a.button,
   }
 
   to {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
+@keyframes slide-in-down-30-rebound {
+  0% {
+    opacity: 0;
+    transform: translateY(-30%);
+    -webkit-transform: translateY(-30%);
+  }
+
+  70% {
+    opacity: 0.7;
+    transform: translateY(5%);
+    -webkit-transform: translateY(5%);
+  }
+
+  100% {
     opacity: 1;
     transform: none;
     -webkit-transform: none;
@@ -2015,11 +2055,51 @@ a.button,
   }
 }
 
+@keyframes slide-in-left-5-rebound {
+  0% {
+    opacity: 0;
+    transform: translateX(-5%);
+    -webkit-transform: translateX(-5%);
+  }
+
+  70% {
+    opacity: 0.7;
+    transform: translateX(0.5%);
+    -webkit-transform: translateX(0.5%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
 @keyframes slide-in-left-5 {
   from {
     opacity: 0;
     transform: translateX(-5%);
     -webkit-transform: translateX(-5%);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
+@keyframes slide-in-left-4-rebound {
+  0% {
+    opacity: 0;
+    transform: translateX(-4%);
+    -webkit-transform: translateX(-4%);
+  }
+
+  70% {
+    opacity: 0.7;
+    transform: translateX(0.4%);
+    -webkit-transform: translateX(0.4%);
   }
 
   to {
@@ -2037,6 +2117,26 @@ a.button,
   }
 
   to {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
+@keyframes slide-in-left-3-rebound {
+  0% {
+    opacity: 0;
+    transform: translateX(-3%);
+    -webkit-transform: translateX(-3%);
+  }
+
+  70% {
+    opacity: 0.7;
+    transform: translateX(0.2%);
+    -webkit-transform: translateX(0.2%);
+  }
+
+  100% {
     opacity: 1;
     transform: none;
     -webkit-transform: none;
@@ -2119,6 +2219,20 @@ a.button,
   }
 
   to {
+    width: 100%;
+  }
+}
+
+@keyframes slide-in-width-0-100-rebound {
+  0% {
+    width: 0%;
+  }
+
+  70% {
+    width: 102%;
+  }
+
+  100% {
     width: 100%;
   }
 }
@@ -2206,7 +2320,7 @@ a.button,
 }
 
 .main .terms-tags .terms-wrapper[data-animation=true] {
-  animation-name: slide-in-down-30;
+  animation-name: slide-in-down-30-rebound;
   animation-duration: 0.3s;
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
@@ -2214,7 +2328,7 @@ a.button,
 }
 
 .main .archive-year .archive-year-header[data-animation=true] {
-  animation-name: slide-in-down-70;
+  animation-name: slide-in-down-70-rebound;
   animation-duration: 0.3s;
   animation-delay: 0.2s;
   animation-timing-function: ease-in-out;
@@ -2223,7 +2337,7 @@ a.button,
 }
 
 .main .archive-year .archive-month .archive-month-header[data-animation=true] {
-  animation-name: slide-in-down-70;
+  animation-name: slide-in-down-70-rebound;
   animation-duration: 0.3s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
@@ -2231,15 +2345,15 @@ a.button,
 }
 
 .main .archive-year .archive-month .archive-posts[data-animation=true] {
-  animation-name: slide-in-left-3;
-  animation-duration: 0.3s;
+  animation-name: slide-in-left-3-rebound;
+  animation-duration: 0.2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
 }
 
 .main .list-entry-wrapper[data-animation=true] {
-  animation-name: slide-in-left-5;
+  animation-name: slide-in-left-5-rebound;
   animation-duration: 0.2s;
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
@@ -2247,7 +2361,7 @@ a.button,
 }
 
 .main .collection-entry-wrapper[data-animation=true] {
-  animation-name: slide-in-left-5;
+  animation-name: slide-in-left-5-rebound;
   animation-duration: 0.2s;
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
@@ -2255,7 +2369,7 @@ a.button,
 }
 
 .main .series-entry-wrapper[data-animation=true] {
-  animation-name: slide-in-left-4;
+  animation-name: slide-in-left-4-rebound;
   animation-duration: 0.2s;
   animation-delay: 0.1s;
   animation-timing-function: ease-out;
@@ -2264,15 +2378,15 @@ a.button,
 }
 
 #searchbox #searchInput[data-animation=true] {
-  animation-name: slide-in-width-0-100;
-  animation-duration: 0.2s;
+  animation-name: slide-in-width-0-100-rebound;
+  animation-duration: 0.3s;
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
 }
 
 .main .links .link-wrapper[data-animation=true] {
-  animation-name: slide-in-left-5;
+  animation-name: slide-in-left-5-rebound;
   animation-duration: 0.4s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
