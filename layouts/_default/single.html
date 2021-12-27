@@ -87,7 +87,7 @@
       } else {
         if (currentScroll > lastScroll) { // scroll down
           if (headerAdjHeight < headerTranslateY) {
-            if (currentScroll-lastScroll > 30) {
+            if (currentScroll-lastScroll > 40) {
               headerTranslateY = headerAdjHeight;
             } else {
               headerTranslateY -= 10;
@@ -96,7 +96,7 @@
           }
         } else { // scoll up
           if (0 > headerTranslateY) {
-            if (lastScroll-currentScroll > 30) {
+            if (lastScroll-currentScroll > 40) {
               headerTranslateY = 0;
             } else {
               headerTranslateY += 10;
