@@ -186,7 +186,7 @@
 </div>
 </footer>
 </article>
-<script>const single_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};single_DOMReady(function(){let c=0,f=0;const b=document.querySelector("header.header"),d="header-bottom",e=-100;let a=0;window.pageYOffset>b.offsetHeight&&(a=e),window.addEventListener("scroll",()=>{c=window.pageYOffset,c<=0?(b.style.transform="translateY(0%)",b.classList.contains(d)&&b.classList.remove(d)):(c>f?e<a&&(a-=10,a<e&&(a=e)):0>a&&(a+=10,a>0&&(a=0)),b.style.transform=`translateY(${a}%)`,b.classList.contains(d)||b.classList.add(d)),f=c}),window.onload=function(){const a=document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");for(let b=0;b<a.length;b++)a[b].style.width="100%"}})</script>
+<script>const single_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};single_DOMReady(function(){let c=0,e=0;const b=document.querySelector("header.header"),f="header-bottom",d=-100;let a=0;window.pageYOffset>b.offsetHeight&&(a=d),window.addEventListener("scroll",()=>{c=window.pageYOffset,c<=0?(b.style.transform="translateY(0%)",b.classList.contains(f)&&b.classList.remove(f)):(c>e?d<a&&(c-e>30?a=d:(a-=10,a<d&&(a=d))):0>a&&(e-c>30?a=0:(a+=10,a>0&&(a=0))),b.style.transform=`translateY(${a}%)`,b.classList.contains(f)||b.classList.add(f)),e=c}),window.onload=function(){const a=document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");for(let b=0;b<a.length;b++)a[b].style.width="100%"}})</script>
 </main>
 <footer class=footer>
 <span>&copy; 2021 <a href=https://qutrits.github.io/>&lt;Qutrits/></a></span>

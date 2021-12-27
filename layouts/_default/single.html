@@ -87,13 +87,21 @@
       } else {
         if (currentScroll > lastScroll) { // scroll down
           if (headerAdjHeight < headerTranslateY) {
-            headerTranslateY -= 10;
-            if (headerTranslateY < headerAdjHeight) headerTranslateY = headerAdjHeight;
+            if (currentScroll-lastScroll > 30) {
+              headerTranslateY = headerAdjHeight;
+            } else {
+              headerTranslateY -= 10;
+              if (headerTranslateY < headerAdjHeight) headerTranslateY = headerAdjHeight;
+            }
           }
         } else { // scoll up
           if (0 > headerTranslateY) {
-            headerTranslateY += 10;
-            if (headerTranslateY > 0) headerTranslateY = 0;
+            if (lastScroll-currentScroll > 30) {
+              headerTranslateY = 0;
+            } else {
+              headerTranslateY += 10;
+              if (headerTranslateY > 0) headerTranslateY = 0;
+            }
           }
         }
         header.style.transform = `translateY(${headerTranslateY}%)`;
