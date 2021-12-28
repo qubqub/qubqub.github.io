@@ -959,14 +959,14 @@ header.header {
 
 .tooltip.bottom {
   top: 40px;
-  right: -50%;
+  right: -45%;
 }
 
 .tooltip.bottom:after {
   content: " ";
   position: absolute;
   top: -45%;
-  left: 40%;
+  left: 45%;
   /* height: 1px; */
   border-width: 5px;
   border-style: solid;
