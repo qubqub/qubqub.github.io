@@ -9,7 +9,7 @@
 열거 타입을 지원하기 전 코드 1 2 3 4 5  // 정수 열거 패턴 - 상당히 취약하다. public static final int EAST = 0; public static final int WEST = 1; public static final int SOUTH = 2; public static final int NORTH = 3;   이 코드는 타입의 안전성을 보장할 수 없고 표현력도 좋지 않습니다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-05/item34/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.c5703f1b870da1ac605920585b72a0fac373d1acbd0f8d2ce846681ca1cf121b.css integrity="sha256-xXA/G4cNoaxgWSBYW3Kg+sNz0ay9D40s6EZoHKHPEhs=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.127bc8fb50c0f1b05c9225ee6174378fe0d90be9391b31a8633b7fc952a475f1.css integrity="sha256-EnvI+1DA8bBckiXuYXQ3j+DZC+k5GzGoYzt/yVKkdfE=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -99,9 +99,9 @@
 <script>const postFontSize_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};postFontSize_DOMReady(function(){if(localStorage.getItem("post-content-font-size")){const a=document.querySelector(".main .post-single .post-content"),b=document.querySelector(".display-font-size-info"),c=document.querySelector(".aside-display-font-size-info");a.style.fontSize=localStorage.getItem("post-content-font-size")+"%",b.innerText=localStorage.getItem("post-content-font-size")+"%",c.innerText=localStorage.getItem("post-content-font-size")+"%"}else localStorage.setItem("post-content-font-size",100);const a=document.getElementById("font-size-default"),b=document.getElementById("font-size-decrease"),c=document.getElementById("font-size-increase");c.addEventListener("click",a=>{if(localStorage.getItem("post-content-font-size")){let a=parseInt(localStorage.getItem("post-content-font-size"));if(a+10>200)return;const b=document.querySelector(".main .post-single .post-content"),c=document.querySelector(".display-font-size-info"),d=document.querySelector(".aside-display-font-size-info");b.style.fontSize=a+10+"%",c.innerText=a+10+"%",d.innerText=a+10+"%",localStorage.setItem("post-content-font-size",a+10)}else _postContent.style.fontSize="105%",_displayFontSizeInfo.innerText="105%",_asideDisplayFontSizeInfo.innerText="105%",localStorage.setItem("post-content-font-size",105)}),b.addEventListener("click",a=>{if(localStorage.getItem("post-content-font-size")){let a=parseInt(localStorage.getItem("post-content-font-size"));if(a-5<50)return;const b=document.querySelector(".main .post-single .post-content"),c=document.querySelector(".display-font-size-info"),d=document.querySelector(".aside-display-font-size-info");b.style.fontSize=a-10+"%",c.innerText=a-10+"%",d.innerText=a-10+"%",localStorage.setItem("post-content-font-size",a-10)}else _postContent.style.fontSize="95%",_displayFontSizeInfo.innerText="95%",_asideDisplayFontSizeInfo.innerText="95%",localStorage.setItem("post-content-font-size",95)}),a.addEventListener("click",c=>{const d=document.querySelector(".main .post-single .post-content"),a=document.querySelector(".display-font-size-info"),b=document.querySelector(".aside-display-font-size-info");postContent.style.fontSize="100%",a.innerText="100%",b.innerText="100%",localStorage.setItem("post-content-font-size",100)})})</script>
 </div>
 </header>
-<div class=post-content data-animation=true><h1 id=아이템-34-int-상수-대신-열거-타입을-사용하라>[아이템 34] int 상수 대신 열거 타입을 사용하라.<a hidden class=anchor aria-hidden=true href=#아이템-34-int-상수-대신-열거-타입을-사용하라>#</a></h1>
+<div class=post-content data-animation=true><h1 id=아이템-34-int-상수-대신-열거-타입을-사용하라>[아이템 34] int 상수 대신 열거 타입을 사용하라.<a hidden class=anchor aria-hidden=true href=#아이템-34-int-상수-대신-열거-타입을-사용하라><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h1>
 <p>열거 타입이란 일정 개수의 상수 값을 정의하고 그 이외 값들은 허용하지 않는 타입입니다. 대표적으로 사계절, 요일, 태양계의 행성 등이 있습니다.</p>
-<h3 id=열거-타입을-지원하기-전-코드>열거 타입을 지원하기 전 코드<a hidden class=anchor aria-hidden=true href=#열거-타입을-지원하기-전-코드>#</a></h3>
+<h3 id=열거-타입을-지원하기-전-코드>열거 타입을 지원하기 전 코드<a hidden class=anchor aria-hidden=true href=#열거-타입을-지원하기-전-코드><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -122,7 +122,7 @@
 정수 열거 패턴을 사용한 프로그램은 깨지기가 쉽습니다. 단지 상수를 나열한 것 뿐이라 컴파일하면 그 값이 클라이언트 파일에 그대로 새겨집니다. 따라서 상수의 값이 바뀌면 클라이언트도 수정해줘야 합니다. <br>
 </br><br>
 정수 상수는 그 값을 출력하거나 디버거로 살펴보면 특별한 의미를 나타내는 것이 아니라 단지 숫자로만 보여서 썩 도움이 되지 않습니다. 정수 대신 문자열 상수를 사용하는 방법도 있지만 이 변형 역시 단점이 많습니다. 상수의 의미를 내포할 수 있지만, 문자열 값 그대로 하드코딩 해야하기 때문에 힘듭니다. 이렇게 힘들게 하드코딩한 문자열이 오타가 있어도 컴파일러는 확인할 수 없습니다.</br></p>
-<h3 id=열거-타입>열거 타입<a hidden class=anchor aria-hidden=true href=#열거-타입>#</a></h3>
+<h3 id=열거-타입>열거 타입<a hidden class=anchor aria-hidden=true href=#열거-타입><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -145,7 +145,7 @@
 </div><p>열거타입에 상수를 추가하거나 순서를 변경해도 다시 컴파일 하지 않아도 됩니다. 공개되는 것이 오직 필드의 이름 뿐이라, 정수 열거 패턴과 달리 상수 값이 클라이언트로 컴파일되어 각인되지 않기 때문입니다. 이처럼 열거 타입은 정수 열거 타입의 단점들을 해소해줍니다. <br>
 </br><br>
 열거 타입에는 메서드나 필드를 추가할 수도 있고 임의의 인터페이스를 구현하게 할 수도 있습니다. <code>Object</code>, <code>Comparable</code>, <code>Serializable</code>을 구현 했으며, 그 직렬화 형태도 웬만큼 변형을 가해도 문제없이 동작하게끔 구현해놨습니다.</p>
-<h3 id=메서드와-필드를-추가한-enum-예제>메서드와 필드를 추가한 enum 예제<a hidden class=anchor aria-hidden=true href=#메서드와-필드를-추가한-enum-예제>#</a></h3>
+<h3 id=메서드와-필드를-추가한-enum-예제>메서드와 필드를 추가한 enum 예제<a hidden class=anchor aria-hidden=true href=#메서드와-필드를-추가한-enum-예제><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt> 1
@@ -234,7 +234,7 @@
 </div>
 </div><p>열거 타입을 선언한 클래스 혹은 그 패키지에서만 유용한 기능은 private이나 package-private 메서드로 구현하는 게 좋습니다. 일반 클래스와 마찬가지로, 그 기능을 클라이언트에 노출해야 할 합당한 이유가 없다면 private 혹은 package-private으로 선언하라(Item 15)랑 같습니다.<br>
 </br></p>
-<h3 id=추천하지-않는-코드>추천하지 않는 코드<a hidden class=anchor aria-hidden=true href=#추천하지-않는-코드>#</a></h3>
+<h3 id=추천하지-않는-코드>추천하지 않는 코드<a hidden class=anchor aria-hidden=true href=#추천하지-않는-코드><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt> 1
@@ -272,7 +272,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>동작은 하지만 맹점이 있습니다. 예컨대 새로운 상수를 추가하면 해당 case 문도 추가해야 합니다. 열거 타입에 apply를 이용하여 코드를 보완할 수 있습니다.</p>
-<h3 id=상수별-메서드-구현을-활용한-열거-타입>상수별 메서드 구현을 활용한 열거 타입<a hidden class=anchor aria-hidden=true href=#상수별-메서드-구현을-활용한-열거-타입>#</a></h3>
+<h3 id=상수별-메서드-구현을-활용한-열거-타입>상수별 메서드 구현을 활용한 열거 타입<a hidden class=anchor aria-hidden=true href=#상수별-메서드-구현을-활용한-열거-타입><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt> 1
