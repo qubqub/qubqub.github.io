@@ -945,7 +945,7 @@ header.header {
   padding-left: 3px;
   visibility: visible;
   padding-inline-start: 8px;
-  padding-inline-end: 8px;
+  padding-inline-end: 5px;
   height: 24px;
   font-size: 11px;
   background-color: var(--tertiary);
@@ -959,14 +959,14 @@ header.header {
 
 .tooltip.bottom {
   top: 40px;
-  right: -45%;
+  right: -42%;
 }
 
 .tooltip.bottom:after {
   content: " ";
   position: absolute;
-  top: -45%;
-  left: 45%;
+  top: -42%;
+  left: 43%;
   /* height: 1px; */
   border-width: 5px;
   border-style: solid;
