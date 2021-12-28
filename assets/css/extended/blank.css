@@ -949,7 +949,7 @@ header.header {
   height: 24px;
   font-size: 11px;
   background-color: var(--tertiary);
-  color: #fff;
+  color: var(--primary);
   border-radius: 5px;
 
   /* Position the tooltip text - see examples below! */
