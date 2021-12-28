@@ -1024,11 +1024,12 @@ header.header {
 }
 
 .post-content code:not(.hljs) {
-  font-family: "CascadiaCode", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace !important;
+  font-family: "Roboto", "Fira Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace !important;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   border-radius: 4px;
   vertical-align: text-top;
-  font-size: 78%;
+  font-size: 0.78em;
 }
 
 .post-content .highlight pre code .hljs-comment {

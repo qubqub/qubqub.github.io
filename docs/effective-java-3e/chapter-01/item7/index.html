@@ -9,7 +9,7 @@
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  public class Stack { private Object[] elements; private int size = 0; private static final int DEFAULT_INITIAL_CAPACITY = 16; public Stack() { elements = new Object[DEFAULT_INITIAL_CAPACITY]; } public void push(Object e) { ensureCapacity(); elements[size++] = e; } public Object pop() { if (size == 0) throw new EmptyStackException(); return elements[--size]; // 주의  } private void ensureCapacity() { if (elements.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-01/item7/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.e79663010bafd88fb91cd9f7567778f4f2d574ff009ed9562c6f2b0d56f5d639.css integrity="sha256-55ZjAQuv2I+5HNn3Vnd49PLVdP8AntlWLG8rDVb11jk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c36d6ca6f120d4e79a2e5987186d3fecf7d43b903c799a40107c8cfd03e87866.css integrity="sha256-w21spvEg1OeaLlmHGG0/7PfUO5A8eZpAEHyM/QPoeGY=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
