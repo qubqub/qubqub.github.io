@@ -38,7 +38,7 @@ public class Elvis {
 
 }
 ```
-`public`이나 `protected` 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다. 단 권한이 있는 클라이언트는 리플렉션 API인 `AccessibleObject.setAccessible`을 사용해 `private` 생성자를 호출할 수 있습니다.
+`public`이나 `protected` 생성자가 없으므로 `Elvis` 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다. 단 권한이 있는 클라이언트는 리플렉션 API인 `AccessibleObject.setAccessible`을 사용해 `private` 생성자를 호출할 수 있습니다.
 
 `public` 필드 방식의 **첫 번째 장점**은 해당 클래스가 싱글턴임이 API에 명백히 드러나는 것입니다.
 
@@ -48,7 +48,7 @@ public class Elvis {
 <br>
 <br>
 
-## 📌 정적 팩토리 방식의 싱글톤
+## 📌 정적 팩토리 방식의 싱글턴
 ``` java
 public class Elvis {
 
@@ -89,6 +89,6 @@ public enum Elvis {
 }
 ```
 직렬화 상황 그리고 리플렉션 공격에서도 싱글턴임을 보장할 수 있습니다. **대부분 상황에서는 원소가 하나뿐인 열거 타입이 싱글턴을 만드는 가장 좋은 방법입니다.**   
-하지만 이 방법은 `Enum` 외의 클래스를 상속해야한다면 사용할 수 없습니다.
+하지만 이 방법은 `Enum`외의 클래스를 상속해야한다면 사용할 수 없습니다.
 
 <i class="user-fa-action-info-outline" aria-hidden="true"></i> 열거 타입이 다른 인터페이스를 구현하도록 선언할 수는 있습니다.

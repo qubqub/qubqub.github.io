@@ -37,7 +37,7 @@
 <meta name=twitter:description content="싱글턴singletone이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new키워드로 호출해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.
 싱글턴을 만드는 방식은 보통 둘 중 하나입니다. 📌 public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { ... } }   public이나 protected 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Effctive Java 3/E","item":"https://qutrits.github.io/effective-java-3e/"},{"@type":"ListItem","position":2,"name":"1장 객체 생성과 파괴","item":"https://qutrits.github.io/effective-java-3e/chapter-01/"},{"@type":"ListItem","position":3,"name":"[아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라","item":"https://qutrits.github.io/effective-java-3e/chapter-01/item3/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라","name":"[아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라","description":"싱글턴singletone이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new키워드로 호출해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.\n싱글턴을 만드는 방식은 보통 둘 중 하나입니다. 📌 public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { ... } }   public이나 protected 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다.","keywords":["Java","Effective Java 3E"],"articleBody":"싱글턴singletone이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new키워드로 호출해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.\n싱글턴을 만드는 방식은 보통 둘 중 하나입니다. 📌 public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { ... } }   public이나 protected 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다. 단 권한이 있는 클라이언트는 리플렉션 API인 AccessibleObject.setAccessible을 사용해 private 생성자를 호출할 수 있습니다.\npublic 필드 방식의 첫 번째 장점은 해당 클래스가 싱글턴임이 API에 명백히 드러나는 것입니다.\n두 번째 장점은 간결하다는 것입니다. 이 점은 생성자를 수정하여 두 번째 객체가 생성되려고 하면 예외를 단지면 됩니다.\n싱글턴을 만드는 두 번째 방법에는 정적 팩토리 메서드를 public static 멤버로 제공합니다.\n📌 정적 팩토리 방식의 싱글톤 1 2 3 4 5 6 7 8 9 10  public class Elvis { private static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } public static Elvis getInstance() { return INSTANCE; } private void leaveTheBuilding() { ... } }   이 역시 리플렉션을 통한 예외는 똑같이 적용됩니다.\n 장점\n API를 바꾸지 않고 싱글턴이 아니게 변경할 수 있습니다. 유일한 인스턴스를 반환하던 팩터리 메서드가 호출하는 스레드별로 다른 인스턴스를 넘겨주게 할 수 있습니다. 정적 팩토리 메서드 참조를 공급자supplier로 사용할 수 있습니다.\n  위에서 살펴본 두 방법 모두 직렬화Serialization하려면 모든 인스턴스 필드를 일시적transient이라고 선언하고 readResolve 메서드를 다음과 같이 제공해야 합니다.\n1 2 3  private Object readResolve() { returm INSTANCE; }   이렇게 하지 않으면 역직렬화Deserialization 할때마다 새로운 인스턴스가 생성됩니다. 📌 열거 타입의 방식의 싱글턴 1 2 3 4 5  public enum Elvis { INSTANCE; public void leaveTheBuilding() { ... } }   직렬화 상황 그리고 리플렉션 공격에서도 싱글턴임을 보장할 수 있습니다. 대부분 상황에서는 원소가 하나뿐인 열거 타입이 싱글턴을 만드는 가장 좋은 방법입니다.\n하지만 이 방법은 Enum 외의 클래스를 상속해야한다면 사용할 수 없습니다.\n 열거 타입이 다른 인터페이스를 구현하도록 선언할 수는 있습니다.\n","wordCount":"318","inLanguage":"ko","datePublished":"2020-06-18T19:09:20+09:00","dateModified":"2020-06-18T19:09:20+09:00","author":[{"@type":"Person","name":"Kyungchul Shin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/effective-java-3e/chapter-01/item3/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.webp"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라","name":"[아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라","description":"싱글턴singletone이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new키워드로 호출해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.\n싱글턴을 만드는 방식은 보통 둘 중 하나입니다. 📌 public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { ... } }   public이나 protected 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다.","keywords":["Java","Effective Java 3E"],"articleBody":"싱글턴singletone이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new키워드로 호출해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.\n싱글턴을 만드는 방식은 보통 둘 중 하나입니다. 📌 public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { ... } }   public이나 protected 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다. 단 권한이 있는 클라이언트는 리플렉션 API인 AccessibleObject.setAccessible을 사용해 private 생성자를 호출할 수 있습니다.\npublic 필드 방식의 첫 번째 장점은 해당 클래스가 싱글턴임이 API에 명백히 드러나는 것입니다.\n두 번째 장점은 간결하다는 것입니다. 이 점은 생성자를 수정하여 두 번째 객체가 생성되려고 하면 예외를 단지면 됩니다.\n싱글턴을 만드는 두 번째 방법에는 정적 팩토리 메서드를 public static 멤버로 제공합니다.\n📌 정적 팩토리 방식의 싱글턴 1 2 3 4 5 6 7 8 9 10  public class Elvis { private static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } public static Elvis getInstance() { return INSTANCE; } private void leaveTheBuilding() { ... } }   이 역시 리플렉션을 통한 예외는 똑같이 적용됩니다.\n 장점\n API를 바꾸지 않고 싱글턴이 아니게 변경할 수 있습니다. 유일한 인스턴스를 반환하던 팩터리 메서드가 호출하는 스레드별로 다른 인스턴스를 넘겨주게 할 수 있습니다. 정적 팩토리 메서드 참조를 공급자supplier로 사용할 수 있습니다.\n  위에서 살펴본 두 방법 모두 직렬화Serialization하려면 모든 인스턴스 필드를 일시적transient이라고 선언하고 readResolve 메서드를 다음과 같이 제공해야 합니다.\n1 2 3  private Object readResolve() { returm INSTANCE; }   이렇게 하지 않으면 역직렬화Deserialization 할때마다 새로운 인스턴스가 생성됩니다. 📌 열거 타입의 방식의 싱글턴 1 2 3 4 5  public enum Elvis { INSTANCE; public void leaveTheBuilding() { ... } }   직렬화 상황 그리고 리플렉션 공격에서도 싱글턴임을 보장할 수 있습니다. 대부분 상황에서는 원소가 하나뿐인 열거 타입이 싱글턴을 만드는 가장 좋은 방법입니다.\n하지만 이 방법은 Enum외의 클래스를 상속해야한다면 사용할 수 없습니다.\n 열거 타입이 다른 인터페이스를 구현하도록 선언할 수는 있습니다.\n","wordCount":"317","inLanguage":"ko","datePublished":"2020-06-18T19:09:20+09:00","dateModified":"2020-06-18T19:09:20+09:00","author":[{"@type":"Person","name":"Kyungchul Shin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/effective-java-3e/chapter-01/item3/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.webp"}}}</script>
 </head>
 <body>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -188,7 +188,7 @@
 <li>
 <a href=#-public-static-%eb%a9%a4%eb%b2%84%ea%b0%80-final%ec%9d%b8-%eb%b0%a9%ec%8b%9d aria-label="📌 public static 멤버가 final인 방식">📌 public static 멤버가 final인 방식</a></li>
 <li>
-<a href=#-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%86%a4 aria-label="📌 정적 팩토리 방식의 싱글톤">📌 정적 팩토리 방식의 싱글톤</a></li>
+<a href=#-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%84%b4 aria-label="📌 정적 팩토리 방식의 싱글턴">📌 정적 팩토리 방식의 싱글턴</a></li>
 <li>
 <a href=#-%ec%97%b4%ea%b1%b0-%ed%83%80%ec%9e%85%ec%9d%98-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%84%b4 aria-label="📌 열거 타입의 방식의 싱글턴">📌 열거 타입의 방식의 싱글턴</a>
 </li>
@@ -208,7 +208,7 @@
 <li>
 <a href=#-public-static-%eb%a9%a4%eb%b2%84%ea%b0%80-final%ec%9d%b8-%eb%b0%a9%ec%8b%9d aria-label="📌 public static 멤버가 final인 방식">📌 public static 멤버가 final인 방식</a></li>
 <li>
-<a href=#-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%86%a4 aria-label="📌 정적 팩토리 방식의 싱글톤">📌 정적 팩토리 방식의 싱글톤</a></li>
+<a href=#-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%84%b4 aria-label="📌 정적 팩토리 방식의 싱글턴">📌 정적 팩토리 방식의 싱글턴</a></li>
 <li>
 <a href=#-%ec%97%b4%ea%b1%b0-%ed%83%80%ec%9e%85%ec%9d%98-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%84%b4 aria-label="📌 열거 타입의 방식의 싱글턴">📌 열거 타입의 방식의 싱글턴</a>
 </li>
@@ -246,13 +246,13 @@
 <span class=o>}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><code>public</code>이나 <code>protected</code> 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다. 단 권한이 있는 클라이언트는 리플렉션 API인 <code>AccessibleObject.setAccessible</code>을 사용해 <code>private</code> 생성자를 호출할 수 있습니다.</p>
+</div><p><code>public</code>이나 <code>protected</code> 생성자가 없으므로 <code>Elvis</code> 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다. 단 권한이 있는 클라이언트는 리플렉션 API인 <code>AccessibleObject.setAccessible</code>을 사용해 <code>private</code> 생성자를 호출할 수 있습니다.</p>
 <p><code>public</code> 필드 방식의 <strong>첫 번째 장점</strong>은 해당 클래스가 싱글턴임이 API에 명백히 드러나는 것입니다.</p>
 <p><strong>두 번째 장점</strong>은 간결하다는 것입니다. 이 점은 생성자를 수정하여 두 번째 객체가 생성되려고 하면 예외를 단지면 됩니다.</p>
 <p>싱글턴을 만드는 <strong>두 번째 방법</strong>에는 정적 팩토리 메서드를 <code>public static</code> 멤버로 제공합니다.<br>
 <br><br>
 <br></p>
-<h2 id=-정적-팩토리-방식의-싱글톤>📌 정적 팩토리 방식의 싱글톤<a hidden class=anchor aria-hidden=true href=#-정적-팩토리-방식의-싱글톤><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<h2 id=-정적-팩토리-방식의-싱글턴>📌 정적 팩토리 방식의 싱글턴<a hidden class=anchor aria-hidden=true href=#-정적-팩토리-방식의-싱글턴><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt> 1
@@ -322,7 +322,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>직렬화 상황 그리고 리플렉션 공격에서도 싱글턴임을 보장할 수 있습니다. <strong>대부분 상황에서는 원소가 하나뿐인 열거 타입이 싱글턴을 만드는 가장 좋은 방법입니다.</strong><br>
-하지만 이 방법은 <code>Enum</code> 외의 클래스를 상속해야한다면 사용할 수 없습니다.</p>
+하지만 이 방법은 <code>Enum</code>외의 클래스를 상속해야한다면 사용할 수 없습니다.</p>
 <p><i class=user-fa-action-info-outline aria-hidden=true></i> 열거 타입이 다른 인터페이스를 구현하도록 선언할 수는 있습니다.</p>
 </div>
 <footer class=post-footer data-animation=true><div class=post-license-info>

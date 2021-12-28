@@ -56,8 +56,8 @@ finalizer는 굉장히 lazy 합니다. 여기서 lazy하다는 뜻은 인스턴�
       <pubDate>Fri, 19 Jun 2020 17:15:21 +0900</pubDate>
       
       <guid>https://qutrits.github.io/effective-java-3e/chapter-01/item5/</guid>
-      <description>대부분의 클래스는 하나 이상의 리소스에 의존합니다. 이번 예제에서는 SpellChecker가 Lexicon을 의존하고 있는 모습입니다.
-부적절한 구현 📌 정적 유틸리티를 잘못 사용한 예 - 유연하지 않고 테스트 할 수 없다 1 2 3 4 5 6 7 8 9 10  public class SpellChecker { private static final Lexicon dictionary = ...; private SpellChecker() {} // 객체 생성 방지  public static boolean isValid(String word) { ... } public static List&amp;lt;String&amp;gt; suggestions(String typo) { .</description>
+      <description>대부분의 클래스는 하나 이상의 리소스에 의존합니다. 이번 예제 코드는 SpellChecker가 Lexicon을 의존하고 있는 모습입니다.
+부적절한 구현 📌 정적 유틸리티를 잘못 사용한 예 - 유연하지 않고 테스트할 수 없다 1 2 3 4 5 6 7 8 9 10  public class SpellChecker { private static final Lexicon dictionary = ...; private SpellChecker() {} // 객체 생성 방지  public static boolean isValid(String word) { ... } public static List&amp;lt;String&amp;gt; suggestions(String typo) { .</description>
     </item>
     
     <item>
