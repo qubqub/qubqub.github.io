@@ -5,12 +5,11 @@
 <meta name=robots content="index, follow">
 <title>[아이템 3] private 생성자나 열거 타입으로 싱글턴임을 보증하라 | &lt;Qutrits/></title>
 <meta name=keywords content="Java,Effective Java 3E">
-<meta name=description content="[아이템 3] private 생성자나 열거 타입으로 싱글턴임을 보증하라 싱글턴(singletone)이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.
-싱글턴을 만드는 방식은 보통 둘 중 하나입니다.
-public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { .">
+<meta name=description content="싱글턴singletone이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new키워드로 호출해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.
+싱글턴을 만드는 방식은 보통 둘 중 하나입니다. 📌 public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { ... } }   public이나 protected 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-01/item3/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.c36d6ca6f120d4e79a2e5987186d3fecf7d43b903c799a40107c8cfd03e87866.css integrity="sha256-w21spvEg1OeaLlmHGG0/7PfUO5A8eZpAEHyM/QPoeGY=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.176fb69d9105cf05dcf4f0a6515244d22f405164963b34d1c85de48c9ea22d1d.css integrity="sha256-F2+2nZEFzwXc9PCmUVJE0i9AUWSWOzTRyF3kjJ6iLR0=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -26,9 +25,8 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="[아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라">
-<meta property="og:description" content="[아이템 3] private 생성자나 열거 타입으로 싱글턴임을 보증하라 싱글턴(singletone)이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.
-싱글턴을 만드는 방식은 보통 둘 중 하나입니다.
-public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { .">
+<meta property="og:description" content="싱글턴singletone이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new키워드로 호출해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.
+싱글턴을 만드는 방식은 보통 둘 중 하나입니다. 📌 public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { ... } }   public이나 protected 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://qutrits.github.io/effective-java-3e/chapter-01/item3/"><meta property="article:section" content="effective-java-3e">
 <meta property="article:published_time" content="2020-06-18T19:09:20+09:00">
@@ -36,11 +34,10 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
 <meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item33/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item32/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item31/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item30/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item29/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item28/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="[아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라">
-<meta name=twitter:description content="[아이템 3] private 생성자나 열거 타입으로 싱글턴임을 보증하라 싱글턴(singletone)이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.
-싱글턴을 만드는 방식은 보통 둘 중 하나입니다.
-public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { .">
+<meta name=twitter:description content="싱글턴singletone이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new키워드로 호출해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.
+싱글턴을 만드는 방식은 보통 둘 중 하나입니다. 📌 public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { ... } }   public이나 protected 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Effctive Java 3/E","item":"https://qutrits.github.io/effective-java-3e/"},{"@type":"ListItem","position":2,"name":"1장 객체 생성과 파괴","item":"https://qutrits.github.io/effective-java-3e/chapter-01/"},{"@type":"ListItem","position":3,"name":"[아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라","item":"https://qutrits.github.io/effective-java-3e/chapter-01/item3/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라","name":"[아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라","description":"[아이템 3] private 생성자나 열거 타입으로 싱글턴임을 보증하라 싱글턴(singletone)이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.\n싱글턴을 만드는 방식은 보통 둘 중 하나입니다.\npublic static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { .","keywords":["Java","Effective Java 3E"],"articleBody":"[아이템 3] private 생성자나 열거 타입으로 싱글턴임을 보증하라 싱글턴(singletone)이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.\n싱글턴을 만드는 방식은 보통 둘 중 하나입니다.\npublic static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { ... } }   public이나 protected 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다. 단 권한이 있는 클라이언트는 리플렉션 API인 AccessibleObject.setAccessible을 사용해 private 생성자를 호출할 수 있습니다. public 필드 방식의 첫번째 장점은 해당 클래스가 싱글턴임이 API에 명백히 드러나는 것입니다.\n두 번째 장점은 간결하다는 것입니다.\n이 점은 생성자를 수정하여 두 번째 객체가 생성되려고 하면 예외를 단지면 됩니다.\n싱글턴을 만드는 두 번째 방법에는 정적 팩토리 메서드를 public static 멤버로 제공합니다.\n정적 팩토리 방식의 싱글톤 1 2 3 4 5 6 7 8 9 10 11  public class Elvis { private static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } public static Elvis getInstance() { return INSTANCE; } private void leaveTheBuilding() { ... } }   이 역시 리플렉션을 통한 예외는 똑같이 적용됩니다.\n장점\n API를 바꾸지 않고 싱글턴이 아니게 변경할 수 있습니다. 유일한 인스턴스를 반환하던 팩터리 메서드가 호출하는 스레드별로 다른 인스턴스를 넘겨주게 할 수 있습니다. 정적 팩토리 메서드 참조를 공급자(supplier)로 사용할 수 있습니다.  위에서 살펴본 두 방법 모두 직렬화하려면 모든 인스턴스 필드를 일시적(transient)이라고 선언하고 readResolve 메서드를 다음과 같이 제공해야 합니다.\n1 2 3  private Object readResolve() { returm INSTANCE; }   이렇게 하지 않으면 역직렬화 할때마다 새로운 인스턴스가 생성됩니다.\n열거 타입의 방식의 싱글턴 1 2 3 4 5  public enum Elvis { INSTANCEl public void leaveTheBuilding() { ... } }   직렬화 상황 그리고 리플렉션 공격에서도 싱글턴임을 보장할 수 있습니다. 대부분 상황에서는 원소가 하나뿐인 열거 타입이 싱글턴을 만드는 가장 좋은 방법입니다.\n하지만 이 방법은 Enum 외의 클래스를 상속해야한다면 사용할 수 없습니다.(인터페이스를 구현할 수는 있습니다)\n","wordCount":"317","inLanguage":"ko","datePublished":"2020-06-18T19:09:20+09:00","dateModified":"2020-06-18T19:09:20+09:00","author":[{"@type":"Person","name":"Kyungchul Shin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/effective-java-3e/chapter-01/item3/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.webp"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라","name":"[아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라","description":"싱글턴singletone이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new키워드로 호출해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.\n싱글턴을 만드는 방식은 보통 둘 중 하나입니다. 📌 public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { ... } }   public이나 protected 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다.","keywords":["Java","Effective Java 3E"],"articleBody":"싱글턴singletone이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new키워드로 호출해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.\n싱글턴을 만드는 방식은 보통 둘 중 하나입니다. 📌 public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { ... } }   public이나 protected 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다. 단 권한이 있는 클라이언트는 리플렉션 API인 AccessibleObject.setAccessible을 사용해 private 생성자를 호출할 수 있습니다.\npublic 필드 방식의 첫 번째 장점은 해당 클래스가 싱글턴임이 API에 명백히 드러나는 것입니다.\n두 번째 장점은 간결하다는 것입니다. 이 점은 생성자를 수정하여 두 번째 객체가 생성되려고 하면 예외를 단지면 됩니다.\n싱글턴을 만드는 두 번째 방법에는 정적 팩토리 메서드를 public static 멤버로 제공합니다.\n📌 정적 팩토리 방식의 싱글톤 1 2 3 4 5 6 7 8 9 10  public class Elvis { private static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } public static Elvis getInstance() { return INSTANCE; } private void leaveTheBuilding() { ... } }   이 역시 리플렉션을 통한 예외는 똑같이 적용됩니다.\n 장점\n API를 바꾸지 않고 싱글턴이 아니게 변경할 수 있습니다. 유일한 인스턴스를 반환하던 팩터리 메서드가 호출하는 스레드별로 다른 인스턴스를 넘겨주게 할 수 있습니다. 정적 팩토리 메서드 참조를 공급자supplier로 사용할 수 있습니다.\n  위에서 살펴본 두 방법 모두 직렬화Serialization하려면 모든 인스턴스 필드를 일시적transient이라고 선언하고 readResolve 메서드를 다음과 같이 제공해야 합니다.\n1 2 3  private Object readResolve() { returm INSTANCE; }   이렇게 하지 않으면 역직렬화Deserialization 할때마다 새로운 인스턴스가 생성됩니다. 📌 열거 타입의 방식의 싱글턴 1 2 3 4 5  public enum Elvis { INSTANCE; public void leaveTheBuilding() { ... } }   직렬화 상황 그리고 리플렉션 공격에서도 싱글턴임을 보장할 수 있습니다. 대부분 상황에서는 원소가 하나뿐인 열거 타입이 싱글턴을 만드는 가장 좋은 방법입니다.\n하지만 이 방법은 Enum 외의 클래스를 상속해야한다면 사용할 수 없습니다.\n 열거 타입이 다른 인터페이스를 구현하도록 선언할 수는 있습니다.\n","wordCount":"318","inLanguage":"ko","datePublished":"2020-06-18T19:09:20+09:00","dateModified":"2020-06-18T19:09:20+09:00","author":[{"@type":"Person","name":"Kyungchul Shin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/effective-java-3e/chapter-01/item3/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.webp"}}}</script>
 </head>
 <body>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -146,10 +143,10 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
 <a href=/effective-java-3e/chapter-01/item4/>[아이템 4] 인스턴스를 막으려거든 private 생성자를 사용하라</a>
 </li>
 <li hugo-nav=/effective-java-3e/chapter-01/item5/>
-<a href=/effective-java-3e/chapter-01/item5/>[아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하여라</a>
+<a href=/effective-java-3e/chapter-01/item5/>[아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하라</a>
 </li>
 <li hugo-nav=/effective-java-3e/chapter-01/item6/>
-<a href=/effective-java-3e/chapter-01/item6/>[아이템 6] 불피요한 객체를 생성을 피하라</a>
+<a href=/effective-java-3e/chapter-01/item6/>[아이템 6] 불필요한 객체를 생성을 피하라</a>
 </li>
 <li hugo-nav=/effective-java-3e/chapter-01/item7/>
 <a href=/effective-java-3e/chapter-01/item7/>[아이템 7] 다 쓴 객체 참조를 해제하라</a>
@@ -189,15 +186,11 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
 </summary>
 <div class=inner><ul>
 <li>
-<a href=#%ec%95%84%ec%9d%b4%ed%85%9c-3-private-%ec%83%9d%ec%84%b1%ec%9e%90%eb%82%98-%ec%97%b4%ea%b1%b0-%ed%83%80%ec%9e%85%ec%9c%bc%eb%a1%9c--%ec%8b%b1%ea%b8%80%ed%84%b4%ec%9e%84%ec%9d%84-%eb%b3%b4%ec%a6%9d%ed%95%98%eb%9d%bc aria-label="[아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라">[아이템 3] private 생성자나 열거 타입으로 싱글턴임을 보증하라</a><ul>
+<a href=#-public-static-%eb%a9%a4%eb%b2%84%ea%b0%80-final%ec%9d%b8-%eb%b0%a9%ec%8b%9d aria-label="📌 public static 멤버가 final인 방식">📌 public static 멤버가 final인 방식</a></li>
 <li>
-<a href=#public-static-%eb%a9%a4%eb%b2%84%ea%b0%80-final%ec%9d%b8-%eb%b0%a9%ec%8b%9d aria-label="public static 멤버가 final인 방식"><strong>public static 멤버가 final인 방식</strong></a></li>
+<a href=#-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%86%a4 aria-label="📌 정적 팩토리 방식의 싱글톤">📌 정적 팩토리 방식의 싱글톤</a></li>
 <li>
-<a href=#%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%86%a4 aria-label="정적 팩토리 방식의 싱글톤"><strong>정적 팩토리 방식의 싱글톤</strong></a></li>
-<li>
-<a href=#%ec%97%b4%ea%b1%b0-%ed%83%80%ec%9e%85%ec%9d%98-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%84%b4 aria-label="열거 타입의 방식의 싱글턴"><strong>열거 타입의 방식의 싱글턴</strong></a>
-</li>
-</ul>
+<a href=#-%ec%97%b4%ea%b1%b0-%ed%83%80%ec%9e%85%ec%9d%98-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%84%b4 aria-label="📌 열거 타입의 방식의 싱글턴">📌 열거 타입의 방식의 싱글턴</a>
 </li>
 </ul>
 </div>
@@ -213,15 +206,11 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
 <div class=inner-wrapper>
 <div class=inner><ul>
 <li>
-<a href=#%ec%95%84%ec%9d%b4%ed%85%9c-3-private-%ec%83%9d%ec%84%b1%ec%9e%90%eb%82%98-%ec%97%b4%ea%b1%b0-%ed%83%80%ec%9e%85%ec%9c%bc%eb%a1%9c--%ec%8b%b1%ea%b8%80%ed%84%b4%ec%9e%84%ec%9d%84-%eb%b3%b4%ec%a6%9d%ed%95%98%eb%9d%bc aria-label="[아이템 3] private 생성자나 열거 타입으로  싱글턴임을 보증하라">[아이템 3] private 생성자나 열거 타입으로 싱글턴임을 보증하라</a><ul>
+<a href=#-public-static-%eb%a9%a4%eb%b2%84%ea%b0%80-final%ec%9d%b8-%eb%b0%a9%ec%8b%9d aria-label="📌 public static 멤버가 final인 방식">📌 public static 멤버가 final인 방식</a></li>
 <li>
-<a href=#public-static-%eb%a9%a4%eb%b2%84%ea%b0%80-final%ec%9d%b8-%eb%b0%a9%ec%8b%9d aria-label="public static 멤버가 final인 방식"><strong>public static 멤버가 final인 방식</strong></a></li>
+<a href=#-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%86%a4 aria-label="📌 정적 팩토리 방식의 싱글톤">📌 정적 팩토리 방식의 싱글톤</a></li>
 <li>
-<a href=#%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%86%a4 aria-label="정적 팩토리 방식의 싱글톤"><strong>정적 팩토리 방식의 싱글톤</strong></a></li>
-<li>
-<a href=#%ec%97%b4%ea%b1%b0-%ed%83%80%ec%9e%85%ec%9d%98-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%84%b4 aria-label="열거 타입의 방식의 싱글턴"><strong>열거 타입의 방식의 싱글턴</strong></a>
-</li>
-</ul>
+<a href=#-%ec%97%b4%ea%b1%b0-%ed%83%80%ec%9e%85%ec%9d%98-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%84%b4 aria-label="📌 열거 타입의 방식의 싱글턴">📌 열거 타입의 방식의 싱글턴</a>
 </li>
 </ul>
 </div>
@@ -229,10 +218,10 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
 </div>
 </div>
 <script>const tocAside_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};tocAside_DOMReady(function(){const g=[],k=document.querySelector(".main .post-single>.toc"),b=document.querySelector(".main .toc-aside"),i=document.querySelector(".post-header"),h=i.offsetHeight+i.offsetTop+i.offsetParent.offsetTop-1;let c=null,e=null,f=null,a=null;if(b){c=document.querySelector(".main .toc-aside-summary"),e=b.querySelector(".inner-wrapper"),f=c.querySelector(".toggle"),a=b.querySelectorAll(".inner-wrapper .inner ul>li"),localStorage.getItem("lock-aside-toc-"+window.location.pathname)==="true"?(c.dataset.isLock=!0,e.classList.add("close"),f.querySelector(".unlock").classList.add("hide")):(c.dataset.isLock=!1,e.classList.add("open"),f.querySelector(".lock").classList.add("hide"));for(let b=0;b<a.length;b++)g[b]=decodeURI(a[b].firstElementChild.hash.substring(1));h<window.pageYOffset?(b.classList.remove("hide"),b.classList.add("reveal"),c.classList.remove("hide")):h>=window.pageYOffset&&b.classList.add("hide"),c.addEventListener("click",()=>{c.dataset.isLock==="false"?(c.dataset.isLock=!0,localStorage.setItem("lock-aside-toc-"+window.location.pathname,!0),f.querySelector(".lock").classList.remove("hide"),f.querySelector(".unlock").classList.add("hide"),e.classList.add("close"),e.classList.remove("open")):(c.dataset.isLock=!1,localStorage.setItem("lock-aside-toc-"+window.location.pathname,!1),f.querySelector(".lock").classList.add("hide"),f.querySelector(".unlock").classList.remove("hide"),e.classList.add("open"),e.classList.remove("close"))})}let d=0,j=0;window.addEventListener("scroll",()=>{if(d=window.pageYOffset,b){const k=Math.ceil(d+window.innerHeight)>=document.body.scrollHeight;h<d&&b.classList.contains("hide")?(b.classList.remove("hide"),b.classList.add("reveal"),c.classList.remove("hide")):h>=d&&b.classList.contains("reveal")&&(b.scrollTop=0,b.classList.remove("reveal"),b.classList.add("hide"),c.classList.add("hide"));let f=null,i=null,e=null,l=null;if(g.map((c,b)=>{l=document.getElementById(c);const g=l.getBoundingClientRect(),h=g.top;d+h-1<=d&&(f=a[b],e=b)}),e!==null){if(k){for(let b=0;b<a.length;b++){if(!a[b].classList.contains("selected"))continue;a[b].classList.remove("selected")}a[g.length-1].classList.add("selected"),i=a[g.length-1]}else{if(f===i&&e>0){j=d;return}for(let b=0;b<a.length;b++){if(!a[b].classList.contains("selected"))continue;a[b].classList.remove("selected")}f.classList.add("selected"),i=f}e!==null&&b.scroll({behavior:'smooth',top:e*20})}else if(k)a[g.length-1].classList.add("selected"),i=a[g.length-1];else{if(b.querySelector(".selected")===null){j=d;return}for(let b=0;b<a.length;b++){if(!a[b].classList.contains("selected"))continue;a[b].classList.remove("selected")}}}j=d})})</script>
-<div class=post-content data-animation=true><h2 id=아이템-3-private-생성자나-열거-타입으로--싱글턴임을-보증하라>[아이템 3] private 생성자나 열거 타입으로 싱글턴임을 보증하라<a hidden class=anchor aria-hidden=true href=#아이템-3-private-생성자나-열거-타입으로--싱글턴임을-보증하라><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
-<p>싱글턴(singletone)이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.<br>
-싱글턴을 만드는 방식은 보통 둘 중 하나입니다.</p>
-<h3 id=public-static-멤버가-final인-방식><strong>public static 멤버가 final인 방식</strong><a hidden class=anchor aria-hidden=true href=#public-static-멤버가-final인-방식><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
+<div class=post-content data-animation=true><p>싱글턴<code>singletone</code>이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 <code>new</code>키워드로 호출해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.</p>
+<p>싱글턴을 만드는 방식은 보통 둘 중 하나입니다. <br>
+<br></p>
+<h2 id=-public-static-멤버가-final인-방식>📌 public static 멤버가 final인 방식<a hidden class=anchor aria-hidden=true href=#-public-static-멤버가-final인-방식><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -248,20 +237,22 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
 <td class=lntd>
 <pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>class</span> <span class=nc>Elvis</span> <span class=o>{</span>
 
-  <span class=kd>public</span> <span class=kd>static</span> <span class=kd>final</span> <span class=n>Elvis</span> <span class=n>INSTANCE</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Elvis</span><span class=o>();</span>
+    <span class=kd>public</span> <span class=kd>static</span> <span class=kd>final</span> <span class=n>Elvis</span> <span class=n>INSTANCE</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Elvis</span><span class=o>();</span>
 
-  <span class=kd>private</span> <span class=kt>void</span> <span class=nf>Elvis</span><span class=o>()</span> <span class=o>{</span> <span class=o>...</span> <span class=o>}</span>
+    <span class=kd>private</span> <span class=kt>void</span> <span class=nf>Elvis</span><span class=o>()</span> <span class=o>{</span> <span class=o>...</span> <span class=o>}</span>
 
-  <span class=kd>private</span> <span class=kt>void</span> <span class=nf>leaveTheBuilding</span><span class=o>()</span> <span class=o>{</span> <span class=o>...</span> <span class=o>}</span>
+    <span class=kd>private</span> <span class=kt>void</span> <span class=nf>leaveTheBuilding</span><span class=o>()</span> <span class=o>{</span> <span class=o>...</span> <span class=o>}</span>
 
 <span class=o>}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>public이나 protected 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다. 단 권한이 있는 클라이언트는 리플렉션 API인 AccessibleObject.setAccessible을 사용해 private 생성자를 호출할 수 있습니다. public 필드 방식의 첫번째 장점은 해당 클래스가 싱글턴임이 API에 명백히 드러나는 것입니다.<br>
-두 번째 장점은 간결하다는 것입니다.<br>
-이 점은 생성자를 수정하여 두 번째 객체가 생성되려고 하면 예외를 단지면 됩니다.</p>
-<p>싱글턴을 만드는 두 번째 방법에는 정적 팩토리 메서드를 public static 멤버로 제공합니다.</p>
-<h3 id=정적-팩토리-방식의-싱글톤><strong>정적 팩토리 방식의 싱글톤</strong><a hidden class=anchor aria-hidden=true href=#정적-팩토리-방식의-싱글톤><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
+</div><p><code>public</code>이나 <code>protected</code> 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다. 단 권한이 있는 클라이언트는 리플렉션 API인 <code>AccessibleObject.setAccessible</code>을 사용해 <code>private</code> 생성자를 호출할 수 있습니다.</p>
+<p><code>public</code> 필드 방식의 <strong>첫 번째 장점</strong>은 해당 클래스가 싱글턴임이 API에 명백히 드러나는 것입니다.</p>
+<p><strong>두 번째 장점</strong>은 간결하다는 것입니다. 이 점은 생성자를 수정하여 두 번째 객체가 생성되려고 하면 예외를 단지면 됩니다.</p>
+<p>싱글턴을 만드는 <strong>두 번째 방법</strong>에는 정적 팩토리 메서드를 <code>public static</code> 멤버로 제공합니다.<br>
+<br><br>
+<br></p>
+<h2 id=-정적-팩토리-방식의-싱글톤>📌 정적 팩토리 방식의 싱글톤<a hidden class=anchor aria-hidden=true href=#-정적-팩토리-방식의-싱글톤><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt> 1
@@ -274,30 +265,30 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
 </span><span class=lnt> 8
 </span><span class=lnt> 9
 </span><span class=lnt>10
-</span><span class=lnt>11
 </span></code></pre></td>
 <td class=lntd>
 <pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>class</span> <span class=nc>Elvis</span> <span class=o>{</span>
 
-  <span class=kd>private</span> <span class=kd>static</span> <span class=kd>final</span> <span class=n>Elvis</span> <span class=n>INSTANCE</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Elvis</span><span class=o>();</span>
+    <span class=kd>private</span> <span class=kd>static</span> <span class=kd>final</span> <span class=n>Elvis</span> <span class=n>INSTANCE</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Elvis</span><span class=o>();</span>
 
-  <span class=kd>private</span> <span class=kt>void</span> <span class=nf>Elvis</span><span class=o>()</span> <span class=o>{</span> <span class=o>...</span> <span class=o>}</span>
-  <span class=kd>public</span> <span class=kd>static</span> <span class=n>Elvis</span> <span class=nf>getInstance</span><span class=o>()</span> <span class=o>{</span> <span class=k>return</span> <span class=n>INSTANCE</span><span class=o>;</span> <span class=o>}</span>
+    <span class=kd>private</span> <span class=kt>void</span> <span class=nf>Elvis</span><span class=o>()</span> <span class=o>{</span> <span class=o>...</span> <span class=o>}</span>
+    <span class=kd>public</span> <span class=kd>static</span> <span class=n>Elvis</span> <span class=nf>getInstance</span><span class=o>()</span> <span class=o>{</span> <span class=k>return</span> <span class=n>INSTANCE</span><span class=o>;</span> <span class=o>}</span>
 
-
-  <span class=kd>private</span> <span class=kt>void</span> <span class=nf>leaveTheBuilding</span><span class=o>()</span> <span class=o>{</span> <span class=o>...</span> <span class=o>}</span>
+    <span class=kd>private</span> <span class=kt>void</span> <span class=nf>leaveTheBuilding</span><span class=o>()</span> <span class=o>{</span> <span class=o>...</span> <span class=o>}</span>
 
 <span class=o>}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>이 역시 리플렉션을 통한 예외는 똑같이 적용됩니다.<br>
-장점</p>
+<br><br>
+<i class=user-fa-action-done aria-hidden=true></i> 장점</p>
 <ul>
 <li>API를 바꾸지 않고 싱글턴이 아니게 변경할 수 있습니다.</li>
 <li>유일한 인스턴스를 반환하던 팩터리 메서드가 호출하는 스레드별로 다른 인스턴스를 넘겨주게 할 수 있습니다.</li>
-<li>정적 팩토리 메서드 참조를 공급자(supplier)로 사용할 수 있습니다.</li>
+<li>정적 팩토리 메서드 참조를 공급자<code>supplier</code>로 사용할 수 있습니다.<br>
+<br></li>
 </ul>
-<p>위에서 살펴본 두 방법 모두 직렬화하려면 모든 인스턴스 필드를 일시적(transient)이라고 선언하고 <code>readResolve</code> 메서드를 다음과 같이 제공해야 합니다.</p>
+<p>위에서 살펴본 두 방법 모두 직렬화<code>Serialization</code>하려면 모든 인스턴스 필드를 일시적<code>transient</code>이라고 선언하고 <code>readResolve</code> 메서드를 다음과 같이 제공해야 합니다.</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -310,8 +301,10 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
 <span class=o>}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>이렇게 하지 않으면 역직렬화 할때마다 새로운 인스턴스가 생성됩니다.</p>
-<h3 id=열거-타입의-방식의-싱글턴><strong>열거 타입의 방식의 싱글턴</strong><a hidden class=anchor aria-hidden=true href=#열거-타입의-방식의-싱글턴><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
+</div><p>이렇게 하지 않으면 역직렬화<code>Deserialization</code> 할때마다 새로운 인스턴스가 생성됩니다. <br>
+<br><br>
+<br></p>
+<h2 id=-열거-타입의-방식의-싱글턴>📌 열거 타입의 방식의 싱글턴<a hidden class=anchor aria-hidden=true href=#-열거-타입의-방식의-싱글턴><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -322,14 +315,15 @@ public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { 
 </span></code></pre></td>
 <td class=lntd>
 <pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>enum</span> <span class=n>Elvis</span> <span class=o>{</span>
-    <span class=n>INSTANCEl</span>
+    <span class=n>INSTANCE</span><span class=o>;</span>
 
     <span class=kd>public</span> <span class=kt>void</span> <span class=nf>leaveTheBuilding</span><span class=o>()</span> <span class=o>{</span> <span class=o>...</span> <span class=o>}</span>
 <span class=o>}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>직렬화 상황 그리고 리플렉션 공격에서도 싱글턴임을 보장할 수 있습니다. <strong>대부분 상황에서는 원소가 하나뿐인 열거 타입이 싱글턴을 만드는 가장 좋은 방법입니다.</strong><br>
-하지만 이 방법은 Enum 외의 클래스를 상속해야한다면 사용할 수 없습니다.(인터페이스를 구현할 수는 있습니다)</p>
+하지만 이 방법은 <code>Enum</code> 외의 클래스를 상속해야한다면 사용할 수 없습니다.</p>
+<p><i class=user-fa-action-info-outline aria-hidden=true></i> 열거 타입이 다른 인터페이스를 구현하도록 선언할 수는 있습니다.</p>
 </div>
 <footer class=post-footer data-animation=true><div class=post-license-info>
 <a class=button rel=license href=https://creativecommons.org/licenses/by-sa/4.0/deed.ko target=_blank>

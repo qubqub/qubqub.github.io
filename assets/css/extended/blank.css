@@ -1029,7 +1029,7 @@ header.header {
   -moz-osx-font-smoothing: grayscale;
   border-radius: 4px;
   vertical-align: text-top;
-  font-size: 0.78em;
+  font-size: 0.8em;
 }
 
 .post-content .highlight pre code .hljs-comment {
@@ -2427,17 +2427,31 @@ a.button,
   font-style: normal;
 }
 [class^="user-fa-"], [class*=" user-fa-"] {
-  font-family: "Material-Design-Icons";
+  font-size: 1em;
+  vertical-align: -0.07em;
   speak: none;
-  font-style: normal;
+  font-family: 'Material-Design-Icons';
   font-weight: normal;
-  font-variant: normal;
+  font-style: normal;
+  /* font-size: 24px; */
+  display: inline-block;
+  line-height: 1;
   text-transform: none;
-  /* Better Font Rendering =========== */
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
   -moz-osx-font-smoothing: grayscale;
-  font-size: 1.1em;
-  vertical-align: -1px;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
 }
 
 .user-fa-action-3d-rotation:before {
