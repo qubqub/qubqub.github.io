@@ -887,7 +887,7 @@ header.header {
 
 .post-content ol li + li,
 .post-content ul li + li {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .post-content .highlight .lntable .copy-code,

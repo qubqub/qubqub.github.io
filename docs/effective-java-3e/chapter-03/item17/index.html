@@ -5,12 +5,12 @@
 <meta name=robots content="index, follow">
 <title>[아이템 17] 변경 가능성을 최소화하라 | &lt;Qutrits/></title>
 <meta name=keywords content="Java,Effective Java 3E">
-<meta name=description content="[아이템 17] 변경 가능성을 최소화하라. 불변 클래스(Immutable Class)란 말 그대로 객체가 생성된 후에 더이상 값을 변경할 수 없는 것을 의미합니다. 자바에서는 대표적으로 String, Integer, Float,Long 등이 있습니다.
-불변 클래스의 장점
-클래스를 불변으로 만들기 위한 규칙  객체의 상태를 변경하는 메서드를 제공하지 않습니다. 클래스를 확장할 수 없도록 합니다. 모든 필드를 private final으로 선언합니다. 생성자 관리를 잘할 것 (밑에서 설명) 자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다.  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  public final class Calculator { private final int x; private final int y; public Calculator(int x, int y) { this.">
+<meta name=description content="불변 클래스(Immutable Class)란 말 그대로 객체가 생성된 후에 더이상 값을 변경할 수 없는 것을 의미합니다. 자바에서는 대표적으로 String, Integer, Float,Long 등이 있습니다.
+📌 클래스를 불변으로 만들기 위한 규칙  객체의 상태를 변경하는 메서드를 제공하지 않습니다. 클래스를 확장할 수 없도록 합니다. 모든 필드를 private final으로 선언합니다. 생성자 관리를 잘할 것 (밑에서 설명) 자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다.
+  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  public final class Calculator { private final int x; private final int y; public Calculator(int x, int y) { this.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-03/item17/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.5d9522fd022457115178f5674965ffe95bf085e8974e3ba8e7502e0cc6ab0719.css integrity="sha256-XZUi/QIkVxFRePVnSWX/6VvwheiXTjuo51AuDMarBxk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.6e96a59f526f52888d5ea102b82d2b457844a1ea1cc3c7e1f39b380a4e7916f7.css integrity="sha256-bpaln1JvUoiNXqECuC0rRXhEoeocw8fh85s4Ck55Fvc=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -26,9 +26,9 @@
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="[아이템 17] 변경 가능성을 최소화하라">
-<meta property="og:description" content="[아이템 17] 변경 가능성을 최소화하라. 불변 클래스(Immutable Class)란 말 그대로 객체가 생성된 후에 더이상 값을 변경할 수 없는 것을 의미합니다. 자바에서는 대표적으로 String, Integer, Float,Long 등이 있습니다.
-불변 클래스의 장점
-클래스를 불변으로 만들기 위한 규칙  객체의 상태를 변경하는 메서드를 제공하지 않습니다. 클래스를 확장할 수 없도록 합니다. 모든 필드를 private final으로 선언합니다. 생성자 관리를 잘할 것 (밑에서 설명) 자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다.  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  public final class Calculator { private final int x; private final int y; public Calculator(int x, int y) { this.">
+<meta property="og:description" content="불변 클래스(Immutable Class)란 말 그대로 객체가 생성된 후에 더이상 값을 변경할 수 없는 것을 의미합니다. 자바에서는 대표적으로 String, Integer, Float,Long 등이 있습니다.
+📌 클래스를 불변으로 만들기 위한 규칙  객체의 상태를 변경하는 메서드를 제공하지 않습니다. 클래스를 확장할 수 없도록 합니다. 모든 필드를 private final으로 선언합니다. 생성자 관리를 잘할 것 (밑에서 설명) 자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다.
+  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  public final class Calculator { private final int x; private final int y; public Calculator(int x, int y) { this.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://qutrits.github.io/effective-java-3e/chapter-03/item17/"><meta property="article:section" content="effective-java-3e">
 <meta property="article:published_time" content="2020-07-02T14:11:51+09:00">
@@ -36,11 +36,11 @@
 <meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item33/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item32/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item31/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item30/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item29/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item28/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="[아이템 17] 변경 가능성을 최소화하라">
-<meta name=twitter:description content="[아이템 17] 변경 가능성을 최소화하라. 불변 클래스(Immutable Class)란 말 그대로 객체가 생성된 후에 더이상 값을 변경할 수 없는 것을 의미합니다. 자바에서는 대표적으로 String, Integer, Float,Long 등이 있습니다.
-불변 클래스의 장점
-클래스를 불변으로 만들기 위한 규칙  객체의 상태를 변경하는 메서드를 제공하지 않습니다. 클래스를 확장할 수 없도록 합니다. 모든 필드를 private final으로 선언합니다. 생성자 관리를 잘할 것 (밑에서 설명) 자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다.  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  public final class Calculator { private final int x; private final int y; public Calculator(int x, int y) { this.">
+<meta name=twitter:description content="불변 클래스(Immutable Class)란 말 그대로 객체가 생성된 후에 더이상 값을 변경할 수 없는 것을 의미합니다. 자바에서는 대표적으로 String, Integer, Float,Long 등이 있습니다.
+📌 클래스를 불변으로 만들기 위한 규칙  객체의 상태를 변경하는 메서드를 제공하지 않습니다. 클래스를 확장할 수 없도록 합니다. 모든 필드를 private final으로 선언합니다. 생성자 관리를 잘할 것 (밑에서 설명) 자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다.
+  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  public final class Calculator { private final int x; private final int y; public Calculator(int x, int y) { this.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Effctive Java 3/E","item":"https://qutrits.github.io/effective-java-3e/"},{"@type":"ListItem","position":2,"name":"3장 클래스와 인터페이스","item":"https://qutrits.github.io/effective-java-3e/chapter-03/"},{"@type":"ListItem","position":3,"name":"[아이템 17] 변경 가능성을 최소화하라","item":"https://qutrits.github.io/effective-java-3e/chapter-03/item17/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 17] 변경 가능성을 최소화하라","name":"[아이템 17] 변경 가능성을 최소화하라","description":"[아이템 17] 변경 가능성을 최소화하라. 불변 클래스(Immutable Class)란 말 그대로 객체가 생성된 후에 더이상 값을 변경할 수 없는 것을 의미합니다. 자바에서는 대표적으로 String, Integer, Float,Long 등이 있습니다.\n불변 클래스의 장점\n클래스를 불변으로 만들기 위한 규칙  객체의 상태를 변경하는 메서드를 제공하지 않습니다. 클래스를 확장할 수 없도록 합니다. 모든 필드를 private final으로 선언합니다. 생성자 관리를 잘할 것 (밑에서 설명) 자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다.  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  public final class Calculator { private final int x; private final int y; public Calculator(int x, int y) { this.","keywords":["Java","Effective Java 3E"],"articleBody":"[아이템 17] 변경 가능성을 최소화하라. 불변 클래스(Immutable Class)란 말 그대로 객체가 생성된 후에 더이상 값을 변경할 수 없는 것을 의미합니다. 자바에서는 대표적으로 String, Integer, Float,Long 등이 있습니다.\n불변 클래스의 장점\n클래스를 불변으로 만들기 위한 규칙  객체의 상태를 변경하는 메서드를 제공하지 않습니다. 클래스를 확장할 수 없도록 합니다. 모든 필드를 private final으로 선언합니다. 생성자 관리를 잘할 것 (밑에서 설명) 자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다.  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  public final class Calculator { private final int x; private final int y; public Calculator(int x, int y) { this.x = x; this.y = y; } public Calculator plus(Calculator c) { return new Calculator(x + c.x, y + c.y); } public Calculator minus(Calculator c) { return new Calculator(x - c.x, y - c.y); } ... 생략 }   여기서 주목할 점은 메서드들이 인스턴스 자신을 수정하지 않고 새로운 Calculator 인스턴스를 만들어 반화하는 것입니다.\n불변 객체의 장점  불변 객체는 Thread-Safe 하므로 멀티 쓰레드 환경에서 안전하게 사용할 수 있습니다. 불변 객체는 하나의 상태만을 갖고 있으므로 데이터를 신뢰할 수 있습니다.  따라서 불변 클래스라면 한번 만든 인스턴스를 최대한 재활용 하길 추천합니다. 재활용 하기 가장 쉬운 방법은 자주 쓰이는 값들을 상수로 제공하는 것입니다.\n1 2  public static final Calculator ONE = new Calculator(1, 0); ...   이 방식을 더 살펴보면 불변 클래스는 자주 사용되는 인스턴스를 캐싱하여 같은 인스턴스를 중복 생성하지 않게 해주는 정적 팩터리를 제공할 수 있습니다. 대표적으로 박싱된 기본 타입 클래스가 있습니다.\n이런 정적 팩터리를 사용하면 여러 클라이언트가 인스턴스를 공유하여 메모리 사용량과 가비지 컬렉션 비용이 줄어듭니다. 하지만 붋변 객체에도 단점이 있습니다.값이 다르면 반드시 독립된 객체로 만들어야 합니다. (성능 이슈)\n불변 클래스를 만드는 설계 방법 클래스가 불변임을 보장하려면 자신을 상속하지 못하게 해야하는데 가장 쉬운 방법은 final으로 선언해주는 것입니다. 하지만 이것보다 더 유연한 방법이 있습니다. 모든 생성자를 private 혹은 package-private으로 만들고 public 정적 펙터리를 제공하는 방법입니다.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14  public final class Calculator { private final int x; private final int y; private Calculator(int x, int y) { this.x = x; this.y = y; } public static Calculator valueOf(int x, int y) { return new Calculator(x, y); } ... }   정적 팩토리 방식으로 다수의 구현 클래스를 활용해 유연성을 제공하고, 객체 캐싱 기능을 추가해 성능을 끌어올리 수 있습니다.\nBigInteger와 BigDecimal의 주의점 두 클래스를 설계할 당시 불변 객체가 final이어야 한다는 인식이 없었습니다. 그래서 두 클래스의 메서드들은 모두 재정의할 수 있게 설계 되었고 하위 호환성이 발목을 잡아 지금까지도 이 문제를 고치지 못했습니다. 그러므로 신뢰할 수 없는 클라이언트로부터 BigInteger와 BigDecimal의 인스턴스를 인수로 받는다면 주의해야 합니다.\n1 2 3 4  public static BigInteger safeInstance(BingInteger val) { return val.getClass() == BigInteger.class ? val : new BigInteger(val.toByteArray()); }   \r## 정리\r- **클래스는 꼭 필요한 경우가 아니면 불변이어야 합니다**. - 불변 클래스의 장점들도 있지만 성능 문제도 함께 고려해야합니다\r- 불변으로 만들 수 없는 클래스라도 변경할 수 있는 부분은 최소한으로 줄입시다.\r- 다른 합당한 이유가 없다면 모두 private final이어야 합니다.\r- 생성자는 불변식 설정 초기화가 완벽히 끝난 상태의 객체를 생성해야 합니다.","wordCount":"489","inLanguage":"ko","datePublished":"2020-07-02T14:11:51+09:00","dateModified":"2020-07-02T14:11:51+09:00","author":[{"@type":"Person","name":"Kyungchul Shin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/effective-java-3e/chapter-03/item17/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.webp"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 17] 변경 가능성을 최소화하라","name":"[아이템 17] 변경 가능성을 최소화하라","description":"불변 클래스(Immutable Class)란 말 그대로 객체가 생성된 후에 더이상 값을 변경할 수 없는 것을 의미합니다. 자바에서는 대표적으로 String, Integer, Float,Long 등이 있습니다.\n📌 클래스를 불변으로 만들기 위한 규칙  객체의 상태를 변경하는 메서드를 제공하지 않습니다. 클래스를 확장할 수 없도록 합니다. 모든 필드를 private final으로 선언합니다. 생성자 관리를 잘할 것 (밑에서 설명) 자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다.\n  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  public final class Calculator { private final int x; private final int y; public Calculator(int x, int y) { this.","keywords":["Java","Effective Java 3E"],"articleBody":"불변 클래스(Immutable Class)란 말 그대로 객체가 생성된 후에 더이상 값을 변경할 수 없는 것을 의미합니다. 자바에서는 대표적으로 String, Integer, Float,Long 등이 있습니다.\n📌 클래스를 불변으로 만들기 위한 규칙  객체의 상태를 변경하는 메서드를 제공하지 않습니다. 클래스를 확장할 수 없도록 합니다. 모든 필드를 private final으로 선언합니다. 생성자 관리를 잘할 것 (밑에서 설명) 자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다.\n  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  public final class Calculator { private final int x; private final int y; public Calculator(int x, int y) { this.x = x; this.y = y; } public Calculator plus(Calculator c) { return new Calculator(x + c.x, y + c.y); } public Calculator minus(Calculator c) { return new Calculator(x - c.x, y - c.y); } ... 생략 }   여기서 주목할 점은 메서드들이 인스턴스 자신을 수정하지 않고 새로운 Calculator 인스턴스를 만들어 반환하는 것입니다. 📌 불변 객체의 장점  불변 객체는 Thread-Safe 하므로 멀티 쓰레드 환경에서 안전하게 사용할 수 있습니다. 불변 객체는 하나의 상태만을 갖고 있으므로 데이터를 신뢰할 수 있습니다.\n  따라서 불변 클래스라면 한번 만든 인스턴스를 최대한 재활용 하길 추천합니다. 재활용 하기 가장 쉬운 방법은 자주 쓰이는 값들을 상수로 제공하는 것입니다.\n1 2  public static final Calculator ONE = new Calculator(1, 0); ...   이 방식을 더 살펴보면 불변 클래스는 자주 사용되는 인스턴스를 캐싱하여 같은 인스턴스를 중복 생성하지 않게 해주는 정적 팩터리를 제공할 수 있습니다. 대표적으로 박싱된 기본 타입 클래스가 있습니다.\n이런 정적 팩터리를 사용하면 여러 클라이언트가 인스턴스를 공유하여 메모리 사용량과 가비지 컬렉션 비용이 줄어듭니다. 하지만 불변 객체에도 단점이 있습니다. 값이 다르면 반드시 독립된 객체로 만들어야 합니다. (성능 이슈)\n📌 불변 클래스를 만드는 설계 방법 클래스가 불변임을 보장하려면 자신을 상속하지 못하게 해야하는데 가장 쉬운 방법은 final으로 선언해주는 것입니다. 하지만 이것보다 더 유연한 방법이 있습니다. 모든 생성자를 private 혹은 package-private으로 만들고 public 정적 팩토리를 제공하는 방법입니다.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14  public final class Calculator { private final int x; private final int y; private Calculator(int x, int y) { this.x = x; this.y = y; } public static Calculator valueOf(int x, int y) { return new Calculator(x, y); } ... }   정적 팩토리 방식으로 다수의 구현 클래스를 활용해 유연성을 제공하고, 객체 캐싱 기능을 추가해 성능을 끌어올리 수 있습니다.\n📌 BigInteger와 BigDecimal의 주의점 두 클래스를 설계할 당시 불변 객체가 final이어야 한다는 인식이 없었습니다. 그래서 두 클래스의 메서드들은 모두 재정의할 수 있게 설계 되었고 하위 호환성이 발목을 잡아 지금까지도 이 문제를 고치지 못했습니다. 그러므로 신뢰할 수 없는 클라이언트로부터 BigInteger와 BigDecimal의 인스턴스를 인수로 받는다면 주의해야 합니다.\n1 2 3 4  public static BigInteger safeInstance(BingInteger val) { return val.getClass() == BigInteger.class ? val : new BigInteger(val.toByteArray()); }   \n 정리  클래스는 꼭 필요한 경우가 아니면 불변이어야 합니다. 불변 클래스의 장점들도 있지만 성능 문제도 함께 고려해야합니다 불변으로 만들 수 없는 클래스라도 변경할 수 있는 부분은 최소한으로 줄입시다. 다른 합당한 이유가 없다면 모두 private final이어야 합니다. 생성자는 불변식 설정 초기화가 완벽히 끝난 상태의 객체를 생성해야 합니다.  ","wordCount":"480","inLanguage":"ko","datePublished":"2020-07-02T14:11:51+09:00","dateModified":"2020-07-02T14:11:51+09:00","author":[{"@type":"Person","name":"Kyungchul Shin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/effective-java-3e/chapter-03/item17/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.webp"}}}</script>
 </head>
 <body>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -200,17 +200,15 @@
 </summary>
 <div class=inner><ul>
 <li>
-<a href=#%ec%95%84%ec%9d%b4%ed%85%9c-17-%eb%b3%80%ea%b2%bd-%ea%b0%80%eb%8a%a5%ec%84%b1%ec%9d%84-%ec%b5%9c%ec%86%8c%ed%99%94%ed%95%98%eb%9d%bc aria-label="[아이템 17] 변경 가능성을 최소화하라.">[아이템 17] 변경 가능성을 최소화하라.</a><ul>
+<a href=#-%ed%81%b4%eb%9e%98%ec%8a%a4%eb%a5%bc-%eb%b6%88%eb%b3%80%ec%9c%bc%eb%a1%9c-%eb%a7%8c%eb%93%a4%ea%b8%b0-%ec%9c%84%ed%95%9c-%ea%b7%9c%ec%b9%99 aria-label="📌 클래스를 불변으로 만들기 위한 규칙">📌 클래스를 불변으로 만들기 위한 규칙</a></li>
 <li>
-<a href=#%ed%81%b4%eb%9e%98%ec%8a%a4%eb%a5%bc-%eb%b6%88%eb%b3%80%ec%9c%bc%eb%a1%9c-%eb%a7%8c%eb%93%a4%ea%b8%b0-%ec%9c%84%ed%95%9c-%ea%b7%9c%ec%b9%99 aria-label="클래스를 불변으로 만들기 위한 규칙">클래스를 불변으로 만들기 위한 규칙</a></li>
+<a href=#-%eb%b6%88%eb%b3%80-%ea%b0%9d%ec%b2%b4%ec%9d%98-%ec%9e%a5%ec%a0%90 aria-label="📌 불변 객체의 장점">📌 불변 객체의 장점</a></li>
 <li>
-<a href=#%eb%b6%88%eb%b3%80-%ea%b0%9d%ec%b2%b4%ec%9d%98-%ec%9e%a5%ec%a0%90 aria-label="불변 객체의 장점">불변 객체의 장점</a></li>
+<a href=#-%eb%b6%88%eb%b3%80-%ed%81%b4%eb%9e%98%ec%8a%a4%eb%a5%bc-%eb%a7%8c%eb%93%9c%eb%8a%94-%ec%84%a4%ea%b3%84-%eb%b0%a9%eb%b2%95 aria-label="📌 불변 클래스를 만드는 설계 방법">📌 불변 클래스를 만드는 설계 방법</a></li>
 <li>
-<a href=#%eb%b6%88%eb%b3%80-%ed%81%b4%eb%9e%98%ec%8a%a4%eb%a5%bc-%eb%a7%8c%eb%93%9c%eb%8a%94-%ec%84%a4%ea%b3%84-%eb%b0%a9%eb%b2%95 aria-label="불변 클래스를 만드는 설계 방법">불변 클래스를 만드는 설계 방법</a></li>
+<a href=#-biginteger%ec%99%80-bigdecimal%ec%9d%98-%ec%a3%bc%ec%9d%98%ec%a0%90 aria-label="📌 BigInteger와 BigDecimal의 주의점">📌 BigInteger와 BigDecimal의 주의점</a></li>
 <li>
-<a href=#biginteger%ec%99%80-bigdecimal%ec%9d%98-%ec%a3%bc%ec%9d%98%ec%a0%90br aria-label="BigInteger와 BigDecimal의 주의점"><code>BigInteger</code>와 <code>BigDecimal</code>의 주의점</br></a>
-</li>
-</ul>
+<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
 </li>
 </ul>
 </div>
@@ -226,17 +224,15 @@
 <div class=inner-wrapper>
 <div class=inner><ul>
 <li>
-<a href=#%ec%95%84%ec%9d%b4%ed%85%9c-17-%eb%b3%80%ea%b2%bd-%ea%b0%80%eb%8a%a5%ec%84%b1%ec%9d%84-%ec%b5%9c%ec%86%8c%ed%99%94%ed%95%98%eb%9d%bc aria-label="[아이템 17] 변경 가능성을 최소화하라.">[아이템 17] 변경 가능성을 최소화하라.</a><ul>
+<a href=#-%ed%81%b4%eb%9e%98%ec%8a%a4%eb%a5%bc-%eb%b6%88%eb%b3%80%ec%9c%bc%eb%a1%9c-%eb%a7%8c%eb%93%a4%ea%b8%b0-%ec%9c%84%ed%95%9c-%ea%b7%9c%ec%b9%99 aria-label="📌 클래스를 불변으로 만들기 위한 규칙">📌 클래스를 불변으로 만들기 위한 규칙</a></li>
 <li>
-<a href=#%ed%81%b4%eb%9e%98%ec%8a%a4%eb%a5%bc-%eb%b6%88%eb%b3%80%ec%9c%bc%eb%a1%9c-%eb%a7%8c%eb%93%a4%ea%b8%b0-%ec%9c%84%ed%95%9c-%ea%b7%9c%ec%b9%99 aria-label="클래스를 불변으로 만들기 위한 규칙">클래스를 불변으로 만들기 위한 규칙</a></li>
+<a href=#-%eb%b6%88%eb%b3%80-%ea%b0%9d%ec%b2%b4%ec%9d%98-%ec%9e%a5%ec%a0%90 aria-label="📌 불변 객체의 장점">📌 불변 객체의 장점</a></li>
 <li>
-<a href=#%eb%b6%88%eb%b3%80-%ea%b0%9d%ec%b2%b4%ec%9d%98-%ec%9e%a5%ec%a0%90 aria-label="불변 객체의 장점">불변 객체의 장점</a></li>
+<a href=#-%eb%b6%88%eb%b3%80-%ed%81%b4%eb%9e%98%ec%8a%a4%eb%a5%bc-%eb%a7%8c%eb%93%9c%eb%8a%94-%ec%84%a4%ea%b3%84-%eb%b0%a9%eb%b2%95 aria-label="📌 불변 클래스를 만드는 설계 방법">📌 불변 클래스를 만드는 설계 방법</a></li>
 <li>
-<a href=#%eb%b6%88%eb%b3%80-%ed%81%b4%eb%9e%98%ec%8a%a4%eb%a5%bc-%eb%a7%8c%eb%93%9c%eb%8a%94-%ec%84%a4%ea%b3%84-%eb%b0%a9%eb%b2%95 aria-label="불변 클래스를 만드는 설계 방법">불변 클래스를 만드는 설계 방법</a></li>
+<a href=#-biginteger%ec%99%80-bigdecimal%ec%9d%98-%ec%a3%bc%ec%9d%98%ec%a0%90 aria-label="📌 BigInteger와 BigDecimal의 주의점">📌 BigInteger와 BigDecimal의 주의점</a></li>
 <li>
-<a href=#biginteger%ec%99%80-bigdecimal%ec%9d%98-%ec%a3%bc%ec%9d%98%ec%a0%90br aria-label="BigInteger와 BigDecimal의 주의점"><code>BigInteger</code>와 <code>BigDecimal</code>의 주의점</br></a>
-</li>
-</ul>
+<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
 </li>
 </ul>
 </div>
@@ -244,16 +240,16 @@
 </div>
 </div>
 <script>const tocAside_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};tocAside_DOMReady(function(){const g=[],k=document.querySelector(".main .post-single>.toc"),b=document.querySelector(".main .toc-aside"),i=document.querySelector(".post-header"),h=i.offsetHeight+i.offsetTop+i.offsetParent.offsetTop-1;let c=null,e=null,f=null,a=null;if(b){c=document.querySelector(".main .toc-aside-summary"),e=b.querySelector(".inner-wrapper"),f=c.querySelector(".toggle"),a=b.querySelectorAll(".inner-wrapper .inner ul>li"),localStorage.getItem("lock-aside-toc-"+window.location.pathname)==="true"?(c.dataset.isLock=!0,e.classList.add("close"),f.querySelector(".unlock").classList.add("hide")):(c.dataset.isLock=!1,e.classList.add("open"),f.querySelector(".lock").classList.add("hide"));for(let b=0;b<a.length;b++)g[b]=decodeURI(a[b].firstElementChild.hash.substring(1));h<window.pageYOffset?(b.classList.remove("hide"),b.classList.add("reveal"),c.classList.remove("hide")):h>=window.pageYOffset&&b.classList.add("hide"),c.addEventListener("click",()=>{c.dataset.isLock==="false"?(c.dataset.isLock=!0,localStorage.setItem("lock-aside-toc-"+window.location.pathname,!0),f.querySelector(".lock").classList.remove("hide"),f.querySelector(".unlock").classList.add("hide"),e.classList.add("close"),e.classList.remove("open")):(c.dataset.isLock=!1,localStorage.setItem("lock-aside-toc-"+window.location.pathname,!1),f.querySelector(".lock").classList.add("hide"),f.querySelector(".unlock").classList.remove("hide"),e.classList.add("open"),e.classList.remove("close"))})}let d=0,j=0;window.addEventListener("scroll",()=>{if(d=window.pageYOffset,b){const k=Math.ceil(d+window.innerHeight)>=document.body.scrollHeight;h<d&&b.classList.contains("hide")?(b.classList.remove("hide"),b.classList.add("reveal"),c.classList.remove("hide")):h>=d&&b.classList.contains("reveal")&&(b.scrollTop=0,b.classList.remove("reveal"),b.classList.add("hide"),c.classList.add("hide"));let f=null,i=null,e=null,l=null;if(g.map((c,b)=>{l=document.getElementById(c);const g=l.getBoundingClientRect(),h=g.top;d+h-1<=d&&(f=a[b],e=b)}),e!==null){if(k){for(let b=0;b<a.length;b++){if(!a[b].classList.contains("selected"))continue;a[b].classList.remove("selected")}a[g.length-1].classList.add("selected"),i=a[g.length-1]}else{if(f===i&&e>0){j=d;return}for(let b=0;b<a.length;b++){if(!a[b].classList.contains("selected"))continue;a[b].classList.remove("selected")}f.classList.add("selected"),i=f}e!==null&&b.scroll({behavior:'smooth',top:e*20})}else if(k)a[g.length-1].classList.add("selected"),i=a[g.length-1];else{if(b.querySelector(".selected")===null){j=d;return}for(let b=0;b<a.length;b++){if(!a[b].classList.contains("selected"))continue;a[b].classList.remove("selected")}}}j=d})})</script>
-<div class=post-content data-animation=true><h2 id=아이템-17-변경-가능성을-최소화하라>[아이템 17] 변경 가능성을 최소화하라.<a hidden class=anchor aria-hidden=true href=#아이템-17-변경-가능성을-최소화하라><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
-<p><strong>불변</strong> 클래스(Immutable Class)란 말 그대로 객체가 생성된 후에 더이상 값을 변경할 수 없는 것을 의미합니다. 자바에서는 대표적으로 <code>String</code>, <code>Integer</code>, <code>Float</code>,<code>Long</code> 등이 있습니다.</br><br>
-<strong>불변 클래스의 장점</strong></p>
-<h3 id=클래스를-불변으로-만들기-위한-규칙>클래스를 불변으로 만들기 위한 규칙<a hidden class=anchor aria-hidden=true href=#클래스를-불변으로-만들기-위한-규칙><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
+<div class=post-content data-animation=true><p><strong>불변</strong> 클래스(Immutable Class)란 말 그대로 객체가 생성된 후에 더이상 값을 변경할 수 없는 것을 의미합니다. 자바에서는 대표적으로 <code>String</code>, <code>Integer</code>, <code>Float</code>,<code>Long</code> 등이 있습니다.</br><br>
+<br></p>
+<h2 id=-클래스를-불변으로-만들기-위한-규칙>📌 클래스를 불변으로 만들기 위한 규칙<a hidden class=anchor aria-hidden=true href=#-클래스를-불변으로-만들기-위한-규칙><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
 <ul>
 <li>객체의 상태를 변경하는 메서드를 제공하지 않습니다.</li>
 <li>클래스를 확장할 수 없도록 합니다.</li>
-<li>모든 필드를 private final으로 선언합니다.</li>
+<li>모든 필드를 <code>private final</code>으로 선언합니다.</li>
 <li>생성자 관리를 잘할 것 (밑에서 설명)</li>
-<li>자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다.</li>
+<li>자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다.<br>
+<br></li>
 </ul>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -299,13 +295,17 @@
 <span class=o>}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>여기서 주목할 점은 메서드들이 인스턴스 자신을 수정하지 않고 새로운 <code>Calculator</code> 인스턴스를 만들어 반화하는 것입니다.</p>
-<h3 id=불변-객체의-장점>불변 객체의 장점<a hidden class=anchor aria-hidden=true href=#불변-객체의-장점><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
+</div><p>여기서 주목할 점은 메서드들이 인스턴스 자신을 수정하지 않고 새로운 <code>Calculator</code> 인스턴스를 만들어 반환하는 것입니다. <br>
+<br><br>
+<br></p>
+<h2 id=-불변-객체의-장점>📌 불변 객체의 장점<a hidden class=anchor aria-hidden=true href=#-불변-객체의-장점><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
 <ul>
-<li>불변 객체는 Thread-Safe 하므로 멀티 쓰레드 환경에서 안전하게 사용할 수 있습니다.</li>
-<li>불변 객체는 하나의 상태만을 갖고 있으므로 데이터를 신뢰할 수 있습니다.</li>
+<li>불변 객체는 <code>Thread-Safe</code> 하므로 멀티 쓰레드 환경에서 안전하게 사용할 수 있습니다.</li>
+<li>불변 객체는 하나의 상태만을 갖고 있으므로 데이터를 신뢰할 수 있습니다.<br>
+<br></li>
 </ul>
-<p>따라서 불변 클래스라면 한번 만든 인스턴스를 최대한 재활용 하길 추천합니다. 재활용 하기 가장 쉬운 방법은 자주 쓰이는 값들을 상수로 제공하는 것입니다.</p>
+<p>따라서 불변 클래스라면 한번 만든 인스턴스를 최대한 재활용 하길 추천합니다. 재활용 하기 가장 쉬운 방법은 자주 쓰이는 값들을 상수로 제공하는 것입니다.<br>
+<br></p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -316,10 +316,12 @@
 <span class=o>...</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>이 방식을 더 살펴보면 불변 클래스는 자주 사용되는 인스턴스를 캐싱하여 같은 인스턴스를 중복 생성하지 않게 해주는 정적 팩터리를 제공할 수 있습니다. 대표적으로 박싱된 기본 타입 클래스가 있습니다.</br><br>
-이런 정적 팩터리를 사용하면 여러 클라이언트가 인스턴스를 공유하여 메모리 사용량과 가비지 컬렉션 비용이 줄어듭니다. 하지만 붋변 객체에도 <strong>단점</strong>이 있습니다.<strong>값이 다르면 반드시 독립된 객체로 만들어야</strong> 합니다. (성능 이슈)</p>
-<h3 id=불변-클래스를-만드는-설계-방법>불변 클래스를 만드는 설계 방법<a hidden class=anchor aria-hidden=true href=#불변-클래스를-만드는-설계-방법><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
-<p>클래스가 불변임을 보장하려면 자신을 상속하지 못하게 해야하는데 가장 쉬운 방법은 final으로 선언해주는 것입니다. 하지만 이것보다 더 유연한 방법이 있습니다. 모든 생성자를 private 혹은 package-private으로 만들고 public 정적 펙터리를 제공하는 방법입니다.</p>
+</div><p>이 방식을 더 살펴보면 불변 클래스는 자주 사용되는 인스턴스를 캐싱하여 같은 인스턴스를 중복 생성하지 않게 해주는 정적 팩터리를 제공할 수 있습니다. 대표적으로 박싱된 기본 타입 클래스가 있습니다.</p>
+<p>이런 정적 팩터리를 사용하면 여러 클라이언트가 인스턴스를 공유하여 메모리 사용량과 가비지 컬렉션 비용이 줄어듭니다. 하지만 불변 객체에도 <strong>단점</strong>이 있습니다. <strong>값이 다르면 반드시 독립된 객체로 만들어야</strong> 합니다. (성능 이슈)<br>
+<br><br>
+<br></p>
+<h2 id=-불변-클래스를-만드는-설계-방법>📌 불변 클래스를 만드는 설계 방법<a hidden class=anchor aria-hidden=true href=#-불변-클래스를-만드는-설계-방법><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<p>클래스가 불변임을 보장하려면 자신을 상속하지 못하게 해야하는데 가장 쉬운 방법은 <code>final</code>으로 선언해주는 것입니다. 하지만 이것보다 더 유연한 방법이 있습니다. 모든 생성자를 <code>private</code> 혹은 <code>package-private</code>으로 만들고 <code>public</code> 정적 팩토리를 제공하는 방법입니다.</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt> 1
@@ -354,8 +356,10 @@
 <span class=o>}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>정적 팩토리 방식으로 다수의 구현 클래스를 활용해 유연성을 제공하고, 객체 캐싱 기능을 추가해 성능을 끌어올리 수 있습니다.</br></br></p>
-<h3 id=biginteger와-bigdecimal의-주의점br><code>BigInteger</code>와 <code>BigDecimal</code>의 주의점</br><a hidden class=anchor aria-hidden=true href=#biginteger와-bigdecimal의-주의점br><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
+</div><p>정적 팩토리 방식으로 다수의 구현 클래스를 활용해 유연성을 제공하고, 객체 캐싱 기능을 추가해 성능을 끌어올리 수 있습니다.<br>
+<br><br>
+<br></p>
+<h2 id=-biginteger와-bigdecimal의-주의점>📌 BigInteger와 BigDecimal의 주의점<a hidden class=anchor aria-hidden=true href=#-biginteger와-bigdecimal의-주의점><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
 <p>두 클래스를 설계할 당시 불변 객체가 final이어야 한다는 인식이 없었습니다. 그래서 두 클래스의 메서드들은 모두 재정의할 수 있게 설계 되었고 하위 호환성이 발목을 잡아 지금까지도 이 문제를 고치지 못했습니다. 그러므로 신뢰할 수 없는 클라이언트로부터 <code>BigInteger</code>와 <code>BigDecimal</code>의 인스턴스를 인수로 받는다면 주의해야 합니다.</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -371,13 +375,16 @@
 <span class=o>}</span>
 </code></pre></td></tr></table>
 </div>
-</div></br>
-## 정리
-- **클래스는 꼭 필요한 경우가 아니면 불변이어야 합니다**.
-- 불변 클래스의 장점들도 있지만 성능 문제도 함께 고려해야합니다
-- 불변으로 만들 수 없는 클래스라도 변경할 수 있는 부분은 최소한으로 줄입시다.
-- 다른 합당한 이유가 없다면 모두 private final이어야 합니다.
-- 생성자는 불변식 설정 초기화가 완벽히 끝난 상태의 객체를 생성해야 합니다.
+</div><br>
+<br>
+<h2 id=i-classuser-fa-av-new-releases-aria-hiddentruei-정리><i class=user-fa-av-new-releases aria-hidden=true></i> 정리<a hidden class=anchor aria-hidden=true href=#i-classuser-fa-av-new-releases-aria-hiddentruei-정리><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<ul>
+<li><strong>클래스는 꼭 필요한 경우가 아니면 불변이어야 합니다</strong>.</li>
+<li>불변 클래스의 장점들도 있지만 성능 문제도 함께 고려해야합니다</li>
+<li>불변으로 만들 수 없는 클래스라도 변경할 수 있는 부분은 최소한으로 줄입시다.</li>
+<li>다른 합당한 이유가 없다면 모두 private final이어야 합니다.</li>
+<li>생성자는 불변식 설정 초기화가 완벽히 끝난 상태의 객체를 생성해야 합니다.</li>
+</ul>
 </div>
 <footer class=post-footer data-animation=true><div class=post-license-info>
 <a class=button rel=license href=https://creativecommons.org/licenses/by-sa/4.0/deed.ko target=_blank>
