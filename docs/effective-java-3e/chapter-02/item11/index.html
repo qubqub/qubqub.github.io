@@ -5,11 +5,12 @@
 <meta name=robots content="index, follow">
 <title>[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라 | &lt;Qutrits/></title>
 <meta name=keywords content="Java,Effective Java 3E">
-<meta name=description content="[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라. equals와 hasoCode를 재정의 하지 않으면 HashMap이나 HashSet에서 같은 원소를 사용할 때 문제가 발생합니다.
+<meta name=description content="equals와 hasoCode를 재정의 하지 않으면 HashMap이나 HashSet에서 같은 원소를 사용할 때 문제가 발생합니다.
+다음은 Object 명세에서 발췌한 규약이다.
  equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 hashCode메서드는 여러번 호출해도 일관된 값을 반환해야 합니다. equals가 두 객체를 같다고 판단하면 hashCode 또한 같은 값을 반환해야 합니다. equals가 두 객체를 다르다고 판단해도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-02/item11/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.176fb69d9105cf05dcf4f0a6515244d22f405164963b34d1c85de48c9ea22d1d.css integrity="sha256-F2+2nZEFzwXc9PCmUVJE0i9AUWSWOzTRyF3kjJ6iLR0=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.5d9522fd022457115178f5674965ffe95bf085e8974e3ba8e7502e0cc6ab0719.css integrity="sha256-XZUi/QIkVxFRePVnSWX/6VvwheiXTjuo51AuDMarBxk=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -25,7 +26,8 @@
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라">
-<meta property="og:description" content="[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라. equals와 hasoCode를 재정의 하지 않으면 HashMap이나 HashSet에서 같은 원소를 사용할 때 문제가 발생합니다.
+<meta property="og:description" content="equals와 hasoCode를 재정의 하지 않으면 HashMap이나 HashSet에서 같은 원소를 사용할 때 문제가 발생합니다.
+다음은 Object 명세에서 발췌한 규약이다.
  equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 hashCode메서드는 여러번 호출해도 일관된 값을 반환해야 합니다. equals가 두 객체를 같다고 판단하면 hashCode 또한 같은 값을 반환해야 합니다. equals가 두 객체를 다르다고 판단해도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://qutrits.github.io/effective-java-3e/chapter-02/item11/"><meta property="article:section" content="effective-java-3e">
@@ -34,10 +36,11 @@
 <meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item33/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item32/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item31/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item30/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item29/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item28/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라">
-<meta name=twitter:description content="[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라. equals와 hasoCode를 재정의 하지 않으면 HashMap이나 HashSet에서 같은 원소를 사용할 때 문제가 발생합니다.
+<meta name=twitter:description content="equals와 hasoCode를 재정의 하지 않으면 HashMap이나 HashSet에서 같은 원소를 사용할 때 문제가 발생합니다.
+다음은 Object 명세에서 발췌한 규약이다.
  equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 hashCode메서드는 여러번 호출해도 일관된 값을 반환해야 합니다. equals가 두 객체를 같다고 판단하면 hashCode 또한 같은 값을 반환해야 합니다. equals가 두 객체를 다르다고 판단해도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Effctive Java 3/E","item":"https://qutrits.github.io/effective-java-3e/"},{"@type":"ListItem","position":2,"name":"2장 모든 객체의 공통 메서드","item":"https://qutrits.github.io/effective-java-3e/chapter-02/"},{"@type":"ListItem","position":3,"name":"[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라","item":"https://qutrits.github.io/effective-java-3e/chapter-02/item11/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라","name":"[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라","description":"[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라. equals와 hasoCode를 재정의 하지 않으면 HashMap이나 HashSet에서 같은 원소를 사용할 때 문제가 발생합니다.\n equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 hashCode메서드는 여러번 호출해도 일관된 값을 반환해야 합니다. equals가 두 객체를 같다고 판단하면 hashCode 또한 같은 값을 반환해야 합니다. equals가 두 객체를 다르다고 판단해도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.","keywords":["Java","Effective Java 3E"],"articleBody":"[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라. equals와 hasoCode를 재정의 하지 않으면 HashMap이나 HashSet에서 같은 원소를 사용할 때 문제가 발생합니다.\n equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 hashCode메서드는 여러번 호출해도 일관된 값을 반환해야 합니다. equals가 두 객체를 같다고 판단하면 hashCode 또한 같은 값을 반환해야 합니다. equals가 두 객체를 다르다고 판단해도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.  서로 다른 인스턴스에 대해서 모두 다른 해시코드를 반환하면 좋겠지만 hashCode는 int형이므로 2^32만큼의 경우의 수로 제한되어 있기 때문에 비둘기 집의 원리로 예외가 생길 수 있습니다.\n다음은 hashCode를 작성하는 요령입니다.\n  int 변수 result를 선언한 후 값 c로 초기화 합니다. 이때 c는 해당 객체의 첫번째 해시 필드를 2-a 방식으로 계산한 해시코드입니다.\n  나머지 개개의 필드 f 각각에 대해서 다음 작업을 수행합니다.\na. 해당 필드의 해시코드 c를 계산합니다.\n 기본 타입 필드라면, Type.hashCode(f)를 수행합니다. 여기서 Type은 해당 기본 타입의 박싱 클래스입니다. 참조 타입 필드면서 이 클래스의 equals 메서드가 이 필드의 equals를 재귀적으로 호출해 비교한다면, 이 필드의 hashCode를 재귀적으로 호출합니다. 필드가 배열이라면, 원소 각각을 별도 필드처럼 다룹니다. 이상의 규칙을 재귀적으로 적용해 각 핵심 원소의 해시코드를 계산한 다음, 2.b방식으로 갱신합니다. 배열에 핵심 원소가 하나도 없다면 단순 상수를 사용하고 모든 원소가 핵심 원소라면 Arrays.hashCode를 사용합니다.  b. 2.a에서 계산한 해시코드 c로 result를 갱신합니다.\n result = 31 * result + c;\n    result를 반환합니다.\nequals 비교에서 사용되지 않는 필드는 반드시 제외해야 합니다. 그렇지 않으면 맨 처음에 언급했던 두 번째 규약을 어기게됩니다.\n  숫자를 곱하는 이유는 만약 곱셉 없는 hahCode를 구현하게 되면 모든 아나그램의 해시코드가 같아집니다. 그리고 31을 선택한 이유는 홀수이면서 소수이기 때문입니다.\n1 2 3 4 5 6 7 8  // 전형적인 hashCode 메서드 @Override public int hashCode() { int result = Short.hashCode(areaCode); result = 31 * result + Short.hashCode(prefix); result = 31 * result + Short.hashCode(lineNum); return result; }   1 2 3 4 5  // 한 줄짜리 hasoCode 메서드 - 성능이 살짝 아쉽습니다. @Override public int hashCode(){ return Objects.hash(lineNum, prefix, areaCode); }   정리 equals를 재정의 할 때는 hashCdoe도 재정의해야 합니다. 그렇지 않으면 프로그래밍이 제대로 동작하지 않을 수 있습니다. 서로 다른 인스턴스라면 되도록 해시코드도 서로 다르게 구현해야 합니다.\n","wordCount":"336","inLanguage":"ko","datePublished":"2020-06-27T13:18:21+09:00","dateModified":"2020-06-27T13:18:21+09:00","author":[{"@type":"Person","name":"Kyungchul Shin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/effective-java-3e/chapter-02/item11/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.webp"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라","name":"[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라","description":"equals와 hasoCode를 재정의 하지 않으면 HashMap이나 HashSet에서 같은 원소를 사용할 때 문제가 발생합니다.\n다음은 Object 명세에서 발췌한 규약이다.\n equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 hashCode메서드는 여러번 호출해도 일관된 값을 반환해야 합니다. equals가 두 객체를 같다고 판단하면 hashCode 또한 같은 값을 반환해야 합니다. equals가 두 객체를 다르다고 판단해도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.","keywords":["Java","Effective Java 3E"],"articleBody":"equals와 hasoCode를 재정의 하지 않으면 HashMap이나 HashSet에서 같은 원소를 사용할 때 문제가 발생합니다.\n다음은 Object 명세에서 발췌한 규약이다.\n equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 hashCode메서드는 여러번 호출해도 일관된 값을 반환해야 합니다. equals가 두 객체를 같다고 판단하면 hashCode 또한 같은 값을 반환해야 합니다. equals가 두 객체를 다르다고 판단해도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.\n  논리적으로 같은 객체는 같은 해시코드를 반환해야 합니다. 서로 다른 인스턴스에 대해서 모두 다른 해시코드를 반환하면 좋겠지만 hashCode는 int형이므로 2^32만큼의 경우의 수로 제한되어 있기 때문에 비둘기 집의 원리로 예외가 생길 수 있습니다.\n 다음은 hashCode를 작성하는 요령입니다.  int 변수 result를 선언한 후 값 c로 초기화 합니다. 이때 c는 해당 객체의 첫번째 해시 필드를 2-a 방식으로 계산한 해시코드입니다.\n 나머지 개개의 필드 f 각각에 대해서 다음 작업을 수행합니다.\na. 해당 필드의 해시코드 c를 계산합니다.\ni .　 기본 타입 필드라면, Type.hashCode(f)를 수행합니다. 여기서 Type은 해당 기본 타입의 박싱 클래스입니다.\nii .　 참조 타입 필드면서 이 클래스의 equals 메서드가 이 필드의 equals를 재귀적으로 호출해 비교한다면, 이 필드의 hashCode를 재귀적으로 호출합니다.\niii .　 필드가 배열이라면, 원소 각각을 별도 필드처럼 다룹니다. 이상의 규칙을 재귀적으로 적용해 각 핵심 원소의 해시코드를 계산한 다음, 2.b방식으로 갱신합니다. 배열에 핵심 원소가 하나도 없다면 단순 상수를 사용하고 모든 원소가 핵심 원소라면 Arrays.hashCode를 사용합니다.\nb. 2.a에서 계산한 해시코드 c로 result를 갱신합니다.\nresult = 31 * result + c;\n result를 반환합니다.\n  equals 비교에서 사용되지 않는 필드는 반드시 제외해야 합니다. 그렇지 않으면 맨 처음에 언급했던 두 번째 규약을 어기게됩니다.\n숫자를 곱하는 이유는 만약 곱셈 없는 hahCode를 구현하게 되면 모든 아나그램의 해시코드가 같아집니다. 그리고 31을 선택한 이유는 홀수이면서 소수이기 때문입니다.\n1 2 3 4 5 6 7  @Override public int hashCode() { int result = Short.hashCode(areaCode); result = 31 * result + Short.hashCode(prefix); result = 31 * result + Short.hashCode(lineNum); return result; }    전형적인 hashCode 메서드\n1 2 3 4  @Override public int hashCode(){ return Objects.hash(lineNum, prefix, areaCode); }    한 줄짜리 hasoCode 메서드 - 성능이 살짝 아쉽습니다.\n1 2 3 4 5 6 7 8 9 10 11 12  private int hashCode; // 자동으로 0으로 초기화된다.  @Override public int hashCode() { int result = hashCode; if (result == 0) { result = Short.hashCode(areaCode); result = 31 * result + Short.hashCode(prefix); result = 31 * result + Short.hashCode(lineNum); hashCode = result; } return result; }    해시코드를 지연 초기화하는 hashCode 메서드 - 스레드 안정성까지 고려해야 한다.\n 정리 equals를 재정의 할 때는 hashCdoe도 재정의해야 합니다. 그렇지 않으면 프로그램이 제대로 동작하지 않을 수 있습니다. 서로 다른 인스턴스라면 되도록 해시코드도 서로 다르게 구현해야 합니다.\n","wordCount":"411","inLanguage":"ko","datePublished":"2020-06-27T13:18:21+09:00","dateModified":"2020-06-27T13:18:21+09:00","author":[{"@type":"Person","name":"Kyungchul Shin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/effective-java-3e/chapter-02/item11/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.webp"}}}</script>
 </head>
 <body>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -179,11 +182,12 @@
 </summary>
 <div class=inner><ul>
 <li>
-<a href=#%ec%95%84%ec%9d%b4%ed%85%9c-11-equals%eb%a5%bc-%ec%9e%ac%ec%a0%95%ec%9d%98%ed%95%98%eb%a0%a4%ea%b1%b0%eb%93%a0-hashcode%eb%8f%84-%ec%9e%ac%ec%a0%95%ec%9d%98%ed%95%98%eb%9d%bc aria-label="[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라.">[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라.</a><ul>
+<a href=#%eb%85%bc%eb%a6%ac%ec%a0%81%ec%9c%bc%eb%a1%9c-%ea%b0%99%ec%9d%80-%ea%b0%9d%ec%b2%b4%eb%8a%94-%ea%b0%99%ec%9d%80-%ed%95%b4%ec%8b%9c%ec%bd%94%eb%93%9c%eb%a5%bc-%eb%b0%98%ed%99%98%ed%95%b4%ec%95%bc-%ed%95%a9%eb%8b%88%eb%8b%a4 aria-label="논리적으로 같은 객체는 같은 해시코드를 반환해야 합니다.">논리적으로 같은 객체는 같은 해시코드를 반환해야 합니다.</a><ul>
 <li>
-<a href=#%ec%a0%95%eb%a6%ac aria-label=정리>정리</a>
+<a href=#i-classuser-fa-action-info-outline-aria-hiddentruei-%eb%8b%a4%ec%9d%8c%ec%9d%80-hashcode%eb%a5%bc-%ec%9e%91%ec%84%b1%ed%95%98%eb%8a%94-%ec%9a%94%eb%a0%b9%ec%9e%85%eb%8b%88%eb%8b%a4 aria-label=" 다음은 hashCode를 작성하는 요령입니다."><i class=user-fa-action-info-outline aria-hidden=true></i> 다음은 <code>hashCode</code>를 작성하는 요령입니다.</a></li></ul>
 </li>
-</ul>
+<li>
+<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
 </li>
 </ul>
 </div>
@@ -199,11 +203,12 @@
 <div class=inner-wrapper>
 <div class=inner><ul>
 <li>
-<a href=#%ec%95%84%ec%9d%b4%ed%85%9c-11-equals%eb%a5%bc-%ec%9e%ac%ec%a0%95%ec%9d%98%ed%95%98%eb%a0%a4%ea%b1%b0%eb%93%a0-hashcode%eb%8f%84-%ec%9e%ac%ec%a0%95%ec%9d%98%ed%95%98%eb%9d%bc aria-label="[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라.">[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라.</a><ul>
+<a href=#%eb%85%bc%eb%a6%ac%ec%a0%81%ec%9c%bc%eb%a1%9c-%ea%b0%99%ec%9d%80-%ea%b0%9d%ec%b2%b4%eb%8a%94-%ea%b0%99%ec%9d%80-%ed%95%b4%ec%8b%9c%ec%bd%94%eb%93%9c%eb%a5%bc-%eb%b0%98%ed%99%98%ed%95%b4%ec%95%bc-%ed%95%a9%eb%8b%88%eb%8b%a4 aria-label="논리적으로 같은 객체는 같은 해시코드를 반환해야 합니다.">논리적으로 같은 객체는 같은 해시코드를 반환해야 합니다.</a><ul>
 <li>
-<a href=#%ec%a0%95%eb%a6%ac aria-label=정리>정리</a>
+<a href=#i-classuser-fa-action-info-outline-aria-hiddentruei-%eb%8b%a4%ec%9d%8c%ec%9d%80-hashcode%eb%a5%bc-%ec%9e%91%ec%84%b1%ed%95%98%eb%8a%94-%ec%9a%94%eb%a0%b9%ec%9e%85%eb%8b%88%eb%8b%a4 aria-label=" 다음은 hashCode를 작성하는 요령입니다."><i class=user-fa-action-info-outline aria-hidden=true></i> 다음은 <code>hashCode</code>를 작성하는 요령입니다.</a></li></ul>
 </li>
-</ul>
+<li>
+<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
 </li>
 </ul>
 </div>
@@ -211,47 +216,38 @@
 </div>
 </div>
 <script>const tocAside_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};tocAside_DOMReady(function(){const g=[],k=document.querySelector(".main .post-single>.toc"),b=document.querySelector(".main .toc-aside"),i=document.querySelector(".post-header"),h=i.offsetHeight+i.offsetTop+i.offsetParent.offsetTop-1;let c=null,e=null,f=null,a=null;if(b){c=document.querySelector(".main .toc-aside-summary"),e=b.querySelector(".inner-wrapper"),f=c.querySelector(".toggle"),a=b.querySelectorAll(".inner-wrapper .inner ul>li"),localStorage.getItem("lock-aside-toc-"+window.location.pathname)==="true"?(c.dataset.isLock=!0,e.classList.add("close"),f.querySelector(".unlock").classList.add("hide")):(c.dataset.isLock=!1,e.classList.add("open"),f.querySelector(".lock").classList.add("hide"));for(let b=0;b<a.length;b++)g[b]=decodeURI(a[b].firstElementChild.hash.substring(1));h<window.pageYOffset?(b.classList.remove("hide"),b.classList.add("reveal"),c.classList.remove("hide")):h>=window.pageYOffset&&b.classList.add("hide"),c.addEventListener("click",()=>{c.dataset.isLock==="false"?(c.dataset.isLock=!0,localStorage.setItem("lock-aside-toc-"+window.location.pathname,!0),f.querySelector(".lock").classList.remove("hide"),f.querySelector(".unlock").classList.add("hide"),e.classList.add("close"),e.classList.remove("open")):(c.dataset.isLock=!1,localStorage.setItem("lock-aside-toc-"+window.location.pathname,!1),f.querySelector(".lock").classList.add("hide"),f.querySelector(".unlock").classList.remove("hide"),e.classList.add("open"),e.classList.remove("close"))})}let d=0,j=0;window.addEventListener("scroll",()=>{if(d=window.pageYOffset,b){const k=Math.ceil(d+window.innerHeight)>=document.body.scrollHeight;h<d&&b.classList.contains("hide")?(b.classList.remove("hide"),b.classList.add("reveal"),c.classList.remove("hide")):h>=d&&b.classList.contains("reveal")&&(b.scrollTop=0,b.classList.remove("reveal"),b.classList.add("hide"),c.classList.add("hide"));let f=null,i=null,e=null,l=null;if(g.map((c,b)=>{l=document.getElementById(c);const g=l.getBoundingClientRect(),h=g.top;d+h-1<=d&&(f=a[b],e=b)}),e!==null){if(k){for(let b=0;b<a.length;b++){if(!a[b].classList.contains("selected"))continue;a[b].classList.remove("selected")}a[g.length-1].classList.add("selected"),i=a[g.length-1]}else{if(f===i&&e>0){j=d;return}for(let b=0;b<a.length;b++){if(!a[b].classList.contains("selected"))continue;a[b].classList.remove("selected")}f.classList.add("selected"),i=f}e!==null&&b.scroll({behavior:'smooth',top:e*20})}else if(k)a[g.length-1].classList.add("selected"),i=a[g.length-1];else{if(b.querySelector(".selected")===null){j=d;return}for(let b=0;b<a.length;b++){if(!a[b].classList.contains("selected"))continue;a[b].classList.remove("selected")}}}j=d})})</script>
-<div class=post-content data-animation=true><h2 id=아이템-11-equals를-재정의하려거든-hashcode도-재정의하라>[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라.<a hidden class=anchor aria-hidden=true href=#아이템-11-equals를-재정의하려거든-hashcode도-재정의하라><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
-<p><code>equals</code>와 <code>hasoCode</code>를 재정의 하지 않으면 <code>HashMap</code>이나 <code>HashSet</code>에서 같은 원소를 사용할 때 문제가 발생합니다.</p>
-<ol>
+<div class=post-content data-animation=true><p><code>equals</code>와 <code>hasoCode</code>를 재정의 하지 않으면 <code>HashMap</code>이나 <code>HashSet</code>에서 같은 원소를 사용할 때 문제가 발생합니다.</p>
+<p>다음은 Object 명세에서 발췌한 규약이다.</p>
+<ul>
 <li><code>equals</code> 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 <code>hashCode</code>메서드는 여러번 호출해도 일관된 값을 반환해야 합니다.</li>
 <li><code>equals</code>가 두 객체를 같다고 판단하면 <code>hashCode</code> 또한 같은 값을 반환해야 합니다.</li>
-<li><code>equals</code>가 두 객체를 다르다고 판단해도, 두 객체의 <code>hashCode</code>가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.</li>
-</ol>
-<p>서로 다른 인스턴스에 대해서 모두 다른 해시코드를 반환하면 좋겠지만 <code>hashCode</code>는 <code>int</code>형이므로 <code>2^32</code>만큼의 경우의 수로 제한되어 있기 때문에 <code>비둘기 집의 원리</code>로 예외가 생길 수 있습니다.<br>
-<br><br>
-<br><br>
-다음은 <code>hashCode</code>를 작성하는 요령입니다.</p>
-<ol>
-<li>
-<p><code>int</code> 변수 <code>result</code>를 선언한 후 값 <code>c</code>로 초기화 합니다. 이때 <code>c</code>는 해당 객체의 첫번째 해시 필드를 <code>2-a</code> 방식으로 계산한 해시코드입니다.<br>
-<br><br>
-<br></p>
-</li>
-<li>
-<p>나머지 개개의 필드 <code>f</code> 각각에 대해서 다음 작업을 수행합니다.<br>
-<br><br>
-a. 해당 필드의 해시코드 <code>c</code>를 계산합니다.</p>
-<ul>
-<li>기본 타입 필드라면, <code>Type.hashCode(f)</code>를 수행합니다. 여기서 <code>Type</code>은 해당 기본 타입의 박싱 클래스입니다.</li>
-<li>참조 타입 필드면서 이 클래스의 <code>equals</code> 메서드가 이 필드의 <code>equals</code>를 재귀적으로 호출해 비교한다면, 이 필드의 <code>hashCode</code>를 재귀적으로 호출합니다.</li>
-<li>필드가 배열이라면, 원소 각각을 별도 필드처럼 다룹니다. 이상의 규칙을 재귀적으로 적용해 각 핵심 원소의 해시코드를 계산한 다음, <code>2.b</code>방식으로 갱신합니다. 배열에 핵심 원소가 하나도 없다면 단순 상수를 사용하고 모든 원소가 핵심 원소라면 <code>Arrays.hashCode</code>를 사용합니다.</li>
-</ul>
-<p>b. <code>2.a</code>에서 계산한 해시코드 <code>c</code>로 <code>result</code>를 갱신합니다.</p>
-<ul>
-<li><code>result = 31 * result + c;</code><br>
+<li><code>equals</code>가 두 객체를 다르다고 판단해도, 두 객체의 <code>hashCode</code>가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.<br>
 <br><br>
 <br></li>
 </ul>
-</li>
-<li>
-<p><code>result</code>를 반환합니다.<br>
+<h2 id=논리적으로-같은-객체는-같은-해시코드를-반환해야-합니다>논리적으로 같은 객체는 같은 해시코드를 반환해야 합니다.<a hidden class=anchor aria-hidden=true href=#논리적으로-같은-객체는-같은-해시코드를-반환해야-합니다><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<p>서로 다른 인스턴스에 대해서 모두 다른 해시코드를 반환하면 좋겠지만 <code>hashCode</code>는 <code>int</code>형이므로 <code>2^32</code>만큼의 경우의 수로 제한되어 있기 때문에 <code>비둘기 집의 원리</code>로 예외가 생길 수 있습니다.<br>
 <br><br>
-<br><br>
-<code>equals</code> 비교에서 사용되지 않는 필드는 <strong>반드시</strong> 제외해야 합니다. 그렇지 않으면 맨 처음에 언급했던 두 번째 규약을 어기게됩니다.</p>
-</li>
+<br></p>
+<h3 id=i-classuser-fa-action-info-outline-aria-hiddentruei-다음은-hashcode를-작성하는-요령입니다><i class=user-fa-action-info-outline aria-hidden=true></i> 다음은 <code>hashCode</code>를 작성하는 요령입니다.<a hidden class=anchor aria-hidden=true href=#i-classuser-fa-action-info-outline-aria-hiddentruei-다음은-hashcode를-작성하는-요령입니다><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
+<ol>
+<li><code>int</code> 변수 <code>result</code>를 선언한 후 값 <code>c</code>로 초기화 합니다. 이때 <code>c</code>는 해당 객체의 첫번째 해시 필드를 <code>2-a</code> 방식으로 계산한 해시코드입니다.<br>
+<br></li>
+<li>나머지 개개의 필드 <code>f</code> 각각에 대해서 다음 작업을 수행합니다.<br>
+a. 해당 필드의 해시코드 <code>c</code>를 계산합니다.<br>
+<div style=display:inline-flex;padding-inline-start:2rem;margin-top:.5rem><span><strong><em>i .</em></strong>　　</span> <span>기본 타입 필드라면, <code>Type.hashCode(f)</code>를 수행합니다. 여기서 <code>Type</code>은 해당 기본 타입의 박싱 클래스입니다.</span></div><br>
+<div style=display:inline-flex;padding-inline-start:2rem;margin-top:.5rem;margin-bottom:.5rem><span><strong><em>ii .</em></strong>　　</span> <span>참조 타입 필드면서 이 클래스의 <code>equals</code> 메서드가 이 필드의 <code>equals</code>를 재귀적으로 호출해 비교한다면, 이 필드의 <code>hashCode</code>를 재귀적으로 호출합니다.</span></div><br>
+<div style=display:inline-flex;padding-inline-start:2rem;margin-bottom:1.5rem><span><strong><em>iii .</em></strong>　　</span> <span>필드가 배열이라면, 원소 각각을 별도 필드처럼 다룹니다. 이상의 규칙을 재귀적으로 적용해 각 핵심 원소의 해시코드를 계산한 다음, <code>2.b</code>방식으로 갱신합니다. 배열에 핵심 원소가 하나도 없다면 단순 상수를 사용하고 모든 원소가 핵심 원소라면 <code>Arrays.hashCode</code>를 사용합니다.</span></div><br>
+b. <code>2.a</code>에서 계산한 해시코드 <code>c</code>로 <code>result</code>를 갱신합니다.<br>
+　<code>result = 31 * result + c;</code><br>
+<br></li>
+<li><code>result</code>를 반환합니다.<br>
+<br></li>
 </ol>
-<p>숫자를 곱하는 이유는 만약 곱셉 없는 <code>hahCode</code>를 구현하게 되면 모든 아나그램의 해시코드가 같아집니다. 그리고 31을 선택한 이유는 홀수이면서 소수이기 때문입니다.</p>
+<p><code>equals</code> 비교에서 사용되지 않는 필드는 <strong>반드시</strong> 제외해야 합니다. 그렇지 않으면 맨 처음에 언급했던 두 번째 규약을 어기게됩니다.<br>
+<br><br>
+<br></p>
+<p>숫자를 곱하는 이유는 만약 곱셈 없는 <code>hahCode</code>를 구현하게 되면 모든 아나그램의 해시코드가 같아집니다. 그리고 <code>31</code>을 선택한 이유는 <code>홀수</code>이면서 <code>소수</code>이기 때문입니다.</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -261,11 +257,9 @@ a. 해당 필드의 해시코드 <code>c</code>를 계산합니다.</p>
 </span><span class=lnt>5
 </span><span class=lnt>6
 </span><span class=lnt>7
-</span><span class=lnt>8
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=c1>// 전형적인 hashCode 메서드
-</span><span class=c1></span><span class=nd>@Override</span>
+<pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=nd>@Override</span>
 <span class=kd>public</span> <span class=kt>int</span> <span class=nf>hashCode</span><span class=o>()</span> <span class=o>{</span>
     <span class=kt>int</span> <span class=n>result</span> <span class=o>=</span> <span class=n>Short</span><span class=o>.</span><span class=na>hashCode</span><span class=o>(</span><span class=n>areaCode</span><span class=o>);</span>
     <span class=n>result</span> <span class=o>=</span> <span class=n>31</span> <span class=o>*</span> <span class=n>result</span> <span class=o>+</span> <span class=n>Short</span><span class=o>.</span><span class=na>hashCode</span><span class=o>(</span><span class=n>prefix</span><span class=o>);</span>
@@ -274,24 +268,59 @@ a. 해당 필드의 해시코드 <code>c</code>를 계산합니다.</p>
 <span class=o>}</span>
 </code></pre></td></tr></table>
 </div>
-</div><div class=highlight><div class=chroma>
+</div><p><i class=user-fa-action-info-outline aria-hidden=true></i> <em>전형적인 hashCode 메서드</em><br>
+<br></p>
+<div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span><span class=lnt>5
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=c1>// 한 줄짜리 hasoCode 메서드 - 성능이 살짝 아쉽습니다.
-</span><span class=c1></span><span class=nd>@Override</span> 
+<pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=nd>@Override</span> 
 <span class=kd>public</span> <span class=kt>int</span> <span class=nf>hashCode</span><span class=o>(){</span>
     <span class=k>return</span> <span class=n>Objects</span><span class=o>.</span><span class=na>hash</span><span class=o>(</span><span class=n>lineNum</span><span class=o>,</span> <span class=n>prefix</span><span class=o>,</span> <span class=n>areaCode</span><span class=o>);</span>
 <span class=o>}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id=정리>정리<a hidden class=anchor aria-hidden=true href=#정리><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
-<p><code>equals</code>를 재정의 할 때는 <code>hashCdoe</code>도 재정의해야 합니다. 그렇지 않으면 프로그래밍이 제대로 동작하지 않을 수 있습니다. 서로 다른 인스턴스라면 되도록 해시코드도 서로 다르게 구현해야 합니다.</p>
+</div><p><i class=user-fa-action-info-outline aria-hidden=true></i> <em>한 줄짜리 hasoCode 메서드 - 성능이 살짝 아쉽습니다.</em><br>
+<br></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=kd>private</span> <span class=kt>int</span> <span class=n>hashCode</span><span class=o>;</span> <span class=c1>// 자동으로 0으로 초기화된다.
+</span><span class=c1></span>
+<span class=nd>@Override</span> <span class=kd>public</span> <span class=kt>int</span> <span class=nf>hashCode</span><span class=o>()</span> <span class=o>{</span>
+    <span class=kt>int</span> <span class=n>result</span> <span class=o>=</span> <span class=n>hashCode</span><span class=o>;</span>
+    <span class=k>if</span> <span class=o>(</span><span class=n>result</span> <span class=o>==</span> <span class=n>0</span><span class=o>)</span> <span class=o>{</span>
+        <span class=n>result</span> <span class=o>=</span> <span class=n>Short</span><span class=o>.</span><span class=na>hashCode</span><span class=o>(</span><span class=n>areaCode</span><span class=o>);</span>
+        <span class=n>result</span> <span class=o>=</span> <span class=n>31</span> <span class=o>*</span> <span class=n>result</span> <span class=o>+</span> <span class=n>Short</span><span class=o>.</span><span class=na>hashCode</span><span class=o>(</span><span class=n>prefix</span><span class=o>);</span>
+        <span class=n>result</span> <span class=o>=</span> <span class=n>31</span> <span class=o>*</span> <span class=n>result</span> <span class=o>+</span> <span class=n>Short</span><span class=o>.</span><span class=na>hashCode</span><span class=o>(</span><span class=n>lineNum</span><span class=o>);</span>
+        <span class=n>hashCode</span> <span class=o>=</span> <span class=n>result</span><span class=o>;</span>
+    <span class=o>}</span>
+    <span class=k>return</span> <span class=n>result</span><span class=o>;</span>
+<span class=o>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><i class=user-fa-action-info-outline aria-hidden=true></i> <em>해시코드를 지연 초기화하는 hashCode 메서드 - 스레드 안정성까지 고려해야 한다.</em><br>
+<br><br>
+<br></p>
+<h2 id=i-classuser-fa-av-new-releases-aria-hiddentruei-정리><i class=user-fa-av-new-releases aria-hidden=true></i> 정리<a hidden class=anchor aria-hidden=true href=#i-classuser-fa-av-new-releases-aria-hiddentruei-정리><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<p><code>equals</code>를 재정의 할 때는 <code>hashCdoe</code>도 재정의해야 합니다. 그렇지 않으면 프로그램이 제대로 동작하지 않을 수 있습니다. 서로 다른 인스턴스라면 되도록 해시코드도 서로 다르게 구현해야 합니다.</p>
 </div>
 <footer class=post-footer data-animation=true><div class=post-license-info>
 <a class=button rel=license href=https://creativecommons.org/licenses/by-sa/4.0/deed.ko target=_blank>

@@ -21,7 +21,7 @@ showContentProgressbar: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-## 메모리 누수가 일어나는 예제 코드
+## <i class="user-fa-alert-warning" aria-hidden="true"></i> 메모리 누수가 일어나는 예제 코드
 
 ``` java
 public class Stack {

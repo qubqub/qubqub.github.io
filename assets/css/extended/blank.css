@@ -885,6 +885,11 @@ header.header {
   word-break: keep-all;
 }
 
+.post-content ol li + li,
+.post-content ul li + li {
+  margin-top: 1rem;
+}
+
 .post-content .highlight .lntable .copy-code,
 .post-content pre .copy-code {
   background-color: #21262d;
