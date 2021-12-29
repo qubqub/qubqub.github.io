@@ -147,17 +147,19 @@
 </article>
 </div>
 <div class=list-entry-wrapper style=animation-delay:320ms data-animation=true>
-<article class="list-entry button" title="클라이언트가 클래스의 인스턴스를 얻는 전통적인 수단은 public 생성자다. 하지만 모든 프로그래머가 꼭 알아둬야 할 기법이 하나 더 있다. 클래스는 생성자와 별도로 정적 팩터리 메서드static factory method를 제공할 수 있다. 그 클래스의 인스턴스를 반환하는 단순한 정적 메서드 말이다. 다음 코드는 boolean 기본 타입의 박싱 클래스boxed class인 Boolean에서 발췌한 간단한 예다. 이 메서드는 기본 타입인 boolean 값을 받아 Boolean 객체 참조로 변환해준다.
-1 2 3  public static Boolean valueOf(boolean b) { return b ?">
+<article class="list-entry button" title="일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메서드를 이용할 수 있다. 1 2 3  public static Boolean valueOf(boolean b) { return b ? Boolean.TRUE : Booelan.FALSE; }   Boolean 클래스에서 발췌한 예제 코드
+ 장점 📌 첫 번째, 이름을 가질 수 있다. 생성자에 넘기는 매개변수만으로 반환될 객체의 특성을 제대로 설명하지 못합니다. 반면 정적 팩터리 메서드는 이름을 잘 지으면 반환될 객체의 특성을 쉽게 묘사할 수 있습니다.
+하나의 시그니처로는 생성자를 하나만 만들 수 있으며 입력 매개변수들의 순서를 다르게 한 생성자를 추가하는 식으로 이 제한을 피할 수는 있지만, 이 역시 객체의 특성을 살리기 힘들고 좋지 않은 방식입니다.">
 <header class=entry-header>
 <h2>[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라
 </h2>
 </header>
 <section class=entry-content>
-<p>클라이언트가 클래스의 인스턴스를 얻는 전통적인 수단은 public 생성자다. 하지만 모든 프로그래머가 꼭 알아둬야 할 기법이 하나 더 있다. 클래스는 생성자와 별도로 정적 팩터리 메서드static factory method를 제공할 수 있다. 그 클래스의 인스턴스를 반환하는 단순한 정적 메서드 말이다. 다음 코드는 boolean 기본 타입의 박싱 클래스boxed class인 Boolean에서 발췌한 간단한 예다. 이 메서드는 기본 타입인 boolean 값을 받아 Boolean 객체 참조로 변환해준다.
-1 2 3 public static Boolean valueOf(boolean b) { return b ?...</p>
+<p>일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메서드를 이용할 수 있다. 1 2 3 public static Boolean valueOf(boolean b) { return b ? Boolean.TRUE : Booelan.FALSE; } Boolean 클래스에서 발췌한 예제 코드
+장점 📌 첫 번째, 이름을 가질 수 있다. 생성자에 넘기는 매개변수만으로 반환될 객체의 특성을 제대로 설명하지 못합니다. 반면 정적 팩터리 메서드는 이름을 잘 지으면 반환될 객체의 특성을 쉽게 묘사할 수 있습니다.
+하나의 시그니처로는 생성자를 하나만 만들 수 있으며 입력 매개변수들의 순서를 다르게 한 생성자를 추가하는 식으로 이 제한을 피할 수는 있지만, 이 역시 객체의 특성을 살리기 힘들고 좋지 않은 방식입니다....</p>
 </section>
-<footer class=entry-footer><span title="2020-06-18 15:49:20 +0900 KST">2020년 6월 18일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 7 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-06-18 15:49:20 +0900 KST">2020년 6월 18일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
