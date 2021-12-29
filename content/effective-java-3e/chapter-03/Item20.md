@@ -67,5 +67,6 @@ public interface SingerSongWriter extends Singer, Songwriter {
 <br>
 
 ## <i class="user-fa-av-new-releases" aria-hidden="true"></i> 정리
+
 - 일반적으로 다중 구현용 타입으로는 인터페이스가 적합합니다.
 - 복잡한 인터페이스라면 구현하는 수고를 덜어주는 골격 구현을 함께 제공하는 방법도 고려하는걸 추천합니다.

@@ -44,11 +44,13 @@ class Dessert {
     static final String NAME = "cake";
 }
 ```
+
 `Main`을 실행하면 "pancake"가 출력됩니다.
 <br>
 <br>
 
 이제 두 클래스를 담은 `Dessert.java`라는 파일을 만들었다고 가정해봅시다.
+
 ``` java
 class Utensil {
     static final String NAME = "pot";
@@ -58,6 +60,7 @@ class Dessert {
     static final String NAME = "pie";
 }
 ```
+
 컴파일러는 가장 먼저 `Main.java`를 컴파일하고, 그 안에서 (`Dessert` 참조보다 먼저 나오는) `Utensil` 참조를 만나면 `Utensil.java` 파일을 살펴 `Utensil`과 `Dessert`를 모두 찾아낼 것입니다. 그런 다음 컴파일러가 두 번째 명령줄 인수로 넘어온 `Dessert.java`를 처리하려 할 때 같은 클래스의 정의가 이미 있음을 알게 됩니다.
 
 한편 `javac Main.java`나 `javac Main.java Utensil.java`명령으로 컴파일하면 `Dessert.java`파일을 작성하기 전처럼 "pancake"를 출력합니다. 그러나 `javac Dessert.java Main.java`명령으로 컴파일하면 "potpie"를 출력합니다.

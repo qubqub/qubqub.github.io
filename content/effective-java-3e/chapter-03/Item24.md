@@ -22,7 +22,7 @@ showContentProgressbar: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
 중첩 클래스`nested class`는 자신을 감싼 바깥 클래스에서만 쓰여야 하며 그 이외 쓰임새가 있다면 톱레벨 클래스로 만들어야 합니다.
-   
+
 중첩 클래스는 다음과 같이 네 종류로 나눌 수 있습니다.
 - 정적 멤버 클래스
 - (비정적)멤버 클래스
@@ -66,7 +66,8 @@ showContentProgressbar: true
 <br>
 <br>
 
-## 정리
+## <i class="user-fa-av-new-releases" aria-hidden="true"></i> 정리
+
 - 중첩 클래스에는 네 가지가 있으며, 각각의 쓰임이 다릅니다.
 - 메서드 밖에서도 사용해야 하거나 메서드 안에 정의하기엔 너무 길다면 멤버 클래스로 만듭니다.
 - 멤버 클래스의 인스턴스 각각이 바깥 인스턴스를 참조한다면 비정적으로. 그렇지 않으면 정적으로 만듭시다.

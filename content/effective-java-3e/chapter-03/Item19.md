@@ -40,6 +40,7 @@ showContentProgressbar: true
 <br>
 
 ## <i class="user-fa-av-new-releases" aria-hidden="true"></i> 정리
+
 - 상속을 하려면 문서화를 해야 하며, 문서화 한 것은 반드시 지켜야 합니다.
 - 클래스를 확장해야 할 명확한 이유가 없다면 [`아이템17`](/effective-java-3e/chapter-03/item17/)에서 다뤘던 방식으로 상속을 금지합시다.
 
