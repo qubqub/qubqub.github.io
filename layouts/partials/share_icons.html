@@ -84,10 +84,11 @@
   </a>
   {{- end }}
 </div>
+{{- $.Scratch.Get "tags" -}}
 <script>
   const shareIcons_DOMReady = function (callback) {
-      document.readyState === "interactive" ||
-          document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+    document.readyState === "interactive" ||
+      document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
   };
   shareIcons_DOMReady( function () {
     document.getElementById("kakaotalk-share").addEventListener("click", () => {
@@ -97,18 +98,17 @@
       _script.onload = () => {
         Kakao.init("8496679d80f0c5d13041c128a8343eda");
         Kakao.Link.sendDefault({
-            objectType: "feed",
-            description: '{{- $.Scratch.Get "tags" -}}',
-            content: {
-                title: '{{ $title }}',
-                imageUrl: "https://qutrits.github.io/icon/favicon.png",
-                link: {
-                    mobileWebUrl: '{{ $pageurl }}',
-                    webUrl: '{{ $pageurl }}'
-                }
-            },
-            success: function(e) {},
-            fail: function(e) {}
+          objectType: "feed",
+          content: {
+            title: '{{ $title }}',
+            imageUrl: "https://qutrits.github.io/icon/favicon.png",
+            link: {
+              mobileWebUrl: '{{ $pageurl }}',
+              webUrl: '{{ $pageurl }}'
+            }
+          },
+          success: function(e) {},
+          fail: function(e) {}
         });
       };
       document.body.appendChild(_script);
