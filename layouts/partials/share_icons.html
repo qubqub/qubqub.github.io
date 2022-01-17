@@ -106,11 +106,12 @@
   {{- end }}
 </div>
 {{- if .Site.Params.kakaoJavaScriptKey }}
-{{- $imageUrl := ("/icon/favicon.png") | absURL }}
-{{- if (and .Params.cover.image (not $.isHidden)) }}
-  {{ $imageUrl = (.Params.cover.image) | absURL }}
+{{- $imageUrl := "" }}
+{{- if (.Params.cover.image) }}
+  {{- $imageUrl = .Params.cover.image | absURL }}
+{{- else }}
+  {{- $imageUrl = "/icon/favicon.png" | absURL }}
 {{- end }}
-
 <script>
   const shareIcons_DOMReady = function (callback) {
     document.readyState === "interactive" ||
