@@ -31,7 +31,11 @@
   {{- partial "toc.html" . }}
   {{- end }}
   {{- if (.Param "showAsideToc") }}
-  {{- partial "toc-aside.html" . }}
+  {{- partial "toc_aside.html" . }}
+  {{- end }}
+
+  {{- if (and .Site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
+  {{- partial "share_icons_aside.html" . -}}
   {{- end }}
 
   {{- if .Content }}
