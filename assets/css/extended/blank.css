@@ -539,6 +539,15 @@ header.header {
   background-color: var(--tertiary);
 }
 
+.main .post-single .post-footer .share-buttons .kakaotalk:hover { 
+  cursor: pointer;
+  transition: color 0.2s ease 0s;
+  color: #f7e600;
+}
+.main .post-single .post-footer .share-buttons .naverblog:hover {
+  transition: color 0.2s ease 0s;
+  color: #2db400;
+}
 .main .post-single .post-footer .share-buttons .twitter:hover {
   transition: color 0.2s ease 0s;
   color: #00acee;
