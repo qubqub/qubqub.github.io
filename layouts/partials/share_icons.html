@@ -101,7 +101,7 @@
           content: {
             title: '{{ $title }}',
             description: '{{- $.Scratch.Get "tags" -}}',
-            imageUrl: "https://qutrits.github.io/icon/favicon.png",
+            imageUrl: '{{ "/icon/favicon.png" | absURL }}',
             link: {
               mobileWebUrl: '{{ $pageurl }}',
               webUrl: '{{ $pageurl }}'
