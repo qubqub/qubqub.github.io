@@ -92,14 +92,15 @@
   shareIcons_DOMReady( function () {
     document.getElementById("kakaotalk-share").addEventListener("click", () => {
       const _script = document.createElement('script');
-      _script.async = true;
+      _script.setAttribute("src", "https://developers.kakao.com/sdk/js/kakao.min.js");
+      // _script.async = true;
       _script.onload = () => {
         Kakao.init("8496679d80f0c5d13041c128a8343eda");
         Kakao.Link.sendDefault({
             objectType: "feed",
             content: {
                 title: '{{ $title }}',
-                // imageUrl: $("meta[name=thumbnail]").attr("content"),
+                imageUrl: "/icon/favicon.png",
                 link: {
                     mobileWebUrl: '{{ $pageurl }}',
                     webUrl: '{{ $pageurl }}'
@@ -109,7 +110,7 @@
             fail: function(e) {}
         });
       };
-      _script.setAttribute("src", "https://developers.kakao.com/sdk/js/kakao.min.js");
+      document.body.appendChild(_script);
     });
   });
 </script>
