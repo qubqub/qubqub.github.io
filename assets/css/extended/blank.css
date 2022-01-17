@@ -1984,8 +1984,8 @@ a.button,
 
   70% {
     opacity: 0.7;
-    transform: translateY(5%);
-    -webkit-transform: translateY(5%);
+    transform: translateY(6%);
+    -webkit-transform: translateY(6%);
   }
 
   100% {
@@ -2009,14 +2009,54 @@ a.button,
   }
 }
 
+@keyframes slide-in-down-30-rebound {
+  0% {
+    opacity: 0;
+    transform: translateY(-30%);
+    -webkit-transform: translateY(-30%);
+  }
+
+  70% {
+    opacity: 0.7;
+    transform: translateY(3%);
+    -webkit-transform: translateY(3%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
 @keyframes slide-in-down-5 {
   from {
     opacity: 0;
-    transform: translateY(-3%);
-    -webkit-transform: translateY(-3%);
+    transform: translateY(-5%);
+    -webkit-transform: translateY(-5%);
   }
 
   to {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
+@keyframes slide-in-down-5-rebound {
+  0% {
+    opacity: 0;
+    transform: translateY(-5%);
+    -webkit-transform: translateY(-5%);
+  }
+
+  70% {
+    opacity: 0.7;
+    transform: translateY(1%);
+    -webkit-transform: translateY(1%);
+  }
+
+  100% {
     opacity: 1;
     transform: none;
     -webkit-transform: none;
@@ -2031,6 +2071,26 @@ a.button,
   }
 
   to {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
+@keyframes slide-in-down-3-rebound {
+  0% {
+    opacity: 0;
+    transform: translateY(-3%);
+    -webkit-transform: translateY(-3%);
+  }
+
+  70% {
+    opacity: 0.7;
+    transform: translateY(0.6%);
+    -webkit-transform: translateY(0.6%);
+  }
+
+  100% {
     opacity: 1;
     transform: none;
     -webkit-transform: none;
@@ -2223,6 +2283,26 @@ a.button,
   }
 }
 
+@keyframes slide-in-left-1-rebound {
+  0% {
+    opacity: 0;
+    transform: translateX(-1%);
+    -webkit-transform: translateX(-1%);
+  }
+
+  70% {
+    opacity: 0.7;
+    transform: translateX(0.2%);
+    -webkit-transform: translateX(0.2%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
 @keyframes slide-in-up-3 {
   from {
     opacity: 0;
@@ -2231,6 +2311,26 @@ a.button,
   }
 
   to {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
+@keyframes slide-in-up-3-rebound {
+  0% {
+    opacity: 0;
+    transform: translateY(-3%);
+    -webkit-transform: translateY(-3%);
+  }
+
+  70% {
+    opacity: 0.7;
+    transform: translateY(0.5%);
+    -webkit-transform: translateY(0.5%);
+  }
+
+  100% {
     opacity: 1;
     transform: none;
     -webkit-transform: none;
@@ -2265,6 +2365,26 @@ a.button,
   }
 }
 
+@keyframes slide-in-up-20-rebound {
+  0% {
+    opacity: 0;
+    transform: translateY(20%);
+    -webkit-transform: translateY(20%);
+  }
+
+  70% {
+    opacity: 0.7;
+    transform: translateY(3%);
+    -webkit-transform: translateY(3%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+  }
+}
+
 @keyframes slide-in-width-0-100 {
   from {
     width: 0%;
@@ -2290,7 +2410,7 @@ a.button,
 }
 
 .main .post-single .post-header .breadcrumbs[data-animation=true] {
-  animation-name: slide-in-down-30;
+  animation-name: slide-in-down-30-rebound;
   animation-duration: 0.2s;
   animation-delay: 0.2s;
   animation-timing-function: ease-in;
@@ -2298,7 +2418,7 @@ a.button,
   animation-fill-mode: both;
 }
 .main .post-single .post-header .post-title[data-animation=true] {
-  animation-name: slide-in-down-30;
+  animation-name: slide-in-down-30-rebound;
   animation-duration: 0.2s;
   animation-delay: 0.2s;
   animation-timing-function: ease-in;
@@ -2306,7 +2426,7 @@ a.button,
   animation-fill-mode: both;
 }
 .main .post-single .post-header .post-description[data-animation=true] {
-  animation-name: slide-in-down-30;
+  animation-name: slide-in-down-30-rebound;
   animation-duration: 0.2s;
   animation-delay: 0.25s;
   animation-timing-function: ease-in;
@@ -2314,7 +2434,7 @@ a.button,
   animation-fill-mode: both;
 }
 .main .post-single .post-header .post-meta[data-animation=true] {
-  animation-name: slide-in-down-30;
+  animation-name: slide-in-down-30-rebound;
   animation-duration: 0.2s;
   animation-delay: 0.3s;
   animation-timing-function: ease-in;
@@ -2322,7 +2442,7 @@ a.button,
   animation-fill-mode: both;
 }
 .main .post-single .series-main[data-animation=true] {
-  animation-name: slide-in-down-3;
+  animation-name: slide-in-down-3-rebound;
   animation-duration: 0.2s;
   animation-delay: 0.4s;
   animation-timing-function: ease-in;
@@ -2330,7 +2450,7 @@ a.button,
   animation-fill-mode: both;
 }
 .main .post-single .toc[data-animation=true] {
-  animation-name: slide-in-down-5;
+  animation-name: slide-in-down-5-rebound;
   animation-duration: 0.2s;
   animation-delay: 0.5s;
   animation-timing-function: ease-in;
@@ -2346,7 +2466,7 @@ a.button,
   animation-fill-mode: both;
 } */
 .main .post-single .post-content[data-animation=true] {
-  animation-name: slide-in-left-1;
+  animation-name: slide-in-left-1-rebound;
   animation-duration: 0.2s;
   animation-delay: 0.6s;
   animation-timing-function: ease-in;
@@ -2355,7 +2475,7 @@ a.button,
   transition: font-size 0.1s ease 0s;
 }
 .main .post-single .post-footer[data-animation=true] {
-  animation-name: slide-in-up-3;
+  animation-name: slide-in-up-3-rebound;
   animation-duration: 0.2s;
   animation-delay: 0.6s;
   animation-timing-function: ease-in;
@@ -2363,7 +2483,7 @@ a.button,
   animation-fill-mode: both;
 }
 .main .post-single .comments-button-wrapper[data-animation=true] {
-  animation-name: slide-in-up-20;
+  animation-name: slide-in-up-20-rebound;
   animation-duration: 0.2s;
   animation-delay: 0.6s;
   animation-timing-function: ease-in;
