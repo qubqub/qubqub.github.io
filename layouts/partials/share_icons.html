@@ -120,7 +120,7 @@
   shareIcons_DOMReady( function () {
     document.getElementById("kakaotalk-share").addEventListener("click", () => {
       const _script = document.createElement('script');
-      _script.setAttribute("src", "https://developers.kakao.com/sdk/js/kakao.min.js");
+      _script.setAttribute("src", "{{ .Site.Params.kakaoSdkUrl }}");
       _script.async = true;
       _script.onload = () => {
         Kakao.init("{{ .Site.Params.kakaoJavaScriptKey }}");

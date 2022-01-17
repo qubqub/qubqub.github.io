@@ -17,9 +17,9 @@ showPostNavLinks: true
 ShowCodeCopyButtons: true
 ShowBreadCrumbs: true
 showContentProgressbar: true
-cover:
-  hidden: false
-  image: "/logo/logo-effective-java-3e.png"
+# cover:
+#   hidden: true
+#   image: "/logo/logo-effective-java-3e.png"
 ---
 싱글턴`singletone`이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 `new`키워드로 호출해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.
 
