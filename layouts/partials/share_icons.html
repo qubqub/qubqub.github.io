@@ -106,6 +106,11 @@
   {{- end }}
 </div>
 {{- if .Site.Params.kakaoJavaScriptKey }}
+{{- $imageUrl := ("/icon/favicon.png") | absURL }}
+{{- if (and .Params.cover.image (not $.isHidden)) }}
+  {{ $imageUrl = (.Params.cover.image) | absURL }}
+{{- end }}
+
 <script>
   const shareIcons_DOMReady = function (callback) {
     document.readyState === "interactive" ||
@@ -123,7 +128,7 @@
           content: {
             title: '{{ $title }}',
             description: '{{- $.Scratch.Get "tags" -}}',
-            imageUrl: '{{ "/icon/favicon.png" | absURL }}',
+            imageUrl: '{{ $imageUrl }}',
             link: {
               mobileWebUrl: '{{ $pageurl }}',
               webUrl: '{{ $pageurl }}'
