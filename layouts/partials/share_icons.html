@@ -12,7 +12,6 @@
 {{- $custom := false }}
 {{- $ShareButtons := (.Param "ShareButtons")}}
 {{- with $ShareButtons }}{{ $custom = true }}{{ end }}
-
 <div class="share-buttons">
   {{- if (cond ($custom) (in $ShareButtons "kakaotalk") (true)) }}
   <a target="_blank" rel="noopener noreferrer" class="kakaotalk" id="kakaotalk-share" aria-label="share {{ $title | plainify }} on kakaotalk">
