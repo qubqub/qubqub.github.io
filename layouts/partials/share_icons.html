@@ -101,6 +101,7 @@
           objectType: "feed",
           content: {
             title: '{{ $title }}',
+            description: '{{- $.Scratch.Get "tags" -}}',
             imageUrl: "https://qutrits.github.io/icon/favicon.png",
             link: {
               mobileWebUrl: '{{ $pageurl }}',
