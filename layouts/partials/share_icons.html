@@ -98,6 +98,7 @@
         Kakao.init("8496679d80f0c5d13041c128a8343eda");
         Kakao.Link.sendDefault({
             objectType: "feed",
+            description: '{{- $.Scratch.Get "tags" -}}',
             content: {
                 title: '{{ $title }}',
                 imageUrl: "https://qutrits.github.io/icon/favicon.png",
