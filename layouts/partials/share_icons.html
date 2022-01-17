@@ -97,8 +97,19 @@
       _script.async = true;
       _script.onload = () => {
         Kakao.init("{{ .Site.Params.kakaoJavaScriptKey }}");
-        Kakao.Link.sendScrap({
-          requestUrl: '{{ $pageurl }}'
+        Kakao.Link.sendDefault({
+          objectType: "feed",
+          content: {
+            title: '{{ $title }}',
+            description: '{{- $.Scratch.Get "tags" -}}',
+            imageUrl: "https://qutrits.github.io/icon/favicon.png",
+            link: {
+              mobileWebUrl: '{{ $pageurl }}',
+              webUrl: '{{ $pageurl }}'
+            }
+          },
+          success: function(e) {},
+          fail: function(e) {}
         });
       };
       document.body.appendChild(_script);
