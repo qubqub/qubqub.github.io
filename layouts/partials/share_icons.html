@@ -107,7 +107,7 @@
 </div>
 {{- if .Site.Params.kakaoJavaScriptKey }}
 {{- $imageUrl := "" }}
-{{- if (.Params.cover.image) }}
+{{- if .Params.cover.image }}
   {{- $imageUrl = .Params.cover.image | absURL }}
 {{- else }}
   {{- $imageUrl = "/icon/favicon.png" | absURL }}
