@@ -539,14 +539,27 @@ header.header {
   background-color: var(--tertiary);
 }
 
-.main .post-single .post-footer .share-buttons .kakaotalk:hover { 
+.main .post-single .post-footer .share-buttons .kakaostory svg>path,
+.main .post-single .post-footer .share-buttons .naverband svg g path {
+  fill: var(--code-bg);
+}
+
+.main .post-single .post-footer .share-buttons .kakaotalk:hover {
   cursor: pointer;
   transition: color 0.2s ease 0s;
-  color: #f7e600;
+  color: #fee500;
+}
+.main .post-single .post-footer .share-buttons .kakaostory:hover {
+  transition: color 0.2s ease 0s;
+  color: #fee500;
 }
 .main .post-single .post-footer .share-buttons .naverblog:hover {
   transition: color 0.2s ease 0s;
-  color: #2db400;
+  color: #029a45;
+}
+.main .post-single .post-footer .share-buttons .naverband:hover {
+  transition: color 0.2s ease 0s;
+  color: #029a45;
 }
 .main .post-single .post-footer .share-buttons .twitter:hover {
   transition: color 0.2s ease 0s;
