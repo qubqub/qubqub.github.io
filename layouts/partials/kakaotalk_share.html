@@ -1,0 +1,6 @@
+{{- $custom := false }}
+{{- $ShareButtons := (.Param "ShareButtons")}}
+{{- with $ShareButtons }}{{ $custom = true }}{{ end }}
+{{- if and (cond ($custom) (in $ShareButtons "kakaotalk") (true)) .Site.Params.kakaoJavaScriptKey }}
+<script defer src="{{ .Site.Params.kakaoSdkUrl }}" onload="Kakao.init('{{ .Site.Params.kakaoJavaScriptKey }}')"></script>
+{{- end }}
