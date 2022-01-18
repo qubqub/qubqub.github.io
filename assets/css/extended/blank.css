@@ -602,7 +602,7 @@ header.header {
   border: 1px solid var(--tertiary);
   background: var(--tertiary);
   margin: 0;
-  padding: 9px 9px 0 7px;
+  padding: 9.21px 10px 0 8px;
   border-radius: var(--radius);
 }
 
