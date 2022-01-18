@@ -119,7 +119,6 @@
   };
   shareIcons_DOMReady( function () {
     document.getElementById("kakaotalk-share").addEventListener("click", () => {
-      Kakao.init("{{ .Site.Params.kakaoJavaScriptKey }}");
       Kakao.Link.sendDefault({
         objectType: "feed",
         content: {

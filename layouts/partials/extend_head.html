@@ -8,6 +8,9 @@
 {{- $ShareButtons := (.Param "ShareButtons")}}
 {{- with $ShareButtons }}{{ $custom = true }}{{ end }}
 {{- if and (cond ($custom) (in $ShareButtons "kakaotalk") (true)) .Site.Params.kakaoJavaScriptKey }}
-<script defer crossorigin="anonymous" src="{{ .Site.Params.kakaoSdkUrl }}"></script>
+<script async src="{{ .Site.Params.kakaoSdkUrl }}"></script>
+<script>
+    Kakao.init("{{ .Site.Params.kakaoJavaScriptKey }}");
+</script>
 {{- end }}
 {{- /* Head custom content area end */ -}}
