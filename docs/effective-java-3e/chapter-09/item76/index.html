@@ -9,7 +9,7 @@
 1 2 3 4 5 6 7 8  public Object pop() { if (size == 0) { throw new EmptyStachException(); } Object result = el[--size]; el[size] = null; // 참조 해제  return result; }   유효성 검사하는 부분이 없어도 ArrayOutOfBoundsException을 던지지만 이는 추상화 수준에 상황에 어울리지 않습니다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-09/item76/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.98c68fc598a876df16238a4f4e58769a2522b1af6ad82b33ac68bbd87afd1857.css integrity="sha256-mMaPxZiodt8WI4pPTlh2miUisa9q2CszrGi72Hr9GFc=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.cd9e3a51477aabe43e59490316abdf7a00796c5a29893f3eaf1a94c3675c5976.css integrity="sha256-zZ46UUd6q+Q+WUkDFqvfegB5bFopiT8+rxqUw2dcWXY=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
