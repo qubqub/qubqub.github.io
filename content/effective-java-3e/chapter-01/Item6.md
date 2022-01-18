@@ -21,7 +21,7 @@ showContentProgressbar: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-기능이 똑같은 객체를 매번 생성하기 보다는 객체를 재사용하는 것이 적절합니다. 특히 **불변 객체는 항상 재사용할 수 있습니다.**
+기능이 똑같은 객체를 매번 생성하기 보다는 객체를 재사용하는 것이 적절합니다. 특히 {{< font color-var="main-color" weight="600" text="불변 객체는 항상 재사용할 수 있습니다." >}}
 <br>
 
 ## 📌 문자열 생성 방법
@@ -39,7 +39,7 @@ String str = new String("hello");
 ``` java
 String str = "hello";
 ```
-`리터럴` 방식을 사용하면 JVM에서 동일한 문자열이 존재한다면 그 리터럴을 재사용합니다.
+{{< font color-var="main-color" weight="600" text="리터럴" >}} 방식을 사용하면 {{< font color-var="main-color" weight="600" text="JVM" >}}에서 동일한 문자열이 존재한다면 그 리터럴을 재사용합니다.
 <br>
 <br>
 
@@ -55,7 +55,7 @@ static boolean isRomanNumeral(String s) {
 }
 ```
 정규표현식의 예제로 문자열이 로마 숫자인지 확인하는 코드입니다.   
-`String.matches`는 내부에서 만드는 `Pattern`객체를 만들어서 사용하는데, 이 메서드에서는 한 번 쓰고 버려져서 곧바로 가비지 컬렉션 대상이 됩니다. 입력받은 정규표현식에 해당하는 `유한 상태 머신`을 만들기 때문에 생성 비용이 비쌉니다.
+`String.matches`는 내부에서 만드는 `Pattern`객체를 만들어서 사용하는데, 이 메서드에서는 한 번 쓰고 버려져서 곧바로 가비지 컬렉션 대상이 됩니다. 입력받은 정규표현식에 해당하는 {{< font color-var="main-color" weight="600" text="유한 상태 머신" >}}을 만들기 때문에 생성 비용이 비쌉니다.
 <br>
 
 ### 해결책

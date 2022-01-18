@@ -21,7 +21,7 @@ showContentProgressbar: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-`java.lang.Math`와 `java.util.Arrays`와 같이 `static 메서드`와 `static 필드`만을 담을 클래스는 인스턴스화를 하는 건 낭비가 됩니다.
+`java.lang.Math`와 `java.util.Arrays`와 같이 `static`{{< font color-var="main-color" weight="600" text="메서드" >}}와 `static`{{< font color-var="main-color" weight="600" text="필드" >}}만을 담을 클래스는 인스턴스화를 하는 건 낭비가 됩니다.
 
 매개변수 없는 생성자를 만들지 않으면 기본생성자가 생성이 되는데 이것을 방치하면 클라이언트 입장에서는 정적 멤버만 담은 유틸리티 클래스인지 알 수 없으므로 인스턴스화를 시킬 가능성이 있습니다. 이를 방지하기 위해 `private`생성자를 만들어서 인스턴스화를 막을 수 있습니다.
 <br>

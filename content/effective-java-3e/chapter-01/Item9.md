@@ -21,7 +21,7 @@ showContentProgressbar: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-자바 라이브러리에는 `InputStream`, `OutputStream`, `java.sql.Connection`과 같이 직접 `close`를 해야 하는 자원들 있습니다.
+자바 라이브러리에는 `InputStream`, `OutputStream`, `java.sql.Connection`과 같이 직접 `close`를 해야 하는 자원들이 있습니다.
 
 클라이언트는 실수로 자원을 닫아주지 않는 경우 예상치 못한 성능 문제로 이어질 수 있습니다.
 <br>
@@ -76,4 +76,4 @@ static String firstLineOfFile(String path) {
 <br>
 
 ## <i class="user-fa-av-new-releases" aria-hidden="true"></i> 정리
-꼭 회수해야 하는 자원을 다룰 때는 `try-finally` 말고, `try-with-resources`를 사용합시다. 예외는 없습니다. 코드는 더 짧고 분명해지고, 만들어지는 예외 정보도 훨씬 유용합니다. `try-finally`로 작성하면 실용적이지 못할 만큼 코드가 지저분해지는 경우라도, `try-with-resources`로는 정확하고 쉽게 자원을 회수할 수 있습니다.
+꼭 회수해야 하는 자원을 다룰 때는 `try-finally`가 아닌, `try-with-resources`를 사용합시다. 예외는 없습니다. 코드는 더 짧고 분명해지고, 만들어지는 예외 정보도 훨씬 유용합니다. `try-finally`로 작성하면 실용적이지 못할 만큼 코드가 지저분해지는 경우라도, `try-with-resources`로는 정확하고 쉽게 자원을 회수할 수 있습니다.

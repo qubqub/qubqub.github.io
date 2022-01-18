@@ -26,15 +26,15 @@ showContentProgressbar: true
 `equals`메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.
 <br>
 
-## 📌 반사성(reflexivity)
+## 📌 반사성 ({{< font family="Roboto" text="Reflexivity" >}})
 
-- `null`이 아닌 모든 참조 값 `x`에 대해, `x.equals(x)`는 `true`입니다.
+- `null`이 아닌 모든 참조 값 `x`에 대해, {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(x)" >}}는 `true`입니다.
 <br>
 <br>
 
-## 📌 대칭성(symmetry)
+## 📌 대칭성 ({{< font family="Roboto" text="Symmetry" >}})
 
-- `null`이 아닌 모든 참조 값 `x`, `y`에 대해 `x.equals(y)`는 `y.equals(x)`입니다.
+- `null`이 아닌 모든 참조 값 `x`, `y`에 대해 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(y)" >}}는 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="y.equals(x)" >}}입니다.
 <br>
 
 ### <i class="user-fa-alert-warning" aria-hidden="true"></i> 잘못된 코드 - 대칭성 위반
@@ -65,25 +65,25 @@ CaseInsensitiveString cis = new CaseInsensitiveString("String");
 String str = "string";
 ```
 
-`cis.equals(str)`는 `true`를 반환하고 `str.equals(cis)`는 `false`를 반환하게 되므로 대칭성에 위반됩니다.
+{{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="cis.equals(str)" >}}는 `true`를 반환하고 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="str.equals(cis)" >}}는 `false`를 반환하게 되므로 대칭성에 위반됩니다.
 <br>
 <br>
 
-## 📌 추이성(transitivity)
+## 📌 추이성 ({{< font family="Roboto" text="Transitivity" >}})
 
-- `null`이 아닌 모든 참조 값 `x`, `y`, `z`에 대해 `x.equals(y)`가 `true`고 `y.equals(z)`도 `true`입니다.
+- `null`이 아닌 모든 참조 값 `x`, `y`, `z`에 대해 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(y)" >}}가 `true`고 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="y.equals(z)" >}}도 `true`입니다.
 <br>
 <br>
 
-## 📌 일관성(consistency)
+## 📌 일관성 ({{< font family="Roboto" text="Consistency" >}})
 
-- `null`이 아닌 모든 참조 값 `x`, `y`에 대해 `x.equals(y)`를 반복해서 호출하면 항상 `true`를 반환하거나 항상 `false`를 반환해야 합니다.
+- `null`이 아닌 모든 참조 값 `x`, `y`에 대해 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(y)" >}}를 반복해서 호출하면 항상 `true`를 반환하거나 항상 `false`를 반환해야 합니다.
 <br>
 <br>
 
 ## 📌 null-아님
 
-- `null`이 아닌 모든 참조 값 `x`에 대해 `x.equals(null)`은 `false`여야 합니다.
+- `null`이 아닌 모든 참조 값 `x`에 대해 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(null)" >}}은 `false`여야 합니다.
 <br>
 
 이제 상위 클래스에 없는 필드를 하위 클래스에 추가하는 상황을 생각해봅시다. 여기서부터 신경써야 할 부분들이 많아집니다.

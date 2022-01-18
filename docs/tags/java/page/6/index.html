@@ -8,7 +8,7 @@
 <meta name=description content="<Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/tags/java/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.dafe099443af152f28bd13d283f143551c2daeb12fe22df7c0b2577efdf4343e.css integrity="sha256-2v4JlEOvFS8ovRPSg/FDVRwtrrEv4i33wLJXfv30ND4=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.56f3aea32125a95b8e8b4b8b02e3b8474da29af9cb78c571be2e4690250ccd97.css integrity="sha256-VvOuoyElqVuOi0uLAuO4R02imvnLeMVxvi5GkCUMzZc=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -85,7 +85,7 @@ Java
 <article class="list-entry button" title="자바에서는 두 가지 객체 소멸자를 제공합니다. 바로 finalizer와 cleaner입니다. finalizer는 예측 불가능하며 일반적으로 불필요하며 오작동 낮은 성능과 같은 문제점들이 있습니다. JAVA 9부터는 사용 자제deprecated API로 지정했습니다.
 cleaner는 finalizer보다 덜 위험하지만 이 역시 예측 불가능하고, 느리고 일반적으로 불필요합니다.
 📌 언제 실행되는지 알 수가 없습니다. finalizer와 cleaner는 즉시 실행된다는 보장이 없습니다. 즉 제때 실행되어야 하는 작업을 절대 할 수 없다는 뜻입니다.
-📌 finalizer는 굉장히 lazy 합니다. 여기서 lazy하다는 뜻은 인스턴스의 자원 회수가 멋대로 지연될 수 있다는 뜻입니다.">
+📌 finalizer는 굉장히 lazy합니다. 여기서 lazy하다는 뜻은 인스턴스의 자원 회수가 멋대로 지연될 수 있다는 뜻입니다.">
 <header class=entry-header>
 <h2>[아이템 8] finalizer와 cleaner 사용을 피하라
 </h2>
@@ -94,7 +94,7 @@ cleaner는 finalizer보다 덜 위험하지만 이 역시 예측 불가능하고
 <p>자바에서는 두 가지 객체 소멸자를 제공합니다. 바로 finalizer와 cleaner입니다. finalizer는 예측 불가능하며 일반적으로 불필요하며 오작동 낮은 성능과 같은 문제점들이 있습니다. JAVA 9부터는 사용 자제deprecated API로 지정했습니다.
 cleaner는 finalizer보다 덜 위험하지만 이 역시 예측 불가능하고, 느리고 일반적으로 불필요합니다.
 📌 언제 실행되는지 알 수가 없습니다. finalizer와 cleaner는 즉시 실행된다는 보장이 없습니다. 즉 제때 실행되어야 하는 작업을 절대 할 수 없다는 뜻입니다.
-📌 finalizer는 굉장히 lazy 합니다. 여기서 lazy하다는 뜻은 인스턴스의 자원 회수가 멋대로 지연될 수 있다는 뜻입니다....</p>
+📌 finalizer는 굉장히 lazy합니다. 여기서 lazy하다는 뜻은 인스턴스의 자원 회수가 멋대로 지연될 수 있다는 뜻입니다....</p>
 </section>
 <footer class=entry-footer><span title="2020-06-20 15:12:33 +0900 KST">2020년 6월 20일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
@@ -146,14 +146,14 @@ cleaner는 finalizer보다 덜 위험하지만 이 역시 예측 불가능하고
 </div>
 <div class=list-entry-wrapper style=animation-delay:320ms data-animation=true>
 <article class="list-entry button" title="대부분의 클래스는 하나 이상의 리소스에 의존합니다. 이번 예제 코드는 SpellChecker가 Lexicon을 의존하고 있는 모습입니다.
-부적절한 구현 📌 정적 유틸리티를 잘못 사용한 예 - 유연하지 않고 테스트할 수 없다 1 2 3 4 5 6 7 8 9 10  public class SpellChecker { private static final Lexicon dictionary = ...; private SpellChecker() {} // 객체 생성 방지  public static boolean isValid(String word) { ... } public static List<String> suggestions(String typo) { .">
+부적절한 구현 📌 정적 유틸리티를 잘못 사용한 예 < 유연하지 않고 테스트할 수 없다 > 1 2 3 4 5 6 7 8 9 10  public class SpellChecker { private static final Lexicon dictionary = ...; private SpellChecker() {} // 객체 생성 방지  public static boolean isValid(String word) { ... } public static List<String> suggestions(String typo) { .">
 <header class=entry-header>
 <h2>[아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하라
 </h2>
 </header>
 <section class=entry-content>
 <p>대부분의 클래스는 하나 이상의 리소스에 의존합니다. 이번 예제 코드는 SpellChecker가 Lexicon을 의존하고 있는 모습입니다.
-부적절한 구현 📌 정적 유틸리티를 잘못 사용한 예 - 유연하지 않고 테스트할 수 없다 1 2 3 4 5 6 7 8 9 10 public class SpellChecker { private static final Lexicon dictionary = ...; private SpellChecker() {} // 객체 생성 방지 public static boolean isValid(String word) { ... } public static List&lt;String> suggestions(String typo) { ....</p>
+부적절한 구현 📌 정적 유틸리티를 잘못 사용한 예 &lt; 유연하지 않고 테스트할 수 없다 > 1 2 3 4 5 6 7 8 9 10 public class SpellChecker { private static final Lexicon dictionary = ...; private SpellChecker() {} // 객체 생성 방지 public static boolean isValid(String word) { ... } public static List&lt;String> suggestions(String typo) { ....</p>
 </section>
 <footer class=entry-footer><span title="2020-06-19 17:15:21 +0900 KST">2020년 6월 19일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
 <ul class=post-tags>
@@ -164,7 +164,7 @@ cleaner는 finalizer보다 덜 위험하지만 이 역시 예측 불가능하고
 </article>
 </div>
 <div class=list-entry-wrapper style=animation-delay:370ms data-animation=true>
-<article class="list-entry button" title="java.lang.Math와 java.util.Arrays와 같이 static 메서드와 static 필드만을 담을 클래스는 인스턴스화를 하는 건 낭비가 됩니다.
+<article class="list-entry button" title="java.lang.Math와 java.util.Arrays와 같이 static메서드와 static필드만을 담을 클래스는 인스턴스화를 하는 건 낭비가 됩니다.
 매개변수 없는 생성자를 만들지 않으면 기본생성자가 생성이 되는데 이것을 방치하면 클라이언트 입장에서는 정적 멤버만 담은 유틸리티 클래스인지 알 수 없으므로 인스턴스화를 시킬 가능성이 있습니다. 이를 방지하기 위해 private생성자를 만들어서 인스턴스화를 막을 수 있습니다.
 1 2 3 4 5 6 7  public class UtilityClass { // 기본 생성자가 만들어지는 것을 막는다.(인스턴스화 방지용)  private UtilityClass() { throw new AssertionError(); } .">
 <header class=entry-header>
@@ -172,7 +172,7 @@ cleaner는 finalizer보다 덜 위험하지만 이 역시 예측 불가능하고
 </h2>
 </header>
 <section class=entry-content>
-<p>java.lang.Math와 java.util.Arrays와 같이 static 메서드와 static 필드만을 담을 클래스는 인스턴스화를 하는 건 낭비가 됩니다.
+<p>java.lang.Math와 java.util.Arrays와 같이 static메서드와 static필드만을 담을 클래스는 인스턴스화를 하는 건 낭비가 됩니다.
 매개변수 없는 생성자를 만들지 않으면 기본생성자가 생성이 되는데 이것을 방치하면 클라이언트 입장에서는 정적 멤버만 담은 유틸리티 클래스인지 알 수 없으므로 인스턴스화를 시킬 가능성이 있습니다. 이를 방지하기 위해 private생성자를 만들어서 인스턴스화를 막을 수 있습니다.
 1 2 3 4 5 6 7 public class UtilityClass { // 기본 생성자가 만들어지는 것을 막는다.(인스턴스화 방지용) private UtilityClass() { throw new AssertionError(); } ....</p>
 </section>

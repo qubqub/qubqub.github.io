@@ -31,7 +31,7 @@ showContentProgressbar: true
 `finalizer`와 `cleaner`는 즉시 실행된다는 보장이 없습니다. 즉 제때 실행되어야 하는 작업을 절대 할 수 없다는 뜻입니다.
 <br>
 
-## 📌 finalizer는 굉장히 lazy 합니다.
+## 📌 finalizer는 굉장히 lazy합니다.
 
 여기서 `lazy`하다는 뜻은 인스턴스의 자원 회수가 멋대로 지연될 수 있다는 뜻입니다. `finalizer`쓰레드는 우선 순위가 낮아서 실행될 기회를 제대로 얻지 못하는 경우들도 생깁니다.
 <br>

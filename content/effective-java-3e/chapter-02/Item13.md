@@ -25,7 +25,7 @@ showContentProgressbar: true
 
 다음은 `Object` 명세에서 가져온 설명입니다.
 
-이 객체의 복사본을 생성해 반환합니다. `복사`의 정확한 뜻은 그 객체를 구현한 클래스에 따라 다를 수 있지만 일반적인 의도는 다음과 같습니다. 어떤 객체 `x`에 대해 다음 식은 `true`입니다.
+이 객체의 복사본을 생성해 반환합니다. {{< font family="Roboto" size="1" color-var="main-color" weight="600" text="복사" >}}의 정확한 뜻은 그 객체를 구현한 클래스에 따라 다를 수 있지만 일반적인 의도는 다음과 같습니다. 어떤 객체 `x`에 대해 다음 식은 `true`입니다.
 - {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.clone() != x" >}}
 - {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.clone.getClass() == x.getClass()" >}}
 - {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.clone().equals(x)" >}}
@@ -43,7 +43,7 @@ public PhoneNumber clone() {
     }
 }
 ```
-<i class="user-fa-action-info-outline" aria-hidden="true"></i> _가변 상태를 참초하지 않는 클래스용 clone 메서드_
+<i class="user-fa-action-info-outline" aria-hidden="true"></i> _가변 상태를 참초하지 않는 클래스용 `clone` 메서드_
 <br>
 
 `Object`의 `clone`은 `Object`를 반환하지만 공변 반환 타입을 이용해서 `PhoneNumber`로 반환했습니다. 이 방식으로 사용하는 클라이언트는 형변환을 따로 해줄 필요가 없습니다.
@@ -65,7 +65,7 @@ public class Stack {
 `clone`메서드가 단순히 `super.clone`의 결과를 그대로 반환하면 `Stack`인스턴스의 `size` 필드는 올바른 값을 갖겠지만, `elements`필드는 원본 `Stack` 인스턴스와 똑같은 배열을 참조하게 되는 상황이 발생합니다.
 <br>
 
-`clone`메서드는 사실상 생성자와 같은 효과를 냅니다. 즉 `clone`은 원본 객체에 아무런 변화가 없는 동시에 복제된 객체의 **불변식**을 보장해야 합니다.
+`clone`메서드는 사실상 생성자와 같은 효과를 냅니다. 즉 `clone`은 원본 객체에 아무런 변화가 없는 동시에 복제된 객체의 {{< font family="Roboto" size="1" color-var="main-color" weight="600" text="불변식" >}}을 보장해야 합니다.
 ``` java
 @Override
 public PhoneNumber clone() {
@@ -78,5 +78,5 @@ public PhoneNumber clone() {
     }
 }
 ```
-<i class="user-fa-action-info-outline" aria-hidden="true"></i> _가변 상태를 참조하는 클래스용 clone 메서드_
+<i class="user-fa-action-info-outline" aria-hidden="true"></i> _가변 상태를 참조하는 클래스용 `clone` 메서드_
 

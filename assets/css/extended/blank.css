@@ -154,11 +154,11 @@
 }
 
 ::-moz-selection {
-  background: #0d8964;
+  background-color: var(--main-color);
   color: #fff;
 }
 ::selection {
-  background: #0d8964;
+  background-color: var(--main-color);
   color: #fff;
 }
 

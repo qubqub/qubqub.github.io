@@ -8,7 +8,7 @@
 <meta name=description content="<Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/chapter/effective-java-3e-chapter-2/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.dafe099443af152f28bd13d283f143551c2daeb12fe22df7c0b2577efdf4343e.css integrity="sha256-2v4JlEOvFS8ovRPSg/FDVRwtrrEv4i33wLJXfv30ND4=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.56f3aea32125a95b8e8b4b8b02e3b8474da29af9cb78c571be2e4690250ccd97.css integrity="sha256-VvOuoyElqVuOi0uLAuO4R02imvnLeMVxvi5GkCUMzZc=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -176,8 +176,8 @@ equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케�
 <div class=list-entry-wrapper style=animation-delay:370ms data-animation=true>
 <article class="list-entry button" title="equals메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다. 여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.
 equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.
-📌 반사성(reflexivity)  null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.
-  📌 대칭성(symmetry)  null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.equals(x)입니다.
+📌 반사성 (Reflexivity)  null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.
+  📌 대칭성 (Symmetry)  null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.equals(x)입니다.
    잘못된 코드 - 대칭성 위반 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  public class CaseInsensitiveString { private String str; .">
 <header class=entry-header>
 <h2>[아이템 10] equals는 일반 규약을 지켜 재정의하라
@@ -186,8 +186,8 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 <section class=entry-content>
 <p>equals메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다. 여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.
 equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.
-📌 반사성(reflexivity) null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.
-📌 대칭성(symmetry) null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.equals(x)입니다.
+📌 반사성 (Reflexivity) null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.
+📌 대칭성 (Symmetry) null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.equals(x)입니다.
 잘못된 코드 - 대칭성 위반 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 public class CaseInsensitiveString { private String str; ....</p>
 </section>
 <footer class=entry-footer><span title="2020-06-27 11:42:54 +0900 KST">2020년 6월 27일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
