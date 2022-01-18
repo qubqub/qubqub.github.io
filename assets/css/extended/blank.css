@@ -556,11 +556,11 @@ header.header {
   border: none;
 }
 
-.main .post-single .aside-share-buttons-wrapper .share-buttons .copylink {
+.main .post-single .aside-share-buttons-wrapper .share-buttons .copylink-aside {
   background: var(--tertiary);
-  border-radius: var(--radius);
+  border-radius: 4px;
 }
-.main .post-single .aside-share-buttons-wrapper .share-buttons .copylink:hover {
+.main .post-single .aside-share-buttons-wrapper .share-buttons .copylink-aside:hover {
   background: var(--main-color);
   transition: background-color 0.2s ease 0s, transform .1s;
 }
@@ -574,10 +574,29 @@ header.header {
   border-radius: var(--radius);
 }
 
-.main .post-single .aside-share-buttons-wrapper .share-buttons .copylink svg {
+.main .post-single .post-footer .share-buttons a {
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.main .post-single .post-footer .share-buttons .copylink {
+  cursor: pointer;
+}
+
+.main .post-single .post-footer .share-buttons .copylink svg {
+  padding: 5px 5px 5px 5px;
+  fill: var(--code-bg);
+  background-color: var(--primary);
+  border-radius: 4px;
+}
+.main .post-single .post-footer .share-buttons .copylink:hover svg {
+  background-color: var(--main-color);
+}
+
+.main .post-single .aside-share-buttons-wrapper .share-buttons .copylink-aside svg {
   padding: 6px 6px 6px 6px;
 }
-.main .post-single .aside-share-buttons-wrapper .share-buttons .copylink svg path {
+.main .post-single .aside-share-buttons-wrapper .share-buttons .copylink-aside svg path {
   fill: var(--theme);
 }
 .main .post-single .aside-share-buttons-wrapper .share-buttons .aside-share-control-buttons svg path {
