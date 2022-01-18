@@ -588,15 +588,6 @@ header.header {
   border: none;
 }
 
-.main .post-single .aside-share-buttons-wrapper .share-buttons .copylink-aside {
-  background: var(--tertiary);
-  border-radius: 4px;
-}
-.main .post-single .aside-share-buttons-wrapper .share-buttons .copylink-aside:hover {
-  background: var(--main-color);
-  transition: background-color 0.2s ease 0s, transform .1s;
-}
-
 .main .post-single .aside-share-buttons-wrapper .share-buttons .aside-share-control-buttons {
   z-index: 20;
   border: 1px solid var(--tertiary);
@@ -630,7 +621,14 @@ header.header {
   background-color: var(--main-color);
 }
 
+.main .post-single .aside-share-buttons-wrapper .share-buttons .copylink-aside:hover svg {
+  background: var(--main-color);
+  transition: background-color 0.2s ease 0s, transform .1s;
+}
+
 .main .post-single .aside-share-buttons-wrapper .share-buttons .copylink-aside svg {
+  background-color: var(--tertiary);
+  border-radius: 4px;
   padding: 6px 6px 6px 6px;
 }
 .main .post-single .aside-share-buttons-wrapper .share-buttons .copylink-aside svg path {
