@@ -3,4 +3,11 @@
 {{- /*     Can be overwritten by partial with the same name in the global layouts. */ -}}
 {{- /* custom.js */}}
 {{- partial "google_analytics.html" . -}}
+
+{{- $custom := false }}
+{{- $ShareButtons := (.Param "ShareButtons")}}
+{{- with $ShareButtons }}{{ $custom = true }}{{ end }}
+{{- if and (cond ($custom) (in $ShareButtons "kakaotalk") (true)) .Site.Params.kakaoJavaScriptKey }}
+<script defer crossorigin="anonymous" src="{{ .Site.Params.kakaoSdkUrl }}"></script>
+{{- end }}
 {{- /* Head custom content area end */ -}}

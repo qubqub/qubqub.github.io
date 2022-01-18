@@ -556,30 +556,46 @@ header.header {
   border: none;
 }
 
+.main .post-single .aside-share-buttons-wrapper .share-buttons .copylink {
+  background: var(--tertiary);
+  border-radius: var(--radius);
+}
+.main .post-single .aside-share-buttons-wrapper .share-buttons .copylink:hover {
+  background: var(--main-color);
+  transition: background-color 0.2s ease 0s, transform .1s;
+}
+
 .main .post-single .aside-share-buttons-wrapper .share-buttons .aside-share-control-buttons {
   z-index: 20;
   border: 1px solid var(--tertiary);
-  background: none;
+  background: var(--tertiary);
   margin: 0;
-  padding: 0.55rem 0.7rem 0 0.5rem;
+  padding: 7.3px 9px 0 7px;
   border-radius: var(--radius);
-  transition: all .1s;
 }
 
+.main .post-single .aside-share-buttons-wrapper .share-buttons .copylink svg {
+  padding: 6px 6px 6px 6px;
+}
+.main .post-single .aside-share-buttons-wrapper .share-buttons .copylink svg path {
+  fill: var(--theme);
+}
 .main .post-single .aside-share-buttons-wrapper .share-buttons .aside-share-control-buttons svg path {
-  fill: var(--tertiary);
+  fill: var(--secondary);
 }
 
 .main .post-single .aside-share-buttons-wrapper .share-buttons .aside-share-control-buttons:hover svg path {
+  transition: fill 0.2s ease 0s, transform .1s;
   fill: var(--main-color);
 }
 .main .post-single .aside-share-buttons-wrapper .share-buttons .aside-share-control-buttons:hover {
-  border-color: var(--main-color);
+  transition: box-shadow 0.2s ease 0s, transform .1s;
+  box-shadow: 0 0 0 1px var(--primary) inset;
 }
 
 .main .post-single .aside-share-buttons-wrapper .share-buttons>a {
   opacity: 0;
-  top: -0.3rem;
+  top: -0.4rem;
   color: var(--tertiary);
 }
 
@@ -595,12 +611,20 @@ header.header {
   position: absolute;
   cursor: pointer;
   left: -7rem;
-  /* top: .3rem; */
 }
 
 .main .post-single .aside-share-buttons-wrapper .share-buttons .kakaostory svg>path,
 .main .post-single .aside-share-buttons-wrapper .share-buttons .naverband svg g path {
   fill: var(--theme);
+}
+
+.main .post-single .aside-share-buttons-wrapper[data-animation=true] {
+  animation-name: fade-in;
+  animation-duration: 0.2s;
+  animation-delay: 0.6s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
 
 .main .post-single .aside-share-buttons-wrapper .share-buttons.reveal>a:nth-child(2) {z-index: 10;}
@@ -758,6 +782,21 @@ header.header {
 }
 .main .post-single .aside-share-buttons-wrapper .share-buttons.hide>a:nth-child(11) {
   animation-name: share-hide-10;
+  animation-duration: 0.2s;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+.main .post-single .aside-share-buttons-wrapper .share-buttons.reveal>a:nth-child(12) {
+  animation-name: share-reveal-11;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+.main .post-single .aside-share-buttons-wrapper .share-buttons.hide>a:nth-child(12) {
+  animation-name: share-hide-11;
   animation-duration: 0.2s;
   animation-timing-function: ease;
   animation-iteration-count: 1;
@@ -1263,6 +1302,58 @@ header.header {
     opacity: 1;
     transform: translate(160%, 1170%);
     -webkit-transform: translate(160%, 1170%);
+  }
+
+  60% {
+    opacity: 0;
+    transform: translate(160%, 0);
+    -webkit-transform: translate(160%, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+  }
+}
+
+@keyframes share-reveal-11 {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+  }
+
+  25% {
+    opacity: 0;
+    transform: translate(170%, 0);
+    -webkit-transform: translate(170%, 0);
+  }
+
+  60% {
+    opacity: 0;
+    transform: translate(160%, 0);
+    -webkit-transform: translate(160%, 0);
+  }
+
+  80% {
+    opacity: 0;
+    transform: translate(160%, 650%);
+    -webkit-transform: translate(160%, 650%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(160%, 1300%);
+    -webkit-transform: translate(160%, 1300%);
+  }
+}
+
+@keyframes share-hide-11 {
+  0% {
+    opacity: 1;
+    transform: translate(160%, 1300%);
+    -webkit-transform: translate(160%, 1300%);
   }
 
   60% {

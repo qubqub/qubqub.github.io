@@ -119,27 +119,21 @@
   };
   shareIcons_DOMReady( function () {
     document.getElementById("kakaotalk-share").addEventListener("click", () => {
-      const _script = document.createElement('script');
-      _script.setAttribute("src", "{{ .Site.Params.kakaoSdkUrl }}");
-      _script.async = true;
-      _script.onload = () => {
-        Kakao.init("{{ .Site.Params.kakaoJavaScriptKey }}");
-        Kakao.Link.sendDefault({
-          objectType: "feed",
-          content: {
-            title: '{{ $title }}',
-            description: '{{- $.Scratch.Get "tags" -}}',
-            imageUrl: '{{ $imageUrl }}',
-            link: {
-              mobileWebUrl: '{{ $pageurl }}',
-              webUrl: '{{ $pageurl }}'
-            }
-          },
-          success: function(e) {},
-          fail: function(e) {}
-        });
-      };
-      document.body.appendChild(_script);
+      Kakao.init("{{ .Site.Params.kakaoJavaScriptKey }}");
+      Kakao.Link.sendDefault({
+        objectType: "feed",
+        content: {
+          title: '{{ $title }}',
+          description: '{{- $.Scratch.Get "tags" -}}',
+          imageUrl: '{{ $imageUrl }}',
+          link: {
+            mobileWebUrl: '{{ $pageurl }}',
+            webUrl: '{{ $pageurl }}'
+          }
+        },
+        success: function(e) {},
+        fail: function(e) {}
+      });
     });
   });
 </script>

@@ -8,7 +8,7 @@
 <meta name=description content="이번 장에서는 메서드를 설계할 때 주의할 점들을 살펴본다. 구체적으로는 매개변수와 반환값을 어떻게 처리해야 하는지, 메서드 시그니처는 어떻게 설계해야 하는지, 문서화는 어떻게 해야 하는지를 다룬다. 이번 장의 내용 중 상당 부분은 메서드뿐 아니라 생성자에도 적용된다. 그리고 '4장 클래스와 인터페이스'와 마찬가지로 이번 장도 사용성, 견고성, 유연성에 집중할 것이다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-07/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.4ded975350c34fc021ecde205749bf760fd09a9eecca2783fc8bbe8cbbfdc43c.css integrity="sha256-Te2XU1DDT8Ah7N4gV0m/dg/Qmp7syieD/Iu+jLv9xDw=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.d2989502e6e22e916e0571465c7105af91d2f4a04d071ccb909c76bd537107ab.css integrity="sha256-0piVAubiLpFuBXFGXHEFr5HS9KBNBxzLkJx2vVNxB6s=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -23,6 +23,7 @@
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
+<script defer crossorigin=anonymous src=https://developers.kakao.com/sdk/js/kakao.min.js></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="7장 메서드">
 <meta property="og:description" content="이번 장에서는 메서드를 설계할 때 주의할 점들을 살펴본다. 구체적으로는 매개변수와 반환값을 어떻게 처리해야 하는지, 메서드 시그니처는 어떻게 설계해야 하는지, 문서화는 어떻게 해야 하는지를 다룬다. 이번 장의 내용 중 상당 부분은 메서드뿐 아니라 생성자에도 적용된다. 그리고 '4장 클래스와 인터페이스'와 마찬가지로 이번 장도 사용성, 견고성, 유연성에 집중할 것이다.">
 <meta property="og:type" content="website">
