@@ -333,11 +333,11 @@ header.header {
   }
 
   .main .post-single .post-footer .share-buttons a:first-child {
-    margin-left: 10px;
+    margin-inline-start: 10px;
   }
 
   .main .post-single .post-footer .share-buttons a:last-child {
-    margin-right: 10px;
+    margin-inline-end: 10px;
   }
 }
 
@@ -363,11 +363,11 @@ header.header {
   }
 
   .main .post-single .post-footer .share-buttons a:first-child {
-    margin-left: 10px;
+    margin-inline-start: 10px;
   }
 
   .main .post-single .post-footer .share-buttons a:last-child {
-    margin-right: 10px;
+    margin-inline-end: 10px;
   }
 }
 
