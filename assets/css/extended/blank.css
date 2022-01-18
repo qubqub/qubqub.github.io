@@ -602,7 +602,7 @@ header.header {
   border: 1px solid var(--tertiary);
   background: var(--tertiary);
   margin: 0;
-  padding: 7.3px 9px 0 7px;
+  padding: 9px 9px 0 7px;
   border-radius: var(--radius);
 }
 
@@ -651,7 +651,7 @@ header.header {
 
 .main .post-single .aside-share-buttons-wrapper .share-buttons>a {
   opacity: 0;
-  top: -0.4rem;
+  top: -0.3rem;
   color: var(--tertiary);
 }
 
