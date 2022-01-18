@@ -129,36 +129,6 @@
   src: url('/fonts/CascadiaCode-Light.woff2') format('woff2');
 }
 
-/* @media (max-width:360px){html{font-size:10px;}}
-
-@media (min-width:361px) and (max-width:399px){html{font-size:11px;}}
-
-@media (min-width:400px) and (max-width:439px){html{font-size:12px;}}
-
-@media (min-width:440px) and (max-width:479px){html{font-size:13px;}}
-
-@media (min-width:480px) and (max-width:519px){html{font-size:14px;}}
-
-@media (min-width:520px) and (max-width:559px){html{font-size:15px;}}
-
-@media (min-width:560px) and (max-width:599px){html{font-size:16px;}}
-
-@media (min-width:600px) and (max-width:639px){html{font-size:17px;}}
-
-@media (min-width:640px) and (max-width:679px){html{font-size:18px;}}
-
-@media (min-width:680px) and (max-width:719px){html{font-size:19px;}}
-
-@media (min-width:720px) and (max-width:759px){html{font-size:20px;}}
-
-@media (min-width:760px) and (max-width:799px){html{font-size:21px;}}
-
-@media (min-width:800px) and (max-width:839px){html{font-size:22px;}}
-
-@media (min-width:840px) and (max-width:879px){html{font-size:23px;}}
-
-@media (min-width:880px){html{font-size:24px;}} */
-
 .post-content h1 {
   font-size: 2.223em;
 }
@@ -193,6 +163,20 @@
 }
 
 :root {
+  --main-color: #0e936b;
+  --kakao-talk-color: #fee500;
+  --kakao-story-color: #fee500;
+  --naver-blog-color: #029a45;
+  --naver-band-color: #029a45;
+  --twitter-color: #00acee;
+  --linkedin-color: #0e76a8;
+  --reddit-color: #be3300;
+  --facebook-color: #3b5998;
+  --whatsapp-color: #389642;
+  --telegram-color: #30a3e6;
+}
+
+.dark {
   --main-color: #12b886;
 }
 
@@ -1432,52 +1416,52 @@ header.header {
 .main .post-single .post-footer .share-buttons .kakaotalk:hover {
   cursor: pointer;
   transition: color 0.2s ease 0s;
-  color: #fee500;
+  color: var(--kakao-talk-color);
 }
 .main .post-single .aside-share-buttons-wrapper .share-buttons .kakaostory:hover,
 .main .post-single .post-footer .share-buttons .kakaostory:hover {
   transition: color 0.2s ease 0s;
-  color: #fee500;
+  color: var(--kakao-story-color);
 }
 .main .post-single .aside-share-buttons-wrapper .share-buttons .naverblog:hover,
 .main .post-single .post-footer .share-buttons .naverblog:hover {
   transition: color 0.2s ease 0s;
-  color: #029a45;
+  color: var(--naver-blog-color);
 }
 .main .post-single .aside-share-buttons-wrapper .share-buttons .naverband:hover,
 .main .post-single .post-footer .share-buttons .naverband:hover {
   transition: color 0.2s ease 0s;
-  color: #029a45;
+  color: var(--naver-band-color);
 }
 .main .post-single .aside-share-buttons-wrapper .share-buttons .twitter:hover,
 .main .post-single .post-footer .share-buttons .twitter:hover {
   transition: color 0.2s ease 0s;
-  color: #00acee;
+  color: var(--twitter-color);
 }
 .main .post-single .aside-share-buttons-wrapper .share-buttons .linkedin:hover,
 .main .post-single .post-footer .share-buttons .linkedin:hover {
   transition: color 0.2s ease 0s;
-  color: #0e76a8;
+  color: var(--linkedin-color);
 }
 .main .post-single .aside-share-buttons-wrapper .share-buttons .reddit:hover,
 .main .post-single .post-footer .share-buttons .reddit:hover {
   transition: color 0.2s ease 0s;
-  color: #be3300;
+  color: var(--reddit-color);
 }
 .main .post-single .aside-share-buttons-wrapper .share-buttons .facebook:hover,
 .main .post-single .post-footer .share-buttons .facebook:hover {
   transition: color 0.2s ease 0s;
-  color: #3b5998;
+  color: var(--facebook-color);
 }
 .main .post-single .aside-share-buttons-wrapper .share-buttons .whatsapp:hover,
 .main .post-single .post-footer .share-buttons .whatsapp:hover {
   transition: color 0.2s ease 0s;
-  color: #389642;
+  color: var(--whatsapp-color);
 }
 .main .post-single .aside-share-buttons-wrapper .share-buttons .telegram:hover,
 .main .post-single .post-footer .share-buttons .telegram:hover {
   transition: color 0.2s ease 0s;
-  color: #30a3e6;
+  color: var(--telegram-color);
 }
 
 .main .post-single .post-footer {
@@ -1773,7 +1757,8 @@ header.header {
 }
 
 .series-main ol li a.current {
-  color: rgb(18, 184, 134);
+  /* color: rgb(18, 184, 134); */
+  color: var(--main-color);
   font-weight: bold;
 }
 
@@ -1799,6 +1784,11 @@ header.header {
 
 .post-content {
   word-break: keep-all;
+}
+
+.post-content ol,
+.post-content ul {
+  padding-inline-start: 25px;
 }
 
 .post-content ol li + li,

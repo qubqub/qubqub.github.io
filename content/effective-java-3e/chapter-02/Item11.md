@@ -23,7 +23,7 @@ showContentProgressbar: true
 ---
 `equals`와 `hasoCode`를 재정의 하지 않으면 `HashMap`이나 `HashSet`에서 같은 원소를 사용할 때 문제가 발생합니다.
 
-다음은 Object 명세에서 발췌한 규약이다.
+다음은 Object 명세에서 발췌한 규약입니다.
 
 - `equals` 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 `hashCode`메서드는 여러번 호출해도 일관된 값을 반환해야 합니다.
 - `equals`가 두 객체를 같다고 판단하면 `hashCode` 또한 같은 값을 반환해야 합니다.
@@ -39,17 +39,16 @@ showContentProgressbar: true
 
 ### <i class="user-fa-action-info-outline" aria-hidden="true"></i> 다음은 `hashCode`를 작성하는 요령입니다.
 
-1. `int` 변수 `result`를 선언한 후 값 `c`로 초기화 합니다. 이때 `c`는 해당 객체의 첫번째 해시 필드를 `2-a` 방식으로 계산한 해시코드입니다.
+{{< font family="cascadiacode" size="1.1" color-var="main-color" weight="600" text="1." >}} `int` 변수 `result`를 선언한 후 값 `c`로 초기화 합니다. 이때 `c`는 해당 객체의 첫번째 해시 필드를 `2.a` 방식으로 계산한 해시코드입니다.
 <br>
-2. 나머지 개개의 필드 `f` 각각에 대해서 다음 작업을 수행합니다.
-    a. 해당 필드의 해시코드 `c`를 계산합니다.
-        <div style="display: inline-flex; padding-inline-start: 2rem; margin-top: 0.5rem;"><span>**_i ._**　　</span> <span>기본 타입 필드라면, `Type.hashCode(f)`를 수행합니다. 여기서 `Type`은 해당 기본 타입의 박싱 클래스입니다.</span></div>
-        <div style="display: inline-flex; padding-inline-start: 2rem; margin-top: 0.5rem; margin-bottom: 0.5rem;"><span>**_ii ._**　　</span> <span>참조 타입 필드면서 이 클래스의 `equals` 메서드가 이 필드의 `equals`를 재귀적으로 호출해 비교한다면, 이 필드의 `hashCode`를 재귀적으로 호출합니다.</span></div>
-        <div style="display: inline-flex; padding-inline-start: 2rem; margin-bottom: 1.5rem;"><span>**_iii ._**　　</span> <span>필드가 배열이라면, 원소 각각을 별도 필드처럼 다룹니다. 이상의 규칙을 재귀적으로 적용해 각 핵심 원소의 해시코드를 계산한 다음, `2.b`방식으로 갱신합니다. 배열에 핵심 원소가 하나도 없다면 단순 상수를 사용하고 모든 원소가 핵심 원소라면 `Arrays.hashCode`를 사용합니다.</span></div>
-    b. `2.a`에서 계산한 해시코드 `c`로 `result`를 갱신합니다.
-    　`result = 31 * result + c;`
+{{< font family="cascadiacode" size="1.1" color-var="main-color" weight="600" text="2." >}} 나머지 개개의 필드 `f` 각각에 대해서 다음 작업을 수행합니다.
+    　{{< font family="cascadiacode" size="1.1" color-var="main-color" weight="600" text="a." >}} 해당 필드의 해시코드 `c`를 계산합니다.
+        <div style="display: inline-flex; padding-inline-start: 2rem; margin-top: 0.5rem;"><span>**_{{< font family="youtube sans" size="1.1" color-var="main-color" weight="600" text="i ." >}}_**　　</span> <span>기본 타입 필드라면, `Type.hashCode(f)`를 수행합니다. 여기서 `Type`은 해당 기본 타입의 박싱 클래스입니다.</span></div>
+        <div style="display: inline-flex; padding-inline-start: 2rem; margin-top: 0.5rem; margin-bottom: 0.5rem;"><span>**_{{< font family="youtube sans" size="1.1" color-var="main-color" weight="600" text="ii ." >}}_**　　</span> <span>참조 타입 필드면서 이 클래스의 `equals` 메서드가 이 필드의 `equals`를 재귀적으로 호출해 비교한다면, 이 필드의 `hashCode`를 재귀적으로 호출합니다.</span></div>
+        <div style="display: inline-flex; padding-inline-start: 2rem; margin-bottom: 1.5rem;"><span>**_{{< font family="youtube sans" size="1.1" color-var="main-color" weight="600" text="iii ." >}}_**　　</span> <span>필드가 배열이라면, 원소 각각을 별도 필드처럼 다룹니다. 이상의 규칙을 재귀적으로 적용해 각 핵심 원소의 해시코드를 계산한 다음, `2.b`방식으로 갱신합니다. 배열에 핵심 원소가 하나도 없다면 단순 상수를 사용하고 모든 원소가 핵심 원소라면 `Arrays.hashCode`를 사용합니다.</span></div>
+    　{{< font family="cascadiacode" size="1.1" color-var="main-color" weight="600" text="b." >}} `2.a`에서 계산한 해시코드 `c`로 `result`를 갱신합니다. `result = 31 * result + c;`
 <br>
-3. `result`를 반환합니다.
+{{< font family="cascadiacode" size="1.1" color-var="main-color" weight="600" text="3." >}} `result`를 반환합니다.
 <br>
 
 `equals` 비교에서 사용되지 않는 필드는 **반드시** 제외해야 합니다. 그렇지 않으면 맨 처음에 언급했던 두 번째 규약을 어기게됩니다.

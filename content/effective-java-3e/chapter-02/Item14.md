@@ -37,17 +37,17 @@ Arrays.sort(a);
 다음 설명에서 sgn(표현식) 표기는 수학에서 말하는 부호 함수를 뜻하며, 표현식의 값이 `음수`, `0`, `양수`일 때 `-1`, `0`, `1`을 반환하도록 정의했습니다. 
 
 - `Comparable`을 구현한 클래스는 모든 `x`, `y`에 대해,
-{{< roboto size="0.9" text="sgn(x.comparaTo(y)) == -sgn(y.comparaTo(x))" >}}여야 합니다.
-따라서 {{< roboto size="0.9" text="sgn(x.comparaTo(y))" >}}는 {{< roboto size="0.9" text="-sgn(y.comparaTo(x))" >}}가 예외를 던질 때에 한해 예외를 던져야 합니다.
+{{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="sgn(x.comparaTo(y)) == -sgn(y.comparaTo(x))" >}}여야 합니다.
+따라서 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="sgn(x.comparaTo(y))" >}}는 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="-sgn(y.comparaTo(x))" >}}가 예외를 던질 때에 한해 예외를 던져야 합니다.
 
 - `Comparable`을 구현한 클래스는 추이성을 보장해야 합니다.
-{{< roboto size="0.9" text="x.comparaTo(y) > 0 && y.comparaTo(z) > 0" >}} 이면 {{< roboto size="0.9" text="x.compareTo(z) > 0" >}} 입니다.
+{{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.comparaTo(y) > 0 && y.comparaTo(z) > 0" >}} 이면 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.compareTo(z) > 0" >}} 입니다.
 
 - `Comparable`을 구현한 클래스는 모든 `z`에 대해,
-{{< roboto size="0.9" text="x.compareTo(y) == 0" >}} 이면 {{< roboto size="0.9" text="sgn(x.compareTo(z)) == sgn(y.compareTo(z))" >}} 입니다.
+{{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.compareTo(y) == 0" >}} 이면 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="sgn(x.compareTo(z)) == sgn(y.compareTo(z))" >}} 입니다.
 
 - 이번 권고가 필수는 아니지만 꼭 지키는 게 좋습니다.
-{{< roboto size="0.9" text="(x.compareTo(y) == 0) == (x.equals(y))" >}} 여야 합니다.
+{{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="(x.compareTo(y) == 0) == (x.equals(y))" >}} 여야 합니다.
 <br>
 <br>
 
