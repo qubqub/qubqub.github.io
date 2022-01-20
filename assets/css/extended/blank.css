@@ -308,13 +308,19 @@ header.header {
     margin-inline-end: 10px;
   }
 
+  .share-buttons a:not(:last-of-type) {
+    margin-inline-end: 12px;
+  }
+  .share-buttons a:last-of-type {
+    margin-inline-end: 10px;
+  }
+
   .main .post-single .post-footer .share-buttons {
     margin: 14px 0;
     display: flex;
     justify-content: flex-start;
     overflow-x: auto;
     padding-inline-start: 10px !important;
-    padding-right: 10px;
   }
 }
 
@@ -331,13 +337,19 @@ header.header {
     margin-inline-end: 10px;
   }
 
+  .share-buttons a:not(:last-of-type) {
+    margin-inline-end: 12px;
+  }
+  .share-buttons a:last-of-type {
+    margin-inline-end: 10px;
+  }
+
   .main .post-single .post-footer .share-buttons {
     margin: 14px 0;
     display: flex;
     justify-content: flex-start;
     overflow-x: auto;
     padding-inline-start: 10px !important;
-    padding-right: 10px;
   }
 }
 
