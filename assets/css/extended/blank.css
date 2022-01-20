@@ -1786,10 +1786,10 @@ header.header {
   word-break: keep-all;
 }
 
-.post-content ol,
+/* .post-content ol,
 .post-content ul {
   padding-inline-start: 25px;
-}
+} */
 
 .post-content ol li + li,
 .post-content ul li + li {
