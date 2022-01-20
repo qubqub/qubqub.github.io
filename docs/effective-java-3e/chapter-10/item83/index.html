@@ -12,7 +12,7 @@
 1 2  // 인스턴스 필드를 초기화하는 일반적인 방법 private final FieldType field = computerFieldValue();   1 2 3 4 5 6 7 8 9  // 지연 초기화 - sychronized 방식 private FieldType field; private sychronized FieldType getField() { if (field == null) { field = computerFieldValue(); } return field; }   1 2 3 4 5 6 7 8  // 정적 필드용 지연 초기화 홀더 클래스 관용구 private static class FieldHolder { static final FieldType field = computerFieldValue(); } private static FieldType getField() { return FieldHolder.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-10/item83/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.63b100ec2f4ea604fa551b3f726de6abc0355b9990f9d0fb185c4619af2c0c1a.css integrity="sha256-Y7EA7C9OpgT6VRs/cm3mq8A1W5mQ+dD7GFxGGa8sDBo=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.015efc32a35d30ff5e7b32f1482932bd8b8ebb771481949cfff972ffe23d32c6.css integrity="sha256-AV78MqNdMP9eezLxSCkyvYuOu3cUgZSc//ly/+I9MsY=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>

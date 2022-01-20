@@ -317,11 +317,13 @@ header.header {
   }
 
   .main .post-single .post-footer .share-buttons a:first-child {
-    margin-inline-start: 10px;
+    /* margin-inline-start: 10px; */
+    margin-left: 10px;
   }
 
   .main .post-single .post-footer .share-buttons a:last-child {
-    margin-inline-end: 10px;
+    /* margin-inline-end: 10px; */
+    margin-right: 10px;
   }
 }
 
@@ -347,11 +349,13 @@ header.header {
   }
 
   .main .post-single .post-footer .share-buttons a:first-child {
-    margin-inline-start: 10px;
+    /* margin-inline-start: 10px; */
+    margin-left: 10px;
   }
 
   .main .post-single .post-footer .share-buttons a:last-child {
-    margin-inline-end: 10px;
+    /* margin-inline-end: 10px; */
+    margin-right: 10px;
   }
 }
 
@@ -413,6 +417,20 @@ header.header {
   margin-left: 3px;
   width: 20px;
   height: 20px;
+}
+
+.link-header #theme-toggle-link {
+  margin-inline-start: 0;
+}
+.link-header #theme-toggle-link #sun {
+  width: 30px;
+  height: 30px;
+}
+.link-header #theme-toggle-link #moon {
+  vertical-align: 3px;
+  margin-left: 3px;
+  width: 24px;
+  height: 24px;
 }
 
 .scale-zero {

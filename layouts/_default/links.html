@@ -56,29 +56,26 @@
   }
 </style>
 <header class="link-header" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
-  <h1>Links</h1>
   {{- if (not .Site.Params.disableThemeToggle) }}
   <button id="theme-toggle-link" accesskey="t" title="(Alt + T)">
-    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-        stroke-linejoin="round">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-    </svg>
-    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-        stroke-linejoin="round">
-        <circle cx="12" cy="12" r="5"></circle>
-        <line x1="12" y1="1" x2="12" y2="3"></line>
-        <line x1="12" y1="21" x2="12" y2="23"></line>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-        <line x1="1" y1="12" x2="3" y2="12"></line>
-        <line x1="21" y1="12" x2="23" y2="12"></line>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-    </svg>
+    <svg id="moon" enable-background="new 0 0 32 32" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g id="Layer_2"/><g id="Layer_3"/><g id="Layer_4"/><g id="Layer_5"/><g id="Layer_6"/><g id="Layer_7"/><g id="Layer_8"/><g id="Layer_9"/><g id="Layer_10"/><g id="Layer_11"/><g id="Layer_12"/><g id="Layer_13"/><g id="Layer_14"/><g id="Layer_15"/><g id="Layer_16"/><g id="Layer_17"/><g id="Layer_18"/>
+      <g id="Layer_19">
+          <g>
+              <g>
+                  <path d="M30.9,20.8c-2.2,6.1-8,10.2-14.5,10.2C7.9,31,1,24.2,1,15.8C1,8.7,5.9,2.6,12.9,1c0.3-0.1,0.7,0,1,0.3 c0.2,0.3,0.3,0.7,0.2,1c-0.5,1.4-0.8,2.9-0.8,4.4c0,7.3,6,13.2,13.4,13.2c1,0,2.1-0.1,3.1-0.4c0.3-0.1,0.7,0,1,0.3 C31,20.1,31.1,20.5,30.9,20.8z" fill="#FFC10A"/>
+              </g>
+          </g>
+      </g>
+      <g id="Layer_20"/><g id="Layer_21"/><g id="Layer_22"/><g id="Layer_23"/><g id="Layer_24"/><g id="Layer_25"/><g id="Wearher"/>
+  </svg>
+  <svg id="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M256 48v48M256 416v48M403.08 108.92l-33.94 33.94M142.86 369.14l-33.94 33.94M464 256h-48M96 256H48M403.08 403.08l-33.94-33.94M142.86 142.86l-33.94-33.94"/>
+      <circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32"/>
+  </svg>
   </button>
   {{- end }}
+  <h1 style="display: block;">Links</h1>
 </header>
 <ul class="links">
   {{ $_useAnimation := .Site.Params.useAnimation }}
