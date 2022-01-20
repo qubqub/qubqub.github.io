@@ -163,7 +163,7 @@
 }
 
 :root {
-  --main-color: #0e936b;
+  --main-color: #12b886;
   --kakao-talk-color: #fee500;
   --kakao-story-color: #fee500;
   --naver-blog-color: #029a45;
@@ -1577,6 +1577,10 @@ header.header {
   border-radius: var(--radius);
   border: 1px solid var(--border);
   position: relative;
+}
+
+.series-main .series-corner-image path {
+  fill: var(--main-color);
 }
 
 .series-main .series-main-description {
