@@ -316,14 +316,9 @@ header.header {
     overflow-x: auto;
   }
 
-  .main .post-single .post-footer .share-buttons a:first-child {
-    /* margin-inline-start: 10px; */
-    margin-left: 10px;
-  }
-
-  .main .post-single .post-footer .share-buttons a:last-child {
-    /* margin-inline-end: 10px; */
-    margin-right: 10px;
+  .main .post-single .post-footer .share-buttons {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
@@ -348,14 +343,9 @@ header.header {
     overflow-x: auto;
   }
 
-  .main .post-single .post-footer .share-buttons a:first-child {
-    /* margin-inline-start: 10px; */
-    margin-left: 10px;
-  }
-
-  .main .post-single .post-footer .share-buttons a:last-child {
-    /* margin-inline-end: 10px; */
-    margin-right: 10px;
+  .main .post-single .post-footer .share-buttons {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
