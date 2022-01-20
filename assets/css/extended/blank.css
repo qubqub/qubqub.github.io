@@ -310,15 +310,11 @@ header.header {
 
   .main .post-single .post-footer .share-buttons {
     margin: 14px 0;
-    padding-inline-start: 0;
     display: flex;
     justify-content: flex-start;
     overflow-x: auto;
-  }
-
-  .main .post-single .post-footer .share-buttons {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-inline-start: 10px !important;
+    padding-inline-end: 10px !important;
   }
 }
 
@@ -337,15 +333,11 @@ header.header {
 
   .main .post-single .post-footer .share-buttons {
     margin: 14px 0;
-    padding-inline-start: 0;
     display: flex;
     justify-content: flex-start;
     overflow-x: auto;
-  }
-
-  .main .post-single .post-footer .share-buttons {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-inline-start: 10px !important;
+    padding-inline-end: 10px !important;
   }
 }
 
