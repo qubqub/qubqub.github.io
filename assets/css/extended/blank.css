@@ -314,7 +314,7 @@ header.header {
     justify-content: flex-start;
     overflow-x: auto;
     padding-inline-start: 10px !important;
-    padding-inline-end: 10px !important;
+    padding-right: 10px;
   }
 }
 
@@ -337,7 +337,7 @@ header.header {
     justify-content: flex-start;
     overflow-x: auto;
     padding-inline-start: 10px !important;
-    padding-inline-end: 10px !important;
+    padding-right: 10px;
   }
 }
 
