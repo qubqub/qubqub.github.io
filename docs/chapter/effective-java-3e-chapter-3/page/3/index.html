@@ -3,13 +3,12 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>&lt;Qutrits/></title>
-<meta name=keywords content="qutrits,자바,java">
+<title>Effective Java 3E Chapter 3 | &lt;Qutrits/></title>
+<meta name=keywords content>
 <meta name=description content="<Qutrits/>">
 <meta name=author content>
-<link rel=canonical href=https://qutrits.github.io/>
+<link rel=canonical href=https://qutrits.github.io/chapter/effective-java-3e-chapter-3/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.b9f6a2a1764d85bd7db6d930eb43055e571a21c7f9b61c38cbe6ac3f1b36fd10.css integrity="sha256-ufaioXZNhb19ttkw60MFXlcaIcf5thw4y+asPxs2/RA=" rel="preload stylesheet" as=style>
-<link rel=preload href=/icon/profile_without_background_pic.webp as=image>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -18,22 +17,20 @@
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.89.4">
-<link rel=alternate type=application/rss+xml href=https://qutrits.github.io/index.xml>
-<link rel=alternate type=application/json href=https://qutrits.github.io/index.json>
+<link rel=alternate type=application/rss+xml href=https://qutrits.github.io/chapter/effective-java-3e-chapter-3/index.xml>
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
 <script defer src=https://developers.kakao.com/sdk/js/kakao.min.js onload="Kakao.init('b8cccaa78a75e1ff28f09a4a844b13c7')"></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="<Qutrits/>">
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="Effective Java 3E Chapter 3">
 <meta property="og:description" content="<Qutrits/>">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://qutrits.github.io/">
+<meta property="og:url" content="https://qutrits.github.io/chapter/effective-java-3e-chapter-3/">
 <meta name=twitter:card content="summary">
-<meta name=twitter:title content="<Qutrits/>">
+<meta name=twitter:title content="Effective Java 3E Chapter 3">
 <meta name=twitter:description content="<Qutrits/>">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"\u003cQutrits/\u003e","url":"https://qutrits.github.io/","description":"","thumbnailUrl":"https://qutrits.github.io/icon/favicon-64.webp","sameAs":["mailto:terro21c@gmail.com","https://t.me/qu_bits","https://github.com/qutrits","/links","/index.xml"]}</script>
 </head>
 <body class=list>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -78,40 +75,54 @@
 </nav>
 </header>
 <script>let b=document.querySelector("#menu-trigger"),m=document.querySelector("#menu");b.addEventListener("click",function(){m.classList.toggle("hidden")}),document.body.addEventListener("click",function(a){b.contains(a.target)||m.classList.add("hidden")})</script>
-<script>function loding_indicator(b,a){if(b===!0){const b=document.createElement("div");b.id="loading-indicator",b.innerHTML='<div class="spinner"></div>',a.parentNode.insertBefore(b,a.nextSibling)}else{const a=document.getElementById("loading-indicator");a.classList.add("scale-zero")}}</script><main class=main><div class=profile>
-<div class=profile_inner><div class=profile-picture onclick=!0 alt="my image" style=--profile-image:url(https://qutrits.github.io/icon/profile_without_background_pic.webp);height:120px;width:120px></div>
-<h1>반갑습니다 👋</h1>
-<span></span><div class=social-icons>
-<a href=mailto:terro21c@gmail.com target=_blank rel="noopener noreferrer me" title=Email><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-</a>
-<a href=https://t.me/qu_bits target=_blank rel="noopener noreferrer me" title=Telegram><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.198 2.433a2.242 2.242.0 00-1.022.215l-8.609 3.33c-2.068.8-4.133 1.598-5.724 2.21a405.15 405.15.0 01-2.849 1.09c-.42.147-.99.332-1.473.901-.728.968.193 1.798.919 2.286 1.61.516 3.275 1.009 4.654 1.472.509 1.793.997 3.592 1.48 5.388.16.36.506.494.864.498l-.002.018s.281.028.555-.038a2.1 2.1.0 00.933-.517c.345-.324 1.28-1.244 1.811-1.764l3.999 2.952.032.018s.442.311 1.09.355c.324.022.75-.04 1.116-.308.37-.27.613-.702.728-1.196.342-1.492 2.61-12.285 2.997-14.072l-.01.042c.27-1.006.17-1.928-.455-2.474a1.654 1.654.0 00-1.034-.407z"/></svg>
-</a>
-<a href=https://github.com/qutrits target=_blank rel="noopener noreferrer me" title=Github><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg>
-</a>
-<a href=/links target=_blank rel="noopener noreferrer me" title=Link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
-</a>
-<a href=/index.xml target=_blank rel="noopener noreferrer me" title=Rss><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg>
-</a>
+<script>function loding_indicator(b,a){if(b===!0){const b=document.createElement("div");b.id="loading-indicator",b.innerHTML='<div class="spinner"></div>',a.parentNode.insertBefore(b,a.nextSibling)}else{const a=document.getElementById("loading-indicator");a.classList.add("scale-zero")}}</script><main class=main>
+<header class=page-header>
+<h1 class=page-title data-animation=true>
+Effective Java 3E Chapter 3
+</h1>
+</header>
+<div class=list-entry-wrapper style=animation-delay:170ms data-animation=true>
+<article class="list-entry button" title="잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 분리합니다. 📌 정보 은닉(캡슐화)의 장점  시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다. (다른 컴포넌트에 영향을 주지 않고 특정 컴포넌트만 최적화 할 수 있어서) 재사용성을 높입니다.">
+<header class=entry-header>
+<h2>[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라
+</h2>
+</header>
+<section class=entry-content>
+<p>잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 분리합니다. 📌 정보 은닉(캡슐화)의 장점 시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다. (다른 컴포넌트에 영향을 주지 않고 특정 컴포넌트만 최적화 할 수 있어서) 재사용성을 높입니다....</p>
+</section>
+<footer class=entry-footer><span title="2020-07-02 12:52:21 +0900 KST">2020년 7월 2일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 15] 클래스와 멤버의 접근 권한을 최소화하라" href=https://qutrits.github.io/effective-java-3e/chapter-03/item15/></a>
+</article>
 </div>
-<div class=buttons>
-<a class=button href=series-list rel=noopener title=시리즈>
-<span class=button-inner>시리즈</span>
+<footer class=page-footer>
+<nav class=pagination>
+<ul class=pagination>
+<li class="pagination__item pagination__item--first">
+<a class="pagination__link pagination__link--first" href=https://qutrits.github.io/chapter/effective-java-3e-chapter-3/><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg><svg style="margin-left:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+<span></span>
 </a>
-<a class=button href=collection rel=noopener title=모아보기>
-<span class=button-inner>모아보기</span>
+</li>
+<li class="pagination__item pagination__item--previous">
+<a href=https://qutrits.github.io/chapter/effective-java-3e-chapter-3/page/2/ class="pagination__link pagination__link--previous"><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+<span></span>
 </a>
-<a class=button href=archives rel=noopener title="기록 보관소">
-<span class=button-inner>기록 보관소</span>
-</a>
-<a class=button href=search rel=noopener title=검색>
-<span class=button-inner>검색</span>
-</a>
-<a class=button href=tags rel=noopener title=태그>
-<span class=button-inner>태그</span>
-</a>
-</div>
-</div>
-</div>
+</li>
+<li class=pagination__item>
+<a href=/chapter/effective-java-3e-chapter-3/ class=pagination__link>1</a>
+</li>
+<li class=pagination__item>
+<a href=/chapter/effective-java-3e-chapter-3/page/2/ class=pagination__link>2</a>
+</li>
+<li class="pagination__item pagination__item--current">
+<a>3</a>
+</li>
+</ul>
+</nav>
+</footer>
 <script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .list-entry-wrapper .list-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
 </main>
 <footer class=footer>
