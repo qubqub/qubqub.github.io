@@ -993,10 +993,10 @@ readResolve 기능을 활용하면 readObject가 만들어낸 인스턴스를 �
     
     <item>
       <title>시리즈</title>
-      <link>https://qutrits.github.io/series/</link>
+      <link>https://qutrits.github.io/series_list/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://qutrits.github.io/series/</guid>
+      <guid>https://qutrits.github.io/series_list/</guid>
       <description>ser·ies</description>
     </item>
     
