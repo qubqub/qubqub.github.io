@@ -8,10 +8,10 @@
     <lastBuildDate>Sat, 27 Jun 2020 17:11:39 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/chapter/effective-java-3e-chapter-2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[아이템 14] Comparable를 구현할지 고려하라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-02/item14/</link>
+      <link>https://qutrits.github.io/java/effective-java-3e/chapter-02/item14/</link>
       <pubDate>Sat, 27 Jun 2020 17:11:39 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-02/item14/</guid>
+      <guid>https://qutrits.github.io/java/effective-java-3e/chapter-02/item14/</guid>
       <description>자바에서는 Comparable과 Comparator라는 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬기준을 구현하는 데 사용하고, Comparator은 기본 정렬기준 외에 다른 기준으로 정렬하고자 할 때 사용합니다. 여기서는 Comparable의 하나 밖에 없는 compareTo메서드에 대해서 알아봅시다.
 Comparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natural order가 있음을 의미합니다. 그래서 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다.
 1  Arrays.sort(a);   
@@ -20,10 +20,10 @@ compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받
     
     <item>
       <title>[아이템 13] clone 재정의는 주의해서 진행하라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-02/item13/</link>
+      <link>https://qutrits.github.io/java/effective-java-3e/chapter-02/item13/</link>
       <pubDate>Sat, 27 Jun 2020 15:04:12 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-02/item13/</guid>
+      <guid>https://qutrits.github.io/java/effective-java-3e/chapter-02/item13/</guid>
       <description>실무에서 Cloneable을 구현한 클래스는 clone메서드를 public으로 제공하며, 사용자는 당연히 복제가 제대로 이뤄지리라 기대합니다. 하지만 clone메서드의 일반 규약은 허술한 부분이 있습니다.
 다음은 Object 명세에서 가져온 설명입니다.
 이 객체의 복사본을 생성해 반환합니다. 복사의 정확한 뜻은 그 객체를 구현한 클래스에 따라 다를 수 있지만 일반적인 의도는 다음과 같습니다. 어떤 객체 x에 대해 다음 식은 true입니다.
@@ -33,10 +33,10 @@ compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받
     
     <item>
       <title>[아이템 12] toString을 항상 재정의하라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-02/item12/</link>
+      <link>https://qutrits.github.io/java/effective-java-3e/chapter-02/item12/</link>
       <pubDate>Sat, 27 Jun 2020 14:31:22 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-02/item12/</guid>
+      <guid>https://qutrits.github.io/java/effective-java-3e/chapter-02/item12/</guid>
       <description>toString을 오버라이딩 하지 않으면 기본적으로 클래스_이름@16진수로_표현한_해시코드를 반환합니다.
 이렇게 되면 객체의 특성을 알아볼 수 있으므로 toString을 재정의 할 필요가 있습니다.
 1 2  Student student = new Student(&amp;#34;kim&amp;#34;, 16); System.out.println(student);   위 코드를 실행하면 Student@abcd같은 형태로 콘솔에 출력되므로 객체의 특성을 파악하기가 힘듭니다.
@@ -45,10 +45,10 @@ compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받
     
     <item>
       <title>[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-02/item11/</link>
+      <link>https://qutrits.github.io/java/effective-java-3e/chapter-02/item11/</link>
       <pubDate>Sat, 27 Jun 2020 13:18:21 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-02/item11/</guid>
+      <guid>https://qutrits.github.io/java/effective-java-3e/chapter-02/item11/</guid>
       <description>equals와 hasoCode를 재정의 하지 않으면 HashMap이나 HashSet에서 같은 원소를 사용할 때 문제가 발생합니다.
 다음은 Object 명세에서 발췌한 규약입니다.
  equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 hashCode메서드는 여러번 호출해도 일관된 값을 반환해야 합니다. equals가 두 객체를 같다고 판단하면 hashCode 또한 같은 값을 반환해야 합니다. equals가 두 객체를 다르다고 판단해도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.</description>
@@ -56,10 +56,10 @@ compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받
     
     <item>
       <title>[아이템 10] equals는 일반 규약을 지켜 재정의하라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-02/item10/</link>
+      <link>https://qutrits.github.io/java/effective-java-3e/chapter-02/item10/</link>
       <pubDate>Sat, 27 Jun 2020 11:42:54 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-02/item10/</guid>
+      <guid>https://qutrits.github.io/java/effective-java-3e/chapter-02/item10/</guid>
       <description>equals메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다. 여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.
 equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.
 📌 반사성 (Reflexivity)  null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.
