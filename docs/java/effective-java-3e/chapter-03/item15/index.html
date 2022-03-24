@@ -8,7 +8,7 @@
 <meta name=description content="잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 분리합니다. 📌 정보 은닉(캡슐화)의 장점  시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다. (다른 컴포넌트에 영향을 주지 않고 특정 컴포넌트만 최적화 할 수 있어서) 재사용성을 높입니다.">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/java/effective-java-3e/chapter-03/item15/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.3e2fc418634a248ff7b968578f09485704a0c177197fd7783483de2d7387e1a7.css integrity="sha256-Pi/EGGNKJI/3uWhXjwlIVwSgwXcZf9d4NIPeLXOH4ac=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.2381b9ecdc04b77dcacb338f0aea0140983bb94dd30318fb8e3eff749328f709.css integrity="sha256-I4G57NwEt33KyzOPCuoBQJg7uU3TAxj7jj7/dJMo9wk=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -115,19 +115,28 @@
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></div>
 </header>
+<script>const series_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)}</script>
 <div class=series-main data-animation=true>
 <div class=chapter-control>
 <div class=info>
 <div class=chapter-number>3 / 4</div>
 <div class=page-button>
-<div class=left>
-<a class=button href=/java/effective-java-3e/chapter-02/item14/ aria-label="이전 장" accesskey={ title="(이전 장) Alt + Shift + ["><svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg><svg style="margin-left:-12px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+<div class=chapter>
+<a class=button href=/java/effective-java-3e/chapter-01/item1/ aria-label="1 장" accesskey=1 title="(1 장) Alt + 1">
+1 장
+</a>
+</div>
+<div class=chapter>
+<a class=button href=/java/effective-java-3e/chapter-02/item10/ aria-label="2 장" accesskey=2 title="(2 장) Alt + 2">
 2 장
 </a>
 </div>
-<div class=right>
-<a class=button href=/java/effective-java-3e/chapter-04/item26/ aria-label="다음 장" accesskey=} title="(다음 장) Alt + Shift + ]">
-4 장<svg style="margin-right:-12px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<div class="chapter current">
+<a class=button>3 장</a>
+</div>
+<div class=chapter>
+<a class=button href=/java/effective-java-3e/chapter-04/item26/ aria-label="4 장" accesskey=4 title="(4 장) Alt + 4">
+4 장
 </a>
 </div>
 </div>
@@ -190,7 +199,7 @@
 </div>
 </div>
 </div>
-<script>const series_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};series_DOMReady(function(){const e=localStorage.getItem("lock-series-Effective Java 3E Chapter 3"),b=document.querySelector(".series-main .series-list"),a=document.querySelector(".series-main .series-control .toggle");if(localStorage.getItem("series-main-")==="true"){const a=document.querySelector(".series-main"),b=a.getBoundingClientRect();window.scrollTo(0,b.top),localStorage.removeItem("series-main-")}document.querySelector(".series-main .series-control .toggle").addEventListener("click",()=>{b.style.display==="none"||b.style.display===""?(localStorage.setItem("lock-series-Effective Java 3E Chapter 3",!1),a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"),b.style.display="block"):b.style.display==="block"&&(localStorage.setItem("lock-series-Effective Java 3E Chapter 3",!0),a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide"),b.style.display="none")});const c=document.querySelector(".series-main-description");c&&c.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))}),e==="false"?(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide")):(b.style.display="none",a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide"));const d=[...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)"),...document.querySelectorAll(".series-main .series-list li a"),...document.querySelectorAll(".series-control .page-button a:not(.disabled)")];for(let a=0;a<d.length;a++)d[a].addEventListener("click",a=>{localStorage.setItem("series-main-",!0)})})</script>
+<script>series_DOMReady(function(){const e=localStorage.getItem("lock-series-Effective Java 3E Chapter 3"),b=document.querySelector(".series-main .series-list"),a=document.querySelector(".series-main .series-control .toggle");if(localStorage.getItem("series-main-")==="true"){const a=document.querySelector(".series-main"),b=a.getBoundingClientRect();window.scrollTo(0,b.top),localStorage.removeItem("series-main-")}document.querySelector(".series-main .series-control .toggle").addEventListener("click",()=>{b.style.display==="none"||b.style.display===""?(localStorage.setItem("lock-series-Effective Java 3E Chapter 3",!1),a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"),b.style.display="block"):b.style.display==="block"&&(localStorage.setItem("lock-series-Effective Java 3E Chapter 3",!0),a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide"),b.style.display="none")});const c=document.querySelector(".series-main-description");c&&c.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))}),e==="false"?(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide")):(b.style.display="none",a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide"));const d=[...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)"),...document.querySelectorAll(".series-main .series-list li a"),...document.querySelectorAll(".series-control .page-button a:not(.disabled)")];for(let a=0;a<d.length;a++)d[a].addEventListener("click",a=>{localStorage.setItem("series-main-",!0)})})</script>
 <div class=toc data-animation=true>
 <details>
 <summary accesskey=c title="(Alt + C)">

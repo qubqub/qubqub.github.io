@@ -12,7 +12,7 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
    잘못된 코드 - 대칭성 위반 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  public class CaseInsensitiveString { private String str; .">
 <meta name=author content="Kyungchul Shin">
 <link rel=canonical href=https://qutrits.github.io/java/effective-java-3e/chapter-02/item10/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.3e2fc418634a248ff7b968578f09485704a0c177197fd7783483de2d7387e1a7.css integrity="sha256-Pi/EGGNKJI/3uWhXjwlIVwSgwXcZf9d4NIPeLXOH4ac=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.2381b9ecdc04b77dcacb338f0aea0140983bb94dd30318fb8e3eff749328f709.css integrity="sha256-I4G57NwEt33KyzOPCuoBQJg7uU3TAxj7jj7/dJMo9wk=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -127,19 +127,28 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></div>
 </header>
+<script>const series_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)}</script>
 <div class=series-main data-animation=true>
 <div class=chapter-control>
 <div class=info>
 <div class=chapter-number>2 / 4</div>
 <div class=page-button>
-<div class=left>
-<a class=button href=/java/effective-java-3e/chapter-01/item9/ aria-label="이전 장" accesskey={ title="(이전 장) Alt + Shift + ["><svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg><svg style="margin-left:-12px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+<div class=chapter>
+<a class=button href=/java/effective-java-3e/chapter-01/item1/ aria-label="1 장" accesskey=1 title="(1 장) Alt + 1">
 1 장
 </a>
 </div>
-<div class=right>
-<a class=button href=/java/effective-java-3e/chapter-03/item15/ aria-label="다음 장" accesskey=} title="(다음 장) Alt + Shift + ]">
-3 장<svg style="margin-right:-12px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<div class="chapter current">
+<a class=button>2 장</a>
+</div>
+<div class=chapter>
+<a class=button href=/java/effective-java-3e/chapter-03/item15/ aria-label="3 장" accesskey=3 title="(3 장) Alt + 3">
+3 장
+</a>
+</div>
+<div class=chapter>
+<a class=button href=/java/effective-java-3e/chapter-04/item26/ aria-label="4 장" accesskey=4 title="(4 장) Alt + 4">
+4 장
 </a>
 </div>
 </div>
@@ -184,7 +193,7 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 </div>
 </div>
 </div>
-<script>const series_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};series_DOMReady(function(){const e=localStorage.getItem("lock-series-Effective Java 3E Chapter 2"),b=document.querySelector(".series-main .series-list"),a=document.querySelector(".series-main .series-control .toggle");if(localStorage.getItem("series-main-")==="true"){const a=document.querySelector(".series-main"),b=a.getBoundingClientRect();window.scrollTo(0,b.top),localStorage.removeItem("series-main-")}document.querySelector(".series-main .series-control .toggle").addEventListener("click",()=>{b.style.display==="none"||b.style.display===""?(localStorage.setItem("lock-series-Effective Java 3E Chapter 2",!1),a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"),b.style.display="block"):b.style.display==="block"&&(localStorage.setItem("lock-series-Effective Java 3E Chapter 2",!0),a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide"),b.style.display="none")});const c=document.querySelector(".series-main-description");c&&c.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))}),e==="false"?(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide")):(b.style.display="none",a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide"));const d=[...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)"),...document.querySelectorAll(".series-main .series-list li a"),...document.querySelectorAll(".series-control .page-button a:not(.disabled)")];for(let a=0;a<d.length;a++)d[a].addEventListener("click",a=>{localStorage.setItem("series-main-",!0)})})</script>
+<script>series_DOMReady(function(){const e=localStorage.getItem("lock-series-Effective Java 3E Chapter 2"),b=document.querySelector(".series-main .series-list"),a=document.querySelector(".series-main .series-control .toggle");if(localStorage.getItem("series-main-")==="true"){const a=document.querySelector(".series-main"),b=a.getBoundingClientRect();window.scrollTo(0,b.top),localStorage.removeItem("series-main-")}document.querySelector(".series-main .series-control .toggle").addEventListener("click",()=>{b.style.display==="none"||b.style.display===""?(localStorage.setItem("lock-series-Effective Java 3E Chapter 2",!1),a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"),b.style.display="block"):b.style.display==="block"&&(localStorage.setItem("lock-series-Effective Java 3E Chapter 2",!0),a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide"),b.style.display="none")});const c=document.querySelector(".series-main-description");c&&c.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))}),e==="false"?(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide")):(b.style.display="none",a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide"));const d=[...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)"),...document.querySelectorAll(".series-main .series-list li a"),...document.querySelectorAll(".series-control .page-button a:not(.disabled)")];for(let a=0;a<d.length;a++)d[a].addEventListener("click",a=>{localStorage.setItem("series-main-",!0)})})</script>
 <div class=toc data-animation=true>
 <details>
 <summary accesskey=c title="(Alt + C)">
@@ -192,14 +201,14 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 </summary>
 <div class=inner><nav id=TableOfContents>
 <ul>
-<li><a href=#-반사성-hahahugoshortcode-s0-hbhb>📌 반사성 (HAHAHUGOSHORTCODE-s0-HBHB)</a></li>
-<li><a href=#-대칭성-hahahugoshortcode-s2-hbhb>📌 대칭성 (HAHAHUGOSHORTCODE-s2-HBHB)</a>
+<li><a href=#-반사성-reflexivity>📌 반사성 (Reflexivity)</a></li>
+<li><a href=#-대칭성-symmetry>📌 대칭성 (Symmetry)</a>
 <ul>
 <li><a href=#i-classuser-fa-alert-warning-aria-hiddentruei-잘못된-코드---대칭성-위반><i class=user-fa-alert-warning aria-hidden=true></i> 잘못된 코드 - 대칭성 위반</a></li>
 </ul>
 </li>
-<li><a href=#-추이성-hahahugoshortcode-s7-hbhb>📌 추이성 (HAHAHUGOSHORTCODE-s7-HBHB)</a></li>
-<li><a href=#-일관성-hahahugoshortcode-s10-hbhb>📌 일관성 (HAHAHUGOSHORTCODE-s10-HBHB)</a></li>
+<li><a href=#-추이성-transitivity>📌 추이성 (Transitivity)</a></li>
+<li><a href=#-일관성-consistency>📌 일관성 (Consistency)</a></li>
 <li><a href=#-null-아님>📌 null-아님</a></li>
 <li><a href=#i-classuser-fa-action-done-aria-hiddentruei-양질의-equals메서드-구현-단계><i class=user-fa-action-done aria-hidden=true></i> 양질의 equals메서드 구현 단계</a></li>
 <li><a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-정리><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a></li>
@@ -218,14 +227,14 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 <div class=inner-wrapper>
 <div class=inner><nav id=TableOfContents>
 <ul>
-<li><a href=#-반사성-hahahugoshortcode-s0-hbhb>📌 반사성 (HAHAHUGOSHORTCODE-s0-HBHB)</a></li>
-<li><a href=#-대칭성-hahahugoshortcode-s2-hbhb>📌 대칭성 (HAHAHUGOSHORTCODE-s2-HBHB)</a>
+<li><a href=#-반사성-reflexivity>📌 반사성 (Reflexivity)</a></li>
+<li><a href=#-대칭성-symmetry>📌 대칭성 (Symmetry)</a>
 <ul>
 <li><a href=#i-classuser-fa-alert-warning-aria-hiddentruei-잘못된-코드---대칭성-위반><i class=user-fa-alert-warning aria-hidden=true></i> 잘못된 코드 - 대칭성 위반</a></li>
 </ul>
 </li>
-<li><a href=#-추이성-hahahugoshortcode-s7-hbhb>📌 추이성 (HAHAHUGOSHORTCODE-s7-HBHB)</a></li>
-<li><a href=#-일관성-hahahugoshortcode-s10-hbhb>📌 일관성 (HAHAHUGOSHORTCODE-s10-HBHB)</a></li>
+<li><a href=#-추이성-transitivity>📌 추이성 (Transitivity)</a></li>
+<li><a href=#-일관성-consistency>📌 일관성 (Consistency)</a></li>
 <li><a href=#-null-아님>📌 null-아님</a></li>
 <li><a href=#i-classuser-fa-action-done-aria-hiddentruei-양질의-equals메서드-구현-단계><i class=user-fa-action-done aria-hidden=true></i> 양질의 equals메서드 구현 단계</a></li>
 <li><a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-정리><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a></li>
@@ -261,13 +270,13 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 <div class=post-content data-animation=true><p><code>equals</code>메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다. 여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.</p>
 <p><code>equals</code>메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.<br>
 <br></p>
-<h2 id=-반사성-hahahugoshortcode-s0-hbhb>📌 반사성 (<span style=font-family:Roboto;font-size:1em;font-weight:400;border:none;border-radius:0;padding:0>Reflexivity</span>)<a hidden class=anchor aria-hidden=true href=#-반사성-hahahugoshortcode-s0-hbhb><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<h2 id=-반사성-reflexivity>📌 반사성 (Reflexivity)<a hidden class=anchor aria-hidden=true href=#-반사성-reflexivity><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
 <ul>
 <li><code>null</code>이 아닌 모든 참조 값 <code>x</code>에 대해, <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>x.equals(x)</span>는 <code>true</code>입니다.<br>
 <br><br>
 <br></li>
 </ul>
-<h2 id=-대칭성-hahahugoshortcode-s2-hbhb>📌 대칭성 (<span style=font-family:Roboto;font-size:1em;font-weight:400;border:none;border-radius:0;padding:0>Symmetry</span>)<a hidden class=anchor aria-hidden=true href=#-대칭성-hahahugoshortcode-s2-hbhb><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<h2 id=-대칭성-symmetry>📌 대칭성 (Symmetry)<a hidden class=anchor aria-hidden=true href=#-대칭성-symmetry><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
 <ul>
 <li><code>null</code>이 아닌 모든 참조 값 <code>x</code>, <code>y</code>에 대해 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>x.equals(y)</span>는 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>y.equals(x)</span>입니다.<br>
 <br></li>
@@ -327,13 +336,13 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 </div><p><span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>cis.equals(str)</span>는 <code>true</code>를 반환하고 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>str.equals(cis)</span>는 <code>false</code>를 반환하게 되므로 대칭성에 위반됩니다.<br>
 <br><br>
 <br></p>
-<h2 id=-추이성-hahahugoshortcode-s7-hbhb>📌 추이성 (<span style=font-family:Roboto;font-size:1em;font-weight:400;border:none;border-radius:0;padding:0>Transitivity</span>)<a hidden class=anchor aria-hidden=true href=#-추이성-hahahugoshortcode-s7-hbhb><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<h2 id=-추이성-transitivity>📌 추이성 (Transitivity)<a hidden class=anchor aria-hidden=true href=#-추이성-transitivity><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
 <ul>
 <li><code>null</code>이 아닌 모든 참조 값 <code>x</code>, <code>y</code>, <code>z</code>에 대해 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>x.equals(y)</span>가 <code>true</code>고 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>y.equals(z)</span>도 <code>true</code>입니다.<br>
 <br><br>
 <br></li>
 </ul>
-<h2 id=-일관성-hahahugoshortcode-s10-hbhb>📌 일관성 (<span style=font-family:Roboto;font-size:1em;font-weight:400;border:none;border-radius:0;padding:0>Consistency</span>)<a hidden class=anchor aria-hidden=true href=#-일관성-hahahugoshortcode-s10-hbhb><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<h2 id=-일관성-consistency>📌 일관성 (Consistency)<a hidden class=anchor aria-hidden=true href=#-일관성-consistency><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
 <ul>
 <li><code>null</code>이 아닌 모든 참조 값 <code>x</code>, <code>y</code>에 대해 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>x.equals(y)</span>를 반복해서 호출하면 항상 <code>true</code>를 반환하거나 항상 <code>false</code>를 반환해야 합니다.<br>
 <br><br>
