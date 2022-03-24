@@ -94,12 +94,12 @@ Effective Java 3E
 상속 같은 경우 상위 클래스가 구현 방식에 따라 하위 클래스 동작에 영향을 미칠 수 있습니다.
 예제를 위한 코드 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 public class CustomHashSet&lt;E> extends HashSet&lt;E> { private int addCount = 0; public CustomHashSet() { } @Override public boolean add(E e) { addCount++; System....</p>
 </section>
-<footer class=entry-footer><span title="2020-07-03 11:42:22 +0900 KST">2020년 7월 3일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-07-03 11:42:22 +0900 KST">2020년 7월 3일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Qutrits
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 18] 상속보다는 컴포지션을 사용하라" href=https://qutrits.github.io/java/effective-java-3e/chapter-03/item18/></a>
+<a class=entry-link aria-label="post link to [아이템 18] 상속보다는 컴포지션을 사용하라" href=https://qutrits.github.io/effective-java-3e/chapter-03/item18/></a>
 </article>
 </div>
 <div class=list-entry-wrapper style=animation-delay:220ms data-animation=true>
@@ -115,12 +115,12 @@ Effective Java 3E
 📌 클래스를 불변으로 만들기 위한 규칙 객체의 상태를 변경하는 메서드를 제공하지 않습니다. 클래스를 확장할 수 없도록 합니다. 모든 필드를 private final으로 선언합니다. 생성자 관리를 잘할 것 (밑에서 설명) 자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 public final class Calculator { private final int x; private final int y; public Calculator(int x, int y) { this....</p>
 </section>
-<footer class=entry-footer><span title="2020-07-02 14:11:51 +0900 KST">2020년 7월 2일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-07-02 14:11:51 +0900 KST">2020년 7월 2일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Qutrits
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 17] 변경 가능성을 최소화하라" href=https://qutrits.github.io/java/effective-java-3e/chapter-03/item17/></a>
+<a class=entry-link aria-label="post link to [아이템 17] 변경 가능성을 최소화하라" href=https://qutrits.github.io/effective-java-3e/chapter-03/item17/></a>
 </article>
 </div>
 <div class=list-entry-wrapper style=animation-delay:270ms data-animation=true>
@@ -136,12 +136,12 @@ Effective Java 3E
 다음과 같이 추상화의 이점을 살려서 코드를 수정할 수 있습니다.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 public class Point { public int x; public int y; public Point(int x, int y) { this....</p>
 </section>
-<footer class=entry-footer><span title="2020-07-02 13:38:11 +0900 KST">2020년 7월 2일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-07-02 13:38:11 +0900 KST">2020년 7월 2일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Qutrits
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 16] public 클래스에서는 public 필드가 아닌 접근 메서드를 사용하라" href=https://qutrits.github.io/java/effective-java-3e/chapter-03/item16/></a>
+<a class=entry-link aria-label="post link to [아이템 16] public 클래스에서는 public 필드가 아닌 접근 메서드를 사용하라" href=https://qutrits.github.io/effective-java-3e/chapter-03/item16/></a>
 </article>
 </div>
 <div class=list-entry-wrapper style=animation-delay:320ms data-animation=true>
@@ -153,12 +153,12 @@ Effective Java 3E
 <section class=entry-content>
 <p>잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 분리합니다. 📌 정보 은닉(캡슐화)의 장점 시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다. (다른 컴포넌트에 영향을 주지 않고 특정 컴포넌트만 최적화 할 수 있어서) 재사용성을 높입니다....</p>
 </section>
-<footer class=entry-footer><span title="2020-07-02 12:52:21 +0900 KST">2020년 7월 2일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-07-02 12:52:21 +0900 KST">2020년 7월 2일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Qutrits
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 15] 클래스와 멤버의 접근 권한을 최소화하라" href=https://qutrits.github.io/java/effective-java-3e/chapter-03/item15/></a>
+<a class=entry-link aria-label="post link to [아이템 15] 클래스와 멤버의 접근 권한을 최소화하라" href=https://qutrits.github.io/effective-java-3e/chapter-03/item15/></a>
 </article>
 </div>
 <div class=list-entry-wrapper style=animation-delay:370ms data-animation=true>
@@ -176,12 +176,12 @@ Comparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natu
 1 Arrays.sort(a);
 compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받는)보다 작으면 음의 정수를, 같으면 0을, 크면 양의 정수를 반환합니다....</p>
 </section>
-<footer class=entry-footer><span title="2020-06-27 17:11:39 +0900 KST">2020년 6월 27일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Kyungchul Shin
+<footer class=entry-footer><span title="2020-06-27 17:11:39 +0900 KST">2020년 6월 27일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Qutrits
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
-<a class=entry-link aria-label="post link to [아이템 14] Comparable를 구현할지 고려하라" href=https://qutrits.github.io/java/effective-java-3e/chapter-02/item14/></a>
+<a class=entry-link aria-label="post link to [아이템 14] Comparable를 구현할지 고려하라" href=https://qutrits.github.io/effective-java-3e/chapter-02/item14/></a>
 </article>
 </div>
 <footer class=page-footer>
