@@ -9,7 +9,7 @@
 싱글턴을 만드는 방식은 보통 둘 중 하나입니다. 📌 public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { ... } }   public이나 protected 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다.">
 <meta name=author content="Qutrits">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-01/item3/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.fb58ca986d48b7adce8e1c9f5ba93f8f95a580b4cad93bcb57b802b94840c937.css integrity="sha256-+1jKmG1It63OjhyfW6k/j5WlgLTK2TvLV7gCuUhAyTc=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.db32f4d34fc0d9b2f17cf9e164a100554305abf07abf54195e8650f1579659a6.css integrity="sha256-2zL000/A2bLxfPnhZKEAVUMFq/B6v1QZXoZQ8VeWWaY=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -122,7 +122,9 @@
 <div class=chapter-number>1 / 4</div>
 <div class=page-button>
 <div class="chapter current">
-<a class=button>1 장</a>
+<a class=button href=/effective-java-3e/chapter-01/item1/ aria-label="1 장" accesskey=1 title="(1 장) Alt + 1">
+1 장
+</a>
 </div>
 <div class=chapter>
 <a class=button href=/effective-java-3e/chapter-02/item10/ aria-label="2 장" accesskey=2 title="(2 장) Alt + 2">
@@ -199,13 +201,15 @@
 <summary accesskey=c title="(Alt + C)">
 <span class=details>목차</span>
 </summary>
-<div class=inner><nav id=TableOfContents>
-<ul>
-<li><a href=#-public-static-멤버가-final인-방식>📌 public static 멤버가 final인 방식</a></li>
-<li><a href=#-정적-팩토리-방식의-싱글턴>📌 정적 팩토리 방식의 싱글턴</a></li>
-<li><a href=#-열거-타입의-방식의-싱글턴>📌 열거 타입의 방식의 싱글턴</a></li>
+<div class=inner><ul>
+<li>
+<a href=#-public-static-%eb%a9%a4%eb%b2%84%ea%b0%80-final%ec%9d%b8-%eb%b0%a9%ec%8b%9d aria-label="📌 public static 멤버가 final인 방식">📌 public static 멤버가 final인 방식</a></li>
+<li>
+<a href=#-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%84%b4 aria-label="📌 정적 팩토리 방식의 싱글턴">📌 정적 팩토리 방식의 싱글턴</a></li>
+<li>
+<a href=#-%ec%97%b4%ea%b1%b0-%ed%83%80%ec%9e%85%ec%9d%98-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%84%b4 aria-label="📌 열거 타입의 방식의 싱글턴">📌 열거 타입의 방식의 싱글턴</a>
+</li>
 </ul>
-</nav>
 </div>
 </details>
 </div>
@@ -217,13 +221,15 @@
 </div>
 <div class="toc-aside hide" data-animation=true>
 <div class=inner-wrapper>
-<div class=inner><nav id=TableOfContents>
-<ul>
-<li><a href=#-public-static-멤버가-final인-방식>📌 public static 멤버가 final인 방식</a></li>
-<li><a href=#-정적-팩토리-방식의-싱글턴>📌 정적 팩토리 방식의 싱글턴</a></li>
-<li><a href=#-열거-타입의-방식의-싱글턴>📌 열거 타입의 방식의 싱글턴</a></li>
+<div class=inner><ul>
+<li>
+<a href=#-public-static-%eb%a9%a4%eb%b2%84%ea%b0%80-final%ec%9d%b8-%eb%b0%a9%ec%8b%9d aria-label="📌 public static 멤버가 final인 방식">📌 public static 멤버가 final인 방식</a></li>
+<li>
+<a href=#-%ec%a0%95%ec%a0%81-%ed%8c%a9%ed%86%a0%eb%a6%ac-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%84%b4 aria-label="📌 정적 팩토리 방식의 싱글턴">📌 정적 팩토리 방식의 싱글턴</a></li>
+<li>
+<a href=#-%ec%97%b4%ea%b1%b0-%ed%83%80%ec%9e%85%ec%9d%98-%eb%b0%a9%ec%8b%9d%ec%9d%98-%ec%8b%b1%ea%b8%80%ed%84%b4 aria-label="📌 열거 타입의 방식의 싱글턴">📌 열거 타입의 방식의 싱글턴</a>
+</li>
 </ul>
-</nav>
 </div>
 </div>
 </div>

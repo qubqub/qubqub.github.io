@@ -9,7 +9,7 @@
 📌 두 번째 대안, 자바빈 또 다른 대안으로는 매개변수가 없는 생성자를 만든 뒤 setter를 통해서 값을 설정하는 방법입니다.">
 <meta name=author content="Qutrits">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-01/item2/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.fb58ca986d48b7adce8e1c9f5ba93f8f95a580b4cad93bcb57b802b94840c937.css integrity="sha256-+1jKmG1It63OjhyfW6k/j5WlgLTK2TvLV7gCuUhAyTc=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.db32f4d34fc0d9b2f17cf9e164a100554305abf07abf54195e8650f1579659a6.css integrity="sha256-2zL000/A2bLxfPnhZKEAVUMFq/B6v1QZXoZQ8VeWWaY=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -122,7 +122,9 @@
 <div class=chapter-number>1 / 4</div>
 <div class=page-button>
 <div class="chapter current">
-<a class=button>1 장</a>
+<a class=button href=/effective-java-3e/chapter-01/item1/ aria-label="1 장" accesskey=1 title="(1 장) Alt + 1">
+1 장
+</a>
 </div>
 <div class=chapter>
 <a class=button href=/effective-java-3e/chapter-02/item10/ aria-label="2 장" accesskey=2 title="(2 장) Alt + 2">
@@ -199,14 +201,17 @@
 <summary accesskey=c title="(Alt + C)">
 <span class=details>목차</span>
 </summary>
-<div class=inner><nav id=TableOfContents>
-<ul>
-<li><a href=#-첫-번째-대안-생성자를-이용할-경우>📌 첫 번째 대안, 생성자를 이용할 경우</a></li>
-<li><a href=#-두-번째-대안-자바빈>📌 두 번째 대안, 자바빈</a></li>
-<li><a href=#-세-번째-대안-빌더>📌 세 번째 대안, 빌더</a></li>
-<li><a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-정리><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a></li>
+<div class=inner><ul>
+<li>
+<a href=#-%ec%b2%ab-%eb%b2%88%ec%a7%b8-%eb%8c%80%ec%95%88-%ec%83%9d%ec%84%b1%ec%9e%90%eb%a5%bc-%ec%9d%b4%ec%9a%a9%ed%95%a0-%ea%b2%bd%ec%9a%b0 aria-label="📌 첫 번째 대안, 생성자를 이용할 경우">📌 첫 번째 대안, 생성자를 이용할 경우</a></li>
+<li>
+<a href=#-%eb%91%90-%eb%b2%88%ec%a7%b8-%eb%8c%80%ec%95%88-%ec%9e%90%eb%b0%94%eb%b9%88 aria-label="📌 두 번째 대안, 자바빈">📌 두 번째 대안, 자바빈</a></li>
+<li>
+<a href=#-%ec%84%b8-%eb%b2%88%ec%a7%b8-%eb%8c%80%ec%95%88-%eb%b9%8c%eb%8d%94 aria-label="📌 세 번째 대안, 빌더">📌 세 번째 대안, 빌더</a></li>
+<li>
+<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
+</li>
 </ul>
-</nav>
 </div>
 </details>
 </div>
@@ -218,14 +223,17 @@
 </div>
 <div class="toc-aside hide" data-animation=true>
 <div class=inner-wrapper>
-<div class=inner><nav id=TableOfContents>
-<ul>
-<li><a href=#-첫-번째-대안-생성자를-이용할-경우>📌 첫 번째 대안, 생성자를 이용할 경우</a></li>
-<li><a href=#-두-번째-대안-자바빈>📌 두 번째 대안, 자바빈</a></li>
-<li><a href=#-세-번째-대안-빌더>📌 세 번째 대안, 빌더</a></li>
-<li><a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-정리><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a></li>
+<div class=inner><ul>
+<li>
+<a href=#-%ec%b2%ab-%eb%b2%88%ec%a7%b8-%eb%8c%80%ec%95%88-%ec%83%9d%ec%84%b1%ec%9e%90%eb%a5%bc-%ec%9d%b4%ec%9a%a9%ed%95%a0-%ea%b2%bd%ec%9a%b0 aria-label="📌 첫 번째 대안, 생성자를 이용할 경우">📌 첫 번째 대안, 생성자를 이용할 경우</a></li>
+<li>
+<a href=#-%eb%91%90-%eb%b2%88%ec%a7%b8-%eb%8c%80%ec%95%88-%ec%9e%90%eb%b0%94%eb%b9%88 aria-label="📌 두 번째 대안, 자바빈">📌 두 번째 대안, 자바빈</a></li>
+<li>
+<a href=#-%ec%84%b8-%eb%b2%88%ec%a7%b8-%eb%8c%80%ec%95%88-%eb%b9%8c%eb%8d%94 aria-label="📌 세 번째 대안, 빌더">📌 세 번째 대안, 빌더</a></li>
+<li>
+<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
+</li>
 </ul>
-</nav>
 </div>
 </div>
 </div>

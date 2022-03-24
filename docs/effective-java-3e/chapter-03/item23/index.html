@@ -9,7 +9,7 @@
 안 좋은 예시 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36  public class Figure { enum Shape { RECTANGLE, CIRCLE }; // 태그 필드 - 현재 모양을 나타냅니다.">
 <meta name=author content="Qutrits">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-03/item23/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.fb58ca986d48b7adce8e1c9f5ba93f8f95a580b4cad93bcb57b802b94840c937.css integrity="sha256-+1jKmG1It63OjhyfW6k/j5WlgLTK2TvLV7gCuUhAyTc=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.db32f4d34fc0d9b2f17cf9e164a100554305abf07abf54195e8650f1579659a6.css integrity="sha256-2zL000/A2bLxfPnhZKEAVUMFq/B6v1QZXoZQ8VeWWaY=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -132,7 +132,9 @@
 </a>
 </div>
 <div class="chapter current">
-<a class=button>3 장</a>
+<a class=button href=/effective-java-3e/chapter-03/item15/ aria-label="3 장" accesskey=3 title="(3 장) Alt + 3">
+3 장
+</a>
 </div>
 <div class=chapter>
 <a class=button href=/effective-java-3e/chapter-04/item26/ aria-label="4 장" accesskey=4 title="(4 장) Alt + 4">
@@ -205,13 +207,15 @@
 <summary accesskey=c title="(Alt + C)">
 <span class=details>목차</span>
 </summary>
-<div class=inner><nav id=TableOfContents>
-<ul>
-<li><a href=#안-좋은-예시>안 좋은 예시</a></li>
-<li><a href=#태그달린-클래스를-클래스-계층-구조로-바꾸는-방법>태그달린 클래스를 클래스 계층 구조로 바꾸는 방법</a></li>
-<li><a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-정리><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a></li>
+<div class=inner><ul>
+<li>
+<a href=#%ec%95%88-%ec%a2%8b%ec%9d%80-%ec%98%88%ec%8b%9c aria-label="안 좋은 예시">안 좋은 예시</a></li>
+<li>
+<a href=#%ed%83%9c%ea%b7%b8%eb%8b%ac%eb%a6%b0-%ed%81%b4%eb%9e%98%ec%8a%a4%eb%a5%bc-%ed%81%b4%eb%9e%98%ec%8a%a4-%ea%b3%84%ec%b8%b5-%ea%b5%ac%ec%a1%b0%eb%a1%9c-%eb%b0%94%ea%be%b8%eb%8a%94-%eb%b0%a9%eb%b2%95 aria-label="태그달린 클래스를 클래스 계층 구조로 바꾸는 방법">태그달린 클래스를 클래스 계층 구조로 바꾸는 방법</a></li>
+<li>
+<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
+</li>
 </ul>
-</nav>
 </div>
 </details>
 </div>
@@ -223,13 +227,15 @@
 </div>
 <div class="toc-aside hide" data-animation=true>
 <div class=inner-wrapper>
-<div class=inner><nav id=TableOfContents>
-<ul>
-<li><a href=#안-좋은-예시>안 좋은 예시</a></li>
-<li><a href=#태그달린-클래스를-클래스-계층-구조로-바꾸는-방법>태그달린 클래스를 클래스 계층 구조로 바꾸는 방법</a></li>
-<li><a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-정리><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a></li>
+<div class=inner><ul>
+<li>
+<a href=#%ec%95%88-%ec%a2%8b%ec%9d%80-%ec%98%88%ec%8b%9c aria-label="안 좋은 예시">안 좋은 예시</a></li>
+<li>
+<a href=#%ed%83%9c%ea%b7%b8%eb%8b%ac%eb%a6%b0-%ed%81%b4%eb%9e%98%ec%8a%a4%eb%a5%bc-%ed%81%b4%eb%9e%98%ec%8a%a4-%ea%b3%84%ec%b8%b5-%ea%b5%ac%ec%a1%b0%eb%a1%9c-%eb%b0%94%ea%be%b8%eb%8a%94-%eb%b0%a9%eb%b2%95 aria-label="태그달린 클래스를 클래스 계층 구조로 바꾸는 방법">태그달린 클래스를 클래스 계층 구조로 바꾸는 방법</a></li>
+<li>
+<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
+</li>
 </ul>
-</nav>
 </div>
 </div>
 </div>

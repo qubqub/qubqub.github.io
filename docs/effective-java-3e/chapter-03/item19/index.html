@@ -10,7 +10,7 @@
   상속을 허용하는 클래스가 지켜야 할 제약 상속용 클래스의 생성자는 직접적으로든 간접적으로든 재정의 가능 메서드를 호출해서는 안 됩니다.">
 <meta name=author content="Qutrits">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-03/item19/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.fb58ca986d48b7adce8e1c9f5ba93f8f95a580b4cad93bcb57b802b94840c937.css integrity="sha256-+1jKmG1It63OjhyfW6k/j5WlgLTK2TvLV7gCuUhAyTc=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.db32f4d34fc0d9b2f17cf9e164a100554305abf07abf54195e8650f1579659a6.css integrity="sha256-2zL000/A2bLxfPnhZKEAVUMFq/B6v1QZXoZQ8VeWWaY=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -135,7 +135,9 @@
 </a>
 </div>
 <div class="chapter current">
-<a class=button>3 장</a>
+<a class=button href=/effective-java-3e/chapter-03/item15/ aria-label="3 장" accesskey=3 title="(3 장) Alt + 3">
+3 장
+</a>
 </div>
 <div class=chapter>
 <a class=button href=/effective-java-3e/chapter-04/item26/ aria-label="4 장" accesskey=4 title="(4 장) Alt + 4">
@@ -208,13 +210,15 @@
 <summary accesskey=c title="(Alt + C)">
 <span class=details>목차</span>
 </summary>
-<div class=inner><nav id=TableOfContents>
-<ul>
-<li><a href=#상속을-고려한-문서화><strong>상속을 고려한 문서화</strong></a></li>
-<li><a href=#상속을-허용하는-클래스가-지켜야-할-제약>상속을 허용하는 클래스가 지켜야 할 제약</a></li>
-<li><a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-정리><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a></li>
+<div class=inner><ul>
+<li>
+<a href=#%ec%83%81%ec%86%8d%ec%9d%84-%ea%b3%a0%eb%a0%a4%ed%95%9c-%eb%ac%b8%ec%84%9c%ed%99%94 aria-label="상속을 고려한 문서화"><strong>상속을 고려한 문서화</strong></a></li>
+<li>
+<a href=#%ec%83%81%ec%86%8d%ec%9d%84-%ed%97%88%ec%9a%a9%ed%95%98%eb%8a%94-%ed%81%b4%eb%9e%98%ec%8a%a4%ea%b0%80-%ec%a7%80%ec%bc%9c%ec%95%bc-%ed%95%a0-%ec%a0%9c%ec%95%bd aria-label="상속을 허용하는 클래스가 지켜야 할 제약">상속을 허용하는 클래스가 지켜야 할 제약</a></li>
+<li>
+<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
+</li>
 </ul>
-</nav>
 </div>
 </details>
 </div>
@@ -226,13 +230,15 @@
 </div>
 <div class="toc-aside hide" data-animation=true>
 <div class=inner-wrapper>
-<div class=inner><nav id=TableOfContents>
-<ul>
-<li><a href=#상속을-고려한-문서화><strong>상속을 고려한 문서화</strong></a></li>
-<li><a href=#상속을-허용하는-클래스가-지켜야-할-제약>상속을 허용하는 클래스가 지켜야 할 제약</a></li>
-<li><a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-정리><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a></li>
+<div class=inner><ul>
+<li>
+<a href=#%ec%83%81%ec%86%8d%ec%9d%84-%ea%b3%a0%eb%a0%a4%ed%95%9c-%eb%ac%b8%ec%84%9c%ed%99%94 aria-label="상속을 고려한 문서화"><strong>상속을 고려한 문서화</strong></a></li>
+<li>
+<a href=#%ec%83%81%ec%86%8d%ec%9d%84-%ed%97%88%ec%9a%a9%ed%95%98%eb%8a%94-%ed%81%b4%eb%9e%98%ec%8a%a4%ea%b0%80-%ec%a7%80%ec%bc%9c%ec%95%bc-%ed%95%a0-%ec%a0%9c%ec%95%bd aria-label="상속을 허용하는 클래스가 지켜야 할 제약">상속을 허용하는 클래스가 지켜야 할 제약</a></li>
+<li>
+<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
+</li>
 </ul>
-</nav>
 </div>
 </div>
 </div>

@@ -9,7 +9,7 @@
 부적절한 구현 📌 정적 유틸리티를 잘못 사용한 예 < 유연하지 않고 테스트할 수 없다 > 1 2 3 4 5 6 7 8 9 10  public class SpellChecker { private static final Lexicon dictionary = ...; private SpellChecker() {} // 객체 생성 방지  public static boolean isValid(String word) { ... } public static List<String> suggestions(String typo) { .">
 <meta name=author content="Qutrits">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-01/item5/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.fb58ca986d48b7adce8e1c9f5ba93f8f95a580b4cad93bcb57b802b94840c937.css integrity="sha256-+1jKmG1It63OjhyfW6k/j5WlgLTK2TvLV7gCuUhAyTc=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.db32f4d34fc0d9b2f17cf9e164a100554305abf07abf54195e8650f1579659a6.css integrity="sha256-2zL000/A2bLxfPnhZKEAVUMFq/B6v1QZXoZQ8VeWWaY=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -122,7 +122,9 @@
 <div class=chapter-number>1 / 4</div>
 <div class=page-button>
 <div class="chapter current">
-<a class=button>1 장</a>
+<a class=button href=/effective-java-3e/chapter-01/item1/ aria-label="1 장" accesskey=1 title="(1 장) Alt + 1">
+1 장
+</a>
 </div>
 <div class=chapter>
 <a class=button href=/effective-java-3e/chapter-02/item10/ aria-label="2 장" accesskey=2 title="(2 장) Alt + 2">
@@ -199,22 +201,23 @@
 <summary accesskey=c title="(Alt + C)">
 <span class=details>목차</span>
 </summary>
-<div class=inner><nav id=TableOfContents>
-<ul>
-<li><a href=#부적절한-구현>부적절한 구현</a>
-<ul>
-<li><a href=#-정적-유틸리티를-잘못-사용한-예--유연하지-않고-테스트할-수-없다->📌 정적 유틸리티를 잘못 사용한 예 &lt; 유연하지 않고 테스트할 수 없다 ></a></li>
-<li><a href=#-싱글턴을-잘못-사용한-예--유연하지-않고-테스트하기-어렵다->📌 싱글턴을 잘못 사용한 예 &lt; 유연하지 않고 테스트하기 어렵다 ></a></li>
-</ul>
+<div class=inner><ul>
+<li>
+<a href=#%eb%b6%80%ec%a0%81%ec%a0%88%ed%95%9c-%ea%b5%ac%ed%98%84 aria-label="부적절한 구현">부적절한 구현</a><ul>
+<li>
+<a href=#-%ec%a0%95%ec%a0%81-%ec%9c%a0%ed%8b%b8%eb%a6%ac%ed%8b%b0%eb%a5%bc-%ec%9e%98%eb%aa%bb-%ec%82%ac%ec%9a%a9%ed%95%9c-%ec%98%88--%ec%9c%a0%ec%97%b0%ed%95%98%ec%a7%80-%ec%95%8a%ea%b3%a0-%ed%85%8c%ec%8a%a4%ed%8a%b8%ed%95%a0-%ec%88%98-%ec%97%86%eb%8b%a4- aria-label="📌 정적 유틸리티를 잘못 사용한 예 &amp;lt; 유연하지 않고 테스트할 수 없다 &amp;gt;">📌 정적 유틸리티를 잘못 사용한 예 &lt; 유연하지 않고 테스트할 수 없다 ></a></li>
+<li>
+<a href=#-%ec%8b%b1%ea%b8%80%ed%84%b4%ec%9d%84-%ec%9e%98%eb%aa%bb-%ec%82%ac%ec%9a%a9%ed%95%9c-%ec%98%88--%ec%9c%a0%ec%97%b0%ed%95%98%ec%a7%80-%ec%95%8a%ea%b3%a0-%ed%85%8c%ec%8a%a4%ed%8a%b8%ed%95%98%ea%b8%b0-%ec%96%b4%eb%a0%b5%eb%8b%a4- aria-label="📌 싱글턴을 잘못 사용한 예 &amp;lt; 유연하지 않고 테스트하기 어렵다 &amp;gt;">📌 싱글턴을 잘못 사용한 예 &lt; 유연하지 않고 테스트하기 어렵다 ></a></li></ul>
 </li>
-<li><a href=#적절한-구현>적절한 구현</a>
-<ul>
-<li><a href=#-의존-객체-주입은-유연성과-테스트-용이성을-높입니다>📌 의존 객체 주입은 유연성과 테스트 용이성을 높입니다.</a></li>
-</ul>
+<li>
+<a href=#%ec%a0%81%ec%a0%88%ed%95%9c-%ea%b5%ac%ed%98%84 aria-label="적절한 구현">적절한 구현</a><ul>
+<li>
+<a href=#-%ec%9d%98%ec%a1%b4-%ea%b0%9d%ec%b2%b4-%ec%a3%bc%ec%9e%85%ec%9d%80-%ec%9c%a0%ec%97%b0%ec%84%b1%ea%b3%bc-%ed%85%8c%ec%8a%a4%ed%8a%b8-%ec%9a%a9%ec%9d%b4%ec%84%b1%ec%9d%84-%eb%86%92%ec%9e%85%eb%8b%88%eb%8b%a4 aria-label="📌 의존 객체 주입은 유연성과 테스트 용이성을 높입니다.">📌 의존 객체 주입은 유연성과 테스트 용이성을 높입니다.</a></li></ul>
 </li>
-<li><a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-정리><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a></li>
+<li>
+<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
+</li>
 </ul>
-</nav>
 </div>
 </details>
 </div>
@@ -226,22 +229,23 @@
 </div>
 <div class="toc-aside hide" data-animation=true>
 <div class=inner-wrapper>
-<div class=inner><nav id=TableOfContents>
-<ul>
-<li><a href=#부적절한-구현>부적절한 구현</a>
-<ul>
-<li><a href=#-정적-유틸리티를-잘못-사용한-예--유연하지-않고-테스트할-수-없다->📌 정적 유틸리티를 잘못 사용한 예 &lt; 유연하지 않고 테스트할 수 없다 ></a></li>
-<li><a href=#-싱글턴을-잘못-사용한-예--유연하지-않고-테스트하기-어렵다->📌 싱글턴을 잘못 사용한 예 &lt; 유연하지 않고 테스트하기 어렵다 ></a></li>
-</ul>
+<div class=inner><ul>
+<li>
+<a href=#%eb%b6%80%ec%a0%81%ec%a0%88%ed%95%9c-%ea%b5%ac%ed%98%84 aria-label="부적절한 구현">부적절한 구현</a><ul>
+<li>
+<a href=#-%ec%a0%95%ec%a0%81-%ec%9c%a0%ed%8b%b8%eb%a6%ac%ed%8b%b0%eb%a5%bc-%ec%9e%98%eb%aa%bb-%ec%82%ac%ec%9a%a9%ed%95%9c-%ec%98%88--%ec%9c%a0%ec%97%b0%ed%95%98%ec%a7%80-%ec%95%8a%ea%b3%a0-%ed%85%8c%ec%8a%a4%ed%8a%b8%ed%95%a0-%ec%88%98-%ec%97%86%eb%8b%a4- aria-label="📌 정적 유틸리티를 잘못 사용한 예 &amp;lt; 유연하지 않고 테스트할 수 없다 &amp;gt;">📌 정적 유틸리티를 잘못 사용한 예 &lt; 유연하지 않고 테스트할 수 없다 ></a></li>
+<li>
+<a href=#-%ec%8b%b1%ea%b8%80%ed%84%b4%ec%9d%84-%ec%9e%98%eb%aa%bb-%ec%82%ac%ec%9a%a9%ed%95%9c-%ec%98%88--%ec%9c%a0%ec%97%b0%ed%95%98%ec%a7%80-%ec%95%8a%ea%b3%a0-%ed%85%8c%ec%8a%a4%ed%8a%b8%ed%95%98%ea%b8%b0-%ec%96%b4%eb%a0%b5%eb%8b%a4- aria-label="📌 싱글턴을 잘못 사용한 예 &amp;lt; 유연하지 않고 테스트하기 어렵다 &amp;gt;">📌 싱글턴을 잘못 사용한 예 &lt; 유연하지 않고 테스트하기 어렵다 ></a></li></ul>
 </li>
-<li><a href=#적절한-구현>적절한 구현</a>
-<ul>
-<li><a href=#-의존-객체-주입은-유연성과-테스트-용이성을-높입니다>📌 의존 객체 주입은 유연성과 테스트 용이성을 높입니다.</a></li>
-</ul>
+<li>
+<a href=#%ec%a0%81%ec%a0%88%ed%95%9c-%ea%b5%ac%ed%98%84 aria-label="적절한 구현">적절한 구현</a><ul>
+<li>
+<a href=#-%ec%9d%98%ec%a1%b4-%ea%b0%9d%ec%b2%b4-%ec%a3%bc%ec%9e%85%ec%9d%80-%ec%9c%a0%ec%97%b0%ec%84%b1%ea%b3%bc-%ed%85%8c%ec%8a%a4%ed%8a%b8-%ec%9a%a9%ec%9d%b4%ec%84%b1%ec%9d%84-%eb%86%92%ec%9e%85%eb%8b%88%eb%8b%a4 aria-label="📌 의존 객체 주입은 유연성과 테스트 용이성을 높입니다.">📌 의존 객체 주입은 유연성과 테스트 용이성을 높입니다.</a></li></ul>
 </li>
-<li><a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-정리><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a></li>
+<li>
+<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
+</li>
 </ul>
-</nav>
 </div>
 </div>
 </div>

@@ -26,13 +26,13 @@ showContentProgressbar: true
 `equals`메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.
 <br>
 
-## 📌 반사성 (Reflexivity)
+## 📌 반사성 ({{< font family="Roboto" text="Reflexivity" >}})
 
 - `null`이 아닌 모든 참조 값 `x`에 대해, {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(x)" >}}는 `true`입니다.
 <br>
 <br>
 
-## 📌 대칭성 (Symmetry)
+## 📌 대칭성 ({{< font family="Roboto" text="Symmetry" >}})
 
 - `null`이 아닌 모든 참조 값 `x`, `y`에 대해 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(y)" >}}는 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="y.equals(x)" >}}입니다.
 <br>
@@ -69,13 +69,13 @@ String str = "string";
 <br>
 <br>
 
-## 📌 추이성 (Transitivity)
+## 📌 추이성 ({{< font family="Roboto" text="Transitivity" >}})
 
 - `null`이 아닌 모든 참조 값 `x`, `y`, `z`에 대해 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(y)" >}}가 `true`고 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="y.equals(z)" >}}도 `true`입니다.
 <br>
 <br>
 
-## 📌 일관성 (Consistency)
+## 📌 일관성 ({{< font family="Roboto" text="Consistency" >}})
 
 - `null`이 아닌 모든 참조 값 `x`, `y`에 대해 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(y)" >}}를 반복해서 호출하면 항상 `true`를 반환하거나 항상 `false`를 반환해야 합니다.
 <br>

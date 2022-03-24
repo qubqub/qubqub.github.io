@@ -10,7 +10,7 @@
  equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 hashCode메서드는 여러번 호출해도 일관된 값을 반환해야 합니다. equals가 두 객체를 같다고 판단하면 hashCode 또한 같은 값을 반환해야 합니다. equals가 두 객체를 다르다고 판단해도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.">
 <meta name=author content="Qutrits">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-02/item11/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.fb58ca986d48b7adce8e1c9f5ba93f8f95a580b4cad93bcb57b802b94840c937.css integrity="sha256-+1jKmG1It63OjhyfW6k/j5WlgLTK2TvLV7gCuUhAyTc=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.db32f4d34fc0d9b2f17cf9e164a100554305abf07abf54195e8650f1579659a6.css integrity="sha256-2zL000/A2bLxfPnhZKEAVUMFq/B6v1QZXoZQ8VeWWaY=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -130,7 +130,9 @@
 </a>
 </div>
 <div class="chapter current">
-<a class=button>2 장</a>
+<a class=button href=/effective-java-3e/chapter-02/item10/ aria-label="2 장" accesskey=2 title="(2 장) Alt + 2">
+2 장
+</a>
 </div>
 <div class=chapter>
 <a class=button href=/effective-java-3e/chapter-03/item15/ aria-label="3 장" accesskey=3 title="(3 장) Alt + 3">
@@ -190,16 +192,16 @@
 <summary accesskey=c title="(Alt + C)">
 <span class=details>목차</span>
 </summary>
-<div class=inner><nav id=TableOfContents>
-<ul>
-<li><a href=#논리적으로-같은-객체는-같은-해시코드를-반환해야-합니다>논리적으로 같은 객체는 같은 해시코드를 반환해야 합니다.</a>
-<ul>
-<li><a href=#i-classuser-fa-action-info-outline-aria-hiddentruei-다음은-hashcode를-작성하는-요령입니다><i class=user-fa-action-info-outline aria-hidden=true></i> 다음은 hashCode를 작성하는 요령입니다.</a></li>
-</ul>
+<div class=inner><ul>
+<li>
+<a href=#%eb%85%bc%eb%a6%ac%ec%a0%81%ec%9c%bc%eb%a1%9c-%ea%b0%99%ec%9d%80-%ea%b0%9d%ec%b2%b4%eb%8a%94-%ea%b0%99%ec%9d%80-%ed%95%b4%ec%8b%9c%ec%bd%94%eb%93%9c%eb%a5%bc-%eb%b0%98%ed%99%98%ed%95%b4%ec%95%bc-%ed%95%a9%eb%8b%88%eb%8b%a4 aria-label="논리적으로 같은 객체는 같은 해시코드를 반환해야 합니다.">논리적으로 같은 객체는 같은 해시코드를 반환해야 합니다.</a><ul>
+<li>
+<a href=#i-classuser-fa-action-info-outline-aria-hiddentruei-%eb%8b%a4%ec%9d%8c%ec%9d%80-hashcode%eb%a5%bc-%ec%9e%91%ec%84%b1%ed%95%98%eb%8a%94-%ec%9a%94%eb%a0%b9%ec%9e%85%eb%8b%88%eb%8b%a4 aria-label=" 다음은 hashCode를 작성하는 요령입니다."><i class=user-fa-action-info-outline aria-hidden=true></i> 다음은 hashCode를 작성하는 요령입니다.</a></li></ul>
 </li>
-<li><a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-정리><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a></li>
+<li>
+<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
+</li>
 </ul>
-</nav>
 </div>
 </details>
 </div>
@@ -211,16 +213,16 @@
 </div>
 <div class="toc-aside hide" data-animation=true>
 <div class=inner-wrapper>
-<div class=inner><nav id=TableOfContents>
-<ul>
-<li><a href=#논리적으로-같은-객체는-같은-해시코드를-반환해야-합니다>논리적으로 같은 객체는 같은 해시코드를 반환해야 합니다.</a>
-<ul>
-<li><a href=#i-classuser-fa-action-info-outline-aria-hiddentruei-다음은-hashcode를-작성하는-요령입니다><i class=user-fa-action-info-outline aria-hidden=true></i> 다음은 hashCode를 작성하는 요령입니다.</a></li>
-</ul>
+<div class=inner><ul>
+<li>
+<a href=#%eb%85%bc%eb%a6%ac%ec%a0%81%ec%9c%bc%eb%a1%9c-%ea%b0%99%ec%9d%80-%ea%b0%9d%ec%b2%b4%eb%8a%94-%ea%b0%99%ec%9d%80-%ed%95%b4%ec%8b%9c%ec%bd%94%eb%93%9c%eb%a5%bc-%eb%b0%98%ed%99%98%ed%95%b4%ec%95%bc-%ed%95%a9%eb%8b%88%eb%8b%a4 aria-label="논리적으로 같은 객체는 같은 해시코드를 반환해야 합니다.">논리적으로 같은 객체는 같은 해시코드를 반환해야 합니다.</a><ul>
+<li>
+<a href=#i-classuser-fa-action-info-outline-aria-hiddentruei-%eb%8b%a4%ec%9d%8c%ec%9d%80-hashcode%eb%a5%bc-%ec%9e%91%ec%84%b1%ed%95%98%eb%8a%94-%ec%9a%94%eb%a0%b9%ec%9e%85%eb%8b%88%eb%8b%a4 aria-label=" 다음은 hashCode를 작성하는 요령입니다."><i class=user-fa-action-info-outline aria-hidden=true></i> 다음은 hashCode를 작성하는 요령입니다.</a></li></ul>
 </li>
-<li><a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-정리><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a></li>
+<li>
+<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
+</li>
 </ul>
-</nav>
 </div>
 </div>
 </div>
