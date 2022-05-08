@@ -24,7 +24,7 @@ showContentProgressbar: true
 매개변수가 많아질 경우 정적 팩토리 메서드와 생성자는 사용하기 불편해집니다.       
 <br>
 
-## 📌 첫 번째 대안, 생성자를 이용할 경우
+## {{< font color-var="main-color" text="첫" >}} 번째 대안, 생성자를 이용할 경우
 
 ```java
 Nutritionfact cocaCola = new Nutritionfact(240, 8, 100, 0, 35);
@@ -34,7 +34,7 @@ Nutritionfact cocaCola = new Nutritionfact(240, 8, 100, 0, 35);
 <br>
 <br>
 
-## 📌 두 번째 대안, 자바빈
+## {{< font color-var="main-color" text="두" >}} 번째 대안, 자바빈
 또 다른 대안으로는 매개변수가 없는 생성자를 만든 뒤 `setter`를 통해서 값을 설정하는 방법입니다.
 
 ```java
@@ -50,7 +50,7 @@ cocaCola.setCalories(100);
 <br>
 <br>
 
-## 📌 세 번째 대안, 빌더
+## {{< font color-var="main-color" text="세" >}} 번째 대안, 빌더
 발더 패턴은 필요한 매개변수만 전달할 수 있고 자바빈즈 패턴의 가독성을 모두 겸비한 대안입니다. 필수 매개변수만으로 생성자(혹은 정적팩토리)를 호출해 빌더 객체를 얻습니다. 그 후 빌더 객체가 제공하는 일종의 세터 메서드들로 원하는 선택 매개변수를 설정합니다. 마지막으로 매개변수가 없는`build`메서드를 호출하여 객체를 생성합니다.
 
 ``` java
@@ -239,4 +239,4 @@ Calzone calzone = new Calzone.Builder()
 빌더는 다양한 방식으로 객체를 생생할 수 있으므로 생성자와 정적 팩토리 메서드 방식보다 상당히 유연합니다.   
 
 단점으로는 객체를 생성하려면 `Builder()`를 생성해야 하는데 성능에 민감한 상황에서는 이 점이 문제가 될 수 있습니다. 그리고 생성자에 비해서 코드가 장황해질 수 있으므로 현재 필요한 매개변수와 확장성을 고려해서 잘 판단하면 될 것 같습니다.
-
+<br>

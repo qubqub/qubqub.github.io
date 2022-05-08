@@ -37,3 +37,4 @@ public class UtilityClass {
 ```
 
 `private`생성자이므로 상속을 시도하려는 클래스에서는 생성자를 호출할 수 없기 때문에 상속도 불가능 합니다.
+<br>

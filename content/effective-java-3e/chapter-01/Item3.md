@@ -92,3 +92,4 @@ public enum Elvis {
 하지만 이 방법은 `Enum`외의 클래스를 상속해야한다면 사용할 수 없습니다.
 
 <i class="user-fa-action-info-outline" aria-hidden="true"></i> 열거 타입이 다른 인터페이스를 구현하도록 선언할 수는 있습니다.
+<br>
