@@ -23,6 +23,7 @@ showContentProgressbar: true
 ---
 ## 일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메서드를 이용할 수 있다.
 <br>
+
 ``` java
 public static Boolean valueOf(boolean b) {
     return b ? Boolean.TRUE : Booelan.FALSE;
