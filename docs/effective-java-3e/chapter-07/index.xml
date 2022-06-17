@@ -13,7 +13,6 @@
       <guid>https://qutrits.github.io/effective-java-3e/chapter-07/item49/</guid>
       <description>매개변수가 유효한지 검사하라. 메서드와 생성자는 대부분 특정 조건의 입력 매개변수에 특정 조건을 만족하기를 바랍니다. 만일 잘못된 값이 들어올 경우 보통 예외를 던지거나 컴파일 오류를 잡아내긴 하지만, 오류는 가능한 빨리 잡아내는 게 좋습니다. 그렇지 않으면 감지하기 어려워지고 감지하더라도 찾아내기 힘들어지는 경우도 있습니다.
 이러한 경우를 방지하기 위해 매개변수를 미리 확인한다면 즉각적이고 깔끔한 방식으로 예외를 처리할 수 있습니다.
-
 하지만 반드시 메서드를 실행하기 전에 매개변수 유효성 검사를 해야하는 것만은 아닙니다. 유효성 검사 비용이 지나치게 높거나 실용적이지 않을 때는 다시 고려를 해봐야 합니다.</description>
     </item>
     
@@ -24,9 +23,8 @@
       
       <guid>https://qutrits.github.io/effective-java-3e/chapter-07/item50/</guid>
       <description>[Item50] 적시에 방어적 복사본을 만들라 이번 아이템에서는 지난 Item17에 다루었던 불변에 대한 주제가 포함되어있습니다. 어떤 객체든 객체의 허락 없이는 외부에서 함부로 내부를 수정하게 하는 일이 없아야 합니다. 하지만 주의를 기울이지 않으면 자신도 모르게 내부를 수정하도록 코드를 짜는 경우가 생길 수 있습니다.
-
 다음은 부주의로 일어날 수 있는 상황을 예시로 든 코드입니다.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  public final class Period { private final Date date; private final Date end; public Period(Date start, Date end) { if (start.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 public final class Period { private final Date date; private final Date end; public Period(Date start, Date end) { if (start.</description>
     </item>
     
     <item>
@@ -46,7 +44,7 @@
       
       <guid>https://qutrits.github.io/effective-java-3e/chapter-07/item52/</guid>
       <description>[아이템 52] 다중정의는 신중히 사용하라. 다음은 컬렉션을 집합, 리스트, 그 외로 구분하고자 만든 프로그램입니다.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  public class CollectionClassifier { public static String classify(Set&amp;lt;?&amp;gt; s) { return &amp;#34;Set&amp;#34;; } public static String classify(List&amp;lt;?&amp;gt; lst) { return &amp;#34;List&amp;#34;; } public static String classify(Collection&amp;lt;?&amp;gt; c) { return &amp;#34;Unknown Collection&amp;#34;; } public static void main(String[] args) { Collection&amp;lt;?</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 public class CollectionClassifier { public static String classify(Set&amp;lt;?&amp;gt; s) { return &amp;#34;Set&amp;#34;; } public static String classify(List&amp;lt;?&amp;gt; lst) { return &amp;#34;List&amp;#34;; } public static String classify(Collection&amp;lt;?&amp;gt; c) { return &amp;#34;Unknown Collection&amp;#34;; } public static void main(String[] args) { Collection&amp;lt;?</description>
     </item>
     
     <item>
@@ -56,7 +54,8 @@
       
       <guid>https://qutrits.github.io/effective-java-3e/chapter-07/item53/</guid>
       <description>[아이템 53] 가변인수는 신중히 사용하라. 가변인수(varargs) 메서드는 명시한 타입의 인수를 0개 이상 받을 수 있습니다. 다음 예제는 int 인자의 합을 구하는 가변인수 메서드입니다.
-1 2 3 4 5 6 7  static int sum(int... args) { int sum = 0; for (int args: args) { sum += args; } return sum; }   1개 이상의 인수가 필요한 경우도 있습니다. 다음 예제는 1개 이상의 인수를 필요료하는 가변인수 메서드의 잘못된 구현입니다.</description>
+1 2 3 4 5 6 7 static int sum(int... args) { int sum = 0; for (int args: args) { sum += args; } return sum; } 1개 이상의 인수가 필요한 경우도 있습니다. 다음 예제는 1개 이상의 인수를 필요료하는 가변인수 메서드의 잘못된 구현입니다.
+1 2 3 4 5 6 7 8 9 10 static int sum(int.</description>
     </item>
     
     <item>
@@ -65,8 +64,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/effective-java-3e/chapter-07/item54/</guid>
-      <description>[아이템 54] null이 아닌, 빈 컬렉션이나 배열을 반환하라. 1 2 3 4 5 6  // 컬렉션이 비어있으면 null을 반환 - 따라하지 말 것 private final List&amp;lt;Cheese&amp;gt; cheesesInStock = ...; public List&amp;lt;Cheese&amp;gt; getCheeses() { return cheesesInStock.isEmpty() ? null : new ArrayList&amp;lt;&amp;gt;(cheesesInStock); }   null을 반환할 경우 클라이어트는 이 null 상황을 처리하는 코드를 추가로 작성해야합니다.
-1 2 3 4  List&amp;lt;Cheese&amp;gt; cheesesInStock = shop.getCheeses(); if (cheese != null &amp;amp;&amp;amp; cheeses.contains(cheese.STILTON)) { system.</description>
+      <description>[아이템 54] null이 아닌, 빈 컬렉션이나 배열을 반환하라. 1 2 3 4 5 6 // 컬렉션이 비어있으면 null을 반환 - 따라하지 말 것 private final List&amp;lt;Cheese&amp;gt; cheesesInStock = ...; public List&amp;lt;Cheese&amp;gt; getCheeses() { return cheesesInStock.isEmpty() ? null : new ArrayList&amp;lt;&amp;gt;(cheesesInStock); } null을 반환할 경우 클라이어트는 이 null 상황을 처리하는 코드를 추가로 작성해야합니다.
+1 2 3 4 List&amp;lt;Cheese&amp;gt; cheesesInStock = shop.getCheeses(); if (cheese != null &amp;amp;&amp;amp; cheeses.contains(cheese.STILTON)) { system.out.println(&amp;#34;좋았어, 바로 그거야!&amp;#34;) } 클라이언트에서 null을 처리하는 코드를 빼먹으면 오류가 발생할 수 있으며 코드가 장황해집니다.</description>
     </item>
     
     <item>
@@ -76,7 +75,6 @@
       
       <guid>https://qutrits.github.io/effective-java-3e/chapter-07/item55/</guid>
       <description>[아이템 55] 옵셔널 반환은 신중히 하라 자바 8이전에는 메서드가 특정 값을 반환할 수 없을때 취할 수 있는 선택지가 두 가지가 있었습니다. 예외를 던지거나, null을 반환하는 것입니다. 두 방법 모두 허점이 있습니다. 예외는 진짜 예외적인 상황에서만 사용해야 하며 예외를 생성할 때 스택 추적 전체를 캡쳐하므로 바용도 만만치 않습니다. null을 반환할 수 있는 메서드를 호출하면 null 처리를 별도로 해줘야합니다. null 처리를 무시하면 나중에 NPE가 발생할 수 있습니다.
-
 자바 8부터는 Optional을 지원했습니다. Optional&amp;lt;T&amp;gt;는 null이 아닌 T타입 참조를 하나 담거나, 아무것도 담지 않을 수 있습니다.</description>
     </item>
     

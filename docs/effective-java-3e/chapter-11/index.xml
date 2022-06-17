@@ -12,7 +12,7 @@
       
       <guid>https://qutrits.github.io/effective-java-3e/chapter-11/item85/</guid>
       <description>[아이템 85] 자바 직렬화의 대안을 찾으라. 자바의 역직렬화에는 치명적인 단점이 있습니다. 신롸할 수 없는 스트림을 역직렬화하면 원격 코드 실행, 서비스 거부 등의 공격으로 이어질 수 있습니다.
-역직렬화 폭탄이란 서비스 거부 공격을 유발하는 스트림입니다.1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  static byte[] bomb() { Set&amp;lt;Object&amp;gt; root = new HashSet&amp;lt;&amp;gt;(); Set&amp;lt;Object&amp;gt; s1 = root; Set&amp;lt;Object&amp;gt; s2 = new HashSet&amp;lt;&amp;gt;(); for (int i = 0; i &amp;lt; 100; i++) { Set&amp;lt;Object&amp;gt; t1 = new HashSet&amp;lt;&amp;gt;(); Set&amp;lt;Object&amp;gt; t2 = new HashSet&amp;lt;&amp;gt;(); t1.</description>
+역직렬화 폭탄이란 서비스 거부 공격을 유발하는 스트림입니다.1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 static byte[] bomb() { Set&amp;lt;Object&amp;gt; root = new HashSet&amp;lt;&amp;gt;(); Set&amp;lt;Object&amp;gt; s1 = root; Set&amp;lt;Object&amp;gt; s2 = new HashSet&amp;lt;&amp;gt;(); for (int i = 0; i &amp;lt; 100; i++) { Set&amp;lt;Object&amp;gt; t1 = new HashSet&amp;lt;&amp;gt;(); Set&amp;lt;Object&amp;gt; t2 = new HashSet&amp;lt;&amp;gt;(); t1.</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       
       <guid>https://qutrits.github.io/effective-java-3e/chapter-11/item86/</guid>
       <description>[아이템 86] Serializable을 구현할지는 신중히 결정하라. Serializable을 구현하면 릴리스 한 뒤에는 수정하기 어렵습니다. 직렬화 당시 내부 구현 방식에 묶이고, 캡슐화가 깨지는 위험이 있습니다. 직렬화된 클래스는 고유 식별 번호를 부여받는데, serialVersionUID를 명시하지 않으면 런타임에 SHA-1을 적용하여 자동으로 클래스 안에 생성해 넣는데, 클래스의 이름, 멤버 등이 포함됩니다. 그래서 나중에 이들 중 하나를 수정한다면 UID 값도 변하여 호환성이 깨져버립니다.
-그 다음 문제는 역직렬화는 숨은 생성자 입니다. 기본 역직렬화를 사용하면 불변식이 깨지고 허가되지 은 접근에 쉽게 노출됩니다.</description>
+그 다음 문제는 역직렬화는 숨은 생성자 입니다. 기본 역직렬화를 사용하면 불변식이 깨지고 허가되지 은 접근에 쉽게 노출됩니다.</description>
     </item>
     
     <item>
@@ -32,7 +32,7 @@
       
       <guid>https://qutrits.github.io/effective-java-3e/chapter-11/item87/</guid>
       <description>[아이템 87] 커스텀 직렬화 형태를 고려해보라. 이상적인 직렬화는 물리적인 모습과 독립된 논리적인 모습을 표현해야한다. 하지만 기본 직렬화 형태는 객체가 포함한 모든 데이터와 그 객체에서부터 시작해 접근할 수 있는 모든 객체를 담아낸다.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22  public class Name implements Serializable { /* * 성. null이 아니어야 함. * @serial */ private final String lastName; /* * 이름.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 public class Name implements Serializable { /* * 성. null이 아니어야 함. * @serial */ private final String lastName; /* * 이름.</description>
     </item>
     
     <item>
@@ -41,7 +41,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/effective-java-3e/chapter-11/item88/</guid>
-      <description>[아이템 88] readObject 메서드는 방어적으로 작성하라. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  // 방어적 복사를 사용하는 불변 클ㄹ스  public final class Period { private final Date start; private final Date end; /** * @param start 시작 시간 * @param end 종료 시각. 시작 시간보다 뒤어야 한다 * @throws IllegalArgumentException 시작 시간이 종료 시간보다 늦을 때 발생한다 * @throws NullPointerException start나 end가 null일시 발생 */ public Period(Date start, Date end) { this.</description>
+      <description>[아이템 88] readObject 메서드는 방어적으로 작성하라. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 // 방어적 복사를 사용하는 불변 클ㄹ스 public final class Period { private final Date start; private final Date end; /** * @param start 시작 시간 * @param end 종료 시각. 시작 시간보다 뒤어야 한다 * @throws IllegalArgumentException 시작 시간이 종료 시간보다 늦을 때 발생한다 * @throws NullPointerException start나 end가 null일시 발생 */ public Period(Date start, Date end) { this.</description>
     </item>
     
     <item>
@@ -50,9 +50,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://qutrits.github.io/effective-java-3e/chapter-11/item89/</guid>
-      <description>[아이템 89] 인스턴스 수를 통제해야 한다면 readResolve 보단는 열거타입을 사용하라. 1 2 3 4 5 6 7  // 싱글턴 public class Elvis { public static final Elvis INSTANCE = new Elvis(); private Elvis() { ... } public void leaveTheBuilding() { ... } }   Serializable을 구현하는 순간 더이상 싱글턴이 아니다. 어떤 readObject를 사용하든 초기화될때 만들어진 인스턴스와는 별개인 인스턴스를 반환하게 된다.
-
-
+      <description>[아이템 89] 인스턴스 수를 통제해야 한다면 readResolve 보단는 열거타입을 사용하라. 1 2 3 4 5 6 7 // 싱글턴 public class Elvis { public static final Elvis INSTANCE = new Elvis(); private Elvis() { ... } public void leaveTheBuilding() { ... } } Serializable을 구현하는 순간 더이상 싱글턴이 아니다. 어떤 readObject를 사용하든 초기화될때 만들어진 인스턴스와는 별개인 인스턴스를 반환하게 된다.
 readResolve 기능을 활용하면 readObject가 만들어낸 인스턴스를 다른 것으로 대체할 수 있다</description>
     </item>
     
@@ -63,7 +61,7 @@ readResolve 기능을 활용하면 readObject가 만들어낸 인스턴스를 �
       
       <guid>https://qutrits.github.io/effective-java-3e/chapter-11/item90/</guid>
       <description>[아이템 90] 직렬화된 인스턴스 대신 직렬화 프록시 사용을 검토하라. 직렬화 프록시 패턴을 이용하면 앞서 애기했던 단점들을 줄일 수 있다.먼저 바깥 클래스의 논리적인 상태를 표현하는 중첩 클래스를 private static으로 생성한다. 이 중첩 클래스가 바깥 클래스의 직렬화 프록시다. 이 클래스는 단순히 인스로 넘어온 인스턴스의 데이터만 복사하고 바깥 클래스와 모두 Serializable을 구현해야한다.
-1 2 3 4 5 6 7 8 9 10 11  // Period 클래스용 직렬화 프록시 private static class SerializationProxy implements Serializable { private final Date start; private final Date end; SerializationProxy(Period p) { this.</description>
+1 2 3 4 5 6 7 8 9 10 11 // Period 클래스용 직렬화 프록시 private static class SerializationProxy implements Serializable { private final Date start; private final Date end; SerializationProxy(Period p) { this.</description>
     </item>
     
   </channel>
