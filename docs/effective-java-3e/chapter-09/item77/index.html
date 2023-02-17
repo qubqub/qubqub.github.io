@@ -3,13 +3,13 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>&lt;Qutrits/></title>
+<title>&lt;span class="user-fa-hardware-keyboard-arrow-right">&lt;/span>ssh qutrits@localhost&lt;span class="__cursor">&lt;/span></title>
 <meta name=keywords content>
 <meta name=description content="[아이템 77] 예외를 무시하지 마라. 발생할 수 있는 실수
 1 2 3 4 5  try { ... } catch (IllegalArgumentException e){ }   초보 프로그래머가 할 수 있는 실수입니다. catch 블록에서 아무것도 하지 않으면 catch가 존재할 이유가 없어지는 것과 마찬가지입니다. 예외가 발생허더라도 계속 지나칠 수 있습니다. 이는 심각한 결함으로 이어질 수 있습니다. 만약 예외를 무시하기로 결정한 부분이라면 IllegalArgumentException ignored로 바꿔놓는 것이 좋습니다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-09/item77/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.b8537f11b877beda176bf36386c8ce3b8c4af65276edaec88d0777ac7f3d2dbb.css integrity="sha256-uFN/Ebh3vtoXa/NjhsjOO4xK9lJ27a7IjQd3rH89Lbs=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.2fb8250239cd29d693ee31e0571d48262455d3ea613f3ef3dc99a8f87779619a.css integrity="sha256-L7glAjnNKdaT7jHgVx1IJiRV0+phPz7z3Jmo+Hd5YZo=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -35,7 +35,7 @@
 <meta name=twitter:description content="[아이템 77] 예외를 무시하지 마라. 발생할 수 있는 실수
 1 2 3 4 5  try { ... } catch (IllegalArgumentException e){ }   초보 프로그래머가 할 수 있는 실수입니다. catch 블록에서 아무것도 하지 않으면 catch가 존재할 이유가 없어지는 것과 마찬가지입니다. 예외가 발생허더라도 계속 지나칠 수 있습니다. 이는 심각한 결함으로 이어질 수 있습니다. 만약 예외를 무시하기로 결정한 부분이라면 IllegalArgumentException ignored로 바꿔놓는 것이 좋습니다.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Effctive Java 3/E","item":"https://qutrits.github.io/effective-java-3e/"},{"@type":"ListItem","position":2,"name":"9장 예외","item":"https://qutrits.github.io/effective-java-3e/chapter-09/"},{"@type":"ListItem","position":3,"name":"","item":"https://qutrits.github.io/effective-java-3e/chapter-09/item77/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"","name":"","description":"[아이템 77] 예외를 무시하지 마라. 발생할 수 있는 실수\n1 2 3 4 5  try { ... } catch (IllegalArgumentException e){ }   초보 프로그래머가 할 수 있는 실수입니다. catch 블록에서 아무것도 하지 않으면 catch가 존재할 이유가 없어지는 것과 마찬가지입니다. 예외가 발생허더라도 계속 지나칠 수 있습니다. 이는 심각한 결함으로 이어질 수 있습니다. 만약 예외를 무시하기로 결정한 부분이라면 IllegalArgumentException ignored로 바꿔놓는 것이 좋습니다.","keywords":[],"articleBody":"[아이템 77] 예외를 무시하지 마라. 발생할 수 있는 실수\n1 2 3 4 5  try { ... } catch (IllegalArgumentException e){ }   초보 프로그래머가 할 수 있는 실수입니다. catch 블록에서 아무것도 하지 않으면 catch가 존재할 이유가 없어지는 것과 마찬가지입니다. 예외가 발생허더라도 계속 지나칠 수 있습니다. 이는 심각한 결함으로 이어질 수 있습니다. 만약 예외를 무시하기로 결정한 부분이라면 IllegalArgumentException ignored로 바꿔놓는 것이 좋습니다.\n","wordCount":"61","inLanguage":"ko","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/effective-java-3e/chapter-09/item77/"},"publisher":{"@type":"Organization","name":"\u003cQutrits/\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.webp"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"","name":"","description":"[아이템 77] 예외를 무시하지 마라. 발생할 수 있는 실수\n1 2 3 4 5  try { ... } catch (IllegalArgumentException e){ }   초보 프로그래머가 할 수 있는 실수입니다. catch 블록에서 아무것도 하지 않으면 catch가 존재할 이유가 없어지는 것과 마찬가지입니다. 예외가 발생허더라도 계속 지나칠 수 있습니다. 이는 심각한 결함으로 이어질 수 있습니다. 만약 예외를 무시하기로 결정한 부분이라면 IllegalArgumentException ignored로 바꿔놓는 것이 좋습니다.","keywords":[],"articleBody":"[아이템 77] 예외를 무시하지 마라. 발생할 수 있는 실수\n1 2 3 4 5  try { ... } catch (IllegalArgumentException e){ }   초보 프로그래머가 할 수 있는 실수입니다. catch 블록에서 아무것도 하지 않으면 catch가 존재할 이유가 없어지는 것과 마찬가지입니다. 예외가 발생허더라도 계속 지나칠 수 있습니다. 이는 심각한 결함으로 이어질 수 있습니다. 만약 예외를 무시하기로 결정한 부분이라면 IllegalArgumentException ignored로 바꿔놓는 것이 좋습니다.\n","wordCount":"61","inLanguage":"ko","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://qutrits.github.io/effective-java-3e/chapter-09/item77/"},"publisher":{"@type":"Organization","name":"\u003cspan class=\"user-fa-hardware-keyboard-arrow-right\"\u003e\u003c/span\u003essh qutrits@localhost\u003cspan class=\"__cursor\"\u003e\u003c/span\u003e","logo":{"@type":"ImageObject","url":"https://qutrits.github.io/icon/favicon-64.webp"}}}</script>
 </head>
 <body>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -174,7 +174,7 @@
 <script>const single_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};single_DOMReady(function(){let c=0,e=0;const b=document.querySelector("header.header"),f="header-bottom",g="header-background",d=-100;let a=0;window.pageYOffset>b.offsetHeight&&(a=d),window.addEventListener("scroll",()=>{c=window.pageYOffset,c<=0?(b.style.transform="translateY(0%)",b.classList.contains(f)&&b.classList.remove(f),b.classList.contains(g)&&b.classList.remove(g)):(c>e?d<a&&(c-e>60?a=d:(a-=15,a<d&&(a=d))):0>a&&(e-c>60?a=0:(a+=15,a>0&&(a=0))),b.style.transform=`translateY(${a}%)`,b.classList.contains(f)||b.classList.add(f),b.classList.contains(g)||b.classList.add(g)),e=c}),window.onload=function(){const a=document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");for(let b=0;b<a.length;b++)a[b].style.width="100%"}})</script>
 </main>
 <footer class=footer>
-<span>&copy; 2023 <a href=https://qutrits.github.io/><qutrits></a></span>
+<span>&copy; 2023 <a href=https://qutrits.github.io/><span class=user-fa-hardware-keyboard-arrow-right></span>ssh qutrits@localhost<span class=__cursor></span></a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
