@@ -4,11 +4,12 @@
     <title>5장 열거 타입과 애너테이션 on &lt;Qutrits/&gt;</title>
     <link>https://qutrits.github.io/effective-java-3e/chapter-05/</link>
     <description>Recent content in 5장 열거 타입과 애너테이션 on &lt;Qutrits/&gt;</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://qutrits.github.io/effective-java-3e/chapter-05/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 02 Feb 2021 10:11:42 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/effective-java-3e/chapter-05/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
+      <title>[아이템 34] int 상수 대신 열거 타입을 사용하라</title>
       <link>https://qutrits.github.io/effective-java-3e/chapter-05/item34/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 02 Feb 2021 10:11:42 +0900</pubDate>
       
       <guid>https://qutrits.github.io/effective-java-3e/chapter-05/item34/</guid>
       <description>[아이템 34] int 상수 대신 열거 타입을 사용하라. 열거 타입이란 일정 개수의 상수 값을 정의하고 그 이외 값들은 허용하지 않는 타입입니다. 대표적으로 사계절, 요일, 태양계의 행성 등이 있습니다.

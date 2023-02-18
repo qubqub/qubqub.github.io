@@ -11,7 +11,7 @@
  toString을 재정의하는 좋은 방법  객체가 가진 가진 주요 정보를 모두 반환하는 게 좋습니다. toString을 구현하면 반환값의 포맷을 문서화할지 정해야 합니다.  규칙이 명확해지는 장점이 있지만, 한번 명시하면 그 포맷에 얽매이게 됩니다.">
 <meta name=author content="Qutrits">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-02/item12/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.2fb060c161d7e815ae2d3fef84bf37f1e8794eea5213db84ab6ce93e1fdcdf91.css integrity="sha256-L7BgwWHX6BWuLT/vhL838eh5TupSE9uEq2zpPh/c35E=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c92d8c158046ff072c572beb6ec3fb8c243390696f4ef3bdc58f635dac6c3dec.css integrity="sha256-yS2MFYBG/wcsVyvrbsP7jCQzkGlvTvO9xY9jXaxsPew=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -36,7 +36,7 @@
 <meta property="og:url" content="https://qutrits.github.io/effective-java-3e/chapter-02/item12/"><meta property="article:section" content="effective-java-3e">
 <meta property="article:published_time" content="2020-06-27T14:31:22+09:00">
 <meta property="article:modified_time" content="2020-06-27T14:31:22+09:00">
-<meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item33/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item32/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item31/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item30/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item29/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item28/">
+<meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-05/item34/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item33/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item32/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item31/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item30/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item29/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="[아이템 12] toString을 항상 재정의하라">
 <meta name=twitter:description content="toString을 오버라이딩 하지 않으면 기본적으로 클래스_이름@16진수로_표현한_해시코드를 반환합니다.
@@ -125,7 +125,7 @@
 <div class=series-main data-animation=true>
 <div class=chapter-control>
 <div class=info>
-<div class=chapter-number>2 / 4</div>
+<div class=chapter-number>2 / 5</div>
 <div class=page-button>
 <div class="button chapter">
 <a href=/effective-java-3e/chapter-01/item01/ aria-label="1 장" accesskey=1 title="(1장 객체 생성과 파괴) Alt + 1">
@@ -145,6 +145,11 @@
 <div class="button chapter">
 <a href=/effective-java-3e/chapter-04/item26/ aria-label="4 장" accesskey=4 title="(4장 제네릭) Alt + 4">
 4 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-05/item34/ aria-label="5 장" accesskey=5 title="(5장 열거 타입과 애너테이션) Alt + 5">
+5 장
 </a>
 </div>
 </div>
@@ -334,7 +339,7 @@
 <script>const single_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};single_DOMReady(function(){let c=0,e=0;const b=document.querySelector("header.header"),f="header-bottom",g="header-background",d=-100;let a=0;window.pageYOffset>b.offsetHeight&&(a=d),window.addEventListener("scroll",()=>{c=window.pageYOffset,c<=0?(b.style.transform="translateY(0%)",b.classList.contains(f)&&b.classList.remove(f),b.classList.contains(g)&&b.classList.remove(g)):(c>e?d<a&&(c-e>60?a=d:(a-=15,a<d&&(a=d))):0>a&&(e-c>60?a=0:(a+=15,a>0&&(a=0))),b.style.transform=`translateY(${a}%)`,b.classList.contains(f)||b.classList.add(f),b.classList.contains(g)||b.classList.add(g)),e=c}),window.onload=function(){const a=document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");for(let b=0;b<a.length;b++)a[b].style.width="100%"}})</script>
 </main>
 <footer class=footer>
-<span>&copy; 2023 <a href=https://qutrits.github.io/><qutrits></a></span>
+<span>&copy; 2023 <a href=https://qutrits.github.io/><span class=user-fa-hardware-keyboard-arrow-right></span>ssh qutrits@localhost<span class=__cursor></span></a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

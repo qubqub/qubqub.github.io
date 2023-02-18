@@ -10,7 +10,7 @@
 1 2 3 4 5 6 7 8 9 10  // 타입 안전 이종 컨태이너 패턴 - 클라이언트 Favorites f = new Favorites(); f.">
 <meta name=author content="Qutrits">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-04/item33/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.2fb060c161d7e815ae2d3fef84bf37f1e8794eea5213db84ab6ce93e1fdcdf91.css integrity="sha256-L7BgwWHX6BWuLT/vhL838eh5TupSE9uEq2zpPh/c35E=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c92d8c158046ff072c572beb6ec3fb8c243390696f4ef3bdc58f635dac6c3dec.css integrity="sha256-yS2MFYBG/wcsVyvrbsP7jCQzkGlvTvO9xY9jXaxsPew=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -34,7 +34,7 @@
 <meta property="og:url" content="https://qutrits.github.io/effective-java-3e/chapter-04/item33/"><meta property="article:section" content="effective-java-3e">
 <meta property="article:published_time" content="2020-07-09T18:21:51+09:00">
 <meta property="article:modified_time" content="2020-07-09T18:21:51+09:00">
-<meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item32/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item31/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item30/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item29/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item28/">
+<meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-05/item34/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item32/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item31/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item30/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item29/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="[아이템 33] 타입 안전 이종 컨테이너를 고려하라">
 <meta name=twitter:description content="[아이템 33] 타입 안전 이종 컨테이너를 고려하라. 타입 안전 이종 컨테이너 패턴이란 키를 매개변수화한 다음, 컨테이너에 값을 넣거나 뺄 때 매개변수화한 키를 함께 제공하는 방식입니다.
@@ -122,7 +122,7 @@
 <div class=series-main data-animation=true>
 <div class=chapter-control>
 <div class=info>
-<div class=chapter-number>4 / 4</div>
+<div class=chapter-number>4 / 5</div>
 <div class=page-button>
 <div class="button chapter">
 <a href=/effective-java-3e/chapter-01/item01/ aria-label="1 장" accesskey=1 title="(1장 객체 생성과 파괴) Alt + 1">
@@ -142,6 +142,11 @@
 <div class="button chapter current">
 <a href=/effective-java-3e/chapter-04/item26/ aria-label="4 장" accesskey=4 title="(4장 제네릭) Alt + 4">
 4 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-05/item34/ aria-label="5 장" accesskey=5 title="(5장 열거 타입과 애너테이션) Alt + 5">
+5 장
 </a>
 </div>
 </div>
@@ -185,6 +190,10 @@
 <div class=page-button>
 <div class=left>
 <a class=button href=/effective-java-3e/chapter-04/item32/ aria-label="이전 페이지" accesskey=[ title="(이전 페이지) Alt + ["><svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+</a>
+</div>
+<div class=right>
+<a class="button disabled" href=/effective-java-3e/chapter-05/item34/ aria-label="다음 장" accesskey=] title="(다음 장) Alt + ]"><svg style="margin-right:-15px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </div>
 </div>
@@ -371,6 +380,13 @@
 <br>
 <span>[아이템 32] 제네릭과 가변인수를 함께 쓸 때는 신중하라</span>
 </a>
+<a class="next button" href=https://qutrits.github.io/effective-java-3e/chapter-05/item34/>
+<span class=title>
+다음 페이지<svg style="margin-right:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+</span>
+<br>
+<span>[아이템 34] int 상수 대신 열거 타입을 사용하라</span>
+</a>
 </nav>
 <div class=share-buttons>
 <a target=_blank rel="noopener noreferrer" class="copylink button" id=copylink aria-label="share [아이템 33] 타입 안전 이종 컨테이너를 고려하라 on copylink" title="게시물 링크 복사하기"></a>
@@ -398,7 +414,7 @@
 <script>const single_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};single_DOMReady(function(){let c=0,e=0;const b=document.querySelector("header.header"),f="header-bottom",g="header-background",d=-100;let a=0;window.pageYOffset>b.offsetHeight&&(a=d),window.addEventListener("scroll",()=>{c=window.pageYOffset,c<=0?(b.style.transform="translateY(0%)",b.classList.contains(f)&&b.classList.remove(f),b.classList.contains(g)&&b.classList.remove(g)):(c>e?d<a&&(c-e>60?a=d:(a-=15,a<d&&(a=d))):0>a&&(e-c>60?a=0:(a+=15,a>0&&(a=0))),b.style.transform=`translateY(${a}%)`,b.classList.contains(f)||b.classList.add(f),b.classList.contains(g)||b.classList.add(g)),e=c}),window.onload=function(){const a=document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");for(let b=0;b<a.length;b++)a[b].style.width="100%"}})</script>
 </main>
 <footer class=footer>
-<span>&copy; 2023 <a href=https://qutrits.github.io/><qutrits></a></span>
+<span>&copy; 2023 <a href=https://qutrits.github.io/><span class=user-fa-hardware-keyboard-arrow-right></span>ssh qutrits@localhost<span class=__cursor></span></a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

@@ -8,7 +8,7 @@
 <meta name=description content="[아이템 71] 필요 없는 검사 예외 사용은 피하라. 검사 예외를 필요한 곳에만 사용하면 프로그램의 안전성을 높여주지만, 과하게 사용하면 오히려 쓰기 불편한 API가 됩니다. API를 제대로 사용해도 발생할 수 있는 예외이거나, 프로그래머가 의미 잇는 조치를 취할 수 있는 경우 둘 중 어디에도 해당하지 않는다면 비검사 예외를 사용하는 것이 좋습니다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-09/item71/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.2fb060c161d7e815ae2d3fef84bf37f1e8794eea5213db84ab6ce93e1fdcdf91.css integrity="sha256-L7BgwWHX6BWuLT/vhL838eh5TupSE9uEq2zpPh/c35E=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c92d8c158046ff072c572beb6ec3fb8c243390696f4ef3bdc58f635dac6c3dec.css integrity="sha256-yS2MFYBG/wcsVyvrbsP7jCQzkGlvTvO9xY9jXaxsPew=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -154,7 +154,7 @@
 <script>const single_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};single_DOMReady(function(){let c=0,e=0;const b=document.querySelector("header.header"),f="header-bottom",g="header-background",d=-100;let a=0;window.pageYOffset>b.offsetHeight&&(a=d),window.addEventListener("scroll",()=>{c=window.pageYOffset,c<=0?(b.style.transform="translateY(0%)",b.classList.contains(f)&&b.classList.remove(f),b.classList.contains(g)&&b.classList.remove(g)):(c>e?d<a&&(c-e>60?a=d:(a-=15,a<d&&(a=d))):0>a&&(e-c>60?a=0:(a+=15,a>0&&(a=0))),b.style.transform=`translateY(${a}%)`,b.classList.contains(f)||b.classList.add(f),b.classList.contains(g)||b.classList.add(g)),e=c}),window.onload=function(){const a=document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");for(let b=0;b<a.length;b++)a[b].style.width="100%"}})</script>
 </main>
 <footer class=footer>
-<span>&copy; 2023 <a href=https://qutrits.github.io/><qutrits></a></span>
+<span>&copy; 2023 <a href=https://qutrits.github.io/><span class=user-fa-hardware-keyboard-arrow-right></span>ssh qutrits@localhost<span class=__cursor></span></a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

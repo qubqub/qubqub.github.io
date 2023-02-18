@@ -11,7 +11,7 @@ cleaner는 finalizer보다 덜 위험하지만 이 역시 예측 불가능하고
 📌 finalizer는 굉장히 lazy합니다. 여기서 lazy하다는 뜻은 인스턴스의 자원 회수가 멋대로 지연될 수 있다는 뜻입니다.">
 <meta name=author content="Qutrits">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-01/item08/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.2fb060c161d7e815ae2d3fef84bf37f1e8794eea5213db84ab6ce93e1fdcdf91.css integrity="sha256-L7BgwWHX6BWuLT/vhL838eh5TupSE9uEq2zpPh/c35E=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c92d8c158046ff072c572beb6ec3fb8c243390696f4ef3bdc58f635dac6c3dec.css integrity="sha256-yS2MFYBG/wcsVyvrbsP7jCQzkGlvTvO9xY9jXaxsPew=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -36,7 +36,7 @@ cleaner는 finalizer보다 덜 위험하지만 이 역시 예측 불가능하고
 <meta property="og:url" content="https://qutrits.github.io/effective-java-3e/chapter-01/item08/"><meta property="article:section" content="effective-java-3e">
 <meta property="article:published_time" content="2020-06-20T15:12:33+09:00">
 <meta property="article:modified_time" content="2020-06-20T15:12:33+09:00">
-<meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item33/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item32/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item31/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item30/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item29/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item28/">
+<meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-05/item34/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item33/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item32/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item31/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item30/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item29/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="[아이템 8] finalizer와 cleaner 사용을 피하라">
 <meta name=twitter:description content="자바에서는 두 가지 객체 소멸자를 제공합니다. 바로 finalizer와 cleaner입니다. finalizer는 예측 불가능하며 일반적으로 불필요하며 오작동 낮은 성능과 같은 문제점들이 있습니다. JAVA 9부터는 사용 자제deprecated API로 지정했습니다.
@@ -125,7 +125,7 @@ cleaner는 finalizer보다 덜 위험하지만 이 역시 예측 불가능하고
 <div class=series-main data-animation=true>
 <div class=chapter-control>
 <div class=info>
-<div class=chapter-number>1 / 4</div>
+<div class=chapter-number>1 / 5</div>
 <div class=page-button>
 <div class="button chapter current">
 <a href=/effective-java-3e/chapter-01/item01/ aria-label="1 장" accesskey=1 title="(1장 객체 생성과 파괴) Alt + 1">
@@ -145,6 +145,11 @@ cleaner는 finalizer보다 덜 위험하지만 이 역시 예측 불가능하고
 <div class="button chapter">
 <a href=/effective-java-3e/chapter-04/item26/ aria-label="4 장" accesskey=4 title="(4장 제네릭) Alt + 4">
 4 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-05/item34/ aria-label="5 장" accesskey=5 title="(5장 열거 타입과 애너테이션) Alt + 5">
+5 장
 </a>
 </div>
 </div>
@@ -351,7 +356,7 @@ cleaner는 finalizer보다 덜 위험하지만 이 역시 예측 불가능하고
 <script>const single_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};single_DOMReady(function(){let c=0,e=0;const b=document.querySelector("header.header"),f="header-bottom",g="header-background",d=-100;let a=0;window.pageYOffset>b.offsetHeight&&(a=d),window.addEventListener("scroll",()=>{c=window.pageYOffset,c<=0?(b.style.transform="translateY(0%)",b.classList.contains(f)&&b.classList.remove(f),b.classList.contains(g)&&b.classList.remove(g)):(c>e?d<a&&(c-e>60?a=d:(a-=15,a<d&&(a=d))):0>a&&(e-c>60?a=0:(a+=15,a>0&&(a=0))),b.style.transform=`translateY(${a}%)`,b.classList.contains(f)||b.classList.add(f),b.classList.contains(g)||b.classList.add(g)),e=c}),window.onload=function(){const a=document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");for(let b=0;b<a.length;b++)a[b].style.width="100%"}})</script>
 </main>
 <footer class=footer>
-<span>&copy; 2023 <a href=https://qutrits.github.io/><qutrits></a></span>
+<span>&copy; 2023 <a href=https://qutrits.github.io/><span class=user-fa-hardware-keyboard-arrow-right></span>ssh qutrits@localhost<span class=__cursor></span></a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

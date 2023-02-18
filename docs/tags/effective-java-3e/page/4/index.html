@@ -8,7 +8,7 @@
 <meta name=description content="<Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/tags/effective-java-3e/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.2fb060c161d7e815ae2d3fef84bf37f1e8794eea5213db84ab6ce93e1fdcdf91.css integrity="sha256-L7BgwWHX6BWuLT/vhL838eh5TupSE9uEq2zpPh/c35E=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c92d8c158046ff072c572beb6ec3fb8c243390696f4ef3bdc58f635dac6c3dec.css integrity="sha256-yS2MFYBG/wcsVyvrbsP7jCQzkGlvTvO9xY9jXaxsPew=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -82,6 +82,27 @@ Effective Java 3E
 </h1>
 </header>
 <div class=list-entry-wrapper style=animation-delay:170ms data-animation=true>
+<article class="list-entry button" title="여기서 말하는 외부란 프로그래머의 통제권 밖에 있어서 언제 어떤식으로 변경될지 모른다는 뜻입니다.
+상속을 고려한 문서화  상속용 클래스는 재정의할 수 있는 메서드들은 내부적으로 어떻게 이용하는지 문서로 남겨야 합니다. 클래스의 내부 동작 과정 중간에 끼어들 수 있는 훅(hook)을 잘 선별하여 protected메서드 형태로 공개하는 것도 고려해보는 것도 좋습니다. (한편으로 너무 적게 노출해서 상속으로 얻는 이점을 없애지 않도록 주의해야 합니다.) 상속용으로 설계한 클래스는 배포 전에 반드시 하위 클래스를 만들어 검증 해야 합니다.
+  상속을 허용하는 클래스가 지켜야 할 제약 상속용 클래스의 생성자는 직접적으로든 간접적으로든 재정의 가능 메서드를 호출해서는 안 됩니다.">
+<header class=entry-header>
+<h2>[아이템 19] 상속을 고려해 설계하고 문서화하라. 그렇지 않았다면 상속을 금지하라
+</h2>
+</header>
+<section class=entry-content>
+<p>여기서 말하는 외부란 프로그래머의 통제권 밖에 있어서 언제 어떤식으로 변경될지 모른다는 뜻입니다.
+상속을 고려한 문서화 상속용 클래스는 재정의할 수 있는 메서드들은 내부적으로 어떻게 이용하는지 문서로 남겨야 합니다. 클래스의 내부 동작 과정 중간에 끼어들 수 있는 훅(hook)을 잘 선별하여 protected메서드 형태로 공개하는 것도 고려해보는 것도 좋습니다. (한편으로 너무 적게 노출해서 상속으로 얻는 이점을 없애지 않도록 주의해야 합니다.) 상속용으로 설계한 클래스는 배포 전에 반드시 하위 클래스를 만들어 검증 해야 합니다.
+상속을 허용하는 클래스가 지켜야 할 제약 상속용 클래스의 생성자는 직접적으로든 간접적으로든 재정의 가능 메서드를 호출해서는 안 됩니다....</p>
+</section>
+<footer class=entry-footer><span title="2020-07-03 13:57:41 +0900 KST">2020년 7월 3일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Qutrits
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 19] 상속을 고려해 설계하고 문서화하라. 그렇지 않았다면 상속을 금지하라" href=https://qutrits.github.io/effective-java-3e/chapter-03/item19/></a>
+</article>
+</div>
+<div class=list-entry-wrapper style=animation-delay:220ms data-animation=true>
 <article class="list-entry button" title="우선 이번 아이템에서 다루는 상속은 클래스가 다른 클래스를 확장하는 것을 말합니다.
 상속 같은 경우 상위 클래스가 구현 방식에 따라 하위 클래스 동작에 영향을 미칠 수 있습니다.
 예제를 위한 코드 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22  public class CustomHashSet<E> extends HashSet<E> { private int addCount = 0; public CustomHashSet() { } @Override public boolean add(E e) { addCount++; System.">
@@ -102,7 +123,7 @@ Effective Java 3E
 <a class=entry-link aria-label="post link to [아이템 18] 상속보다는 컴포지션을 사용하라" href=https://qutrits.github.io/effective-java-3e/chapter-03/item18/></a>
 </article>
 </div>
-<div class=list-entry-wrapper style=animation-delay:220ms data-animation=true>
+<div class=list-entry-wrapper style=animation-delay:270ms data-animation=true>
 <article class="list-entry button" title="불변 클래스(Immutable Class)란 말 그대로 객체가 생성된 후에 더이상 값을 변경할 수 없는 것을 의미합니다. 자바에서는 대표적으로 String, Integer, Float,Long 등이 있습니다.
 📌 클래스를 불변으로 만들기 위한 규칙  객체의 상태를 변경하는 메서드를 제공하지 않습니다. 클래스를 확장할 수 없도록 합니다. 모든 필드를 private final으로 선언합니다. 생성자 관리를 잘할 것 (밑에서 설명) 자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다.
   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  public final class Calculator { private final int x; private final int y; public Calculator(int x, int y) { this.">
@@ -123,7 +144,7 @@ Effective Java 3E
 <a class=entry-link aria-label="post link to [아이템 17] 변경 가능성을 최소화하라" href=https://qutrits.github.io/effective-java-3e/chapter-03/item17/></a>
 </article>
 </div>
-<div class=list-entry-wrapper style=animation-delay:270ms data-animation=true>
+<div class=list-entry-wrapper style=animation-delay:320ms data-animation=true>
 <article class="list-entry button" title="1 2 3 4 5  // 부적적한 코드 public class Point { public int x; public int y; }   위 코드는 객체지향의 특징 중 하나인 캡슐화를 살리지 못했습니다.
 다음과 같이 추상화의 이점을 살려서 코드를 수정할 수 있습니다.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  public class Point { public int x; public int y; public Point(int x, int y) { this.">
@@ -144,7 +165,7 @@ Effective Java 3E
 <a class=entry-link aria-label="post link to [아이템 16] public 클래스에서는 public 필드가 아닌 접근 메서드를 사용하라" href=https://qutrits.github.io/effective-java-3e/chapter-03/item16/></a>
 </article>
 </div>
-<div class=list-entry-wrapper style=animation-delay:320ms data-animation=true>
+<div class=list-entry-wrapper style=animation-delay:370ms data-animation=true>
 <article class="list-entry button" title="잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 분리합니다. 📌 정보 은닉(캡슐화)의 장점  시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다. (다른 컴포넌트에 영향을 주지 않고 특정 컴포넌트만 최적화 할 수 있어서) 재사용성을 높입니다.">
 <header class=entry-header>
 <h2>[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라
@@ -159,29 +180,6 @@ Effective Java 3E
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
 </ul></footer>
 <a class=entry-link aria-label="post link to [아이템 15] 클래스와 멤버의 접근 권한을 최소화하라" href=https://qutrits.github.io/effective-java-3e/chapter-03/item15/></a>
-</article>
-</div>
-<div class=list-entry-wrapper style=animation-delay:370ms data-animation=true>
-<article class="list-entry button" title="자바에서는 Comparable과 Comparator라는 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬기준을 구현하는 데 사용하고, Comparator은 기본 정렬기준 외에 다른 기준으로 정렬하고자 할 때 사용합니다. 여기서는 Comparable의 하나 밖에 없는 compareTo메서드에 대해서 알아봅시다.
-Comparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natural order가 있음을 의미합니다. 그래서 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다.
-1  Arrays.sort(a);   
-compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받는)보다 작으면 음의 정수를, 같으면 0을, 크면 양의 정수를 반환합니다.">
-<header class=entry-header>
-<h2>[아이템 14] Comparable를 구현할지 고려하라
-</h2>
-</header>
-<section class=entry-content>
-<p>자바에서는 Comparable과 Comparator라는 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬기준을 구현하는 데 사용하고, Comparator은 기본 정렬기준 외에 다른 기준으로 정렬하고자 할 때 사용합니다. 여기서는 Comparable의 하나 밖에 없는 compareTo메서드에 대해서 알아봅시다.
-Comparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natural order가 있음을 의미합니다. 그래서 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다.
-1 Arrays.sort(a);
-compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받는)보다 작으면 음의 정수를, 같으면 0을, 크면 양의 정수를 반환합니다....</p>
-</section>
-<footer class=entry-footer><span title="2020-06-27 17:11:39 +0900 KST">2020년 6월 27일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Qutrits
-<ul class=post-tags>
-<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
-<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
-</ul></footer>
-<a class=entry-link aria-label="post link to [아이템 14] Comparable를 구현할지 고려하라" href=https://qutrits.github.io/effective-java-3e/chapter-02/item14/></a>
 </article>
 </div>
 <footer class=page-footer>
@@ -228,7 +226,7 @@ compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받
 <script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .list-entry-wrapper .list-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
 </main>
 <footer class=footer>
-<span>&copy; 2023 <a href=https://qutrits.github.io/><qutrits></a></span>
+<span>&copy; 2023 <a href=https://qutrits.github.io/><span class=user-fa-hardware-keyboard-arrow-right></span>ssh qutrits@localhost<span class=__cursor></span></a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
