@@ -1,0 +1,21 @@
+# Object file
+# /deploy.sh
+# /.gitignore
+/config.yml
+/.hugo_build.lock
+
+/.idea
+/archetypes
+
+# /content
+# /content/archives.md
+# /content/collection.md
+# /content/links.md
+# /content/search.md
+# /content/series-list.md
+
+# /assets
+# /i18n
+# /layouts
+/resources
+# /static

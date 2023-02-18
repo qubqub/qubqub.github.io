@@ -1,0 +1,212 @@
+{{- $pageurl := .Permalink }}
+{{- $title := .Title }}
+
+{{- $.Scratch.Set "tags" ""}}
+
+{{- with .Params.Tags }}
+{{- $hashtags := newScratch}}
+{{- range . }}{{ $hashtags.Add "tags" (slice (replaceRE "(\\s)" "" . ))}}{{end}}
+{{- $.Scratch.Set "tags" (delimit ($hashtags.Get "tags") ",") }}
+{{- end -}}
+
+{{- $custom := false }}
+{{- $ShareButtons := (.Param "ShareButtons")}}
+{{- with $ShareButtons }}{{ $custom = true }}{{ end }}
+<div class="aside-share-buttons-wrapper" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
+  <div class="share-buttons">
+    <div class="aside-share-control-buttons button" aria-label="공유하기" title="공유하기">
+      <svg width="18" height="18" viewBox="0 0 24 24" class="aside-share-control-buttons-svg">
+        <path class="aside-share-control-buttons-path" d="M5 7c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm11.122 12.065c-.073.301-.122.611-.122.935 0 2.209 1.791 4 4 4s4-1.791 4-4-1.791-4-4-4c-1.165 0-2.204.506-2.935 1.301l-5.488-2.927c-.23.636-.549 1.229-.943 1.764l5.488 2.927zm7.878-15.065c0-2.209-1.791-4-4-4s-4 1.791-4 4c0 .324.049.634.122.935l-5.488 2.927c.395.535.713 1.127.943 1.764l5.488-2.927c.731.795 1.77 1.301 2.935 1.301 2.209 0 4-1.791 4-4z"></path>
+      </svg>
+    </div>
+    <a target="_blank" rel="noopener noreferrer" class="copylink-aside" id="copylink-aside" aria-label="share {{ $title | plainify }} on copylink-aside" title="게시물 링크 복사하기"></a>
+    {{- if and (cond ($custom) (in $ShareButtons "kakaotalk") (true)) .Site.Params.kakaoJavaScriptKey }}
+    <a target="_blank" rel="noopener noreferrer" class="kakaotalk" id="kakaotalk-share-aside" aria-label="share {{ $title | plainify }} on kakaotalk" title="카카오톡 공유하기">
+      <svg version="1.1" viewBox="0 0 24 24" xml:space="preserve">
+        <path d="M22.125 0H1.875C.8394 0 0 .8394 0 1.875v20.25C0 23.1606.8394 24 1.875 24h20.25C23.1606 24 24 23.1606 24 22.125V1.875C24 .8394 23.1606 0 22.125 0zM12 18.75c-.591 0-1.1697-.0413-1.7317-.1209-.5626.3965-3.813 2.6797-4.1198 2.7225 0 0-.1258.0489-.2328-.0141s-.0876-.2282-.0876-.2282c.0322-.2198.8426-3.0183.992-3.5333-2.7452-1.36-4.5701-3.7686-4.5701-6.5135C2.25 6.8168 6.6152 3.375 12 3.375s9.75 3.4418 9.75 7.6875c0 4.2457-4.3652 7.6875-9.75 7.6875zM8.0496 9.8672h-.8777v3.3417c0 .2963-.2523.5372-.5625.5372s-.5625-.2409-.5625-.5372V9.8672h-.8777c-.3044 0-.552-.2471-.552-.5508s.2477-.5508.552-.5508h2.8804c.3044 0 .552.2471.552.5508s-.2477.5508-.552.5508zm10.9879 2.9566a.558.558 0 0 1 .108.4167.5588.5588 0 0 1-.2183.371.5572.5572 0 0 1-.3383.1135.558.558 0 0 1-.4493-.2236l-1.3192-1.7479-.1952.1952v1.2273a.5635.5635 0 0 1-.5627.5628.563.563 0 0 1-.5625-.5625V9.3281c0-.3102.2523-.5625.5625-.5625s.5625.2523.5625.5625v1.209l1.5694-1.5694c.0807-.0807.1916-.1252.312-.1252.1404 0 .2814.0606.3871.1661.0985.0984.1573.2251.1654.3566.0082.1327-.036.2542-.1241.3425l-1.2818 1.2817 1.3845 1.8344zm-8.3502-3.5023c-.095-.2699-.3829-.5475-.7503-.5557-.3663.0083-.6542.2858-.749.5551l-1.3455 3.5415c-.1708.5305-.0217.7272.1333.7988a.8568.8568 0 0 0 .3576.0776c.2346 0 .4139-.0952.4678-.2481l.2787-.7297 1.7152.0001.2785.7292c.0541.1532.2335.2484.4681.2484a.8601.8601 0 0 0 .3576-.0775c.1551-.0713.3041-.2681.1329-.7999l-1.3449-3.5398zm-1.3116 2.4433l.5618-1.5961.5618 1.5961H9.3757zm5.9056 1.3836c0 .2843-.2418.5156-.5391.5156h-1.8047c-.2973 0-.5391-.2314-.5391-.5156V9.3281c0-.3102.2576-.5625.5742-.5625s.5742.2523.5742.5625v3.3047h1.1953c.2974 0 .5392.2314.5392.5156z"/>
+      </svg>
+    </a>
+    {{- end }}
+    {{- if (cond ($custom) (in $ShareButtons "kakaostory") (true)) }}
+    <a target="_blank" rel="noopener noreferrer" class="kakaostory" aria-label="share {{ $title | plainify }} on kakaostory" title="카카오 스토리 공유하기"
+      href="https://story.kakao.com/share?url={{ $pageurl }}">
+      <svg version="1.1" viewBox="0 0 16.226 16.226" xml:space="preserve">
+        <g>
+          <path d="M16.226 14.929c0 .71582-.58099 1.2968-1.2988 1.2968h-13.63c-.71582 0-1.2968-.58098-1.2968-1.2968V1.297C.0004.58118.58139.0002 1.2972.0002h13.63c.7178 0 1.2988.58099 1.2988 1.2968z"></path>
+        </g>
+        <path style="fill: var(--theme);" d="M10.749 7.4795V3.6307H5.4765v5.2765h2.439c-.232 1.3424-1.0351 2.3775-1.8619 2.9624l1.5348 1.5229c1.9056-1.279 3.1607-3.4463 3.1607-5.913"></path>
+      </svg>
+    </a>
+    {{- end }}
+    {{- if (cond ($custom) (in $ShareButtons "naverblog") (true)) }}
+    <a target="_blank" rel="noopener noreferrer" class="naverblog" aria-label="share {{ $title | plainify }} on naverblog" title="네이버 블로그/카페 공유하기"
+      href="https://share.naver.com/web/shareView.nhn?url={{ $pageurl }}&amp;title={{ $title }}">
+      <svg version="1.1" viewBox="0 0 24 24" xml:space="preserve">
+        <path d="M1.6 0S0 0 0 1.6v20.8S0 24 1.6 24h20.8s1.6 0 1.6-1.6V1.6S24 0 22.4 0zm3.415 5.6h4.78l4.425 6.458V5.6h4.765v12.8h-4.78L9.78 11.943V18.4H5.015Z"/>
+      </svg>
+    </a>
+    {{- end }}
+    {{- if (cond ($custom) (in $ShareButtons "naverband") (true)) }}
+    <a target="_blank" rel="noopener noreferrer" class="naverband" aria-label="share {{ $title | plainify }} on naverband" title="네이버 밴드 공유하기"
+      href="https://band.us/plugin/share?url={{ $pageurl }}&amp;title={{ $title }}">
+      <svg version="1.1" viewBox="0 0 79.375 79.374" xml:space="preserve">
+        <path d="M147.5 684.67c-20.294 0-36.747-16.452-36.747-36.746v-104c0-20.295 16.453-36.747 36.747-36.747h104c20.295 0 36.747 16.452 36.747 36.747v104c0 20.294-16.452 36.746-36.747 36.746z" transform="matrix(.4472 0 0 -.4472 -49.529 306.18)"></path>
+        <g clip-path="url(#b)" transform="matrix(.4472 0 0 -.4472 -49.529 306.18)">
+          <path style="fill: var(--theme);" d="M186.89 582.48c0 6.966 5.647 12.614 12.614 12.614 6.966 0 12.614-5.648 12.614-12.614s-5.648-12.613-12.614-12.613c-6.967 0-12.614 5.647-12.614 12.613m12.614-43.152c-23.832 0-43.152 19.32-43.152 43.152v58.587c0 6.325 5.127 11.452 11.452 11.452 6.324 0 11.452-5.127 11.452-11.452V582.48c0-11.183 9.065-20.248 20.248-20.248 11.182 0 20.248 9.065 20.248 20.248s-9.066 20.249-20.248 20.249c-4.77 0-9.154-1.651-12.614-4.41v9.031c3.788 1.926 8.073 3.013 12.614 3.013 15.399 0 27.883-12.484 27.883-27.883s-12.484-27.883-27.883-27.883c-15.4 0-27.883 12.484-27.883 27.883v58.587c0 2.108-1.709 3.817-3.817 3.817s-3.818-1.709-3.818-3.817V582.48c0-19.616 15.902-35.517 35.518-35.517 19.615 0 35.517 15.901 35.517 35.517s-15.902 35.518-35.517 35.518c-4.443 0-8.694-.817-12.614-2.308v8.066c3.99 1.219 8.225 1.876 12.614 1.876 23.832 0 43.152-19.319 43.152-43.152 0-23.832-19.32-43.152-43.152-43.152m0 93.939c-4.355 0-8.581-.55-12.614-1.581v9.381c0 10.541-8.545 19.087-19.086 19.087s-19.087-8.546-19.087-19.087V582.48c0-28.048 22.738-50.786 50.787-50.786s50.786 22.738 50.786 50.786c0 28.049-22.737 50.787-50.786 50.787"></path>
+        </g>
+      </svg>
+    </a>
+    {{- end }}
+    {{- if (cond ($custom) (in $ShareButtons "twitter") (true)) }}
+    <a target="_blank" rel="noopener noreferrer" class="twitter" aria-label="share {{ $title | plainify }} on twitter" title="트위터 공유하기"
+      href="https://twitter.com/intent/tweet/?text={{ $title }}&amp;url={{ $pageurl }}&amp;hashtags={{- $.Scratch.Get "tags" -}}">
+      <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+        <path
+          d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+      </svg>
+    </a>
+    {{- end }}
+    {{- if (cond ($custom) (in $ShareButtons "linkedin") (true)) }}
+    <a target="_blank" rel="noopener noreferrer" class="linkedin" aria-label="share {{ $title | plainify }} on linkedin" title="링크드인 공유하기"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ $pageurl }}&amp;title={{ $title }}&amp;summary={{ $title }}&amp;source={{ $pageurl }}">
+      <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+        <path
+          d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+      </svg>
+    </a>
+    {{- end }}
+    {{- if (cond ($custom) (in $ShareButtons "reddit") (true)) }}
+    <a target="_blank" rel="noopener noreferrer" class="reddit" aria-label="share {{ $title | plainify }} on reddit" title="레딧 공유하기"
+      href="https://reddit.com/submit?url={{ $pageurl }}&title={{ $title }}">
+      <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+        <path
+          d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+      </svg>
+    </a>
+    {{- end }}
+    {{- if (cond ($custom) (in $ShareButtons "facebook") (true)) }}
+    <a target="_blank" rel="noopener noreferrer" class="facebook" aria-label="share {{ $title | plainify }} on facebook" title="페이스북 공유하기"
+      href="https://facebook.com/sharer/sharer.php?u={{ $pageurl }}">
+      <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+        <path
+          d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+      </svg>
+    </a>
+    {{- end }}
+    {{- if (cond ($custom) (in $ShareButtons "whatsapp") (true)) }}
+    <a target="_blank" rel="noopener noreferrer" class="whatsapp" aria-label="share {{ $title | plainify }} on whatsapp" title="왓츠앱 공유하기"
+      href="https://api.whatsapp.com/send?text={{ $title }}%20-%20{{ $pageurl }}">
+      <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+        <path
+          d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+      </svg>
+    </a>
+    {{- end }}
+    {{- if (cond ($custom) (in $ShareButtons "telegram") (true)) }}
+    <a target="_blank" rel="noopener noreferrer" class="telegram" aria-label="share {{ $title | plainify }} on telegram" title="텔레그램 공유하기"
+      href="https://telegram.me/share/url?text={{ $title }}&amp;url={{ $pageurl }}">
+      <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+        <path
+          d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+      </svg>
+    </a>
+    {{- end }}
+  </div>
+</div>
+{{- if .Site.Params.kakaoJavaScriptKey }}
+{{- $imageUrl := "" }}
+{{- if .Params.cover.image }}
+  {{- $imageUrl = .Params.cover.image | absURL }}
+{{- else }}
+  {{- $imageUrl = "/icon/favicon.png" | absURL }}
+{{- end }}
+<script>
+  const asideShareIcons_DOMReady = function (callback) {
+    document.readyState === "interactive" ||
+      document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+  };
+  asideShareIcons_DOMReady( function () {
+    let currentScroll = 0;
+    const postContent = document.querySelector(".post-content");
+    const asideShareButtons = document.querySelector(".share-buttons");
+    const asideShareButtonsWrapper = document.querySelector(".aside-share-buttons-wrapper");
+    const copyLink = document.getElementById("copylink-aside");
+    initCopyLink();
+    document.body.addEventListener("click", function (e) {
+      if (e.target.classList[0] === "aside-share-control-buttons" ||
+          e.target.classList[0] === "aside-share-control-buttons-svg" ||
+          e.target.classList[0] === "aside-share-control-buttons-path") return;
+
+      if (asideShareButtons.classList.contains("reveal")) {
+        asideShareButtons.classList.remove("reveal");
+        asideShareButtons.classList.add("hide");
+      }
+    });
+
+    window.addEventListener("scroll", () => {
+      currentScroll = window.pageYOffset;
+      if (currentScroll >= postContent.offsetTop-25) {
+        asideShareButtonsWrapper.classList.add("fixed");
+      } else {
+        asideShareButtonsWrapper.classList.remove("fixed");
+      }
+    });
+
+    document.querySelector(".aside-share-control-buttons").addEventListener("click", () => {
+      if (asideShareButtons.classList.contains("reveal")) {
+        asideShareButtons.classList.remove("reveal");
+        asideShareButtons.classList.add("hide");
+      } else {
+        asideShareButtons.classList.remove("hide");
+        asideShareButtons.classList.add("reveal");
+      }
+    });
+
+    document.getElementById("kakaotalk-share-aside").addEventListener("click", () => {
+      Kakao.Link.sendDefault({
+        objectType: "feed",
+        content: {
+          title: '{{ $title }}',
+          description: '{{- $.Scratch.Get "tags" -}}',
+          imageUrl: '{{ $imageUrl }}',
+          link: {
+            mobileWebUrl: '{{ $pageurl }}',
+            webUrl: '{{ $pageurl }}'
+          }
+        },
+        success: function(e) {},
+        fail: function(e) {}
+      });
+    });
+
+    function initCopyLink () {
+      copyLink.innerHTML = '{{- i18n "link_copy" | default "copy" }}';
+      copyLink.addEventListener("click", () => {
+        if ('clipboard' in navigator) {
+          navigator.clipboard.writeText('{{ $pageurl }}');
+          copyingDone();
+          return;
+        }
+
+        const range = document.createRange();
+        range.selectNodeContents('{{ $pageurl }}');
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        try {
+          document.execCommand('copy');
+          copyingDone();
+        } catch (e) { };
+        selection.removeRange(range);
+      });
+    }
+
+    function copyingDone() {
+      copyLink.innerHTML = '{{- i18n "link_copied" | default "copied!" }}';
+      setTimeout(() => {
+        copyLink.innerHTML = '{{- i18n "link_copy" | default "copy" }}';
+      }, 500);
+    }
+  });
+</script>
+{{- end }}

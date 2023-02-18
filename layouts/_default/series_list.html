@@ -1,0 +1,217 @@
+{{- define "main" }}
+  {{- if .Params.use}}
+    <header class="series-header">
+      <h1 class="series-title" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>{{ .Title }}</h1>
+      {{- if .Description }}
+      <div class="series-description-wrapper" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
+        <h2 class="series-description" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>{{ .Description }}</h2>
+        <div class="series-sub-description-wrapper" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
+          {{- if .Params.subDescription1 }}
+          <h4 class="series-sub-description" {{ if .Site.Params.useAnimation }}style="animation-delay: 650ms;" data-animation="true"{{ end }}>{{ .Params.subDescription1 }}</h4>
+          {{- end }}
+          {{- if .Params.subDescription2 }}
+          <h4 class="series-sub-description" {{ if .Site.Params.useAnimation }}style="animation-delay: 900ms;" data-animation="true"{{ end }}>{{ .Params.subDescription2 }}</h4>
+          {{- end }}
+          {{- if .Params.subDescription3 }}
+          <h4 class="series-sub-description" {{ if .Site.Params.useAnimation }}style="animation-delay: 1150ms;" data-animation="true"{{ end }}>{{ .Params.subDescription3 }}</h4>
+          {{- end }}
+        <div>
+      </div>
+      {{- end }}
+      {{- if .Params.cover.image }}
+        <figure class="series-cover" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
+          <img loading="lazy" src="{{ (.Params.cover.image) | absURL }}" alt="{{ .Params.cover.alt }}">
+        </figure>
+      {{- end }}
+    </header>
+    {{- $seriesCover := .Params.seriesCover }}
+    {{- range $i, $v := $.Site.Taxonomies.series.ByCount }}
+      {{- $name := .Name }}
+      {{- $count := .Count }}
+      
+      {{- with $.Site.GetPage (printf "/%s/%s" "series" $name) }}
+        <div class="series-entry-wrapper" {{ if .Site.Params.useAnimation }}style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;" data-animation="true"{{ end }}>
+          <article class="series-entry button" title="{{- i18n $name }}">
+            {{ $seriesTitle := .Name }}
+            {{ $seriesId := index (split .RelPermalink "/") (sub (len (split .RelPermalink "/")) 2) }}
+            {{- range where $seriesCover "name" $seriesTitle }}
+              {{- if .image }}
+                <figure class="series-content-cover">
+                  <img loading="lazy" src="{{ .image | absURL }}" alt="{{ .alt }}">
+                </figure>
+              {{- end }}
+              {{- if .imageSvg }}
+                <figure class="series-content-cover">
+                  {{ .imageSvg | safeHTML }}
+                </figure>
+              {{- end }}
+              <header class="entry-header">
+                <h2>
+                  <span class="series-icon">{{- (.seriesIcon | safeHTML) | default "🗂️" }}</span> {{ $seriesTitle }} <sup><strong><sup>{{ $count }}</sup></strong></sup>
+                </h2>
+              </header>
+            {{- end }}
+            <section class="entry-content">
+              <p>{{- i18n $name }}</p>
+            </section>
+            {{- range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
+              {{- if (eq $taxonomy_term "series") }}
+                {{- range $key, $value := $taxonomy }}
+                  {{ if (eq $seriesId $key) }}
+                    {{ with (index $value.Pages (sub (len $value.Pages) 1)) }}
+                      <a class="entry-link" aria-label="{{ $seriesTitle }}" href="{{ .RelPermalink }}"></a>
+                    {{- end }}
+                  {{- end }}
+                {{- end }}
+              {{- end }}
+            {{- end }}
+            
+            <ul class="post-tags">
+              {{- range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
+                {{- if (eq $taxonomy_term "chapter") }}
+                  {{- range $key, $value := $taxonomy }}
+                    {{ $_splitChapter := split $key "-chapter-" }}
+                    {{ $_seriesId := index $_splitChapter 0 }}
+                    {{ $_chapterNumber := index $_splitChapter 1 }}
+                    {{ with (index $value.Pages (sub (len $value.Pages) 1)) }}
+                      {{ if (eq $seriesId $_seriesId) }}
+                        {{ $_chapterLink := .RelPermalink }}
+                        {{- range where $seriesCover "name" $seriesTitle }}
+                          {{- range .chapter }}
+                            {{- if (eq .id $key) }}
+                            <li>
+                              <a class="button chapter-link-button" href="{{ $_chapterLink }}">{{ if (eq (i18n "country_code") "en") }}{{ i18n "chapter" }} {{ end }}{{ $_chapterNumber | strings.TrimLeft "0" }} {{ if (eq (i18n "country_code") "ko") }}{{ i18n "chapter" }}{{ end }} {{ .title }}</a>
+                            </li>
+                            {{- end }}
+                          {{- end }}
+                        {{- end }}
+                      {{ end }}
+                    {{- end }}
+                  {{- end }}
+                {{- end }}
+              {{- end }}
+            </ul>
+          </article>
+        </div>
+      {{- end }}
+    {{- end }}
+  {{- end }}
+  <script>
+    const seriesList_DOMReady = function (callback) {
+      document.readyState === "interactive" ||
+        document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+    };
+    seriesList_DOMReady( function () {
+      const _seriesTagsWrapper = document.querySelector(".main .series-entry-wrapper .series-entry .post-tags");
+
+      if (_seriesTagsWrapper.scrollWidth > _seriesTagsWrapper.clientWidth) {
+        _seriesTagsWrapper.classList.add("linear-gradient-right");
+        if (_seriesTagsWrapper.scrollLeft <= 0) {
+          _seriesTagsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left");
+          _seriesTagsWrapper.classList.add("linear-gradient-right");
+        } else if (_seriesTagsWrapper.scrollWidth - _seriesTagsWrapper.clientWidth <= _seriesTagsWrapper.scrollLeft) {
+          _seriesTagsWrapper.classList.remove("linear-gradient-both", "linear-gradient-right");
+          _seriesTagsWrapper.classList.add("linear-gradient-left");
+        } else {
+          _seriesTagsWrapper.classList.remove("linear-gradient-left", "linear-gradient-right");
+          _seriesTagsWrapper.classList.add("linear-gradient-both");
+        }
+      }
+      
+      const _seriesTags = document.querySelectorAll(".main .series-entry-wrapper .series-entry .post-tags a");
+      let _s, _e, _o = 0;
+      let _d = false;
+      let _first = true;
+      let _end = false;
+
+      function scrollLeft(element, to, duration) {
+        let start = element.scrollLeft,
+            change = to - start,
+            currentTime = 0,
+            increment = 20;
+            
+        let animateScroll = function(){        
+          currentTime += increment;
+          let x = Math.easeInOutQuad(currentTime, start, change, duration);
+          element.scrollTo(x, 0);
+          if(currentTime < duration) {
+            setTimeout(animateScroll, increment);
+          }
+        };
+        animateScroll();
+      }
+
+      //t = current time
+      //b = start value
+      //c = change in value
+      //d = duration
+      Math.easeInOutQuad = function (t, b, c, d) {
+        t /= d/2;
+        if (t < 1) return c/2*t*t + b;
+        t--;
+        return -c/2 * (t*(t-2) - 1) + b;
+      };
+      
+      for (let i = 0; i < _seriesTags.length; i++) {
+        _seriesTags[i].addEventListener("dragstart", (e) => {
+          _s = e.clientX;
+        });
+        _seriesTags[i].addEventListener("drag", (e) => {
+          _d = _s > e.clientX ? false : true;
+          if (_d) { // right +
+            if (_o  < _s - e.clientX) {
+              _s = e.clientX;
+            }
+          } else { // left -
+            if (_o  > _s - e.clientX) {
+              _s = e.clientX;
+            }
+          }
+          _d = false;
+          if (e.clientX <= 0) return;
+          
+          let _t = _s - e.clientX;
+          scrollLeft(_seriesTagsWrapper, _seriesTagsWrapper.scrollLeft + _t, 100);
+          _o = _t;
+        });
+
+        _seriesTags[i].addEventListener("mouseover", (e) => {
+          e.target.parentNode.parentNode.parentNode.classList.remove("button");
+        });
+        _seriesTags[i].addEventListener("mouseout", (e) => {
+          e.target.parentNode.parentNode.parentNode.classList.add("button");
+        });
+      }
+
+      window.addEventListener("resize", (e) => {
+        if (_seriesTagsWrapper.scrollWidth > _seriesTagsWrapper.clientWidth) {
+          if (_seriesTagsWrapper.scrollLeft <= 0) {
+            _seriesTagsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left");
+            _seriesTagsWrapper.classList.add("linear-gradient-right");
+          } else if (_seriesTagsWrapper.scrollWidth - _seriesTagsWrapper.clientWidth <= _seriesTagsWrapper.scrollLeft) {
+            _seriesTagsWrapper.classList.remove("linear-gradient-both", "linear-gradient-right");
+            _seriesTagsWrapper.classList.add("linear-gradient-left");
+          } else {
+            _seriesTagsWrapper.classList.remove("linear-gradient-left", "linear-gradient-right");
+            _seriesTagsWrapper.classList.add("linear-gradient-both");
+          }
+        } else {
+          _seriesTagsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left", "linear-gradient-right");
+        }
+      });
+
+      _seriesTagsWrapper.addEventListener("scroll", (e) => {
+        if (_seriesTagsWrapper.scrollLeft <= 0) {
+          _seriesTagsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left");
+          _seriesTagsWrapper.classList.add("linear-gradient-right");
+        } else if (_seriesTagsWrapper.scrollWidth - _seriesTagsWrapper.clientWidth <= _seriesTagsWrapper.scrollLeft) {
+          _seriesTagsWrapper.classList.remove("linear-gradient-both", "linear-gradient-right");
+          _seriesTagsWrapper.classList.add("linear-gradient-left");
+        } else {
+          _seriesTagsWrapper.classList.remove("linear-gradient-left", "linear-gradient-right");
+          _seriesTagsWrapper.classList.add("linear-gradient-both");
+        }
+      });
+    });
+  </script>
+{{- end }}{{/* end main */ -}}

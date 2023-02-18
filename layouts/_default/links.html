@@ -1,0 +1,112 @@
+{{- define "main" }}
+<style>
+  .header,
+  .footer {
+    display: none;
+  }
+
+  html {
+    overflow: auto;
+  }
+  
+  .main {
+    text-align: center;
+    padding: 70px 0;
+  }
+
+  .main h1 {
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+
+  .links {
+    list-style: none;
+  }
+
+  .link-header {
+    white-space: nowrap;
+  }
+
+  .links .button {
+    display: inline-block;
+    width: 35%;
+    padding: 10px 8px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    min-width: 200px;
+  }
+
+  .links .button:hover {
+    transition: box-shadow 0.2s ease 0s, transform .1s, color 0.2s ease 0s;
+    box-shadow: 0 0 0 1px var(--primary) inset;
+    color: #0d8964;
+    border-radius: var(--radius);
+    background: var(--entry);
+  }
+
+  .links .button svg {
+    width: 1em;
+    vertical-align: -3px;
+    margin-inline-start: -10px;
+    margin-inline-end: 10px;
+  }
+
+  #theme-toggle-link {
+    margin-inline-start: 10px;
+  }
+</style>
+<header id="theme-toggle-link-data" class="link-header" data-toggle="false" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
+  {{- if (not .Site.Params.disableThemeToggle) }}
+  <button id="theme-toggle-link" accesskey="t" title="(Alt + T)">
+    <svg id="sun" enable-background="new 0 0 32 32" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g id="Layer_2"/><g id="Layer_3"/><g id="Layer_4"/><g id="Layer_5"/><g id="Layer_6"/><g id="Layer_7"/><g id="Layer_8"/><g id="Layer_9"/><g id="Layer_10"/><g id="Layer_11"/><g id="Layer_12"/><g id="Layer_13"/><g id="Layer_14"/><g id="Layer_15"/><g id="Layer_16"/><g id="Layer_17"/><g id="Layer_18"/>
+      <g id="Layer_19">
+          <g>
+              <g>
+                  <path d="M30.9,20.8c-2.2,6.1-8,10.2-14.5,10.2C7.9,31,1,24.2,1,15.8C1,8.7,5.9,2.6,12.9,1c0.3-0.1,0.7,0,1,0.3 c0.2,0.3,0.3,0.7,0.2,1c-0.5,1.4-0.8,2.9-0.8,4.4c0,7.3,6,13.2,13.4,13.2c1,0,2.1-0.1,3.1-0.4c0.3-0.1,0.7,0,1,0.3 C31,20.1,31.1,20.5,30.9,20.8z" fill="#FFC10A"/>
+              </g>
+          </g>
+      </g>
+      <g id="Layer_20"/><g id="Layer_21"/><g id="Layer_22"/><g id="Layer_23"/><g id="Layer_24"/><g id="Layer_25"/><g id="Wearher"/>
+    </svg>
+    <svg id="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M256 48v48M256 416v48M403.08 108.92l-33.94 33.94M142.86 369.14l-33.94 33.94M464 256h-48M96 256H48M403.08 403.08l-33.94-33.94M142.86 142.86l-33.94-33.94"/>
+        <circle cx="256" cy="256" r="80" fill="var(--primary)" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32"/>
+    </svg>
+  </button>
+  {{- end }}
+  <h1 style="display: block;">Links</h1>
+</header>
+<ul class="links">
+  {{ $_useAnimation := .Site.Params.useAnimation }}
+  {{- range $i, $v := .Params.links }}
+    {{- if (and .name .url) }}
+    <li>
+      <div class="link-wrapper" {{ if $_useAnimation }}style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms" data-animation="true"{{- end }}>
+        <a class="button" href="{{ .url }}" rel="noopener" title="{{ .title }}">
+          {{ partial "svg.html" . }}{{ .title }}
+        </a>
+      </div>
+    </li>
+    {{- end }}
+  {{- end }}
+</ul>
+{{- if (not .Site.Params.disableThemeToggle) }}
+<script>
+  document.getElementById("theme-toggle-link").addEventListener("click", () => {
+    document.getElementById("theme-toggle-link-data").dataset.toggle = "true";
+    if (document.body.className.includes("dark")) {
+      document.body.classList.remove('dark');
+      localStorage.setItem("pref-theme", 'light');
+    } else {
+      document.body.classList.add('dark');
+      localStorage.setItem("pref-theme", 'dark');
+    }
+  });
+
+  document.getElementById("theme-toggle-link").addEventListener("blur", (e) => {
+    document.getElementById("theme-toggle-link-data").dataset.toggle = "false";
+  });
+</script>
+{{- end }}
+{{- end }}{{/* end main */ -}}

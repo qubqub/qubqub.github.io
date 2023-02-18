@@ -1,0 +1,135 @@
+{{- define "main" }}
+<article class="post-single">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
+      {{ .Title }}
+      {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+    </h1>
+    {{- if .Description }}
+    <div class="post-description" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
+      {{ .Description }}
+    </div>
+    {{- end }}
+    {{- if not (.Param "hideMeta") }}
+    <div class="post-meta" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
+      {{- partial "post_meta.html" . -}}
+      {{- partial "translation_list.html" . -}}
+      {{- partial "edit_post.html" . -}}
+      {{- partial "post_canonical.html" . -}}
+      {{- partial "post_font_size_button.html" . -}}
+      {{- partial "post_tags.html" . -}}
+    </div>
+    {{- end }}
+  </header>
+
+  {{- partial "post_series.html" . }}
+
+  {{- $isHidden := .Params.cover.hidden | default .Site.Params.cover.hiddenInSingle | default .Site.Params.cover.hidden }}
+  {{- partial "cover.html" (dict "cxt" . "IsHome" false "isHidden" $isHidden) }}
+  {{- if (.Param "ShowToc") }}
+  {{- partial "toc.html" . }}
+  {{- end }}
+  {{- if (.Param "showAsideToc") }}
+  {{- partial "toc_aside.html" . }}
+  {{- end }}
+
+  {{- if (and .Site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
+  {{- partial "share_icons_aside.html" . -}}
+  {{- end }}
+
+  {{- if .Content }}
+  <div class="post-content" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
+    {{- if not (.Param "disableAnchoredHeadings") }}
+    {{- partial "anchored_headings.html" .Content -}}
+    {{- else }}{{ .Content }}{{ end }}
+  </div>
+  {{- end }}
+
+  <footer class="post-footer" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
+    {{- if (.Param "ShowCreativeCommons") }}
+    {{- partial "creative_commons.html" . }}
+    {{- end }}
+    {{- partial "post_tags.html" . -}}
+    {{- if (.Param "ShowPostNavLinks") }}
+    {{- partial "post_nav_links.html" . }}
+    {{- end }}
+    {{- if (and .Site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
+    {{- partial "share_icons.html" . -}}
+    {{- end }}
+  </footer>
+
+  {{- if (.Param "comments") }}
+  {{- partial "comments.html" . }}
+  {{- end }}
+</article>
+<script>
+  const single_DOMReady = function (callback) {
+    document.readyState === "interactive" ||
+      document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+  };
+  single_DOMReady( function () {
+    let currentScroll = 0;
+    let lastScroll = 0;
+    const header = document.querySelector("header.header");
+    const headerBottom = "header-bottom";
+    const headerBackground = "header-background";
+    const headerAdjHeight = -100;
+    let headerTranslateY = 0;
+
+    if (window.pageYOffset > header.offsetHeight) {
+      headerTranslateY = headerAdjHeight;
+    }
+
+    window.addEventListener("scroll", () => {
+      currentScroll = window.pageYOffset;
+
+      if (currentScroll <= 0) {
+        header.style.transform = "translateY(0%)";
+        if (header.classList.contains(headerBottom)) {
+          header.classList.remove(headerBottom);
+        }
+        if (header.classList.contains(headerBackground)) {
+          header.classList.remove(headerBackground);
+        }
+      } else {
+        if (currentScroll > lastScroll) { // scroll down
+          if (headerAdjHeight < headerTranslateY) {
+            if (currentScroll-lastScroll > 60) {
+              headerTranslateY = headerAdjHeight;
+            } else {
+              headerTranslateY -= 15;
+              if (headerTranslateY < headerAdjHeight) headerTranslateY = headerAdjHeight;
+            }
+          }
+        } else { // scoll up
+          if (0 > headerTranslateY) {
+            if (lastScroll-currentScroll > 60) {
+              headerTranslateY = 0;
+            } else {
+              headerTranslateY += 15;
+              if (headerTranslateY > 0) headerTranslateY = 0;
+            }
+          }
+        }
+        header.style.transform = `translateY(${headerTranslateY}%)`;
+        if (!header.classList.contains(headerBottom)) {
+          header.classList.add(headerBottom);
+        }
+        if (!header.classList.contains(headerBackground)) {
+          header.classList.add(headerBackground);
+        }
+      }
+      
+      lastScroll = currentScroll;
+    });
+
+    window.onload = function() {
+      const _hljs = document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");
+      for (let i = 0; i < _hljs.length; i++) {
+          _hljs[i].style.width = "100%";
+      }
+    }
+  });
+</script>
+{{- end }}{{/* end main */}}

@@ -1,0 +1,133 @@
+{{- define "main" }}
+<header class="page-header">
+  <h1 class="archive-title" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>{{ .Title }}</h1>
+  {{- if .Description }}
+  <div class="archive-description" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
+    {{ .Description }}
+  </div>
+  {{- end }}
+</header>
+
+{{/*- $pages := where site.RegularPages "Type" "in" site.Params.mainSections */}}
+{{- $pages := site.RegularPages }}
+
+{{- if .Site.Params.ShowAllPagesInArchive }}
+{{- $pages = site.RegularPages }}
+{{- end }}
+
+{{- $_useAnimation := .Site.Params.useAnimation }}
+
+{{- range $pages.GroupByPublishDate "2006" }}
+{{- if ne .Key "0001" }}
+{{ $year := .Key }}
+{{ $month := "" }}
+<div class="archive-year">
+  <h2 class="archive-year-header" {{ if $_useAnimation }}data-animation="true"{{- end }}>
+    {{- replace $year "0001" "" }}<sup class="archive-count">&nbsp;&nbsp;{{ len .Pages }}</sup>
+  </h2>
+  {{- range $i, $v := .Pages.GroupByDate "January" }}
+    {{ $month = .Key }}
+    <div class="archive-month" data-key="{{ $year }}-{{ $month }}">
+      <h3 class="archive-month-header" data-key="{{ $year }}-{{ $month }}" {{ if $_useAnimation }}style="animation-delay: {{ add (mul (add $i 1) 170) 350 }}ms;" data-animation="true"{{- end }}>
+        <span class="toggle">
+          <svg class="lock" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 512 512">
+            <path d="M363.908,212.282v-90.978C363.908,54.434,309.509,0,242.606,0c-66.884,0-121.302,54.434-121.302,121.304v90.978 c-33.498,0-60.653,27.158-60.653,60.648v151.629c0,33.5,27.155,60.653,60.653,60.653h242.604c33.491,0,60.653-27.153,60.653-60.653 V272.93C424.562,239.439,397.399,212.282,363.908,212.282z M257.77,359.257v50.139c0,8.382-6.781,15.163-15.163,15.163 c-8.382,0-15.164-6.781-15.164-15.163v-50.139c-8.9-5.269-15.161-14.57-15.161-25.673c0-16.765,13.579-30.327,30.324-30.327 c16.745,0,30.326,13.562,30.326,30.327C272.933,344.687,266.665,353.989,257.77,359.257z M303.255,212.282h-121.3v-90.978 c0-33.465,27.2-60.653,60.651-60.653c33.435,0,60.648,27.188,60.648,60.653V212.282z"/>
+          </svg>
+          <svg class="unlock" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 512 512">
+            <path d="M424.562,212.282h-60.653H242.607v-90.978C242.607,54.434,188.206,0,121.305,0C54.419,0,0.001,54.434,0.001,121.304v90.978 h60.651v-90.978c0-33.465,27.205-60.653,60.653-60.653c33.435,0,60.651,27.188,60.651,60.653v90.978 c-33.493,0-60.651,27.158-60.651,60.648v151.629c0,33.5,27.158,60.653,60.651,60.653h242.606c33.491,0,60.649-27.153,60.649-60.653 V272.93C485.212,239.439,458.054,212.282,424.562,212.282z M318.424,359.257v50.139c0,8.382-6.786,15.163-15.168,15.163 c-8.377,0-15.158-6.781-15.158-15.163v-50.139c-8.887-5.269-15.164-14.57-15.164-25.673c0-16.765,13.562-30.327,30.322-30.327 c16.765,0,30.331,13.562,30.331,30.327C333.587,344.687,327.306,353.989,318.424,359.257z"/>
+          </svg>
+        </span>{{- i18n (lower $month) }}<sup class="archive-count">&nbsp;&nbsp;{{ len .Pages }}</sup>
+      </h3>
+      <div class="archive-posts" id="{{ $year }}-{{ $month }}" data-key="{{ $year }}-{{ $month }}" {{ if $_useAnimation }}style="animation-delay: {{ add (mul (add $i 1) 170) 350 }}ms;" data-animation="true"{{- end }}>
+        {{- range .Pages }}
+        {{- if eq .Kind "page" }}
+        <div class="archive-entry button">
+          <h3 class="archive-entry-title">
+            {{- .Title | markdownify }}
+            {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+          </h3>
+          <div class="archive-meta">
+            {{- partial "post_meta.html" . -}}
+            {{- partial "post_tags.html" . -}}
+          </div>
+          <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+        </div>
+        {{- end }}
+        {{- end }}
+      </div>
+    </div>
+  {{- end }}
+</div>
+{{- end }}
+{{- end }}
+<script>
+  const archives_DOMReady = function (callback) {
+    document.readyState === "interactive" ||
+      document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+  };
+  archives_DOMReady( function () {
+    const _archiveMonths = document.querySelectorAll(".archive-year .archive-month");
+    const _archiveToggle = document.querySelectorAll(".main .archive-year .archive-month .archive-month-header .toggle");
+    const _archiveTags = document.querySelectorAll(".archive-posts .archive-entry .archive-meta .post-tags a");
+
+    for (let i = 0; i < _archiveTags.length; i++) {
+      _archiveTags[i].addEventListener("mouseover", (e) => {
+        e.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button");
+      });
+
+      _archiveTags[i].addEventListener("mouseout", (e) => {
+        e.target.parentNode.parentNode.parentNode.parentNode.classList.add("button");
+      });
+    }
+
+    if (_archiveMonths) {
+      for (let i = 0; i < _archiveMonths.length; i++) {
+        if (localStorage.getItem("lock-archives-"+_archiveMonths[i].dataset.key) === "false") {
+          _archiveMonths[i].querySelector(".archive-month-header .toggle").dataset.isLock = false;
+          _archiveMonths[i].querySelector(".archive-month-header .toggle .lock").classList.add("hide");
+          document.getElementById(_archiveMonths[i].dataset.key).style.display = "block";
+        } else {
+          _archiveMonths[i].querySelector(".archive-month-header .toggle").dataset.isLock = true;
+          _archiveMonths[i].querySelector(".archive-month-header .toggle .unlock").classList.add("hide");
+          document.getElementById(_archiveMonths[i].dataset.key).style.display = "none";
+        }
+      }
+    }
+      
+    if (_archiveToggle) {
+      for (let i = 0; i < _archiveToggle.length; i++) {
+        _archiveToggle[i].addEventListener("click", e => {
+          let _key = null;
+          let _el = null;
+          if (e.target.parentNode.dataset.key) {
+            _key = e.target.parentNode.dataset.key;
+            _el = e.target.parentNode;
+          } else if (e.target.parentNode.parentNode.dataset.key) {
+            _key = e.target.parentNode.parentNode.dataset.key;
+            _el = e.target.parentNode.parentNode;
+          } else if (e.target.parentNode.parentNode.parentNode.dataset.key) {
+            _key = e.target.parentNode.parentNode.parentNode.dataset.key;
+            _el = e.target.parentNode.parentNode.parentNode;
+          }
+
+          if (_el.querySelector(".toggle").dataset.isLock === "false") {
+            localStorage.setItem("lock-archives-"+_key, true);
+            _el.querySelector(".toggle").dataset.isLock = true;
+            _el.querySelector(".toggle .unlock").classList.add("hide");
+            _el.querySelector(".toggle .lock").classList.remove("hide");
+            document.getElementById(_key).style.display = "none";
+          } else {
+            localStorage.setItem("lock-archives-"+_key, false);
+            _el.querySelector(".toggle").dataset.isLock = false;
+            _el.querySelector(".toggle .lock").classList.add("hide");
+            _el.querySelector(".toggle .unlock").classList.remove("hide");
+            document.getElementById(_key).style.animationDelay = "0s";
+            document.getElementById(_key).style.display = "block";
+          }
+        });
+      }
+    }
+  });
+</script>
+
+{{- end }}{{/* end main */}}
