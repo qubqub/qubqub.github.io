@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Effctive Java 3/E on &lt;span class=&#34;user-fa-hardware-keyboard-arrow-right&#34;&gt;&lt;/span&gt;ssh qutrits@localhost&lt;span class=&#34;__cursor&#34;&gt;&lt;/span&gt;</title>
+    <title>Effctive Java 3/E on &lt;Qutrits/&gt;</title>
     <link>https://qutrits.github.io/effective-java-3e/</link>
-    <description>Recent content in Effctive Java 3/E on &lt;span class=&#34;user-fa-hardware-keyboard-arrow-right&#34;&gt;&lt;/span&gt;ssh qutrits@localhost&lt;span class=&#34;__cursor&#34;&gt;&lt;/span&gt;</description>
+    <description>Recent content in Effctive Java 3/E on &lt;Qutrits/&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 09 Jul 2020 18:21:51 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/effective-java-3e/index.xml" rel="self" type="application/rss+xml" />
   </channel>
