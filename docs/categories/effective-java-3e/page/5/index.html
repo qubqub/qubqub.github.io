@@ -8,7 +8,7 @@
 <meta name=description content="<Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/categories/effective-java-3e/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.b1f19e9c5b9126b570d9998d907fa81b2899ae2d248fb7c3284da12bc65a5894.css integrity="sha256-sfGenFuRJrVw2ZmNkH+oGyiZri0kj7fDKE2hK8ZaWJQ=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c686472a90972512dcd3f0d33982e91a118faf654e804989ed107d9591c2f1a5.css integrity="sha256-xoZHKpCXJRLc0/DTOYLpGhGPr2VOgEmJ7RB9lZHC8aU=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -86,7 +86,7 @@ Effective Java 3E
 추상 클래스와 인터페이스의 큰 차이점은 추상 클래스의 정의한 타입을 구현 클래스는 반드시 서브클래스가 된다는 점입니다. 자바에서는 단일 상속만 지원하기 때문에 이런 제약은 새로운 타입을 정의하는데 커다란 제약이 됩니다.
 반면 인터페이스의 준수 사항을 잘 지키고 모든 메서드를 구현한 클래스는 어느 계층에 있든 인터페이스를 구현할 수 있습니다.">
 <header class=entry-header>
-<h2>[아이템 20] 추상 클래스보다는 인터페이스를 우선하라
+<h2>[아이템 20] 추상 클래스보다는 인터페이스를 우선하라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -107,7 +107,7 @@ Effective Java 3E
 상속을 고려한 문서화  상속용 클래스는 재정의할 수 있는 메서드들은 내부적으로 어떻게 이용하는지 문서로 남겨야 합니다. 클래스의 내부 동작 과정 중간에 끼어들 수 있는 훅(hook)을 잘 선별하여 protected메서드 형태로 공개하는 것도 고려해보는 것도 좋습니다. (한편으로 너무 적게 노출해서 상속으로 얻는 이점을 없애지 않도록 주의해야 합니다.) 상속용으로 설계한 클래스는 배포 전에 반드시 하위 클래스를 만들어 검증 해야 합니다.
   상속을 허용하는 클래스가 지켜야 할 제약 상속용 클래스의 생성자는 직접적으로든 간접적으로든 재정의 가능 메서드를 호출해서는 안 됩니다.">
 <header class=entry-header>
-<h2>[아이템 19] 상속을 고려해 설계하고 문서화하라. 그렇지 않았다면 상속을 금지하라
+<h2>[아이템 19] 상속을 고려해 설계하고 문서화하라. 그렇지 않았다면 상속을 금지하라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -128,7 +128,7 @@ Effective Java 3E
 상속 같은 경우 상위 클래스가 구현 방식에 따라 하위 클래스 동작에 영향을 미칠 수 있습니다.
 예제를 위한 코드 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22  public class CustomHashSet<E> extends HashSet<E> { private int addCount = 0; public CustomHashSet() { } @Override public boolean add(E e) { addCount++; System.">
 <header class=entry-header>
-<h2>[아이템 18] 상속보다는 컴포지션을 사용하라
+<h2>[아이템 18] 상속보다는 컴포지션을 사용하라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -149,7 +149,7 @@ Effective Java 3E
 📌 클래스를 불변으로 만들기 위한 규칙  객체의 상태를 변경하는 메서드를 제공하지 않습니다. 클래스를 확장할 수 없도록 합니다. 모든 필드를 private final으로 선언합니다. 생성자 관리를 잘할 것 (밑에서 설명) 자신 외에는 내부에 가변 컴포넌트에 접근할 수 없도록 합니다.
   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  public final class Calculator { private final int x; private final int y; public Calculator(int x, int y) { this.">
 <header class=entry-header>
-<h2>[아이템 17] 변경 가능성을 최소화하라
+<h2>[아이템 17] 변경 가능성을 최소화하라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -170,7 +170,7 @@ Effective Java 3E
 다음과 같이 추상화의 이점을 살려서 코드를 수정할 수 있습니다.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  public class Point { public int x; public int y; public Point(int x, int y) { this.">
 <header class=entry-header>
-<h2>[아이템 16] public 클래스에서는 public 필드가 아닌 접근 메서드를 사용하라
+<h2>[아이템 16] public 클래스에서는 public 필드가 아닌 접근 메서드를 사용하라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -190,38 +190,38 @@ Effective Java 3E
 <nav class=pagination>
 <ul class=pagination>
 <li class="pagination__item pagination__item--first">
-<a class="pagination__link pagination__link--first" href=https://qutrits.github.io/categories/effective-java-3e/><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg><svg style="margin-left:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+<a class="pagination__link pagination__link--first" href=https://qutrits.github.io/categories/effective-java-3e/><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg><svg style="margin-left:-17px;vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
 <span></span>
 </a>
 </li>
 <li class="pagination__item pagination__item--previous">
-<a href=https://qutrits.github.io/categories/effective-java-3e/page/4/ class="pagination__link pagination__link--previous"><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+<a href=https://qutrits.github.io/categories/effective-java-3e/page/4/ class="pagination__link pagination__link--previous"><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
 <span></span>
 </a>
 </li>
 <li class=pagination__item>
-<a href=/categories/effective-java-3e/page/3/ class=pagination__link>3</a>
+<a style=font-size:1rem href=/categories/effective-java-3e/page/3/ class=pagination__link>3</a>
 </li>
 <li class=pagination__item>
-<a href=/categories/effective-java-3e/page/4/ class=pagination__link>4</a>
+<a style=font-size:1rem href=/categories/effective-java-3e/page/4/ class=pagination__link>4</a>
 </li>
 <li class="pagination__item pagination__item--current">
-<a>5</a>
+<a style=font-size:1rem;color:var(--main-color)>5</a>
 </li>
 <li class=pagination__item>
-<a href=/categories/effective-java-3e/page/6/ class=pagination__link>6</a>
+<a style=font-size:1rem href=/categories/effective-java-3e/page/6/ class=pagination__link>6</a>
 </li>
 <li class=pagination__item>
-<a href=/categories/effective-java-3e/page/7/ class=pagination__link>7</a>
+<a style=font-size:1rem href=/categories/effective-java-3e/page/7/ class=pagination__link>7</a>
 </li>
 <li class="pagination__item pagination__item--next">
 <a href=https://qutrits.github.io/categories/effective-java-3e/page/6/ class="pagination__link pagination__link--next">
-<span></span><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<span></span><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
 <a class="pagination__link pagination__link--last" href=https://qutrits.github.io/categories/effective-java-3e/page/8/>
-<span></span><svg style="margin-right:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<span></span><svg style="margin-right:-17px;vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

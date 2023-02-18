@@ -8,7 +8,7 @@
 <meta name=description content="이번 장에서는 자바 언어의 핵심 요소에 집중한다. 지역변수, 제어구조, 라이브러리, 데이터 타입, 그리고 언어 경계를 넘나드는 기능인 리플렉션과 네이티브 메서드를 다룬다. 마지막으로는 최적화와 명명 규칙을 논한다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-08/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.b1f19e9c5b9126b570d9998d907fa81b2899ae2d248fb7c3284da12bc65a5894.css integrity="sha256-sfGenFuRJrVw2ZmNkH+oGyiZri0kj7fDKE2hK8ZaWJQ=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c686472a90972512dcd3f0d33982e91a118faf654e804989ed107d9591c2f1a5.css integrity="sha256-xoZHKpCXJRLc0/DTOYLpGhGPr2VOgEmJ7RB9lZHC8aU=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -92,7 +92,7 @@
 <article class="list-entry button" title='[아이템 62] 다른 타입이 적절하다면 문자열 사용을 피하라. 문자열은 다른 값 타입을 대신하기엔 적절하지 않습니다.
 1 2  // 흔한 타입을 문자열로 처리한 부적절한 예 String compoundKey = className + "#" + i.next();   두 요소를 구분해주는 #이 두 요소 중 하나에서 쓰였다면 혼란을 초래할 수 있습니다. 각 요소를 개별로 접근하려면 문자열을 파싱해야 해서 느리고, 귀찮고, 오류 가능성도 커집니다. 이럴 경우 전용 클래스를 새로 만드는 편이 낫습니다. 보통 private 정적 멤버 클래스로 선언합니다.'>
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -107,7 +107,7 @@
 <article class="list-entry button" title='# [아이템 63] 문자열 연결은 느리니 주의하라. 문자열 연결 연산자로 문자열을 n개를 잇는 시간은 n^2에 비례합니다. 문자열은 immutable이라 두 문자열을 연결할 경우 양쪽의 내용을 모두 복사해야 하므로 성능 저하는 피할 수 없습니다.
 1 2 3 4 5 6 7  public String statement() { String result = ""; for (int i = 0; i < numItems(); i++) { result += lineForItem(); // 문자열연결  } return result; }   StringBuilder를 활용하면 성능을 크게 개선할 수 있습니다.'>
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -122,7 +122,7 @@
 <article class="list-entry button" title="[아이템 64] 객체는 인터페이스를 사용해 참조하라. 1 2  // 좋은 예 Set<Student> student = new HashSet<>();   1 2  // 나쁜 예. 클래스 참조 HashSet<Student> student = new HashSet<>();   인터페이스를 활용하면 유연함을 얻을 수 있습니다. 구현체를 교체하고 싶으면 구현 클래스만 바꾸면 됩니다.
 1 2  // HashSet -> LinkedHashSet 교체 Set<Student> student = new LinkedHashSet<>();   하지만 구현체를 바꿀 경우 주의할 점이 있습니다. 기존 구현체만의 특별한 기능을 제공하는 게 있다면, 바꿀 구현체에도 있는지 혹은 사이드 이펙트도 충분히 고려해야 합니다.">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -139,7 +139,7 @@
 Method.invoke는 어떤 클래스의 어떤 객체가 가진 어떤 메서드라도 호출할 수 있게 해줍니다 물론 장점만있는 건 아닙니다. 단점은 다음과 같습니다.
  컴파일타임 타입 검사가 주는 이점을 하나도 누릴 수 없다. 예외 검사도 마찬가지입니다. 리플렉션 기능으로 존재하지 않는 혹은 접근할 수 없는 메서드를 호출하려고하면 런타임 오류가 발생합니다.">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -155,7 +155,7 @@ Method.invoke는 어떤 클래스의 어떤 객체가 가진 어떤 메서드라
 <article class="list-entry button" title="[아이템 66] 네이티브 메서드는 신중히 사용하라. 자바 네이티브 인터페이스는 자바 프로그램이 네이티브 메서드를 호출하는 기술입니다. 네이티브 메서드란 C나 C++같읕 네이비티브 프로그래밍 언어로 작성한 메서드를 말합니다. 네이티브 메서드의 주요 쓰임은 세 가지가 있습니다.
  레지스트리 같은 플랫폼 특화 기능을 사용한다. 네이티브 코드로 작성된 기존 라이브러리를 사용한다. 성능 개선을 목적으로 성능에 결정적인 영향을 주는 영역만 따로 네이티브 언어로 작성한다.  자바 9부터는 process API를 추가해 OS 프로세스에 접근하는 길을 열어주었고 자바에서 네이티브 메서드를 사용할 필요가 점점 줄어드는 추세입니다.">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -170,32 +170,32 @@ Method.invoke는 어떤 클래스의 어떤 객체가 가진 어떤 메서드라
 <nav class=pagination>
 <ul class=pagination>
 <li class="pagination__item pagination__item--first">
-<a class="pagination__link pagination__link--first" href=https://qutrits.github.io/effective-java-3e/chapter-08/><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg><svg style="margin-left:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+<a class="pagination__link pagination__link--first" href=https://qutrits.github.io/effective-java-3e/chapter-08/><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg><svg style="margin-left:-17px;vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
 <span></span>
 </a>
 </li>
 <li class="pagination__item pagination__item--previous">
-<a href=https://qutrits.github.io/effective-java-3e/chapter-08/ class="pagination__link pagination__link--previous"><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+<a href=https://qutrits.github.io/effective-java-3e/chapter-08/ class="pagination__link pagination__link--previous"><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
 <span></span>
 </a>
 </li>
 <li class=pagination__item>
-<a href=/effective-java-3e/chapter-08/ class=pagination__link>1</a>
+<a style=font-size:1rem href=/effective-java-3e/chapter-08/ class=pagination__link>1</a>
 </li>
 <li class="pagination__item pagination__item--current">
-<a>2</a>
+<a style=font-size:1rem;color:var(--main-color)>2</a>
 </li>
 <li class=pagination__item>
-<a href=/effective-java-3e/chapter-08/page/3/ class=pagination__link>3</a>
+<a style=font-size:1rem href=/effective-java-3e/chapter-08/page/3/ class=pagination__link>3</a>
 </li>
 <li class="pagination__item pagination__item--next">
 <a href=https://qutrits.github.io/effective-java-3e/chapter-08/page/3/ class="pagination__link pagination__link--next">
-<span></span><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<span></span><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
 <a class="pagination__link pagination__link--last" href=https://qutrits.github.io/effective-java-3e/chapter-08/page/3/>
-<span></span><svg style="margin-right:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<span></span><svg style="margin-right:-17px;vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

@@ -8,7 +8,7 @@
 <meta name=description content="이번 장에서는 자바 언어의 핵심 요소에 집중한다. 지역변수, 제어구조, 라이브러리, 데이터 타입, 그리고 언어 경계를 넘나드는 기능인 리플렉션과 네이티브 메서드를 다룬다. 마지막으로는 최적화와 명명 규칙을 논한다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-08/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.b1f19e9c5b9126b570d9998d907fa81b2899ae2d248fb7c3284da12bc65a5894.css integrity="sha256-sfGenFuRJrVw2ZmNkH+oGyiZri0kj7fDKE2hK8ZaWJQ=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c686472a90972512dcd3f0d33982e91a118faf654e804989ed107d9591c2f1a5.css integrity="sha256-xoZHKpCXJRLc0/DTOYLpGhGPr2VOgEmJ7RB9lZHC8aU=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -94,7 +94,7 @@
 이러한 지역변수 초기화는 대표적으로 for (for-each), while로 비교할 수 있습니다.
 1 2 3 4  // 컬렉션이나 베열을 순회하는 권장 관용구 for (Element e : c) { .">
 <header class=entry-header>
-<h2>[아이템 57] 지역변수의 범위를 최소화하라
+<h2>[아이템 57] 지역변수의 범위를 최소화하라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -115,7 +115,7 @@
 1 2 3  for (Element e : elements) { .... // e로 무언가를 한다. }   컬렉션을 중첩해서 사용하면 for-each 문의 이점은 더욱 커집니다.
 1 2 3 4 5 6 7 8 9 10 11 12 13  // 버그를 찾아보자 enum Suit { CLUB, DIAMOND, HEART, SPADE } enum Rank { ACE, DEUCE, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING } .">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -131,7 +131,7 @@
 <article class="list-entry button" title="[아이템 59] 라이브러리를 익히고 사용하라. 0부터 명시한 수 까지 무작위 정수를 하나 생성하려고 합니다. 다음은 흔히 마주할 수 있는 문제있는 메서드입니다.
 1 2 3 4 5  static Random ran = new Randon(); static int random(int n) { return Math.abs(ran.nextInt()) % n; }   이 코드에는 세 가지 문제점이 있습니다. 첫 번째. n이 그리 크지 않은 2의 제곱수라면 얼마 지나지 않아 같은 수열이 반복됩니다. 두 번째, n이 2의 제곱수가 아니라면 몇몇 숫자가 평균적으로 더 반복됩니다.">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -147,7 +147,7 @@
 예를 들어 1.03달러에서 42센트를 사용하고 남은 돈을 계산한다고 가정해봅시다.
 1  System.out.println(1.03 - 0.42);   이 코드는 0.">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -164,7 +164,7 @@
 박싱된 기본 타입은 값 뿐만 아니라 식별성이 더해졌습니다. 즉 값이 같아도 서로 다르게 식별될 수 있습니다. 그리고 박싱 타입은 null을 가질 수 있습니다. 추가로 기본 타입은 박싱 타입보다 메모리와 시간 측면에서 더 효율적입니다.
 1 2 3  // 잘못 구현된 비교자 Comparator<Integer> naturalOrder = (i, j) -> (i < j) ?">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -180,22 +180,22 @@
 <nav class=pagination>
 <ul class=pagination>
 <li class="pagination__item pagination__item--current">
-<a>1</a>
+<a style=font-size:1rem;color:var(--main-color)>1</a>
 </li>
 <li class=pagination__item>
-<a href=/effective-java-3e/chapter-08/page/2/ class=pagination__link>2</a>
+<a style=font-size:1rem href=/effective-java-3e/chapter-08/page/2/ class=pagination__link>2</a>
 </li>
 <li class=pagination__item>
-<a href=/effective-java-3e/chapter-08/page/3/ class=pagination__link>3</a>
+<a style=font-size:1rem href=/effective-java-3e/chapter-08/page/3/ class=pagination__link>3</a>
 </li>
 <li class="pagination__item pagination__item--next">
 <a href=https://qutrits.github.io/effective-java-3e/chapter-08/page/2/ class="pagination__link pagination__link--next">
-<span></span><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<span></span><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
 <a class="pagination__link pagination__link--last" href=https://qutrits.github.io/effective-java-3e/chapter-08/page/3/>
-<span></span><svg style="margin-right:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<span></span><svg style="margin-right:-17px;vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

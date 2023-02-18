@@ -8,7 +8,7 @@
 <meta name=description content="이번 장은 객체 직렬화를 다룬다. 객체 직렬화란 자바가 객체를 바이트 스트림으로 인코딩하고(직렬화) 그 바이트 스트림으로부터 다시 객체를 재구성하는(역직렬화) 매커니즘이다. 직렬화된 객체는 다른 VM에 전송하거나 디스크에 저장한 후 나중에 역직렬화할 수 있다. 이번 장은 직렬화가 품고 있는 위험과 그 위험을 최소화하는 방법에 집중한다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-11/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.b1f19e9c5b9126b570d9998d907fa81b2899ae2d248fb7c3284da12bc65a5894.css integrity="sha256-sfGenFuRJrVw2ZmNkH+oGyiZri0kj7fDKE2hK8ZaWJQ=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c686472a90972512dcd3f0d33982e91a118faf654e804989ed107d9591c2f1a5.css integrity="sha256-xoZHKpCXJRLc0/DTOYLpGhGPr2VOgEmJ7RB9lZHC8aU=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -92,7 +92,7 @@
 <article class="list-entry button" title="[아이템 85] 자바 직렬화의 대안을 찾으라. 자바의 역직렬화에는 치명적인 단점이 있습니다. 신롸할 수 없는 스트림을 역직렬화하면 원격 코드 실행, 서비스 거부 등의 공격으로 이어질 수 있습니다.
 역직렬화 폭탄이란 서비스 거부 공격을 유발하는 스트림입니다.1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  static byte[] bomb() { Set<Object> root = new HashSet<>(); Set<Object> s1 = root; Set<Object> s2 = new HashSet<>(); for (int i = 0; i < 100; i++) { Set<Object> t1 = new HashSet<>(); Set<Object> t2 = new HashSet<>(); t1.">
 <header class=entry-header>
-<h2>[아이템 85] 자바 직렬화의 대안을 찾으라
+<h2>[아이템 85] 자바 직렬화의 대안을 찾으라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -112,7 +112,7 @@
 <article class="list-entry button" title="[아이템 86] Serializable을 구현할지는 신중히 결정하라. Serializable을 구현하면 릴리스 한 뒤에는 수정하기 어렵습니다. 직렬화 당시 내부 구현 방식에 묶이고, 캡슐화가 깨지는 위험이 있습니다. 직렬화된 클래스는 고유 식별 번호를 부여받는데, serialVersionUID를 명시하지 않으면 런타임에 SHA-1을 적용하여 자동으로 클래스 안에 생성해 넣는데, 클래스의 이름, 멤버 등이 포함됩니다. 그래서 나중에 이들 중 하나를 수정한다면 UID 값도 변하여 호환성이 깨져버립니다.
 그 다음 문제는 역직렬화는 숨은 생성자 입니다. 기본 역직렬화를 사용하면 불변식이 깨지고 허가되지 은 접근에 쉽게 노출됩니다.">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -127,7 +127,7 @@
 <article class="list-entry button" title="[아이템 87] 커스텀 직렬화 형태를 고려해보라. 이상적인 직렬화는 물리적인 모습과 독립된 논리적인 모습을 표현해야한다. 하지만 기본 직렬화 형태는 객체가 포함한 모든 데이터와 그 객체에서부터 시작해 접근할 수 있는 모든 객체를 담아낸다.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22  public class Name implements Serializable { /* * 성. null이 아니어야 함. * @serial */ private final String lastName; /* * 이름.">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -141,7 +141,7 @@
 <div class=list-entry-wrapper style=animation-delay:320ms data-animation=true>
 <article class="list-entry button" title="[아이템 88] readObject 메서드는 방어적으로 작성하라. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  // 방어적 복사를 사용하는 불변 클ㄹ스  public final class Period { private final Date start; private final Date end; /** * @param start 시작 시간 * @param end 종료 시각. 시작 시간보다 뒤어야 한다 * @throws IllegalArgumentException 시작 시간이 종료 시간보다 늦을 때 발생한다 * @throws NullPointerException start나 end가 null일시 발생 */ public Period(Date start, Date end) { this.">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -157,7 +157,7 @@
 
 readResolve 기능을 활용하면 readObject가 만들어낸 인스턴스를 다른 것으로 대체할 수 있다">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -172,19 +172,19 @@ readResolve 기능을 활용하면 readObject가 만들어낸 인스턴스를 �
 <nav class=pagination>
 <ul class=pagination>
 <li class="pagination__item pagination__item--current">
-<a>1</a>
+<a style=font-size:1rem;color:var(--main-color)>1</a>
 </li>
 <li class=pagination__item>
-<a href=/effective-java-3e/chapter-11/page/2/ class=pagination__link>2</a>
+<a style=font-size:1rem href=/effective-java-3e/chapter-11/page/2/ class=pagination__link>2</a>
 </li>
 <li class="pagination__item pagination__item--next">
 <a href=https://qutrits.github.io/effective-java-3e/chapter-11/page/2/ class="pagination__link pagination__link--next">
-<span></span><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<span></span><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
 <a class="pagination__link pagination__link--last" href=https://qutrits.github.io/effective-java-3e/chapter-11/page/2/>
-<span></span><svg style="margin-right:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<span></span><svg style="margin-right:-17px;vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

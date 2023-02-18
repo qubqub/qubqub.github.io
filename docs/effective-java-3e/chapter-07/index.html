@@ -8,7 +8,7 @@
 <meta name=description content="이번 장에서는 메서드를 설계할 때 주의할 점들을 살펴본다. 구체적으로는 매개변수와 반환값을 어떻게 처리해야 하는지, 메서드 시그니처는 어떻게 설계해야 하는지, 문서화는 어떻게 해야 하는지를 다룬다. 이번 장의 내용 중 상당 부분은 메서드뿐 아니라 생성자에도 적용된다. 그리고 '4장 클래스와 인터페이스'와 마찬가지로 이번 장도 사용성, 견고성, 유연성에 집중할 것이다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-07/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.b1f19e9c5b9126b570d9998d907fa81b2899ae2d248fb7c3284da12bc65a5894.css integrity="sha256-sfGenFuRJrVw2ZmNkH+oGyiZri0kj7fDKE2hK8ZaWJQ=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c686472a90972512dcd3f0d33982e91a118faf654e804989ed107d9591c2f1a5.css integrity="sha256-xoZHKpCXJRLc0/DTOYLpGhGPr2VOgEmJ7RB9lZHC8aU=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -94,7 +94,7 @@
 
 하지만 반드시 메서드를 실행하기 전에 매개변수 유효성 검사를 해야하는 것만은 아닙니다. 유효성 검사 비용이 지나치게 높거나 실용적이지 않을 때는 다시 고려를 해봐야 합니다.">
 <header class=entry-header>
-<h2>[아이템 49] 매개변수가 유효한지 검사하라
+<h2>[아이템 49] 매개변수가 유효한지 검사하라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -116,7 +116,7 @@
 다음은 부주의로 일어날 수 있는 상황을 예시로 든 코드입니다.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  public final class Period { private final Date date; private final Date end; public Period(Date start, Date end) { if (start.">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -132,7 +132,7 @@
 <article class="list-entry button" title="[아이템 51] 메서드 시그니처를 신중히 설계하라. 메서드 이름을 신중히 짓자. 항상 표준 명명 규칙을 따라야합니다. 이름만 보고 이해할 수 있고, 일관성있게 짓는 것이 핵심입니다. 그 다음 목표는 개발자 커뮤니티에서 널리 받아들여지는 이름을 사용하는 것입니다. 되도록이면 긴 이름은 피하는 것이 좋습니다. 물론 조직내에 규율이 있다면 그 규율을 지키는 게 우선입니다.
 편의 메서드를 너무 만들지 말자. 메서드가 너무 많은 클래스는 파악하고 유지보수 하기도 힘들고 객체지향 SOLID원칙 중 Single Responsiblity Principle에 위반될 수도 있습니다.">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -147,7 +147,7 @@
 <article class="list-entry button" title='[아이템 52] 다중정의는 신중히 사용하라. 다음은 컬렉션을 집합, 리스트, 그 외로 구분하고자 만든 프로그램입니다.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  public class CollectionClassifier { public static String classify(Set<?> s) { return "Set"; } public static String classify(List<?> lst) { return "List"; } public static String classify(Collection<?> c) { return "Unknown Collection"; } public static void main(String[] args) { Collection<?'>
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -162,7 +162,7 @@
 <article class="list-entry button" title="[아이템 53] 가변인수는 신중히 사용하라. 가변인수(varargs) 메서드는 명시한 타입의 인수를 0개 이상 받을 수 있습니다. 다음 예제는 int 인자의 합을 구하는 가변인수 메서드입니다.
 1 2 3 4 5 6 7  static int sum(int... args) { int sum = 0; for (int args: args) { sum += args; } return sum; }   1개 이상의 인수가 필요한 경우도 있습니다. 다음 예제는 1개 이상의 인수를 필요료하는 가변인수 메서드의 잘못된 구현입니다.">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -177,19 +177,19 @@
 <nav class=pagination>
 <ul class=pagination>
 <li class="pagination__item pagination__item--current">
-<a>1</a>
+<a style=font-size:1rem;color:var(--main-color)>1</a>
 </li>
 <li class=pagination__item>
-<a href=/effective-java-3e/chapter-07/page/2/ class=pagination__link>2</a>
+<a style=font-size:1rem href=/effective-java-3e/chapter-07/page/2/ class=pagination__link>2</a>
 </li>
 <li class="pagination__item pagination__item--next">
 <a href=https://qutrits.github.io/effective-java-3e/chapter-07/page/2/ class="pagination__link pagination__link--next">
-<span></span><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<span></span><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
 <a class="pagination__link pagination__link--last" href=https://qutrits.github.io/effective-java-3e/chapter-07/page/2/>
-<span></span><svg style="margin-right:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<span></span><svg style="margin-right:-17px;vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

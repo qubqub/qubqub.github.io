@@ -8,7 +8,7 @@
 <meta name=description content="이번 장에서는 메서드를 설계할 때 주의할 점들을 살펴본다. 구체적으로는 매개변수와 반환값을 어떻게 처리해야 하는지, 메서드 시그니처는 어떻게 설계해야 하는지, 문서화는 어떻게 해야 하는지를 다룬다. 이번 장의 내용 중 상당 부분은 메서드뿐 아니라 생성자에도 적용된다. 그리고 '4장 클래스와 인터페이스'와 마찬가지로 이번 장도 사용성, 견고성, 유연성에 집중할 것이다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-07/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.b1f19e9c5b9126b570d9998d907fa81b2899ae2d248fb7c3284da12bc65a5894.css integrity="sha256-sfGenFuRJrVw2ZmNkH+oGyiZri0kj7fDKE2hK8ZaWJQ=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c686472a90972512dcd3f0d33982e91a118faf654e804989ed107d9591c2f1a5.css integrity="sha256-xoZHKpCXJRLc0/DTOYLpGhGPr2VOgEmJ7RB9lZHC8aU=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -92,7 +92,7 @@
 <article class="list-entry button" title="[아이템 54] null이 아닌, 빈 컬렉션이나 배열을 반환하라. 1 2 3 4 5 6  // 컬렉션이 비어있으면 null을 반환 - 따라하지 말 것 private final List<Cheese> cheesesInStock = ...; public List<Cheese> getCheeses() { return cheesesInStock.isEmpty() ? null : new ArrayList<>(cheesesInStock); }   null을 반환할 경우 클라이어트는 이 null 상황을 처리하는 코드를 추가로 작성해야합니다.
 1 2 3 4  List<Cheese> cheesesInStock = shop.getCheeses(); if (cheese != null && cheeses.contains(cheese.STILTON)) { system.">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -108,7 +108,7 @@
 
 자바 8부터는 Optional을 지원했습니다. Optional<T>는 null이 아닌 T타입 참조를 하나 담거나, 아무것도 담지 않을 수 있습니다.">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -123,7 +123,7 @@
 <article class="list-entry button" title="[아이템 56] 공개된 API 요소에는 항상 문서화 주석을 작성하라. javadocd이라는 유틸리티를 이용하면 소스코드 파일에서 문서화 주석이라는 특수한 형태로 기술된 설명을 추려 API 문서로 변환해줍니다.
 메서드용 문서화 주석에는 해당 메서드와 클라이어트 사이의 규약을 명료하게 기술해야 합니다. 핵심 포인트는 how가 아닌 what입니다. 무엇을 하는지에 대한 설명이 있어야 합니다. 또한 메서드를 호출하기위한 조건, 수행된 후에 만족해야 하는 사후조건, 부작용도 모두 나열되어야 합니다. 잘 쓰인 문서인지 확인하는 유일한 방법은 자바독 유틸리티가 생성한 웹페이지를 읽어보는 길뿐입니다.">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -138,20 +138,20 @@
 <nav class=pagination>
 <ul class=pagination>
 <li class="pagination__item pagination__item--first">
-<a class="pagination__link pagination__link--first" href=https://qutrits.github.io/effective-java-3e/chapter-07/><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg><svg style="margin-left:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+<a class="pagination__link pagination__link--first" href=https://qutrits.github.io/effective-java-3e/chapter-07/><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg><svg style="margin-left:-17px;vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
 <span></span>
 </a>
 </li>
 <li class="pagination__item pagination__item--previous">
-<a href=https://qutrits.github.io/effective-java-3e/chapter-07/ class="pagination__link pagination__link--previous"><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+<a href=https://qutrits.github.io/effective-java-3e/chapter-07/ class="pagination__link pagination__link--previous"><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
 <span></span>
 </a>
 </li>
 <li class=pagination__item>
-<a href=/effective-java-3e/chapter-07/ class=pagination__link>1</a>
+<a style=font-size:1rem href=/effective-java-3e/chapter-07/ class=pagination__link>1</a>
 </li>
 <li class="pagination__item pagination__item--current">
-<a>2</a>
+<a style=font-size:1rem;color:var(--main-color)>2</a>
 </li>
 </ul>
 </nav>

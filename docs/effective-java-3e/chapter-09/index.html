@@ -8,7 +8,7 @@
 <meta name=description content="예외를 제대로 활용한다면 프로그램의 가독성, 신뢰성, 유지보수성이 높아지지만, 잘못 사용한다면 반대의 효과만 나타난다. 이번 장에서는 예외를 효과적으로 활용하는 지침을 다룬다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-09/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.b1f19e9c5b9126b570d9998d907fa81b2899ae2d248fb7c3284da12bc65a5894.css integrity="sha256-sfGenFuRJrVw2ZmNkH+oGyiZri0kj7fDKE2hK8ZaWJQ=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c686472a90972512dcd3f0d33982e91a118faf654e804989ed107d9591c2f1a5.css integrity="sha256-xoZHKpCXJRLc0/DTOYLpGhGPr2VOgEmJ7RB9lZHC8aU=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -92,7 +92,7 @@
 <article class="list-entry button" title="[아이템 69] 예외는 진짜 예외 상황에서만 사용하라. 예외는 반드시 예외 상황에서만 사용해야한다. 일반적인 제어 흐름용으로 사용하면 안 됩니다.
 1 2 3 4 5 6 7 8  try { int i = 0; while (true) { index[i++].doSomething(); } } catch (ArrayIndexOutOfBoundsException) { .. }   코드가 장황하고 직관적이지 않습니다. 성능도 일반적인 제어 흐름보다 느립니다.">
 <header class=entry-header>
-<h2>[아이템 69] 예외는 진짜 예외 상황에서만 사용하라
+<h2>[아이템 69] 예외는 진짜 예외 상황에서만 사용하라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -113,7 +113,7 @@
 
 호출 하는 쪽에서 복구하리라 여거지는 상황에서는 검사 예외를 사용합시다. 이것이 검사 예외랑 비검사 예외를 구분하는 가장 기본적인 규칙입니다. catch로 잡아서 처리하거나 thorws로 예외를 호출한쪽으로 전파하고 호출했을 때 발생할 수 있는 있다는 걸 API 사용자에게 알리는 것입니다.">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -127,7 +127,7 @@
 <div class=list-entry-wrapper style=animation-delay:270ms data-animation=true>
 <article class="list-entry button" title="[아이템 71] 필요 없는 검사 예외 사용은 피하라. 검사 예외를 필요한 곳에만 사용하면 프로그램의 안전성을 높여주지만, 과하게 사용하면 오히려 쓰기 불편한 API가 됩니다. API를 제대로 사용해도 발생할 수 있는 예외이거나, 프로그래머가 의미 잇는 조치를 취할 수 있는 경우 둘 중 어디에도 해당하지 않는다면 비검사 예외를 사용하는 것이 좋습니다.">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -143,7 +143,7 @@
 
 Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 게 좋습니다. 다른 예외들의 상위 클래스이므로 즉 여러 예외를 포괄하기 때문에 안정적으로 테스트할 수 없습니다.">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -158,7 +158,7 @@ Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 �
 <article class="list-entry button" title="[아이템 73] 추상화 수준에 맞는 예외를 던져라. 메서드가 저수준 예외를 처리하지 않고 바깥으로 전파해버릴 경우 예상치 못한 예외를 접하고 당황할 수가 있습니다. 이 문제를 피하려면 상위 계층에서 저수주 예외를 잡아 자신의 추상화 수준에 맞는 예외를 던져야 합니다. 이를 예외 번역이라 부릅니다.
 1 2 3 4 5 6  try { ... } catch (LowLevelException e) { // 추상화 수준에 맞게 번역.  throw new HighLevelException(..); }   AbstractSequentialList에서 수행하는 예외번역의 예시">
 <header class=entry-header>
-<h2>
+<h2> 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -173,19 +173,19 @@ Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 �
 <nav class=pagination>
 <ul class=pagination>
 <li class="pagination__item pagination__item--current">
-<a>1</a>
+<a style=font-size:1rem;color:var(--main-color)>1</a>
 </li>
 <li class=pagination__item>
-<a href=/effective-java-3e/chapter-09/page/2/ class=pagination__link>2</a>
+<a style=font-size:1rem href=/effective-java-3e/chapter-09/page/2/ class=pagination__link>2</a>
 </li>
 <li class="pagination__item pagination__item--next">
 <a href=https://qutrits.github.io/effective-java-3e/chapter-09/page/2/ class="pagination__link pagination__link--next">
-<span></span><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<span></span><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
 <a class="pagination__link pagination__link--last" href=https://qutrits.github.io/effective-java-3e/chapter-09/page/2/>
-<span></span><svg style="margin-right:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<span></span><svg style="margin-right:-17px;vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

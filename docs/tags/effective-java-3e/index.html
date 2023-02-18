@@ -8,7 +8,7 @@
 <meta name=description content="<Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/tags/effective-java-3e/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.b1f19e9c5b9126b570d9998d907fa81b2899ae2d248fb7c3284da12bc65a5894.css integrity="sha256-sfGenFuRJrVw2ZmNkH+oGyiZri0kj7fDKE2hK8ZaWJQ=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c686472a90972512dcd3f0d33982e91a118faf654e804989ed107d9591c2f1a5.css integrity="sha256-xoZHKpCXJRLc0/DTOYLpGhGPr2VOgEmJ7RB9lZHC8aU=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -85,7 +85,7 @@ Effective Java 3E
 <article class="list-entry button" title="[아이템 85] 자바 직렬화의 대안을 찾으라. 자바의 역직렬화에는 치명적인 단점이 있습니다. 신롸할 수 없는 스트림을 역직렬화하면 원격 코드 실행, 서비스 거부 등의 공격으로 이어질 수 있습니다.
 역직렬화 폭탄이란 서비스 거부 공격을 유발하는 스트림입니다.1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  static byte[] bomb() { Set<Object> root = new HashSet<>(); Set<Object> s1 = root; Set<Object> s2 = new HashSet<>(); for (int i = 0; i < 100; i++) { Set<Object> t1 = new HashSet<>(); Set<Object> t2 = new HashSet<>(); t1.">
 <header class=entry-header>
-<h2>[아이템 85] 자바 직렬화의 대안을 찾으라
+<h2>[아이템 85] 자바 직렬화의 대안을 찾으라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -105,7 +105,7 @@ Effective Java 3E
 <article class="list-entry button" title="[아이템 78] 공유중인 가변 데이터는 동기화해 사용하라. 동기화란 특정 메서드나 블럭에 한 쓰레드가 접근했을 때, 해당 객체에 락을 걸고 다른 쓰레드가 접근하지 못하도록 하는 것이다.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  public class StopThread { private static boolean stopRequested; public static void main(String[] args) throws InterruptedException { Thread backgroundThread = new Thread(() -> { int i = 0; while (!">
 <header class=entry-header>
-<h2>[아이템 78] 공유중인 가변 데이터는 동기화해 사용하라
+<h2>[아이템 78] 공유중인 가변 데이터는 동기화해 사용하라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -124,7 +124,7 @@ Effective Java 3E
 <article class="list-entry button" title="[아이템 69] 예외는 진짜 예외 상황에서만 사용하라. 예외는 반드시 예외 상황에서만 사용해야한다. 일반적인 제어 흐름용으로 사용하면 안 됩니다.
 1 2 3 4 5 6 7 8  try { int i = 0; while (true) { index[i++].doSomething(); } } catch (ArrayIndexOutOfBoundsException) { .. }   코드가 장황하고 직관적이지 않습니다. 성능도 일반적인 제어 흐름보다 느립니다.">
 <header class=entry-header>
-<h2>[아이템 69] 예외는 진짜 예외 상황에서만 사용하라
+<h2>[아이템 69] 예외는 진짜 예외 상황에서만 사용하라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -145,7 +145,7 @@ Effective Java 3E
 이러한 지역변수 초기화는 대표적으로 for (for-each), while로 비교할 수 있습니다.
 1 2 3 4  // 컬렉션이나 베열을 순회하는 권장 관용구 for (Element e : c) { .">
 <header class=entry-header>
-<h2>[아이템 57] 지역변수의 범위를 최소화하라
+<h2>[아이템 57] 지역변수의 범위를 최소화하라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -167,7 +167,7 @@ Effective Java 3E
 
 하지만 반드시 메서드를 실행하기 전에 매개변수 유효성 검사를 해야하는 것만은 아닙니다. 유효성 검사 비용이 지나치게 높거나 실용적이지 않을 때는 다시 고려를 해봐야 합니다.">
 <header class=entry-header>
-<h2>[아이템 49] 매개변수가 유효한지 검사하라
+<h2>[아이템 49] 매개변수가 유효한지 검사하라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -187,28 +187,28 @@ Effective Java 3E
 <nav class=pagination>
 <ul class=pagination>
 <li class="pagination__item pagination__item--current">
-<a>1</a>
+<a style=font-size:1rem;color:var(--main-color)>1</a>
 </li>
 <li class=pagination__item>
-<a href=/tags/effective-java-3e/page/2/ class=pagination__link>2</a>
+<a style=font-size:1rem href=/tags/effective-java-3e/page/2/ class=pagination__link>2</a>
 </li>
 <li class=pagination__item>
-<a href=/tags/effective-java-3e/page/3/ class=pagination__link>3</a>
+<a style=font-size:1rem href=/tags/effective-java-3e/page/3/ class=pagination__link>3</a>
 </li>
 <li class=pagination__item>
-<a href=/tags/effective-java-3e/page/4/ class=pagination__link>4</a>
+<a style=font-size:1rem href=/tags/effective-java-3e/page/4/ class=pagination__link>4</a>
 </li>
 <li class=pagination__item>
-<a href=/tags/effective-java-3e/page/5/ class=pagination__link>5</a>
+<a style=font-size:1rem href=/tags/effective-java-3e/page/5/ class=pagination__link>5</a>
 </li>
 <li class="pagination__item pagination__item--next">
 <a href=https://qutrits.github.io/tags/effective-java-3e/page/2/ class="pagination__link pagination__link--next">
-<span></span><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<span></span><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 <li class="pagination__item pagination__item--last">
 <a class="pagination__link pagination__link--last" href=https://qutrits.github.io/tags/effective-java-3e/page/8/>
-<span></span><svg style="margin-right:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+<span></span><svg style="margin-right:-17px;vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-7px;font-size:1.4rem" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 </a>
 </li>
 </ul>

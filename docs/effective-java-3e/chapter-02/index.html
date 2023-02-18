@@ -8,7 +8,7 @@
 <meta name=description content="Object는 객체를 만들 수 있는 구체 클래스지만 기본적으로는 상속해서 사용하도록 설계되었다. Object에서 final이 아닌 메서드(equals, hashCode, toString, clone, finalize)는 모두 재정의(overriding)를 염두에 두고 설계된 것이라 재정의 시 지켜야 하는 일반 규약이 명확히 정의되어 있다. 그래서 Object를 상속하는 클래스, 즉 모든 클랙스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다. 메서드를 잘못 구현하면 대상 클래스가 이 규약을 준수한다고 가정 하는 클래스(HashMap과 HashSet 등)를 오작동하게 만들 수 있다. 이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다. 그중 finalize 메서드는 아이템 8에서 다뤘으니 더 이상 언급하지 않는다. Comparable.compareTo의 경우 Object의 메서드는 아니지만 성격이 비슷하여 이번 장에서 함께 다룬다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-02/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.b1f19e9c5b9126b570d9998d907fa81b2899ae2d248fb7c3284da12bc65a5894.css integrity="sha256-sfGenFuRJrVw2ZmNkH+oGyiZri0kj7fDKE2hK8ZaWJQ=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c686472a90972512dcd3f0d33982e91a118faf654e804989ed107d9591c2f1a5.css integrity="sha256-xoZHKpCXJRLc0/DTOYLpGhGPr2VOgEmJ7RB9lZHC8aU=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -94,7 +94,7 @@ Comparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natu
 1  Arrays.sort(a);   
 compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받는)보다 작으면 음의 정수를, 같으면 0을, 크면 양의 정수를 반환합니다.">
 <header class=entry-header>
-<h2>[아이템 14] Comparable를 구현할지 고려하라
+<h2>[아이템 14] Comparable를 구현할지 고려하라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -118,7 +118,7 @@ compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받
  x.clone() != x x.clone.getClass() == x.getClass() x.clone().equals(x)
   clone을 사용하는 방법은 굉장히 쉽습니다. Cloneable인터페이스를 구현하고 super.clone을 호출하면 됩니다.">
 <header class=entry-header>
-<h2>[아이템 13] clone 재정의는 주의해서 진행하라
+<h2>[아이템 13] clone 재정의는 주의해서 진행하라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -142,7 +142,7 @@ clone을 사용하는 방법은 굉장히 쉽습니다. Cloneable인터페이스
 1 2  Student student = new Student("kim", 16); System.out.println(student);   위 코드를 실행하면 Student@abcd같은 형태로 콘솔에 출력되므로 객체의 특성을 파악하기가 힘듭니다.
  toString을 재정의하는 좋은 방법  객체가 가진 가진 주요 정보를 모두 반환하는 게 좋습니다. toString을 구현하면 반환값의 포맷을 문서화할지 정해야 합니다.  규칙이 명확해지는 장점이 있지만, 한번 명시하면 그 포맷에 얽매이게 됩니다.'>
 <header class=entry-header>
-<h2>[아이템 12] toString을 항상 재정의하라
+<h2>[아이템 12] toString을 항상 재정의하라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -164,7 +164,7 @@ toString을 재정의하는 좋은 방법 객체가 가진 가진 주요 정보�
 다음은 Object 명세에서 발췌한 규약입니다.
  equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 hashCode메서드는 여러번 호출해도 일관된 값을 반환해야 합니다. equals가 두 객체를 같다고 판단하면 hashCode 또한 같은 값을 반환해야 합니다. equals가 두 객체를 다르다고 판단해도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.">
 <header class=entry-header>
-<h2>[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라
+<h2>[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라 22px;
 </h2>
 </header>
 <section class=entry-content>
@@ -187,7 +187,7 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
   📌 대칭성 (Symmetry)  null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.equals(x)입니다.
    잘못된 코드 - 대칭성 위반 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  public class CaseInsensitiveString { private String str; .">
 <header class=entry-header>
-<h2>[아이템 10] equals는 일반 규약을 지켜 재정의하라
+<h2>[아이템 10] equals는 일반 규약을 지켜 재정의하라 22px;
 </h2>
 </header>
 <section class=entry-content>
