@@ -2,43 +2,97 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://qutrits.github.io/effective-java-3e/chapter-05/</loc>
-    <lastmod>2021-02-02T10:11:42+09:00</lastmod>
+    <loc>https://qutrits.github.io/effective-java-3e/chapter-11/</loc>
+    <lastmod>2021-08-02T10:11:42+09:00</lastmod>
   </url><url>
     <loc>https://qutrits.github.io/</loc>
+    <lastmod>2021-08-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/effective-java-3e/chapter-11/item85/</loc>
+    <lastmod>2021-08-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/categories/</loc>
+    <lastmod>2021-08-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/chapter/</loc>
+    <lastmod>2021-08-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/effective-java-3e/</loc>
+    <lastmod>2021-08-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/tags/effective-java-3e/</loc>
+    <lastmod>2021-08-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/series/effective-java-3e/</loc>
+    <lastmod>2021-08-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/categories/effective-java-3e/</loc>
+    <lastmod>2021-08-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/chapter/effective-java-3e-chapter-11/</loc>
+    <lastmod>2021-08-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/tags/java/</loc>
+    <lastmod>2021-08-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/series/</loc>
+    <lastmod>2021-08-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/tags/</loc>
+    <lastmod>2021-08-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/effective-java-3e/chapter-10/</loc>
+    <lastmod>2021-07-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/effective-java-3e/chapter-10/item78/</loc>
+    <lastmod>2021-07-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/chapter/effective-java-3e-chapter-10/</loc>
+    <lastmod>2021-07-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/effective-java-3e/chapter-09/</loc>
+    <lastmod>2021-06-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/effective-java-3e/chapter-09/item69/</loc>
+    <lastmod>2021-06-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/chapter/effective-java-3e-chapter-09/</loc>
+    <lastmod>2021-06-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/effective-java-3e/chapter-08/</loc>
+    <lastmod>2021-05-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/effective-java-3e/chapter-08/item57/</loc>
+    <lastmod>2021-05-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/chapter/effective-java-3e-chapter-08/</loc>
+    <lastmod>2021-05-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/effective-java-3e/chapter-07/</loc>
+    <lastmod>2021-04-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/effective-java-3e/chapter-07/item49/</loc>
+    <lastmod>2021-04-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/chapter/effective-java-3e-chapter-07/</loc>
+    <lastmod>2021-04-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/effective-java-3e/chapter-06/</loc>
+    <lastmod>2021-03-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/effective-java-3e/chapter-06/item42/</loc>
+    <lastmod>2021-03-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/chapter/effective-java-3e-chapter-06/</loc>
+    <lastmod>2021-03-02T10:11:42+09:00</lastmod>
+  </url><url>
+    <loc>https://qutrits.github.io/effective-java-3e/chapter-05/</loc>
     <lastmod>2021-02-02T10:11:42+09:00</lastmod>
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-05/item34/</loc>
     <lastmod>2021-02-02T10:11:42+09:00</lastmod>
   </url><url>
-    <loc>https://qutrits.github.io/categories/</loc>
-    <lastmod>2021-02-02T10:11:42+09:00</lastmod>
-  </url><url>
-    <loc>https://qutrits.github.io/chapter/</loc>
-    <lastmod>2021-02-02T10:11:42+09:00</lastmod>
-  </url><url>
-    <loc>https://qutrits.github.io/effective-java-3e/</loc>
-    <lastmod>2021-02-02T10:11:42+09:00</lastmod>
-  </url><url>
-    <loc>https://qutrits.github.io/tags/effective-java-3e/</loc>
-    <lastmod>2021-02-02T10:11:42+09:00</lastmod>
-  </url><url>
-    <loc>https://qutrits.github.io/series/effective-java-3e/</loc>
-    <lastmod>2021-02-02T10:11:42+09:00</lastmod>
-  </url><url>
-    <loc>https://qutrits.github.io/categories/effective-java-3e/</loc>
-    <lastmod>2021-02-02T10:11:42+09:00</lastmod>
-  </url><url>
-    <loc>https://qutrits.github.io/chapter/effective-java-3e-chapter-5/</loc>
-    <lastmod>2021-02-02T10:11:42+09:00</lastmod>
-  </url><url>
-    <loc>https://qutrits.github.io/tags/java/</loc>
-    <lastmod>2021-02-02T10:11:42+09:00</lastmod>
-  </url><url>
-    <loc>https://qutrits.github.io/series/</loc>
-    <lastmod>2021-02-02T10:11:42+09:00</lastmod>
-  </url><url>
-    <loc>https://qutrits.github.io/tags/</loc>
+    <loc>https://qutrits.github.io/chapter/effective-java-3e-chapter-05/</loc>
     <lastmod>2021-02-02T10:11:42+09:00</lastmod>
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-04/</loc>
@@ -47,7 +101,7 @@
     <loc>https://qutrits.github.io/effective-java-3e/chapter-04/item33/</loc>
     <lastmod>2020-07-09T18:21:51+09:00</lastmod>
   </url><url>
-    <loc>https://qutrits.github.io/chapter/effective-java-3e-chapter-4/</loc>
+    <loc>https://qutrits.github.io/chapter/effective-java-3e-chapter-04/</loc>
     <lastmod>2020-07-09T18:21:51+09:00</lastmod>
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-04/item32/</loc>
@@ -77,7 +131,7 @@
     <loc>https://qutrits.github.io/effective-java-3e/chapter-03/item25/</loc>
     <lastmod>2020-07-05T13:12:41+09:00</lastmod>
   </url><url>
-    <loc>https://qutrits.github.io/chapter/effective-java-3e-chapter-3/</loc>
+    <loc>https://qutrits.github.io/chapter/effective-java-3e-chapter-03/</loc>
     <lastmod>2020-07-05T13:12:41+09:00</lastmod>
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-03/item24/</loc>
@@ -116,7 +170,7 @@
     <loc>https://qutrits.github.io/effective-java-3e/chapter-02/item14/</loc>
     <lastmod>2020-06-27T17:11:39+09:00</lastmod>
   </url><url>
-    <loc>https://qutrits.github.io/chapter/effective-java-3e-chapter-2/</loc>
+    <loc>https://qutrits.github.io/chapter/effective-java-3e-chapter-02/</loc>
     <lastmod>2020-06-27T17:11:39+09:00</lastmod>
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-02/item13/</loc>
@@ -137,7 +191,7 @@
     <loc>https://qutrits.github.io/effective-java-3e/chapter-01/item09/</loc>
     <lastmod>2020-06-20T17:12:16+09:00</lastmod>
   </url><url>
-    <loc>https://qutrits.github.io/chapter/effective-java-3e-chapter-1/</loc>
+    <loc>https://qutrits.github.io/chapter/effective-java-3e-chapter-01/</loc>
     <lastmod>2020-06-20T17:12:16+09:00</lastmod>
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-01/item08/</loc>
@@ -178,8 +232,6 @@
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-05/item41/</loc>
   </url><url>
-    <loc>https://qutrits.github.io/effective-java-3e/chapter-06/item42/</loc>
-  </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-06/item43/</loc>
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-06/item44/</loc>
@@ -191,8 +243,6 @@
     <loc>https://qutrits.github.io/effective-java-3e/chapter-06/item47/</loc>
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-06/item48/</loc>
-  </url><url>
-    <loc>https://qutrits.github.io/effective-java-3e/chapter-07/item49/</loc>
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-07/item50/</loc>
   </url><url>
@@ -207,8 +257,6 @@
     <loc>https://qutrits.github.io/effective-java-3e/chapter-07/item55/</loc>
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-07/item56/</loc>
-  </url><url>
-    <loc>https://qutrits.github.io/effective-java-3e/chapter-08/item57/</loc>
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-08/item58/</loc>
   </url><url>
@@ -232,8 +280,6 @@
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-08/item68/</loc>
   </url><url>
-    <loc>https://qutrits.github.io/effective-java-3e/chapter-09/item69/</loc>
-  </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-09/item70/</loc>
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-09/item71/</loc>
@@ -250,8 +296,6 @@
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-09/item77/</loc>
   </url><url>
-    <loc>https://qutrits.github.io/effective-java-3e/chapter-10/item78/</loc>
-  </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-10/item79/</loc>
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-10/item80/</loc>
@@ -264,8 +308,6 @@
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-10/item84/</loc>
   </url><url>
-    <loc>https://qutrits.github.io/effective-java-3e/chapter-11/item85/</loc>
-  </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-11/item86/</loc>
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-11/item87/</loc>
@@ -275,18 +317,6 @@
     <loc>https://qutrits.github.io/effective-java-3e/chapter-11/item89/</loc>
   </url><url>
     <loc>https://qutrits.github.io/effective-java-3e/chapter-11/item90/</loc>
-  </url><url>
-    <loc>https://qutrits.github.io/effective-java-3e/chapter-10/</loc>
-  </url><url>
-    <loc>https://qutrits.github.io/effective-java-3e/chapter-11/</loc>
-  </url><url>
-    <loc>https://qutrits.github.io/effective-java-3e/chapter-06/</loc>
-  </url><url>
-    <loc>https://qutrits.github.io/effective-java-3e/chapter-07/</loc>
-  </url><url>
-    <loc>https://qutrits.github.io/effective-java-3e/chapter-08/</loc>
-  </url><url>
-    <loc>https://qutrits.github.io/effective-java-3e/chapter-09/</loc>
   </url><url>
     <loc>https://qutrits.github.io/search/</loc>
   </url><url>

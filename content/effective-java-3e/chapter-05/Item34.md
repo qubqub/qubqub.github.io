@@ -4,7 +4,7 @@ date: 2021-02-02T10:11:42+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
-chapter: ["Effective Java 3E Chapter 5"]
+chapter: ["Effective Java 3E Chapter 05"]
 author: ["Qutrits"]
 showToc: true
 showAsideToc: true

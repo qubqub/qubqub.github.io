@@ -1,3 +1,26 @@
+---
+title: "[아이템 57] 지역변수의 범위를 최소화하라"
+date: 2021-05-02T10:11:42+09:00
+tags: ["Java", "Effective Java 3E"]
+categories: ["Effective Java 3E"]
+series: ["Effective Java 3E"]
+chapter: ["Effective Java 3E Chapter 08"]
+author: ["Qutrits"]
+showToc: true
+showAsideToc: true
+TocOpen: false
+draft: false
+hidemeta: false
+comments: true
+ShowReadingTime: true
+showPostNavLinks: true
+ShowCodeCopyButtons: true
+ShowBreadCrumbs: true
+showContentProgressbar: true
+# cover:
+#   hidden: true
+#   image: "/logo/logo-effective-java-3e.png"
+---
 # [아이템 57] 지역변수의 범위를 최소화하라.
 
 지역변수의 범위는 가능한 좁히는 게 좋습니다. 가장 좋은 방법은 선언과 동사에 초기화 해주는 것입니다. 초기화에 필요한 정보가 없다면 정보가 주어질 때까지 선언을 미루는 것입니다.. 물론 `try-catch`문은 이 규칙에서 예외입니다. try 블록 안에서 초기화해야하고 밖에서도 쓰일 경우 try 블록 앞에서 선언해야 합니다.

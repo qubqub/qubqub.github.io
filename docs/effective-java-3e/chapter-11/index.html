@@ -8,7 +8,7 @@
 <meta name=description content="이번 장은 객체 직렬화를 다룬다. 객체 직렬화란 자바가 객체를 바이트 스트림으로 인코딩하고(직렬화) 그 바이트 스트림으로부터 다시 객체를 재구성하는(역직렬화) 매커니즘이다. 직렬화된 객체는 다른 VM에 전송하거나 디스크에 저장한 후 나중에 역직렬화할 수 있다. 이번 장은 직렬화가 품고 있는 위험과 그 위험을 최소화하는 방법에 집중한다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-11/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.c92d8c158046ff072c572beb6ec3fb8c243390696f4ef3bdc58f635dac6c3dec.css integrity="sha256-yS2MFYBG/wcsVyvrbsP7jCQzkGlvTvO9xY9jXaxsPew=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.7a60fda1a98d48a5a769c501724fa6afbae84e66ddf853c6bebe57849ae3a447.css integrity="sha256-emD9oamNSKWnacUBck+mr7roTmbd+FPGvr5XhJrjpEc=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -92,7 +92,7 @@
 <article class="list-entry button" title="[아이템 85] 자바 직렬화의 대안을 찾으라. 자바의 역직렬화에는 치명적인 단점이 있습니다. 신롸할 수 없는 스트림을 역직렬화하면 원격 코드 실행, 서비스 거부 등의 공격으로 이어질 수 있습니다.
 역직렬화 폭탄이란 서비스 거부 공격을 유발하는 스트림입니다.1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  static byte[] bomb() { Set<Object> root = new HashSet<>(); Set<Object> s1 = root; Set<Object> s2 = new HashSet<>(); for (int i = 0; i < 100; i++) { Set<Object> t1 = new HashSet<>(); Set<Object> t2 = new HashSet<>(); t1.">
 <header class=entry-header>
-<h2>
+<h2>[아이템 85] 자바 직렬화의 대안을 찾으라
 </h2>
 </header>
 <section class=entry-content>
@@ -100,8 +100,12 @@
 역직렬화 폭탄이란 서비스 거부 공격을 유발하는 스트림입니다.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 static byte[] bomb() { Set&lt;Object> root = new HashSet&lt;>(); Set&lt;Object> s1 = root; Set&lt;Object> s2 = new HashSet&lt;>(); for (int i = 0; i &lt; 100; i++) { Set&lt;Object> t1 = new HashSet&lt;>(); Set&lt;Object> t2 = new HashSet&lt;>(); t1....</p>
 </section>
-<footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/effective-java-3e/chapter-11/item85/></a>
+<footer class=entry-footer><span title="2021-08-02 10:11:42 +0900 KST">2021년 8월 2일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Qutrits
+<ul class=post-tags>
+<li><a class=button href=https://qutrits.github.io/tags/java/>Java</a></li>
+<li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/>Effective Java 3E</a></li>
+</ul></footer>
+<a class=entry-link aria-label="post link to [아이템 85] 자바 직렬화의 대안을 찾으라" href=https://qutrits.github.io/effective-java-3e/chapter-11/item85/></a>
 </article>
 </div>
 <div class=list-entry-wrapper style=animation-delay:220ms data-animation=true>

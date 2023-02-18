@@ -11,7 +11,7 @@
 1 2 3  // 런타임 에러 Object[] objectArray = new Long[1]; objectArray[0] = &#34;타입이 달라 넣을 수 없다.">
 <meta name=author content="Qutrits">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-04/item28/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.c92d8c158046ff072c572beb6ec3fb8c243390696f4ef3bdc58f635dac6c3dec.css integrity="sha256-yS2MFYBG/wcsVyvrbsP7jCQzkGlvTvO9xY9jXaxsPew=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.7a60fda1a98d48a5a769c501724fa6afbae84e66ddf853c6bebe57849ae3a447.css integrity="sha256-emD9oamNSKWnacUBck+mr7roTmbd+FPGvr5XhJrjpEc=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -36,7 +36,7 @@
 <meta property="og:url" content="https://qutrits.github.io/effective-java-3e/chapter-04/item28/"><meta property="article:section" content="effective-java-3e">
 <meta property="article:published_time" content="2020-07-08T14:21:51+09:00">
 <meta property="article:modified_time" content="2020-07-08T14:21:51+09:00">
-<meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-05/item34/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item33/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item32/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item31/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item30/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item29/">
+<meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-11/item85/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-10/item78/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-09/item69/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-08/item57/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-07/item49/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-06/item42/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="[아이템 28] 배열보다는 리스트를 사용하라">
 <meta name=twitter:description content="[아이템 28] 배열보다는 리스트를 사용하라. 배열과 제네릭 타입의 차이 첫번째 차이점. 배열은 공변 입니다. 어려워 보이는 단어지만 뜻은 간단합니다. Sub가 Super의 하위 타입이라면 배열 Sub[]는 배열 Super[]의 하위 타입이 됩니다.
@@ -125,38 +125,67 @@
 <div class=series-main data-animation=true>
 <div class=chapter-control>
 <div class=info>
-<div class=chapter-number>4 / 5</div>
+<div class=chapter-number>4 / 11</div>
 <div class=page-button>
 <div class="button chapter">
-<a href=/effective-java-3e/chapter-01/item01/ aria-label="1 장" accesskey=1 title="(1장 객체 생성과 파괴) Alt + 1">
+<a href=/effective-java-3e/chapter-01/item01/ aria-label="1 장" accesskey=1 title="(1장) Alt + 1">
 1 장
 </a>
 </div>
 <div class="button chapter">
-<a href=/effective-java-3e/chapter-02/item10/ aria-label="2 장" accesskey=2 title="(2장 모든 객체의 공통 메서드) Alt + 2">
+<a href=/effective-java-3e/chapter-02/item10/ aria-label="2 장" accesskey=2 title="(2장) Alt + 2">
 2 장
 </a>
 </div>
 <div class="button chapter">
-<a href=/effective-java-3e/chapter-03/item15/ aria-label="3 장" accesskey=3 title="(3장 클래스와 인터페이스) Alt + 3">
+<a href=/effective-java-3e/chapter-03/item15/ aria-label="3 장" accesskey=3 title="(3장) Alt + 3">
 3 장
 </a>
 </div>
 <div class="button chapter current">
-<a href=/effective-java-3e/chapter-04/item26/ aria-label="4 장" accesskey=4 title="(4장 제네릭) Alt + 4">
+<a href=/effective-java-3e/chapter-04/item26/ aria-label="4 장" accesskey=4 title="(4장) Alt + 4">
 4 장
 </a>
 </div>
 <div class="button chapter">
-<a href=/effective-java-3e/chapter-05/item34/ aria-label="5 장" accesskey=5 title="(5장 열거 타입과 애너테이션) Alt + 5">
+<a href=/effective-java-3e/chapter-05/item34/ aria-label="5 장" accesskey=5 title="(5장) Alt + 5">
 5 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-06/item42/ aria-label="6 장" accesskey=6 title="(6장) Alt + 6">
+6 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-07/item49/ aria-label="7 장" accesskey=7 title="(7장) Alt + 7">
+7 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-08/item57/ aria-label="8 장" accesskey=8 title="(8장) Alt + 8">
+8 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-09/item69/ aria-label="9 장" accesskey=9 title="(9장) Alt + 9">
+9 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-10/item78/ aria-label="10 장" accesskey=10 title="(10장) Alt + 10">
+10 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-11/item85/ aria-label="11 장" accesskey=11 title="(11장) Alt + 11">
+11 장
 </a>
 </div>
 </div>
 </div>
 </div>
-<h2><a href=/chapter/effective-java-3e-chapter-4/>Effective Java 3E - 4장 제네릭</a></h2><svg width="32" height="48" viewBox="0 0 32 48" class="series-corner-image"><path d="M32 0H0v48h.163l16-16L32 47.836V0z"/></svg>
-<div class="series-main-description abstracted">제네릭(generic)은 자바 5부터 사용할 수 있다. 제네릭을 지원하기 전에는 컬렉션에서 객체를 꺼낼 때마다 형변환을 해야 했다. 그래서 누군가 실수로 엉뚱한 타입의 객체를 넣어두면 런타임에 형변환 오류가 나곤 했다. 반면, 제네릭을 사용하면 컬렉션이 담을 수 있는 타입을 컴파일러에 알려주게 된다. 그래서 컴파일러는 알아서 형변환 코드를 추가할 수 있게 되고, 엉뚱한 타입의 객체를 넣으려는 시도를 컴파일 과정에서 차단하여 더 안전하고 명확한 프로그램을 만들어준다. 꼭 컬렉션이 아니더라도 이러한 이점을 누릴 수 있으나, 코드가 복잡해진다는 단점이 따라온다. 이번 장에서는 제네릭의 이점을 최대로 살리고 단점을 최소화하는 방법을 이야기한다.</div>
+<h2><a href=/chapter/effective-java-3e-chapter-04/>Effective Java 3E - 4장 </a></h2><svg width="32" height="48" viewBox="0 0 32 48" class="series-corner-image"><path d="M32 0H0v48h.163l16-16L32 47.836V0z"/></svg>
 <ol class=series-list>
 <li hugo-nav=/effective-java-3e/chapter-04/item26/>
 <a href=/effective-java-3e/chapter-04/item26/>[아이템 26] Raw 타입은 사용하지 마라</a>
@@ -203,7 +232,7 @@
 </div>
 </div>
 </div>
-<script>series_DOMReady(function(){const c=localStorage.getItem("lock-series-Effective Java 3E Chapter 4"),b=document.querySelector(".series-main .series-list"),a=document.querySelector(".series-main .series-control .toggle");if(localStorage.getItem("series-main-")==="true"){const a=document.querySelector(".series-main"),b=a.getBoundingClientRect();window.scrollTo(0,b.top),localStorage.removeItem("series-main-")}document.querySelector(".series-main .series-control .toggle").addEventListener("click",()=>{b.style.display==="none"||b.style.display===""?(localStorage.setItem("lock-series-Effective Java 3E Chapter 4",!1),a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"),b.style.display="block"):b.style.display==="block"&&(localStorage.setItem("lock-series-Effective Java 3E Chapter 4",!0),a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide"),b.style.display="none")});const d=document.querySelector(".series-main-description");d&&d.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))}),c==="false"?(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide")):c==="true"?(b.style.display="none",a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide")):(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"));const e=[...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)"),...document.querySelectorAll(".series-main .series-list li a"),...document.querySelectorAll(".series-control .page-button a:not(.disabled)")];for(let a=0;a<e.length;a++)e[a].addEventListener("click",a=>{localStorage.setItem("series-main-",!0)})})</script>
+<script>series_DOMReady(function(){const c=localStorage.getItem("lock-series-Effective Java 3E Chapter 04"),b=document.querySelector(".series-main .series-list"),a=document.querySelector(".series-main .series-control .toggle");if(localStorage.getItem("series-main-")==="true"){const a=document.querySelector(".series-main"),b=a.getBoundingClientRect();window.scrollTo(0,b.top),localStorage.removeItem("series-main-")}document.querySelector(".series-main .series-control .toggle").addEventListener("click",()=>{b.style.display==="none"||b.style.display===""?(localStorage.setItem("lock-series-Effective Java 3E Chapter 04",!1),a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"),b.style.display="block"):b.style.display==="block"&&(localStorage.setItem("lock-series-Effective Java 3E Chapter 04",!0),a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide"),b.style.display="none")});const d=document.querySelector(".series-main-description");d&&d.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))}),c==="false"?(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide")):c==="true"?(b.style.display="none",a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide")):(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"));const e=[...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)"),...document.querySelectorAll(".series-main .series-list li a"),...document.querySelectorAll(".series-control .page-button a:not(.disabled)")];for(let a=0;a<e.length;a++)e[a].addEventListener("click",a=>{localStorage.setItem("series-main-",!0)})})</script>
 <div class=toc data-animation=true>
 <details>
 <summary accesskey=c title="(Alt + C)">

@@ -9,7 +9,7 @@
 열거 타입을 지원하기 전 코드 1 2 3 4 5  // 정수 열거 패턴 - 상당히 취약하다. public static final int EAST = 0; public static final int WEST = 1; public static final int SOUTH = 2; public static final int NORTH = 3;   이 코드는 타입의 안전성을 보장할 수 없고 표현력도 좋지 않습니다.">
 <meta name=author content="Qutrits">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-05/item34/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.c92d8c158046ff072c572beb6ec3fb8c243390696f4ef3bdc58f635dac6c3dec.css integrity="sha256-yS2MFYBG/wcsVyvrbsP7jCQzkGlvTvO9xY9jXaxsPew=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.7a60fda1a98d48a5a769c501724fa6afbae84e66ddf853c6bebe57849ae3a447.css integrity="sha256-emD9oamNSKWnacUBck+mr7roTmbd+FPGvr5XhJrjpEc=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -32,7 +32,7 @@
 <meta property="og:url" content="https://qutrits.github.io/effective-java-3e/chapter-05/item34/"><meta property="article:section" content="effective-java-3e">
 <meta property="article:published_time" content="2021-02-02T10:11:42+09:00">
 <meta property="article:modified_time" content="2021-02-02T10:11:42+09:00">
-<meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item33/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item32/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item31/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item30/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item29/">
+<meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-11/item85/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-10/item78/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-09/item69/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-08/item57/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-07/item49/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-06/item42/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="[아이템 34] int 상수 대신 열거 타입을 사용하라">
 <meta name=twitter:description content="[아이템 34] int 상수 대신 열거 타입을 사용하라. 열거 타입이란 일정 개수의 상수 값을 정의하고 그 이외 값들은 허용하지 않는 타입입니다. 대표적으로 사계절, 요일, 태양계의 행성 등이 있습니다.
@@ -119,38 +119,67 @@
 <div class=series-main data-animation=true>
 <div class=chapter-control>
 <div class=info>
-<div class=chapter-number>5 / 5</div>
+<div class=chapter-number>5 / 11</div>
 <div class=page-button>
 <div class="button chapter">
-<a href=/effective-java-3e/chapter-01/item01/ aria-label="1 장" accesskey=1 title="(1장 객체 생성과 파괴) Alt + 1">
+<a href=/effective-java-3e/chapter-01/item01/ aria-label="1 장" accesskey=1 title="(1장) Alt + 1">
 1 장
 </a>
 </div>
 <div class="button chapter">
-<a href=/effective-java-3e/chapter-02/item10/ aria-label="2 장" accesskey=2 title="(2장 모든 객체의 공통 메서드) Alt + 2">
+<a href=/effective-java-3e/chapter-02/item10/ aria-label="2 장" accesskey=2 title="(2장) Alt + 2">
 2 장
 </a>
 </div>
 <div class="button chapter">
-<a href=/effective-java-3e/chapter-03/item15/ aria-label="3 장" accesskey=3 title="(3장 클래스와 인터페이스) Alt + 3">
+<a href=/effective-java-3e/chapter-03/item15/ aria-label="3 장" accesskey=3 title="(3장) Alt + 3">
 3 장
 </a>
 </div>
 <div class="button chapter">
-<a href=/effective-java-3e/chapter-04/item26/ aria-label="4 장" accesskey=4 title="(4장 제네릭) Alt + 4">
+<a href=/effective-java-3e/chapter-04/item26/ aria-label="4 장" accesskey=4 title="(4장) Alt + 4">
 4 장
 </a>
 </div>
 <div class="button chapter current">
-<a href=/effective-java-3e/chapter-05/item34/ aria-label="5 장" accesskey=5 title="(5장 열거 타입과 애너테이션) Alt + 5">
+<a href=/effective-java-3e/chapter-05/item34/ aria-label="5 장" accesskey=5 title="(5장) Alt + 5">
 5 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-06/item42/ aria-label="6 장" accesskey=6 title="(6장) Alt + 6">
+6 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-07/item49/ aria-label="7 장" accesskey=7 title="(7장) Alt + 7">
+7 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-08/item57/ aria-label="8 장" accesskey=8 title="(8장) Alt + 8">
+8 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-09/item69/ aria-label="9 장" accesskey=9 title="(9장) Alt + 9">
+9 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-10/item78/ aria-label="10 장" accesskey=10 title="(10장) Alt + 10">
+10 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-11/item85/ aria-label="11 장" accesskey=11 title="(11장) Alt + 11">
+11 장
 </a>
 </div>
 </div>
 </div>
 </div>
-<h2><a href=/chapter/effective-java-3e-chapter-5/>Effective Java 3E - 5장 열거 타입과 애너테이션</a></h2><svg width="32" height="48" viewBox="0 0 32 48" class="series-corner-image"><path d="M32 0H0v48h.163l16-16L32 47.836V0z"/></svg>
-<div class="series-main-description abstracted">자바에는 특수한 목적의 참조 타입 두 가지가 있다. 하나는 클래스의 일종인 열거 타입(enum; 열거형)이고, 다른 하나는 인터페이스의 일종인 애너테이션(annotation)이다. 이번 장에서는 이 타입들을 올바르게 사용하는 방법을 알아본다.</div>
+<h2><a href=/chapter/effective-java-3e-chapter-05/>Effective Java 3E - 5장 </a></h2><svg width="32" height="48" viewBox="0 0 32 48" class="series-corner-image"><path d="M32 0H0v48h.163l16-16L32 47.836V0z"/></svg>
 <ol class=series-list>
 <li hugo-nav=/effective-java-3e/chapter-05/item34/>
 <a href=/effective-java-3e/chapter-05/item34/ class=current><i class=user-fa-hardware-keyboard-arrow-right aria-hidden=true></i>[아이템 34] int 상수 대신 열거 타입을 사용하라<span class=__cursor></span></a>
@@ -168,11 +197,15 @@
 <a class="button disabled" href=/effective-java-3e/chapter-04/item33/ aria-label="이전 장" accesskey=[ title="(이전 장) Alt + ["><svg style="margin-right:-15px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg><svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
 </a>
 </div>
+<div class=right>
+<a class="button disabled" href=/effective-java-3e/chapter-06/item42/ aria-label="다음 장" accesskey=] title="(다음 장) Alt + ]"><svg style="margin-right:-15px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+</a>
 </div>
 </div>
 </div>
 </div>
-<script>series_DOMReady(function(){const c=localStorage.getItem("lock-series-Effective Java 3E Chapter 5"),b=document.querySelector(".series-main .series-list"),a=document.querySelector(".series-main .series-control .toggle");if(localStorage.getItem("series-main-")==="true"){const a=document.querySelector(".series-main"),b=a.getBoundingClientRect();window.scrollTo(0,b.top),localStorage.removeItem("series-main-")}document.querySelector(".series-main .series-control .toggle").addEventListener("click",()=>{b.style.display==="none"||b.style.display===""?(localStorage.setItem("lock-series-Effective Java 3E Chapter 5",!1),a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"),b.style.display="block"):b.style.display==="block"&&(localStorage.setItem("lock-series-Effective Java 3E Chapter 5",!0),a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide"),b.style.display="none")});const d=document.querySelector(".series-main-description");d&&d.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))}),c==="false"?(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide")):c==="true"?(b.style.display="none",a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide")):(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"));const e=[...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)"),...document.querySelectorAll(".series-main .series-list li a"),...document.querySelectorAll(".series-control .page-button a:not(.disabled)")];for(let a=0;a<e.length;a++)e[a].addEventListener("click",a=>{localStorage.setItem("series-main-",!0)})})</script>
+</div>
+<script>series_DOMReady(function(){const c=localStorage.getItem("lock-series-Effective Java 3E Chapter 05"),b=document.querySelector(".series-main .series-list"),a=document.querySelector(".series-main .series-control .toggle");if(localStorage.getItem("series-main-")==="true"){const a=document.querySelector(".series-main"),b=a.getBoundingClientRect();window.scrollTo(0,b.top),localStorage.removeItem("series-main-")}document.querySelector(".series-main .series-control .toggle").addEventListener("click",()=>{b.style.display==="none"||b.style.display===""?(localStorage.setItem("lock-series-Effective Java 3E Chapter 05",!1),a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"),b.style.display="block"):b.style.display==="block"&&(localStorage.setItem("lock-series-Effective Java 3E Chapter 05",!0),a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide"),b.style.display="none")});const d=document.querySelector(".series-main-description");d&&d.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))}),c==="false"?(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide")):c==="true"?(b.style.display="none",a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide")):(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"));const e=[...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)"),...document.querySelectorAll(".series-main .series-list li a"),...document.querySelectorAll(".series-control .page-button a:not(.disabled)")];for(let a=0;a<e.length;a++)e[a].addEventListener("click",a=>{localStorage.setItem("series-main-",!0)})})</script>
 <div class=toc data-animation=true>
 <details>
 <summary accesskey=c title="(Alt + C)">
@@ -702,6 +735,13 @@
 </span>
 <br>
 <span>[아이템 33] 타입 안전 이종 컨테이너를 고려하라</span>
+</a>
+<a class="next button" href=https://qutrits.github.io/effective-java-3e/chapter-06/item42/>
+<span class=title>
+다음 페이지<svg style="margin-right:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+</span>
+<br>
+<span>[아이템 42] 익명 클래스보다는 람다를 사용하라</span>
 </a>
 </nav>
 <div class=share-buttons>

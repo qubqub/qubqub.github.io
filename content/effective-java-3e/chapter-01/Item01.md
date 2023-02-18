@@ -4,7 +4,7 @@ date: 2020-06-18T15:49:20+09:00
 tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
-chapter: ["Effective Java 3E Chapter 1"]
+chapter: ["Effective Java 3E Chapter 01"]
 author: ["Qutrits"]
 showToc: true
 showAsideToc: true

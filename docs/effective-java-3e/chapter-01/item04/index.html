@@ -10,7 +10,7 @@
 1 2 3 4 5 6 7  public class UtilityClass { // 기본 생성자가 만들어지는 것을 막는다.(인스턴스화 방지용)  private UtilityClass() { throw new AssertionError(); } .">
 <meta name=author content="Qutrits">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-01/item04/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.c92d8c158046ff072c572beb6ec3fb8c243390696f4ef3bdc58f635dac6c3dec.css integrity="sha256-yS2MFYBG/wcsVyvrbsP7jCQzkGlvTvO9xY9jXaxsPew=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.7a60fda1a98d48a5a769c501724fa6afbae84e66ddf853c6bebe57849ae3a447.css integrity="sha256-emD9oamNSKWnacUBck+mr7roTmbd+FPGvr5XhJrjpEc=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -34,7 +34,7 @@
 <meta property="og:url" content="https://qutrits.github.io/effective-java-3e/chapter-01/item04/"><meta property="article:section" content="effective-java-3e">
 <meta property="article:published_time" content="2020-06-19T15:51:43+09:00">
 <meta property="article:modified_time" content="2020-06-19T15:51:43+09:00">
-<meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-05/item34/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item33/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item32/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item31/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item30/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item29/">
+<meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-11/item85/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-10/item78/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-09/item69/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-08/item57/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-07/item49/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-06/item42/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="[아이템 4] 인스턴스를 막으려거든 private 생성자를 사용하라">
 <meta name=twitter:description content="java.lang.Math와 java.util.Arrays와 같이 static메서드와 static필드만을 담을 클래스는 인스턴스화를 하는 건 낭비가 됩니다.
@@ -122,38 +122,67 @@
 <div class=series-main data-animation=true>
 <div class=chapter-control>
 <div class=info>
-<div class=chapter-number>1 / 5</div>
+<div class=chapter-number>1 / 11</div>
 <div class=page-button>
 <div class="button chapter current">
-<a href=/effective-java-3e/chapter-01/item01/ aria-label="1 장" accesskey=1 title="(1장 객체 생성과 파괴) Alt + 1">
+<a href=/effective-java-3e/chapter-01/item01/ aria-label="1 장" accesskey=1 title="(1장) Alt + 1">
 1 장
 </a>
 </div>
 <div class="button chapter">
-<a href=/effective-java-3e/chapter-02/item10/ aria-label="2 장" accesskey=2 title="(2장 모든 객체의 공통 메서드) Alt + 2">
+<a href=/effective-java-3e/chapter-02/item10/ aria-label="2 장" accesskey=2 title="(2장) Alt + 2">
 2 장
 </a>
 </div>
 <div class="button chapter">
-<a href=/effective-java-3e/chapter-03/item15/ aria-label="3 장" accesskey=3 title="(3장 클래스와 인터페이스) Alt + 3">
+<a href=/effective-java-3e/chapter-03/item15/ aria-label="3 장" accesskey=3 title="(3장) Alt + 3">
 3 장
 </a>
 </div>
 <div class="button chapter">
-<a href=/effective-java-3e/chapter-04/item26/ aria-label="4 장" accesskey=4 title="(4장 제네릭) Alt + 4">
+<a href=/effective-java-3e/chapter-04/item26/ aria-label="4 장" accesskey=4 title="(4장) Alt + 4">
 4 장
 </a>
 </div>
 <div class="button chapter">
-<a href=/effective-java-3e/chapter-05/item34/ aria-label="5 장" accesskey=5 title="(5장 열거 타입과 애너테이션) Alt + 5">
+<a href=/effective-java-3e/chapter-05/item34/ aria-label="5 장" accesskey=5 title="(5장) Alt + 5">
 5 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-06/item42/ aria-label="6 장" accesskey=6 title="(6장) Alt + 6">
+6 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-07/item49/ aria-label="7 장" accesskey=7 title="(7장) Alt + 7">
+7 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-08/item57/ aria-label="8 장" accesskey=8 title="(8장) Alt + 8">
+8 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-09/item69/ aria-label="9 장" accesskey=9 title="(9장) Alt + 9">
+9 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-10/item78/ aria-label="10 장" accesskey=10 title="(10장) Alt + 10">
+10 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-11/item85/ aria-label="11 장" accesskey=11 title="(11장) Alt + 11">
+11 장
 </a>
 </div>
 </div>
 </div>
 </div>
-<h2><a href=/chapter/effective-java-3e-chapter-1/>Effective Java 3E - 1장 객체 생성과 파괴</a></h2><svg width="32" height="48" viewBox="0 0 32 48" class="series-corner-image"><path d="M32 0H0v48h.163l16-16L32 47.836V0z"/></svg>
-<div class="series-main-description abstracted">이번 장은 객체의 생성과 파괴를 다룬다. 객체를 만들어야 할 때와 만들지 말아야 할 때를 구분하는 법, 올바른 객체 생성 방법과 불필요한 생성을 피하는 방법, 제때 파괴됨을 보장하고 파괴 전에 수행해야 할 정리 작업을 관리하는 요령을 알아본다.</div>
+<h2><a href=/chapter/effective-java-3e-chapter-01/>Effective Java 3E - 1장 </a></h2><svg width="32" height="48" viewBox="0 0 32 48" class="series-corner-image"><path d="M32 0H0v48h.163l16-16L32 47.836V0z"/></svg>
 <ol class=series-list>
 <li hugo-nav=/effective-java-3e/chapter-01/item01/>
 <a href=/effective-java-3e/chapter-01/item01/>[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라</a>
@@ -203,7 +232,7 @@
 </div>
 </div>
 </div>
-<script>series_DOMReady(function(){const c=localStorage.getItem("lock-series-Effective Java 3E Chapter 1"),b=document.querySelector(".series-main .series-list"),a=document.querySelector(".series-main .series-control .toggle");if(localStorage.getItem("series-main-")==="true"){const a=document.querySelector(".series-main"),b=a.getBoundingClientRect();window.scrollTo(0,b.top),localStorage.removeItem("series-main-")}document.querySelector(".series-main .series-control .toggle").addEventListener("click",()=>{b.style.display==="none"||b.style.display===""?(localStorage.setItem("lock-series-Effective Java 3E Chapter 1",!1),a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"),b.style.display="block"):b.style.display==="block"&&(localStorage.setItem("lock-series-Effective Java 3E Chapter 1",!0),a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide"),b.style.display="none")});const d=document.querySelector(".series-main-description");d&&d.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))}),c==="false"?(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide")):c==="true"?(b.style.display="none",a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide")):(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"));const e=[...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)"),...document.querySelectorAll(".series-main .series-list li a"),...document.querySelectorAll(".series-control .page-button a:not(.disabled)")];for(let a=0;a<e.length;a++)e[a].addEventListener("click",a=>{localStorage.setItem("series-main-",!0)})})</script>
+<script>series_DOMReady(function(){const c=localStorage.getItem("lock-series-Effective Java 3E Chapter 01"),b=document.querySelector(".series-main .series-list"),a=document.querySelector(".series-main .series-control .toggle");if(localStorage.getItem("series-main-")==="true"){const a=document.querySelector(".series-main"),b=a.getBoundingClientRect();window.scrollTo(0,b.top),localStorage.removeItem("series-main-")}document.querySelector(".series-main .series-control .toggle").addEventListener("click",()=>{b.style.display==="none"||b.style.display===""?(localStorage.setItem("lock-series-Effective Java 3E Chapter 01",!1),a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"),b.style.display="block"):b.style.display==="block"&&(localStorage.setItem("lock-series-Effective Java 3E Chapter 01",!0),a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide"),b.style.display="none")});const d=document.querySelector(".series-main-description");d&&d.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))}),c==="false"?(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide")):c==="true"?(b.style.display="none",a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide")):(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"));const e=[...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)"),...document.querySelectorAll(".series-main .series-list li a"),...document.querySelectorAll(".series-control .page-button a:not(.disabled)")];for(let a=0;a<e.length;a++)e[a].addEventListener("click",a=>{localStorage.setItem("series-main-",!0)})})</script>
 <div class=aside-share-buttons-wrapper data-animation=true>
 <div class=share-buttons>
 <div class="aside-share-control-buttons button" aria-label=공유하기 title=공유하기><svg width="18" height="18" viewBox="0 0 24 24" class="aside-share-control-buttons-svg"><path class="aside-share-control-buttons-path" d="M5 7c2.761.0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm11.122 12.065c-.073.301-.122.611-.122.935.0 2.209 1.791 4 4 4s4-1.791 4-4-1.791-4-4-4c-1.165.0-2.204.506-2.935 1.301l-5.488-2.927c-.23.636-.549 1.229-.943 1.764l5.488 2.927zM24 4c0-2.209-1.791-4-4-4s-4 1.791-4 4c0 .324.049.634.122.935l-5.488 2.927c.395.535.713 1.127.943 1.764l5.488-2.927C17.796 7.494 18.835 8 20 8c2.209.0 4-1.791 4-4z"/></svg>

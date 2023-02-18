@@ -1,3 +1,26 @@
+---
+title: "[아이템 78] 공유중인 가변 데이터는 동기화해 사용하라"
+date: 2021-07-02T10:11:42+09:00
+tags: ["Java", "Effective Java 3E"]
+categories: ["Effective Java 3E"]
+series: ["Effective Java 3E"]
+chapter: ["Effective Java 3E Chapter 10"]
+author: ["Qutrits"]
+showToc: true
+showAsideToc: true
+TocOpen: false
+draft: false
+hidemeta: false
+comments: true
+ShowReadingTime: true
+showPostNavLinks: true
+ShowCodeCopyButtons: true
+ShowBreadCrumbs: true
+showContentProgressbar: true
+# cover:
+#   hidden: true
+#   image: "/logo/logo-effective-java-3e.png"
+---
 # [아이템 78] 공유중인 가변 데이터는 동기화해 사용하라.
 
 동기화란 특정 메서드나 블럭에 한 쓰레드가 접근했을 때, 해당 객체에 락을 걸고 다른 쓰레드가 접근하지 못하도록 하는 것이다.

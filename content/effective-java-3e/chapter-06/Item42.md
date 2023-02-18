@@ -1,3 +1,26 @@
+---
+title: "[아이템 42] 익명 클래스보다는 람다를 사용하라"
+date: 2021-03-02T10:11:42+09:00
+tags: ["Java", "Effective Java 3E"]
+categories: ["Effective Java 3E"]
+series: ["Effective Java 3E"]
+chapter: ["Effective Java 3E Chapter 06"]
+author: ["Qutrits"]
+showToc: true
+showAsideToc: true
+TocOpen: false
+draft: false
+hidemeta: false
+comments: true
+ShowReadingTime: true
+showPostNavLinks: true
+ShowCodeCopyButtons: true
+ShowBreadCrumbs: true
+showContentProgressbar: true
+# cover:
+#   hidden: true
+#   image: "/logo/logo-effective-java-3e.png"
+---
 # [아이템 42] 익명 클래스보다는 람다를 사용하라.
 
 자바 8부터는 함수형 프로그래밍을 지원합니다. 추상 메서드가 하나인(Single Abstract Method)인터페이스를 함수형 인터페이스라고 부르며 람다식을 사용해 만들 수 있습니다. 람다는 익명클래스에 비해 코드가 간결하고 가독성이 좋다는 장점이 있습니다.

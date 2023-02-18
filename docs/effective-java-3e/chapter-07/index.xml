@@ -4,11 +4,12 @@
     <title>7장 메서드 on &lt;Qutrits/&gt;</title>
     <link>https://qutrits.github.io/effective-java-3e/chapter-07/</link>
     <description>Recent content in 7장 메서드 on &lt;Qutrits/&gt;</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://qutrits.github.io/effective-java-3e/chapter-07/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 02 Apr 2021 10:11:42 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/effective-java-3e/chapter-07/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
+      <title>[아이템 49] 매개변수가 유효한지 검사하라</title>
       <link>https://qutrits.github.io/effective-java-3e/chapter-07/item49/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 02 Apr 2021 10:11:42 +0900</pubDate>
       
       <guid>https://qutrits.github.io/effective-java-3e/chapter-07/item49/</guid>
       <description>매개변수가 유효한지 검사하라. 메서드와 생성자는 대부분 특정 조건의 입력 매개변수에 특정 조건을 만족하기를 바랍니다. 만일 잘못된 값이 들어올 경우 보통 예외를 던지거나 컴파일 오류를 잡아내긴 하지만, 오류는 가능한 빨리 잡아내는 게 좋습니다. 그렇지 않으면 감지하기 어려워지고 감지하더라도 찾아내기 힘들어지는 경우도 있습니다.

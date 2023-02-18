@@ -1,3 +1,26 @@
+---
+title: "[아이템 85] 자바 직렬화의 대안을 찾으라"
+date: 2021-08-02T10:11:42+09:00
+tags: ["Java", "Effective Java 3E"]
+categories: ["Effective Java 3E"]
+series: ["Effective Java 3E"]
+chapter: ["Effective Java 3E Chapter 11"]
+author: ["Qutrits"]
+showToc: true
+showAsideToc: true
+TocOpen: false
+draft: false
+hidemeta: false
+comments: true
+ShowReadingTime: true
+showPostNavLinks: true
+ShowCodeCopyButtons: true
+ShowBreadCrumbs: true
+showContentProgressbar: true
+# cover:
+#   hidden: true
+#   image: "/logo/logo-effective-java-3e.png"
+---
 # [아이템 85] 자바 직렬화의 대안을 찾으라.
 
 자바의 역직렬화에는 치명적인 단점이 있습니다. 신롸할 수 없는 스트림을 역직렬화하면 원격 코드 실행, 서비스 거부 등의 공격으로 이어질 수 있습니다.

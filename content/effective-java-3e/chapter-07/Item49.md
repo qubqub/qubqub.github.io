@@ -1,3 +1,26 @@
+---
+title: "[아이템 49] 매개변수가 유효한지 검사하라"
+date: 2021-04-02T10:11:42+09:00
+tags: ["Java", "Effective Java 3E"]
+categories: ["Effective Java 3E"]
+series: ["Effective Java 3E"]
+chapter: ["Effective Java 3E Chapter 07"]
+author: ["Qutrits"]
+showToc: true
+showAsideToc: true
+TocOpen: false
+draft: false
+hidemeta: false
+comments: true
+ShowReadingTime: true
+showPostNavLinks: true
+ShowCodeCopyButtons: true
+ShowBreadCrumbs: true
+showContentProgressbar: true
+# cover:
+#   hidden: true
+#   image: "/logo/logo-effective-java-3e.png"
+---
 # 매개변수가 유효한지 검사하라.
 
 메서드와 생성자는 대부분 특정 조건의 입력 매개변수에 특정 조건을 만족하기를 바랍니다. 만일 잘못된 값이 들어올 경우 보통 예외를 던지거나 컴파일 오류를 잡아내긴 하지만, 오류는 가능한 빨리 잡아내는 게 좋습니다. 그렇지 않으면 감지하기 어려워지고 감지하더라도 찾아내기 힘들어지는 경우도 있습니다.</br>

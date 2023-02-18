@@ -10,7 +10,7 @@
  equals 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 hashCode메서드는 여러번 호출해도 일관된 값을 반환해야 합니다. equals가 두 객체를 같다고 판단하면 hashCode 또한 같은 값을 반환해야 합니다. equals가 두 객체를 다르다고 판단해도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.">
 <meta name=author content="Qutrits">
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-02/item11/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.c92d8c158046ff072c572beb6ec3fb8c243390696f4ef3bdc58f635dac6c3dec.css integrity="sha256-yS2MFYBG/wcsVyvrbsP7jCQzkGlvTvO9xY9jXaxsPew=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.7a60fda1a98d48a5a769c501724fa6afbae84e66ddf853c6bebe57849ae3a447.css integrity="sha256-emD9oamNSKWnacUBck+mr7roTmbd+FPGvr5XhJrjpEc=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
@@ -34,7 +34,7 @@
 <meta property="og:url" content="https://qutrits.github.io/effective-java-3e/chapter-02/item11/"><meta property="article:section" content="effective-java-3e">
 <meta property="article:published_time" content="2020-06-27T13:18:21+09:00">
 <meta property="article:modified_time" content="2020-06-27T13:18:21+09:00">
-<meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-05/item34/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item33/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item32/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item31/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item30/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-04/item29/">
+<meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-11/item85/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-10/item78/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-09/item69/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-08/item57/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-07/item49/"><meta property="og:see_also" content="https://qutrits.github.io/effective-java-3e/chapter-06/item42/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="[아이템 11] equals를 재정의하려거든 hashCode도 재정의하라">
 <meta name=twitter:description content="equals와 hasoCode를 재정의 하지 않으면 HashMap이나 HashSet에서 같은 원소를 사용할 때 문제가 발생합니다.
@@ -122,38 +122,67 @@
 <div class=series-main data-animation=true>
 <div class=chapter-control>
 <div class=info>
-<div class=chapter-number>2 / 5</div>
+<div class=chapter-number>2 / 11</div>
 <div class=page-button>
 <div class="button chapter">
-<a href=/effective-java-3e/chapter-01/item01/ aria-label="1 장" accesskey=1 title="(1장 객체 생성과 파괴) Alt + 1">
+<a href=/effective-java-3e/chapter-01/item01/ aria-label="1 장" accesskey=1 title="(1장) Alt + 1">
 1 장
 </a>
 </div>
 <div class="button chapter current">
-<a href=/effective-java-3e/chapter-02/item10/ aria-label="2 장" accesskey=2 title="(2장 모든 객체의 공통 메서드) Alt + 2">
+<a href=/effective-java-3e/chapter-02/item10/ aria-label="2 장" accesskey=2 title="(2장) Alt + 2">
 2 장
 </a>
 </div>
 <div class="button chapter">
-<a href=/effective-java-3e/chapter-03/item15/ aria-label="3 장" accesskey=3 title="(3장 클래스와 인터페이스) Alt + 3">
+<a href=/effective-java-3e/chapter-03/item15/ aria-label="3 장" accesskey=3 title="(3장) Alt + 3">
 3 장
 </a>
 </div>
 <div class="button chapter">
-<a href=/effective-java-3e/chapter-04/item26/ aria-label="4 장" accesskey=4 title="(4장 제네릭) Alt + 4">
+<a href=/effective-java-3e/chapter-04/item26/ aria-label="4 장" accesskey=4 title="(4장) Alt + 4">
 4 장
 </a>
 </div>
 <div class="button chapter">
-<a href=/effective-java-3e/chapter-05/item34/ aria-label="5 장" accesskey=5 title="(5장 열거 타입과 애너테이션) Alt + 5">
+<a href=/effective-java-3e/chapter-05/item34/ aria-label="5 장" accesskey=5 title="(5장) Alt + 5">
 5 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-06/item42/ aria-label="6 장" accesskey=6 title="(6장) Alt + 6">
+6 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-07/item49/ aria-label="7 장" accesskey=7 title="(7장) Alt + 7">
+7 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-08/item57/ aria-label="8 장" accesskey=8 title="(8장) Alt + 8">
+8 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-09/item69/ aria-label="9 장" accesskey=9 title="(9장) Alt + 9">
+9 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-10/item78/ aria-label="10 장" accesskey=10 title="(10장) Alt + 10">
+10 장
+</a>
+</div>
+<div class="button chapter">
+<a href=/effective-java-3e/chapter-11/item85/ aria-label="11 장" accesskey=11 title="(11장) Alt + 11">
+11 장
 </a>
 </div>
 </div>
 </div>
 </div>
-<h2><a href=/chapter/effective-java-3e-chapter-2/>Effective Java 3E - 2장 모든 객체의 공통 메서드</a></h2><svg width="32" height="48" viewBox="0 0 32 48" class="series-corner-image"><path d="M32 0H0v48h.163l16-16L32 47.836V0z"/></svg>
-<div class="series-main-description abstracted">Object는 객체를 만들 수 있는 구체 클래스지만 기본적으로는 상속해서 사용하도록 설계되었다. Object에서 final이 아닌 메서드(equals, hashCode, toString, clone, finalize)는 모두 재정의(overriding)를 염두에 두고 설계된 것이라 재정의 시 지켜야 하는 일반 규약이 명확히 정의되어 있다. 그래서 Object를 상속하는 클래스, 즉 모든 클랙스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다. 메서드를 잘못 구현하면 대상 클래스가 이 규약을 준수한다고 가정 하는 클래스(HashMap과 HashSet 등)를 오작동하게 만들 수 있다. 이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다. 그중 finalize 메서드는 아이템 8에서 다뤘으니 더 이상 언급하지 않는다. Comparable.compareTo의 경우 Object의 메서드는 아니지만 성격이 비슷하여 이번 장에서 함께 다룬다.</div>
+<h2><a href=/chapter/effective-java-3e-chapter-02/>Effective Java 3E - 2장 </a></h2><svg width="32" height="48" viewBox="0 0 32 48" class="series-corner-image"><path d="M32 0H0v48h.163l16-16L32 47.836V0z"/></svg>
 <ol class=series-list>
 <li hugo-nav=/effective-java-3e/chapter-02/item10/>
 <a href=/effective-java-3e/chapter-02/item10/>[아이템 10] equals는 일반 규약을 지켜 재정의하라</a>
@@ -191,7 +220,7 @@
 </div>
 </div>
 </div>
-<script>series_DOMReady(function(){const c=localStorage.getItem("lock-series-Effective Java 3E Chapter 2"),b=document.querySelector(".series-main .series-list"),a=document.querySelector(".series-main .series-control .toggle");if(localStorage.getItem("series-main-")==="true"){const a=document.querySelector(".series-main"),b=a.getBoundingClientRect();window.scrollTo(0,b.top),localStorage.removeItem("series-main-")}document.querySelector(".series-main .series-control .toggle").addEventListener("click",()=>{b.style.display==="none"||b.style.display===""?(localStorage.setItem("lock-series-Effective Java 3E Chapter 2",!1),a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"),b.style.display="block"):b.style.display==="block"&&(localStorage.setItem("lock-series-Effective Java 3E Chapter 2",!0),a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide"),b.style.display="none")});const d=document.querySelector(".series-main-description");d&&d.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))}),c==="false"?(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide")):c==="true"?(b.style.display="none",a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide")):(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"));const e=[...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)"),...document.querySelectorAll(".series-main .series-list li a"),...document.querySelectorAll(".series-control .page-button a:not(.disabled)")];for(let a=0;a<e.length;a++)e[a].addEventListener("click",a=>{localStorage.setItem("series-main-",!0)})})</script>
+<script>series_DOMReady(function(){const c=localStorage.getItem("lock-series-Effective Java 3E Chapter 02"),b=document.querySelector(".series-main .series-list"),a=document.querySelector(".series-main .series-control .toggle");if(localStorage.getItem("series-main-")==="true"){const a=document.querySelector(".series-main"),b=a.getBoundingClientRect();window.scrollTo(0,b.top),localStorage.removeItem("series-main-")}document.querySelector(".series-main .series-control .toggle").addEventListener("click",()=>{b.style.display==="none"||b.style.display===""?(localStorage.setItem("lock-series-Effective Java 3E Chapter 02",!1),a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"),b.style.display="block"):b.style.display==="block"&&(localStorage.setItem("lock-series-Effective Java 3E Chapter 02",!0),a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide"),b.style.display="none")});const d=document.querySelector(".series-main-description");d&&d.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))}),c==="false"?(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide")):c==="true"?(b.style.display="none",a.querySelector(".lock").classList.remove("hide"),a.querySelector(".unlock").classList.add("hide")):(b.style.display="block",a.querySelector(".lock").classList.add("hide"),a.querySelector(".unlock").classList.remove("hide"));const e=[...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)"),...document.querySelectorAll(".series-main .series-list li a"),...document.querySelectorAll(".series-control .page-button a:not(.disabled)")];for(let a=0;a<e.length;a++)e[a].addEventListener("click",a=>{localStorage.setItem("series-main-",!0)})})</script>
 <div class=toc data-animation=true>
 <details>
 <summary accesskey=c title="(Alt + C)">

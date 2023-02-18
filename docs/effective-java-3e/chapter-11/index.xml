@@ -4,11 +4,12 @@
     <title>11장 직렬화 on &lt;Qutrits/&gt;</title>
     <link>https://qutrits.github.io/effective-java-3e/chapter-11/</link>
     <description>Recent content in 11장 직렬화 on &lt;Qutrits/&gt;</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://qutrits.github.io/effective-java-3e/chapter-11/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 02 Aug 2021 10:11:42 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/effective-java-3e/chapter-11/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
+      <title>[아이템 85] 자바 직렬화의 대안을 찾으라</title>
       <link>https://qutrits.github.io/effective-java-3e/chapter-11/item85/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 02 Aug 2021 10:11:42 +0900</pubDate>
       
       <guid>https://qutrits.github.io/effective-java-3e/chapter-11/item85/</guid>
       <description>[아이템 85] 자바 직렬화의 대안을 찾으라. 자바의 역직렬화에는 치명적인 단점이 있습니다. 신롸할 수 없는 스트림을 역직렬화하면 원격 코드 실행, 서비스 거부 등의 공격으로 이어질 수 있습니다.
