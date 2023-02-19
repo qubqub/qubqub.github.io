@@ -354,14 +354,15 @@ header.header {
   /* top: 0; */
   background-color: orangered;
   height: 0.15vh;
-  width: 0%;
-  border-radius: 16px;
-  box-shadow : 0px 0px 15px 5px rgba(18, 184, 134, .1);
+  border-radius: 1rem;
+  box-shadow : 0px 0px 15px 5px rgba(255, 69, 0, .1);
   transition: width 0.125s ease-out 0s;
 }
 
 .dark .progress-bar-container__progress {
   background-color: var(--main-color);
+  height: 0.15vh;
+  box-shadow : 0px 0px 15px 5px rgba(18, 184, 134, .1);
 }
 
 .terms-tags a {
