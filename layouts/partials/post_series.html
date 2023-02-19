@@ -129,7 +129,7 @@
                   {{ $descPages := seq (sub (len $value.Pages) 1) -1 0 }}
                   {{ range $descPages }}
                     {{ with (index $value.Pages .) }}
-                      <li hugo-nav="{{ .RelPermalink}}">
+                      <li hugo-nav="{{ .RelPermalink}}" class="button custom-button">
                         <a href="{{ .RelPermalink}}" {{ if (eq $pageTitle .LinkTitle) }} class="current" {{ end }}>{{ if (eq $pageTitle .LinkTitle) }}<i class="user-fa-hardware-keyboard-arrow-right" aria-hidden="true"></i>{{ end }}{{ .LinkTitle }}{{ if (eq $pageTitle .LinkTitle) }}<span class="__cursor"></span>{{ end }}</a>
                       </li>
                     {{ end }}
@@ -413,7 +413,7 @@
                   {{ $descPages := seq (sub (len $value.Pages) 1) -1 0 }}
                   {{ range $descPages }}
                     {{ with (index $value.Pages .) }}
-                    <li hugo-nav="{{ .RelPermalink}}">
+                    <li hugo-nav="{{ .RelPermalink}}" class="button custom-button">
                       <a href="{{ .RelPermalink}}" {{ if (eq $pageTitle .LinkTitle) }} class="current" {{ end }}>{{ .LinkTitle }}</a>
                     </li>
                     {{ end }}
