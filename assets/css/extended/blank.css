@@ -3184,7 +3184,7 @@ a.button,
   display: inline-block;
   width: 0.7rem;
   height: 1.2rem;
-  vertical-align: -2px;
+  vertical-align: -3px;
   /* background: #fe5186; */
   background: var(--main-color);
   margin-left: 6px;
