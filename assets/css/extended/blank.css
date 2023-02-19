@@ -3192,6 +3192,12 @@ a.button,
   animation: cursor 1s infinite;
 }
 
+.custom-button {
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
 @keyframes slide-in-down-70-rebound {
   0% {
     opacity: 0;

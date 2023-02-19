@@ -1,0 +1,19 @@
+<div class="social-icons">
+    {{- range . }}
+    <a href="{{ trim .url " " }}" target="_blank" rel="noopener noreferrer me" title="{{ (.title | default .name) | title }}">
+        {{ partial "svg.html" . }}
+    </a>
+    {{- end }}
+</div>
+<script>
+    const socialIcons_DOMReady = function (callback) {
+      document.readyState === "interactive" ||
+        document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+    };
+    socialIcons_DOMReady( function () {
+        const _socialIcons = document.querySelectorAll(".main .profile .profile_inner .social-icons a svg");
+        for (let i = 0; i < _socialIcons.length; i++) {
+            _socialIcons[i].classList.add("button", "custom-button");
+        }
+    });
+</script>

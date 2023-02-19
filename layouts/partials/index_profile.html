@@ -3,7 +3,7 @@
     {{- with .Site.Params.profileMode }}
     <div class="profile_inner">
         {{- if .imageUrl -}}
-        <div class="profile-picture" onclick=true alt="{{ .imageTitle | default "profile image" }}"
+        <div class="profile-picture button custom-button" onclick=true alt="{{ .imageTitle | default "profile image" }}"
             style="--profile-image: url({{ .imageUrl | absURL }}); height: {{ .imageHeight | default 150 }}px; width: {{ .imageWidth | default 150 }}px;"></div>
         {{- end }}
         <h1>{{ .title | default $.Site.Title | markdownify }}</h1>
