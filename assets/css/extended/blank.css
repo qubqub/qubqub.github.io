@@ -3184,9 +3184,8 @@ a.button,
 .main .post-single .series-main .series-list li a.current .__cursor {
   display: inline-block;
   width: 0.7rem;
-  height: 1.2rem;
-  vertical-align: -3px;
-  /* background: #fe5186; */
+  height: 1.1rem;
+  vertical-align: -2px;
   background: var(--main-color);
   margin-left: 6px;
   border-radius: 1px;
