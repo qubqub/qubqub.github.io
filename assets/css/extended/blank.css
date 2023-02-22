@@ -2336,8 +2336,8 @@ header.header {
   }
 
   .display-font-size-info {
-    font-size: 1rem;
-    height: 1.3rem;
+    font-size: 1em;
+    /* height: 1.3em; */
     display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -2510,8 +2510,8 @@ header.header {
   }
 
   .display-font-size-info {
-    font-size: 1rem;
-    height: 1.3rem;
+    font-size: 1em;
+    /* height: 1.3em; */
     display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -2722,8 +2722,8 @@ header.header {
   }
 
   .display-font-size-info {
-    font-size: 1rem;
-    height: 1.3rem;
+    font-size: 1em;
+    /* height: 1.3em; */
     display: flex;
     -webkit-box-align: center;
     align-items: center;
