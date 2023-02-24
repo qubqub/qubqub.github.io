@@ -356,7 +356,7 @@ header.header {
   height: 0.15vh;
   border-radius: 1rem;
   box-shadow : 0px 0px 15px 5px rgba(255, 69, 0, .1);
-  transition: width 0.125s ease-out 0s;
+  transition: width 0.2s ease-out 0s;
 }
 
 .dark .progress-bar-container__progress {

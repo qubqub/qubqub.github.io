@@ -185,57 +185,89 @@
       }
     }
 
-    function scrollLeft(element, to, duration) {
-      let start = element.scrollLeft,
-          change = to - start,
-          currentTime = 0,
-          increment = 20;
-          
-      let animateScroll = function(){        
-        currentTime += increment;
-        let x = Math.easeInOutQuad(currentTime, start, change, duration);
-        element.scrollTo(x, 0);
-        if(currentTime < duration) {
-          setTimeout(animateScroll, increment);
+    const animateScrollTo = (element, direction, to, duration) => {
+      const start = direction === "vertical" ? element.scrollTop : element.scrollLeft; // vertical, horizontal
+      const change = to - start;
+      const startDate = +new Date();
+      // t = current time
+      // b = start value
+      // c = change in value
+      // d = duration
+      const easeInOutQuad = (t, b, c, d) => {
+        let t2 = t;
+        t2 /= d / 2;
+        if (t2 < 1) return (c / 2) * t2 * t2 + b;
+        t2 -= 1;
+        return (-c / 2) * (t2 * (t2 - 2) - 1) + b;
+      };
+      const animateScroll = () => {
+        const currentDate = +new Date();
+        const currentTime = currentDate - startDate;
+        if (direction === "vertical") {
+          element.scrollTop = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
+        } else {
+          element.scrollLeft = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
+        }
+
+        if (currentTime < duration) {
+          requestAnimationFrame(animateScroll);
+        } else {
+          if (direction === "vertical") {
+            element.scrollTop = to;
+          } else {
+            element.scrollLeft = to;
+          }
         }
       };
       animateScroll();
-    }
-
-    //t = current time
-    //b = start value
-    //c = change in value
-    //d = duration
-    Math.easeInOutQuad = function (t, b, c, d) {
-      t /= d/2;
-      if (t < 1) return c/2*t*t + b;
-      t--;
-      return -c/2 * (t*(t-2) - 1) + b;
     };
     
-    for (let i = 0; i < _shareButtons.length; i++) {
-      _shareButtons[i].addEventListener("dragstart", (e) => {
-        _s = e.clientX;
-      });
-      _shareButtons[i].addEventListener("drag", (e) => {
-        _d = _s > e.clientX ? false : true;
-        if (_d) { // right +
-          if (_o  < _s - e.clientX) {
-            _s = e.clientX;
-          }
-        } else { // left -
-          if (_o  > _s - e.clientX) {
-            _s = e.clientX;
-          }
+    let prevX = 0;
+    // for (let i = 0; i < _shareButtons.length; i++) {
+    //   _shareButtons[i].addEventListener("dragstart", (e) => {
+    //     _s = e.clientX;
+    //   });
+    //   _shareButtons[i].addEventListener("drag", (e) => {
+    //     _d = _s > e.clientX ? false : true;
+    //     if (_d) { // right +
+    //       if (_o  < _s - e.clientX) {
+    //         _s = e.clientX;
+    //       }
+    //     } else { // left -
+    //       if (_o  > _s - e.clientX) {
+    //         _s = e.clientX;
+    //       }
+    //     }
+    //     _d = false;
+    //     if (e.clientX <= 0) return;
+    //     let _t = _s - e.clientX;
+    //     if (prevX != e.clientX) animateScrollTo(_shareButtonsWrapper, "horizontal", _shareButtonsWrapper.scrollLeft + _t, 500);
+    //     _o = _t;
+    //     prevX = e.clientX;
+    //   });
+    // }
+
+    _shareButtonsWrapper.addEventListener("dragstart", (e) => {
+      _s = e.clientX;
+    });
+    _shareButtonsWrapper.addEventListener("drag", (e) => {
+      _d = _s > e.clientX ? false : true;
+      if (_d) { // right +
+        if (_o  < _s - e.clientX) {
+          _s = e.clientX;
         }
-        _d = false;
-        if (e.clientX <= 0) return;
-        
-        let _t = _s - e.clientX;
-        scrollLeft(_shareButtonsWrapper, _shareButtonsWrapper.scrollLeft + _t, 100);
-        _o = _t;
-      });
-    }
+      } else { // left -
+        if (_o  > _s - e.clientX) {
+          _s = e.clientX;
+        }
+      }
+      _d = false;
+      if (e.clientX <= 0) return;
+      let _t = _s - e.clientX;
+      if (prevX != e.clientX) animateScrollTo(_shareButtonsWrapper, "horizontal", _shareButtonsWrapper.scrollLeft + _t, 50);
+      _o = _t;
+      prevX = e.clientX;
+    });
 
     window.addEventListener("resize", (e) => {
       if (_shareButtonsWrapper.scrollWidth > _shareButtonsWrapper.clientWidth) {

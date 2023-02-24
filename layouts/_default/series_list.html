@@ -30,9 +30,9 @@
       {{- $count := .Count }}
       
       {{- with $.Site.GetPage (printf "/%s/%s" "series" $name) }}
+        {{ $seriesTitle := .Name }}
         <div class="series-entry-wrapper" {{ if .Site.Params.useAnimation }}style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;" data-animation="true"{{ end }}>
-          <article class="series-entry button" title="{{- i18n $name }}">
-            {{ $seriesTitle := .Name }}
+          <article class="series-entry button" title="{{ $seriesTitle }}&#10;{{- i18n $name }}">
             {{ $seriesId := index (split .RelPermalink "/") (sub (len (split .RelPermalink "/")) 2) }}
             {{- range where $seriesCover "name" $seriesTitle }}
               {{- if .image }}
@@ -79,7 +79,7 @@
                         {{- range where $seriesCover "name" $seriesTitle }}
                           {{- range .chapter }}
                             {{- if (eq .id $key) }}
-                            <li>
+                            <li class="post-tag" title="{{ if (eq (i18n "country_code") "en") }}{{ i18n "chapter" }} {{ end }}{{ $_chapterNumber | strings.TrimLeft "0" }} {{ if (eq (i18n "country_code") "ko") }}{{ i18n "chapter" }}{{ end }} {{ .title }}&#10;{{ i18n (print $key "-description") }}">
                               <a class="button chapter-link-button" href="{{ $_chapterLink }}">{{ if (eq (i18n "country_code") "en") }}{{ i18n "chapter" }} {{ end }}{{ $_chapterNumber | strings.TrimLeft "0" }} {{ if (eq (i18n "country_code") "ko") }}{{ i18n "chapter" }}{{ end }} {{ .title }}</a>
                             </li>
                             {{- end }}
@@ -124,64 +124,100 @@
       let _first = true;
       let _end = false;
 
-      function scrollLeft(element, to, duration) {
-        let start = element.scrollLeft,
-            change = to - start,
-            currentTime = 0,
-            increment = 20;
-            
-        let animateScroll = function(){        
-          currentTime += increment;
-          let x = Math.easeInOutQuad(currentTime, start, change, duration);
-          element.scrollTo(x, 0);
-          if(currentTime < duration) {
-            setTimeout(animateScroll, increment);
+      const animateScrollTo = (element, direction, to, duration) => {
+        const start = direction === "vertical" ? element.scrollTop : element.scrollLeft; // vertical, horizontal
+        const change = to - start;
+        const startDate = +new Date();
+        // t = current time
+        // b = start value
+        // c = change in value
+        // d = duration
+        const easeInOutQuad = (t, b, c, d) => {
+          let t2 = t;
+          t2 /= d / 2;
+          if (t2 < 1) return (c / 2) * t2 * t2 + b;
+          t2 -= 1;
+          return (-c / 2) * (t2 * (t2 - 2) - 1) + b;
+        };
+        const animateScroll = () => {
+          const currentDate = +new Date();
+          const currentTime = currentDate - startDate;
+          if (direction === "vertical") {
+            element.scrollTop = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
+          } else {
+            element.scrollLeft = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
+          }
+
+          if (currentTime < duration) {
+            requestAnimationFrame(animateScroll);
+          } else {
+            if (direction === "vertical") {
+              element.scrollTop = to;
+            } else {
+              element.scrollLeft = to;
+            }
           }
         };
         animateScroll();
-      }
-
-      //t = current time
-      //b = start value
-      //c = change in value
-      //d = duration
-      Math.easeInOutQuad = function (t, b, c, d) {
-        t /= d/2;
-        if (t < 1) return c/2*t*t + b;
-        t--;
-        return -c/2 * (t*(t-2) - 1) + b;
       };
       
-      for (let i = 0; i < _seriesTags.length; i++) {
-        _seriesTags[i].addEventListener("dragstart", (e) => {
-          _s = e.clientX;
-        });
-        _seriesTags[i].addEventListener("drag", (e) => {
-          _d = _s > e.clientX ? false : true;
-          if (_d) { // right +
-            if (_o  < _s - e.clientX) {
-              _s = e.clientX;
-            }
-          } else { // left -
-            if (_o  > _s - e.clientX) {
-              _s = e.clientX;
-            }
-          }
-          _d = false;
-          if (e.clientX <= 0) return;
-          
-          let _t = _s - e.clientX;
-          scrollLeft(_seriesTagsWrapper, _seriesTagsWrapper.scrollLeft + _t, 100);
-          _o = _t;
-        });
+      let prevX = 0;
+      // for (let i = 0; i < _seriesTags.length; i++) {
+      //   _seriesTags[i].addEventListener("dragstart", (e) => {
+      //     _s = e.clientX;
+      //   });
+      //   _seriesTags[i].addEventListener("drag", (e) => {
+      //     _d = _s > e.clientX ? false : true;
+      //     if (_d) { // right +
+      //       if (_o  < _s - e.clientX) {
+      //         _s = e.clientX;
+      //       }
+      //     } else { // left -
+      //       if (_o  > _s - e.clientX) {
+      //         _s = e.clientX;
+      //       }
+      //     }
+      //     _d = false;
+      //     if (e.clientX <= 0) return;
+      //     let _t = _s - e.clientX;
+      //     if (prevX != e.clientX) animateScrollTo(_seriesTagsWrapper, "horizontal", _seriesTagsWrapper.scrollLeft + _t, 500);
+      //     _o = _t;
+      //     prevX = e.clientX;
+      //   });
+      // }
 
-        _seriesTags[i].addEventListener("mouseover", (e) => {
-          e.target.parentNode.parentNode.parentNode.classList.remove("button");
-        });
-        _seriesTags[i].addEventListener("mouseout", (e) => {
-          e.target.parentNode.parentNode.parentNode.classList.add("button");
-        });
-      }
+      _seriesTagsWrapper.addEventListener("dragstart", (e) => {
+        _s = e.clientX;
+      });
+      _seriesTagsWrapper.addEventListener("drag", (e) => {
+        _d = _s > e.clientX ? false : true;
+        if (_d) { // right +
+          if (_o  < _s - e.clientX) {
+            _s = e.clientX;
+          }
+        } else { // left -
+          if (_o  > _s - e.clientX) {
+            _s = e.clientX;
+          }
+        }
+        _d = false;
+        if (e.clientX <= 0) return;
+        let _t = _s - e.clientX;
+        if (prevX != e.clientX) animateScrollTo(_seriesTagsWrapper, "horizontal", _seriesTagsWrapper.scrollLeft + _t, 50);
+        _o = _t;
+        prevX = e.clientX;
+      });
+
+      _seriesTagsWrapper.addEventListener("mouseover", (e) => {
+        if (e.target.classList.contains("post-tags")) e.target.parentNode.classList.remove("button");
+        if (e.target.classList.contains("post-tag")) e.target.parentNode.parentNode.classList.remove("button");
+        if (e.target.classList.contains("chapter-link-button")) e.target.parentNode.parentNode.parentNode.classList.remove("button");
+      });
+      _seriesTagsWrapper.addEventListener("mouseout", (e) => {
+        if (e.target.classList.contains("post-tags")) e.target.parentNode.classList.add("button");
+        if (e.target.classList.contains("post-tag")) e.target.parentNode.parentNode.classList.add("button");
+        if (e.target.classList.contains("chapter-link-button")) e.target.parentNode.parentNode.parentNode.classList.add("button");
+      });
 
       window.addEventListener("resize", (e) => {
         if (_seriesTagsWrapper.scrollWidth > _seriesTagsWrapper.clientWidth) {

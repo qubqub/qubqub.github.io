@@ -1,8 +1,10 @@
 {{ $pageTitle := .Page.Title }}
 {{ $_currentIdx := 0 }}
 {{ $_prePageTitle := "" }}
+{{ $_preTitle := "" }}
 {{ $_prePageLink := "" }}
 {{ $_nextPageTitle := "" }}
+{{ $_nextTitle := "" }}
 {{ $_nextPageLink := "" }}
 
 {{ $_seriesId := "" }}
@@ -68,13 +70,13 @@
                   {{ range $index, $val := $taxonomy }}
                     {{ if (ne $index $_chapterId)}}
                       <div class="button chapter">
-                        <a href="{{ (index $val (sub (len $val) 1)).RelPermalink }}" aria-label="{{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }} {{ i18n "chapter" }}" accesskey="{{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }}" title="({{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }}{{ i18n "chapter" }}) Alt + {{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }}">
+                        <a href="{{ (index $val (sub (len $val) 1)).RelPermalink }}" aria-label="{{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }} {{ i18n "chapter" }}" accesskey="{{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }}" title="[{{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }}{{ i18n "chapter" }}] (Alt + {{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }})&#10;{{ i18n $index }}">
                           {{ if (eq (i18n "country_code") "en") }}{{ i18n "chapter" }} {{ end }}{{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }} {{ if (eq (i18n "country_code") "ko") }}{{ i18n "chapter" }}{{ end }}
                         </a>
                       </div>
                     {{ else }}
                       <div class="button chapter current">
-                        <a href="{{ (index $val (sub (len $val) 1)).RelPermalink }}" aria-label="{{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }} {{ i18n "chapter" }}" accesskey="{{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }}" title="({{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }}{{ i18n "chapter" }}) Alt + {{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }}">
+                        <a href="{{ (index $val (sub (len $val) 1)).RelPermalink }}" aria-label="{{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }} {{ i18n "chapter" }}" accesskey="{{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }}" title="[{{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }}{{ i18n "chapter" }}] (Alt + {{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }})&#10;{{ i18n $_chapterId }}">
                           {{ if (eq (i18n "country_code") "en") }}{{ i18n "chapter" }} {{ end }}{{ (index (split $index "-") (sub (len (split $index "-")) 1)) | strings.TrimLeft "0" }} {{ if (eq (i18n "country_code") "ko") }}{{ i18n "chapter" }}{{ end }}
                         </a>
                       </div>
@@ -158,11 +160,13 @@
                     {{ range $index, $filePath := $value.Pages }}
                       {{ if (eq $index (add $_currentIdx 1)) }}
                         {{ $_prePageTitle = .LinkTitle }}
+                        {{ $_preTitle = .Title }}
                         {{ $_prePageLink = .RelPermalink }}
                       {{ end }}
 
                       {{ if (eq $index (sub $_currentIdx 1)) }}
                         {{ $_nextPageTitle = .LinkTitle }}
+                        {{ $_nextTitle = .Title }}
                         {{ $_nextPageLink = .RelPermalink }}
                       {{ end }}
                     {{ end }}
@@ -170,7 +174,7 @@
                     <div class="page-button">
                       {{ if $_prePageLink }}
                         <div class="left">
-                          <a class="button" href="{{ $_prePageLink }}" aria-label="이전 페이지" accesskey="[" title="(이전 페이지) Alt + [">
+                          <a class="button" href="{{ $_prePageLink }}" aria-label="이전 페이지" accesskey="," title="[이전 페이지] (Alt + <)&#10;{{ $_preTitle }}">
                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                               <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                             </svg>
@@ -179,7 +183,7 @@
                       {{ else }}
                         {{ with $_preChapterPages }}
                         <div class="left">
-                          <a class="button disabled" href="{{ .RelPermalink }}" aria-label="이전 장" accesskey="[" title="(이전 장) Alt + [">
+                          <a class="button disabled" href="{{ .RelPermalink }}" aria-label="이전 장" accesskey="," title="[이전 장] (Alt + <)&#10;{{ .Title }}">
                             <svg style="margin-right: -15px;" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                               <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                             </svg>
@@ -193,7 +197,7 @@
                       
                       {{ if $_nextPageLink }}
                         <div class="right">
-                          <a class="button" href="{{ $_nextPageLink }}" aria-label="다음 페이지" accesskey="]" title="(다음 페이지) Alt + ]">
+                          <a class="button" href="{{ $_nextPageLink }}" aria-label="다음 페이지" accesskey="." title="[다음 페이지] (Alt + >)&#10;{{ $_nextTitle }}">
                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                               <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
                             </svg>
@@ -202,7 +206,7 @@
                       {{ else }}
                         {{ with $_nextChapterPages }}
                         <div class="right">
-                          <a class="button disabled" href="{{ .RelPermalink }}" aria-label="다음 장" accesskey="]" title="(다음 장) Alt + ]">
+                          <a class="button disabled" href="{{ .RelPermalink }}" aria-label="다음 장" accesskey="." title="[다음 장] (Alt + >)&#10;{{ .Title }}">
                             <svg style="margin-right: -15px;" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                               <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
                             </svg>
@@ -246,57 +250,89 @@
             }
           }
 
-          function scrollLeft(element, to, duration) {
-            let start = element.scrollLeft,
-                change = to - start,
-                currentTime = 0,
-                increment = 20;
-                
-            let animateScroll = function(){        
-              currentTime += increment;
-              let x = Math.easeInOutQuad(currentTime, start, change, duration);
-              element.scrollTo(x, 0);
-              if(currentTime < duration) {
-                setTimeout(animateScroll, increment);
+          const animateScrollTo = (element, direction, to, duration) => {
+            const start = direction === "vertical" ? element.scrollTop : element.scrollLeft; // vertical, horizontal
+            const change = to - start;
+            const startDate = +new Date();
+            // t = current time
+            // b = start value
+            // c = change in value
+            // d = duration
+            const easeInOutQuad = (t, b, c, d) => {
+              let t2 = t;
+              t2 /= d / 2;
+              if (t2 < 1) return (c / 2) * t2 * t2 + b;
+              t2 -= 1;
+              return (-c / 2) * (t2 * (t2 - 2) - 1) + b;
+            };
+            const animateScroll = () => {
+              const currentDate = +new Date();
+              const currentTime = currentDate - startDate;
+              if (direction === "vertical") {
+                element.scrollTop = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
+              } else {
+                element.scrollLeft = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
+              }
+
+              if (currentTime < duration) {
+                requestAnimationFrame(animateScroll);
+              } else {
+                if (direction === "vertical") {
+                  element.scrollTop = to;
+                } else {
+                  element.scrollLeft = to;
+                }
               }
             };
             animateScroll();
-          }
-
-          //t = current time
-          //b = start value
-          //c = change in value
-          //d = duration
-          Math.easeInOutQuad = function (t, b, c, d) {
-            t /= d/2;
-            if (t < 1) return c/2*t*t + b;
-            t--;
-            return -c/2 * (t*(t-2) - 1) + b;
           };
+          
+          let prevX = 0;
+          // for (let i = 0; i < chapterButtons.length; i++) {
+          //   chapterButtons[i].addEventListener("dragstart", (e) => {
+          //     _s = e.clientX;
+          //   });
+          //   chapterButtons[i].addEventListener("drag", (e) => {
+          //     _d = _s > e.clientX ? false : true;
+          //     if (_d) { // right +
+          //       if (_o  < _s - e.clientX) {
+          //         _s = e.clientX;
+          //       }
+          //     } else { // left -
+          //       if (_o  > _s - e.clientX) {
+          //         _s = e.clientX;
+          //       }
+          //     }
+          //     _d = false;
+          //     if (e.clientX <= 0) return;
+          //     let _t = _s - e.clientX;
+          //     if (prevX != e.clientX) animateScrollTo(chapterButtonsWrapper, "horizontal", chapterButtonsWrapper.scrollLeft + _t, 500);
+          //     _o = _t;
+          //     prevX = e.clientX;
+          //   });
+          // }
 
-          for (let i = 0; i < chapterButtons.length; i++) {
-            chapterButtons[i].addEventListener("dragstart", (e) => {
-              _s = e.clientX;
-            });
-            chapterButtons[i].addEventListener("drag", (e) => {
-              _d = _s > e.clientX ? false : true;
-              if (_d) { // right +
-                if (_o  < _s - e.clientX) {
-                  _s = e.clientX;
-                }
-              } else { // left -
-                if (_o  > _s - e.clientX) {
-                  _s = e.clientX;
-                }
+          chapterButtonsWrapper.addEventListener("dragstart", (e) => {
+            _s = e.clientX;
+          });
+          chapterButtonsWrapper.addEventListener("drag", (e) => {
+            _d = _s > e.clientX ? false : true;
+            if (_d) { // right +
+              if (_o  < _s - e.clientX) {
+                _s = e.clientX;
               }
-              _d = false;
-              if (e.clientX <= 0) return;
-
-              let _t = _s - e.clientX;
-              scrollLeft(chapterButtonsWrapper, chapterButtonsWrapper.scrollLeft + _t, 100);
-              _o = _t;
-            });
-          }
+            } else { // left -
+              if (_o  > _s - e.clientX) {
+                _s = e.clientX;
+              }
+            }
+            _d = false;
+            if (e.clientX <= 0) return;
+            let _t = _s - e.clientX;
+            if (prevX != e.clientX) animateScrollTo(chapterButtonsWrapper, "horizontal", chapterButtonsWrapper.scrollLeft + _t, 50);
+            _o = _t;
+            prevX = e.clientX;
+          });
 
           window.addEventListener("resize", (e) => {
             if (chapterButtonsWrapper.scrollWidth > chapterButtonsWrapper.clientWidth) {

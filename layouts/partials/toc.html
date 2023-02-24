@@ -3,7 +3,8 @@
 {{- if $has_headers -}}
 <div class="toc" {{ if .Site.Params.useAnimation }}data-animation="true"{{ end }}>
     <details {{if (.Param "TocOpen") }} open{{ end }}>
-        <summary accesskey="c" title="(Alt + C)">
+        <!-- <summary accesskey="c" title="(Alt + C)"> -->
+        <summary>
             <span class="details">{{- i18n "toc" | default "Table of Contents" }}</span>
         </summary>
 

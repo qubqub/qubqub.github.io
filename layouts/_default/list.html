@@ -53,6 +53,7 @@
       {{- end }}
 
       <div class="list-entry-wrapper" {{ if .Site.Params.useAnimation }}style="animation-delay: {{ add (mul (add $index 1) 50) 120 }}ms;" data-animation="true"{{ end }}>
+        <!-- <article class="{{ $class }}" title="{{ .Summary }}"> -->
         <article class="{{ $class }}" title="{{ .Summary }}">
           {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
           {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
