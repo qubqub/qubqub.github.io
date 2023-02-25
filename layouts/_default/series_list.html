@@ -103,6 +103,7 @@
     };
     seriesList_DOMReady( function () {
       const _seriesTagsWrapper = document.querySelector(".main .series-entry-wrapper .series-entry .post-tags");
+      //const _seriesTags = document.querySelectorAll(".main .series-entry-wrapper .series-entry .post-tags a");
 
       if (_seriesTagsWrapper.scrollWidth > _seriesTagsWrapper.clientWidth) {
         _seriesTagsWrapper.classList.add("linear-gradient-right");
@@ -118,7 +119,6 @@
         }
       }
       
-      //const _seriesTags = document.querySelectorAll(".main .series-entry-wrapper .series-entry .post-tags a");
       let _s, _e, _o = 0;
       let _d = false;
 
