@@ -228,25 +228,35 @@
       </div>
       <script>
         series_DOMReady( function () {
-          const seriesLock = localStorage.getItem("lock-series-{{ $_chapterTitle }}");
-          const seriesList = document.querySelector(".series-main .series-list");
-          const seriesToggleButton = document.querySelector(".series-main .series-control .toggle");
-          const chapterButtonsWrapper = document.querySelector(".series-main .chapter-control .info .page-button");
-          const chapterButtons = document.querySelectorAll(".series-main .chapter-control .info .page-button a");
+          const _seriesLock = localStorage.getItem("lock-series-{{ $_chapterTitle }}");
+          const _seriesList = document.querySelector(".series-main .series-list");
+          const _seriesToggleButton = document.querySelector(".series-main .series-control .toggle");
+          const _chapterButtonsWrapper = document.querySelector(".series-main .chapter-control .info .page-button");
+          const _chapterButtons = document.querySelectorAll(".series-main .chapter-control .info .page-button a");
           let _s, _e, _o = 0;
-          let _d, _f = false;
+          let _d = false;
 
-          if (chapterButtonsWrapper.scrollWidth > chapterButtonsWrapper.clientWidth) {
-            chapterButtonsWrapper.querySelector(".current").scrollIntoViewIfNeeded(true);
-            if (chapterButtonsWrapper.scrollLeft <= 0) {
-              chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left");
-              chapterButtonsWrapper.classList.add("linear-gradient-right");
-            } else if (chapterButtonsWrapper.scrollWidth - chapterButtonsWrapper.clientWidth <= chapterButtonsWrapper.scrollLeft) {
-              chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-right");
-              chapterButtonsWrapper.classList.add("linear-gradient-left");
+          const hasScrollbar = (element, direction) => {
+            if (direction === "vertical") {
+              return (element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight);
+            } else if (direction === "horizontal") {
+              return (element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth);
+            } else { // both
+              return ((element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight)) && ((element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth));
+            }
+          }
+
+          if (_chapterButtonsWrapper.scrollWidth > _chapterButtonsWrapper.clientWidth) {
+            _chapterButtonsWrapper.querySelector(".current").scrollIntoViewIfNeeded(true);
+            if (_chapterButtonsWrapper.scrollLeft <= 0) {
+              _chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left");
+              _chapterButtonsWrapper.classList.add("linear-gradient-right");
+            } else if (_chapterButtonsWrapper.scrollWidth - _chapterButtonsWrapper.clientWidth <= _chapterButtonsWrapper.scrollLeft) {
+              _chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-right");
+              _chapterButtonsWrapper.classList.add("linear-gradient-left");
             } else {
-              chapterButtonsWrapper.classList.remove("linear-gradient-left", "linear-gradient-right");
-              chapterButtonsWrapper.classList.add("linear-gradient-both");
+              _chapterButtonsWrapper.classList.remove("linear-gradient-left", "linear-gradient-right");
+              _chapterButtonsWrapper.classList.add("linear-gradient-both");
             }
           }
 
@@ -288,11 +298,11 @@
           };
           
           let prevX = 0;
-          // for (let i = 0; i < chapterButtons.length; i++) {
-          //   chapterButtons[i].addEventListener("dragstart", (e) => {
+          // for (let i = 0; i < _chapterButtons.length; i++) {
+          //   _chapterButtons[i].addEventListener("dragstart", (e) => {
           //     _s = e.clientX;
           //   });
-          //   chapterButtons[i].addEventListener("drag", (e) => {
+          //   _chapterButtons[i].addEventListener("drag", (e) => {
           //     _d = _s > e.clientX ? false : true;
           //     if (_d) { // right +
           //       if (_o  < _s - e.clientX) {
@@ -306,16 +316,18 @@
           //     _d = false;
           //     if (e.clientX <= 0) return;
           //     let _t = _s - e.clientX;
-          //     if (prevX != e.clientX) animateScrollTo(chapterButtonsWrapper, "horizontal", chapterButtonsWrapper.scrollLeft + _t, 500);
+          //     if (prevX != e.clientX) animateScrollTo(_chapterButtonsWrapper, "horizontal", _chapterButtonsWrapper.scrollLeft + _t, 500);
           //     _o = _t;
           //     prevX = e.clientX;
           //   });
           // }
 
-          chapterButtonsWrapper.addEventListener("dragstart", (e) => {
+          _chapterButtonsWrapper.addEventListener("dragstart", (e) => {
+            if (!hasScrollbar(_chapterButtonsWrapper, "horizontal")) return;
             _s = e.clientX;
           });
-          chapterButtonsWrapper.addEventListener("drag", (e) => {
+          _chapterButtonsWrapper.addEventListener("drag", (e) => {
+            if (!hasScrollbar(_chapterButtonsWrapper, "horizontal")) return;
             _d = _s > e.clientX ? false : true;
             if (_d) { // right +
               if (_o  < _s - e.clientX) {
@@ -329,59 +341,59 @@
             _d = false;
             if (e.clientX <= 0) return;
             let _t = _s - e.clientX;
-            if (prevX != e.clientX) animateScrollTo(chapterButtonsWrapper, "horizontal", chapterButtonsWrapper.scrollLeft + _t, 50);
+            if (prevX != e.clientX) animateScrollTo(_chapterButtonsWrapper, "horizontal", _chapterButtonsWrapper.scrollLeft + _t, 50);
             _o = _t;
             prevX = e.clientX;
           });
 
           window.addEventListener("resize", (e) => {
-            if (chapterButtonsWrapper.scrollWidth > chapterButtonsWrapper.clientWidth) {
-              if (chapterButtonsWrapper.scrollLeft <= 0) {
-                chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left");
-                chapterButtonsWrapper.classList.add("linear-gradient-right");
-              } else if (chapterButtonsWrapper.scrollWidth - chapterButtonsWrapper.clientWidth <= chapterButtonsWrapper.scrollLeft) {
-                chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-right");
-                chapterButtonsWrapper.classList.add("linear-gradient-left");
+            if (_chapterButtonsWrapper.scrollWidth > _chapterButtonsWrapper.clientWidth) {
+              if (_chapterButtonsWrapper.scrollLeft <= 0) {
+                _chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left");
+                _chapterButtonsWrapper.classList.add("linear-gradient-right");
+              } else if (_chapterButtonsWrapper.scrollWidth - _chapterButtonsWrapper.clientWidth <= _chapterButtonsWrapper.scrollLeft) {
+                _chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-right");
+                _chapterButtonsWrapper.classList.add("linear-gradient-left");
               } else {
-                chapterButtonsWrapper.classList.remove("linear-gradient-left", "linear-gradient-right");
-                chapterButtonsWrapper.classList.add("linear-gradient-both");
+                _chapterButtonsWrapper.classList.remove("linear-gradient-left", "linear-gradient-right");
+                _chapterButtonsWrapper.classList.add("linear-gradient-both");
               }
             } else {
-              chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left", "linear-gradient-right");
+              _chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left", "linear-gradient-right");
             }
           });
 
-          chapterButtonsWrapper.addEventListener("scroll", (e) => {
-            if (chapterButtonsWrapper.scrollLeft <= 0) {
-              chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left");
-              chapterButtonsWrapper.classList.add("linear-gradient-right");
-            } else if (chapterButtonsWrapper.scrollWidth - chapterButtonsWrapper.clientWidth <= chapterButtonsWrapper.scrollLeft) {
-              chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-right");
-              chapterButtonsWrapper.classList.add("linear-gradient-left");
+          _chapterButtonsWrapper.addEventListener("scroll", (e) => {
+            if (_chapterButtonsWrapper.scrollLeft <= 0) {
+              _chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left");
+              _chapterButtonsWrapper.classList.add("linear-gradient-right");
+            } else if (_chapterButtonsWrapper.scrollWidth - _chapterButtonsWrapper.clientWidth <= _chapterButtonsWrapper.scrollLeft) {
+              _chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-right");
+              _chapterButtonsWrapper.classList.add("linear-gradient-left");
             } else {
-              chapterButtonsWrapper.classList.remove("linear-gradient-left", "linear-gradient-right");
-              chapterButtonsWrapper.classList.add("linear-gradient-both");
+              _chapterButtonsWrapper.classList.remove("linear-gradient-left", "linear-gradient-right");
+              _chapterButtonsWrapper.classList.add("linear-gradient-both");
             }
           });
   
           if (localStorage.getItem("series-main-{{ $_seriesId }}") === "true") {
-            const seriesMain = document.querySelector(".series-main");
-            const seriesRect = seriesMain.getBoundingClientRect();
-            window.scrollTo(0, seriesRect.top);
+            const _seriesMain = document.querySelector(".series-main");
+            const _seriesRect = _seriesMain.getBoundingClientRect();
+            window.scrollTo(0, _seriesRect.top);
             localStorage.removeItem("series-main-{{ $_seriesId }}");
           }
   
-          document.querySelector(".series-main .series-control .toggle").addEventListener("click", () => {
-            if (seriesList.style.display==="none" || seriesList.style.display==="") {
+          document.querySelector(".series-main .series-control .toggle").addEventListener("click", () => {_seriesLock
+            if (_seriesList.style.display==="none" || _seriesList.style.display==="") {
               localStorage.setItem("lock-series-{{ $_chapterTitle }}", false);
-              seriesToggleButton.querySelector(".lock").classList.add("hide");
-              seriesToggleButton.querySelector(".unlock").classList.remove("hide");
-              seriesList.style.display = "block";
-            } else if (seriesList.style.display==="block") {
+              _seriesToggleButton.querySelector(".lock").classList.add("hide");
+              _seriesToggleButton.querySelector(".unlock").classList.remove("hide");
+              _seriesList.style.display = "block";
+            } else if (_seriesList.style.display==="block") {
               localStorage.setItem("lock-series-{{ $_chapterTitle }}", true);
-              seriesToggleButton.querySelector(".lock").classList.remove("hide");
-              seriesToggleButton.querySelector(".unlock").classList.add("hide");
-              seriesList.style.display = "none";
+              _seriesToggleButton.querySelector(".lock").classList.remove("hide");
+              _seriesToggleButton.querySelector(".unlock").classList.add("hide");
+              _seriesList.style.display = "none";
             }
           });
 
@@ -398,18 +410,18 @@
             });
           }
           
-          if (seriesLock === "false") {
-            seriesList.style.display ="block";
-            seriesToggleButton.querySelector(".lock").classList.add("hide");
-            seriesToggleButton.querySelector(".unlock").classList.remove("hide");
-          } else if (seriesLock === "true") {
-            seriesList.style.display ="none";
-            seriesToggleButton.querySelector(".lock").classList.remove("hide");
-            seriesToggleButton.querySelector(".unlock").classList.add("hide");
+          if (_seriesLock === "false") {
+            _seriesList.style.display ="block";
+            _seriesToggleButton.querySelector(".lock").classList.add("hide");
+            _seriesToggleButton.querySelector(".unlock").classList.remove("hide");
+          } else if (_seriesLock === "true") {
+            _seriesList.style.display ="none";
+            _seriesToggleButton.querySelector(".lock").classList.remove("hide");
+            _seriesToggleButton.querySelector(".unlock").classList.add("hide");
           } else {
-            seriesList.style.display ="block";
-            seriesToggleButton.querySelector(".lock").classList.add("hide");
-            seriesToggleButton.querySelector(".unlock").classList.remove("hide");
+            _seriesList.style.display ="block";
+            _seriesToggleButton.querySelector(".lock").classList.add("hide");
+            _seriesToggleButton.querySelector(".unlock").classList.remove("hide");
           }
   
           const seriesAnchor = [
@@ -512,7 +524,7 @@
                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                               <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
                             </svg>
-                          </a>
+                          </a>_seriesRect
                         </div>
                       {{ else }}
                         <div class="right">
@@ -533,28 +545,28 @@
       </div>
       <script>
         series_DOMReady( function () {
-          const seriesLock = localStorage.getItem("lock-series-{{ $_seriesTitle }}");
-          const seriesList = document.querySelector(".series-main .series-list");
-          const seriesToggleButton = document.querySelector(".series-main .series-control .toggle");
+          const _seriesLock = localStorage.getItem("lock-series-{{ $_seriesTitle }}");
+          const _seriesList = document.querySelector(".series-main .series-list");
+          const _seriesToggleButton = document.querySelector(".series-main .series-control .toggle");
   
           if (localStorage.getItem("series-main-{{ $_seriesId }}") === "true") {
-            const seriesMain = document.querySelector(".series-main");
-            const seriesRect = seriesMain.getBoundingClientRect();
-            window.scrollTo(0, seriesRect.top);
+            const _seriesMain = document.querySelector(".series-main");
+            const _seriesRect = _seriesMain.getBoundingClientRect();
+            window.scrollTo(0, _seriesRect.top);
             localStorage.removeItem("series-main-{{ $_seriesId }}");
           }
   
           document.querySelector(".series-main .series-control .toggle").addEventListener("click", () => {
-            if (seriesList.style.display==="none" || seriesList.style.display==="") {
+            if (_seriesList.style.display==="none" || _seriesList.style.display==="") {
               localStorage.setItem("lock-series-{{ $_seriesTitle }}", false);
-              seriesToggleButton.querySelector(".lock").classList.add("hide");
-              seriesToggleButton.querySelector(".unlock").classList.remove("hide");
-              seriesList.style.display = "block";
-            } else if (seriesList.style.display==="block") {
+              _seriesToggleButton.querySelector(".lock").classList.add("hide");
+              _seriesToggleButton.querySelector(".unlock").classList.remove("hide");
+              _seriesList.style.display = "block";
+            } else if (_seriesList.style.display==="block") {
               localStorage.setItem("lock-series-{{ $_seriesTitle }}", true);
-              seriesToggleButton.querySelector(".lock").classList.remove("hide");
-              seriesToggleButton.querySelector(".unlock").classList.add("hide");
-              seriesList.style.display = "none";
+              _seriesToggleButton.querySelector(".lock").classList.remove("hide");
+              _seriesToggleButton.querySelector(".unlock").classList.add("hide");
+              _seriesList.style.display = "none";
             }
           });
 
@@ -571,18 +583,18 @@
             });
           }
   
-          if (seriesLock === "false") {
-            seriesList.style.display ="block";
-            seriesToggleButton.querySelector(".lock").classList.add("hide");
-            seriesToggleButton.querySelector(".unlock").classList.remove("hide");
-          } else if (seriesLock === "true") {
-            seriesList.style.display ="none";
-            seriesToggleButton.querySelector(".lock").classList.remove("hide");
-            seriesToggleButton.querySelector(".unlock").classList.add("hide");
+          if (_seriesLock === "false") {
+            _seriesList.style.display ="block";
+            _seriesToggleButton.querySelector(".lock").classList.add("hide");
+            _seriesToggleButton.querySelector(".unlock").classList.remove("hide");
+          } else if (_seriesLock === "true") {
+            _seriesList.style.display ="none";
+            _seriesToggleButton.querySelector(".lock").classList.remove("hide");
+            _seriesToggleButton.querySelector(".unlock").classList.add("hide");
           } else {
-            seriesList.style.display ="block";
-            seriesToggleButton.querySelector(".lock").classList.add("hide");
-            seriesToggleButton.querySelector(".unlock").classList.remove("hide");
+            _seriesList.style.display ="block";
+            _seriesToggleButton.querySelector(".lock").classList.add("hide");
+            _seriesToggleButton.querySelector(".unlock").classList.remove("hide");
           }
   
           const seriesAnchor = [

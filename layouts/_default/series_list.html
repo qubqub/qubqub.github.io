@@ -118,11 +118,19 @@
         }
       }
       
-      const _seriesTags = document.querySelectorAll(".main .series-entry-wrapper .series-entry .post-tags a");
+      //const _seriesTags = document.querySelectorAll(".main .series-entry-wrapper .series-entry .post-tags a");
       let _s, _e, _o = 0;
       let _d = false;
-      let _first = true;
-      let _end = false;
+
+      const hasScrollbar = (element, direction) => {
+        if (direction === "vertical") {
+          return (element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight);
+        } else if (direction === "horizontal") {
+          return (element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth);
+        } else { // both
+          return ((element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight)) && ((element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth));
+        }
+      }
 
       const animateScrollTo = (element, direction, to, duration) => {
         const start = direction === "vertical" ? element.scrollTop : element.scrollLeft; // vertical, horizontal
@@ -187,9 +195,11 @@
       // }
 
       _seriesTagsWrapper.addEventListener("dragstart", (e) => {
+        if (!hasScrollbar(_seriesTagsWrapper, "horizontal")) return;
         _s = e.clientX;
       });
       _seriesTagsWrapper.addEventListener("drag", (e) => {
+        if (!hasScrollbar(_seriesTagsWrapper, "horizontal")) return;
         _d = _s > e.clientX ? false : true;
         if (_d) { // right +
           if (_o  < _s - e.clientX) {
