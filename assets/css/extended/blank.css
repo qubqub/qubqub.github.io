@@ -227,9 +227,9 @@ header.header {
   padding: 1px;
 }
 
-.header .nav .logo a .user-fa-hardware-keyboard-arrow-right{
+.header .nav .logo a .user-fa-hardware-keyboard-arrow-right {
   font-size: 1.5em;
-  vertical-align: -5px;
+  vertical-align: -4px;
   margin-right: 3px;
 }
 .header .nav .logo a {
@@ -250,7 +250,7 @@ header.header {
 
 .footer span:first-child .user-fa-hardware-keyboard-arrow-right {
   font-size: 1.1rem;
-  vertical-align: -3px;
+  vertical-align: -3.5px;
 }
 .footer span:first-child .__cursor {
   display: inline-block;
@@ -2243,9 +2243,9 @@ header.header {
 }
 
 @media screen and (max-width: 768px) {
-  .header .nav .logo a .user-fa-hardware-keyboard-arrow-right{
+  .header .nav .logo a .user-fa-hardware-keyboard-arrow-right {
     font-size: 1.5em;
-    vertical-align: -5px;
+    vertical-align: -4px;
     margin-right: 3px;
   }
   .header .nav .logo a {
