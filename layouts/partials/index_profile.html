@@ -264,7 +264,7 @@
 
         window.onload = function() {
             initDrawingCanvas();
-            //requestAnimationFrame(loop);
+            //requestAnimationFrame(startAnimate);
         };
 
         const _profile = document.querySelector(".main .profile .profile_inner .profile-picture");
@@ -273,13 +273,13 @@
                 if(toggle) {
                     (function drawFrame () {
                         rafId = window.requestAnimationFrame(drawFrame);
-                        loop();
+                        startAnimate();
                     }());
                 }
             });
         }
 
-        function loop() {
+        function startAnimate() {
             resizeDrawingCanvas();
             toggle = false;
             update();
