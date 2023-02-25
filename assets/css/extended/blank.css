@@ -238,8 +238,8 @@ header.header {
 }
 .header .nav .logo a .__cursor {
   display: inline-block;
-  width: 0.6rem;
-  height: 1rem;
+  width: .5rem;
+  height: .9rem;
   vertical-align: -1px;
   /* background: #fe5186; */
   background: var(--main-color);
@@ -2254,8 +2254,8 @@ header.header {
   }
   .header .nav .logo a .__cursor {
     display: inline-block;
-    width: 0.35rem;
-    height: 0.67rem;
+    width: .35rem;
+    height: .67rem;
     vertical-align: -1px;
     /* background: #fe5186; */
     background: var(--main-color);
