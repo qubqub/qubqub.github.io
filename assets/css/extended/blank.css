@@ -228,7 +228,7 @@ header.header {
 }
 
 .header .nav .logo a .user-fa-hardware-keyboard-arrow-right{
-  font-size: 1.4em;
+  font-size: 1.5em;
   vertical-align: -5px;
   margin-right: 3px;
 }
@@ -2244,8 +2244,8 @@ header.header {
 
 @media screen and (max-width: 768px) {
   .header .nav .logo a .user-fa-hardware-keyboard-arrow-right{
-    font-size: 1.4em;
-    vertical-align: -3px;
+    font-size: 1.5em;
+    vertical-align: -5px;
     margin-right: 3px;
   }
   .header .nav .logo a {
@@ -3176,7 +3176,7 @@ a.button,
   content: "\e68c";
 } */
 .main .post-single .series-main .series-list li a.current .user-fa-hardware-keyboard-arrow-right {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   vertical-align: -7px;
   margin-inline-start: -9px;
   margin-inline-end: -3px;
