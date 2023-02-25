@@ -49,9 +49,7 @@
         let rafId;
 
         // canvas settings
-        let viewWidth = document.querySelector(".main").clientWidth,
-            viewHeight = document.querySelector(".main").clientHeight,
-            drawingCanvas = document.getElementById("drawing_canvas"),
+        let drawingCanvas = document.getElementById("drawing_canvas"),
             ctx,
             timeStep = (1/60);
 
@@ -136,6 +134,11 @@
                 ctx.lineTo(this.x, this.y);
                 ctx.closePath();
                 ctx.fill();
+            },
+            resize:function(x, y, r) {
+                this.x = x;
+                this.y = y;
+                this.r = r;
             }
         };
 
@@ -170,6 +173,11 @@
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.startRadius * (1 - this.progress), 0, TWO_PI);
                 ctx.fill();
+            },
+            resize:function(x, y, r) {
+                this.x = x;
+                this.y = y;
+                this.startRadius = r;
             }
         };
 
@@ -179,31 +187,39 @@
             phase = 0;
 
         function initDrawingCanvas() {
-            drawingCanvas.width = viewWidth;
-            drawingCanvas.height = viewHeight;
+            drawingCanvas.width = document.querySelector(".main").clientWidth;
+            drawingCanvas.height = document.querySelector(".main").clientHeight;
             ctx = drawingCanvas.getContext('2d');
 
             createLoader();
             createExploader();
             createParticles();
         }
+        
+        function resizeDrawingCanvas() {
+            if (drawingCanvas.width === document.querySelector(".main").clientWidth && drawingCanvas.height === document.querySelector(".main").clientHeight) return;
+            drawingCanvas.width = document.querySelector(".main").clientWidth;
+            drawingCanvas.height = document.querySelector(".main").clientHeight;
+            loader.resize(drawingCanvas.width * 0.5, _selector.getBoundingClientRect().top, _selector.clientWidth / 2);
+            exploader.resize(drawingCanvas.width * 0.5, _selector.getBoundingClientRect().top, _selector.clientWidth / 2);
+        }
 
         function createLoader() {
-            //loader = new Loader(viewWidth * 0.5, viewHeight * 0.5);
-            loader = new Loader(viewWidth * 0.5, _selector.getBoundingClientRect().top, _selector.clientWidth / 2);
+            //loader = new Loader(drawingCanvas.width * 0.5, drawingCanvas.height * 0.5);
+            loader = new Loader(drawingCanvas.width * 0.5, _selector.getBoundingClientRect().top, _selector.clientWidth / 2);
         }
 
         function createExploader() {
-            //exploader = new Exploader(viewWidth * 0.5, viewHeight * 0.5);
-            exploader = new Exploader(viewWidth * 0.5, _selector.getBoundingClientRect().top, _selector.clientWidth / 2);
+            //exploader = new Exploader(drawingCanvas.width * 0.5, drawingCanvas.height * 0.5);
+            exploader = new Exploader(drawingCanvas.width * 0.5, _selector.getBoundingClientRect().top, _selector.clientWidth / 2);
         }
 
         function createParticles() {
             for (let i = 0; i < 128; i++) {
-                let p0 = new Point(viewWidth * 0.5, viewHeight * 0.5);
-                let p1 = new Point(Math.random() * viewWidth, Math.random() * viewHeight);
-                let p2 = new Point(Math.random() * viewWidth, Math.random() * viewHeight);
-                let p3 = new Point(Math.random() * viewWidth, viewHeight + 64);
+                let p0 = new Point(drawingCanvas.width * 0.5, drawingCanvas.height * 0.5);
+                let p1 = new Point(Math.random() * drawingCanvas.width, Math.random() * drawingCanvas.height);
+                let p2 = new Point(Math.random() * drawingCanvas.width, Math.random() * drawingCanvas.height);
+                let p3 = new Point(Math.random() * drawingCanvas.width, drawingCanvas.height + 64);
 
                 particles.push(new Particle(p0, p1, p2, p3));
             }
@@ -226,7 +242,7 @@
         }
 
         function draw() {
-            ctx.clearRect(0, 0, viewWidth, viewHeight);
+            ctx.clearRect(0, 0, drawingCanvas.width, drawingCanvas.height);
             switch (phase) {
                 case 0:
                     loader.draw();
@@ -261,6 +277,7 @@
 
         function loop() {
             toggle = false;
+            resizeDrawingCanvas();
             update();
             draw();
 
