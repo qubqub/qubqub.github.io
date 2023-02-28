@@ -45,7 +45,7 @@
         const _selector = document.querySelector(".main .profile .profile-picture");
         const TWO_PI = Math.PI * 2;
         const HALF_PI = Math.PI * 0.5;
-        let toggle = true;
+        let isReady = true;
         let rafId;
 
         // canvas settings
@@ -53,12 +53,12 @@
             ctx,
             timeStep = (1/60);
 
-        Point = function(x, y) {
+        const Point = function(x, y) {
             this.x = x || 0;
             this.y = y || 0;
         };
 
-        Particle = function(p0, p1, p2, p3) {
+        const Particle = function(p0, p1, p2, p3) {
             this.p0 = p0;
             this.p1 = p1;
             this.p2 = p2;
@@ -104,7 +104,7 @@
             }
         };
 
-        Loader = function(x, y, r) {
+        const Loader = function(x, y, r) {
             this.x = x;
             this.y = y;
 
@@ -143,7 +143,7 @@
         };
 
         // pun intended
-        Exploader = function(x, y, r) {
+        const Exploader = function(x, y, r) {
             this.x = x;
             this.y = y;
 
@@ -164,7 +164,6 @@
             },
             update:function() {
                 this.time = Math.min(this.duration, this.time + timeStep);
-                //this.progress = Ease.inBack(this.time, 0, 1, this.duration);
                 this.progress = Ease.inBack(this.time, 0, 1, this.duration);
                 this.complete = this.time === this.duration;
             },
@@ -197,12 +196,13 @@
         }
         
         function resizeDrawingCanvas() {
-            if (toggle) {
+            if (isReady) {
                 if (drawingCanvas.width === document.querySelector(".main").clientWidth && drawingCanvas.height === document.querySelector(".main").clientHeight) return;
                 drawingCanvas.width = document.querySelector(".main").clientWidth;
                 drawingCanvas.height = document.querySelector(".main").clientHeight;
                 loader.resize(drawingCanvas.width * 0.5, _selector.getBoundingClientRect().top, _selector.clientWidth / 2);
                 exploader.resize(drawingCanvas.width * 0.5, _selector.getBoundingClientRect().top, _selector.clientWidth / 2);
+                clearParticles();
                 createParticles();
             }
         }
@@ -217,8 +217,11 @@
             exploader = new Exploader(drawingCanvas.width * 0.5, _selector.getBoundingClientRect().top, _selector.clientWidth / 2);
         }
 
+        function clearParticles() {
+            particles.length = 0;
+        }
+
         function createParticles() {
-            particles = [];
             for (let i = 0; i < 128; i++) {
                 let p0 = new Point(drawingCanvas.width * 0.5, drawingCanvas.height * 0.5);
                 let p1 = new Point(Math.random() * drawingCanvas.width, Math.random() * drawingCanvas.height);
@@ -264,24 +267,24 @@
 
         window.onload = function() {
             initDrawingCanvas();
-            //requestAnimationFrame(startAnimate);
+            //requestAnimationFrame(start);
         };
 
         const _profile = document.querySelector(".main .profile .profile_inner .profile-picture");
         if (_profile) {
             _profile.addEventListener("click", (e) => {
-                if(toggle) {
+                if(isReady) {
                     (function drawFrame () {
                         rafId = window.requestAnimationFrame(drawFrame);
-                        startAnimate();
+                        start();
                     }());
                 }
             });
         }
 
-        function startAnimate() {
+        function start() {
             resizeDrawingCanvas();
-            toggle = false;
+            isReady = false;
             update();
             draw();
 
@@ -304,7 +307,7 @@
 
         function finish() {
             cancelAnimationFrame(rafId);
-            toggle = true;
+            isReady = true;
         }
 
         function checkParticlesComplete() {

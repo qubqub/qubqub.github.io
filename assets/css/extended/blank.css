@@ -259,7 +259,7 @@ header.header {
   vertical-align: -1px;
   /* background: #fe5186; */
   background: var(--main-color);
-  margin-left: 4px;
+  margin-left: 5px;
   border-radius: 1px;
   animation: cursor 1s infinite;
 }
@@ -299,7 +299,7 @@ header.header {
   vertical-align: -1px;
   /* background: #fe5186; */
   background: var(--main-color);
-  margin-left: 10px;
+  margin-left: 12px;
   border-radius: 1px;
   animation: cursor 1s infinite;
 }
