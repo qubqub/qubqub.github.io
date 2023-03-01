@@ -3862,6 +3862,7 @@ a.button,
         url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/64/Material-Design-Icons.svg#Material-Design-Icons") format("svg");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 [class^="user-fa-"], [class*=" user-fa-"] {
   color: var(--main-color);
