@@ -31,7 +31,7 @@
   }
 </style>
 
-<div class="tick" data-did-init="clockTickInit">
+<div class="tick" data-did-init="handleTickInit">
   <div data-layout="horizontal fit">
     <span data-key="hours" data-repeat="true" data-transform="pad(00) -> split -> delay">
       <span data-view="flip"></span>
@@ -51,10 +51,10 @@
   </div>
 </div>
 
-{{- $flipClock := slice (resources.Get "js/flip.min.js") | resources.Concat "assets/js/flip.min.js" | minify }}
-<script defer crossorigin="anonymous" src="{{ $flipClock.RelPermalink }}"></script>
+{{- $flip := slice (resources.Get "js/flip.min.js") | resources.Concat "assets/js/flip.min.js" | minify }}
+<script defer crossorigin="anonymous" src="{{ $flip.RelPermalink }}"></script>
 <script>
-  function clockTickInit(tick) {
+  function handleTickInit(tick) {
     Tick.helper.interval( function () {
       let d = Tick.helper.date();
       tick.value = {
