@@ -2601,7 +2601,7 @@ header.header {
 
   .main .post-single .toc-aside {
     /* max-width: 20rem; */
-    padding: 0 0.75rem;
+    padding: 0 1rem;
     font-size: 0.875rem;
     max-height: calc(100vh - 128px);
     overflow: hidden auto;
@@ -2785,7 +2785,7 @@ header.header {
   .main .post-single .toc-aside {
     /* max-width: 20rem; */
     margin-left: 4rem;
-    padding: 0 0.75rem;
+    padding: 0 1rem;
     font-size: 0.875rem;
     max-height: calc(100vh - 128px);
     overflow: hidden auto;
