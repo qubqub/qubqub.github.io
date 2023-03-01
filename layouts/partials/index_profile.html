@@ -6,7 +6,7 @@
         <div class="profile-picture button custom-button" onclick=true alt="{{ .imageTitle | default "profile image" }}"
             style="--profile-image: url({{ .imageUrl | absURL }}); height: {{ .imageHeight | default 150 }}px; width: {{ .imageWidth | default 150 }}px;"></div>
         {{- end }}
-        <h1>{{ .title | default $.Site.Title | markdownify }}</h1>
+        <h1 class="profile_title">{{ .title | default $.Site.Title | markdownify }}</h1>
         <span>{{ .subtitle | markdownify }}</span>
         {{- partial "flip_clock.html" -}}
         {{- partial "social_icons.html" $.Site.Params.socialIcons -}}
