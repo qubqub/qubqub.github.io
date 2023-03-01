@@ -1,0 +1,101 @@
+<style>
+  .tick {
+    font-size:1rem; white-space:nowrap; font-family:arial,sans-serif; margin:15px 0;
+  }
+  
+  .tick-flip,.tick-text-inline {
+    font-size:2.5em;
+  }
+  
+  .tick-label {
+    margin-top:1em;font-size:1em;
+  }
+  
+  .tick-char {
+    width:1.5em;
+  }
+  
+  .tick-text-inline {
+    display:inline-block;text-align:center;min-width:1em;
+  }
+  
+  .tick-text-inline+.tick-text-inline {
+    margin-left:-.325em;
+  }
+  
+  .tick-group {
+    margin:0 .5em;text-align:center;
+  }
+  
+  .tick-text-inline {
+     color: rgb(90, 93, 99) !important; 
+  }
+  
+  .tick-label {
+     color: rgb(90, 93, 99) !important; 
+  }
+  
+  .tick-flip-panel {
+     color: rgb(255, 255, 255) !important; 
+  }
+  
+  .tick-flip {
+     font-family: !important; 
+  }
+  
+  .tick-flip-panel-text-wrapper {
+     line-height: 1.45 !important; 
+  }
+  
+  .tick-flip-panel {
+     background-color: rgb(59, 61, 59) !important; 
+  }
+  
+  .tick-flip {
+     border-radius:0.12em !important; 
+  }
+</style>
+
+<div class="tick" data-did-init="clockTickInit">
+  <div data-layout="horizontal fit">
+    <span data-key="hours" data-repeat="true" data-transform="pad(00) -> split -> delay">
+      <span data-view="flip"></span>
+    </span>
+
+    <span data-view="text" data-key="sep" class="tick-text-inline"></span>
+
+    <span data-key="minutes" data-repeat="true" data-transform="pad(00) -> split -> delay">
+      <span data-view="flip"></span>
+    </span>
+
+    <span data-view="text" data-key="sep" class="tick-text-inline"></span>
+
+    <span data-key="seconds" data-repeat="true" data-transform="pad(00) -> split -> delay">
+      <span data-view="flip"></span>
+    </span>
+  </div>
+</div>
+
+{{- $flipClock := slice (resources.Get "js/flip.min.js") | resources.Concat "assets/js/flip.min.js" | minify }}
+<script defer crossorigin="anonymous" src="{{ $flipClock.RelPermalink }}"></script>
+<script>
+  function clockTickInit(tick) {
+    Tick.helper.interval( function () {
+      let d = Tick.helper.date();
+      tick.value = {
+          sep: ':',
+          hours: d.getHours(),
+          minutes: d.getMinutes(),
+          seconds: d.getSeconds()
+      };
+    });
+  }
+
+  const flipClock_DOMReady = function (callback) {
+    document.readyState === "interactive" ||
+      document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+  };
+  flipClock_DOMReady( function () {
+    
+  });
+</script>

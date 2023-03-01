@@ -8,8 +8,8 @@
 <meta name=description content="<Qutrits/>">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.032f49b6dd934502b15dd6e3aa0acfc71dbada9d15cb8ca62076d9e0b42adec6.css integrity="sha256-Ay9Jtt2TRQKxXdbjqgrPxx262p0Vy4ymIHbZ4LQq3sY=" rel="preload stylesheet" as=style>
-<link rel=preload href=/icon/profile_without_background_pic.webp as=image>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.bae891cfaeb3a4e783b1c03b2848f653b6768ff8ac54b7a7b198d5b471b25ab2.css integrity="sha256-uuiRz66zpOeDscA7KEj2U7Z2j/isVLensZjVtHGyWrI=" rel="preload stylesheet" as=style>
+<link rel=preload href=/icon/profile.webp as=image>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -79,9 +79,26 @@
 </header>
 <script>const header_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};header_DOMReady(function(){let a=document.querySelector("#menu-trigger"),b=document.querySelector("#menu");a.addEventListener("click",function(){b.classList.toggle("hidden")}),document.body.addEventListener("click",function(c){a.contains(c.target)||b.classList.add("hidden")})})</script><main class=main><canvas id=drawing_canvas></canvas>
 <div class=profile>
-<div class=profile_inner><div class="profile-picture button custom-button" onclick=!0 alt="my image" style=--profile-image:url(https://qutrits.github.io/icon/profile_without_background_pic.webp);height:120px;width:120px></div>
+<div class=profile_inner><div class="profile-picture button custom-button" onclick=!0 alt="my image" style=--profile-image:url(https://qutrits.github.io/icon/profile.webp);height:120px;width:120px></div>
 <h1><span class=user-fa-hardware-keyboard-arrow-right></span><span class=__text>ssh </span><span class=__custom></span><span class=__cursor></span></h1>
-<span></span><div class=social-icons>
+<span></span><style>.tick{font-size:1rem;white-space:nowrap;font-family:arial,sans-serif;margin:15px 0}.tick-flip,.tick-text-inline{font-size:2.5em}.tick-label{margin-top:1em;font-size:1em}.tick-char{width:1.5em}.tick-text-inline{display:inline-block;text-align:center;min-width:1em}.tick-text-inline+.tick-text-inline{margin-left:-.325em}.tick-group{margin:0 .5em;text-align:center}.tick-text-inline{color:#5a5d63!important}.tick-label{color:#5a5d63!important}.tick-flip-panel{color:#fff!important}.tick-flip{font-family:!important}.tick-flip-panel-text-wrapper{line-height:1.45!important}.tick-flip-panel{background-color:#3b3d3b!important}.tick-flip{border-radius:.12em!important}</style>
+<div class=tick data-did-init=clockTickInit>
+<div data-layout="horizontal fit">
+<span data-key=hours data-repeat=true data-transform="pad(00) -> split -> delay">
+<span data-view=flip></span>
+</span>
+<span data-view=text data-key=sep class=tick-text-inline></span>
+<span data-key=minutes data-repeat=true data-transform="pad(00) -> split -> delay">
+<span data-view=flip></span>
+</span>
+<span data-view=text data-key=sep class=tick-text-inline></span>
+<span data-key=seconds data-repeat=true data-transform="pad(00) -> split -> delay">
+<span data-view=flip></span>
+</span>
+</div>
+</div>
+<script defer crossorigin=anonymous src=/assets/js/flip.min.min.js></script>
+<script>function clockTickInit(a){Tick.helper.interval(function(){let b=Tick.helper.date();a.value={sep:':',hours:b.getHours(),minutes:b.getMinutes(),seconds:b.getSeconds()}})}const flipClock_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};flipClock_DOMReady(function(){})</script><div class=social-icons>
 <a href=https://github.com/qutrits target=_blank rel="noopener noreferrer me" title=Github><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg>
 </a>
 <a href=/links target=_blank rel="noopener noreferrer me" title=Link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
