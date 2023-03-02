@@ -1926,7 +1926,7 @@ header.header {
 } */
 
 .series-main .chapter-control .chapter:not(:last-child) {
-  margin-inline-end: 12px;
+  margin-inline-end: 10px;
 }
 
 .series-main .chapter-control .chapter {
@@ -2194,11 +2194,11 @@ header.header {
   border-color: transparent transparent transparent var(--tertiary);
 }
 
-.main .archive-year {
-  margin-top: 0;
+.main .archive-year:first-of-type {
+  margin-top: 40px;
 }
 
-.main .archive-year~.archive-year {
+.main .archive-year:not(:first-of-type) {
   margin-top: 80px;
 }
 
@@ -2233,8 +2233,8 @@ header.header {
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  border-radius: 3px;
-  padding: 3px 6px;
+  border-radius: 4px;
+  padding: 4px 6px;
   vertical-align: bottom;
   /* font-size: .81em; */
   font-size: .9em;
@@ -3921,7 +3921,6 @@ a.button,
   animation-fill-mode: both;
 }
 
-/* @import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Roboto:400,500,700); */
 @font-face {
   font-family: "Material-Design-Icons";
   src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/64/Material-Design-Icons.eot?-g7cqhn");
@@ -3931,7 +3930,7 @@ a.button,
         url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/64/Material-Design-Icons.svg#Material-Design-Icons") format("svg");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: auto;
 }
 [class^="user-fa-"], [class*=" user-fa-"] {
   color: var(--main-color);
