@@ -2241,6 +2241,40 @@ header.header {
   width: 500%;
 }
 
+.tick {
+  white-space: nowrap;
+  font-family: arial,sans-serif;
+  margin: 14px 0;
+}
+
+.tick-text-inline {
+  display: inline-block;
+  text-align: center;
+}
+
+.tick-flip-panel {
+   background-color: rgb(59, 61, 59) !important; 
+}
+
+@media screen and (max-width: 600px) {
+  .main .profile .profile_inner .profile_title {
+    font-size: 1.8em;
+  }
+}
+@media screen and (max-width: 500px) {
+  .main .profile .profile_inner .profile_title {
+    font-size: 1.65em;
+  }
+}
+@media screen and (max-width: 400px) {
+  .main .profile .profile_inner .profile_title {
+    font-size: 1.4em;
+  }
+  .profile_inner h1 .user-fa-hardware-keyboard-arrow-right {
+    vertical-align: -7px;
+  }
+}
+
 @media screen and (max-width: 900px) {
   .list .top-link {
       transform: none;

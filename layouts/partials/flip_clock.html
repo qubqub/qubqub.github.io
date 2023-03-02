@@ -1,63 +1,18 @@
-<style>
-  .tick {
-    white-space: nowrap;
-    font-family: arial,sans-serif;
-    margin: 14px 0;
-  }
-
-  .tick-text-inline {
-    display: inline-block;
-    text-align: center;
-  }
-  
-  .tick-flip-panel {
-     background-color: rgb(59, 61, 59) !important; 
-  }
-
-  /* .main .profile .profile_inner .profile_title {
-    font-size: 2vw;
-  } */
-
-  @media screen and (max-width: 600px) {
-    .main .profile .profile_inner .profile_title {
-      font-size: 1.8em;
-    }
-  }
-  @media screen and (max-width: 500px) {
-    .main .profile .profile_inner .profile_title {
-      font-size: 1.65em;
-    }
-  }
-  @media screen and (max-width: 400px) {
-    .main .profile .profile_inner .profile_title {
-      font-size: 1.4em;
-    }
-    .profile_inner h1 .user-fa-hardware-keyboard-arrow-right {
-      vertical-align: -7px;
-    }
-  }
-</style>
-
 <div class="tick" data-did-init="handleTickInit">
   <div data-layout="horizontal fit">
     <span data-key="hours" data-repeat="true" data-transform="pad(00) -> split -> delay">
       <span data-view="flip"></span>
     </span>
-
     <span data-view="text" data-key="sep" class="tick-text-inline"></span>
-
     <span data-key="minutes" data-repeat="true" data-transform="pad(00) -> split -> delay">
       <span data-view="flip"></span>
     </span>
-
     <span data-view="text" data-key="sep" class="tick-text-inline"></span>
-
     <span data-key="seconds" data-repeat="true" data-transform="pad(00) -> split -> delay">
       <span data-view="flip"></span>
     </span>
   </div>
 </div>
-
 {{- $flip := slice (resources.Get "js/flip.min.js") | resources.Concat "assets/js/flip.min.js" | minify }}
 <script defer crossorigin="anonymous" src="{{ $flip.RelPermalink }}"></script>
 <script>
@@ -72,12 +27,11 @@
       };
     });
   }
-
-  const flipClock_DOMReady = function (callback) {
-    document.readyState === "interactive" ||
-      document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
-  };
-  flipClock_DOMReady( function () {
+  // const flipClock_DOMReady = function (callback) {
+  //   document.readyState === "interactive" ||
+  //     document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+  // };
+  // flipClock_DOMReady( function () {
     
-  });
+  // });
 </script>

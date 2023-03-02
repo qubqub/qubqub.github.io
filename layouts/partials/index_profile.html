@@ -1,3 +1,4 @@
+{{- $_useFlipClock := .Site.Params.useFlipClock }}
 <canvas id="drawing_canvas"></canvas>
 <div class="profile">
     {{- with .Site.Params.profileMode }}
@@ -8,7 +9,9 @@
         {{- end }}
         <h1 class="profile_title">{{ .title | default $.Site.Title | markdownify }}</h1>
         <span>{{ .subtitle | markdownify }}</span>
+        {{ if $_useFlipClock }}
         {{- partial "flip_clock.html" -}}
+        {{- end }}
         {{- partial "social_icons.html" $.Site.Params.socialIcons -}}
 
         {{- with .buttons }}
