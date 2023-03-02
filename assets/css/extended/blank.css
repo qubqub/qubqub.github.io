@@ -2297,6 +2297,13 @@ header.header {
     vertical-align: -5px;
     font-size: 1.4rem;
   }
+
+  .header .nav .logo .logo-switches #theme-toggle #moon {
+    vertical-align: 8px;
+  }
+  .header .nav .logo .logo-switches #theme-toggle #sun {
+    vertical-align: 10px;
+  }
 }
 
 @media screen and (max-width: 900px) {
