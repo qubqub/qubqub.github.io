@@ -2269,6 +2269,9 @@ header.header {
     animation: cursor 1s infinite;
   }
 
+  .header .nav .logo .logo-switches {
+    margin: auto;
+  }
   .header .nav .logo .logo-switches #theme-toggle #moon {
     vertical-align: 3.5px;
     width: 20px;
