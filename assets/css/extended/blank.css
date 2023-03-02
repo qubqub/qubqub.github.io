@@ -2046,6 +2046,14 @@ header.header {
   border-radius: var(--radius);
 }
 
+.pagination__link.pagination__link--first svg,
+.pagination__link.pagination__link--previous svg,
+.pagination__link.pagination__link--next svg,
+.pagination__link.pagination__link--last svg {
+  vertical-align: -6px;
+  font-size: 1.4rem;
+}
+
 .pagination__link.pagination__link--previous,
 .pagination__link.pagination__link--next {
   padding: 0 0.4rem !important;
@@ -2281,6 +2289,14 @@ header.header {
   .profile_inner h1 .user-fa-hardware-keyboard-arrow-right {
     vertical-align: -7px;
   }
+
+  .pagination__link.pagination__link--first svg,
+  .pagination__link.pagination__link--previous svg,
+  .pagination__link.pagination__link--next svg,
+  .pagination__link.pagination__link--last svg {
+    vertical-align: -5px;
+    font-size: 1.4rem;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -2320,7 +2336,7 @@ header.header {
     height: 20px;
   }
   .header .nav .logo .logo-switches #theme-toggle #sun {
-    vertical-align: 9.5px;
+    vertical-align: 9px;
     width: 17px;
     height: 17px;
   }
