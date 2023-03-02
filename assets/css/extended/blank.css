@@ -2315,12 +2315,12 @@ header.header {
     margin: auto;
   }
   .header .nav .logo .logo-switches #theme-toggle #moon {
-    vertical-align: 6px;
+    vertical-align: 7px;
     width: 20px;
     height: 20px;
   }
   .header .nav .logo .logo-switches #theme-toggle #sun {
-    vertical-align: 8.5px;
+    vertical-align: 9.5px;
     width: 17px;
     height: 17px;
   }
