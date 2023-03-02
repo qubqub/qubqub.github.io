@@ -2092,7 +2092,7 @@ header.header {
 .post-content .highlight .lntable .copy-code,
 .post-content pre .copy-code {
   background-color: #21262d;
-  padding: 7px 8px 0 8px;
+  padding: 6px 8px 2px 8px;
   border-radius: 5px;
   border: 1px solid rgba(240,246,252,0.1);
   top: 8px;
@@ -2299,10 +2299,10 @@ header.header {
   }
 
   .header .nav .logo .logo-switches #theme-toggle #moon {
-    vertical-align: 8px;
+    vertical-align: 8px !important;
   }
   .header .nav .logo .logo-switches #theme-toggle #sun {
-    vertical-align: 10px;
+    vertical-align: 10px !important;
   }
 }
 
