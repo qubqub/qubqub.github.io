@@ -121,9 +121,7 @@
   src: url(https://fonts.gstatic.com/s/youtubesans/v8/Qw3hZQNGEDjaO2m6tqIqX5E-AVS5_rSejo46_PCTRspJ0OosolrBEJL3HMXfxQASluL2m_dAB1awBpSD.woff2) format('woff2');
 } */
 
-/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap'); */
-
-@import url(https://cdn.jsdelivr.net/gh/theeluwin/NotoSansKR-Hestia@master/stylesheets/NotoSansKR-Hestia.css);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 @font-face {
   font-family: "CascadiaCode";
@@ -196,7 +194,7 @@
 
 body {
   /* font-family: "YouTube Sans", "Roboto", sans-serif !important; */
-  font-family: 'Noto Sans Korean', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   word-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   transition: background-color .25s;
