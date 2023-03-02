@@ -2250,11 +2250,11 @@ header.header {
 @media screen and (max-width: 768px) {
   .header .nav .logo a .user-fa-hardware-keyboard-arrow-right {
     font-size: 1.5em;
-    vertical-align: -5px;
+    vertical-align: -4px;
     margin-right: 3px;
   }
   .header .nav .logo a {
-    font-size: .7rem;
+    font-size: .8rem;
     font-family: "CascadiaCode";
   }
   .header .nav .logo a .__cursor {
