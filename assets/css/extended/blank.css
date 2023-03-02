@@ -234,7 +234,7 @@ header.header {
 
 .header .nav .logo a .user-fa-hardware-keyboard-arrow-right {
   font-size: 1.5em;
-  vertical-align: -4px;
+  vertical-align: -5px;
   margin-right: 3px;
 }
 .header .nav .logo a {
@@ -2250,7 +2250,7 @@ header.header {
 @media screen and (max-width: 768px) {
   .header .nav .logo a .user-fa-hardware-keyboard-arrow-right {
     font-size: 1.5em;
-    vertical-align: -4px;
+    vertical-align: -5px;
     margin-right: 3px;
   }
   .header .nav .logo a {
