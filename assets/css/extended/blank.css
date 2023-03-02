@@ -255,7 +255,7 @@ header.header {
 
 .footer span:first-child .user-fa-hardware-keyboard-arrow-right {
   font-size: 1.1rem;
-  vertical-align: -3.5px;
+  vertical-align: -3px;
 }
 .footer span:first-child .__cursor {
   display: inline-block;
