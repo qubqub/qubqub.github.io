@@ -3213,8 +3213,8 @@ a.button,
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 1.2em;
-  vertical-align: -2px;
+  /* font-size: 1.2em;
+  vertical-align: -2px; */
 }
 
 .zoom-out {
@@ -3233,8 +3233,8 @@ a.button,
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 1.2em;
-  vertical-align: -2px;
+  /* font-size: 1.2em;
+  vertical-align: -2px; */
 }
 
 .main .post-single .series-main .series-list {
