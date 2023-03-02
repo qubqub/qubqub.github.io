@@ -248,10 +248,10 @@
 
           if (_chapterButtonsWrapper.scrollWidth > _chapterButtonsWrapper.clientWidth) {
             _chapterButtonsWrapper.querySelector(".current").scrollIntoViewIfNeeded(true);
-            if (_chapterButtonsWrapper.scrollLeft <= 0) {
+            if (_chapterButtonsWrapper.scrollLeft <= 5) {
               _chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left");
               _chapterButtonsWrapper.classList.add("linear-gradient-right");
-            } else if (_chapterButtonsWrapper.scrollWidth - _chapterButtonsWrapper.clientWidth <= _chapterButtonsWrapper.scrollLeft) {
+            } else if (_chapterButtonsWrapper.scrollWidth - _chapterButtonsWrapper.clientWidth - 5 <= _chapterButtonsWrapper.scrollLeft) {
               _chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-right");
               _chapterButtonsWrapper.classList.add("linear-gradient-left");
             } else {
@@ -348,10 +348,10 @@
 
           window.addEventListener("resize", (e) => {
             if (_chapterButtonsWrapper.scrollWidth > _chapterButtonsWrapper.clientWidth) {
-              if (_chapterButtonsWrapper.scrollLeft <= 0) {
+              if (_chapterButtonsWrapper.scrollLeft <= 5) {
                 _chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left");
                 _chapterButtonsWrapper.classList.add("linear-gradient-right");
-              } else if (_chapterButtonsWrapper.scrollWidth - _chapterButtonsWrapper.clientWidth <= _chapterButtonsWrapper.scrollLeft) {
+              } else if (_chapterButtonsWrapper.scrollWidth - _chapterButtonsWrapper.clientWidth - 5 <= _chapterButtonsWrapper.scrollLeft) {
                 _chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-right");
                 _chapterButtonsWrapper.classList.add("linear-gradient-left");
               } else {
@@ -364,10 +364,10 @@
           });
 
           _chapterButtonsWrapper.addEventListener("scroll", (e) => {
-            if (_chapterButtonsWrapper.scrollLeft <= 0) {
+            if (_chapterButtonsWrapper.scrollLeft <= 5) {
               _chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left");
               _chapterButtonsWrapper.classList.add("linear-gradient-right");
-            } else if (_chapterButtonsWrapper.scrollWidth - _chapterButtonsWrapper.clientWidth <= _chapterButtonsWrapper.scrollLeft) {
+            } else if (_chapterButtonsWrapper.scrollWidth - _chapterButtonsWrapper.clientWidth - 5 <= _chapterButtonsWrapper.scrollLeft) {
               _chapterButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-right");
               _chapterButtonsWrapper.classList.add("linear-gradient-left");
             } else {

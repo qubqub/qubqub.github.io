@@ -231,10 +231,10 @@
 
       window.addEventListener("resize", (e) => {
         if (_seriesTagsWrapper.scrollWidth > _seriesTagsWrapper.clientWidth) {
-          if (_seriesTagsWrapper.scrollLeft <= 0) {
+          if (_seriesTagsWrapper.scrollLeft <= 5) {
             _seriesTagsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left");
             _seriesTagsWrapper.classList.add("linear-gradient-right");
-          } else if (_seriesTagsWrapper.scrollWidth - _seriesTagsWrapper.clientWidth <= _seriesTagsWrapper.scrollLeft) {
+          } else if (_seriesTagsWrapper.scrollWidth - _seriesTagsWrapper.clientWidth - 5 <= _seriesTagsWrapper.scrollLeft) {
             _seriesTagsWrapper.classList.remove("linear-gradient-both", "linear-gradient-right");
             _seriesTagsWrapper.classList.add("linear-gradient-left");
           } else {
@@ -247,10 +247,10 @@
       });
 
       _seriesTagsWrapper.addEventListener("scroll", (e) => {
-        if (_seriesTagsWrapper.scrollLeft <= 0) {
+        if (_seriesTagsWrapper.scrollLeft <= 5) {
           _seriesTagsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left");
           _seriesTagsWrapper.classList.add("linear-gradient-right");
-        } else if (_seriesTagsWrapper.scrollWidth - _seriesTagsWrapper.clientWidth <= _seriesTagsWrapper.scrollLeft) {
+        } else if (_seriesTagsWrapper.scrollWidth - _seriesTagsWrapper.clientWidth - 5 <= _seriesTagsWrapper.scrollLeft) {
           _seriesTagsWrapper.classList.remove("linear-gradient-both", "linear-gradient-right");
           _seriesTagsWrapper.classList.add("linear-gradient-left");
         } else {

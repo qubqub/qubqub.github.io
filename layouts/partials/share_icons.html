@@ -183,10 +183,10 @@
     }
 
     if (_shareButtonsWrapper.scrollWidth > _shareButtonsWrapper.clientWidth) {
-      if (_shareButtonsWrapper.scrollLeft <= 0) {
+      if (_shareButtonsWrapper.scrollLeft <= 5) {
         _shareButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left");
         _shareButtonsWrapper.classList.add("linear-gradient-right");
-      } else if (_shareButtonsWrapper.scrollWidth - _shareButtonsWrapper.clientWidth <= _shareButtonsWrapper.scrollLeft) {
+      } else if (_shareButtonsWrapper.scrollWidth - _shareButtonsWrapper.clientWidth - 5 <= _shareButtonsWrapper.scrollLeft) {
         _shareButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-right");
         _shareButtonsWrapper.classList.add("linear-gradient-left");
       } else {
@@ -283,10 +283,10 @@
 
     window.addEventListener("resize", (e) => {
       if (_shareButtonsWrapper.scrollWidth > _shareButtonsWrapper.clientWidth) {
-        if (_shareButtonsWrapper.scrollLeft <= 0) {
+        if (_shareButtonsWrapper.scrollLeft <= 5) {
           _shareButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left");
           _shareButtonsWrapper.classList.add("linear-gradient-right");
-        } else if (_shareButtonsWrapper.scrollWidth - _shareButtonsWrapper.clientWidth <= _shareButtonsWrapper.scrollLeft) {
+        } else if (_shareButtonsWrapper.scrollWidth - _shareButtonsWrapper.clientWidth - 5 <= _shareButtonsWrapper.scrollLeft) {
           _shareButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-right");
           _shareButtonsWrapper.classList.add("linear-gradient-left");
         } else {
@@ -299,10 +299,10 @@
     });
 
     _shareButtonsWrapper.addEventListener("scroll", (e) => {
-      if (_shareButtonsWrapper.scrollLeft <= 0) {
+      if (_shareButtonsWrapper.scrollLeft <= 5) {
         _shareButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-left");
         _shareButtonsWrapper.classList.add("linear-gradient-right");
-      } else if (_shareButtonsWrapper.scrollWidth - _shareButtonsWrapper.clientWidth <= _shareButtonsWrapper.scrollLeft) {
+      } else if (_shareButtonsWrapper.scrollWidth - _shareButtonsWrapper.clientWidth - 5 <= _shareButtonsWrapper.scrollLeft) {
         _shareButtonsWrapper.classList.remove("linear-gradient-both", "linear-gradient-right");
         _shareButtonsWrapper.classList.add("linear-gradient-left");
       } else {
