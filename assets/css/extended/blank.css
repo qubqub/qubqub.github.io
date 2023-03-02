@@ -2202,6 +2202,10 @@ header.header {
   margin-top: 80px;
 }
 
+/* .archive-year:not(:last-of-type) {
+  border-bottom: none;
+} */
+
 /* .post-content .highlight:not(table), .post-content pre {
   margin-bottom: 32px;
 } */
