@@ -25,8 +25,8 @@
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script defer src=https://developers.kakao.com/sdk/js/kakao.min.js onload="Kakao.init('b8cccaa78a75e1ff28f09a4a844b13c7')"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V6E7C47RYE"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-V6E7C47RYE')</script><meta property="og:title" content="[아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하라">
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-215417930-1','auto'),ga('send','pageview'))</script>
+<meta property="og:title" content="[아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하라">
 <meta property="og:description" content="대부분의 클래스는 하나 이상의 리소스에 의존합니다. 이번 예제 코드는 SpellChecker가 Lexicon을 의존하고 있는 모습입니다.
 부적절한 구현 📌 정적 유틸리티를 잘못 사용한 예 1 2 3 4 5 6 7 8 9 10  public class SpellChecker { private static final Lexicon dictionary = ...; private SpellChecker() {} // 객체 생성 방지  public static boolean isValid(String word) { ... } public static List<String> suggestions(String typo) { ... } }    유연하지 않고 테스트할 수 없다.">
 <meta property="og:type" content="article">
