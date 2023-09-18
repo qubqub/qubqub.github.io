@@ -1,0 +1,230 @@
+<!doctype html><html id=top lang=ko dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>8장 일반적인 프로그래밍 원칙 | &lt;Qutrits/></title>
+<meta name=keywords content>
+<meta name=description content="이번 장에서는 자바 언어의 핵심 요소에 집중한다. 지역변수, 제어구조, 라이브러리, 데이터 타입, 그리고 언어 경계를 넘나드는 기능인 리플렉션과 네이티브 메서드를 다룬다. 마지막으로는 최적화와 명명 규칙을 논한다.">
+<meta name=author content>
+<link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-08/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.1572477cf4966b9c13e10861a607254afc6b1d2e2ccf08c0bf97f6a528bbcb5b.css integrity="sha256-FXJHfPSWa5wT4QhhpgclSvxrHS4szwjAv5f2pSi7y1s=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
+<link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
+<link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
+<link rel=apple-touch-icon href=https://qutrits.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://qutrits.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.92.2">
+<link rel=alternate type=application/rss+xml href=https://qutrits.github.io/effective-java-3e/chapter-08/index.xml>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel=stylesheet>
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<script defer src=https://developers.kakao.com/sdk/js/kakao.min.js onload="Kakao.init('b8cccaa78a75e1ff28f09a4a844b13c7')"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QGM48S5CHK"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-QGM48S5CHK')</script><meta property="og:title" content="8장 일반적인 프로그래밍 원칙">
+<meta property="og:description" content="이번 장에서는 자바 언어의 핵심 요소에 집중한다. 지역변수, 제어구조, 라이브러리, 데이터 타입, 그리고 언어 경계를 넘나드는 기능인 리플렉션과 네이티브 메서드를 다룬다. 마지막으로는 최적화와 명명 규칙을 논한다.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qutrits.github.io/effective-java-3e/chapter-08/">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="8장 일반적인 프로그래밍 원칙">
+<meta name=twitter:description content="이번 장에서는 자바 언어의 핵심 요소에 집중한다. 지역변수, 제어구조, 라이브러리, 데이터 타입, 그리고 언어 경계를 넘나드는 기능인 리플렉션과 네이티브 메서드를 다룬다. 마지막으로는 최적화와 명명 규칙을 논한다.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Effctive Java 3/E","item":"https://qutrits.github.io/effective-java-3e/"},{"@type":"ListItem","position":2,"name":"8장 일반적인 프로그래밍 원칙","item":"https://qutrits.github.io/effective-java-3e/chapter-08/"}]}</script>
+</head>
+<body class=list>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class="header header-bottom">
+<nav class=nav>
+<div class=logo>
+<a href=https://qutrits.github.io/ accesskey=h title="Qutrits (Alt + H)"><span class=user-fa-hardware-keyboard-arrow-right></span>ssh qutrits@localhost<span class=__cursor></span></a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)" data-toggle=false data-animation=true><svg id="sun" enable-background="new 0 0 32 32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Layer_2"/><g id="Layer_3"/><g id="Layer_4"/><g id="Layer_5"/><g id="Layer_6"/><g id="Layer_7"/><g id="Layer_8"/><g id="Layer_9"/><g id="Layer_10"/><g id="Layer_11"/><g id="Layer_12"/><g id="Layer_13"/><g id="Layer_14"/><g id="Layer_15"/><g id="Layer_16"/><g id="Layer_17"/><g id="Layer_18"/><g id="Layer_19"><g><g><path d="M30.9 20.8c-2.2 6.1-8 10.2-14.5 10.2C7.9 31 1 24.2 1 15.8 1 8.7 5.9 2.6 12.9 1c.3-.1.7.0 1 .3.2.3.3.7.2 1-.5 1.4-.8 2.9-.8 4.4.0 7.3 6 13.2 13.4 13.2 1 0 2.1-.1 3.1-.4.3-.1.7.0 1 .3C31 20.1 31.1 20.5 30.9 20.8z" fill="#ffc10a"/></g></g></g><g id="Layer_20"/><g id="Layer_21"/><g id="Layer_22"/><g id="Layer_23"/><g id="Layer_24"/><g id="Layer_25"/><g id="Wearher"/></svg><svg id="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="none" stroke="currentcolor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M256 48v48m0 320v48M403.08 108.92l-33.94 33.94M142.86 369.14l-33.94 33.94M464 256h-48M96 256H48M403.08 403.08l-33.94-33.94M142.86 142.86l-33.94-33.94"/><circle cx="256" cy="256" r="80" fill="var(--primary)" stroke="currentcolor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32"/></svg>
+</button>
+</span>
+</div>
+<button id=menu-trigger aria-haspopup=menu aria-label="Menu Button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+<ul id=menu class="main-menu hidden">
+<li>
+<a href=https://qutrits.github.io/series-list/ title=시리즈>
+<span>시리즈</span>
+</a>
+</li>
+<li>
+<a href=https://qutrits.github.io/collection/ title=모아보기>
+<span>모아보기</span>
+</a>
+</li>
+<li>
+<a href=https://qutrits.github.io/archives/ title="기록 보관소">
+<span>기록 보관소</span>
+</a>
+</li>
+<li>
+<a href=https://qutrits.github.io/search/ title="검색 (Alt + /)" accesskey=/>
+<span>검색</span>
+</a>
+</li>
+<li>
+<a href=https://qutrits.github.io/tags/ title=태그>
+<span>태그</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<script>const header_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};header_DOMReady(function(){let a=document.querySelector("#menu-trigger"),b=document.querySelector("#menu");a.addEventListener("click",function(){b.classList.toggle("hidden")}),document.body.addEventListener("click",function(c){a.contains(c.target)||b.classList.add("hidden")})})</script><main class=main>
+<header class=page-header><div class=breadcrumbs data-animation=true><a href=https://qutrits.github.io/>Home</a>
+&nbsp;<svg style="margin-right:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+&nbsp;
+<a href=https://qutrits.github.io/effective-java-3e/>Effctive Java 3/E</a></div>
+<h1 class=page-title data-animation=true><span class=page-icon><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Java</title><path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211.0.0.552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149M8.276 15.933s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308.0.0.384.389.987.602-5.679 1.661-12.007.13-7.942-1.218m4.84-4.458c1.158 1.333-.304 2.533-.304 2.533s2.939-1.518 1.589-3.418c-1.261-1.772-2.228-2.652 3.007-5.688.0-.001-8.216 2.051-4.292 6.573m6.214 9.029s.679.559-.747.991c-2.712.822-11.288 1.069-13.669.033-.856-.373.75-.89 1.254-.998.527-.114.828-.093.828-.093-.953-.671-6.156 1.317-2.643 1.887 9.58 1.553 17.462-.7 14.977-1.82M9.292 13.21s-4.362 1.036-1.544 1.412c1.189.159 3.561.123 5.77-.062 1.806-.152 3.618-.477 3.618-.477s-.637.272-1.098.587c-4.429 1.165-12.986.623-10.522-.568 2.082-1.006 3.776-.892 3.776-.892m7.824 4.374c4.503-2.34 2.421-4.589.968-4.285-.355.074-.515.138-.515.138s.132-.207.385-.297c2.875-1.011 5.086 2.981-.928 4.562.0-.001.07-.062.09-.118M14.401.0s2.494 2.494-2.365 6.33c-3.896 3.077-.888 4.832-.001 6.836-2.274-2.053-3.943-3.858-2.824-5.539 1.644-2.469 6.197-3.665 5.19-7.627M9.734 23.924c4.322.277 10.959-.153 11.116-2.198.0.0-.302.775-3.572 1.391-3.688.694-8.239.613-10.937.168.0-.001.553.457 3.393.639"/></svg></span>
+8장 일반적인 프로그래밍 원칙
+</h1>
+<div class="page-description abstracted" data-animation=true>
+이번 장에서는 자바 언어의 핵심 요소에 집중한다. 지역변수, 제어구조, 라이브러리, 데이터 타입, 그리고 언어 경계를 넘나드는 기능인 리플렉션과 네이티브 메서드를 다룬다. 마지막으로는 최적화와 명명 규칙을 논한다.
+</div>
+</header>
+<div class=list-entry-wrapper style=animation-delay:170ms data-animation=true>
+<article class="list-entry button" title='[아이템 62] 다른 타입이 적절하다면 문자열 사용을 피하라. 문자열은 다른 값 타입을 대신하기엔 적절하지 않습니다.
+1 2  // 흔한 타입을 문자열로 처리한 부적절한 예 String compoundKey = className + "#" + i.next();   두 요소를 구분해주는 #이 두 요소 중 하나에서 쓰였다면 혼란을 초래할 수 있습니다. 각 요소를 개별로 접근하려면 문자열을 파싱해야 해서 느리고, 귀찮고, 오류 가능성도 커집니다. 이럴 경우 전용 클래스를 새로 만드는 편이 낫습니다. 보통 private 정적 멤버 클래스로 선언합니다.'>
+<header class=entry-header>
+<h2>
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 62] 다른 타입이 적절하다면 문자열 사용을 피하라. 문자열은 다른 값 타입을 대신하기엔 적절하지 않습니다.
+1 2 // 흔한 타입을 문자열로 처리한 부적절한 예 String compoundKey = className + "#" + i.next(); 두 요소를 구분해주는 #이 두 요소 중 하나에서 쓰였다면 혼란을 초래할 수 있습니다. 각 요소를 개별로 접근하려면 문자열을 파싱해야 해서 느리고, 귀찮고, 오류 가능성도 커집니다. 이럴 경우 전용 클래스를 새로 만드는 편이 낫습니다. 보통 private 정적 멤버 클래스로 선언합니다....</p>
+</section>
+<footer class=entry-footer></footer>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/effective-java-3e/chapter-08/item62/></a>
+</article>
+</div>
+<div class=list-entry-wrapper style=animation-delay:220ms data-animation=true>
+<article class="list-entry button" title='# [아이템 63] 문자열 연결은 느리니 주의하라. 문자열 연결 연산자로 문자열을 n개를 잇는 시간은 n^2에 비례합니다. 문자열은 immutable이라 두 문자열을 연결할 경우 양쪽의 내용을 모두 복사해야 하므로 성능 저하는 피할 수 없습니다.
+1 2 3 4 5 6 7  public String statement() { String result = ""; for (int i = 0; i < numItems(); i++) { result += lineForItem(); // 문자열연결  } return result; }   StringBuilder를 활용하면 성능을 크게 개선할 수 있습니다.'>
+<header class=entry-header>
+<h2>
+</h2>
+</header>
+<section class=entry-content>
+<p># [아이템 63] 문자열 연결은 느리니 주의하라. 문자열 연결 연산자로 문자열을 n개를 잇는 시간은 n^2에 비례합니다. 문자열은 immutable이라 두 문자열을 연결할 경우 양쪽의 내용을 모두 복사해야 하므로 성능 저하는 피할 수 없습니다.
+1 2 3 4 5 6 7 public String statement() { String result = ""; for (int i = 0; i &lt; numItems(); i++) { result += lineForItem(); // 문자열연결 } return result; } StringBuilder를 활용하면 성능을 크게 개선할 수 있습니다....</p>
+</section>
+<footer class=entry-footer></footer>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/effective-java-3e/chapter-08/item63/></a>
+</article>
+</div>
+<div class=list-entry-wrapper style=animation-delay:270ms data-animation=true>
+<article class="list-entry button" title="[아이템 64] 객체는 인터페이스를 사용해 참조하라. 1 2  // 좋은 예 Set<Student> student = new HashSet<>();   1 2  // 나쁜 예. 클래스 참조 HashSet<Student> student = new HashSet<>();   인터페이스를 활용하면 유연함을 얻을 수 있습니다. 구현체를 교체하고 싶으면 구현 클래스만 바꾸면 됩니다.
+1 2  // HashSet -> LinkedHashSet 교체 Set<Student> student = new LinkedHashSet<>();   하지만 구현체를 바꿀 경우 주의할 점이 있습니다. 기존 구현체만의 특별한 기능을 제공하는 게 있다면, 바꿀 구현체에도 있는지 혹은 사이드 이펙트도 충분히 고려해야 합니다.">
+<header class=entry-header>
+<h2>
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 64] 객체는 인터페이스를 사용해 참조하라. 1 2 // 좋은 예 Set&lt;Student> student = new HashSet&lt;>(); 1 2 // 나쁜 예. 클래스 참조 HashSet&lt;Student> student = new HashSet&lt;>(); 인터페이스를 활용하면 유연함을 얻을 수 있습니다. 구현체를 교체하고 싶으면 구현 클래스만 바꾸면 됩니다.
+1 2 // HashSet -> LinkedHashSet 교체 Set&lt;Student> student = new LinkedHashSet&lt;>(); 하지만 구현체를 바꿀 경우 주의할 점이 있습니다. 기존 구현체만의 특별한 기능을 제공하는 게 있다면, 바꿀 구현체에도 있는지 혹은 사이드 이펙트도 충분히 고려해야 합니다....</p>
+</section>
+<footer class=entry-footer></footer>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/effective-java-3e/chapter-08/item64/></a>
+</article>
+</div>
+<div class=list-entry-wrapper style=animation-delay:320ms data-animation=true>
+<article class="list-entry button" title="[아이템 65] 리플렉션보다는 인터페이스를 사용하라. 리플렉션 기능을 활용하면 클래스에 접근 할 수 있습니다. Class객체가 주어지면 생성자, 메서드, 필드에 해당하는 Consturct, Method, Field 인스턴스를 가져올 수 있고 그 인스턴스들로는 그 클래스의 시그니처 등을 가져올 수 있습니다.
+
+Method.invoke는 어떤 클래스의 어떤 객체가 가진 어떤 메서드라도 호출할 수 있게 해줍니다 물론 장점만있는 건 아닙니다. 단점은 다음과 같습니다.
+ 컴파일타임 타입 검사가 주는 이점을 하나도 누릴 수 없다. 예외 검사도 마찬가지입니다. 리플렉션 기능으로 존재하지 않는 혹은 접근할 수 없는 메서드를 호출하려고하면 런타임 오류가 발생합니다.">
+<header class=entry-header>
+<h2>
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 65] 리플렉션보다는 인터페이스를 사용하라. 리플렉션 기능을 활용하면 클래스에 접근 할 수 있습니다. Class객체가 주어지면 생성자, 메서드, 필드에 해당하는 Consturct, Method, Field 인스턴스를 가져올 수 있고 그 인스턴스들로는 그 클래스의 시그니처 등을 가져올 수 있습니다.
+Method.invoke는 어떤 클래스의 어떤 객체가 가진 어떤 메서드라도 호출할 수 있게 해줍니다 물론 장점만있는 건 아닙니다. 단점은 다음과 같습니다.
+컴파일타임 타입 검사가 주는 이점을 하나도 누릴 수 없다. 예외 검사도 마찬가지입니다. 리플렉션 기능으로 존재하지 않는 혹은 접근할 수 없는 메서드를 호출하려고하면 런타임 오류가 발생합니다....</p>
+</section>
+<footer class=entry-footer></footer>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/effective-java-3e/chapter-08/item65/></a>
+</article>
+</div>
+<div class=list-entry-wrapper style=animation-delay:370ms data-animation=true>
+<article class="list-entry button" title="[아이템 66] 네이티브 메서드는 신중히 사용하라. 자바 네이티브 인터페이스는 자바 프로그램이 네이티브 메서드를 호출하는 기술입니다. 네이티브 메서드란 C나 C++같읕 네이비티브 프로그래밍 언어로 작성한 메서드를 말합니다. 네이티브 메서드의 주요 쓰임은 세 가지가 있습니다.
+ 레지스트리 같은 플랫폼 특화 기능을 사용한다. 네이티브 코드로 작성된 기존 라이브러리를 사용한다. 성능 개선을 목적으로 성능에 결정적인 영향을 주는 영역만 따로 네이티브 언어로 작성한다.  자바 9부터는 process API를 추가해 OS 프로세스에 접근하는 길을 열어주었고 자바에서 네이티브 메서드를 사용할 필요가 점점 줄어드는 추세입니다.">
+<header class=entry-header>
+<h2>
+</h2>
+</header>
+<section class=entry-content>
+<p>[아이템 66] 네이티브 메서드는 신중히 사용하라. 자바 네이티브 인터페이스는 자바 프로그램이 네이티브 메서드를 호출하는 기술입니다. 네이티브 메서드란 C나 C++같읕 네이비티브 프로그래밍 언어로 작성한 메서드를 말합니다. 네이티브 메서드의 주요 쓰임은 세 가지가 있습니다.
+레지스트리 같은 플랫폼 특화 기능을 사용한다. 네이티브 코드로 작성된 기존 라이브러리를 사용한다. 성능 개선을 목적으로 성능에 결정적인 영향을 주는 영역만 따로 네이티브 언어로 작성한다. 자바 9부터는 process API를 추가해 OS 프로세스에 접근하는 길을 열어주었고 자바에서 네이티브 메서드를 사용할 필요가 점점 줄어드는 추세입니다....</p>
+</section>
+<footer class=entry-footer></footer>
+<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/effective-java-3e/chapter-08/item66/></a>
+</article>
+</div>
+<footer class=page-footer>
+<nav class=pagination>
+<ul class=pagination>
+<li class="pagination__item pagination__item--first">
+<a class="pagination__link pagination__link--first button" href=https://qutrits.github.io/effective-java-3e/chapter-08/><svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg><svg style="margin-left:-17px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+<span></span>
+</a>
+</li>
+<li class="pagination__item pagination__item--previous">
+<a class="pagination__link pagination__link--previous button" href=https://qutrits.github.io/effective-java-3e/chapter-08/><svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+<span></span>
+</a>
+</li>
+<li class=pagination__item>
+<a style=font-size:1rem href=/effective-java-3e/chapter-08/ class="pagination__link button">1</a>
+</li>
+<li class="pagination__item pagination__item--current">
+<a style=font-size:1rem;color:var(--main-color)>2</a>
+</li>
+<li class=pagination__item>
+<a style=font-size:1rem href=/effective-java-3e/chapter-08/page/3/ class="pagination__link button">3</a>
+</li>
+<li class="pagination__item pagination__item--next">
+<a class="pagination__link pagination__link--next button" href=https://qutrits.github.io/effective-java-3e/chapter-08/page/3/>
+<span></span><svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+</a>
+</li>
+<li class="pagination__item pagination__item--last">
+<a class="pagination__link pagination__link--last button" href=https://qutrits.github.io/effective-java-3e/chapter-08/page/3/>
+<span></span><svg style="margin-right:-17px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+</a>
+</li>
+</ul>
+</nav>
+</footer>
+<script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .list-entry-wrapper .list-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
+</main>
+<footer class=footer>
+<span>&copy; 2023 <a href=https://qutrits.github.io/><span class=user-fa-hardware-keyboard-arrow-right></span>ssh qutrits@localhost<span class=__cursor></span></a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+    <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+<span>
+· Source code on
+<a href=https://github.com/qutrits/qutrits.github.io rel="noopener noreferrer" target=_blank>GitHub</a>
+</span>
+</footer>
+<div class=aside-font-size-button id=aside-font-size-button style=visibility:hidden>
+<span class=aside-display-font-size-info>100%</span>
+<a id=aside-font-size-increase aria-label="글꼴 크기 늘리기" title="글꼴 크기 늘리기 (Alt + V)" accesskey=v><svg class="button increase" width="24" height="24" viewBox="0 0 24 24"><path d="M5.12 14 7.5 7.67 9.87 14M6.5 5 1 19H3.25l1.12-3h6.25l1.13 3H14L8.5 5h-2M18 7l-5 5.07 1.41 1.43L17 10.9V17h2V10.9l2.59 2.6L23 12.07 18 7z"/></svg>
+</a>
+<a id=aside-font-size-decrease aria-label="글꼴 크기 줄이기" title="글꼴 크기 줄이기 (Alt + B)" accesskey=b><svg class="button decrease" width="24" height="24" viewBox="0 0 24 24"><path d="M5.12 14 7.5 7.67 9.87 14M6.5 5 1 19H3.25l1.12-3h6.25l1.13 3H14L8.5 5h-2M18 17l5-5.07-1.41-1.43L19 13.1V7H17v6.1l-2.59-2.6L13 11.93 18 17z"/></svg>
+</a>
+<a id=aside-font-size-default aria-label="글꼴 크기 재설정" title="글꼴 크기 재설정 (Alt + N)" accesskey=n><svg class="button default" width="24" height="24" viewBox="0 0 24 24"><path d="M7.20711 2.54289c.39052.39053.39052 1.02369.0 1.41422L5.41421 5.75H13.25c4.4183.0 8 3.58172 8 8 0 4.4183-3.5817 8-8 8-4.41828.0-8-3.5817-8-8 0-.552300000000001.44772-1 1-1s1 .447699999999999 1 1c0 3.3137 2.68629 6 6 6 3.3137.0 6-2.6863 6-6s-2.6863-6-6-6H5.41421l1.7929 1.79289c.39052.39053.39052 1.02371.0 1.41421C6.81658 11.3476 6.18342 11.3476 5.79289 10.9571l-3.5-3.49999c-.39052-.39053-.39052-1.02369.0-1.41422l3.5-3.5c.39053-.39052 1.02369-.39052 1.41422.0z" fill="#212121"/></svg>
+</a>
+</div>
+<a href=#top aria-label="맨 위로 이동" title="맨 위로 이동 (Alt + G)" class="top-link button" id=top-link accesskey=g style=visibility:hidden><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentcolor"><path d="M414 321.94 274.22 158.82a24 24 0 00-36.44.0L98 321.94c-13.34 15.57-2.28 39.62 18.22 39.62h279.6c20.5.0 31.56-24.05 18.18-39.62z"/></svg>
+</a>
+<script>const footer_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};footer_DOMReady(function(){let c=document.getElementById('menu');c&&(c.scrollLeft=localStorage.getItem("menu-scroll-position"),c.onscroll=function(){localStorage.setItem("menu-scroll-position",c.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();const a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"auto"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})});const b=document.querySelector(".main .post-single .post-content");if(b){const a=document.getElementById("aside-font-size-button"),h=a.querySelector("#aside-font-size-increase"),f=a.querySelector("#aside-font-size-decrease"),g=a.querySelector("#aside-font-size-default"),c=document.querySelector(".display-font-size-info"),d=a.querySelector(".aside-display-font-size-info"),j=document.querySelector(".post-single .post-header .post-meta .post-footer"),e=document.querySelector(".post-header"),i=e.offsetHeight+e.offsetTop+e.offsetParent.offsetTop-1;window.addEventListener("scroll",()=>{const b=Math.ceil(window.pageYOffset+window.innerHeight)>=document.body.scrollHeight;i<window.pageYOffset?b&&window.innerWidth<769?(a.style.visibility="hidden",a.style.opacity="0"):(a.style.visibility="visible",a.style.opacity="1"):(a.style.visibility="hidden",a.style.opacity="0")}),h.addEventListener("click",function(){if(localStorage.getItem("post-content-font-size")){let a=parseInt(localStorage.getItem("post-content-font-size"));if(a+5>200)return;b.style.fontSize=a+10+"%",c.innerText=a+10+"%",d.innerText=a+10+"%",localStorage.setItem("post-content-font-size",a+10)}else b.style.fontSize="110%",c.innerText="110%",d.innerText="110%",localStorage.setItem("post-content-font-size",110)}),f.addEventListener("click",function(){if(localStorage.getItem("post-content-font-size")){let a=parseInt(localStorage.getItem("post-content-font-size"));if(a-5<50)return;b.style.fontSize=a-10+"%",c.innerText=a-10+"%",d.innerText=a-10+"%",localStorage.setItem("post-content-font-size",a-10)}else b.style.fontSize="90%",c.innerText="90%",d.innerText="90%",localStorage.setItem("post-content-font-size",90)}),g.addEventListener("click",function(){b.style.fontSize="100%",c.innerText="100%",d.innerText="100%",localStorage.setItem("post-content-font-size",100)})}const d=document.querySelector(".post-content"),a=document.getElementById("top-link");window.onscroll=function(){if(d){const b=d.getBoundingClientRect(),c=b.top;0>=c?(a.style.visibility="visible",a.style.opacity="1"):(a.style.visibility="hidden",a.style.opacity="0")}else window.pageYOffset>300?(a.style.visibility="visible",a.style.opacity="1"):(a.style.visibility="hidden",a.style.opacity="0")},document.getElementById("theme-toggle").addEventListener("click",()=>{document.getElementById("theme-toggle").dataset.toggle="true",document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))}),document.getElementById("theme-toggle").addEventListener("blur",a=>{document.getElementById("theme-toggle").dataset.toggle="false"})})</script></body>
+</html>

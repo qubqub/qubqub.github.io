@@ -1,12 +1,12 @@
 {{- if not .Site.IsServer -}}
   <!-- {{ template "_internal/google_analytics.html" . }} -->
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.googleTagId }}"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleTagId }}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', '{{ .Site.googleTagId }}');
+    gtag('config', '{{ .Site.Params.googleTagId }}');
   </script>
 {{- end -}}
