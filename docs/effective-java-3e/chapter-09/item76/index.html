@@ -24,8 +24,8 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','')</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-215417930-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-215417930-1')</script>
 <script defer src=https://developers.kakao.com/sdk/js/kakao.min.js onload="Kakao.init('b8cccaa78a75e1ff28f09a4a844b13c7')"></script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 76] 가능한 한 실패 원자적으로 만들라. 여기서 말하는 실패 원자적이란 호출한 메서드가 실패하더라도 해당 객체는 호출 전 상태로 유지되는 것입니다. 가장 간단한 방법은 불변 객채로 설계하는 것입니다. 가변 객체일 경우 작업 수행 전에 유효성을 검사합는 것입니다.
 1 2 3 4 5 6 7 8  public Object pop() { if (size == 0) { throw new EmptyStachException(); } Object result = el[--size]; el[size] = null; // 참조 해제  return result; }   유효성 검사하는 부분이 없어도 ArrayOutOfBoundsException을 던지지만 이는 추상화 수준에 상황에 어울리지 않습니다.">

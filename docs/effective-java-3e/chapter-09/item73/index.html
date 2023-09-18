@@ -24,8 +24,8 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','')</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-215417930-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-215417930-1')</script>
 <script defer src=https://developers.kakao.com/sdk/js/kakao.min.js onload="Kakao.init('b8cccaa78a75e1ff28f09a4a844b13c7')"></script><meta property="og:title" content>
 <meta property="og:description" content="[아이템 73] 추상화 수준에 맞는 예외를 던져라. 메서드가 저수준 예외를 처리하지 않고 바깥으로 전파해버릴 경우 예상치 못한 예외를 접하고 당황할 수가 있습니다. 이 문제를 피하려면 상위 계층에서 저수주 예외를 잡아 자신의 추상화 수준에 맞는 예외를 던져야 합니다. 이를 예외 번역이라 부릅니다.
 1 2 3 4 5 6  try { ... } catch (LowLevelException e) { // 추상화 수준에 맞게 번역.  throw new HighLevelException(..); }   AbstractSequentialList에서 수행하는 예외번역의 예시">

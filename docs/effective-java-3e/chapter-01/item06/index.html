@@ -26,8 +26,8 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','')</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-215417930-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-215417930-1')</script>
 <script defer src=https://developers.kakao.com/sdk/js/kakao.min.js onload="Kakao.init('b8cccaa78a75e1ff28f09a4a844b13c7')"></script><meta property="og:title" content="[아이템 6] 불필요한 객체를 생성을 피하라">
 <meta property="og:description" content="기능이 똑같은 객체를 매번 생성하기 보다는 객체를 재사용하는 것이 적절합니다. 특히 불변 객체는 항상 재사용할 수 있습니다.
 📌 문자열 생성 방법 객체 생성 방식 - 피해야 되는 예시 1  String str = new String(&#34;hello&#34;);   이 방식을 이용하면 똑같은 문자열을 생성하더라도 항상 새로운 객체를 생성하므로 낭비가 됩니다.
