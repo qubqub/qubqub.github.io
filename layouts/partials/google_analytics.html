@@ -11,12 +11,12 @@
   </script> -->
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ (.Param "googleAnalytics") }}"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Params.googleAnalytics }}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', '{{ (.Param "googleAnalytics") }}');
+    gtag('config', '{{ .Params.googleAnalytics }}');
   </script>
 {{- end -}}
