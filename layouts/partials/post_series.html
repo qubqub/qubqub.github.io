@@ -271,7 +271,7 @@
             let _e = window.event || e;
             let delta = Math.max(-1, Math.min(1, _e.wheelDelta || -_e.detail));
             animateScrollTo(_chapterButtonsWrapper, "horizontal", _chapterButtonsWrapper.scrollLeft -= (delta * 100), 500);
-            return false;
+            _e.stopPropagation();
           }
 
           const animateScrollTo = (element, direction, to, duration) => {
