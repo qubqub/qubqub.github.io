@@ -63,8 +63,7 @@
         <div class="chapter-control">
           <div class="info">
             <div class="chapter-number">{{ $_chapterNumber }} / {{ $_totalChapterPage }}</div>
-            <div class="page-button">
-
+            <div class="page-button" style="scroll-behavior: smooth;">
               {{ range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
                 {{ if (eq $taxonomy_term "chapter") }}
                   {{ range $index, $val := $taxonomy }}
@@ -271,7 +270,7 @@
             let _e = window.event || e;
             _e.preventDefault();
             let delta = Math.max(-1, Math.min(1, _e.wheelDelta || -_e.detail));
-            animateScrollTo(_chapterButtonsWrapper, "horizontal", _chapterButtonsWrapper.scrollLeft -= (delta * 100), 500);
+            animateScrollTo(_chapterButtonsWrapper, "horizontal", _chapterButtonsWrapper.scrollLeft -= (delta * 500), 0);
             return false;
           }
 
