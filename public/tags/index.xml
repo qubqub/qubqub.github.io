@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on &lt;Qutrits/&gt;</title>
+    <link>https://qutrits.github.io/tags/</link>
+    <description>Recent content in Tags on &lt;Qutrits/&gt;</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 02 Aug 2021 10:11:42 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Effective Java 3E</title>
+      <link>https://qutrits.github.io/tags/effective-java-3e/</link>
+      <pubDate>Mon, 02 Aug 2021 10:11:42 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/tags/effective-java-3e/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://qutrits.github.io/tags/java/</link>
+      <pubDate>Mon, 02 Aug 2021 10:11:42 +0900</pubDate>
+      
+      <guid>https://qutrits.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
