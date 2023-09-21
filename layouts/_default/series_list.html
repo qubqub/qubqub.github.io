@@ -127,8 +127,8 @@
       }
 
       function mouseWheelHandler(e) {
-        let e = window.event || e;
-        let delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+        let _e = window.event || e;
+        let delta = Math.max(-1, Math.min(1, _e.wheelDelta || -_e.detail));
         animateScrollTo(_seriesTagsWrapper, "horizontal", _seriesTagsWrapper.scrollLeft -= (delta * 100), 10);
         return false;
       }
