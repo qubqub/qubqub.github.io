@@ -260,42 +260,56 @@
             }
           }
 
-          // const animateScrollTo = (element, direction, to, duration) => {
-          //   const start = direction === "vertical" ? element.scrollTop : element.scrollLeft; // vertical, horizontal
-          //   const change = to - start;
-          //   const startDate = +new Date();
-          //   // t = current time
-          //   // b = start value
-          //   // c = change in value
-          //   // d = duration
-          //   const easeInOutQuad = (t, b, c, d) => {
-          //     let t2 = t;
-          //     t2 /= d / 2;
-          //     if (t2 < 1) return (c / 2) * t2 * t2 + b;
-          //     t2 -= 1;
-          //     return (-c / 2) * (t2 * (t2 - 2) - 1) + b;
-          //   };
-          //   const animateScroll = () => {
-          //     const currentDate = +new Date();
-          //     const currentTime = currentDate - startDate;
-          //     if (direction === "vertical") {
-          //       element.scrollTop = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
-          //     } else {
-          //       element.scrollLeft = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
-          //     }
+          if (_chapterButtonsWrapper.addEventListener) {
+            _chapterButtonsWrapper.addEventListener("mousewheel", mouseWheelHandler, false);
+            _chapterButtonsWrapper.addEventListener("DOMMouseScroll", mouseWheelHandler, false);
+          } else {
+            _chapterButtonsWrapper.attachEvent("onmousewheel", mouseWheelHandler);
+          }
 
-          //     if (currentTime < duration) {
-          //       requestAnimationFrame(animateScroll);
-          //     } else {
-          //       if (direction === "vertical") {
-          //         element.scrollTop = to;
-          //       } else {
-          //         element.scrollLeft = to;
-          //       }
-          //     }
-          //   };
-          //   animateScroll();
-          // };
+          function mouseWheelHandler(e) {
+            let _e = window.event || e;
+            let delta = Math.max(-1, Math.min(1, _e.wheelDelta || -_e.detail));
+            animateScrollTo(_chapterButtonsWrapper, "horizontal", _chapterButtonsWrapper.scrollLeft -= (delta * 100), 500);
+            return false;
+          }
+
+          const animateScrollTo = (element, direction, to, duration) => {
+            const start = direction === "vertical" ? element.scrollTop : element.scrollLeft; // vertical, horizontal
+            const change = to - start;
+            const startDate = +new Date();
+            // t = current time
+            // b = start value
+            // c = change in value
+            // d = duration
+            const easeInOutQuad = (t, b, c, d) => {
+              let t2 = t;
+              t2 /= d / 2;
+              if (t2 < 1) return (c / 2) * t2 * t2 + b;
+              t2 -= 1;
+              return (-c / 2) * (t2 * (t2 - 2) - 1) + b;
+            };
+            const animateScroll = () => {
+              const currentDate = +new Date();
+              const currentTime = currentDate - startDate;
+              if (direction === "vertical") {
+                element.scrollTop = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
+              } else {
+                element.scrollLeft = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
+              }
+
+              if (currentTime < duration) {
+                requestAnimationFrame(animateScroll);
+              } else {
+                if (direction === "vertical") {
+                  element.scrollTop = to;
+                } else {
+                  element.scrollLeft = to;
+                }
+              }
+            };
+            animateScroll();
+          };
 
           // let prevX = 0;
 
