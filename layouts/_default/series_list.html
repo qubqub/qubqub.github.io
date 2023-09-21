@@ -66,7 +66,7 @@
               {{- end }}
             {{- end }}
 
-            <ul class="post-tags">
+            <ul class="post-tags horizontal-scroll">
               {{- range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
                 {{- if (eq $taxonomy_term "chapter") }}
                   {{- range $key, $value := $taxonomy }}
@@ -119,6 +119,20 @@
         }
       }
 
+      if (_seriesTagsWrapper.addEventListener) {
+        _seriesTagsWrapper.addEventListener("mousewheel", mouseWheelHandler, false);
+        _seriesTagsWrapper.addEventListener("DOMMouseScroll", mouseWheelHandler, false);
+      } else {
+        _seriesTagsWrapper.attachEvent("onmousewheel", mouseWheelHandler);
+      }
+
+      function mouseWheelHandler(e) {
+        let e = window.event || e;
+        let delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+        animateScrollTo(_seriesTagsWrapper, "horizontal", _seriesTagsWrapper.scrollLeft -= (delta * 100), 10);
+        return false;
+      }
+
       // let _s, _e, _o = 0;
       // let _d = false;
 
@@ -132,42 +146,42 @@
       //   }
       // }
 
-      // const animateScrollTo = (element, direction, to, duration) => {
-      //   const start = direction === "vertical" ? element.scrollTop : element.scrollLeft; // vertical, horizontal
-      //   const change = to - start;
-      //   const startDate = +new Date();
-      //   // t = current time
-      //   // b = start value
-      //   // c = change in value
-      //   // d = duration
-      //   const easeInOutQuad = (t, b, c, d) => {
-      //     let t2 = t;
-      //     t2 /= d / 2;
-      //     if (t2 < 1) return (c / 2) * t2 * t2 + b;
-      //     t2 -= 1;
-      //     return (-c / 2) * (t2 * (t2 - 2) - 1) + b;
-      //   };
-      //   const animateScroll = () => {
-      //     const currentDate = +new Date();
-      //     const currentTime = currentDate - startDate;
-      //     if (direction === "vertical") {
-      //       element.scrollTop = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
-      //     } else {
-      //       element.scrollLeft = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
-      //     }
+      const animateScrollTo = (element, direction, to, duration) => {
+        const start = direction === "vertical" ? element.scrollTop : element.scrollLeft; // vertical, horizontal
+        const change = to - start;
+        const startDate = +new Date();
+        // t = current time
+        // b = start value
+        // c = change in value
+        // d = duration
+        const easeInOutQuad = (t, b, c, d) => {
+          let t2 = t;
+          t2 /= d / 2;
+          if (t2 < 1) return (c / 2) * t2 * t2 + b;
+          t2 -= 1;
+          return (-c / 2) * (t2 * (t2 - 2) - 1) + b;
+        };
+        const animateScroll = () => {
+          const currentDate = +new Date();
+          const currentTime = currentDate - startDate;
+          if (direction === "vertical") {
+            element.scrollTop = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
+          } else {
+            element.scrollLeft = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
+          }
 
-      //     if (currentTime < duration) {
-      //       requestAnimationFrame(animateScroll);
-      //     } else {
-      //       if (direction === "vertical") {
-      //         element.scrollTop = to;
-      //       } else {
-      //         element.scrollLeft = to;
-      //       }
-      //     }
-      //   };
-      //   animateScroll();
-      // };
+          if (currentTime < duration) {
+            requestAnimationFrame(animateScroll);
+          } else {
+            if (direction === "vertical") {
+              element.scrollTop = to;
+            } else {
+              element.scrollLeft = to;
+            }
+          }
+        };
+        animateScroll();
+      };
 
       // let prevX = 0;
 

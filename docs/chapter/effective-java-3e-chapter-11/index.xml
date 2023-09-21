@@ -1,20 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Effective Java 3E Chapter 11 on &lt;Qutrits/&gt;</title>
-    <link>https://qutrits.github.io/chapter/effective-java-3e-chapter-11/</link>
-    <description>Recent content in Effective Java 3E Chapter 11 on &lt;Qutrits/&gt;</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 02 Aug 2021 10:11:42 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/chapter/effective-java-3e-chapter-11/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>[아이템 85] 자바 직렬화의 대안을 찾으라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-11/item85/</link>
-      <pubDate>Mon, 02 Aug 2021 10:11:42 +0900</pubDate>
-      
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-11/item85/</guid>
-      <description>[아이템 85] 자바 직렬화의 대안을 찾으라. 자바의 역직렬화에는 치명적인 단점이 있습니다. 신롸할 수 없는 스트림을 역직렬화하면 원격 코드 실행, 서비스 거부 등의 공격으로 이어질 수 있습니다.
-역직렬화 폭탄이란 서비스 거부 공격을 유발하는 스트림입니다.1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  static byte[] bomb() { Set&amp;lt;Object&amp;gt; root = new HashSet&amp;lt;&amp;gt;(); Set&amp;lt;Object&amp;gt; s1 = root; Set&amp;lt;Object&amp;gt; s2 = new HashSet&amp;lt;&amp;gt;(); for (int i = 0; i &amp;lt; 100; i++) { Set&amp;lt;Object&amp;gt; t1 = new HashSet&amp;lt;&amp;gt;(); Set&amp;lt;Object&amp;gt; t2 = new HashSet&amp;lt;&amp;gt;(); t1.</description>
-    </item>
-    
-  </channel>
-</rss>
