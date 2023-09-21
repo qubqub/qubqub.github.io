@@ -5,7 +5,7 @@
 /.hugo_build.lock
 
 /.idea
-/archetypes
+# /archetypes
 
 # /content
 # /content/archives.md

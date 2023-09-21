@@ -28,7 +28,7 @@
     {{- range $i, $v := $.Site.Taxonomies.series.ByCount }}
       {{- $name := .Name }}
       {{- $count := .Count }}
-      
+
       {{- with $.Site.GetPage (printf "/%s/%s" "series" $name) }}
         {{ $seriesTitle := .Name }}
         <div class="series-entry-wrapper" {{ if .Site.Params.useAnimation }}style="animation-delay: {{ add (mul (add $i 1) 100) 100 }}ms;" data-animation="true"{{ end }}>
@@ -65,7 +65,7 @@
                 {{- end }}
               {{- end }}
             {{- end }}
-            
+
             <ul class="post-tags">
               {{- range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
                 {{- if (eq $taxonomy_term "chapter") }}
@@ -118,58 +118,59 @@
           _seriesTagsWrapper.classList.add("linear-gradient-both");
         }
       }
-      
-      let _s, _e, _o = 0;
-      let _d = false;
 
-      const hasScrollbar = (element, direction) => {
-        if (direction === "vertical") {
-          return (element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight);
-        } else if (direction === "horizontal") {
-          return (element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth);
-        } else { // both
-          return ((element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight)) && ((element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth));
-        }
-      }
+      // let _s, _e, _o = 0;
+      // let _d = false;
 
-      const animateScrollTo = (element, direction, to, duration) => {
-        const start = direction === "vertical" ? element.scrollTop : element.scrollLeft; // vertical, horizontal
-        const change = to - start;
-        const startDate = +new Date();
-        // t = current time
-        // b = start value
-        // c = change in value
-        // d = duration
-        const easeInOutQuad = (t, b, c, d) => {
-          let t2 = t;
-          t2 /= d / 2;
-          if (t2 < 1) return (c / 2) * t2 * t2 + b;
-          t2 -= 1;
-          return (-c / 2) * (t2 * (t2 - 2) - 1) + b;
-        };
-        const animateScroll = () => {
-          const currentDate = +new Date();
-          const currentTime = currentDate - startDate;
-          if (direction === "vertical") {
-            element.scrollTop = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
-          } else {
-            element.scrollLeft = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
-          }
+      // const hasScrollbar = (element, direction) => {
+      //   if (direction === "vertical") {
+      //     return (element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight);
+      //   } else if (direction === "horizontal") {
+      //     return (element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth);
+      //   } else { // both
+      //     return ((element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight)) && ((element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth));
+      //   }
+      // }
 
-          if (currentTime < duration) {
-            requestAnimationFrame(animateScroll);
-          } else {
-            if (direction === "vertical") {
-              element.scrollTop = to;
-            } else {
-              element.scrollLeft = to;
-            }
-          }
-        };
-        animateScroll();
-      };
-      
-      let prevX = 0;
+      // const animateScrollTo = (element, direction, to, duration) => {
+      //   const start = direction === "vertical" ? element.scrollTop : element.scrollLeft; // vertical, horizontal
+      //   const change = to - start;
+      //   const startDate = +new Date();
+      //   // t = current time
+      //   // b = start value
+      //   // c = change in value
+      //   // d = duration
+      //   const easeInOutQuad = (t, b, c, d) => {
+      //     let t2 = t;
+      //     t2 /= d / 2;
+      //     if (t2 < 1) return (c / 2) * t2 * t2 + b;
+      //     t2 -= 1;
+      //     return (-c / 2) * (t2 * (t2 - 2) - 1) + b;
+      //   };
+      //   const animateScroll = () => {
+      //     const currentDate = +new Date();
+      //     const currentTime = currentDate - startDate;
+      //     if (direction === "vertical") {
+      //       element.scrollTop = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
+      //     } else {
+      //       element.scrollLeft = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
+      //     }
+
+      //     if (currentTime < duration) {
+      //       requestAnimationFrame(animateScroll);
+      //     } else {
+      //       if (direction === "vertical") {
+      //         element.scrollTop = to;
+      //       } else {
+      //         element.scrollLeft = to;
+      //       }
+      //     }
+      //   };
+      //   animateScroll();
+      // };
+
+      // let prevX = 0;
+
       // for (let i = 0; i < _seriesTags.length; i++) {
       //   _seriesTags[i].addEventListener("dragstart", (e) => {
       //     _s = e.clientX;
@@ -194,29 +195,29 @@
       //   });
       // }
 
-      _seriesTagsWrapper.addEventListener("dragstart", (e) => {
-        if (!hasScrollbar(_seriesTagsWrapper, "horizontal")) return;
-        _s = e.clientX;
-      });
-      _seriesTagsWrapper.addEventListener("drag", (e) => {
-        if (!hasScrollbar(_seriesTagsWrapper, "horizontal")) return;
-        _d = _s > e.clientX ? false : true;
-        if (_d) { // right +
-          if (_o  < _s - e.clientX) {
-            _s = e.clientX;
-          }
-        } else { // left -
-          if (_o  > _s - e.clientX) {
-            _s = e.clientX;
-          }
-        }
-        _d = false;
-        if (e.clientX <= 0) return;
-        let _t = _s - e.clientX;
-        if (prevX != e.clientX) animateScrollTo(_seriesTagsWrapper, "horizontal", _seriesTagsWrapper.scrollLeft + _t, 50);
-        _o = _t;
-        prevX = e.clientX;
-      });
+      // _seriesTagsWrapper.addEventListener("dragstart", (e) => {
+      //   if (!hasScrollbar(_seriesTagsWrapper, "horizontal")) return;
+      //   _s = e.clientX;
+      // });
+      // _seriesTagsWrapper.addEventListener("drag", (e) => {
+      //   if (!hasScrollbar(_seriesTagsWrapper, "horizontal")) return;
+      //   _d = _s > e.clientX ? false : true;
+      //   if (_d) { // right +
+      //     if (_o  < _s - e.clientX) {
+      //       _s = e.clientX;
+      //     }
+      //   } else { // left -
+      //     if (_o  > _s - e.clientX) {
+      //       _s = e.clientX;
+      //     }
+      //   }
+      //   _d = false;
+      //   if (e.clientX <= 0) return;
+      //   let _t = _s - e.clientX;
+      //   if (prevX != e.clientX) animateScrollTo(_seriesTagsWrapper, "horizontal", _seriesTagsWrapper.scrollLeft + _t, 50);
+      //   _o = _t;
+      //   prevX = e.clientX;
+      // });
 
       _seriesTagsWrapper.addEventListener("mouseover", (e) => {
         if (e.target.classList.contains("post-tags")) e.target.parentNode.classList.remove("button");

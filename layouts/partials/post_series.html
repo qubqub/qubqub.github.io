@@ -115,7 +115,7 @@
             </div>
           </div>
         </div>
-        
+
         <h2><a href="{{ .RelPermalink }}">{{ index (split $_chapterTitle " Chapter ") 0 }} - {{ if (eq (i18n "country_code") "en") }}{{ i18n "chapter" }}{{ end }} {{ $_chapterNumber }}{{ if (eq (i18n "country_code") "ko") }}{{ i18n "chapter" }}{{ end }} {{ i18n $_chapterId }}</a></h2>
         <svg width="32" height="48" viewBox="0 0 32 48" class="series-corner-image">
           <path d="M32 0H0v48h.163l16-16L32 47.836V0z"></path>
@@ -194,7 +194,7 @@
                         </div>
                         {{ end }}
                       {{ end }}
-                      
+
                       {{ if $_nextPageLink }}
                         <div class="right">
                           <a class="button" href="{{ $_nextPageLink }}" aria-label="다음 페이지" accesskey="." title="[다음 페이지] (Alt + >)&#10;{{ $_nextTitle }}">
@@ -233,18 +233,18 @@
           const _seriesToggleButton = document.querySelector(".series-main .series-control .toggle");
           const _chapterButtonsWrapper = document.querySelector(".series-main .chapter-control .info .page-button");
           //const _chapterButtons = document.querySelectorAll(".series-main .chapter-control .info .page-button a");
-          let _s, _e, _o = 0;
-          let _d = false;
+          // let _s, _e, _o = 0;
+          // let _d = false;
 
-          const hasScrollbar = (element, direction) => {
-            if (direction === "vertical") {
-              return (element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight);
-            } else if (direction === "horizontal") {
-              return (element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth);
-            } else { // both
-              return ((element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight)) && ((element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth));
-            }
-          }
+          // const hasScrollbar = (element, direction) => {
+          //   if (direction === "vertical") {
+          //     return (element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight);
+          //   } else if (direction === "horizontal") {
+          //     return (element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth);
+          //   } else { // both
+          //     return ((element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight)) && ((element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth));
+          //   }
+          // }
 
           if (_chapterButtonsWrapper.scrollWidth > _chapterButtonsWrapper.clientWidth) {
             _chapterButtonsWrapper.querySelector(".current").scrollIntoViewIfNeeded(true);
@@ -260,44 +260,45 @@
             }
           }
 
-          const animateScrollTo = (element, direction, to, duration) => {
-            const start = direction === "vertical" ? element.scrollTop : element.scrollLeft; // vertical, horizontal
-            const change = to - start;
-            const startDate = +new Date();
-            // t = current time
-            // b = start value
-            // c = change in value
-            // d = duration
-            const easeInOutQuad = (t, b, c, d) => {
-              let t2 = t;
-              t2 /= d / 2;
-              if (t2 < 1) return (c / 2) * t2 * t2 + b;
-              t2 -= 1;
-              return (-c / 2) * (t2 * (t2 - 2) - 1) + b;
-            };
-            const animateScroll = () => {
-              const currentDate = +new Date();
-              const currentTime = currentDate - startDate;
-              if (direction === "vertical") {
-                element.scrollTop = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
-              } else {
-                element.scrollLeft = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
-              }
+          // const animateScrollTo = (element, direction, to, duration) => {
+          //   const start = direction === "vertical" ? element.scrollTop : element.scrollLeft; // vertical, horizontal
+          //   const change = to - start;
+          //   const startDate = +new Date();
+          //   // t = current time
+          //   // b = start value
+          //   // c = change in value
+          //   // d = duration
+          //   const easeInOutQuad = (t, b, c, d) => {
+          //     let t2 = t;
+          //     t2 /= d / 2;
+          //     if (t2 < 1) return (c / 2) * t2 * t2 + b;
+          //     t2 -= 1;
+          //     return (-c / 2) * (t2 * (t2 - 2) - 1) + b;
+          //   };
+          //   const animateScroll = () => {
+          //     const currentDate = +new Date();
+          //     const currentTime = currentDate - startDate;
+          //     if (direction === "vertical") {
+          //       element.scrollTop = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
+          //     } else {
+          //       element.scrollLeft = parseInt(easeInOutQuad(currentTime, start, change, duration), 10);
+          //     }
 
-              if (currentTime < duration) {
-                requestAnimationFrame(animateScroll);
-              } else {
-                if (direction === "vertical") {
-                  element.scrollTop = to;
-                } else {
-                  element.scrollLeft = to;
-                }
-              }
-            };
-            animateScroll();
-          };
-          
-          let prevX = 0;
+          //     if (currentTime < duration) {
+          //       requestAnimationFrame(animateScroll);
+          //     } else {
+          //       if (direction === "vertical") {
+          //         element.scrollTop = to;
+          //       } else {
+          //         element.scrollLeft = to;
+          //       }
+          //     }
+          //   };
+          //   animateScroll();
+          // };
+
+          // let prevX = 0;
+
           // for (let i = 0; i < _chapterButtons.length; i++) {
           //   _chapterButtons[i].addEventListener("dragstart", (e) => {
           //     _s = e.clientX;
@@ -322,29 +323,29 @@
           //   });
           // }
 
-          _chapterButtonsWrapper.addEventListener("dragstart", (e) => {
-            if (!hasScrollbar(_chapterButtonsWrapper, "horizontal")) return;
-            _s = e.clientX;
-          });
-          _chapterButtonsWrapper.addEventListener("drag", (e) => {
-            if (!hasScrollbar(_chapterButtonsWrapper, "horizontal")) return;
-            _d = _s > e.clientX ? false : true;
-            if (_d) { // right +
-              if (_o  < _s - e.clientX) {
-                _s = e.clientX;
-              }
-            } else { // left -
-              if (_o  > _s - e.clientX) {
-                _s = e.clientX;
-              }
-            }
-            _d = false;
-            if (e.clientX <= 0) return;
-            let _t = _s - e.clientX;
-            if (prevX != e.clientX) animateScrollTo(_chapterButtonsWrapper, "horizontal", _chapterButtonsWrapper.scrollLeft + _t, 50);
-            _o = _t;
-            prevX = e.clientX;
-          });
+          // _chapterButtonsWrapper.addEventListener("dragstart", (e) => {
+          //   if (!hasScrollbar(_chapterButtonsWrapper, "horizontal")) return;
+          //   _s = e.clientX;
+          // });
+          // _chapterButtonsWrapper.addEventListener("drag", (e) => {
+          //   if (!hasScrollbar(_chapterButtonsWrapper, "horizontal")) return;
+          //   _d = _s > e.clientX ? false : true;
+          //   if (_d) { // right +
+          //     if (_o  < _s - e.clientX) {
+          //       _s = e.clientX;
+          //     }
+          //   } else { // left -
+          //     if (_o  > _s - e.clientX) {
+          //       _s = e.clientX;
+          //     }
+          //   }
+          //   _d = false;
+          //   if (e.clientX <= 0) return;
+          //   let _t = _s - e.clientX;
+          //   if (prevX != e.clientX) animateScrollTo(_chapterButtonsWrapper, "horizontal", _chapterButtonsWrapper.scrollLeft + _t, 50);
+          //   _o = _t;
+          //   prevX = e.clientX;
+          // });
 
           window.addEventListener("resize", (e) => {
             if (_chapterButtonsWrapper.scrollWidth > _chapterButtonsWrapper.clientWidth) {
@@ -375,14 +376,14 @@
               _chapterButtonsWrapper.classList.add("linear-gradient-both");
             }
           });
-  
+
           if (localStorage.getItem("series-main-{{ $_seriesId }}") === "true") {
             const _seriesMain = document.querySelector(".series-main");
             const _seriesRect = _seriesMain.getBoundingClientRect();
             window.scrollTo(0, _seriesRect.top);
             localStorage.removeItem("series-main-{{ $_seriesId }}");
           }
-  
+
           document.querySelector(".series-main .series-control .toggle").addEventListener("click", () => {_seriesLock
             if (_seriesList.style.display==="none" || _seriesList.style.display==="") {
               localStorage.setItem("lock-series-{{ $_chapterTitle }}", false);
@@ -409,7 +410,7 @@
               }
             });
           }
-          
+
           if (_seriesLock === "false") {
             _seriesList.style.display ="block";
             _seriesToggleButton.querySelector(".lock").classList.add("hide");
@@ -423,20 +424,20 @@
             _seriesToggleButton.querySelector(".lock").classList.add("hide");
             _seriesToggleButton.querySelector(".unlock").classList.remove("hide");
           }
-  
+
           const seriesAnchor = [
             ...document.querySelectorAll(".chapter-control .page-button a:not(.disabled)"),
             ...document.querySelectorAll(".series-main .series-list li a"),
             ...document.querySelectorAll(".series-control .page-button a:not(.disabled)")
           ];
-  
+
           for (let i = 0; i < seriesAnchor.length; i++) {
             seriesAnchor[i].addEventListener("click", e => {
               localStorage.setItem("series-main-{{ $_seriesId }}", true);
             });
           }
         });
-        
+
       </script>
     {{ end }}
   {{ end }}
@@ -517,7 +518,7 @@
                           </a>
                         </div>
                       {{ end }}
-                      
+
                       {{ if $_nextPageLink }}
                         <div class="right">
                           <a class="button" href="{{ $_nextPageLink }}" aria-label="다음 페이지" accesskey="]" title="다음 페이지 Alt + ]">
@@ -548,14 +549,14 @@
           const _seriesLock = localStorage.getItem("lock-series-{{ $_seriesTitle }}");
           const _seriesList = document.querySelector(".series-main .series-list");
           const _seriesToggleButton = document.querySelector(".series-main .series-control .toggle");
-  
+
           if (localStorage.getItem("series-main-{{ $_seriesId }}") === "true") {
             const _seriesMain = document.querySelector(".series-main");
             const _seriesRect = _seriesMain.getBoundingClientRect();
             window.scrollTo(0, _seriesRect.top);
             localStorage.removeItem("series-main-{{ $_seriesId }}");
           }
-  
+
           document.querySelector(".series-main .series-control .toggle").addEventListener("click", () => {
             if (_seriesList.style.display==="none" || _seriesList.style.display==="") {
               localStorage.setItem("lock-series-{{ $_seriesTitle }}", false);
@@ -582,7 +583,7 @@
               }
             });
           }
-  
+
           if (_seriesLock === "false") {
             _seriesList.style.display ="block";
             _seriesToggleButton.querySelector(".lock").classList.add("hide");
@@ -596,12 +597,12 @@
             _seriesToggleButton.querySelector(".lock").classList.add("hide");
             _seriesToggleButton.querySelector(".unlock").classList.remove("hide");
           }
-  
+
           const seriesAnchor = [
             ...document.querySelectorAll(".series-main .series-list li a"),
             ...document.querySelectorAll(".series-control .page-button a:not(.disabled)")
           ];
-  
+
           for (let i = 0; i < seriesAnchor.length; i++) {
             seriesAnchor[i].addEventListener("click", e => {
               localStorage.setItem("series-main-{{ $_seriesId }}", true);
