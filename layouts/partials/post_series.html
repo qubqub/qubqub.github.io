@@ -269,9 +269,10 @@
 
           function mouseWheelHandler(e) {
             let _e = window.event || e;
+            _e.preventDefault();
             let delta = Math.max(-1, Math.min(1, _e.wheelDelta || -_e.detail));
             animateScrollTo(_chapterButtonsWrapper, "horizontal", _chapterButtonsWrapper.scrollLeft -= (delta * 100), 500);
-            _e.stopPropagation();
+            return false;
           }
 
           const animateScrollTo = (element, direction, to, duration) => {
