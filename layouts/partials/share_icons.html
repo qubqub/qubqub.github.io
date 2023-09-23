@@ -168,19 +168,20 @@
     });
 
     const _shareButtonsWrapper = document.querySelector(".main .post-single .post-footer .share-buttons");
-    //const _shareButtons = document.querySelectorAll(".main .post-single .post-footer .share-buttons a");
+    // const _shareButtons = document.querySelectorAll(".main .post-single .post-footer .share-buttons a");
     // let _s, _e, _o = 0;
     // let _d = false;
 
-    // const hasScrollbar = (element, direction) => {
-    //   if (direction === "vertical") {
-    //     return (element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight);
-    //   } else if (direction === "horizontal") {
-    //     return (element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth);
-    //   } else { // both
-    //     return ((element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight)) && ((element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth));
-    //   }
-    // }
+    const hasScrollbar = (element, direction) => {
+      if (direction === "vertical") {
+        return (element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight);
+      } else if (direction === "horizontal") {
+        return (element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth);
+      } else { // both
+        return ((element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight)) &&
+               ((element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth));
+      }
+    }
 
     if (_shareButtonsWrapper.scrollWidth > _shareButtonsWrapper.clientWidth) {
       if (_shareButtonsWrapper.scrollLeft <= 5) {
@@ -203,6 +204,7 @@
     }
 
     function mouseWheelHandler(e) {
+      if (!hasScrollbar(_shareButtonsWrapper, "horizontal")) return;
       let _e = window.event || e;
       _e.preventDefault();
       let delta = Math.max(-1, Math.min(1, _e.wheelDelta || -_e.detail));

@@ -103,7 +103,7 @@
     };
     seriesList_DOMReady( function () {
       const _seriesTagsWrapper = document.querySelector(".main .series-entry-wrapper .series-entry .post-tags");
-      //const _seriesTags = document.querySelectorAll(".main .series-entry-wrapper .series-entry .post-tags a");
+      // const _seriesTags = document.querySelectorAll(".main .series-entry-wrapper .series-entry .post-tags a");
 
       if (_seriesTagsWrapper.scrollWidth > _seriesTagsWrapper.clientWidth) {
         _seriesTagsWrapper.classList.add("linear-gradient-right");
@@ -127,6 +127,7 @@
       }
 
       function mouseWheelHandler(e) {
+        if (!hasScrollbar(_seriesTagsWrapper, "horizontal")) return;
         let _e = window.event || e;
         _e.preventDefault();
         let delta = Math.max(-1, Math.min(1, _e.wheelDelta || -_e.detail));
@@ -137,15 +138,16 @@
       // let _s, _e, _o = 0;
       // let _d = false;
 
-      // const hasScrollbar = (element, direction) => {
-      //   if (direction === "vertical") {
-      //     return (element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight);
-      //   } else if (direction === "horizontal") {
-      //     return (element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth);
-      //   } else { // both
-      //     return ((element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight)) && ((element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth));
-      //   }
-      // }
+      const hasScrollbar = (element, direction) => {
+        if (direction === "vertical") {
+          return (element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight);
+        } else if (direction === "horizontal") {
+          return (element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth);
+        } else { // both
+          return ((element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight)) &&
+                 ((element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth));
+        }
+      }
 
       const animateScrollTo = (element, direction, to, duration) => {
         const start = direction === "vertical" ? element.scrollTop : element.scrollLeft; // vertical, horizontal

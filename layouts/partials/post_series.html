@@ -231,19 +231,20 @@
           const _seriesList = document.querySelector(".series-main .series-list");
           const _seriesToggleButton = document.querySelector(".series-main .series-control .toggle");
           const _chapterButtonsWrapper = document.querySelector(".series-main .chapter-control .info .page-button");
-          //const _chapterButtons = document.querySelectorAll(".series-main .chapter-control .info .page-button a");
+          // const _chapterButtons = document.querySelectorAll(".series-main .chapter-control .info .page-button a");
           // let _s, _e, _o = 0;
           // let _d = false;
 
-          // const hasScrollbar = (element, direction) => {
-          //   if (direction === "vertical") {
-          //     return (element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight);
-          //   } else if (direction === "horizontal") {
-          //     return (element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth);
-          //   } else { // both
-          //     return ((element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight)) && ((element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth));
-          //   }
-          // }
+          const hasScrollbar = (element, direction) => {
+            if (direction === "vertical") {
+              return (element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight);
+            } else if (direction === "horizontal") {
+              return (element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth);
+            } else { // both
+              return ((element.scrollHeight === 0 && element.clientHeight === 0) || (element.scrollHeight > element.clientHeight)) &&
+                     ((element.scrollWidth === 0 && element.clientWidth === 0) || (element.scrollWidth > element.clientWidth));
+            }
+          }
 
           if (_chapterButtonsWrapper.scrollWidth > _chapterButtonsWrapper.clientWidth) {
             _chapterButtonsWrapper.querySelector(".current").scrollIntoViewIfNeeded(true);
@@ -267,6 +268,7 @@
           }
 
           function mouseWheelHandler(e) {
+            if (!hasScrollbar(_chapterButtonsWrapper, "horizontal")) return;
             let _e = window.event || e;
             _e.preventDefault();
             let delta = Math.max(-1, Math.min(1, _e.wheelDelta || -_e.detail));
