@@ -526,7 +526,7 @@ header.header {
 }
 
 .header .nav .menu-switches .logo-switches {
-  vertical-align: middle;
+  vertical-align: sub;
 }
 
 .header .nav .menu-switches .logo-switches #theme-toggle {
