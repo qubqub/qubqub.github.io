@@ -2332,7 +2332,7 @@ header.header {
     margin-right: 3px;
   }
   .header .nav .logo a {
-    font-size: .7rem;
+    font-size: .75rem;
     font-family: 'CascadiaCode';
   }
   .header .nav .logo a .__cursor {
