@@ -2347,7 +2347,7 @@ header.header {
     animation: cursor 1s infinite;
   }
 
-  .header .nav .logo .logo-switches {
+  .header .nav .menu-switches .logo-switches {
     margin: auto;
   }
   /* .header .nav .menu-switches .logo-switches {
