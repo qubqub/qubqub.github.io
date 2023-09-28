@@ -2285,20 +2285,37 @@ header.header {
   float: right;
 }
 
+.main .profile .profile_inner .tick div {
+  font-size: 2.4em !important;
+}
+
 @media screen and (max-width: 600px) {
   .main .profile .profile_inner .profile_title {
     font-size: 1.8em;
+  }
+
+  .main .profile .profile_inner .tick div {
+    font-size: 2.2em !important;
   }
 }
 @media screen and (max-width: 500px) {
   .main .profile .profile_inner .profile_title {
     font-size: 1.65em;
   }
+
+  .main .profile .profile_inner .tick div {
+    font-size: 2em !important;
+  }
 }
 @media screen and (max-width: 400px) {
   .main .profile .profile_inner .profile_title {
     font-size: 1.3em;
   }
+
+  .main .profile .profile_inner .tick div {
+    font-size: 1.8em !important;
+  }
+
   .profile_inner h1 .user-fa-hardware-keyboard-arrow-right {
     vertical-align: -7px;
   }
