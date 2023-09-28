@@ -198,14 +198,14 @@
             createExploader();
             createParticles();
         }
-        
+
         function resizeDrawingCanvas() {
             if (isReady) {
                 if (drawingCanvas.width === document.querySelector(".main").clientWidth && drawingCanvas.height === document.querySelector(".main").clientHeight) return;
                 drawingCanvas.width = document.querySelector(".main").clientWidth;
                 drawingCanvas.height = document.querySelector(".main").clientHeight;
-                loader.resize(drawingCanvas.width * 0.5, _selector.getBoundingClientRect().top, _selector.clientWidth / 2);
-                exploader.resize(drawingCanvas.width * 0.5, _selector.getBoundingClientRect().top, _selector.clientWidth / 2);
+                loader.resize(drawingCanvas.width * 0.5, _selector.getBoundingClientRect().top * 0.99, _selector.clientWidth / 2);
+                exploader.resize(drawingCanvas.width * 0.5, _selector.getBoundingClientRect().top * 0.99, _selector.clientWidth / 2);
                 clearParticles();
                 createParticles();
             }
@@ -213,12 +213,12 @@
 
         function createLoader() {
             //loader = new Loader(drawingCanvas.width * 0.5, drawingCanvas.height * 0.5);
-            loader = new Loader(drawingCanvas.width * 0.5, _selector.getBoundingClientRect().top, _selector.clientWidth / 2);
+            loader = new Loader(drawingCanvas.width * 0.5, _selector.getBoundingClientRect().top * 0.99, _selector.clientWidth / 2);
         }
 
         function createExploader() {
             //exploader = new Exploader(drawingCanvas.width * 0.5, drawingCanvas.height * 0.5);
-            exploader = new Exploader(drawingCanvas.width * 0.5, _selector.getBoundingClientRect().top, _selector.clientWidth / 2);
+            exploader = new Exploader(drawingCanvas.width * 0.5, _selector.getBoundingClientRect().top * 0.99, _selector.clientWidth / 2);
         }
 
         function clearParticles() {
