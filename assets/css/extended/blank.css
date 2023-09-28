@@ -2297,7 +2297,7 @@ header.header {
 }
 @media screen and (max-width: 400px) {
   .main .profile .profile_inner .profile_title {
-    font-size: 1.4em;
+    font-size: 1.3em;
   }
   .profile_inner h1 .user-fa-hardware-keyboard-arrow-right {
     vertical-align: -7px;
@@ -2348,7 +2348,7 @@ header.header {
   }
 
   .header .nav .menu-switches .logo-switches {
-    margin: auto;
+    margin: auto 5px;
   }
   /* .header .nav .menu-switches .logo-switches {
     margin-right: 12px;
