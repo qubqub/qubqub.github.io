@@ -201,7 +201,7 @@ body {
 }
 
 header.header {
-  margin: -1px auto;
+  margin: -2px auto;
   position: sticky;
   /* position: fixed;
   width: 100%; */
