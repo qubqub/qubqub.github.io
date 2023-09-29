@@ -53,9 +53,9 @@
         let rafId;
 
         // canvas settings
-        let drawingCanvas = document.getElementById("drawing_canvas"),
-            ctx,
-            timeStep = (1/60);
+        let drawingCanvas = document.getElementById("drawing_canvas");
+        let ctx;
+        let timeStep = (1/60);
 
         const Point = function(x, y) {
             this.x = x || 0;
@@ -201,7 +201,7 @@
 
         function resizeDrawingCanvas() {
             if (isReady) {
-                if (drawingCanvas.width === document.querySelector(".main").clientWidth && drawingCanvas.height === document.querySelector(".main").clientHeight) return;
+                //if (drawingCanvas.width === document.querySelector(".main").clientWidth && drawingCanvas.height === document.querySelector(".main").clientHeight) return;
                 drawingCanvas.width = document.querySelector(".main").clientWidth;
                 drawingCanvas.height = document.querySelector(".main").clientHeight;
                 loader.resize(drawingCanvas.width * 0.5, _selector.getBoundingClientRect().top, _selector.clientWidth / 2);
@@ -239,7 +239,7 @@
         function update() {
             switch (phase) {
                 case 0:
-                    loader.progress += (1/45);
+                    loader.progress += (1/60);
                     break;
                 case 1:
                     exploader.update();
@@ -269,10 +269,10 @@
             }
         }
 
-        window.onload = function() {
-            initDrawingCanvas();
-            //requestAnimationFrame(start);
-        };
+        // window.onload = function() {
+        //     initDrawingCanvas();
+        //     //requestAnimationFrame(start);
+        // };
 
         const _profile = document.querySelector(".main .profile .profile_inner .profile-picture");
         if (_profile) {
@@ -361,5 +361,7 @@
 
             return p;
         }
+
+        initDrawingCanvas();
     });
 </script>
