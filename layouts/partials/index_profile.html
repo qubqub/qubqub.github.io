@@ -46,6 +46,10 @@
             document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
     };
     profile_DOMReady( function () {
+        const isMobile = () => {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        };
+
         const _selector = document.querySelector(".main .profile .profile-picture");
         const TWO_PI = Math.PI * 2;
         const HALF_PI = Math.PI * 0.5;
@@ -55,7 +59,9 @@
         // canvas settings
         let drawingCanvas = document.getElementById("drawing_canvas");
         let ctx;
-        let timeStep = (1/60);
+
+        let timeStep = 1 / (isMobile() ? 30 : 60);
+
 
         const Point = function(x, y) {
             this.x = x || 0;
@@ -239,7 +245,7 @@
         function update() {
             switch (phase) {
                 case 0:
-                    loader.progress += (1/60);
+                    loader.progress += timeStep;
                     break;
                 case 1:
                     exploader.update();
