@@ -612,6 +612,10 @@ header.header {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .profile_inner .profile-picture:hover,
