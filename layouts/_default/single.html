@@ -71,6 +71,7 @@
   single_DOMReady( function () {
     let currentScroll = 0;
     let lastScroll = 0;
+    const _progressbar = document.querySelector(".progress-bar-container__progress");
     const header = document.querySelector("header.header");
     const headerBottom = "header-bottom";
     const headerBackground = "header-background";
@@ -112,6 +113,13 @@
             }
           }
         }
+
+        if (headerTranslateY === -100) {
+          _progressbar.style.top = "";
+        } else {
+          _progressbar.style.top = "63px";
+        }
+
         header.style.transform = `translateY(${headerTranslateY}%)`;
         if (!header.classList.contains(headerBottom)) {
           header.classList.add(headerBottom);
@@ -120,7 +128,7 @@
           header.classList.add(headerBackground);
         }
       }
-      
+
       lastScroll = currentScroll;
     });
 
