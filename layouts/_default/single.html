@@ -117,7 +117,7 @@
         if (headerTranslateY === -100) {
           _progressbar.style.top = "";
         } else {
-          _progressbar.style.top = "63px";
+          _progressbar.style.top = (header.clientHeight - 1) + "px";
         }
 
         header.style.transform = `translateY(${headerTranslateY}%)`;

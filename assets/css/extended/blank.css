@@ -358,7 +358,7 @@ header.header {
   position: fixed;
   z-index: 9999;
   background-color: #ff1493;
-  height: 0.2vh;
+  height: 2.5px;
   border-radius: 1rem;
   box-shadow : 0px 0px 15px 5px rgba(255, 69, 0, .1);
   transition: width 0.2s ease-out 0s;
@@ -366,7 +366,7 @@ header.header {
 
 .dark .progress-bar-container__progress {
   background-color: var(--main-color);
-  height: 0.2vh;
+  height: 2.5px;
   box-shadow : 0px 0px 15px 5px rgba(18, 184, 134, .1);
 }
 
