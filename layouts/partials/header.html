@@ -149,6 +149,7 @@
         let scrollHeight = _root.scrollHeight - heightInViewport(_progressbar) - window.innerHeight;
         let scrollPosition = window.pageYOffset;
         let scrollPercentage = scrollPosition / scrollHeight * 100;
+        if (scrollPercentage > 100) scrollPercentage = 100;
         _progressbar.style.width = scrollPercentage + "%";
       }
 
