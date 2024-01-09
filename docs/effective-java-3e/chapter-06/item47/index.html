@@ -174,7 +174,7 @@ Collection인터페이스는 Iterable의 하위 타입이고 stream의 메서드
 <script>const single_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};single_DOMReady(function(){let c=0,g=0;const h=document.querySelector(".progress-bar-container__progress"),b=document.querySelector("header.header"),e="header-bottom",f="header-background",d=-100;let a=0;window.pageYOffset>b.offsetHeight&&(a=d),window.addEventListener("scroll",()=>{c=window.pageYOffset,c<=0?(b.style.transform="translateY(0%)",b.classList.contains(e)&&b.classList.remove(e),b.classList.contains(f)&&b.classList.remove(f)):(c>g?d<a&&(c-g>60?a=d:(a-=15,a<d&&(a=d))):0>a&&(g-c>60?a=0:(a+=15,a>0&&(a=0))),a===-100?h.style.top="":h.style.top=b.clientHeight-1+"px",b.style.transform=`translateY(${a}%)`,b.classList.contains(e)||b.classList.add(e),b.classList.contains(f)||b.classList.add(f)),g=c}),window.onload=function(){const a=document.querySelectorAll(".post-content .highlight td:nth-child(2) pre code.hljs");for(let b=0;b<a.length;b++)a[b].style.width="100%"}})</script>
 </main>
 <footer class=footer>
-<span>&copy; 2023 <a href=https://qutrits.github.io/><span class=user-fa-hardware-keyboard-arrow-right></span>ssh qutrits@localhost<span class=__cursor></span></a></span>
+<span>&copy; 2024 <a href=https://qutrits.github.io/><span class=user-fa-hardware-keyboard-arrow-right></span>ssh qutrits@localhost<span class=__cursor></span></a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

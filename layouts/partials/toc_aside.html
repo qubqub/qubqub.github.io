@@ -110,6 +110,7 @@
     };
     tocAside_DOMReady( function () {
         const tocIdList = [];
+        const header = document.querySelector("header.header");
         const mainToc = document.querySelector(".main .post-single>.toc");
         //const mainTocTop = mainToc?(mainToc.offsetTop + mainToc.offsetParent.offsetTop - 1):0;
         const asideToc = document.querySelector(".main .toc-aside");
@@ -119,12 +120,13 @@
         let asideTocWrapper = null;
         let asideTocToggle = null;
         let asideTocList = null;
+        let asideTocATag = null;
         if (asideToc) {
             asideTocSummay = document.querySelector(".main .toc-aside-summary");
             asideTocWrapper = asideToc.querySelector(".inner-wrapper");
             asideTocToggle = asideTocSummay.querySelector(".toggle");
             asideTocList = asideToc.querySelectorAll(".inner-wrapper .inner ul>li");
-        
+            asideTocATag = asideToc.querySelectorAll(".inner-wrapper .inner ul a");
             if (localStorage.getItem("lock-aside-toc-"+window.location.pathname) === "true") {
                 asideTocSummay.dataset.isLock = true;
                 asideTocWrapper.classList.add("close");
@@ -138,7 +140,7 @@
             for (let i = 0; i < asideTocList.length; i++) {
                 tocIdList[i] = decodeURI(asideTocList[i].firstElementChild.hash.substring(1));
             }
-        
+
             if (postHeaderBottom < window.pageYOffset) {
                 asideToc.classList.remove("hide");
                 asideToc.classList.add("reveal");
@@ -146,7 +148,20 @@
             } else if(postHeaderBottom >= window.pageYOffset) {
                 asideToc.classList.add("hide");
             }
-        
+
+            asideTocATag.forEach(function(a) {
+                a.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    a.scrollIntoView();
+                    const checkIfDone = setInterval(() => {
+                        if (header.getBoundingClientRect().bottom >= 5) {
+                            clearInterval(checkIfDone);
+                        }
+                        header.style.transform = "translateY(-100%)";
+                    }, 5);
+                });
+            });
+
             asideTocSummay.addEventListener("click", () => {
                 if (asideTocSummay.dataset.isLock === "false") {
                     asideTocSummay.dataset.isLock = true;
@@ -182,7 +197,7 @@
                     asideToc.classList.add("hide");
                     asideTocSummay.classList.add("hide");
                 }
-        
+
                 let selEl = null;
                 let lastSelEl = null;
                 let elIndex = null;
@@ -196,7 +211,7 @@
                         elIndex = idx;
                     }
                 });
-            
+
                 if (elIndex !== null) {
                     if (scrollEnd) {
                         for (let i = 0; i < asideTocList.length; i++) {
@@ -210,7 +225,7 @@
                             lastScroll = currentScroll;
                             return;
                         }
-            
+
                         for (let i = 0; i < asideTocList.length; i++) {
                             if (!asideTocList[i].classList.contains("selected")) continue;
                             asideTocList[i].classList.remove("selected");
@@ -218,7 +233,7 @@
                         selEl.classList.add("selected");
                         lastSelEl = selEl;
                     }
-            
+
                     if (elIndex !== null) {
                         asideToc.scroll({
                             behavior: 'smooth',
