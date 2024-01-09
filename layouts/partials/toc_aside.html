@@ -154,11 +154,11 @@
                     e.preventDefault();
                     a.scrollIntoView();
                     const checkIfDone = setInterval(() => {
-                        if (header.getBoundingClientRect().bottom >= 5) {
+                        if (header.offsetTop + header.offsetHeight >= 0) {
                             clearInterval(checkIfDone);
                         }
                         header.style.transform = "translateY(-100%)";
-                    }, 5);
+                    }, 10);
                 });
             });
 
