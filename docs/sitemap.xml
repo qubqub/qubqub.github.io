@@ -320,12 +320,12 @@
   </url><url>
     <loc>https://qutrits.github.io/search/</loc>
   </url><url>
-    <loc>https://qutrits.github.io/archives/</loc>
-  </url><url>
     <loc>https://qutrits.github.io/links/</loc>
   </url><url>
     <loc>https://qutrits.github.io/collection/</loc>
   </url><url>
     <loc>https://qutrits.github.io/series-list/</loc>
+  </url><url>
+    <loc>https://qutrits.github.io/archives/</loc>
   </url>
 </urlset>

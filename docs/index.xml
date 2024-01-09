@@ -980,7 +980,6 @@ readResolve 기능을 활용하면 readObject가 만들어낸 인스턴스를 �
     </item>
     
     
-    
     <item>
       <title>링크</title>
       <link>https://qutrits.github.io/links/</link>
@@ -1007,6 +1006,7 @@ readResolve 기능을 활용하면 readObject가 만들어낸 인스턴스를 �
       <guid>https://qutrits.github.io/series-list/</guid>
       <description>ser·ies</description>
     </item>
+    
     
   </channel>
 </rss>
