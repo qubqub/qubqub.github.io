@@ -66,7 +66,7 @@
               {{- end }}
             {{- end }}
 
-            <ul class="post-tags horizontal-scroll" style="scroll-behavior: smooth;">
+            <ul class="post-tags horizontal-scroll">
               {{- range $taxonomy_term, $taxonomy := .Site.Taxonomies}}
                 {{- if (eq $taxonomy_term "chapter") }}
                   {{- range $key, $value := $taxonomy }}
@@ -127,12 +127,11 @@
       }
 
       function mouseWheelHandler(e) {
-        if (!hasScrollbar(_seriesTagsWrapper, "horizontal")) return;
+        if (!hasScrollbar(this, "horizontal")) return;
         let _e = window.event || e;
         _e.preventDefault();
         let delta = Math.max(-1, Math.min(1, _e.wheelDelta || -_e.detail));
-        animateScrollTo(_seriesTagsWrapper, "horizontal", _seriesTagsWrapper.scrollLeft -= (delta * 500), 0);
-        return false;
+        animateScrollTo(this, "horizontal", this.scrollLeft -= (delta * 6), 0);
       }
 
       // let _s, _e, _o = 0;

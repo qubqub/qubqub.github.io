@@ -2157,7 +2157,6 @@ header.header {
 }
 
 .tooltip {
-  font-family: 'CascadiaCode', 'Fira Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace !important;
   padding-top: 3px;
   padding-left: 3px;
   visibility: visible;
@@ -2168,42 +2167,23 @@ header.header {
   background-color: var(--tertiary);
   color: var(--primary);
   border-radius: 5px;
-
-  /* Position the tooltip text - see examples below! */
   position: absolute;
   z-index: 1;
 }
 
 .tooltip.bottom {
   top: 40px;
-  right: -42%;
+  right: -30%;
 }
 
 .tooltip.bottom:after {
   content: " ";
   position: absolute;
-  top: -42%;
+  top: -39%;
   left: 43%;
-  /* height: 1px; */
   border-width: 5px;
   border-style: solid;
   border-color: transparent transparent var(--tertiary) transparent;
-}
-
-.tooltip.left {
-  top: 5px;
-  right: 110%;
-}
-
-.tooltip.left:after {
-  content: " ";
-  position: absolute;
-  top: 25%;
-  left: 100%;
-  /* height: 1px; */
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent transparent var(--tertiary);
 }
 
 .main .archive-year:first-of-type {

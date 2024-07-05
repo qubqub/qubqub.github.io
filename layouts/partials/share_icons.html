@@ -12,7 +12,7 @@
 {{- $custom := false }}
 {{- $ShareButtons := (.Param "ShareButtons")}}
 {{- with $ShareButtons }}{{ $custom = true }}{{ end }}
-<div class="share-buttons" style="scroll-behavior: smooth;">
+<div class="share-buttons">
   <a target="_blank" rel="noopener noreferrer" class="copylink button" id="copylink" aria-label="share {{ $title | plainify }} on copylink" title="게시물 링크 복사하기"></a>
   {{- if and (cond ($custom) (in $ShareButtons "kakaotalk") (true)) .Site.Params.kakaoJavaScriptKey }}
   <a target="_blank" rel="noopener noreferrer" class="kakaotalk button" id="kakaotalk-share" aria-label="share {{ $title | plainify }} on kakaotalk" title="카카오톡 공유하기">
@@ -204,13 +204,12 @@
     }
 
     function mouseWheelHandler(e) {
-      if (!hasScrollbar(_shareButtonsWrapper, "horizontal")) return;
-      let _e = window.event || e;
-      _e.preventDefault();
-      let delta = Math.max(-1, Math.min(1, _e.wheelDelta || -_e.detail));
-      animateScrollTo(_shareButtonsWrapper, "horizontal", _shareButtonsWrapper.scrollLeft -= (delta * 500), 1);
-      return false;
-    }
+        if (!hasScrollbar(this, "horizontal")) return;
+        let _e = window.event || e;
+        _e.preventDefault();
+        let delta = Math.max(-1, Math.min(1, _e.wheelDelta || -_e.detail));
+        animateScrollTo(this, "horizontal", this.scrollLeft -= (delta * 6), 0);
+      }
 
     const animateScrollTo = (element, direction, to, duration) => {
       const start = direction === "vertical" ? element.scrollTop : element.scrollLeft; // vertical, horizontal
