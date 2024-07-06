@@ -272,7 +272,7 @@
             let _e = window.event || e;
             _e.preventDefault();
             let delta = Math.max(-1, Math.min(1, _e.wheelDelta || -_e.detail));
-            animateScrollTo(this, "horizontal", this.scrollLeft -= (delta * 6), 0);
+            animateScrollTo(this, "horizontal", this.scrollLeft -= (delta * 100), 0);
           }
 
           const animateScrollTo = (element, direction, to, duration) => {
