@@ -2180,7 +2180,7 @@ header.header {
   content: " ";
   position: absolute;
   top: -39%;
-  left: 43%;
+  left: 40%;
   border-width: 5px;
   border-style: solid;
   border-color: transparent transparent var(--tertiary) transparent;
