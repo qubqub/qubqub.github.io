@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 03"]
-author: ["Qutrits"]
+author: ["qubqub"]
 showToc: true
 showAsideToc: true
 TocOpen: false
@@ -33,8 +33,8 @@ showContentProgressbar: true
 
 ## 상속을 허용하는 클래스가 지켜야 할 제약
 
-**상속용 클래스의 생성자는 직접적으로든 간접적으로든 재정의 가능 메서드를 호출해서는 안 됩니다**.   
-상위 클래스의생성자가 하위 클래스의 생성자보다 먼저 실행되므로 하위 클래스에서 재정의한 메서드가 하위 클래스의 생성자보다 먼저 호출됩니다.   
+**상속용 클래스의 생성자는 직접적으로든 간접적으로든 재정의 가능 메서드를 호출해서는 안 됩니다**.
+상위 클래스의생성자가 하위 클래스의 생성자보다 먼저 실행되므로 하위 클래스에서 재정의한 메서드가 하위 클래스의 생성자보다 먼저 호출됩니다.
 상속을 금지하는 방법에는 두 가지 방법이 있습니다. 첫 번째는 클래스를 `final`으로 선언하는 것과 두번째는 모든 생성자를 `private`나 `package-private`로 선언하고 `public` 정적 팩터리를 만들어주는 방법입니다.
 <br>
 <br>

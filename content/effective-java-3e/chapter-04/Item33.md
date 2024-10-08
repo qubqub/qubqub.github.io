@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 04"]
-author: ["Qutrits"]
+author: ["qubqub"]
 showToc: true
 showAsideToc: true
 TocOpen: false
@@ -54,7 +54,7 @@ Class<?> favoriteClass = f.getFavorite(Class.class);
 // 타입 안전 이종 컨태이너 패턴 - 구현
 public class Favorites {
     private Map<Class<?>, Object> favorite = new HashMap<>();
-    
+
     public <T> void putFavorite(Class<T> type, T instance) {
         favorite.put(Objects.requireNonNull(type), instance);
     }
@@ -66,8 +66,8 @@ public class Favorites {
 
 ```
 `Map<Class<?>, Object>`에서 비한정적 와일드카드 타입을 사용해서 값을 아무것도 넣을 수 없을 거라고 생각할 수 있지만, 맵이 아니라 키가 와일드카드 타입이라서 값을 넣을 수 있습니다.
-   
-지금 만든 `Favorites` 클래스에 주의점이 두 가지가 있습니다.   
+
+지금 만든 `Favorites` 클래스에 주의점이 두 가지가 있습니다.
 첫 번째는 `Class` 객체를 `raw type`으로 넘기면 `Favorites` 인스턴스의 타입 안전성이 쉽게 깨집니다. `Favorites`가 타입 불변식이 어기는 일이 없도록 보장하려면 다음과 같이 수정할 수 있습니다.
 
 ``` java

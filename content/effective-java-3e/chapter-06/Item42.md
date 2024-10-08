@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 06"]
-author: ["Qutrits"]
+author: ["qubqub"]
 showToc: true
 showAsideToc: true
 TocOpen: false
@@ -36,7 +36,7 @@ Collections.sort(words, new Comparator<String>() {
 ```
 ``` java
 // 람다 활용
-Collections.sort(words, 
+Collections.sort(words,
     (s1, s2) -> Integer.compare(s1.length(), s2.length()));
 ```
 컴파일러가 타입을 추론해주기 때문에 타입을 명시해야 코드가 더 명확해질 때만 제외하고는, 람다의 매개변수 타입은 생략해줍시다. 혹시 컴파일러가 타입을 추론하지 못할경우에 명시해주면 됩니다.</br></br>

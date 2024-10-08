@@ -4,5 +4,5 @@ layout: "search" # is necessary
 # url: "/archive"
 # description: "Search (Alt + /)"
 summary: "search"
-placeholder: "qutrits.github.io에서 검색하기 ↵"
+placeholder: "qubqub.github.io에서 검색하기 ↵"
 ---

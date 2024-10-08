@@ -11,7 +11,7 @@ links:
     url: "/"
   - title: "Github"
     name: "github"
-    url: "https://github.com/qutrits"
+    url: "https://github.com/qubqub"
   - title: "Telegram"
     name: "telegram"
     url: "https://t.me/qu_bits"

@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 02"]
-author: ["Qutrits"]
+author: ["qubqub"]
 showToc: true
 showAsideToc: true
 TocOpen: false
@@ -70,7 +70,7 @@ public int hashCode() {
 <br>
 
 ``` java
-@Override 
+@Override
 public int hashCode(){
     return Objects.hash(lineNum, prefix, areaCode);
 }

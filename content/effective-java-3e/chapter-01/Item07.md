@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 01"]
-author: ["Qutrits"]
+author: ["qubqub"]
 showToc: true
 showAsideToc: true
 TocOpen: false
@@ -35,7 +35,7 @@ public class Stack {
 
     public void push(Object e) {
         ensureCapacity();
-        elements[size++] = e; 
+        elements[size++] = e;
     }
 
     public Object pop() {
@@ -72,7 +72,7 @@ public Object pop() {
 하지만 객체 처리를 `null`로 처리하는 건 예외적인 경우여야 합니다. 다 쓴 참조를 해제하는 가장 좋은 방법은 다 쓴 참조를 담은 변수를 특정한 스코프 안에서만 사용하는 것입니다.
 <br>
 
-캐시 역시 메모리 누수를 일으키는 주범이기 때문에 캐시를 사용할 때도 메모리 누수에 유의해야 합니다. 
+캐시 역시 메모리 누수를 일으키는 주범이기 때문에 캐시를 사용할 때도 메모리 누수에 유의해야 합니다.
 - 외부에서 키를 참조하는 동안에만 엔트리가 살아있는 캐시가 필요하다면 `WeakHashMap`을 사용합니다.
 - 캐시를 만들 때 보통은 캐시 엔트리의 유효 기간을 정확히 정의하기 어렵기 때문에 시간이 지날 수록 엔트리의 가치를 떨어뜨리는 방식을 흔히 사용합니다.
 <br>

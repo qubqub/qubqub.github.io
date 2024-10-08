@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 04"]
-author: ["Qutrits"]
+author: ["qubqub"]
 showToc: true
 showAsideToc: true
 TocOpen: false
@@ -52,7 +52,7 @@ public class Stack<E> {
 }
 ```
 컴파일러는 이 프로그램이 안전한지 증명할 방법은 없지만, 우리는 할 수 있는 한 이 비검사 형변환이 프로그램의  타입 안전성을 해치지 않는지 스스로 확인해야합니다.
-   
+
 비검사 형변환이 안전하다는 걸 확인했다면 범위를 최소로 좁혀 `@SuppressWarnings("unchecked")`를 이용하여 해당 경고를 숨깁시다.
 
 ``` java
@@ -80,7 +80,7 @@ E result = (E) elements[--size];
 
 첫 번째 방식은 형변환을 배열 생성시 단 한 번만 해주면 되지만, 두 번째 방식에서는 배열에서 원소를 읽을 때마다 해줘야하므로 첫 번째 방식이 더 자주 사용됩니다. 하지만
 (`E`가 `Object`가 아닌 한) 배열의 런타임 타입이 컴파일타임 타입과 달라 힙 오염을 일으킵니다.
-   
+
 사실 제네릭 타입 안에서 리스트를 사용하는 게 항상 가능하더라도, 꼭 더 좋은 건 아닙니다. 자바가 리스트를 기본 타입으로 제공하지 않으므로 `ArrayList`같은 제네릭 타입도 결국은 기본 타입인 배열을 사용해 구현해야 합니다. 또한 `HashMap` 같은 제네릭 타입은 성능을 높일 목적으로 배열을 사용하기도 합니다.
 
 ## 정리

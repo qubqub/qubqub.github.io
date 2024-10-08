@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 02"]
-author: ["Qutrits"]
+author: ["qubqub"]
 showToc: true
 showAsideToc: true
 TocOpen: false
@@ -33,8 +33,8 @@ Arrays.sort(a);
 
 ## compareTo 메서드의 규약
 이 객체가 주어진 객체(매개변수로 받는)보다 작으면 `음의 정수`를, 같으면 `0`을, 크면 `양의 정수`를 반환합니다. 이 객체와 비교할 수 없는 타입이면 `ClassCastException`을 던집니다.
-   
-다음 설명에서 sgn(표현식) 표기는 수학에서 말하는 부호 함수를 뜻하며, 표현식의 값이 `음수`, `0`, `양수`일 때 `-1`, `0`, `1`을 반환하도록 정의했습니다. 
+
+다음 설명에서 sgn(표현식) 표기는 수학에서 말하는 부호 함수를 뜻하며, 표현식의 값이 `음수`, `0`, `양수`일 때 `-1`, `0`, `1`을 반환하도록 정의했습니다.
 
 - `Comparable`을 구현한 클래스는 모든 `x`, `y`에 대해,
 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="sgn(x.comparaTo(y)) == -sgn(y.comparaTo(x))" >}}여야 합니다.
@@ -77,7 +77,7 @@ students.sort(
 // 이뿐만 아니라 다양한 방식으로 정렬을 할 수 있습니다.
 ```
 
-위와 같이 코드를 간결하게 짤 수 있습니다. 대신 약간의 성능 저하가 있습니다. 
+위와 같이 코드를 간결하게 짤 수 있습니다. 대신 약간의 성능 저하가 있습니다.
 
 
 

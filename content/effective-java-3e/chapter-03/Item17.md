@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 03"]
-author: ["Qutrits"]
+author: ["qubqub"]
 showToc: true
 showAsideToc: true
 TocOpen: false
@@ -53,7 +53,7 @@ public final class Calculator {
   ... 생략
 }
 ```
-여기서 주목할 점은 메서드들이 인스턴스 자신을 수정하지 않고 새로운 `Calculator` 인스턴스를 만들어 반환하는 것입니다. 
+여기서 주목할 점은 메서드들이 인스턴스 자신을 수정하지 않고 새로운 `Calculator` 인스턴스를 만들어 반환하는 것입니다.
 <br>
 <br>
 
@@ -114,7 +114,7 @@ public static BigInteger safeInstance(BingInteger val) {
 <br>
 
 ## <i class="user-fa-av-new-releases" aria-hidden="true"></i> 정리
-- **클래스는 꼭 필요한 경우가 아니면 불변이어야 합니다**. 
+- **클래스는 꼭 필요한 경우가 아니면 불변이어야 합니다**.
 - 불변 클래스의 장점들도 있지만 성능 문제도 함께 고려해야합니다
 - 불변으로 만들 수 없는 클래스라도 변경할 수 있는 부분은 최소한으로 줄입시다.
 - 다른 합당한 이유가 없다면 모두 private final이어야 합니다.

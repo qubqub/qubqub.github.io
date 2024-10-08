@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 01"]
-author: ["Qutrits"]
+author: ["qubqub"]
 showToc: true
 showAsideToc: true
 TocOpen: false
@@ -54,7 +54,7 @@ static boolean isRomanNumeral(String s) {
             + "(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$");
 }
 ```
-정규표현식의 예제로 문자열이 로마 숫자인지 확인하는 코드입니다.   
+정규표현식의 예제로 문자열이 로마 숫자인지 확인하는 코드입니다.
 `String.matches`는 내부에서 만드는 `Pattern`객체를 만들어서 사용하는데, 이 메서드에서는 한 번 쓰고 버려져서 곧바로 가비지 컬렉션 대상이 됩니다. 입력받은 정규표현식에 해당하는 {{< font color-var="main-color" weight="600" text="유한 상태 머신" >}}을 만들기 때문에 생성 비용이 비쌉니다.
 <br>
 
@@ -76,5 +76,5 @@ public class RomanNumber {
 <br>
 
 ### 어댑터
-어댑터는 인터페이스를 통해서 다른 객체와 연결해주는 객체라 여러개 만들 필요가 없습니다.   
+어댑터는 인터페이스를 통해서 다른 객체와 연결해주는 객체라 여러개 만들 필요가 없습니다.
 대표적으로 `Map` 인터페이스에 있는 `keySet` 메서드는 호출 될 때마다 새로운 객체가 나오는 게 아니라 같은 객체를 반환하기 때문에 리턴받은 `Set` 타입의 객체를 변경하면, 결국 그 뒤에 있는 `Map` 인터페이스도 변경되는 것입니다.

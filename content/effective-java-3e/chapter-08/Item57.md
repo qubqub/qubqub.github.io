@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 08"]
-author: ["Qutrits"]
+author: ["qubqub"]
 showToc: true
 showAsideToc: true
 TocOpen: false
@@ -34,7 +34,7 @@ for (Element e : c) {
 }
 ```
 
-``` java 
+``` java
 //  빈복자가 필요한 때의 관용구
 for (Iterator<Element> i = c.iterator(); i.hasNext;) {
     Elements e = i.next();

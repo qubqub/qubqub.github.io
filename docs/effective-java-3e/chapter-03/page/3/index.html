@@ -10,7 +10,7 @@
 <meta name=description content="추상화의 기본 단위인 클래스와 인터페이스는 자바 언어의 심장과도 같다. 그래서 자바 언어에는 클래스와 인터페이스 설계에 사용하는 강력한 요소가 많이 있다. 이번 장에서는 이런 요소를 적절히 활용하여 클래스와 인터페이스를 쓰기 편하고, 견고하며, 유연하게 만드는 방법을 안내한다.">
 <meta name=author content>
 <link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-03/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.5f664212240257a995c0a6975534fb309e2cca1e479219acb30342438a659075.css integrity="sha256-X2ZCEiQCV6mVwKaXVTT7MJ4syh5HkhmsswNCQ4plkHU=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.d6b2907d3887dd4d00f0da9656a9eba78b683589aabae559a3ea596510c7d1a3.css integrity="sha256-1rKQfTiH3U0A8NqWVqnrp4toNYmquuVZo+pZZRDH0aM=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
@@ -93,15 +93,17 @@
 </div>
 </header>
 <div class=list-entry-wrapper style=animation-delay:170ms data-animation=true>
-<article class="list-entry button" title="잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 분리합니다. 📌 정보 은닉(캡슐화)의 장점  시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다. (다른 컴포넌트에 영향을 주지 않고 특정 컴포넌트만 최적화 할 수 있어서) 재사용성을 높입니다.">
+<article class="list-entry button" title="잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 분리합니다.
+📌 정보 은닉(캡슐화)의 장점  시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다. (다른 컴포넌트에 영향을 주지 않고 특정 컴포넌트만 최적화 할 수 있어서) 재사용성을 높입니다.">
 <header class=entry-header>
 <h2>[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라
 </h2>
 </header>
 <section class=entry-content>
-<p>잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 분리합니다. 📌 정보 은닉(캡슐화)의 장점 시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다. (다른 컴포넌트에 영향을 주지 않고 특정 컴포넌트만 최적화 할 수 있어서) 재사용성을 높입니다....</p>
+<p>잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 분리합니다.
+📌 정보 은닉(캡슐화)의 장점 시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다. (다른 컴포넌트에 영향을 주지 않고 특정 컴포넌트만 최적화 할 수 있어서) 재사용성을 높입니다....</p>
 </section>
-<footer class=entry-footer><span title="2020-07-02 12:52:21 +0900 KST">2020년 7월 2일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;Qutrits
+<footer class=entry-footer><span title="2020-07-02 12:52:21 +0900 KST">2020년 7월 2일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;qubqub
 <ul class=post-tags>
 <li><a class=button href=https://qutrits.github.io/tags/java/ title=Java>Java</a></li>
 <li><a class=button href=https://qutrits.github.io/tags/effective-java-3e/ title="Effective Java 3E">Effective Java 3E</a></li>

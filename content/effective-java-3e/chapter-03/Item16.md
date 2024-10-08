@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 03"]
-author: ["Qutrits"]
+author: ["qubqub"]
 showToc: true
 showAsideToc: true
 TocOpen: false
@@ -24,7 +24,7 @@ showContentProgressbar: true
 ``` java
 // 부적적한 코드
 public class Point {
-    public int x; 
+    public int x;
     public int y;
 }
 ```

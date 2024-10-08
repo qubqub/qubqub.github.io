@@ -19,7 +19,7 @@ git commit -m "$msg"
 
 git push origin main
 
-echo "\033[0;32mhttps://qutrits.github.io/\033[0m"
+echo "\033[0;32mhttps://qubqub.github.io/\033[0m"
 
 
 

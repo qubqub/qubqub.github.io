@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 01"]
-author: ["Qutrits"]
+author: ["qubqub"]
 showToc: true
 showAsideToc: true
 TocOpen: false
@@ -23,7 +23,7 @@ showContentProgressbar: true
 ---
 {{< font color-var="main-color" weight="600" text="싱글턴" >}}`Singleton`이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 `new`키워드로 호출해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.
 
-{{< font color-var="main-color" weight="600" text="싱글턴" >}}을 만드는 방식은 보통 둘 중 하나입니다. 
+{{< font color-var="main-color" weight="600" text="싱글턴" >}}을 만드는 방식은 보통 둘 중 하나입니다.
 <br>
 
 ## 📌 public static 멤버가 final인 방식
@@ -70,13 +70,13 @@ public class Elvis {
 - 정적 팩토리 메서드 참조를 공급자`supplier`로 사용할 수 있습니다.
 <br>
 
-위에서 살펴본 두 방법 모두 직렬화`Serialization`하려면 모든 인스턴스 필드를 일시적`transient`이라고 선언하고 `readResolve` 메서드를 다음과 같이 제공해야 합니다. 
+위에서 살펴본 두 방법 모두 직렬화`Serialization`하려면 모든 인스턴스 필드를 일시적`transient`이라고 선언하고 `readResolve` 메서드를 다음과 같이 제공해야 합니다.
 ``` java
 private Object readResolve() {
     returm INSTANCE;
 }
 ```
-이렇게 하지 않으면 역직렬화`Deserialization` 할때마다 새로운 인스턴스가 생성됩니다.      
+이렇게 하지 않으면 역직렬화`Deserialization` 할때마다 새로운 인스턴스가 생성됩니다.
 <br>
 <br>
 
@@ -88,7 +88,7 @@ public enum Elvis {
     public void leaveTheBuilding() { ... }
 }
 ```
-직렬화 상황 그리고 리플렉션 공격에서도 {{< font color-var="main-color" weight="600" text="싱글턴" >}}임을 보장할 수 있습니다. **대부분 상황에서는 원소가 하나뿐인 열거 타입이 {{< font color-var="main-color" weight="600" text="싱글턴" >}}을 만드는 가장 좋은 방법입니다.**   
+직렬화 상황 그리고 리플렉션 공격에서도 {{< font color-var="main-color" weight="600" text="싱글턴" >}}임을 보장할 수 있습니다. **대부분 상황에서는 원소가 하나뿐인 열거 타입이 {{< font color-var="main-color" weight="600" text="싱글턴" >}}을 만드는 가장 좋은 방법입니다.**
 하지만 이 방법은 `Enum`외의 클래스를 상속해야한다면 사용할 수 없습니다.
 
 <i class="user-fa-action-info-outline" aria-hidden="true"></i> 열거 타입이 다른 인터페이스를 구현하도록 선언할 수는 있습니다.

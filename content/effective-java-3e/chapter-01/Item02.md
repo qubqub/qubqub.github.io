@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 01"]
-author: ["Qutrits"]
+author: ["qubqub"]
 showToc: true
 showAsideToc: true
 TocOpen: false
@@ -21,7 +21,7 @@ showContentProgressbar: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-매개변수가 많아질 경우 정적 팩토리 메서드와 생성자는 사용하기 불편해집니다.       
+매개변수가 많은 객체를 생성할 때, 생성자나 정적 팩토리 메서드 방식은 사용하기 불편해질 수 있습니다. 특히 매개변수의 순서나 타입이 비슷한 경우, 실수를 유발하거나 코드 가독성이 떨어지기 때문에 대안으로 **빌더 패턴(builder pattern)** 을 고려할 수 있습니다.
 <br>
 
 ## {{< font color-var="main-color" text="첫" >}} 번째 대안, 생성자를 이용할 경우
@@ -30,12 +30,11 @@ showContentProgressbar: true
 Nutritionfact cocaCola = new Nutritionfact(240, 8, 100, 0, 35);
 ```
 
-이렇게 생성자를 만들 수 있지만 어떤 속성 값을 설정했는지 알기 힘듭니다. {{< font color-var="main-color" weight="600" text="매개변수의 수가 늘어날 수록 코드를 작성하거나 읽기 힘들어집니다." >}} 문제는 매개변수 타입이 같은 상황에서 실수로 순서를 바꿔 입력할 경우 컴파일 시점에서 알 수 없고 {{< font color-var="main-color" weight="600" text="런타임에 엉뚱하게 동작하게 됩니다." >}}
+생성자를 통해 객체를 생성할 때 매개변수가 많으면, 어떤 값이 어떤 속성에 해당하는지 파악하기 어렵습니다. 특히 매개변수 타입이 같다면, 잘못된 순서로 입력해도 컴파일러가 오류를 잡지 못하고, 런타임에서 예상치 못한 동작을 초래할 수 있습니다.
 <br>
 <br>
 
 ## {{< font color-var="main-color" text="두" >}} 번째 대안, 자바빈
-또 다른 대안으로는 매개변수가 없는 생성자를 만든 뒤 `setter`를 통해서 값을 설정하는 방법입니다.
 
 ```java
 Nutritionfact cocaCola = new Nutritionfact();
@@ -46,18 +45,18 @@ cocaCola.setCalories(100);
 반복
 ```
 
-생성자를 이용한 방식보다 가독성이 훨씬 올라갔습니다. 하지만 객체가 완전히 생성되기 전까지는 중간에 사용할 수도 있으므로 일관성을 유지할 수 없습니다. 또한 불변 클래스로 만들 수 없다는 단점도 있으며(쓰레드 세이프하지 않습니다.) 이를 해결하려면 추가 작업을 해줘야 합니다.
+**자바빈(JavaBeans)** 패턴은 기본 생성자와 `setter` 메서드를 이용해 객체의 속성을 설정하는 방식입니다. 이 방식은 가독성이 좋지만, 객체가 완전히 초기화되기 전에는 일관성을 보장할 수 없고, **불변성(immutability)** 을 유지하기도 어렵습니다. 추가로 **쓰레드 안전성**도 문제가 될 수 있습니다.
 <br>
 <br>
 
 ## {{< font color-var="main-color" text="세" >}} 번째 대안, 빌더
-빌더 패턴은 필요한 매개변수만 전달할 수 있고 자바빈즈 패턴의 가독성을 모두 겸비한 대안입니다. 필수 매개변수만으로 생성자(혹은 정적팩토리)를 호출해 빌더 객체를 얻습니다. 그 후 빌더 객체가 제공하는 일종의 `setter`메서드들로 원하는 선택 매개변수를 설정합니다. 마지막으로 매개변수가 없는 `build`메서드를 호출하여 객체를 생성합니다.
+빌더 패턴은 **매개변수의 수가 많거나, 유연한 객체 생성**이 필요할 때 사용하는 최적의 대안입니다. 빌더 패턴은 필수 매개변수만으로 생성자(혹은 정적 팩토리 메서드)를 호출한 뒤, **선택적인 매개변수를 체인 방식**으로 설정할 수 있습니다.
 
 ``` java
 // 예제에서 사용한 Builder패턴
 public class NutritionFacts {
 
-    private final int servingSize;  
+    private final int servingSize;
     private final int servings;
     private final int calories;
     private final int fat;
@@ -109,6 +108,7 @@ public class NutritionFacts {
 }
 ```
 <br>
+빌더 패턴을 사용하면, 다음과 같은 형태로 객체를 생성할 수 있습니다.
 
 ``` java
 NutritionFacts cocaCola = new NutritionFacts.Builder(240, 8)
@@ -118,13 +118,14 @@ NutritionFacts cocaCola = new NutritionFacts.Builder(240, 8)
                                             .build();
 ```
 
-아까보다 가독성도 좋아지고 `NutritionFacts` 클래스는 불변이 되었습니다.
+위 코드에서 볼 수 있듯이, 빌더 패턴을 사용하면 매개변수 설정이 훨씬 직관적이고 가독성도 높아집니다. 또한, `NutritionFacts` 클래스는 **불변(immutable)** 으로 만들 수 있어 안전성이 높아집니다.
 <br>
 <br>
 
-## 계층적으로 설계된 클래스와 잘 어울리는 빌더 패턴
+## 계층적 클래스와 빌더 패턴
 
-빌더 패턴은 계층적으로 설계된 클래스와 함께 사용하기에 좋습니다. 추상 클래스는 추상 빌더를 갖게하고 구체 클래스는 구체 빌더를 갖게 합니다.
+
+빌더 패턴은 **계층적으로 설계된 클래스**와도 잘 어울립니다. 추상 클래스는 추상 빌더를, 구체 클래스는 구체 빌더를 사용합니다.
 ``` java
 public abstract class Pizza {
 
@@ -147,7 +148,7 @@ public abstract class Pizza {
     }
 
     default Pizza(Builder<?> builder) {
-        toppings = builder.toppings.clone(); 
+        toppings = builder.toppings.clone();
     }
 
 }
@@ -239,7 +240,7 @@ Calzone calzone = new Calzone.Builder()
 
 ## <i class="user-fa-av-new-releases" aria-hidden="true"></i> 정리
 
-빌더는 다양한 방식으로 객체를 생생할 수 있으므로 생성자와 정적 팩토리 메서드 방식보다 상당히 유연합니다.   
+빌더는 다양한 방식으로 객체를 생생할 수 있으므로 생성자와 정적 팩토리 메서드 방식보다 상당히 유연합니다.
 
 단점으로는 객체를 생성하려면 `Builder()`를 생성해야 하는데 성능에 민감한 상황에서는 이 점이 문제가 될 수 있습니다. 그리고 생성자에 비해서 코드가 장황해질 수 있으므로 현재 필요한 매개변수와 확장성을 고려해서 잘 판단하면 될 것 같습니다.
 <br>

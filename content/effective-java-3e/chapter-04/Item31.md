@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 04"]
-author: ["Qutrits"]
+author: ["qubqub"]
 showToc: true
 showAsideToc: true
 TocOpen: false
@@ -24,7 +24,7 @@ showContentProgressbar: true
 ## [아이템 31] 한정적 와일드카드를 사용해 API 유연성을 높여라.
 
 때론 불공변 방식보다 유연한 무언가가 필요할 때가 있습니다.
-   
+
 [`아이템29`](/posts/effective-java-3e/chapter-04/item29/)의 Stack 클래스를 떠올려보면
 
 ``` java
@@ -47,7 +47,7 @@ public void pushAll(Iterable<E> src) {
 ```
 
 Iterable src의 원소 타입의 스택의 원소 타입과 일치하면 잘 작동합니다. 하지만 `Stack<Number>`로 선언한 후 `pushAll(intVal)`을(`Iteger` 타입) 호출하면 오류가 뜹니다. 매개변수 타입이 불공변이기 떄문입니다.
-   
+
 이러한 상황에서는 한정된 와일드카드(unbounded wildcard)를 이용해서 해결할 수 있습니다. `pushAll`의 입력 매개변수 타입은 '`E`의 `iterable`'이 아니라 '`E`의 `하위타입 Iterable`'이어야 하며, 와일드 카드 `Iterable<? extends E>`가 정확히 이런뜻입니다.
 
 ``` java
@@ -92,7 +92,7 @@ public void popAll(Collection<E super E> dst) {
 > PECS: producer-extends, consumer-super
 
 즉 매개변수화 타입 `T`가 생성자라면 `<? extends T>`를 사용하고, `소비자`라면 `<?super T>`를 사용합시다.
-   
+
 **클래스 사용자가 와일드카드 타입을 신경 써야 한다면 그 API에 무슨 문제가 있을 가능성이 큽니다.**
 
 ``` java
@@ -110,9 +110,9 @@ public static <E extends Comparable<? super E>> E max(List<? extends E> c);
 ```
 
 위 코드는 `PECS` 공식을 두 번 적용했습니다. 입력 매개변수에서는 `E` 인스턴스를 생산하므로 원래의 `List<E>`를 `List<? extends E>`로 수정했습니다.
-   
-원래 선언에서는 `E`가 `Comparale<E>`를 확장한다고 정의했는데, 이때 `Comparable<E>`는 `E`인스턴스를 소비합니다. (그리고 선후 관계를 뜻하는 정수를 생산합니다) 그래서 매개변수화 타입 `Comparable<E>`는 `E` 한정적 와일드카드 타입 `Comparable<? super E>`로 대체 했습니다.   
-`Comparable`은 언제나 소비자이므로, 일반적으로 `Comparable`, `Comparable<E>`보다는 `Comparable<? super E>`를 사용하는 편이 낫습니다.   
+
+원래 선언에서는 `E`가 `Comparale<E>`를 확장한다고 정의했는데, 이때 `Comparable<E>`는 `E`인스턴스를 소비합니다. (그리고 선후 관계를 뜻하는 정수를 생산합니다) 그래서 매개변수화 타입 `Comparable<E>`는 `E` 한정적 와일드카드 타입 `Comparable<? super E>`로 대체 했습니다.
+`Comparable`은 언제나 소비자이므로, 일반적으로 `Comparable`, `Comparable<E>`보다는 `Comparable<? super E>`를 사용하는 편이 낫습니다.
 `Comparator`도 마찬가지입니다. 일반적으로 `Comparator<E>`보다는 `Comparator<? super E>`를 사용하는 편이 낫습니다.
 
 와일드카드와 관련해 논의해야 할 주제가 더 있습니다. 타입 매개변수와 와일드카드에 공통되는 부분이 있어서, 메서드를 정의할 때 둘 중 어느것을 사용해도 괜찮을 때가 많습니다.
@@ -149,5 +149,5 @@ public static <E> void swapHelper(List<E> list, int i, int j) {
 ```
 
 `swapHelper` 메서드는 리스트가 `List<E>`임을 알고 있습니다. 즉, 이 리스트에서 꺼낸 값은 항상 `E`이고, `E` 타입의 값이라면 이 리스트에 넣어도 안전함을 알고 있습니다.
-   
+
 다소 복잡하지만 덕분에 외부에서는 와일드카드 기반의 멋진 선언을 유지할 수 있습니다. 즉 `swap` 메서드를 호출 하는 클라이언트는 복잡힌 `swapHelper`의 존재를 모른 채 그 혜택을 누리는 것입니다.

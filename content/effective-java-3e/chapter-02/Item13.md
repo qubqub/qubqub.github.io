@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 02"]
-author: ["Qutrits"]
+author: ["qubqub"]
 showToc: true
 showAsideToc: true
 TocOpen: false
@@ -47,14 +47,14 @@ public PhoneNumber clone() {
 <br>
 
 `Object`의 `clone`은 `Object`를 반환하지만 공변 반환 타입을 이용해서 `PhoneNumber`로 반환했습니다. 이 방식으로 사용하는 클라이언트는 형변환을 따로 해줄 필요가 없습니다.
-   
+
 간단했던 앞서의 구현이 클래스가 가변 객체를 참조하는 순간 문제점이 발생합니다.
 ``` java
 public class Stack {
     private Object[] elements;
     private int size = 0;
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
-    
+
     public Stack() {
         this.elements = new Object[DEFAULT_INITIAL_CAPACITY];
     }

@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 05"]
-author: ["Qutrits"]
+author: ["qubqub"]
 showToc: true
 showAsideToc: true
 TocOpen: false
@@ -35,7 +35,7 @@ public static final int SOUTH = 2;
 public static final int NORTH = 3;
 ```
 이 코드는 타입의 안전성을 보장할 수 없고 표현력도 좋지 않습니다. </br>
-정수 열거 패턴을 사용한 프로그램은 깨지기가 쉽습니다. 단지 상수를 나열한 것 뿐이라 컴파일하면 그 값이 클라이언트 파일에 그대로 새겨집니다. 따라서 상수의 값이 바뀌면 클라이언트도 수정해줘야 합니다. 
+정수 열거 패턴을 사용한 프로그램은 깨지기가 쉽습니다. 단지 상수를 나열한 것 뿐이라 컴파일하면 그 값이 클라이언트 파일에 그대로 새겨집니다. 따라서 상수의 값이 바뀌면 클라이언트도 수정해줘야 합니다.
 </br>
 정수 상수는 그 값을 출력하거나 디버거로 살펴보면 특별한 의미를 나타내는 것이 아니라 단지 숫자로만 보여서 썩 도움이 되지 않습니다. 정수 대신 문자열 상수를 사용하는 방법도 있지만 이 변형 역시 단점이 많습니다. 상수의 의미를 내포할 수 있지만, 문자열 값 그대로 하드코딩 해야하기 때문에 힘듭니다. 이렇게 힘들게 하드코딩한 문자열이 오타가 있어도 컴파일러는 확인할 수 없습니다.</br>
 
@@ -49,7 +49,7 @@ public enum DIRECTION { EAST, WEST, SOUTH, NORTH }
 ``` java
 DIRECTION south = "Sounth" // 컴파일 오류 !!!
 ```
-열거타입에 상수를 추가하거나 순서를 변경해도 다시 컴파일 하지 않아도 됩니다. 공개되는 것이 오직 필드의 이름 뿐이라, 정수 열거 패턴과 달리 상수 값이 클라이언트로 컴파일되어 각인되지 않기 때문입니다. 이처럼 열거 타입은 정수 열거 타입의 단점들을 해소해줍니다. 
+열거타입에 상수를 추가하거나 순서를 변경해도 다시 컴파일 하지 않아도 됩니다. 공개되는 것이 오직 필드의 이름 뿐이라, 정수 열거 패턴과 달리 상수 값이 클라이언트로 컴파일되어 각인되지 않기 때문입니다. 이처럼 열거 타입은 정수 열거 타입의 단점들을 해소해줍니다.
 </br>
 열거 타입에는 메서드나 필드를 추가할 수도 있고 임의의 인터페이스를 구현하게 할 수도 있습니다. `Object`, `Comparable`, `Serializable`을 구현 했으며, 그 직렬화 형태도 웬만큼 변형을 가해도 문제없이 동작하게끔 구현해놨습니다.
 
@@ -64,11 +64,11 @@ public enum Planet {
   SATURN(5.685e+26, 6.027e7),
   URANUS(8.683e+25, 2.556e7),
   NEPTUNE(1.024e+26, 2.477e7);
-  
+
   private final double mass; // 질량(단위: 킬로그램)
   private final double radius; // 반지름(단위: 미터)
   private final double surfaceGravity; // 표면 중력(단위: m / s^2)
-  
+
   // 중력 상수(단위: m^3 / kg s^2)
   private static final double G = 6.67300E-11;
 
@@ -118,7 +118,7 @@ public enum Operation {
   }
 }
 ```
-동작은 하지만 맹점이 있습니다. 예컨대 새로운 상수를 추가하면 해당 case 문도 추가해야 합니다. 열거 타입에 apply를 이용하여 코드를 보완할 수 있습니다. 
+동작은 하지만 맹점이 있습니다. 예컨대 새로운 상수를 추가하면 해당 case 문도 추가해야 합니다. 열거 타입에 apply를 이용하여 코드를 보완할 수 있습니다.
 ### 상수별 메서드 구현을 활용한 열거 타입
 ``` java
 // 상수별 메서드 구현
@@ -145,7 +145,7 @@ public enum Operation {
   public abstract double apply(double x, double y);
 }
 ```
-보시다시피 apply 메서드가 상수 선언 바로 옆에 붙어 있으니 새로운 상수를 추가할 때 apply도 재정의해야 한다는 사실을 깜빡하기는 어려울 것입니다. 그 뿐만 아니라 apply 메서드가 추상 메서드이므로 재정의 하지 않았다면 컴파일 오류로 알려줍니다. 상수별 메서드 구현을 상수별 데이터와 결합할 수도 있습니다. 
+보시다시피 apply 메서드가 상수 선언 바로 옆에 붙어 있으니 새로운 상수를 추가할 때 apply도 재정의해야 한다는 사실을 깜빡하기는 어려울 것입니다. 그 뿐만 아니라 apply 메서드가 추상 메서드이므로 재정의 하지 않았다면 컴파일 오류로 알려줍니다. 상수별 메서드 구현을 상수별 데이터와 결합할 수도 있습니다.
 예컨대 다음은 Operation의 toString을 재정의해 해당 연산을 뜻하는 기호를 반환하도록 하는 예제 코드입니다.
 
 ``` java
@@ -185,7 +185,7 @@ public enum Operation {
 }
 ```
 
-열거 타입에는 상수 이름을 입력받아 그 이름에 해당하는 상수를 반환하는 valueOf(String) 메서드가 자동 생성됩니다. 
+열거 타입에는 상수 이름을 입력받아 그 이름에 해당하는 상수를 반환하는 valueOf(String) 메서드가 자동 생성됩니다.
 </br>
 </br>
 상수별 메서드 구현에는 열거 타입 상수끼리 코드를 공유하기 어렵다는 단점이 있습니다. 다음은 급명세서에서 쓸 요일을 표현하는 로직을 포함한 열거 타입 예제입니다.
@@ -246,7 +246,7 @@ public static Operation inverse(Operation op) {
     case MINUS:  return Operation.PLUS;
     case TIMES:  return Operation.DIVIDE;
     case DIVIDE: return Operation.TIMES;
-    default: thrownewAssertionError("알 수 없는 연산: "+op); 
+    default: thrownewAssertionError("알 수 없는 연산: "+op);
   }
 }
 ```

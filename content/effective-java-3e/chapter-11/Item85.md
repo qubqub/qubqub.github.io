@@ -5,7 +5,7 @@ tags: ["Java", "Effective Java 3E"]
 categories: ["Effective Java 3E"]
 series: ["Effective Java 3E"]
 chapter: ["Effective Java 3E Chapter 11"]
-author: ["Qutrits"]
+author: ["qubqub"]
 showToc: true
 showAsideToc: true
 TocOpen: false
@@ -43,7 +43,7 @@ static byte[] bomb() {
         s1 = t1;
         s2 = t2;
     }
-    return serialize(root); 
+    return serialize(root);
 }
 ```
 이 코드는 끝날 기미가 보이지 않는다. HashSet 인스턴스를 역직렬화 하려면 원소들의 해시코드를 계산해야 하는데 위 코드에서는 hashCode 메서드를 2^100번 넘게 호출해야합니다.
