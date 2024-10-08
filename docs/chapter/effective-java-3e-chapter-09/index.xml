@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Effective Java 3E Chapter 09 on &lt;Qutrits/&gt;</title>
-    <link>https://qutrits.github.io/chapter/effective-java-3e-chapter-09/</link>
-    <description>Recent content in Effective Java 3E Chapter 09 on &lt;Qutrits/&gt;</description>
+    <title>Effective Java 3E Chapter 09 on &lt;Qubqub/&gt;</title>
+    <link>https://qubqub.github.io/chapter/effective-java-3e-chapter-09/</link>
+    <description>Recent content in Effective Java 3E Chapter 09 on &lt;Qubqub/&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 02 Jun 2021 10:11:42 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/chapter/effective-java-3e-chapter-09/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Jun 2021 10:11:42 +0900</lastBuildDate><atom:link href="https://qubqub.github.io/chapter/effective-java-3e-chapter-09/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[아이템 69] 예외는 진짜 예외 상황에서만 사용하라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-09/item69/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-09/item69/</link>
       <pubDate>Wed, 02 Jun 2021 10:11:42 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-09/item69/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-09/item69/</guid>
       <description>[아이템 69] 예외는 진짜 예외 상황에서만 사용하라. 예외는 반드시 예외 상황에서만 사용해야한다. 일반적인 제어 흐름용으로 사용하면 안 됩니다.
 1 2 3 4 5 6 7 8  try { int i = 0; while (true) { index[i++].doSomething(); } } catch (ArrayIndexOutOfBoundsException) { .. }   코드가 장황하고 직관적이지 않습니다. 성능도 일반적인 제어 흐름보다 느립니다.</description>
     </item>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>1장 객체 생성과 파괴 on &lt;Qutrits/&gt;</title>
-    <link>https://qutrits.github.io/effective-java-3e/chapter-01/</link>
-    <description>Recent content in 1장 객체 생성과 파괴 on &lt;Qutrits/&gt;</description>
+    <title>1장 객체 생성과 파괴 on &lt;Qubqub/&gt;</title>
+    <link>https://qubqub.github.io/effective-java-3e/chapter-01/</link>
+    <description>Recent content in 1장 객체 생성과 파괴 on &lt;Qubqub/&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 20 Jun 2020 17:12:16 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/effective-java-3e/chapter-01/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Jun 2020 17:12:16 +0900</lastBuildDate><atom:link href="https://qubqub.github.io/effective-java-3e/chapter-01/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[아이템 9] try-finally보다는 try-with-resources를 사용하라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-01/item09/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-01/item09/</link>
       <pubDate>Sat, 20 Jun 2020 17:12:16 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-01/item09/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-01/item09/</guid>
       <description>자바 라이브러리에는 InputStream, OutputStream, java.sql.Connection과 같이 직접 close를 해야 하는 자원들이 있습니다.
 클라이언트는 실수로 자원을 닫아주지 않는 경우 예상치 못한 성능 문제로 이어질 수 있습니다.
 📌 실수를 유발할 수 있는 기존 코드 1 2 3 4 5 6 7 8 9  static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path)); try { return br.readLine(); } finally { br.close(); } } }   나쁘진 않지만 자원을 더 사용하게 되면 실수가 나올 가능성이 큽니다.</description>
@@ -19,10 +19,10 @@
     
     <item>
       <title>[아이템 8] finalizer와 cleaner 사용을 피하라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-01/item08/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-01/item08/</link>
       <pubDate>Sat, 20 Jun 2020 15:12:33 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-01/item08/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-01/item08/</guid>
       <description>자바에서는 두 가지 객체 소멸자를 제공합니다. 바로 finalizer와 cleaner입니다. finalizer는 예측 불가능하며 일반적으로 불필요하며 오작동 낮은 성능과 같은 문제점들이 있습니다. JAVA 9부터는 사용 자제deprecated API로 지정했습니다.
 cleaner는 finalizer보다 덜 위험하지만 이 역시 예측 불가능하고, 느리고 일반적으로 불필요합니다.
 📌 언제 실행되는지 알 수가 없습니다. finalizer와 cleaner는 즉시 실행된다는 보장이 없습니다. 즉 제때 실행되어야 하는 작업을 절대 할 수 없다는 뜻입니다.
@@ -31,19 +31,19 @@ cleaner는 finalizer보다 덜 위험하지만 이 역시 예측 불가능하고
     
     <item>
       <title>[아이템 7] 다 쓴 객체 참조를 해제하라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-01/item07/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-01/item07/</link>
       <pubDate>Sat, 20 Jun 2020 12:15:43 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-01/item07/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-01/item07/</guid>
       <description>메모리 누수가 일어나는 예제 코드 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  public class Stack { private Object[] elements; private int size = 0; private static final int DEFAULT_INITIAL_CAPACITY = 16; public Stack() { elements = new Object[DEFAULT_INITIAL_CAPACITY]; } public void push(Object e) { ensureCapacity(); elements[size++] = e; } public Object pop() { if (size == 0) throw new EmptyStackException(); return elements[--size]; // 주의  } private void ensureCapacity() { if (elements.</description>
     </item>
     
     <item>
       <title>[아이템 6] 불필요한 객체를 생성을 피하라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-01/item06/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-01/item06/</link>
       <pubDate>Fri, 19 Jun 2020 18:33:20 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-01/item06/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-01/item06/</guid>
       <description>기능이 똑같은 객체를 매번 생성하기 보다는 객체를 재사용하는 것이 적절합니다. 특히 불변 객체는 항상 재사용할 수 있습니다.
 📌 문자열 생성 방법 객체 생성 방식 - 피해야 되는 예시 1  String str = new String(&amp;#34;hello&amp;#34;);   이 방식을 이용하면 똑같은 문자열을 생성하더라도 항상 새로운 객체를 생성하므로 낭비가 됩니다.
 리터럴 방식 1  String str = &amp;#34;hello&amp;#34;;   리터럴 방식을 사용하면 JVM에서 동일한 문자열이 존재한다면 그 리터럴을 재사용합니다.
@@ -52,20 +52,20 @@ cleaner는 finalizer보다 덜 위험하지만 이 역시 예측 불가능하고
     
     <item>
       <title>[아이템 5] 자원을 직접 명시하지 말고 의존객체를 주입을 사용하라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-01/item05/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-01/item05/</link>
       <pubDate>Fri, 19 Jun 2020 17:15:21 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-01/item05/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-01/item05/</guid>
       <description>대부분의 클래스는 하나 이상의 리소스에 의존합니다. 이번 예제 코드는 SpellChecker가 Lexicon을 의존하고 있는 모습입니다.
 부적절한 구현 📌 정적 유틸리티를 잘못 사용한 예 1 2 3 4 5 6 7 8 9 10  public class SpellChecker { private static final Lexicon dictionary = ...; private SpellChecker() {} // 객체 생성 방지  public static boolean isValid(String word) { ... } public static List&amp;lt;String&amp;gt; suggestions(String typo) { ... } }    유연하지 않고 테스트할 수 없다.</description>
     </item>
     
     <item>
       <title>[아이템 4] 인스턴스를 막으려거든 private 생성자를 사용하라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-01/item04/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-01/item04/</link>
       <pubDate>Fri, 19 Jun 2020 15:51:43 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-01/item04/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-01/item04/</guid>
       <description>java.lang.Math와 java.util.Arrays와 같이 static메서드와 static필드만을 담을 클래스는 인스턴스화를 하는 건 낭비가 됩니다.
 매개변수 없는 생성자를 만들지 않으면 기본생성자가 생성이 되는데 이것을 방치하면 클라이언트 입장에서는 정적 멤버만 담은 유틸리티 클래스인지 알 수 없으므로 인스턴스화를 시킬 가능성이 있습니다. 이를 방지하기 위해 private생성자를 만들어서 인스턴스화를 막을 수 있습니다.
 1 2 3 4 5 6 7  public class UtilityClass { // 기본 생성자가 만들어지는 것을 막는다.(인스턴스화 방지용)  private UtilityClass() { throw new AssertionError(); } .</description>
@@ -73,10 +73,10 @@ cleaner는 finalizer보다 덜 위험하지만 이 역시 예측 불가능하고
     
     <item>
       <title>[아이템 3] private 생성자나 열거 타입으로 싱글턴임을 보증하라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-01/item03/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-01/item03/</link>
       <pubDate>Thu, 18 Jun 2020 19:09:20 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-01/item03/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-01/item03/</guid>
       <description>싱글턴Singleton이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new키워드로 호출해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.
 싱글턴을 만드는 방식은 보통 둘 중 하나입니다.
 📌 public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { ... } }   public이나 protected 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다.</description>
@@ -84,20 +84,20 @@ cleaner는 finalizer보다 덜 위험하지만 이 역시 예측 불가능하고
     
     <item>
       <title>[아이템 2] 생성자에 매개변수가 많다면 빌더를 고려하라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-01/item02/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-01/item02/</link>
       <pubDate>Thu, 18 Jun 2020 17:21:20 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-01/item02/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-01/item02/</guid>
       <description>매개변수가 많은 객체를 생성할 때, 생성자나 정적 팩토리 메서드 방식은 사용하기 불편해질 수 있습니다. 특히 매개변수의 순서나 타입이 비슷한 경우, 실수를 유발하거나 코드 가독성이 떨어지기 때문에 대안으로 빌더 패턴(builder pattern) 을 고려할 수 있습니다.
 첫 번째 대안, 생성자를 이용할 경우 1  Nutritionfact cocaCola = new Nutritionfact(240, 8, 100, 0, 35);   생성자를 통해 객체를 생성할 때 매개변수가 많으면, 어떤 값이 어떤 속성에 해당하는지 파악하기 어렵습니다. 특히 매개변수 타입이 같다면, 잘못된 순서로 입력해도 컴파일러가 오류를 잡지 못하고, 런타임에서 예상치 못한 동작을 초래할 수 있습니다.</description>
     </item>
     
     <item>
       <title>[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-01/item01/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-01/item01/</link>
       <pubDate>Thu, 18 Jun 2020 15:49:20 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-01/item01/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-01/item01/</guid>
       <description>일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메서드를 이용할 수 있다. 객체 생성 시 public 생성자 대신 정적 팩토리 메서드(static factory method) 를 사용하는 것을 고려할 수 있습니다. 이를 통해 다양한 이점을 얻을 수 있는데, Java에서 자주 사용되는 패턴 중 하나입니다.
 1 2 3  public static Boolean valueOf(boolean b) { return b ? Boolean.TRUE : Booelan.FALSE; }   Boolean 클래스에서 발췌한 예제 코드
  장점 첫 번째, 이름을 가질 수 있다.</description>

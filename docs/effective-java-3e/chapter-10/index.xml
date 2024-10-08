@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>10장 동시성 on &lt;Qutrits/&gt;</title>
-    <link>https://qutrits.github.io/effective-java-3e/chapter-10/</link>
-    <description>Recent content in 10장 동시성 on &lt;Qutrits/&gt;</description>
+    <title>10장 동시성 on &lt;Qubqub/&gt;</title>
+    <link>https://qubqub.github.io/effective-java-3e/chapter-10/</link>
+    <description>Recent content in 10장 동시성 on &lt;Qubqub/&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 02 Jul 2021 10:11:42 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/effective-java-3e/chapter-10/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Jul 2021 10:11:42 +0900</lastBuildDate><atom:link href="https://qubqub.github.io/effective-java-3e/chapter-10/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[아이템 78] 공유중인 가변 데이터는 동기화해 사용하라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-10/item78/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-10/item78/</link>
       <pubDate>Fri, 02 Jul 2021 10:11:42 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-10/item78/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-10/item78/</guid>
       <description>[아이템 78] 공유중인 가변 데이터는 동기화해 사용하라. 동기화란 특정 메서드나 블럭에 한 쓰레드가 접근했을 때, 해당 객체에 락을 걸고 다른 쓰레드가 접근하지 못하도록 하는 것이다.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  public class StopThread { private static boolean stopRequested; public static void main(String[] args) throws InterruptedException { Thread backgroundThread = new Thread(() -&amp;gt; { int i = 0; while (!</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-10/item79/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-10/item79/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-10/item79/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-10/item79/</guid>
       <description>[Itemm 79] 과도한 동기화는 피하라. 과도한 동기화는 성능을 저하시키고 교차상태에 빠뜨릴 수 있다.
 
 liveness, safety failures를 피하려면 동기화 메서드나 동기화 블록 안에서는 제어를 절대로 클라이언트에게 양보하면 안 된다. ex) 동기화된 영역 안에서 재정의할 수 있는 메서드 호출 x, 클라이언트가 념겨준 함수 객체 호출 x
@@ -30,20 +30,20 @@ liveness, safety failures를 피하려면 동기화 메서드나 동기화 블�
     
     <item>
       <title></title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-10/item80/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-10/item80/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-10/item80/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-10/item80/</guid>
       <description>[아이템 80] 스레드보다는 실행자, 태스크, 스트림을 애용하라. Excutor Framework는 인터페이스 기반의 유연한 태스크 실행 기능을 담고 있다.
 1 2 3  ExecutorService exec = Executors.newSingleThreadExecutor(); exec.excute(runnable); // 이 실행자에게 task를 넘김 exec.shutdown(); // graceful하게 종료 (이 작업이 실패하면 VM 자체가 종료되지 않을 것)   이 외에도 다양한 기능을 실행할 수 있다. 실행자 서비스를 사용하기에 까다로운 애플리케이션도 있는데, 가벼운 서버라면 Executors.newCachedThreadPool이 일반적으로 좋은 선택이지만 CachedThreadPool은 무거운 프로덕션 서버에는 좋지 못하다.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-10/item81/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-10/item81/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-10/item81/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-10/item81/</guid>
       <description>[아이템 81] wait와 notify보다는 동시성 유틸리티를 애용하라. wait와 notify는 올바르게 사용하기가 아주 까다로우니 고수준 동시성 유틸리티를 사용하라.
 
 java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있다.
@@ -54,20 +54,20 @@ java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있�
     
     <item>
       <title></title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-10/item82/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-10/item82/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-10/item82/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-10/item82/</guid>
       <description>[아이템 82] 스레드 안전성 수준을 문서화하라. 일반적으로 스레드 안정성이 높은 순
  불변: 외부 동기화가 필요없다. 대표적으로 String, Long, BigInteger 무조건적 스레드 안전: 이 클래스의 인스턴스는 수정될 수 있으나, 내부에서 충실히 동기화하여 별도의 외부 동기화 없이 사용해도 안전 대표적으로 ConcurrentHashMap 조건부 스레드 안전: 일부 메서드는 동시에 사용하려면 외부 동기화가 필요. Collections.synchronized 래퍼 메서드가 반환한 컬렉션이 여기 속함 스레드 비안전: 동시에 시용하려면 메서드 호출을 클라이언트가 선택한 외부 동기화 메커니즘으로 감싸야한다. ArrayList, HashMap 같은 기본 컬렉션.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-10/item83/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-10/item83/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-10/item83/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-10/item83/</guid>
       <description>[아이템 83] 지연 초기화는 신중히 사용하라. 지연 초기화는 필드의 초기화 시점을 그 값이 처음 필요햔 시점까지 늦추는 것이다. 지연 초기화는 인스턴스 생성시 초기화 비용을 줄일 수 있지만, 지연 초기화하는 필드에 접근하는 비용은 커진다. 지연 초기화를 잘못사용하면 실제로 성능이 더 느려질 수도 있다.
 
 
@@ -77,10 +77,10 @@ java.util.concurrent의 고수준 유틸리티는 세 범주로 나눌 수 있�
     
     <item>
       <title></title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-10/item84/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-10/item84/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-10/item84/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-10/item84/</guid>
       <description>[아이템 84] 프로그램의 동작을 스레드 스케줄러에 기대지 말라. 구체적인 스케줄링 정책은 운영체제 마다 다를 수 있다. 따라서 이 정책에 죄지우지 되면 안 된다. 실행 가능한 스레드의 평균적인 수를 프로세스 수보다 지나치게 많아지지 않도록 하는 것이 좋은 프로그래램이다. 그래야 스케줄러가 고민할 거리가 줄기 때문이다.</description>
     </item>
     

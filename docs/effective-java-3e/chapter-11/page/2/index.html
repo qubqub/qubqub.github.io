@@ -5,21 +5,21 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>11장 직렬화 | &lt;Qutrits/></title>
+<title>11장 직렬화 | &lt;Qubqub/></title>
 <meta name=keywords content>
 <meta name=description content="이번 장은 객체 직렬화를 다룬다. 객체 직렬화란 자바가 객체를 바이트 스트림으로 인코딩하고(직렬화) 그 바이트 스트림으로부터 다시 객체를 재구성하는(역직렬화) 매커니즘이다. 직렬화된 객체는 다른 VM에 전송하거나 디스크에 저장한 후 나중에 역직렬화할 수 있다. 이번 장은 직렬화가 품고 있는 위험과 그 위험을 최소화하는 방법에 집중한다.">
 <meta name=author content>
-<link rel=canonical href=https://qutrits.github.io/effective-java-3e/chapter-11/>
+<link rel=canonical href=https://qubqub.github.io/effective-java-3e/chapter-11/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.d6b2907d3887dd4d00f0da9656a9eba78b683589aabae559a3ea596510c7d1a3.css integrity="sha256-1rKQfTiH3U0A8NqWVqnrp4toNYmquuVZo+pZZRDH0aM=" rel="preload stylesheet" as=style>
-<link rel=icon href=https://qutrits.github.io/icon/favicon-64.webp>
-<link rel=icon type=image/png sizes=16x16 href=https://qutrits.github.io/icon/favicon-16.webp>
-<link rel=icon type=image/png sizes=32x32 href=https://qutrits.github.io/icon/favicon-32.webp>
-<link rel=apple-touch-icon href=https://qutrits.github.io/apple-touch-icon.png>
-<link rel=mask-icon href=https://qutrits.github.io/safari-pinned-tab.svg>
+<link rel=icon href=https://qubqub.github.io/icon/favicon-64.webp>
+<link rel=icon type=image/png sizes=16x16 href=https://qubqub.github.io/icon/favicon-16.webp>
+<link rel=icon type=image/png sizes=32x32 href=https://qubqub.github.io/icon/favicon-32.webp>
+<link rel=apple-touch-icon href=https://qubqub.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://qubqub.github.io/safari-pinned-tab.svg>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.92.2">
-<link rel=alternate type=application/rss+xml href=https://qutrits.github.io/effective-java-3e/chapter-11/index.xml>
+<link rel=alternate type=application/rss+xml href=https://qubqub.github.io/effective-java-3e/chapter-11/index.xml>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel=stylesheet>
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
@@ -28,18 +28,18 @@
 <script defer src=https://developers.kakao.com/sdk/js/kakao.min.js onload="Kakao.init('b8cccaa78a75e1ff28f09a4a844b13c7')"></script><meta property="og:title" content="11장 직렬화">
 <meta property="og:description" content="이번 장은 객체 직렬화를 다룬다. 객체 직렬화란 자바가 객체를 바이트 스트림으로 인코딩하고(직렬화) 그 바이트 스트림으로부터 다시 객체를 재구성하는(역직렬화) 매커니즘이다. 직렬화된 객체는 다른 VM에 전송하거나 디스크에 저장한 후 나중에 역직렬화할 수 있다. 이번 장은 직렬화가 품고 있는 위험과 그 위험을 최소화하는 방법에 집중한다.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://qutrits.github.io/effective-java-3e/chapter-11/">
+<meta property="og:url" content="https://qubqub.github.io/effective-java-3e/chapter-11/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="11장 직렬화">
 <meta name=twitter:description content="이번 장은 객체 직렬화를 다룬다. 객체 직렬화란 자바가 객체를 바이트 스트림으로 인코딩하고(직렬화) 그 바이트 스트림으로부터 다시 객체를 재구성하는(역직렬화) 매커니즘이다. 직렬화된 객체는 다른 VM에 전송하거나 디스크에 저장한 후 나중에 역직렬화할 수 있다. 이번 장은 직렬화가 품고 있는 위험과 그 위험을 최소화하는 방법에 집중한다.">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Effctive Java 3/E","item":"https://qutrits.github.io/effective-java-3e/"},{"@type":"ListItem","position":2,"name":"11장 직렬화","item":"https://qutrits.github.io/effective-java-3e/chapter-11/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Effctive Java 3/E","item":"https://qubqub.github.io/effective-java-3e/"},{"@type":"ListItem","position":2,"name":"11장 직렬화","item":"https://qubqub.github.io/effective-java-3e/chapter-11/"}]}</script>
 </head>
 <body class=list>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
 <header class="header header-bottom">
 <nav class=nav>
 <div class=logo>
-<a href=https://qutrits.github.io/ accesskey=h title="Qutrits (Alt + H)"><span class=user-fa-hardware-keyboard-arrow-right></span>ssh qutrits@localhost<span class=__cursor></span></a>
+<a href=https://qubqub.github.io/ accesskey=h title="qubqub (Alt + H)"><span class=user-fa-hardware-keyboard-arrow-right></span>ssh qubqub@localhost<span class=__cursor></span></a>
 <span class=logo-switches>
 </span>
 </div>
@@ -52,27 +52,27 @@
 </button>
 <ul id=menu class="main-menu hidden">
 <li>
-<a href=https://qutrits.github.io/series-list/ title=시리즈>
+<a href=https://qubqub.github.io/series-list/ title=시리즈>
 <span>시리즈</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/collection/ title=모아보기>
+<a href=https://qubqub.github.io/collection/ title=모아보기>
 <span>모아보기</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/archives/ title=아카이브>
+<a href=https://qubqub.github.io/archives/ title=아카이브>
 <span>아카이브</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/search/ title="검색 (Alt + /)" accesskey=/>
+<a href=https://qubqub.github.io/search/ title="검색 (Alt + /)" accesskey=/>
 <span>검색</span>
 </a>
 </li>
 <li>
-<a href=https://qutrits.github.io/tags/ title=태그>
+<a href=https://qubqub.github.io/tags/ title=태그>
 <span>태그</span>
 </a>
 </li>
@@ -81,10 +81,10 @@
 </nav>
 </header>
 <script>const header_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};header_DOMReady(function(){let a=document.querySelector("#menu-trigger"),b=document.querySelector("#menu");a.addEventListener("click",function(){b.classList.toggle("hidden")}),document.body.addEventListener("click",function(c){a.contains(c.target)||b.classList.add("hidden")})})</script><main class=main>
-<header class=page-header><div class=breadcrumbs data-animation=true><a href=https://qutrits.github.io/>Home</a>
+<header class=page-header><div class=breadcrumbs data-animation=true><a href=https://qubqub.github.io/>Home</a>
 &nbsp;<svg style="margin-right:-10px;vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><svg style="vertical-align:-2px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
 &nbsp;
-<a href=https://qutrits.github.io/effective-java-3e/>Effctive Java 3/E</a></div>
+<a href=https://qubqub.github.io/effective-java-3e/>Effctive Java 3/E</a></div>
 <h1 class=page-title data-animation=true><span class=page-icon><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Java</title><path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211.0.0.552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149M8.276 15.933s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308.0.0.384.389.987.602-5.679 1.661-12.007.13-7.942-1.218m4.84-4.458c1.158 1.333-.304 2.533-.304 2.533s2.939-1.518 1.589-3.418c-1.261-1.772-2.228-2.652 3.007-5.688.0-.001-8.216 2.051-4.292 6.573m6.214 9.029s.679.559-.747.991c-2.712.822-11.288 1.069-13.669.033-.856-.373.75-.89 1.254-.998.527-.114.828-.093.828-.093-.953-.671-6.156 1.317-2.643 1.887 9.58 1.553 17.462-.7 14.977-1.82M9.292 13.21s-4.362 1.036-1.544 1.412c1.189.159 3.561.123 5.77-.062 1.806-.152 3.618-.477 3.618-.477s-.637.272-1.098.587c-4.429 1.165-12.986.623-10.522-.568 2.082-1.006 3.776-.892 3.776-.892m7.824 4.374c4.503-2.34 2.421-4.589.968-4.285-.355.074-.515.138-.515.138s.132-.207.385-.297c2.875-1.011 5.086 2.981-.928 4.562.0-.001.07-.062.09-.118M14.401.0s2.494 2.494-2.365 6.33c-3.896 3.077-.888 4.832-.001 6.836-2.274-2.053-3.943-3.858-2.824-5.539 1.644-2.469 6.197-3.665 5.19-7.627M9.734 23.924c4.322.277 10.959-.153 11.116-2.198.0.0-.302.775-3.572 1.391-3.688.694-8.239.613-10.937.168.0-.001.553.457 3.393.639"/></svg></span>
 11장 직렬화
 </h1>
@@ -104,19 +104,19 @@
 1 2 3 4 5 6 7 8 9 10 11 // Period 클래스용 직렬화 프록시 private static class SerializationProxy implements Serializable { private final Date start; private final Date end; SerializationProxy(Period p) { this....</p>
 </section>
 <footer class=entry-footer></footer>
-<a class=entry-link aria-label="post link to " href=https://qutrits.github.io/effective-java-3e/chapter-11/item90/></a>
+<a class=entry-link aria-label="post link to " href=https://qubqub.github.io/effective-java-3e/chapter-11/item90/></a>
 </article>
 </div>
 <footer class=page-footer>
 <nav class=pagination>
 <ul class=pagination>
 <li class="pagination__item pagination__item--first">
-<a class="pagination__link pagination__link--first button" href=https://qutrits.github.io/effective-java-3e/chapter-11/><svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg><svg style="margin-left:-17px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+<a class="pagination__link pagination__link--first button" href=https://qubqub.github.io/effective-java-3e/chapter-11/><svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg><svg style="margin-left:-17px" stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
 <span></span>
 </a>
 </li>
 <li class="pagination__item pagination__item--previous">
-<a class="pagination__link pagination__link--previous button" href=https://qutrits.github.io/effective-java-3e/chapter-11/><svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+<a class="pagination__link pagination__link--previous button" href=https://qubqub.github.io/effective-java-3e/chapter-11/><svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
 <span></span>
 </a>
 </li>
@@ -132,7 +132,7 @@
 <script>const list_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};list_DOMReady(function(){const a=document.querySelectorAll(".main .list-entry-wrapper .list-entry .entry-footer .post-tags a");for(let b=0;b<a.length;b++)a[b].addEventListener("mouseover",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.remove("button")}),a[b].addEventListener("mouseout",a=>{a.target.parentNode.parentNode.parentNode.parentNode.classList.add("button")});const b=document.querySelector(".page-description");b&&b.addEventListener("click",a=>{a.target.classList.contains("abstracted")?(a.target.classList.remove("abstracted"),a.target.classList.add("zoom-out")):(a.target.classList.remove("zoom-out"),a.target.classList.add("abstracted"))})})</script>
 </main>
 <footer class=footer>
-<span>&copy; 2024 <a href=https://qutrits.github.io/><span class=user-fa-hardware-keyboard-arrow-right></span>ssh qutrits@localhost<span class=__cursor></span></a></span>
+<span>&copy; 2024 <a href=https://qubqub.github.io/><span class=user-fa-hardware-keyboard-arrow-right></span>ssh qubqub@localhost<span class=__cursor></span></a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
@@ -140,7 +140,7 @@ Powered by
 </span>
 <span>
 · Source code on
-<a href=https://github.com/qutrits/qutrits.github.io rel="noopener noreferrer" target=_blank>GitHub</a>
+<a href=https://github.com/qubqub/qubqub.github.io rel="noopener noreferrer" target=_blank>GitHub</a>
 </span>
 </footer>
 <div class=aside-font-size-button id=aside-font-size-button style=visibility:hidden>

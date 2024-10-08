@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>9장 예외 on &lt;Qutrits/&gt;</title>
-    <link>https://qutrits.github.io/effective-java-3e/chapter-09/</link>
-    <description>Recent content in 9장 예외 on &lt;Qutrits/&gt;</description>
+    <title>9장 예외 on &lt;Qubqub/&gt;</title>
+    <link>https://qubqub.github.io/effective-java-3e/chapter-09/</link>
+    <description>Recent content in 9장 예외 on &lt;Qubqub/&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 02 Jun 2021 10:11:42 +0900</lastBuildDate><atom:link href="https://qutrits.github.io/effective-java-3e/chapter-09/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Jun 2021 10:11:42 +0900</lastBuildDate><atom:link href="https://qubqub.github.io/effective-java-3e/chapter-09/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[아이템 69] 예외는 진짜 예외 상황에서만 사용하라</title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-09/item69/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-09/item69/</link>
       <pubDate>Wed, 02 Jun 2021 10:11:42 +0900</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-09/item69/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-09/item69/</guid>
       <description>[아이템 69] 예외는 진짜 예외 상황에서만 사용하라. 예외는 반드시 예외 상황에서만 사용해야한다. 일반적인 제어 흐름용으로 사용하면 안 됩니다.
 1 2 3 4 5 6 7 8  try { int i = 0; while (true) { index[i++].doSomething(); } } catch (ArrayIndexOutOfBoundsException) { .. }   코드가 장황하고 직관적이지 않습니다. 성능도 일반적인 제어 흐름보다 느립니다.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-09/item70/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-09/item70/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-09/item70/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-09/item70/</guid>
       <description>[아이템 70] 복구할 수 있는 상황에서는 검사 예외를, 프로그래밍 오류에는 런타임 예외를 시용하라. 자바에서는 기본적으로 오류는 checked exception, runtime exception, error 이렇게 세 가지로 나눌 수 있습니다. 100% 확실한 건 아니지만 일반적으로 사용하는 상황은 다음과 같습니다.
 
 
@@ -30,19 +30,19 @@
     
     <item>
       <title></title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-09/item71/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-09/item71/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-09/item71/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-09/item71/</guid>
       <description>[아이템 71] 필요 없는 검사 예외 사용은 피하라. 검사 예외를 필요한 곳에만 사용하면 프로그램의 안전성을 높여주지만, 과하게 사용하면 오히려 쓰기 불편한 API가 됩니다. API를 제대로 사용해도 발생할 수 있는 예외이거나, 프로그래머가 의미 잇는 조치를 취할 수 있는 경우 둘 중 어디에도 해당하지 않는다면 비검사 예외를 사용하는 것이 좋습니다.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-09/item72/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-09/item72/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-09/item72/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-09/item72/</guid>
       <description>[아이템 72] 표준 예외를 사용하라. 자바에서는 기본적으로 다양한 예외를 제공해줍니다. 예외를 만들기 전 먼저 기존 라이브러리를 확인해보는 것이 좋습니다. 기존에 있는 라이브러리를 사용하면 API가 다른 사람이 익히기 쉬워집니다. 또한 예외 클래스가 적어질 수록 메모리 사용량도 줄고 클래스를 적재하는 시간도 적게 걸리기 때문입니다.
 
 
@@ -51,29 +51,29 @@ Exception, RuntimeException, Throwable, Error는 직적 재사용하지 않는 �
     
     <item>
       <title></title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-09/item73/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-09/item73/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-09/item73/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-09/item73/</guid>
       <description>[아이템 73] 추상화 수준에 맞는 예외를 던져라. 메서드가 저수준 예외를 처리하지 않고 바깥으로 전파해버릴 경우 예상치 못한 예외를 접하고 당황할 수가 있습니다. 이 문제를 피하려면 상위 계층에서 저수주 예외를 잡아 자신의 추상화 수준에 맞는 예외를 던져야 합니다. 이를 예외 번역이라 부릅니다.
 1 2 3 4 5 6  try { ... } catch (LowLevelException e) { // 추상화 수준에 맞게 번역.  throw new HighLevelException(..); }   AbstractSequentialList에서 수행하는 예외번역의 예시</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-09/item74/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-09/item74/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-09/item74/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-09/item74/</guid>
       <description>[아이템 74] 메서드가 던지는 모든 예외를 문서화하라. 검사 예외는 항상 따로따로 선언하고, 각 예외가 발생하는 상황을 자바독의 @throws 태그를 사용하여 정확히 문서화를 합시다. 상위 클래스 하나로 선언하는 일은 삼가는 게 좋습니다. 어떤 예외를 호출하는지 명확하게 알 수 없고, 같은 맥락에서 다른 예외가 발생할 여지가 있을 경우 이러한 것까지 다 삼켜버릴 수 있기 때문입니다. 비검사 예외 같은 경우 메서드 선언에 throws를 넣는 건 권장하지 않습니다. 검사냐 비검사냐에 따라 API 사용자가 할 일이 달라지므로 이 둘은 확실히 구분해두는 것이 좋습니다.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-09/item75/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-09/item75/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-09/item75/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-09/item75/</guid>
       <description>[아이템 75] 예외 상세 메시지에 실패 관련 정보를 담으라. 스택 트레이스는 예외 객체의 toString 메서드를 호출해 얻는 문자열입니다. toString 메서드에 발생 원인에 대한 정보는 가능한 많을 수록 좋습니다. 물론 장황하지 않고 필요한 정보만 담는 것입니다. 가장 좋은 건 발생한 예외에 관여된 모든 매개변수와 필드의 값을 실패 메세지에 담는 것입니다. 물론 보안관 관련된 정보는 유의해서 다루어야 합니다.
 
 
@@ -82,20 +82,20 @@ ex) IndexOutOfBoundsException의 상세 메세지에는 범위의 최솟값, 최
     
     <item>
       <title></title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-09/item76/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-09/item76/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-09/item76/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-09/item76/</guid>
       <description>[아이템 76] 가능한 한 실패 원자적으로 만들라. 여기서 말하는 실패 원자적이란 호출한 메서드가 실패하더라도 해당 객체는 호출 전 상태로 유지되는 것입니다. 가장 간단한 방법은 불변 객채로 설계하는 것입니다. 가변 객체일 경우 작업 수행 전에 유효성을 검사합는 것입니다.
 1 2 3 4 5 6 7 8  public Object pop() { if (size == 0) { throw new EmptyStachException(); } Object result = el[--size]; el[size] = null; // 참조 해제  return result; }   유효성 검사하는 부분이 없어도 ArrayOutOfBoundsException을 던지지만 이는 추상화 수준에 상황에 어울리지 않습니다.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://qutrits.github.io/effective-java-3e/chapter-09/item77/</link>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-09/item77/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://qutrits.github.io/effective-java-3e/chapter-09/item77/</guid>
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-09/item77/</guid>
       <description>[아이템 77] 예외를 무시하지 마라. 발생할 수 있는 실수
 1 2 3 4 5  try { ... } catch (IllegalArgumentException e){ }   초보 프로그래머가 할 수 있는 실수입니다. catch 블록에서 아무것도 하지 않으면 catch가 존재할 이유가 없어지는 것과 마찬가지입니다. 예외가 발생허더라도 계속 지나칠 수 있습니다. 이는 심각한 결함으로 이어질 수 있습니다. 만약 예외를 무시하기로 결정한 부분이라면 IllegalArgumentException ignored로 바꿔놓는 것이 좋습니다.</description>
     </item>
