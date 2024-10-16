@@ -7,8 +7,8 @@
 <meta name=robots content="index, follow">
 <title>[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라 | &lt;Qubqub/></title>
 <meta name=keywords content="Java,Effective Java 3E">
-<meta name=description content="잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 분리합니다.
-📌 정보 은닉(캡슐화)의 장점  시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다. (다른 컴포넌트에 영향을 주지 않고 특정 컴포넌트만 최적화 할 수 있어서) 재사용성을 높입니다.">
+<meta name=description content="잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 내부 데이터와 구현 정보를 외부로부터 얼마나 잘 숨겼느냐에 있습니다. 잘 설계된 컴포넌트는 모든 내부 구현을 숨기고, 구현과 API를 깔끔하게 분리합니다.
+1. 정보 은닉(캡슐화)의 장점  개발 속도 증가: 여러 컴포넌트를 병렬로 개발할 수 있어 시스템 개발 속도가 빨라집니다. 관리 비용 절감: 각 컴포넌트를 더 빨리 파악할 수 있어 디버깅과 교체 비용이 낮아집니다. 성능 최적화: 특정 컴포넌트만 최적화할 수 있어 성능 향상에 도움이 됩니다.">
 <meta name=author content="qubqub">
 <link rel=canonical href=https://qubqub.github.io/effective-java-3e/chapter-03/item15/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.f2266dddfb6f71aab6d6e518fdb7e3c11fe4f02f4eedd1e7b17f18d0d9452708.css integrity="sha256-8iZt3ftvcaq21uUY/bfjwR/k8C9O7dHnsX8Y0NlFJwg=" rel="preload stylesheet" as=style>
@@ -27,8 +27,8 @@
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script defer src=https://developers.kakao.com/sdk/js/kakao.min.js onload="Kakao.init('b8cccaa78a75e1ff28f09a4a844b13c7')"></script><meta property="og:title" content="[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라">
-<meta property="og:description" content="잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 분리합니다.
-📌 정보 은닉(캡슐화)의 장점  시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다. (다른 컴포넌트에 영향을 주지 않고 특정 컴포넌트만 최적화 할 수 있어서) 재사용성을 높입니다.">
+<meta property="og:description" content="잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 내부 데이터와 구현 정보를 외부로부터 얼마나 잘 숨겼느냐에 있습니다. 잘 설계된 컴포넌트는 모든 내부 구현을 숨기고, 구현과 API를 깔끔하게 분리합니다.
+1. 정보 은닉(캡슐화)의 장점  개발 속도 증가: 여러 컴포넌트를 병렬로 개발할 수 있어 시스템 개발 속도가 빨라집니다. 관리 비용 절감: 각 컴포넌트를 더 빨리 파악할 수 있어 디버깅과 교체 비용이 낮아집니다. 성능 최적화: 특정 컴포넌트만 최적화할 수 있어 성능 향상에 도움이 됩니다.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://qubqub.github.io/effective-java-3e/chapter-03/item15/"><meta property="article:section" content="effective-java-3e">
 <meta property="article:published_time" content="2020-07-02T12:52:21+09:00">
@@ -36,10 +36,10 @@
 <meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-11/item85/"><meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-10/item78/"><meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-09/item69/"><meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-08/item57/"><meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-07/item49/"><meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-06/item42/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라">
-<meta name=twitter:description content="잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 분리합니다.
-📌 정보 은닉(캡슐화)의 장점  시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다. (다른 컴포넌트에 영향을 주지 않고 특정 컴포넌트만 최적화 할 수 있어서) 재사용성을 높입니다.">
+<meta name=twitter:description content="잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 내부 데이터와 구현 정보를 외부로부터 얼마나 잘 숨겼느냐에 있습니다. 잘 설계된 컴포넌트는 모든 내부 구현을 숨기고, 구현과 API를 깔끔하게 분리합니다.
+1. 정보 은닉(캡슐화)의 장점  개발 속도 증가: 여러 컴포넌트를 병렬로 개발할 수 있어 시스템 개발 속도가 빨라집니다. 관리 비용 절감: 각 컴포넌트를 더 빨리 파악할 수 있어 디버깅과 교체 비용이 낮아집니다. 성능 최적화: 특정 컴포넌트만 최적화할 수 있어 성능 향상에 도움이 됩니다.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Effctive Java 3/E","item":"https://qubqub.github.io/effective-java-3e/"},{"@type":"ListItem","position":2,"name":"3장 클래스와 인터페이스","item":"https://qubqub.github.io/effective-java-3e/chapter-03/"},{"@type":"ListItem","position":3,"name":"[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라","item":"https://qubqub.github.io/effective-java-3e/chapter-03/item15/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라","name":"[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라","description":"잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 분리합니다.\n📌 정보 은닉(캡슐화)의 장점  시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다. (다른 컴포넌트에 영향을 주지 않고 특정 컴포넌트만 최적화 할 수 있어서) 재사용성을 높입니다.","keywords":["Java","Effective Java 3E"],"articleBody":"잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 분리합니다.\n📌 정보 은닉(캡슐화)의 장점  시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에) 시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에) 성능 최적화에 도움을 줍니다. (다른 컴포넌트에 영향을 주지 않고 특정 컴포넌트만 최적화 할 수 있어서) 재사용성을 높입니다. (독자적으로 동작하는 컴포넌트는 다른 환경에서도 쓰일 수 있기 때문에)\n  접근 제어자를 잘 활용하는 것이 정보 은닉의 핵심입니다. 기본 원칙은 모든 클래스와 멤버의 접근성을 가능한 좁혀야 합니다. 즉 애플리케이션이 제대로 동작하는 한 항상 가장 낮은 접근 수준을 부여해야 합니다.\n톱레벨(가장 바깥) 클래스와 인터페이스에 부여할 수 있는 접근 제어자는 public과 package-private(default) 두 가지 입니다.\npublic으로 선언하면 공개 API가 되므로 패키지 외부에서 쓸 일이 없다면 package-private로 선언하는 걸 권장합니다. 한 클래스에서만 사용하는 package-private 톱레벨 클래스나 인터페이스는 이를 사용하는 클래스 안에 private static으로 중첩시켜봅시다. 이렇게 하면 바깥 클레스 하나에서만 접근할 수 있습니다.\n멤버(필드, 메서드, 중첩 클래스, 중첩 인터페이스)에 사용할 수 있는 접근제한자\n private: 멤버를 선언한 톱레벨 클래스에서만 접근 가능합니다. package-private: 멤버가 소속된 패키지안에 모든 클래스에서 접근 가능합니다 protected: package-private + 하위 클래스 public: 모든 곳에서 접근할 수 있습니다.\n  📌 public 클래스의 인스턴스 필드는 가능한 public이 아니어야 합니다. 필드가 가변 객체를 참조하거나, final이 아닌 인스턴스필드를 public으로 선언하면 필드의 내용이 수정될 수 있으므로 불변을 보장할 수 없게 되므로 유의해야 합니다. 필드가 final이면서 불변 객체를 참조해도 문제는 있습니다. 내부 구현을 바꾸고 싶어도 public필드를 없애는 방식으로는 리팩토링 할 수 없게 됩니다.\n정적 필드 같은 경우 추상 개념을 완성하는데 꼭 필요한 구성요소로써의 상수라면 public static final필드로 공개해도 좋으나 반드시 primitive type이나 불변 객체를 참조해야 합니다. 가변 객체를 참조 한다면 참조는 변경하지 못하나 객체의 값은 수정될 수 있으므로 주의해야 합니다.\n 정리 프로그램의 접근 제어자는 가능한 최소한으로 합시다. 꼭 필요한 것만 public API를 설계하고 그 외에는 의도치 않게 API로 공개되는 일이 없도록 해야 합니다. public클래스는 public static final 필드 외에는 어떠한 public 메서드도 가져서는 안 됩니다. 또한 public static final 필드가 참조하는 객체가 불변인지 확인합시다.\n","wordCount":"336","inLanguage":"ko","datePublished":"2020-07-02T12:52:21+09:00","dateModified":"2020-07-02T12:52:21+09:00","author":[{"@type":"Person","name":"qubqub"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qubqub.github.io/effective-java-3e/chapter-03/item15/"},"publisher":{"@type":"Organization","name":"\u003cQubqub/\u003e","logo":{"@type":"ImageObject","url":"https://qubqub.github.io/icon/favicon-64.webp"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라","name":"[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라","description":"잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 내부 데이터와 구현 정보를 외부로부터 얼마나 잘 숨겼느냐에 있습니다. 잘 설계된 컴포넌트는 모든 내부 구현을 숨기고, 구현과 API를 깔끔하게 분리합니다.\n1. 정보 은닉(캡슐화)의 장점  개발 속도 증가: 여러 컴포넌트를 병렬로 개발할 수 있어 시스템 개발 속도가 빨라집니다. 관리 비용 절감: 각 컴포넌트를 더 빨리 파악할 수 있어 디버깅과 교체 비용이 낮아집니다. 성능 최적화: 특정 컴포넌트만 최적화할 수 있어 성능 향상에 도움이 됩니다.","keywords":["Java","Effective Java 3E"],"articleBody":"잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 내부 데이터와 구현 정보를 외부로부터 얼마나 잘 숨겼느냐에 있습니다. 잘 설계된 컴포넌트는 모든 내부 구현을 숨기고, 구현과 API를 깔끔하게 분리합니다.\n1. 정보 은닉(캡슐화)의 장점  개발 속도 증가: 여러 컴포넌트를 병렬로 개발할 수 있어 시스템 개발 속도가 빨라집니다. 관리 비용 절감: 각 컴포넌트를 더 빨리 파악할 수 있어 디버깅과 교체 비용이 낮아집니다. 성능 최적화: 특정 컴포넌트만 최적화할 수 있어 성능 향상에 도움이 됩니다. 재사용성 향상: 독립적으로 동작하는 컴포넌트는 다른 환경에서도 재사용할 수 있습니다.\n  2. 접근 제어자의 중요성 접근 제어자는 정보 은닉의 핵심입니다. 기본 원칙은 모든 클래스와 멤버의 접근성을 가능한 좁혀야 하며, 애플리케이션이 제대로 동작하는 한 가장 낮은 접근 수준을 부여해야 합니다.\n톱레벨 클래스와 인터페이스의 접근 제어자 톱레벨 클래스와 인터페이스에 사용할 수 있는 접근 제어자는 public과 package-private(기본값) 두 가지입니다.\n public: 공개 API가 되며, 외부에서 접근 가능합니다. package-private: 외부 패키지에서 접근할 수 없습니다.  public으로 선언하면 공개 API가 되므로 패키지 외부에서 쓸 일이 없다면 package-private로 선언하는 걸 권장합니다. 한 클래스에서만 사용하는 package-private 톱레벨 클래스나 인터페이스는 이를 사용하는 클래스 안에 private static으로 중첩시켜봅시다. 이렇게 하면 바깥 클래스 하나에서만 접근할 수 있습니다.\n멤버에 대한 접근 제어자 멤버(필드, 메서드, 중첩 클래스, 중첩 인터페이스)에 사용할 수 있는 접근제한자\n private: 멤버를 선언한 톱레벨 클래스에서만 접근 가능. package-private: 소속된 패키지의 모든 클래스에서 접근 가능. protected: package-private + 하위 클래스에서 접근 가능. public: 모든 곳에서 접근 가능.\n  3. public 클래스의 인스턴스 필드 public 클래스의 인스턴스 필드는 가능한 한 public이 아니어야 합니다.\n 가변 객체를 참조하거나 final이 아닌 인스턴스 필드를 public으로 선언하면, 필드 내용이 수정될 수 있어 불변성을 보장할 수 없게 됩니다. final이면서 불변 객체를 참조해도 문제는 있습니다. 내부 구현을 변경하고 싶어도 public필드를 없애는 방식으로는 리팩토링 할 수 없게 됩니다.\n  정적 필드의 공개 정적 필드는 추상 개념을 완성하는데 꼭 필요한 구성 요소로, 다음과 같은 경우 public static final로 공개해도 좋습니다.\n 반드시 primitive type이나 불변 객체를 참조해야 합니다. 가변 객체를 참조하는 경우, 참조는 변경하지 못하나 객체의 값을 수정할 수 있으므로 주의해야 합니다.\n  4. 정리  프로그램의 접근 제어자는 가능한 최소한으로 설정해야 합니다. 꼭 필요한 경우에만 public API를 설계하고, 그 외에는 의도치 않게 API로 공개되는 일이 없도록 해야 합니다. public 클래스는 public static final 필드 외에는 어떠한 public 메서드도 가져서는 안 됩니다. public static final 필드가 참조하는 객체가 불변인지 확인해야 합니다.\n  ","wordCount":"354","inLanguage":"ko","datePublished":"2020-07-02T12:52:21+09:00","dateModified":"2020-07-02T12:52:21+09:00","author":[{"@type":"Person","name":"qubqub"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qubqub.github.io/effective-java-3e/chapter-03/item15/"},"publisher":{"@type":"Organization","name":"\u003cQubqub/\u003e","logo":{"@type":"ImageObject","url":"https://qubqub.github.io/icon/favicon-64.webp"}}}</script>
 </head>
 <body>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -260,11 +260,21 @@
 </summary>
 <div class=inner><ul>
 <li>
-<a href=#-%ec%a0%95%eb%b3%b4-%ec%9d%80%eb%8b%89%ec%ba%a1%ec%8a%90%ed%99%94%ec%9d%98-%ec%9e%a5%ec%a0%90 aria-label="📌 정보 은닉(캡슐화)의 장점">📌 정보 은닉(캡슐화)의 장점</a></li>
+<a href=#1-%ec%a0%95%eb%b3%b4-%ec%9d%80%eb%8b%89%ec%ba%a1%ec%8a%90%ed%99%94%ec%9d%98-%ec%9e%a5%ec%a0%90 aria-label="1. 정보 은닉(캡슐화)의 장점">1. 정보 은닉(캡슐화)의 장점</a></li>
 <li>
-<a href=#-public-%ed%81%b4%eb%9e%98%ec%8a%a4%ec%9d%98-%ec%9d%b8%ec%8a%a4%ed%84%b4%ec%8a%a4-%ed%95%84%eb%93%9c%eb%8a%94-%ea%b0%80%eb%8a%a5%ed%95%9c-public%ec%9d%b4-%ec%95%84%eb%8b%88%ec%96%b4%ec%95%bc-%ed%95%a9%eb%8b%88%eb%8b%a4 aria-label="📌 public 클래스의 인스턴스 필드는 가능한 public이 아니어야 합니다.">📌 public 클래스의 인스턴스 필드는 가능한 public이 아니어야 합니다.</a></li>
+<a href=#2-%ec%a0%91%ea%b7%bc-%ec%a0%9c%ec%96%b4%ec%9e%90%ec%9d%98-%ec%a4%91%ec%9a%94%ec%84%b1 aria-label="2. 접근 제어자의 중요성">2. 접근 제어자의 중요성</a><ul>
 <li>
-<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
+<a href=#%ed%86%b1%eb%a0%88%eb%b2%a8-%ed%81%b4%eb%9e%98%ec%8a%a4%ec%99%80-%ec%9d%b8%ed%84%b0%ed%8e%98%ec%9d%b4%ec%8a%a4%ec%9d%98-%ec%a0%91%ea%b7%bc-%ec%a0%9c%ec%96%b4%ec%9e%90 aria-label="톱레벨 클래스와 인터페이스의 접근 제어자">톱레벨 클래스와 인터페이스의 접근 제어자</a></li>
+<li>
+<a href=#%eb%a9%a4%eb%b2%84%ec%97%90-%eb%8c%80%ed%95%9c-%ec%a0%91%ea%b7%bc-%ec%a0%9c%ec%96%b4%ec%9e%90 aria-label="멤버에 대한 접근 제어자">멤버에 대한 접근 제어자</a></li></ul>
+</li>
+<li>
+<a href=#3-public-%ed%81%b4%eb%9e%98%ec%8a%a4%ec%9d%98-%ec%9d%b8%ec%8a%a4%ed%84%b4%ec%8a%a4-%ed%95%84%eb%93%9c aria-label="3. public 클래스의 인스턴스 필드">3. public 클래스의 인스턴스 필드</a><ul>
+<li>
+<a href=#%ec%a0%95%ec%a0%81-%ed%95%84%eb%93%9c%ec%9d%98-%ea%b3%b5%ea%b0%9c aria-label="정적 필드의 공개">정적 필드의 공개</a></li></ul>
+</li>
+<li>
+<a href=#4-%ec%a0%95%eb%a6%ac aria-label="4. 정리">4. 정리</a>
 </li>
 </ul>
 </div>
@@ -280,11 +290,21 @@
 <div class=inner-wrapper>
 <div class=inner><ul>
 <li>
-<a href=#-%ec%a0%95%eb%b3%b4-%ec%9d%80%eb%8b%89%ec%ba%a1%ec%8a%90%ed%99%94%ec%9d%98-%ec%9e%a5%ec%a0%90 aria-label="📌 정보 은닉(캡슐화)의 장점">📌 정보 은닉(캡슐화)의 장점</a></li>
+<a href=#1-%ec%a0%95%eb%b3%b4-%ec%9d%80%eb%8b%89%ec%ba%a1%ec%8a%90%ed%99%94%ec%9d%98-%ec%9e%a5%ec%a0%90 aria-label="1. 정보 은닉(캡슐화)의 장점">1. 정보 은닉(캡슐화)의 장점</a></li>
 <li>
-<a href=#-public-%ed%81%b4%eb%9e%98%ec%8a%a4%ec%9d%98-%ec%9d%b8%ec%8a%a4%ed%84%b4%ec%8a%a4-%ed%95%84%eb%93%9c%eb%8a%94-%ea%b0%80%eb%8a%a5%ed%95%9c-public%ec%9d%b4-%ec%95%84%eb%8b%88%ec%96%b4%ec%95%bc-%ed%95%a9%eb%8b%88%eb%8b%a4 aria-label="📌 public 클래스의 인스턴스 필드는 가능한 public이 아니어야 합니다.">📌 public 클래스의 인스턴스 필드는 가능한 public이 아니어야 합니다.</a></li>
+<a href=#2-%ec%a0%91%ea%b7%bc-%ec%a0%9c%ec%96%b4%ec%9e%90%ec%9d%98-%ec%a4%91%ec%9a%94%ec%84%b1 aria-label="2. 접근 제어자의 중요성">2. 접근 제어자의 중요성</a><ul>
 <li>
-<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
+<a href=#%ed%86%b1%eb%a0%88%eb%b2%a8-%ed%81%b4%eb%9e%98%ec%8a%a4%ec%99%80-%ec%9d%b8%ed%84%b0%ed%8e%98%ec%9d%b4%ec%8a%a4%ec%9d%98-%ec%a0%91%ea%b7%bc-%ec%a0%9c%ec%96%b4%ec%9e%90 aria-label="톱레벨 클래스와 인터페이스의 접근 제어자">톱레벨 클래스와 인터페이스의 접근 제어자</a></li>
+<li>
+<a href=#%eb%a9%a4%eb%b2%84%ec%97%90-%eb%8c%80%ed%95%9c-%ec%a0%91%ea%b7%bc-%ec%a0%9c%ec%96%b4%ec%9e%90 aria-label="멤버에 대한 접근 제어자">멤버에 대한 접근 제어자</a></li></ul>
+</li>
+<li>
+<a href=#3-public-%ed%81%b4%eb%9e%98%ec%8a%a4%ec%9d%98-%ec%9d%b8%ec%8a%a4%ed%84%b4%ec%8a%a4-%ed%95%84%eb%93%9c aria-label="3. public 클래스의 인스턴스 필드">3. public 클래스의 인스턴스 필드</a><ul>
+<li>
+<a href=#%ec%a0%95%ec%a0%81-%ed%95%84%eb%93%9c%ec%9d%98-%ea%b3%b5%ea%b0%9c aria-label="정적 필드의 공개">정적 필드의 공개</a></li></ul>
+</li>
+<li>
+<a href=#4-%ec%a0%95%eb%a6%ac aria-label="4. 정리">4. 정리</a>
 </li>
 </ul>
 </div>
@@ -314,36 +334,61 @@
 </div>
 </div>
 <script>const asideShareIcons_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};asideShareIcons_DOMReady(function(){let c=0;const f=document.querySelector(".post-content"),a=document.querySelector(".share-buttons"),d=document.querySelector(".aside-share-buttons-wrapper"),b=document.getElementById("copylink-aside");g(),document.body.addEventListener("click",function(b){if(b.target.classList[0]==="aside-share-control-buttons"||b.target.classList[0]==="aside-share-control-buttons-svg"||b.target.classList[0]==="aside-share-control-buttons-path")return;a.classList.contains("reveal")&&(a.classList.remove("reveal"),a.classList.add("hide"))}),window.addEventListener("scroll",()=>{c=window.pageYOffset,c>=f.offsetTop-25?d.classList.add("fixed"):d.classList.remove("fixed")}),document.querySelector(".aside-share-control-buttons").addEventListener("click",()=>{a.classList.contains("reveal")?(a.classList.remove("reveal"),a.classList.add("hide")):(a.classList.remove("hide"),a.classList.add("reveal"))}),document.getElementById("kakaotalk-share-aside").addEventListener("click",()=>{Kakao.Link.sendDefault({objectType:"feed",content:{title:'[아이템 15] 클래스와 멤버의 접근 권한을 최소화하라',description:'Java,EffectiveJava3E',imageUrl:'https://qubqub.github.io/icon/favicon.png',link:{mobileWebUrl:'https://qubqub.github.io/effective-java-3e/chapter-03/item15/',webUrl:'https://qubqub.github.io/effective-java-3e/chapter-03/item15/'}},success:function(a){},fail:function(a){}})});function g(){b.innerHTML='\u003csvg width=\u002230px\u0022 height=\u002230px\u0022 viewBox=\u00220 0 24 24\u0022 class=\u0022button custom-button\u0022\u003e\u003cpath d=\u0022M21.586 10.461l-10.05 10.075c-1.95 1.949-5.122 1.949-7.071 0s-1.95-5.122 0-7.072l10.628-10.585c1.17-1.17 3.073-1.17 4.243 0 1.169 1.17 1.17 3.072 0 4.242l-8.507 8.464c-.39.39-1.024.39-1.414 0s-.39-1.024 0-1.414l7.093-7.05-1.415-1.414-7.093 7.049c-1.172 1.172-1.171 3.073 0 4.244s3.071 1.171 4.242 0l8.507-8.464c.977-.977 1.464-2.256 1.464-3.536 0-2.769-2.246-4.999-5-4.999-1.28 0-2.559.488-3.536 1.465l-10.627 10.583c-1.366 1.368-2.05 3.159-2.05 4.951 0 3.863 3.13 7 7 7 1.792 0 3.583-.684 4.95-2.05l10.05-10.075-1.414-1.414z\u0022\u003e\u003c/path\u003e\u003c/svg\u003e',b.addEventListener("click",()=>{if('clipboard'in navigator){navigator.clipboard.writeText('https://qubqub.github.io/effective-java-3e/chapter-03/item15/'),e();return}const a=document.createRange();a.selectNodeContents('https://qubqub.github.io/effective-java-3e/chapter-03/item15/');const b=window.getSelection();b.removeAllRanges(),b.addRange(a);try{document.execCommand('copy'),e()}catch(a){}b.removeRange(a)})}function e(){b.innerHTML='\u003csvg aria-hidden=\u0022true\u0022 width=\u002230px\u0022 height=\u002230px\u0022 viewBox=\u00220 0 16 16\u0022 version=\u00221.1\u0022 data-view-component=\u0022true\u0022 class=\u0022octicon-check\u0022\u003e\u003cpath fill-rule=\u0022evenodd\u0022 d=\u0022M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z\u0022\u003e\u003c/path\u003e\u003c/svg\u003e',setTimeout(()=>{b.innerHTML='\u003csvg width=\u002230px\u0022 height=\u002230px\u0022 viewBox=\u00220 0 24 24\u0022 class=\u0022button custom-button\u0022\u003e\u003cpath d=\u0022M21.586 10.461l-10.05 10.075c-1.95 1.949-5.122 1.949-7.071 0s-1.95-5.122 0-7.072l10.628-10.585c1.17-1.17 3.073-1.17 4.243 0 1.169 1.17 1.17 3.072 0 4.242l-8.507 8.464c-.39.39-1.024.39-1.414 0s-.39-1.024 0-1.414l7.093-7.05-1.415-1.414-7.093 7.049c-1.172 1.172-1.171 3.073 0 4.244s3.071 1.171 4.242 0l8.507-8.464c.977-.977 1.464-2.256 1.464-3.536 0-2.769-2.246-4.999-5-4.999-1.28 0-2.559.488-3.536 1.465l-10.627 10.583c-1.366 1.368-2.05 3.159-2.05 4.951 0 3.863 3.13 7 7 7 1.792 0 3.583-.684 4.95-2.05l10.05-10.075-1.414-1.414z\u0022\u003e\u003c/path\u003e\u003c/svg\u003e'},500)}})</script>
-<div class=post-content data-animation=true><p>잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼느냐입니다. 설계가 잘 된 컴포넌트는 모든 내부 구현을 숨겨, 구현과 API를 깔끔하게 <strong>분리</strong>합니다.<br>
+<div class=post-content data-animation=true><p>잘 설계된 컴포넌트와 그렇지 못한 컴포넌트의 가장 큰 차이는 <strong>내부 데이터</strong>와 <strong>구현 정보</strong>를 외부로부터 얼마나 잘 숨겼느냐에 있습니다. 잘 설계된 컴포넌트는 모든 내부 구현을 숨기고, 구현과 API를 깔끔하게 <strong>분리</strong>합니다.<br>
 <br></p>
-<h2 id=-정보-은닉캡슐화의-장점>📌 정보 은닉(캡슐화)의 장점<a hidden class=anchor aria-hidden=true href=#-정보-은닉캡슐화의-장점><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<h2 id=1-정보-은닉캡슐화의-장점>1. 정보 은닉(캡슐화)의 장점<a hidden class=anchor aria-hidden=true href=#1-정보-은닉캡슐화의-장점><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
 <ul>
-<li>시스템 개발 속도를 높입니다. (여러 컴포넌트를 병렬로 개발할 수 있기 때문에)</li>
-<li>시스템 관리 비용을 낮춥니다. (각 컴포넌트를 더 빨리 파악하여 디버깅할 수 있고, 다른 컴포넌트로 교체하는 비용도 적기 때문에)</li>
-<li>성능 최적화에 도움을 줍니다. (다른 컴포넌트에 영향을 주지 않고 특정 컴포넌트만 최적화 할 수 있어서)</li>
-<li>재사용성을 높입니다. (독자적으로 동작하는 컴포넌트는 다른 환경에서도 쓰일 수 있기 때문에)<br>
+<li><strong>개발 속도 증가</strong>: 여러 컴포넌트를 병렬로 개발할 수 있어 시스템 개발 속도가 빨라집니다.</li>
+<li><strong>관리 비용 절감</strong>: 각 컴포넌트를 더 빨리 파악할 수 있어 디버깅과 교체 비용이 낮아집니다.</li>
+<li><strong>성능 최적화</strong>: 특정 컴포넌트만 최적화할 수 있어 성능 향상에 도움이 됩니다.</li>
+<li><strong>재사용성 향상</strong>: 독립적으로 동작하는 컴포넌트는 다른 환경에서도 재사용할 수 있습니다.<br>
+<br><br>
 <br></li>
 </ul>
-<p>접근 제어자를 잘 활용하는 것이 정보 은닉의 핵심입니다. 기본 원칙은 모든 클래스와 멤버의 접근성을 가능한 좁혀야 합니다. 즉 애플리케이션이 제대로 동작하는 한 항상 가장 낮은 접근 수준을 부여해야 합니다.</p>
-<p>톱레벨(가장 바깥) 클래스와 인터페이스에 부여할 수 있는 접근 제어자는 <code>public</code>과 <code>package-private</code>(<code>default</code>) 두 가지 입니다.</p>
-<p><code>public</code>으로 선언하면 공개 API가 되므로 패키지 외부에서 쓸 일이 없다면 <code>package-private</code>로 선언하는 걸 권장합니다. 한 클래스에서만 사용하는 <code>package-private</code> 톱레벨 클래스나 인터페이스는 이를 사용하는 클래스 안에 <code>private static</code>으로 중첩시켜봅시다. 이렇게 하면 바깥 클레스 하나에서만 접근할 수 있습니다.<br>
+<h2 id=2-접근-제어자의-중요성>2. 접근 제어자의 중요성<a hidden class=anchor aria-hidden=true href=#2-접근-제어자의-중요성><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<p>접근 제어자는 정보 은닉의 핵심입니다. 기본 원칙은 모든 클래스와 멤버의 접근성을 가능한 좁혀야 하며, 애플리케이션이 제대로 동작하는 한 가장 낮은 접근 수준을 부여해야 합니다.<br>
 <br></p>
+<h3 id=톱레벨-클래스와-인터페이스의-접근-제어자>톱레벨 클래스와 인터페이스의 접근 제어자<a hidden class=anchor aria-hidden=true href=#톱레벨-클래스와-인터페이스의-접근-제어자><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
+<p>톱레벨 클래스와 인터페이스에 사용할 수 있는 접근 제어자는 <code>public</code>과 <code>package-private</code>(기본값) 두 가지입니다.</p>
+<ul>
+<li><code>public</code>: 공개 API가 되며, 외부에서 접근 가능합니다.</li>
+<li><code>package-private</code>: 외부 패키지에서 접근할 수 없습니다.</li>
+</ul>
+<p><code>public</code>으로 선언하면 공개 API가 되므로 패키지 외부에서 쓸 일이 없다면 <code>package-private</code>로 선언하는 걸 권장합니다. 한 클래스에서만 사용하는 <code>package-private</code> 톱레벨 클래스나 인터페이스는 이를 사용하는 클래스 안에 <code>private static</code>으로 중첩시켜봅시다. 이렇게 하면 바깥 클래스 하나에서만 접근할 수 있습니다.<br>
+<br></p>
+<h3 id=멤버에-대한-접근-제어자>멤버에 대한 접근 제어자<a hidden class=anchor aria-hidden=true href=#멤버에-대한-접근-제어자><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
 <p><strong>멤버</strong>(필드, 메서드, 중첩 클래스, 중첩 인터페이스)에 사용할 수 있는 <strong>접근제한자</strong></p>
 <ul>
-<li><code>private</code>: 멤버를 선언한 톱레벨 클래스에서만 접근 가능합니다.</li>
-<li><code>package-private</code>: 멤버가 소속된 패키지안에 모든 클래스에서 접근 가능합니다</li>
-<li><code>protected</code>: <code>package-private</code> + 하위 클래스</li>
-<li><code>public</code>: 모든 곳에서 접근할 수 있습니다.<br>
+<li><strong><code>private</code></strong>: 멤버를 선언한 톱레벨 클래스에서만 접근 가능.</li>
+<li><strong><code>package-private</code></strong>: 소속된 패키지의 모든 클래스에서 접근 가능.</li>
+<li><strong><code>protected</code></strong>: <code>package-private</code> + 하위 클래스에서 접근 가능.</li>
+<li><strong><code>public</code></strong>: 모든 곳에서 접근 가능.<br>
 <br><br>
 <br></li>
 </ul>
-<h2 id=-public-클래스의-인스턴스-필드는-가능한-public이-아니어야-합니다>📌 public 클래스의 인스턴스 필드는 가능한 public이 아니어야 합니다.<a hidden class=anchor aria-hidden=true href=#-public-클래스의-인스턴스-필드는-가능한-public이-아니어야-합니다><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
-<p>필드가 가변 객체를 참조하거나, <code>final</code>이 아닌 인스턴스필드를 <code>public</code>으로 선언하면 필드의 내용이 수정될 수 있으므로 불변을 보장할 수 없게 되므로 유의해야 합니다. 필드가 <code>final</code>이면서 불변 객체를 참조해도 문제는 있습니다. 내부 구현을 바꾸고 싶어도 <code>public</code>필드를 없애는 방식으로는 리팩토링 할 수 없게 됩니다.</p>
-<p>정적 필드 같은 경우 추상 개념을 완성하는데 꼭 필요한 구성요소로써의 상수라면 <code>public static final</code>필드로 공개해도 좋으나 반드시 <code>primitive type</code>이나 <strong>불변 객체</strong>를 참조해야 합니다. <strong>가변 객체</strong>를 참조 한다면 참조는 변경하지 못하나 객체의 값은 수정될 수 있으므로 주의해야 합니다.<br>
+<h2 id=3-public-클래스의-인스턴스-필드>3. public 클래스의 인스턴스 필드<a hidden class=anchor aria-hidden=true href=#3-public-클래스의-인스턴스-필드><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<p><code>public</code> 클래스의 인스턴스 필드는 가능한 한 <code>public</code>이 아니어야 합니다.</p>
+<ul>
+<li>가변 객체를 참조하거나 <code>final</code>이 아닌 인스턴스 필드를 <code>public</code>으로 선언하면, 필드 내용이 수정될 수 있어 불변성을 보장할 수 없게 됩니다.</li>
+<li><code>final</code>이면서 불변 객체를 참조해도 문제는 있습니다. 내부 구현을 변경하고 싶어도 <code>public</code>필드를 없애는 방식으로는 리팩토링 할 수 없게 됩니다.<br>
+<br></li>
+</ul>
+<h3 id=정적-필드의-공개>정적 필드의 공개<a hidden class=anchor aria-hidden=true href=#정적-필드의-공개><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
+<p>정적 필드는 추상 개념을 완성하는데 꼭 필요한 구성 요소로, 다음과 같은 경우 <code>public static final</code>로 공개해도 좋습니다.</p>
+<ul>
+<li>반드시 <code>primitive type</code>이나 <strong>불변 객체</strong>를 참조해야 합니다.</li>
+<li><strong>가변 객체</strong>를 참조하는 경우, 참조는 변경하지 못하나 객체의 값을 수정할 수 있으므로 주의해야 합니다.<br>
 <br><br>
-<br></p>
-<h2 id=i-classuser-fa-av-new-releases-aria-hiddentruei-정리><i class=user-fa-av-new-releases aria-hidden=true></i> 정리<a hidden class=anchor aria-hidden=true href=#i-classuser-fa-av-new-releases-aria-hiddentruei-정리><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
-<p>프로그램의 접근 제어자는 가능한 <strong>최소한</strong>으로 합시다. 꼭 필요한 것만 <code>public</code> API를 설계하고 그 외에는 의도치 않게 API로 공개되는 일이 없도록 해야 합니다. <code>public</code>클래스는 <code>public static final</code> 필드 외에는 어떠한 <code>public</code> 메서드도 가져서는 안 됩니다. 또한 <code>public static final</code> 필드가 참조하는 객체가 <strong>불변</strong>인지 확인합시다.</p>
+<br></li>
+</ul>
+<h2 id=4-정리>4. 정리<a hidden class=anchor aria-hidden=true href=#4-정리><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<ul>
+<li>프로그램의 접근 제어자는 가능한 최소한으로 설정해야 합니다.</li>
+<li>꼭 필요한 경우에만 <code>public</code> API를 설계하고, 그 외에는 의도치 않게 API로 공개되는 일이 없도록 해야 합니다.</li>
+<li><code>public</code> 클래스는 <code>public static final</code> 필드 외에는 어떠한 <code>public</code> 메서드도 가져서는 안 됩니다.</li>
+<li><code>public static final</code> 필드가 참조하는 객체가 <strong>불변</strong>인지 확인해야 합니다.<br>
+<br></li>
+</ul>
 </div>
 <footer class=post-footer data-animation=true><div class=post-license-info>
 <a class=button rel=license href=https://creativecommons.org/licenses/by-sa/4.0/deed.ko target=_blank>
