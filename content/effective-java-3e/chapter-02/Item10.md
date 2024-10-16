@@ -21,24 +21,20 @@ showContentProgressbar: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-`equals`메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다. 여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.
+`equals` 메서드를 재정의하는 이유는 **논리적 동치성**을 비교하기 위함입니다. 논리적 동치성이란 객체의 참조값이 아닌 **객체의 값이 같은지를 판단**하는 것입니다. `equals` 메서드를 올바르게 재정의하지 않으면 객체 비교에서 **예기치 않은 문제**가 발생할 수 있습니다.
 
-`equals`메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.
+`equals`메서드를 오버라이딩 할 때는 다음의 규약을 따라야 합니다.
 <br>
 
-## 📌 반사성 ({{< font family="Roboto" text="Reflexivity" >}})
-
+## 1. equals 규약
+### 1) 반사성 (Reflexivity)
 - `null`이 아닌 모든 참조 값 `x`에 대해, {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(x)" >}}는 `true`입니다.
 <br>
-<br>
 
-## 📌 대칭성 ({{< font family="Roboto" text="Symmetry" >}})
-
+### 2) 대칭성 (Symmetry)
 - `null`이 아닌 모든 참조 값 `x`, `y`에 대해 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(y)" >}}는 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="y.equals(x)" >}}입니다.
-<br>
 
-### <i class="user-fa-alert-warning" aria-hidden="true"></i> 잘못된 코드 - 대칭성 위반
-
+#### ❌ 잘못된 코드 - 대칭성 위반
 ``` java
 public class CaseInsensitiveString {
 
@@ -58,35 +54,30 @@ public class CaseInsensitiveString {
     }
 }
 ```
-<br>
-
 ``` java
 CaseInsensitiveString cis = new CaseInsensitiveString("String");
 String str = "string";
 ```
 
-{{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="cis.equals(str)" >}}는 `true`를 반환하고 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="str.equals(cis)" >}}는 `false`를 반환하게 되므로 대칭성에 위반됩니다.
+- {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="cis.equals(str)" >}}는 `true`를 반환하고 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="str.equals(cis)" >}}는 `false`를 반환하게 되므로 대칭성에 위반됩니다.
+<br>
+
+### 3) 추이성 (Transitivity)
+- `null`이 아닌 모든 참조 값 `x`, `y`, `z`에 대해 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(y)" >}}가 `true`이고, {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="y.equals(z)" >}}도 `true`라면, {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(z)" >}}도 **항상** `true`여야 합니다.
+<br>
+
+### 4) 일관성 (Consistency)
+- `null`이 아닌 모든 참조 값 `x`, `y`에 대해 여러 번 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(y)" >}}를 호출하더라도 **항상 동일한 결과**가 나와야 합니다.
+<br>
+
+### 5) null-아님
+- `null`이 아닌 모든 참조 값 `x`에 대해 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(null)" >}}은 항상 `false`여야 합니다.
 <br>
 <br>
 
-## 📌 추이성 ({{< font family="Roboto" text="Transitivity" >}})
+## 2. 상속 시 발생할 수 있는 문제
+상위 클래스의 `equals` 메서드를 하위 클래스에서 확장할 때, 올바른 비교를 위해 신중한 설계가 필요합니다. 상위 클래스 필드에 없는 새로운 필드를 추가하는 경우, `equals` 메서드에서 상속 구조와 일관된 비교를 하지 않으면 예기치 않은 결과가 나올 수 있습니다.
 
-- `null`이 아닌 모든 참조 값 `x`, `y`, `z`에 대해 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(y)" >}}가 `true`고 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="y.equals(z)" >}}도 `true`입니다.
-<br>
-<br>
-
-## 📌 일관성 ({{< font family="Roboto" text="Consistency" >}})
-
-- `null`이 아닌 모든 참조 값 `x`, `y`에 대해 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(y)" >}}를 반복해서 호출하면 항상 `true`를 반환하거나 항상 `false`를 반환해야 합니다.
-<br>
-<br>
-
-## 📌 null-아님
-
-- `null`이 아닌 모든 참조 값 `x`에 대해 {{< font family="cascadiacode" size="1" color-var="main-color" weight="600" text="x.equals(null)" >}}은 `false`여야 합니다.
-<br>
-
-이제 상위 클래스에 없는 필드를 하위 클래스에 추가하는 상황을 생각해봅시다. 여기서부터 신경써야 할 부분들이 많아집니다.
 ``` java
 public class Point {
 
@@ -130,17 +121,20 @@ public class CirclePoint extends Point{
 <br>
 <br>
 
-## <i class="user-fa-action-done" aria-hidden="true"></i> 양질의 equals메서드 구현 단계
+## 3. 올바른 equals 메서드 구현 단계
 
-1.  `==` 연산자를 사용해 입력이 자기 자신의 참조인지 확인합니다.
-2.  `insetanceof` 연산자로 입력이 올바른 타입인지 확인합니다.
-3.  입력을 올바른 타입으로 형변환 합니다.
-4.  입력받은 객체와 자기 자신의 대응되는 필드들이 모두 일치하는지 검사합니다.
+1.  **자기 자신의 참조인지 확인**: `==` 연산자로 객체가 자기 자신인지 확인합니다.
+2.  **타입 체크**: `instanceof` 연산자를 사용하여 객체의 타입을 확인합니다.
+3.  **형변환**: 입력된 객체를 올바른 타입으로 형변환합니다.
+4.  **필드 비교**: 객체의 필드 값들을 비교하여 동치성을 확인합니다.
 <br>
 
-어떤 필드를 먼저 비교하느냐에 따라 성능의 차이도 생깁니다. 값이 다를 가능성이 크거나 비교하는 비용이 싼 필드를 먼저 비교하면 성능상 이점을 얻을 수 있습니다.(틀리면 다음 로직을 실행하지 않기에)
+### 성능 최적화 팁
+- 비교하는 필드 중 값이 다를 가능성이 높은 필드나 비교 비용이 적은 필드를 먼저 비교하면 성능을 향상시킬 수 있습니다.
 <br>
 <br>
 
-## <i class="user-fa-av-new-releases" aria-hidden="true"></i> 정리
-꼭 필요한 경우가 아니면 `equals`를 재정의하지 맙시다. 많은 경우에 `Object`의 `equals`가 우리들이 원하는 비교를 정확히 수행해줍니다. 재정의해야 할 때는 그 클래스의 핵심 필드 모두를 빠짐없이, 다섯 가지 규약을 확실히 지켜가며 비교해야 합니다.
+## 4. 정리
+- `equals`**를 재정의할 때는 꼭 필요할 경우에만** 하며, 재정의 시에는 반드시 **다섯 가지 규약**(**반사성**, **대칭성**, **추이성**, **일관성**, **null-아님**)을 지켜야 합니다.
+- **핵심 필드** 모두를 빠짐없이 비교하고, 상속 구조에서의 동작도 주의 깊게 설계해야 합니다.
+- 자주 실수할 수 있는 부분이므로, `Object`의 기본 `equals` 메서드가 이미 적합하다면 **재정의하지 않는 것이 좋습니다**.

@@ -21,75 +21,92 @@ showContentProgressbar: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
-{{< font color-var="main-color" weight="600" text="싱글턴" >}}`Singleton`이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 `new`키워드로 호출해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.
+{{< font color-var="main-color" weight="600" text="싱글턴" >}}(Singleton) 패턴은 클래스의 인스턴스를 오직 하나만 생성하여 공유하는 방식입니다. 객체를 호출할 때마다 새로운 인스턴스를 만들지 않고, 동일한 인스턴스를 반환하는 방식이므로 메모리 낭비를 방지하고, 동작의 일관성을 유지할 수 있습니다.
 
-{{< font color-var="main-color" weight="600" text="싱글턴" >}}을 만드는 방식은 보통 둘 중 하나입니다.
+싱글턴을 구현하는 주요 방식은 다음과 같습니다.
 <br>
 
-## 📌 public static 멤버가 final인 방식
+## 📌 public static final 필드를 이용한 방식
 ``` java
 public class Elvis {
 
-    public static final Elvis INSTANCE = new Elvis();
+    public static final Elvis INSTANCE = new Elvis(); // 유일한 인스턴스
 
-    private void Elvis() { ... }
+    private void Elvis() { ... } // private 생성자
 
     private void leaveTheBuilding() { ... }
 
 }
 ```
-`public`이나 `protected` 생성자가 없으므로 `Elvis` 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다. 단 권한이 있는 클라이언트는 리플렉션 API인 `AccessibleObject.setAccessible`을 사용해 `private` 생성자를 호출할 수 있습니다.
-
-`public` 필드 방식의 {{< font color-var="main-color" weight="600" text="첫 번째 장점" >}}은 해당 클래스가 {{< font color-var="main-color" weight="600" text="싱글턴" >}}임이 API에 명백히 드러나는 것입니다.
-
-{{< font color-var="main-color" weight="600" text="두 번째 장점" >}}은 간결하다는 것입니다. 이 점은 생성자를 수정하여 두 번째 객체가 생성되려고 하면 예외를 단지면 됩니다.
-
-{{< font color-var="main-color" weight="600" text="싱글턴" >}}을 만드는 {{< font color-var="main-color" weight="600" text="두 번째 방법" >}}에는 정적 팩토리 메서드를 `public static` 멤버로 제공합니다.
+### 장점
+1. **싱글턴임이 명확**: 클래스 API에서 싱글턴임이 명확하게 드러납니다. `Elvis.INSTANCE`로 해당 클래스가 싱글턴임을 쉽게 파악할 수 있습니다.
+2. **간결함**: 코드가 매우 간결합니다. 별도의 메서드 없이 인스턴스를 호출할 수 있어 간편합니다.
+### 단점
+- **리플렉션을 통한 침해 가능성**: 리플렉션을 사용하면 `private` 생성자를 우회할 수 있어, 새로운 인스턴스를 생성할 수 있습니다. 이를 막기 위해서는 **생성자에서 예외를 던지도록 수정**해야 합니다.
+``` java
+private Elvis() {
+    if (INSTANCE != null) {
+        throw new IllegalStateException("Instance already exists");
+    }
+}
+```
 <br>
 <br>
 
-## 📌 정적 팩토리 방식의 싱글턴
+## 📌 정적 팩토리 메서드를 사용하는 방식
 ``` java
 public class Elvis {
 
-    private static final Elvis INSTANCE = new Elvis();
+    private static final Elvis INSTANCE = new Elvis(); // 유일한 인스턴스
 
-    private void Elvis() { ... }
-    public static Elvis getInstance() { return INSTANCE; }
+    private void Elvis() { ... } // private 생성자
+
+    public static Elvis getInstance() { return INSTANCE; } // 정적 팩토리 메서드
 
     private void leaveTheBuilding() { ... }
 
 }
 ```
-
-이 역시 리플렉션을 통한 예외는 똑같이 적용됩니다.
+### 장점
+1. **유연성**: API를 바꾸지 않고 싱글턴에서 벗어날 수 있습니다. `getInstance()` 메서드의 반환 타입을 조정하면, 다중 인스턴스를 지원하는 클래스로 변경할 수 있습니다.
+2. **서브클래싱과 인터페이스**: 정적 팩토리 메서드는 **Supplier 인터페이스**에 대응할 수 있어, 더 유연하게 활용할 수 있습니다.
+3. **다중 인스턴스 지원**: 정적 팩토리 메서드를 통해 특정 조건에 따라 **스레드별**로 다른 인스턴스를 반환할 수도 있습니다.
+### 단점
+- 여전히 **리플렉션 문제**가 존재합니다.
 <br>
-<i class="user-fa-action-done" aria-hidden="true"></i> 장점
-- API를 바꾸지 않고 {{< font color-var="main-color" weight="600" text="싱글턴" >}}이 아니게 변경할 수 있습니다.
-- 유일한 인스턴스를 반환하던 팩터리 메서드가 호출하는 스레드별로 다른 인스턴스를 넘겨주게 할 수 있습니다.
-- 정적 팩토리 메서드 참조를 공급자`supplier`로 사용할 수 있습니다.
 <br>
 
-위에서 살펴본 두 방법 모두 직렬화`Serialization`하려면 모든 인스턴스 필드를 일시적`transient`이라고 선언하고 `readResolve` 메서드를 다음과 같이 제공해야 합니다.
+## <i class="user-fa-action-done" aria-hidden="true"></i> 직렬화 문제 해결
+앞에서 설명한 두 방식(정적 필드와 정적 팩토리 메서드)은 직렬화할 때마다 새로운 인스턴스가 생성될 수 있습니다. 이를 막기 위해서는 readResolve() 메서드를 구현하여, 역직렬화(Deserialization) 과정에서 동일한 인스턴스를 반환하도록 해야 합니다.
 ``` java
-private Object readResolve() {
-    returm INSTANCE;
+import java.io.Serializable;
+
+public class Elvis implements Serializable {
+
+    ...
+
+    private Object readResolve() {
+        returm INSTANCE;
+    }
 }
 ```
-이렇게 하지 않으면 역직렬화`Deserialization` 할때마다 새로운 인스턴스가 생성됩니다.
 <br>
 <br>
 
 ## 📌 열거 타입의 방식의 싱글턴
 ``` java
 public enum Elvis {
-    INSTANCE;
+    INSTANCE; // 유일한 인스턴스
 
     public void leaveTheBuilding() { ... }
 }
 ```
-직렬화 상황 그리고 리플렉션 공격에서도 {{< font color-var="main-color" weight="600" text="싱글턴" >}}임을 보장할 수 있습니다. **대부분 상황에서는 원소가 하나뿐인 열거 타입이 {{< font color-var="main-color" weight="600" text="싱글턴" >}}을 만드는 가장 좋은 방법입니다.**
-하지만 이 방법은 `Enum`외의 클래스를 상속해야한다면 사용할 수 없습니다.
+### 장점
+1. **리플렉션과 직렬화 공격에 안전**: 열거 타입은 **리플렉션을 통한 침해**와 **직렬화에 의한 새로운 인스턴스 생성**을 방지합니다.
+2. **간결함**: 코드가 매우 간단하고 안전하며, 자바에서 기본적으로 제공하는 기능을 활용하기 때문에 확실한 싱글턴 보장이 가능합니다.
 
-<i class="user-fa-action-info-outline" aria-hidden="true"></i> 열거 타입이 다른 인터페이스를 구현하도록 선언할 수는 있습니다.
+**대부분의 경우** 열거 타입을 사용한 싱글턴이 가장 적합한 방법입니다. 자바의 `Enum`은 **직렬화와 리플렉션 공격에 대한 보호 기능**을 기본적으로 제공하며, **인스턴스의 유일성**을 강력하게 보장합니다.
+
+### 단점
+- **다른 클래스를 상속할 수 없음**: 열거 타입은 상속이 불가능하므로, 싱글턴 클래스가 **다른 클래스를 상속해야 하는 경우**에는 사용할 수 없습니다. (열거 타입이 다른 인터페이스를 구현하도록 선언할 수는 있습니다)
 <br>

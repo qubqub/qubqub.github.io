@@ -7,14 +7,13 @@
 <meta name=robots content="index, follow">
 <title>[아이템 10] equals는 일반 규약을 지켜 재정의하라 | &lt;Qubqub/></title>
 <meta name=keywords content="Java,Effective Java 3E">
-<meta name=description content="equals메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다. 여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.
-equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.
-📌 반사성 (Reflexivity)  null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.
-  📌 대칭성 (Symmetry)  null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.equals(x)입니다.
-   잘못된 코드 - 대칭성 위반 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  public class CaseInsensitiveString { private String str; .">
+<meta name=description content="equals 메서드를 재정의하는 이유는 논리적 동치성을 비교하기 위함입니다. 논리적 동치성이란 객체의 참조값이 아닌 객체의 값이 같은지를 판단하는 것입니다. equals 메서드를 올바르게 재정의하지 않으면 객체 비교에서 예기치 않은 문제가 발생할 수 있습니다.
+equals메서드를 오버라이딩 할 때는 다음의 규약을 따라야 합니다.
+1. equals 규약 1) 반사성 (Reflexivity)  null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.
+  2) 대칭성 (Symmetry)  null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.">
 <meta name=author content="qubqub">
 <link rel=canonical href=https://qubqub.github.io/effective-java-3e/chapter-02/item10/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.d6b2907d3887dd4d00f0da9656a9eba78b683589aabae559a3ea596510c7d1a3.css integrity="sha256-1rKQfTiH3U0A8NqWVqnrp4toNYmquuVZo+pZZRDH0aM=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.f2266dddfb6f71aab6d6e518fdb7e3c11fe4f02f4eedd1e7b17f18d0d9452708.css integrity="sha256-8iZt3ftvcaq21uUY/bfjwR/k8C9O7dHnsX8Y0NlFJwg=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qubqub.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qubqub.github.io/icon/favicon-16.webp>
@@ -30,11 +29,10 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script defer src=https://developers.kakao.com/sdk/js/kakao.min.js onload="Kakao.init('b8cccaa78a75e1ff28f09a4a844b13c7')"></script><meta property="og:title" content="[아이템 10] equals는 일반 규약을 지켜 재정의하라">
-<meta property="og:description" content="equals메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다. 여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.
-equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.
-📌 반사성 (Reflexivity)  null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.
-  📌 대칭성 (Symmetry)  null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.equals(x)입니다.
-   잘못된 코드 - 대칭성 위반 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  public class CaseInsensitiveString { private String str; .">
+<meta property="og:description" content="equals 메서드를 재정의하는 이유는 논리적 동치성을 비교하기 위함입니다. 논리적 동치성이란 객체의 참조값이 아닌 객체의 값이 같은지를 판단하는 것입니다. equals 메서드를 올바르게 재정의하지 않으면 객체 비교에서 예기치 않은 문제가 발생할 수 있습니다.
+equals메서드를 오버라이딩 할 때는 다음의 규약을 따라야 합니다.
+1. equals 규약 1) 반사성 (Reflexivity)  null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.
+  2) 대칭성 (Symmetry)  null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://qubqub.github.io/effective-java-3e/chapter-02/item10/"><meta property="article:section" content="effective-java-3e">
 <meta property="article:published_time" content="2020-06-27T11:42:54+09:00">
@@ -42,13 +40,12 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 <meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-11/item85/"><meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-10/item78/"><meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-09/item69/"><meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-08/item57/"><meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-07/item49/"><meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-06/item42/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="[아이템 10] equals는 일반 규약을 지켜 재정의하라">
-<meta name=twitter:description content="equals메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다. 여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.
-equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.
-📌 반사성 (Reflexivity)  null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.
-  📌 대칭성 (Symmetry)  null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.equals(x)입니다.
-   잘못된 코드 - 대칭성 위반 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  public class CaseInsensitiveString { private String str; .">
+<meta name=twitter:description content="equals 메서드를 재정의하는 이유는 논리적 동치성을 비교하기 위함입니다. 논리적 동치성이란 객체의 참조값이 아닌 객체의 값이 같은지를 판단하는 것입니다. equals 메서드를 올바르게 재정의하지 않으면 객체 비교에서 예기치 않은 문제가 발생할 수 있습니다.
+equals메서드를 오버라이딩 할 때는 다음의 규약을 따라야 합니다.
+1. equals 규약 1) 반사성 (Reflexivity)  null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.
+  2) 대칭성 (Symmetry)  null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Effctive Java 3/E","item":"https://qubqub.github.io/effective-java-3e/"},{"@type":"ListItem","position":2,"name":"2장 모든 객체의 공통 메서드","item":"https://qubqub.github.io/effective-java-3e/chapter-02/"},{"@type":"ListItem","position":3,"name":"[아이템 10] equals는 일반 규약을 지켜 재정의하라","item":"https://qubqub.github.io/effective-java-3e/chapter-02/item10/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 10] equals는 일반 규약을 지켜 재정의하라","name":"[아이템 10] equals는 일반 규약을 지켜 재정의하라","description":"equals메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다. 여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.\nequals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.\n📌 반사성 (Reflexivity)  null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.\n  📌 대칭성 (Symmetry)  null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.equals(x)입니다.\n   잘못된 코드 - 대칭성 위반 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  public class CaseInsensitiveString { private String str; .","keywords":["Java","Effective Java 3E"],"articleBody":"equals메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다. 여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.\nequals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.\n📌 반사성 (Reflexivity)  null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.\n  📌 대칭성 (Symmetry)  null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.equals(x)입니다.\n   잘못된 코드 - 대칭성 위반 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  public class CaseInsensitiveString { private String str; ... 생략 @Override public boolean equals(Object o) { if (o instanceof CaseInsensitiveString) { return str.equalsIgnoreCase(((CaseInsensitiveString) o).str); } if (o instanceof String) { return str.equalsIgnoreCase((String) o); } return false; } }   \n1 2  CaseInsensitiveString cis = new CaseInsensitiveString(\"String\"); String str = \"string\";   cis.equals(str)는 true를 반환하고 str.equals(cis)는 false를 반환하게 되므로 대칭성에 위반됩니다.\n📌 추이성 (Transitivity)  null이 아닌 모든 참조 값 x, y, z에 대해 x.equals(y)가 true고 y.equals(z)도 true입니다.\n  📌 일관성 (Consistency)  null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)를 반복해서 호출하면 항상 true를 반환하거나 항상 false를 반환해야 합니다.\n  📌 null-아님  null이 아닌 모든 참조 값 x에 대해 x.equals(null)은 false여야 합니다.\n  이제 상위 클래스에 없는 필드를 하위 클래스에 추가하는 상황을 생각해봅시다. 여기서부터 신경써야 할 부분들이 많아집니다.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  public class Point { private int x; private int y; ... 생략 @Override public boolean equals(Object o) { if (!(o instanceof Point)) { return false; } Point p = (Point) o; return this.x == p.x \u0026\u0026 this.y == p.y; } }   Point클래스를 확장해봅시다.\n1 2 3 4 5 6 7 8 9 10 11 12 13  public class CirclePoint extends Point{ private int x; private int y; private int z; public CirclePoint(int x, int y, int z) { super(x, y); this.z = z; } ... 생략 }   이대로 사용하면 Point의 구현이 상속되어 x, y만 비교하게 되므로 생각했던 결과랑 실제 결과값이 다르게 나오는 상황이 발생합니다.\n객체 지향의 추상화의 이점을 포기하지 않는 이상 아쉽게도 이러한 문제점들을 모두 완전하게 해결할 수 있는 방법은 없습니다.\n 양질의 equals메서드 구현 단계  == 연산자를 사용해 입력이 자기 자신의 참조인지 확인합니다. insetanceof 연산자로 입력이 올바른 타입인지 확인합니다. 입력을 올바른 타입으로 형변환 합니다. 입력받은 객체와 자기 자신의 대응되는 필드들이 모두 일치하는지 검사합니다.\n  어떤 필드를 먼저 비교하느냐에 따라 성능의 차이도 생깁니다. 값이 다를 가능성이 크거나 비교하는 비용이 싼 필드를 먼저 비교하면 성능상 이점을 얻을 수 있습니다.(틀리면 다음 로직을 실행하지 않기에)\n 정리 꼭 필요한 경우가 아니면 equals를 재정의하지 맙시다. 많은 경우에 Object의 equals가 우리들이 원하는 비교를 정확히 수행해줍니다. 재정의해야 할 때는 그 클래스의 핵심 필드 모두를 빠짐없이, 다섯 가지 규약을 확실히 지켜가며 비교해야 합니다.\n","wordCount":"432","inLanguage":"ko","datePublished":"2020-06-27T11:42:54+09:00","dateModified":"2020-06-27T11:42:54+09:00","author":[{"@type":"Person","name":"qubqub"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qubqub.github.io/effective-java-3e/chapter-02/item10/"},"publisher":{"@type":"Organization","name":"\u003cQubqub/\u003e","logo":{"@type":"ImageObject","url":"https://qubqub.github.io/icon/favicon-64.webp"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 10] equals는 일반 규약을 지켜 재정의하라","name":"[아이템 10] equals는 일반 규약을 지켜 재정의하라","description":"equals 메서드를 재정의하는 이유는 논리적 동치성을 비교하기 위함입니다. 논리적 동치성이란 객체의 참조값이 아닌 객체의 값이 같은지를 판단하는 것입니다. equals 메서드를 올바르게 재정의하지 않으면 객체 비교에서 예기치 않은 문제가 발생할 수 있습니다.\nequals메서드를 오버라이딩 할 때는 다음의 규약을 따라야 합니다.\n1. equals 규약 1) 반사성 (Reflexivity)  null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.\n  2) 대칭성 (Symmetry)  null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.","keywords":["Java","Effective Java 3E"],"articleBody":"equals 메서드를 재정의하는 이유는 논리적 동치성을 비교하기 위함입니다. 논리적 동치성이란 객체의 참조값이 아닌 객체의 값이 같은지를 판단하는 것입니다. equals 메서드를 올바르게 재정의하지 않으면 객체 비교에서 예기치 않은 문제가 발생할 수 있습니다.\nequals메서드를 오버라이딩 할 때는 다음의 규약을 따라야 합니다.\n1. equals 규약 1) 반사성 (Reflexivity)  null이 아닌 모든 참조 값 x에 대해, x.equals(x)는 true입니다.\n  2) 대칭성 (Symmetry)  null이 아닌 모든 참조 값 x, y에 대해 x.equals(y)는 y.equals(x)입니다.  ❌ 잘못된 코드 - 대칭성 위반 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  public class CaseInsensitiveString { private String str; ... 생략 @Override public boolean equals(Object o) { if (o instanceof CaseInsensitiveString) { return str.equalsIgnoreCase(((CaseInsensitiveString) o).str); } if (o instanceof String) { return str.equalsIgnoreCase((String) o); } return false; } }   1 2  CaseInsensitiveString cis = new CaseInsensitiveString(\"String\"); String str = \"string\";    cis.equals(str)는 true를 반환하고 str.equals(cis)는 false를 반환하게 되므로 대칭성에 위반됩니다.\n  3) 추이성 (Transitivity)  null이 아닌 모든 참조 값 x, y, z에 대해 x.equals(y)가 true이고, y.equals(z)도 true라면, x.equals(z)도 항상 true여야 합니다.\n  4) 일관성 (Consistency)  null이 아닌 모든 참조 값 x, y에 대해 여러 번 x.equals(y)를 호출하더라도 항상 동일한 결과가 나와야 합니다.\n  5) null-아님  null이 아닌 모든 참조 값 x에 대해 x.equals(null)은 항상 false여야 합니다.\n  2. 상속 시 발생할 수 있는 문제 상위 클래스의 equals 메서드를 하위 클래스에서 확장할 때, 올바른 비교를 위해 신중한 설계가 필요합니다. 상위 클래스 필드에 없는 새로운 필드를 추가하는 경우, equals 메서드에서 상속 구조와 일관된 비교를 하지 않으면 예기치 않은 결과가 나올 수 있습니다.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  public class Point { private int x; private int y; ... 생략 @Override public boolean equals(Object o) { if (!(o instanceof Point)) { return false; } Point p = (Point) o; return this.x == p.x \u0026\u0026 this.y == p.y; } }   Point클래스를 확장해봅시다.\n1 2 3 4 5 6 7 8 9 10 11 12 13  public class CirclePoint extends Point{ private int x; private int y; private int z; public CirclePoint(int x, int y, int z) { super(x, y); this.z = z; } ... 생략 }   이대로 사용하면 Point의 구현이 상속되어 x, y만 비교하게 되므로 생각했던 결과랑 실제 결과값이 다르게 나오는 상황이 발생합니다.\n객체 지향의 추상화의 이점을 포기하지 않는 이상 아쉽게도 이러한 문제점들을 모두 완전하게 해결할 수 있는 방법은 없습니다.\n3. 올바른 equals 메서드 구현 단계  자기 자신의 참조인지 확인: == 연산자로 객체가 자기 자신인지 확인합니다. 타입 체크: instanceof 연산자를 사용하여 객체의 타입을 확인합니다. 형변환: 입력된 객체를 올바른 타입으로 형변환합니다. 필드 비교: 객체의 필드 값들을 비교하여 동치성을 확인합니다.\n  성능 최적화 팁  비교하는 필드 중 값이 다를 가능성이 높은 필드나 비교 비용이 적은 필드를 먼저 비교하면 성능을 향상시킬 수 있습니다.\n  4. 정리  equals를 재정의할 때는 꼭 필요할 경우에만 하며, 재정의 시에는 반드시 다섯 가지 규약(반사성, 대칭성, 추이성, 일관성, null-아님)을 지켜야 합니다. 핵심 필드 모두를 빠짐없이 비교하고, 상속 구조에서의 동작도 주의 깊게 설계해야 합니다. 자주 실수할 수 있는 부분이므로, Object의 기본 equals 메서드가 이미 적합하다면 재정의하지 않는 것이 좋습니다.  ","wordCount":"488","inLanguage":"ko","datePublished":"2020-06-27T11:42:54+09:00","dateModified":"2020-06-27T11:42:54+09:00","author":[{"@type":"Person","name":"qubqub"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qubqub.github.io/effective-java-3e/chapter-02/item10/"},"publisher":{"@type":"Organization","name":"\u003cQubqub/\u003e","logo":{"@type":"ImageObject","url":"https://qubqub.github.io/icon/favicon-64.webp"}}}</script>
 </head>
 <body>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -251,22 +248,30 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 </summary>
 <div class=inner><ul>
 <li>
-<a href=#-%eb%b0%98%ec%82%ac%ec%84%b1-hahahugoshortcode-s0-hbhb aria-label="📌 반사성 (Reflexivity)">📌 반사성 (<span style=font-family:Roboto;font-size:1em;font-weight:inherit;border:none;border-radius:0;padding:0>Reflexivity</span>)</a></li>
+<a href=#1-equals-%ea%b7%9c%ec%95%bd aria-label="1. equals 규약">1. equals 규약</a><ul>
 <li>
-<a href=#-%eb%8c%80%ec%b9%ad%ec%84%b1-hahahugoshortcode-s2-hbhb aria-label="📌 대칭성 (Symmetry)">📌 대칭성 (<span style=font-family:Roboto;font-size:1em;font-weight:inherit;border:none;border-radius:0;padding:0>Symmetry</span>)</a><ul>
+<a href=#1-%eb%b0%98%ec%82%ac%ec%84%b1-reflexivity aria-label="1) 반사성 (Reflexivity)">1) 반사성 (Reflexivity)</a></li>
 <li>
-<a href=#i-classuser-fa-alert-warning-aria-hiddentruei-%ec%9e%98%eb%aa%bb%eb%90%9c-%ec%bd%94%eb%93%9c---%eb%8c%80%ec%b9%ad%ec%84%b1-%ec%9c%84%eb%b0%98 aria-label=" 잘못된 코드 - 대칭성 위반"><i class=user-fa-alert-warning aria-hidden=true></i> 잘못된 코드 - 대칭성 위반</a></li></ul>
+<a href=#2-%eb%8c%80%ec%b9%ad%ec%84%b1-symmetry aria-label="2) 대칭성 (Symmetry)">2) 대칭성 (Symmetry)</a><ul>
+<li>
+<a href=#-%ec%9e%98%eb%aa%bb%eb%90%9c-%ec%bd%94%eb%93%9c---%eb%8c%80%ec%b9%ad%ec%84%b1-%ec%9c%84%eb%b0%98 aria-label="❌ 잘못된 코드 - 대칭성 위반">❌ 잘못된 코드 - 대칭성 위반</a></li></ul>
 </li>
 <li>
-<a href=#-%ec%b6%94%ec%9d%b4%ec%84%b1-hahahugoshortcode-s7-hbhb aria-label="📌 추이성 (Transitivity)">📌 추이성 (<span style=font-family:Roboto;font-size:1em;font-weight:inherit;border:none;border-radius:0;padding:0>Transitivity</span>)</a></li>
+<a href=#3-%ec%b6%94%ec%9d%b4%ec%84%b1-transitivity aria-label="3) 추이성 (Transitivity)">3) 추이성 (Transitivity)</a></li>
 <li>
-<a href=#-%ec%9d%bc%ea%b4%80%ec%84%b1-hahahugoshortcode-s10-hbhb aria-label="📌 일관성 (Consistency)">📌 일관성 (<span style=font-family:Roboto;font-size:1em;font-weight:inherit;border:none;border-radius:0;padding:0>Consistency</span>)</a></li>
+<a href=#4-%ec%9d%bc%ea%b4%80%ec%84%b1-consistency aria-label="4) 일관성 (Consistency)">4) 일관성 (Consistency)</a></li>
 <li>
-<a href=#-null-%ec%95%84%eb%8b%98 aria-label="📌 null-아님">📌 null-아님</a></li>
+<a href=#5-null-%ec%95%84%eb%8b%98 aria-label="5) null-아님">5) null-아님</a></li></ul>
+</li>
 <li>
-<a href=#i-classuser-fa-action-done-aria-hiddentruei-%ec%96%91%ec%a7%88%ec%9d%98-equals%eb%a9%94%ec%84%9c%eb%93%9c-%ea%b5%ac%ed%98%84-%eb%8b%a8%ea%b3%84 aria-label=" 양질의 equals메서드 구현 단계"><i class=user-fa-action-done aria-hidden=true></i> 양질의 equals메서드 구현 단계</a></li>
+<a href=#2-%ec%83%81%ec%86%8d-%ec%8b%9c-%eb%b0%9c%ec%83%9d%ed%95%a0-%ec%88%98-%ec%9e%88%eb%8a%94-%eb%ac%b8%ec%a0%9c aria-label="2. 상속 시 발생할 수 있는 문제">2. 상속 시 발생할 수 있는 문제</a></li>
 <li>
-<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
+<a href=#3-%ec%98%ac%eb%b0%94%eb%a5%b8-equals-%eb%a9%94%ec%84%9c%eb%93%9c-%ea%b5%ac%ed%98%84-%eb%8b%a8%ea%b3%84 aria-label="3. 올바른 equals 메서드 구현 단계">3. 올바른 equals 메서드 구현 단계</a><ul>
+<li>
+<a href=#%ec%84%b1%eb%8a%a5-%ec%b5%9c%ec%a0%81%ed%99%94-%ed%8c%81 aria-label="성능 최적화 팁">성능 최적화 팁</a></li></ul>
+</li>
+<li>
+<a href=#4-%ec%a0%95%eb%a6%ac aria-label="4. 정리">4. 정리</a>
 </li>
 </ul>
 </div>
@@ -282,22 +287,30 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 <div class=inner-wrapper>
 <div class=inner><ul>
 <li>
-<a href=#-%eb%b0%98%ec%82%ac%ec%84%b1-hahahugoshortcode-s0-hbhb aria-label="📌 반사성 (Reflexivity)">📌 반사성 (<span style=font-family:Roboto;font-size:1em;font-weight:inherit;border:none;border-radius:0;padding:0>Reflexivity</span>)</a></li>
+<a href=#1-equals-%ea%b7%9c%ec%95%bd aria-label="1. equals 규약">1. equals 규약</a><ul>
 <li>
-<a href=#-%eb%8c%80%ec%b9%ad%ec%84%b1-hahahugoshortcode-s2-hbhb aria-label="📌 대칭성 (Symmetry)">📌 대칭성 (<span style=font-family:Roboto;font-size:1em;font-weight:inherit;border:none;border-radius:0;padding:0>Symmetry</span>)</a><ul>
+<a href=#1-%eb%b0%98%ec%82%ac%ec%84%b1-reflexivity aria-label="1) 반사성 (Reflexivity)">1) 반사성 (Reflexivity)</a></li>
 <li>
-<a href=#i-classuser-fa-alert-warning-aria-hiddentruei-%ec%9e%98%eb%aa%bb%eb%90%9c-%ec%bd%94%eb%93%9c---%eb%8c%80%ec%b9%ad%ec%84%b1-%ec%9c%84%eb%b0%98 aria-label=" 잘못된 코드 - 대칭성 위반"><i class=user-fa-alert-warning aria-hidden=true></i> 잘못된 코드 - 대칭성 위반</a></li></ul>
+<a href=#2-%eb%8c%80%ec%b9%ad%ec%84%b1-symmetry aria-label="2) 대칭성 (Symmetry)">2) 대칭성 (Symmetry)</a><ul>
+<li>
+<a href=#-%ec%9e%98%eb%aa%bb%eb%90%9c-%ec%bd%94%eb%93%9c---%eb%8c%80%ec%b9%ad%ec%84%b1-%ec%9c%84%eb%b0%98 aria-label="❌ 잘못된 코드 - 대칭성 위반">❌ 잘못된 코드 - 대칭성 위반</a></li></ul>
 </li>
 <li>
-<a href=#-%ec%b6%94%ec%9d%b4%ec%84%b1-hahahugoshortcode-s7-hbhb aria-label="📌 추이성 (Transitivity)">📌 추이성 (<span style=font-family:Roboto;font-size:1em;font-weight:inherit;border:none;border-radius:0;padding:0>Transitivity</span>)</a></li>
+<a href=#3-%ec%b6%94%ec%9d%b4%ec%84%b1-transitivity aria-label="3) 추이성 (Transitivity)">3) 추이성 (Transitivity)</a></li>
 <li>
-<a href=#-%ec%9d%bc%ea%b4%80%ec%84%b1-hahahugoshortcode-s10-hbhb aria-label="📌 일관성 (Consistency)">📌 일관성 (<span style=font-family:Roboto;font-size:1em;font-weight:inherit;border:none;border-radius:0;padding:0>Consistency</span>)</a></li>
+<a href=#4-%ec%9d%bc%ea%b4%80%ec%84%b1-consistency aria-label="4) 일관성 (Consistency)">4) 일관성 (Consistency)</a></li>
 <li>
-<a href=#-null-%ec%95%84%eb%8b%98 aria-label="📌 null-아님">📌 null-아님</a></li>
+<a href=#5-null-%ec%95%84%eb%8b%98 aria-label="5) null-아님">5) null-아님</a></li></ul>
+</li>
 <li>
-<a href=#i-classuser-fa-action-done-aria-hiddentruei-%ec%96%91%ec%a7%88%ec%9d%98-equals%eb%a9%94%ec%84%9c%eb%93%9c-%ea%b5%ac%ed%98%84-%eb%8b%a8%ea%b3%84 aria-label=" 양질의 equals메서드 구현 단계"><i class=user-fa-action-done aria-hidden=true></i> 양질의 equals메서드 구현 단계</a></li>
+<a href=#2-%ec%83%81%ec%86%8d-%ec%8b%9c-%eb%b0%9c%ec%83%9d%ed%95%a0-%ec%88%98-%ec%9e%88%eb%8a%94-%eb%ac%b8%ec%a0%9c aria-label="2. 상속 시 발생할 수 있는 문제">2. 상속 시 발생할 수 있는 문제</a></li>
 <li>
-<a href=#i-classuser-fa-av-new-releases-aria-hiddentruei-%ec%a0%95%eb%a6%ac aria-label=" 정리"><i class=user-fa-av-new-releases aria-hidden=true></i> 정리</a>
+<a href=#3-%ec%98%ac%eb%b0%94%eb%a5%b8-equals-%eb%a9%94%ec%84%9c%eb%93%9c-%ea%b5%ac%ed%98%84-%eb%8b%a8%ea%b3%84 aria-label="3. 올바른 equals 메서드 구현 단계">3. 올바른 equals 메서드 구현 단계</a><ul>
+<li>
+<a href=#%ec%84%b1%eb%8a%a5-%ec%b5%9c%ec%a0%81%ed%99%94-%ed%8c%81 aria-label="성능 최적화 팁">성능 최적화 팁</a></li></ul>
+</li>
+<li>
+<a href=#4-%ec%a0%95%eb%a6%ac aria-label="4. 정리">4. 정리</a>
 </li>
 </ul>
 </div>
@@ -327,21 +340,20 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 </div>
 </div>
 <script>const asideShareIcons_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};asideShareIcons_DOMReady(function(){let c=0;const f=document.querySelector(".post-content"),a=document.querySelector(".share-buttons"),d=document.querySelector(".aside-share-buttons-wrapper"),b=document.getElementById("copylink-aside");g(),document.body.addEventListener("click",function(b){if(b.target.classList[0]==="aside-share-control-buttons"||b.target.classList[0]==="aside-share-control-buttons-svg"||b.target.classList[0]==="aside-share-control-buttons-path")return;a.classList.contains("reveal")&&(a.classList.remove("reveal"),a.classList.add("hide"))}),window.addEventListener("scroll",()=>{c=window.pageYOffset,c>=f.offsetTop-25?d.classList.add("fixed"):d.classList.remove("fixed")}),document.querySelector(".aside-share-control-buttons").addEventListener("click",()=>{a.classList.contains("reveal")?(a.classList.remove("reveal"),a.classList.add("hide")):(a.classList.remove("hide"),a.classList.add("reveal"))}),document.getElementById("kakaotalk-share-aside").addEventListener("click",()=>{Kakao.Link.sendDefault({objectType:"feed",content:{title:'[아이템 10] equals는 일반 규약을 지켜 재정의하라',description:'Java,EffectiveJava3E',imageUrl:'https://qubqub.github.io/icon/favicon.png',link:{mobileWebUrl:'https://qubqub.github.io/effective-java-3e/chapter-02/item10/',webUrl:'https://qubqub.github.io/effective-java-3e/chapter-02/item10/'}},success:function(a){},fail:function(a){}})});function g(){b.innerHTML='\u003csvg width=\u002230px\u0022 height=\u002230px\u0022 viewBox=\u00220 0 24 24\u0022 class=\u0022button custom-button\u0022\u003e\u003cpath d=\u0022M21.586 10.461l-10.05 10.075c-1.95 1.949-5.122 1.949-7.071 0s-1.95-5.122 0-7.072l10.628-10.585c1.17-1.17 3.073-1.17 4.243 0 1.169 1.17 1.17 3.072 0 4.242l-8.507 8.464c-.39.39-1.024.39-1.414 0s-.39-1.024 0-1.414l7.093-7.05-1.415-1.414-7.093 7.049c-1.172 1.172-1.171 3.073 0 4.244s3.071 1.171 4.242 0l8.507-8.464c.977-.977 1.464-2.256 1.464-3.536 0-2.769-2.246-4.999-5-4.999-1.28 0-2.559.488-3.536 1.465l-10.627 10.583c-1.366 1.368-2.05 3.159-2.05 4.951 0 3.863 3.13 7 7 7 1.792 0 3.583-.684 4.95-2.05l10.05-10.075-1.414-1.414z\u0022\u003e\u003c/path\u003e\u003c/svg\u003e',b.addEventListener("click",()=>{if('clipboard'in navigator){navigator.clipboard.writeText('https://qubqub.github.io/effective-java-3e/chapter-02/item10/'),e();return}const a=document.createRange();a.selectNodeContents('https://qubqub.github.io/effective-java-3e/chapter-02/item10/');const b=window.getSelection();b.removeAllRanges(),b.addRange(a);try{document.execCommand('copy'),e()}catch(a){}b.removeRange(a)})}function e(){b.innerHTML='\u003csvg aria-hidden=\u0022true\u0022 width=\u002230px\u0022 height=\u002230px\u0022 viewBox=\u00220 0 16 16\u0022 version=\u00221.1\u0022 data-view-component=\u0022true\u0022 class=\u0022octicon-check\u0022\u003e\u003cpath fill-rule=\u0022evenodd\u0022 d=\u0022M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z\u0022\u003e\u003c/path\u003e\u003c/svg\u003e',setTimeout(()=>{b.innerHTML='\u003csvg width=\u002230px\u0022 height=\u002230px\u0022 viewBox=\u00220 0 24 24\u0022 class=\u0022button custom-button\u0022\u003e\u003cpath d=\u0022M21.586 10.461l-10.05 10.075c-1.95 1.949-5.122 1.949-7.071 0s-1.95-5.122 0-7.072l10.628-10.585c1.17-1.17 3.073-1.17 4.243 0 1.169 1.17 1.17 3.072 0 4.242l-8.507 8.464c-.39.39-1.024.39-1.414 0s-.39-1.024 0-1.414l7.093-7.05-1.415-1.414-7.093 7.049c-1.172 1.172-1.171 3.073 0 4.244s3.071 1.171 4.242 0l8.507-8.464c.977-.977 1.464-2.256 1.464-3.536 0-2.769-2.246-4.999-5-4.999-1.28 0-2.559.488-3.536 1.465l-10.627 10.583c-1.366 1.368-2.05 3.159-2.05 4.951 0 3.863 3.13 7 7 7 1.792 0 3.583-.684 4.95-2.05l10.05-10.075-1.414-1.414z\u0022\u003e\u003c/path\u003e\u003c/svg\u003e'},500)}})</script>
-<div class=post-content data-animation=true><p><code>equals</code>메서드를 오버라이딩 하는 경우는 논리적인 동치성을 확인하기 위해서입니다. 여기서 말하는 논리적 동치성은 쉽게 말하자면 참조값을 비교하는 게 아닌 객체의 값이 같은지 비교하기 위함이라고 할 수 있습니다.</p>
-<p><code>equals</code>메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합니다.<br>
+<div class=post-content data-animation=true><p><code>equals</code> 메서드를 재정의하는 이유는 <strong>논리적 동치성</strong>을 비교하기 위함입니다. 논리적 동치성이란 객체의 참조값이 아닌 <strong>객체의 값이 같은지를 판단</strong>하는 것입니다. <code>equals</code> 메서드를 올바르게 재정의하지 않으면 객체 비교에서 <strong>예기치 않은 문제</strong>가 발생할 수 있습니다.</p>
+<p><code>equals</code>메서드를 오버라이딩 할 때는 다음의 규약을 따라야 합니다.<br>
 <br></p>
-<h2 id=-반사성-hahahugoshortcode-s0-hbhb>📌 반사성 (<span style=font-family:Roboto;font-size:1em;font-weight:inherit;border:none;border-radius:0;padding:0>Reflexivity</span>)<a hidden class=anchor aria-hidden=true href=#-반사성-hahahugoshortcode-s0-hbhb><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<h2 id=1-equals-규약>1. equals 규약<a hidden class=anchor aria-hidden=true href=#1-equals-규약><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<h3 id=1-반사성-reflexivity>1) 반사성 (Reflexivity)<a hidden class=anchor aria-hidden=true href=#1-반사성-reflexivity><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
 <ul>
 <li><code>null</code>이 아닌 모든 참조 값 <code>x</code>에 대해, <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>x.equals(x)</span>는 <code>true</code>입니다.<br>
-<br><br>
 <br></li>
 </ul>
-<h2 id=-대칭성-hahahugoshortcode-s2-hbhb>📌 대칭성 (<span style=font-family:Roboto;font-size:1em;font-weight:inherit;border:none;border-radius:0;padding:0>Symmetry</span>)<a hidden class=anchor aria-hidden=true href=#-대칭성-hahahugoshortcode-s2-hbhb><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<h3 id=2-대칭성-symmetry>2) 대칭성 (Symmetry)<a hidden class=anchor aria-hidden=true href=#2-대칭성-symmetry><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
 <ul>
-<li><code>null</code>이 아닌 모든 참조 값 <code>x</code>, <code>y</code>에 대해 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>x.equals(y)</span>는 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>y.equals(x)</span>입니다.<br>
-<br></li>
+<li><code>null</code>이 아닌 모든 참조 값 <code>x</code>, <code>y</code>에 대해 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>x.equals(y)</span>는 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>y.equals(x)</span>입니다.</li>
 </ul>
-<h3 id=i-classuser-fa-alert-warning-aria-hiddentruei-잘못된-코드---대칭성-위반><i class=user-fa-alert-warning aria-hidden=true></i> 잘못된 코드 - 대칭성 위반<a hidden class=anchor aria-hidden=true href=#i-classuser-fa-alert-warning-aria-hiddentruei-잘못된-코드---대칭성-위반><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
+<h4 id=-잘못된-코드---대칭성-위반>❌ 잘못된 코드 - 대칭성 위반<a hidden class=anchor aria-hidden=true href=#-잘못된-코드---대칭성-위반><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h4>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt> 1
@@ -382,8 +394,7 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 <span class=o>}</span>
 </code></pre></td></tr></table>
 </div>
-</div><br>
-<div class=highlight><div class=chroma>
+</div><div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
@@ -393,27 +404,28 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 <span class=n>String</span> <span class=n>str</span> <span class=o>=</span> <span class=s>&#34;string&#34;</span><span class=o>;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>cis.equals(str)</span>는 <code>true</code>를 반환하고 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>str.equals(cis)</span>는 <code>false</code>를 반환하게 되므로 대칭성에 위반됩니다.<br>
-<br><br>
-<br></p>
-<h2 id=-추이성-hahahugoshortcode-s7-hbhb>📌 추이성 (<span style=font-family:Roboto;font-size:1em;font-weight:inherit;border:none;border-radius:0;padding:0>Transitivity</span>)<a hidden class=anchor aria-hidden=true href=#-추이성-hahahugoshortcode-s7-hbhb><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+</div><ul>
+<li><span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>cis.equals(str)</span>는 <code>true</code>를 반환하고 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>str.equals(cis)</span>는 <code>false</code>를 반환하게 되므로 대칭성에 위반됩니다.<br>
+<br></li>
+</ul>
+<h3 id=3-추이성-transitivity>3) 추이성 (Transitivity)<a hidden class=anchor aria-hidden=true href=#3-추이성-transitivity><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
 <ul>
-<li><code>null</code>이 아닌 모든 참조 값 <code>x</code>, <code>y</code>, <code>z</code>에 대해 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>x.equals(y)</span>가 <code>true</code>고 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>y.equals(z)</span>도 <code>true</code>입니다.<br>
+<li><code>null</code>이 아닌 모든 참조 값 <code>x</code>, <code>y</code>, <code>z</code>에 대해 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>x.equals(y)</span>가 <code>true</code>이고, <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>y.equals(z)</span>도 <code>true</code>라면, <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>x.equals(z)</span>도 <strong>항상</strong> <code>true</code>여야 합니다.<br>
+<br></li>
+</ul>
+<h3 id=4-일관성-consistency>4) 일관성 (Consistency)<a hidden class=anchor aria-hidden=true href=#4-일관성-consistency><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
+<ul>
+<li><code>null</code>이 아닌 모든 참조 값 <code>x</code>, <code>y</code>에 대해 여러 번 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>x.equals(y)</span>를 호출하더라도 <strong>항상 동일한 결과</strong>가 나와야 합니다.<br>
+<br></li>
+</ul>
+<h3 id=5-null-아님>5) null-아님<a hidden class=anchor aria-hidden=true href=#5-null-아님><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
+<ul>
+<li><code>null</code>이 아닌 모든 참조 값 <code>x</code>에 대해 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>x.equals(null)</span>은 항상 <code>false</code>여야 합니다.<br>
 <br><br>
 <br></li>
 </ul>
-<h2 id=-일관성-hahahugoshortcode-s10-hbhb>📌 일관성 (<span style=font-family:Roboto;font-size:1em;font-weight:inherit;border:none;border-radius:0;padding:0>Consistency</span>)<a hidden class=anchor aria-hidden=true href=#-일관성-hahahugoshortcode-s10-hbhb><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
-<ul>
-<li><code>null</code>이 아닌 모든 참조 값 <code>x</code>, <code>y</code>에 대해 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>x.equals(y)</span>를 반복해서 호출하면 항상 <code>true</code>를 반환하거나 항상 <code>false</code>를 반환해야 합니다.<br>
-<br><br>
-<br></li>
-</ul>
-<h2 id=-null-아님>📌 null-아님<a hidden class=anchor aria-hidden=true href=#-null-아님><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
-<ul>
-<li><code>null</code>이 아닌 모든 참조 값 <code>x</code>에 대해 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>x.equals(null)</span>은 <code>false</code>여야 합니다.<br>
-<br></li>
-</ul>
-<p>이제 상위 클래스에 없는 필드를 하위 클래스에 추가하는 상황을 생각해봅시다. 여기서부터 신경써야 할 부분들이 많아집니다.</p>
+<h2 id=2-상속-시-발생할-수-있는-문제>2. 상속 시 발생할 수 있는 문제<a hidden class=anchor aria-hidden=true href=#2-상속-시-발생할-수-있는-문제><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<p>상위 클래스의 <code>equals</code> 메서드를 하위 클래스에서 확장할 때, 올바른 비교를 위해 신중한 설계가 필요합니다. 상위 클래스 필드에 없는 새로운 필드를 추가하는 경우, <code>equals</code> 메서드에서 상속 구조와 일관된 비교를 하지 않으면 예기치 않은 결과가 나올 수 있습니다.</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt> 1
@@ -492,19 +504,26 @@ equals메서드를 오버라아딩 할 때는 다음의 규약을 따라야 합�
 <p>객체 지향의 추상화의 이점을 포기하지 않는 이상 아쉽게도 이러한 문제점들을 모두 완전하게 해결할 수 있는 방법은 없습니다.<br>
 <br><br>
 <br></p>
-<h2 id=i-classuser-fa-action-done-aria-hiddentruei-양질의-equals메서드-구현-단계><i class=user-fa-action-done aria-hidden=true></i> 양질의 equals메서드 구현 단계<a hidden class=anchor aria-hidden=true href=#i-classuser-fa-action-done-aria-hiddentruei-양질의-equals메서드-구현-단계><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<h2 id=3-올바른-equals-메서드-구현-단계>3. 올바른 equals 메서드 구현 단계<a hidden class=anchor aria-hidden=true href=#3-올바른-equals-메서드-구현-단계><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
 <ol>
-<li><code>==</code> 연산자를 사용해 입력이 자기 자신의 참조인지 확인합니다.</li>
-<li><code>insetanceof</code> 연산자로 입력이 올바른 타입인지 확인합니다.</li>
-<li>입력을 올바른 타입으로 형변환 합니다.</li>
-<li>입력받은 객체와 자기 자신의 대응되는 필드들이 모두 일치하는지 검사합니다.<br>
+<li><strong>자기 자신의 참조인지 확인</strong>: <code>==</code> 연산자로 객체가 자기 자신인지 확인합니다.</li>
+<li><strong>타입 체크</strong>: <code>instanceof</code> 연산자를 사용하여 객체의 타입을 확인합니다.</li>
+<li><strong>형변환</strong>: 입력된 객체를 올바른 타입으로 형변환합니다.</li>
+<li><strong>필드 비교</strong>: 객체의 필드 값들을 비교하여 동치성을 확인합니다.<br>
 <br></li>
 </ol>
-<p>어떤 필드를 먼저 비교하느냐에 따라 성능의 차이도 생깁니다. 값이 다를 가능성이 크거나 비교하는 비용이 싼 필드를 먼저 비교하면 성능상 이점을 얻을 수 있습니다.(틀리면 다음 로직을 실행하지 않기에)<br>
+<h3 id=성능-최적화-팁>성능 최적화 팁<a hidden class=anchor aria-hidden=true href=#성능-최적화-팁><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
+<ul>
+<li>비교하는 필드 중 값이 다를 가능성이 높은 필드나 비교 비용이 적은 필드를 먼저 비교하면 성능을 향상시킬 수 있습니다.<br>
 <br><br>
-<br></p>
-<h2 id=i-classuser-fa-av-new-releases-aria-hiddentruei-정리><i class=user-fa-av-new-releases aria-hidden=true></i> 정리<a hidden class=anchor aria-hidden=true href=#i-classuser-fa-av-new-releases-aria-hiddentruei-정리><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
-<p>꼭 필요한 경우가 아니면 <code>equals</code>를 재정의하지 맙시다. 많은 경우에 <code>Object</code>의 <code>equals</code>가 우리들이 원하는 비교를 정확히 수행해줍니다. 재정의해야 할 때는 그 클래스의 핵심 필드 모두를 빠짐없이, 다섯 가지 규약을 확실히 지켜가며 비교해야 합니다.</p>
+<br></li>
+</ul>
+<h2 id=4-정리>4. 정리<a hidden class=anchor aria-hidden=true href=#4-정리><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<ul>
+<li><code>equals</code><strong>를 재정의할 때는 꼭 필요할 경우에만</strong> 하며, 재정의 시에는 반드시 <strong>다섯 가지 규약</strong>(<strong>반사성</strong>, <strong>대칭성</strong>, <strong>추이성</strong>, <strong>일관성</strong>, <strong>null-아님</strong>)을 지켜야 합니다.</li>
+<li><strong>핵심 필드</strong> 모두를 빠짐없이 비교하고, 상속 구조에서의 동작도 주의 깊게 설계해야 합니다.</li>
+<li>자주 실수할 수 있는 부분이므로, <code>Object</code>의 기본 <code>equals</code> 메서드가 이미 적합하다면 <strong>재정의하지 않는 것이 좋습니다</strong>.</li>
+</ul>
 </div>
 <footer class=post-footer data-animation=true><div class=post-license-info>
 <a class=button rel=license href=https://creativecommons.org/licenses/by-sa/4.0/deed.ko target=_blank>

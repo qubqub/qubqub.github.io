@@ -1896,8 +1896,9 @@ header.header {
 }
 
 .series-main .chapter-control .chapter-number {
-  width: 2rem;
-  font-size: 1em;
+  width: 2.3rem;
+  font-weight: bold;
+  font-size: 1.1em;
   white-space: nowrap;
   color: var(--secondary);
   margin-right: 2em;
@@ -2008,7 +2009,8 @@ header.header {
 }
 
 .series-main .series-control .series-number {
-  font-size: 1em;
+  font-size: 1.2em;
+  font-weight: bold;
   white-space: nowrap;
   color: var(--secondary);
   /* color: rgb(173, 181, 189); */
@@ -2202,6 +2204,10 @@ header.header {
   margin-bottom: 32px;
 } */
 
+.post-content ul li center {
+  margin: 0.6em 0;
+}
+
 .post-content table {
   margin-bottom: 0;
 }
@@ -2230,8 +2236,8 @@ header.header {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   border-radius: 4px;
-  padding: 4px 6px;
-  vertical-align: bottom;
+  padding: 3px 6px;
+  /* vertical-align: bottom; */
   /* font-size: .81em; */
   font-size: .9em;
   color: var(--primary);
@@ -2965,6 +2971,10 @@ header.header {
     color: var(--secondary);
   }
 
+  .main .post-single .toc-aside .inner-wrapper .inner code {
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  }
+
   .main .post-single .toc-aside-summary {
     position: fixed;
     top: 85px;
@@ -3278,7 +3288,7 @@ a.button,
 }
 .main .post-single .series-main .series-list li a.current .__cursor {
   display: inline-block;
-  width: 0.65rem;
+  width: 0.6rem;
   height: 1.1rem;
   vertical-align: -2px;
   background: var(--main-color);

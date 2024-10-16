@@ -7,13 +7,13 @@
 <meta name=robots content="index, follow">
 <title>[아이템 14] Comparable를 구현할지 고려하라 | &lt;Qubqub/></title>
 <meta name=keywords content="Java,Effective Java 3E">
-<meta name=description content="자바에서는 Comparable과 Comparator라는 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬기준을 구현하는 데 사용하고, Comparator은 기본 정렬기준 외에 다른 기준으로 정렬하고자 할 때 사용합니다. 여기서는 Comparable의 하나 밖에 없는 compareTo메서드에 대해서 알아봅시다.
-Comparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natural order가 있음을 의미합니다. 그래서 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다.
+<meta name=description content="자바에서는 Comparable과 Comparator라는 두 가지 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬 기준을 구현하는 데 사용되고, Comparator는 다른 기준으로 정렬하고자 할 때 사용됩니다. 이번 포스트에서는 Comparable 인터페이스의 유일한 메서드인 compareTo에 대해 알아보겠습니다.
+1. Comparable의 의미 Comparable을 구현했다는 것은 해당 클래스의 인스턴스들이 natural order를 갖는다는 것을 의미합니다. 이를 통해 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다:
 1  Arrays.sort(a);   
-compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받는)보다 작으면 음의 정수를, 같으면 0을, 크면 양의 정수를 반환합니다.">
+2. compareTo 메서드의 규약 compareTo 메서드는 다음과 같은 규칙을 따릅니다:">
 <meta name=author content="qubqub">
 <link rel=canonical href=https://qubqub.github.io/effective-java-3e/chapter-02/item14/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.d6b2907d3887dd4d00f0da9656a9eba78b683589aabae559a3ea596510c7d1a3.css integrity="sha256-1rKQfTiH3U0A8NqWVqnrp4toNYmquuVZo+pZZRDH0aM=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.f2266dddfb6f71aab6d6e518fdb7e3c11fe4f02f4eedd1e7b17f18d0d9452708.css integrity="sha256-8iZt3ftvcaq21uUY/bfjwR/k8C9O7dHnsX8Y0NlFJwg=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://qubqub.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qubqub.github.io/icon/favicon-16.webp>
@@ -29,10 +29,10 @@ compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script defer src=https://developers.kakao.com/sdk/js/kakao.min.js onload="Kakao.init('b8cccaa78a75e1ff28f09a4a844b13c7')"></script><meta property="og:title" content="[아이템 14] Comparable를 구현할지 고려하라">
-<meta property="og:description" content="자바에서는 Comparable과 Comparator라는 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬기준을 구현하는 데 사용하고, Comparator은 기본 정렬기준 외에 다른 기준으로 정렬하고자 할 때 사용합니다. 여기서는 Comparable의 하나 밖에 없는 compareTo메서드에 대해서 알아봅시다.
-Comparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natural order가 있음을 의미합니다. 그래서 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다.
+<meta property="og:description" content="자바에서는 Comparable과 Comparator라는 두 가지 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬 기준을 구현하는 데 사용되고, Comparator는 다른 기준으로 정렬하고자 할 때 사용됩니다. 이번 포스트에서는 Comparable 인터페이스의 유일한 메서드인 compareTo에 대해 알아보겠습니다.
+1. Comparable의 의미 Comparable을 구현했다는 것은 해당 클래스의 인스턴스들이 natural order를 갖는다는 것을 의미합니다. 이를 통해 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다:
 1  Arrays.sort(a);   
-compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받는)보다 작으면 음의 정수를, 같으면 0을, 크면 양의 정수를 반환합니다.">
+2. compareTo 메서드의 규약 compareTo 메서드는 다음과 같은 규칙을 따릅니다:">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://qubqub.github.io/effective-java-3e/chapter-02/item14/"><meta property="article:section" content="effective-java-3e">
 <meta property="article:published_time" content="2020-06-27T17:11:39+09:00">
@@ -40,12 +40,12 @@ compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받
 <meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-11/item85/"><meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-10/item78/"><meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-09/item69/"><meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-08/item57/"><meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-07/item49/"><meta property="og:see_also" content="https://qubqub.github.io/effective-java-3e/chapter-06/item42/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="[아이템 14] Comparable를 구현할지 고려하라">
-<meta name=twitter:description content="자바에서는 Comparable과 Comparator라는 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬기준을 구현하는 데 사용하고, Comparator은 기본 정렬기준 외에 다른 기준으로 정렬하고자 할 때 사용합니다. 여기서는 Comparable의 하나 밖에 없는 compareTo메서드에 대해서 알아봅시다.
-Comparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natural order가 있음을 의미합니다. 그래서 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다.
+<meta name=twitter:description content="자바에서는 Comparable과 Comparator라는 두 가지 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬 기준을 구현하는 데 사용되고, Comparator는 다른 기준으로 정렬하고자 할 때 사용됩니다. 이번 포스트에서는 Comparable 인터페이스의 유일한 메서드인 compareTo에 대해 알아보겠습니다.
+1. Comparable의 의미 Comparable을 구현했다는 것은 해당 클래스의 인스턴스들이 natural order를 갖는다는 것을 의미합니다. 이를 통해 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다:
 1  Arrays.sort(a);   
-compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받는)보다 작으면 음의 정수를, 같으면 0을, 크면 양의 정수를 반환합니다.">
+2. compareTo 메서드의 규약 compareTo 메서드는 다음과 같은 규칙을 따릅니다:">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Effctive Java 3/E","item":"https://qubqub.github.io/effective-java-3e/"},{"@type":"ListItem","position":2,"name":"2장 모든 객체의 공통 메서드","item":"https://qubqub.github.io/effective-java-3e/chapter-02/"},{"@type":"ListItem","position":3,"name":"[아이템 14] Comparable를 구현할지 고려하라","item":"https://qubqub.github.io/effective-java-3e/chapter-02/item14/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 14] Comparable를 구현할지 고려하라","name":"[아이템 14] Comparable를 구현할지 고려하라","description":"자바에서는 Comparable과 Comparator라는 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬기준을 구현하는 데 사용하고, Comparator은 기본 정렬기준 외에 다른 기준으로 정렬하고자 할 때 사용합니다. 여기서는 Comparable의 하나 밖에 없는 compareTo메서드에 대해서 알아봅시다.\nComparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natural order가 있음을 의미합니다. 그래서 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다.\n1  Arrays.sort(a);   \ncompareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받는)보다 작으면 음의 정수를, 같으면 0을, 크면 양의 정수를 반환합니다.","keywords":["Java","Effective Java 3E"],"articleBody":"자바에서는 Comparable과 Comparator라는 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬기준을 구현하는 데 사용하고, Comparator은 기본 정렬기준 외에 다른 기준으로 정렬하고자 할 때 사용합니다. 여기서는 Comparable의 하나 밖에 없는 compareTo메서드에 대해서 알아봅시다.\nComparable을 구현했다는 것은 그 클래스의 인스턴스들에는 natural order가 있음을 의미합니다. 그래서 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다.\n1  Arrays.sort(a);   \ncompareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받는)보다 작으면 음의 정수를, 같으면 0을, 크면 양의 정수를 반환합니다. 이 객체와 비교할 수 없는 타입이면 ClassCastException을 던집니다.\n다음 설명에서 sgn(표현식) 표기는 수학에서 말하는 부호 함수를 뜻하며, 표현식의 값이 음수, 0, 양수일 때 -1, 0, 1을 반환하도록 정의했습니다.\n  Comparable을 구현한 클래스는 모든 x, y에 대해,\nsgn(x.comparaTo(y)) == -sgn(y.comparaTo(x))여야 합니다.\n따라서 sgn(x.comparaTo(y))는 -sgn(y.comparaTo(x))가 예외를 던질 때에 한해 예외를 던져야 합니다.\n  Comparable을 구현한 클래스는 추이성을 보장해야 합니다.\nx.comparaTo(y)  0 \u0026\u0026 y.comparaTo(z)  0 이면 x.compareTo(z)  0 입니다.\n  Comparable을 구현한 클래스는 모든 z에 대해,\nx.compareTo(y) == 0 이면 sgn(x.compareTo(z)) == sgn(y.compareTo(z)) 입니다.\n  이번 권고가 필수는 아니지만 꼭 지키는 게 좋습니다.\n(x.compareTo(y) == 0) == (x.equals(y)) 여야 합니다.\n  hashCode 규약을 지키지 못하면 해시를 사용하는 클래스에서 오작동이 일어날 수 있듯이 compareTo 규약을 지키지 못하면 TreeSet, TreeMap과 같이 비교를 활용하는 클래스에서 오작동이 일어날 수 있습니다.\nCompareble 인터페이스은 타입 인수를 받는 제네릭 인터페이스므로 compareTo 메서드의 인수 타입은 컴파일타임에 정해집니다. 즉 매개변수 타입이 잘못 됐다면 컴파일 자체가 되지 않으므로 형변환 할 필요가 없다는 뜻입니다.\n객체 참조 필드를 비교하려면 compareTo 메서드를 재귀적으로 호출합니다. Compareble을 구현하지 않은 필드나 표준이 아닌 순서로 비교해야 한다면 Comparator를 사용하면 됩니다.\n클래스의 핵심 필드가 여러개라면 가장 핵심적인 필드부터 비교하는 것을 추천드립니다. 비교 결과가 0이 아니라면 순서는 거기서 설정되기 때문입니다.\nJAVA 8에서 compareTo 메서드를 구현하기\n1 2 3 4 5 6 7 8 9 10 11  ListStudent students = Arrays.asList( new Student(30, \"kim\"), new Student(50, \"jake\"), new Student(50, \"foo\") ); students.sort( Comparator.comparingInt(Student::getAge) .thenComparing(Student::getName) ); // 이뿐만 아니라 다양한 방식으로 정렬을 할 수 있습니다.   위와 같이 코드를 간결하게 짤 수 있습니다. 대신 약간의 성능 저하가 있습니다.\n","wordCount":"310","inLanguage":"ko","datePublished":"2020-06-27T17:11:39+09:00","dateModified":"2020-06-27T17:11:39+09:00","author":[{"@type":"Person","name":"qubqub"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qubqub.github.io/effective-java-3e/chapter-02/item14/"},"publisher":{"@type":"Organization","name":"\u003cQubqub/\u003e","logo":{"@type":"ImageObject","url":"https://qubqub.github.io/icon/favicon-64.webp"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[아이템 14] Comparable를 구현할지 고려하라","name":"[아이템 14] Comparable를 구현할지 고려하라","description":"자바에서는 Comparable과 Comparator라는 두 가지 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬 기준을 구현하는 데 사용되고, Comparator는 다른 기준으로 정렬하고자 할 때 사용됩니다. 이번 포스트에서는 Comparable 인터페이스의 유일한 메서드인 compareTo에 대해 알아보겠습니다.\n1. Comparable의 의미 Comparable을 구현했다는 것은 해당 클래스의 인스턴스들이 natural order를 갖는다는 것을 의미합니다. 이를 통해 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다:\n1  Arrays.sort(a);   \n2. compareTo 메서드의 규약 compareTo 메서드는 다음과 같은 규칙을 따릅니다:","keywords":["Java","Effective Java 3E"],"articleBody":"자바에서는 Comparable과 Comparator라는 두 가지 정렬 인터페이스를 제공합니다. Comparable은 기본 정렬 기준을 구현하는 데 사용되고, Comparator는 다른 기준으로 정렬하고자 할 때 사용됩니다. 이번 포스트에서는 Comparable 인터페이스의 유일한 메서드인 compareTo에 대해 알아보겠습니다.\n1. Comparable의 의미 Comparable을 구현했다는 것은 해당 클래스의 인스턴스들이 natural order를 갖는다는 것을 의미합니다. 이를 통해 Comparable을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다:\n1  Arrays.sort(a);   \n2. compareTo 메서드의 규약 compareTo 메서드는 다음과 같은 규칙을 따릅니다:\n 이 객체가 주어진 객체(매개변수로 받는)보다 작으면 음의 정수를, 같으면 0을, 크면 양의 정수를 반환합니다. 이 객체와 비교할 수 없는 타입이면 ClassCastException을 던집니다.  여기서 sgn(표현식) 표기는 수학에서의 부호 함수를 뜻하며, 표현식의 값이 음수, 0, 양수일 때 각각 -1, 0, 1을 반환하도록 정의합니다.\n1) 규약 요약   Comparable을 구현한 클래스는 모든 x, y에 대해 다음을 만족해야 합니다.\nsgn(x.comparaTo(y)) == -sgn(y.comparaTo(x)) 따라서 sgn(x.compareTo(y))는 sgn(y.compareTo(x))가 예외를 던질 때에만 예외를 던져야 합니다.\n  Comparable을 구현한 클래스는 추이성을 보장해야 합니다.\nx.compareTo(y)  0 and y.compareTo(z)  0 ⟹ x.compareTo(z)  0\n  모든 z에 대해:\nx.compareTo(y) == 0 ⟹ sgn(x.compareTo(z)) == sgn(y.compareTo(z))\n  권장 사항이지만 꼭 지켜야 하는 것은:\n(x.compareTo(y) == 0) == (x.equals(y))\n  이러한 규약을 지키지 않으면 TreeSet, TreeMap과 같이 비교를 활용하는 클래스에서 오작동이 발생할 수 있습니다.\n3. Comparable과 제네릭 Comparable 인터페이스는 타입 인수를 받는 제네릭 인터페이스입니다. 따라서 compareTo 메서드의 매개변수 타입은 컴파일 타임에 정해지므로, 형변환이 필요하지 않습니다.\n4. 객체 참조 필드 비교 객체의 참조 필드를 비교할 때는 compareTo 메서드를 재귀적으로 호출합니다. 만약 Comparable을 구현하지 않은 필드나 표준이 아닌 순서로 비교해야 한다면, Comparator를 사용하면 됩니다.\n클래스의 핵심 필드가 여러 개일 경우, 가장 중요한 필드부터 비교하는 것이 좋습니다. 비교 결과가 0이 아니라면 그 지점에서 정렬 순서가 결정되기 때문입니다.\n5. JAVA 8에서 compareTo 메서드 구현하기 1 2 3 4 5 6 7 8 9 10 11  ListStudent students = Arrays.asList( new Student(30, \"kim\"), new Student(50, \"jake\"), new Student(50, \"foo\") ); students.sort( Comparator.comparingInt(Student::getAge) .thenComparing(Student::getName) ); // 이뿐만 아니라 다양한 방식으로 정렬을 할 수 있습니다.   위와 같은 방식으로 코드를 간결하게 작성할 수 있습니다. 하지만 이 방식은 약간의 성능 저하가 있을 수 있습니다.\n6. 정리  Comparable을 구현하면 객체의 자연 순서를 정의할 수 있습니다. 이를 통해 Arrays.sort()와 같은 메서드에서 직접 정렬이 가능합니다. compareTo 메서드는 명확한 규약을 따르며, 이를 지키지 않으면 여러 데이터 구조에서 오류가 발생할 수 있습니다. 객체의 비교 기준이 복잡한 경우, Comparator를 사용하는 것이 더 적합할 수 있습니다.  ","wordCount":"362","inLanguage":"ko","datePublished":"2020-06-27T17:11:39+09:00","dateModified":"2020-06-27T17:11:39+09:00","author":[{"@type":"Person","name":"qubqub"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://qubqub.github.io/effective-java-3e/chapter-02/item14/"},"publisher":{"@type":"Organization","name":"\u003cQubqub/\u003e","logo":{"@type":"ImageObject","url":"https://qubqub.github.io/icon/favicon-64.webp"}}}</script>
 </head>
 <body>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -248,7 +248,20 @@ compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받
 </summary>
 <div class=inner><ul>
 <li>
-<a href=#compareto-%eb%a9%94%ec%84%9c%eb%93%9c%ec%9d%98-%ea%b7%9c%ec%95%bd aria-label="compareTo 메서드의 규약">compareTo 메서드의 규약</a>
+<a href=#1-comparable%ec%9d%98-%ec%9d%98%eb%af%b8 aria-label="1. Comparable의 의미">1. <code>Comparable</code>의 의미</a></li>
+<li>
+<a href=#2-compareto-%eb%a9%94%ec%84%9c%eb%93%9c%ec%9d%98-%ea%b7%9c%ec%95%bd aria-label="2. compareTo 메서드의 규약">2. <code>compareTo</code> 메서드의 규약</a><ul>
+<li>
+<a href=#1-%ea%b7%9c%ec%95%bd-%ec%9a%94%ec%95%bd aria-label="1) 규약 요약">1) 규약 요약</a></li></ul>
+</li>
+<li>
+<a href=#3-comparable%ea%b3%bc-%ec%a0%9c%eb%84%a4%eb%a6%ad aria-label="3. Comparable과 제네릭">3. <code>Comparable</code>과 제네릭</a></li>
+<li>
+<a href=#4-%ea%b0%9d%ec%b2%b4-%ec%b0%b8%ec%a1%b0-%ed%95%84%eb%93%9c-%eb%b9%84%ea%b5%90 aria-label="4. 객체 참조 필드 비교">4. 객체 참조 필드 비교</a></li>
+<li>
+<a href=#5-java-8%ec%97%90%ec%84%9c-compareto-%eb%a9%94%ec%84%9c%eb%93%9c-%ea%b5%ac%ed%98%84%ed%95%98%ea%b8%b0 aria-label="5. JAVA 8에서 compareTo 메서드 구현하기">5. <code>JAVA 8</code>에서 <code>compareTo</code> 메서드 구현하기</a></li>
+<li>
+<a href=#6-%ec%a0%95%eb%a6%ac aria-label="6. 정리">6. 정리</a>
 </li>
 </ul>
 </div>
@@ -264,7 +277,20 @@ compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받
 <div class=inner-wrapper>
 <div class=inner><ul>
 <li>
-<a href=#compareto-%eb%a9%94%ec%84%9c%eb%93%9c%ec%9d%98-%ea%b7%9c%ec%95%bd aria-label="compareTo 메서드의 규약">compareTo 메서드의 규약</a>
+<a href=#1-comparable%ec%9d%98-%ec%9d%98%eb%af%b8 aria-label="1. Comparable의 의미">1. <code>Comparable</code>의 의미</a></li>
+<li>
+<a href=#2-compareto-%eb%a9%94%ec%84%9c%eb%93%9c%ec%9d%98-%ea%b7%9c%ec%95%bd aria-label="2. compareTo 메서드의 규약">2. <code>compareTo</code> 메서드의 규약</a><ul>
+<li>
+<a href=#1-%ea%b7%9c%ec%95%bd-%ec%9a%94%ec%95%bd aria-label="1) 규약 요약">1) 규약 요약</a></li></ul>
+</li>
+<li>
+<a href=#3-comparable%ea%b3%bc-%ec%a0%9c%eb%84%a4%eb%a6%ad aria-label="3. Comparable과 제네릭">3. <code>Comparable</code>과 제네릭</a></li>
+<li>
+<a href=#4-%ea%b0%9d%ec%b2%b4-%ec%b0%b8%ec%a1%b0-%ed%95%84%eb%93%9c-%eb%b9%84%ea%b5%90 aria-label="4. 객체 참조 필드 비교">4. 객체 참조 필드 비교</a></li>
+<li>
+<a href=#5-java-8%ec%97%90%ec%84%9c-compareto-%eb%a9%94%ec%84%9c%eb%93%9c-%ea%b5%ac%ed%98%84%ed%95%98%ea%b8%b0 aria-label="5. JAVA 8에서 compareTo 메서드 구현하기">5. <code>JAVA 8</code>에서 <code>compareTo</code> 메서드 구현하기</a></li>
+<li>
+<a href=#6-%ec%a0%95%eb%a6%ac aria-label="6. 정리">6. 정리</a>
 </li>
 </ul>
 </div>
@@ -294,8 +320,9 @@ compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받
 </div>
 </div>
 <script>const asideShareIcons_DOMReady=function(a){document.readyState==="interactive"||document.readyState==="complete"?a():document.addEventListener("DOMContentLoaded",a)};asideShareIcons_DOMReady(function(){let c=0;const f=document.querySelector(".post-content"),a=document.querySelector(".share-buttons"),d=document.querySelector(".aside-share-buttons-wrapper"),b=document.getElementById("copylink-aside");g(),document.body.addEventListener("click",function(b){if(b.target.classList[0]==="aside-share-control-buttons"||b.target.classList[0]==="aside-share-control-buttons-svg"||b.target.classList[0]==="aside-share-control-buttons-path")return;a.classList.contains("reveal")&&(a.classList.remove("reveal"),a.classList.add("hide"))}),window.addEventListener("scroll",()=>{c=window.pageYOffset,c>=f.offsetTop-25?d.classList.add("fixed"):d.classList.remove("fixed")}),document.querySelector(".aside-share-control-buttons").addEventListener("click",()=>{a.classList.contains("reveal")?(a.classList.remove("reveal"),a.classList.add("hide")):(a.classList.remove("hide"),a.classList.add("reveal"))}),document.getElementById("kakaotalk-share-aside").addEventListener("click",()=>{Kakao.Link.sendDefault({objectType:"feed",content:{title:'[아이템 14] Comparable를 구현할지 고려하라',description:'Java,EffectiveJava3E',imageUrl:'https://qubqub.github.io/icon/favicon.png',link:{mobileWebUrl:'https://qubqub.github.io/effective-java-3e/chapter-02/item14/',webUrl:'https://qubqub.github.io/effective-java-3e/chapter-02/item14/'}},success:function(a){},fail:function(a){}})});function g(){b.innerHTML='\u003csvg width=\u002230px\u0022 height=\u002230px\u0022 viewBox=\u00220 0 24 24\u0022 class=\u0022button custom-button\u0022\u003e\u003cpath d=\u0022M21.586 10.461l-10.05 10.075c-1.95 1.949-5.122 1.949-7.071 0s-1.95-5.122 0-7.072l10.628-10.585c1.17-1.17 3.073-1.17 4.243 0 1.169 1.17 1.17 3.072 0 4.242l-8.507 8.464c-.39.39-1.024.39-1.414 0s-.39-1.024 0-1.414l7.093-7.05-1.415-1.414-7.093 7.049c-1.172 1.172-1.171 3.073 0 4.244s3.071 1.171 4.242 0l8.507-8.464c.977-.977 1.464-2.256 1.464-3.536 0-2.769-2.246-4.999-5-4.999-1.28 0-2.559.488-3.536 1.465l-10.627 10.583c-1.366 1.368-2.05 3.159-2.05 4.951 0 3.863 3.13 7 7 7 1.792 0 3.583-.684 4.95-2.05l10.05-10.075-1.414-1.414z\u0022\u003e\u003c/path\u003e\u003c/svg\u003e',b.addEventListener("click",()=>{if('clipboard'in navigator){navigator.clipboard.writeText('https://qubqub.github.io/effective-java-3e/chapter-02/item14/'),e();return}const a=document.createRange();a.selectNodeContents('https://qubqub.github.io/effective-java-3e/chapter-02/item14/');const b=window.getSelection();b.removeAllRanges(),b.addRange(a);try{document.execCommand('copy'),e()}catch(a){}b.removeRange(a)})}function e(){b.innerHTML='\u003csvg aria-hidden=\u0022true\u0022 width=\u002230px\u0022 height=\u002230px\u0022 viewBox=\u00220 0 16 16\u0022 version=\u00221.1\u0022 data-view-component=\u0022true\u0022 class=\u0022octicon-check\u0022\u003e\u003cpath fill-rule=\u0022evenodd\u0022 d=\u0022M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z\u0022\u003e\u003c/path\u003e\u003c/svg\u003e',setTimeout(()=>{b.innerHTML='\u003csvg width=\u002230px\u0022 height=\u002230px\u0022 viewBox=\u00220 0 24 24\u0022 class=\u0022button custom-button\u0022\u003e\u003cpath d=\u0022M21.586 10.461l-10.05 10.075c-1.95 1.949-5.122 1.949-7.071 0s-1.95-5.122 0-7.072l10.628-10.585c1.17-1.17 3.073-1.17 4.243 0 1.169 1.17 1.17 3.072 0 4.242l-8.507 8.464c-.39.39-1.024.39-1.414 0s-.39-1.024 0-1.414l7.093-7.05-1.415-1.414-7.093 7.049c-1.172 1.172-1.171 3.073 0 4.244s3.071 1.171 4.242 0l8.507-8.464c.977-.977 1.464-2.256 1.464-3.536 0-2.769-2.246-4.999-5-4.999-1.28 0-2.559.488-3.536 1.465l-10.627 10.583c-1.366 1.368-2.05 3.159-2.05 4.951 0 3.863 3.13 7 7 7 1.792 0 3.583-.684 4.95-2.05l10.05-10.075-1.414-1.414z\u0022\u003e\u003c/path\u003e\u003c/svg\u003e'},500)}})</script>
-<div class=post-content data-animation=true><p>자바에서는 <code>Comparable</code>과 <code>Comparator</code>라는 정렬 인터페이스를 제공합니다. <code>Comparable</code>은 기본 정렬기준을 구현하는 데 사용하고, <code>Comparator</code>은 기본 정렬기준 외에 다른 기준으로 정렬하고자 할 때 사용합니다. 여기서는 <code>Comparable</code>의 하나 밖에 없는 <code>compareTo</code>메서드에 대해서 알아봅시다.</p>
-<p><code>Comparable</code>을 구현했다는 것은 그 클래스의 인스턴스들에는 <code>natural order</code>가 있음을 의미합니다. 그래서 <code>Comparable</code>을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다.</p>
+<div class=post-content data-animation=true><p>자바에서는 <code>Comparable</code>과 <code>Comparator</code>라는 두 가지 정렬 인터페이스를 제공합니다. <code>Comparable</code>은 기본 정렬 기준을 구현하는 데 사용되고, <code>Comparator</code>는 다른 기준으로 정렬하고자 할 때 사용됩니다. 이번 포스트에서는 <code>Comparable</code> 인터페이스의 유일한 메서드인 <code>compareTo</code>에 대해 알아보겠습니다.</p>
+<h2 id=1-comparable의-의미>1. <code>Comparable</code>의 의미<a hidden class=anchor aria-hidden=true href=#1-comparable의-의미><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<p><code>Comparable</code>을 구현했다는 것은 해당 클래스의 인스턴스들이 <strong>natural order</strong>를 갖는다는 것을 의미합니다. 이를 통해 <code>Comparable</code>을 구현한 객체들의 배열은 다음과 같이 정렬할 수 있습니다:</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -306,37 +333,47 @@ compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받
 </div>
 </div><br>
 <br>
-<h2 id=compareto-메서드의-규약>compareTo 메서드의 규약<a hidden class=anchor aria-hidden=true href=#compareto-메서드의-규약><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
-<p>이 객체가 주어진 객체(매개변수로 받는)보다 작으면 <code>음의 정수</code>를, 같으면 <code>0</code>을, 크면 <code>양의 정수</code>를 반환합니다. 이 객체와 비교할 수 없는 타입이면 <code>ClassCastException</code>을 던집니다.</p>
-<p>다음 설명에서 sgn(표현식) 표기는 수학에서 말하는 부호 함수를 뜻하며, 표현식의 값이 <code>음수</code>, <code>0</code>, <code>양수</code>일 때 <code>-1</code>, <code>0</code>, <code>1</code>을 반환하도록 정의했습니다.</p>
+<h2 id=2-compareto-메서드의-규약>2. <code>compareTo</code> 메서드의 규약<a hidden class=anchor aria-hidden=true href=#2-compareto-메서드의-규약><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<p><code>compareTo</code> 메서드는 다음과 같은 규칙을 따릅니다:</p>
+<ul>
+<li>이 객체가 주어진 객체(매개변수로 받는)보다 작으면 <strong>음의 정수</strong>를, 같으면 <strong>0</strong>을, 크면 <strong>양의 정수</strong>를 반환합니다.</li>
+<li>이 객체와 비교할 수 없는 타입이면 <code>ClassCastException</code>을 던집니다.</li>
+</ul>
+<p>여기서 <strong>sgn(표현식)</strong> 표기는 수학에서의 부호 함수를 뜻하며, 표현식의 값이 <strong>음수, 0, 양수</strong>일 때 각각 <strong>-1, 0, 1</strong>을 반환하도록 정의합니다.</p>
+<h3 id=1-규약-요약>1) 규약 요약<a hidden class=anchor aria-hidden=true href=#1-규약-요약><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h3>
 <ul>
 <li>
-<p><code>Comparable</code>을 구현한 클래스는 모든 <code>x</code>, <code>y</code>에 대해,<br>
-<span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>sgn(x.comparaTo(y)) == -sgn(y.comparaTo(x))</span>여야 합니다.<br>
-따라서 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>sgn(x.comparaTo(y))</span>는 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>-sgn(y.comparaTo(x))</span>가 예외를 던질 때에 한해 예외를 던져야 합니다.</p>
+<p><code>Comparable</code>을 구현한 클래스는 모든 <code>x</code>, <code>y</code>에 대해 다음을 만족해야 합니다.<br>
+<strong><center>sgn(x.comparaTo(y)) == -sgn(y.comparaTo(x))</center></strong> 따라서 <span style="font-family:youtube sans;font-size:1em;font-weight:600;border:none;border-radius:0;padding:0">sgn(x.compareTo(y))</span>는 <span style="font-family:youtube sans;font-size:1em;font-weight:600;border:none;border-radius:0;padding:0">sgn(y.compareTo(x))</span>가 예외를 던질 때에만 예외를 던져야 합니다.<br>
+<br></p>
 </li>
 <li>
-<p><code>Comparable</code>을 구현한 클래스는 추이성을 보장해야 합니다.<br>
-<span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>x.comparaTo(y) > 0 && y.comparaTo(z) > 0</span> 이면 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>x.compareTo(z) > 0</span> 입니다.</p>
+<p><code>Comparable</code>을 구현한 클래스는 <strong>추이성을 보장</strong>해야 합니다.<br>
+<strong><center>x.compareTo(y) > 0 and y.compareTo(z) > 0 ⟹ x.compareTo(z) > 0</center></strong></p>
 </li>
 <li>
-<p><code>Comparable</code>을 구현한 클래스는 모든 <code>z</code>에 대해,<br>
-<span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>x.compareTo(y) == 0</span> 이면 <span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>sgn(x.compareTo(z)) == sgn(y.compareTo(z))</span> 입니다.</p>
+<p>모든 <code>z</code>에 대해:<br>
+<strong><center>x.compareTo(y) == 0 ⟹ sgn(x.compareTo(z)) == sgn(y.compareTo(z))</center></strong></p>
 </li>
 <li>
-<p>이번 권고가 필수는 아니지만 꼭 지키는 게 좋습니다.<br>
-<span style=font-family:cascadiacode;font-size:1em;color:var(--main-color);font-weight:600;border:none;border-radius:0;padding:0>(x.compareTo(y) == 0) == (x.equals(y))</span> 여야 합니다.<br>
-<br><br>
+<p>권장 사항이지만 꼭 지켜야 하는 것은:<br>
+<strong><center>(x.compareTo(y) == 0) == (x.equals(y))</center></strong><br>
 <br></p>
 </li>
 </ul>
-<p><code>hashCode</code> 규약을 지키지 못하면 해시를 사용하는 클래스에서 오작동이 일어날 수 있듯이 <code>compareTo</code> 규약을 지키지 못하면 <code>TreeSet</code>, <code>TreeMap</code>과 같이 비교를 활용하는 클래스에서 오작동이 일어날 수 있습니다.</p>
-<p><code>Compareble</code> 인터페이스은 타입 인수를 받는 제네릭 인터페이스므로 <code>compareTo</code> 메서드의 인수 타입은 컴파일타임에 정해집니다. 즉 매개변수 타입이 잘못 됐다면 컴파일 자체가 되지 않으므로 형변환 할 필요가 없다는 뜻입니다.</p>
-<p>객체 참조 필드를 비교하려면 <code>compareTo</code> 메서드를 재귀적으로 호출합니다. <code>Compareble</code>을 구현하지 않은 필드나 표준이 아닌 순서로 비교해야 한다면 <code>Comparator</code>를 사용하면 됩니다.</p>
-<p>클래스의 핵심 필드가 여러개라면 가장 핵심적인 필드부터 비교하는 것을 추천드립니다. 비교 결과가 <code>0</code>이 아니라면 순서는 거기서 설정되기 때문입니다.<br>
+<p>이러한 규약을 지키지 않으면 <code>TreeSet</code>, <code>TreeMap</code>과 같이 비교를 활용하는 클래스에서 <strong>오작동</strong>이 발생할 수 있습니다.<br>
 <br><br>
 <br></p>
-<p><code>JAVA 8</code>에서 <code>compareTo</code> 메서드를 구현하기</p>
+<h2 id=3-comparable과-제네릭>3. <code>Comparable</code>과 제네릭<a hidden class=anchor aria-hidden=true href=#3-comparable과-제네릭><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<p><code>Comparable</code> 인터페이스는 타입 인수를 받는 제네릭 인터페이스입니다. 따라서 <code>compareTo</code> 메서드의 매개변수 타입은 <strong>컴파일 타임에 정해지므로</strong>, 형변환이 필요하지 않습니다.<br>
+<br><br>
+<br></p>
+<h2 id=4-객체-참조-필드-비교>4. 객체 참조 필드 비교<a hidden class=anchor aria-hidden=true href=#4-객체-참조-필드-비교><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<p>객체의 참조 필드를 비교할 때는 <code>compareTo</code> 메서드를 재귀적으로 호출합니다. 만약 <code>Comparable</code>을 구현하지 않은 필드나 표준이 아닌 순서로 비교해야 한다면, <code>Comparator</code>를 사용하면 됩니다.</p>
+<p>클래스의 핵심 필드가 여러 개일 경우, 가장 중요한 필드부터 비교하는 것이 좋습니다. 비교 결과가 <code>0</code>이 아니라면 그 지점에서 정렬 순서가 결정되기 때문입니다.<br>
+<br><br>
+<br></p>
+<h2 id=5-java-8에서-compareto-메서드-구현하기>5. <code>JAVA 8</code>에서 <code>compareTo</code> 메서드 구현하기<a hidden class=anchor aria-hidden=true href=#5-java-8에서-compareto-메서드-구현하기><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt> 1
@@ -365,7 +402,15 @@ compareTo 메서드의 규약 이 객체가 주어진 객체(매개변수로 받
 <span class=c1>// 이뿐만 아니라 다양한 방식으로 정렬을 할 수 있습니다.
 </span></code></pre></td></tr></table>
 </div>
-</div><p>위와 같이 코드를 간결하게 짤 수 있습니다. 대신 약간의 성능 저하가 있습니다.</p>
+</div><p>위와 같은 방식으로 코드를 간결하게 작성할 수 있습니다. 하지만 이 방식은 약간의 성능 저하가 있을 수 있습니다.<br>
+<br><br>
+<br></p>
+<h2 id=6-정리>6. 정리<a hidden class=anchor aria-hidden=true href=#6-정리><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></h2>
+<ul>
+<li><code>Comparable</code>을 구현하면 객체의 자연 순서를 정의할 수 있습니다. 이를 통해 <code>Arrays.sort()</code>와 같은 메서드에서 직접 정렬이 가능합니다.</li>
+<li><code>compareTo</code> 메서드는 명확한 규약을 따르며, 이를 지키지 않으면 여러 데이터 구조에서 오류가 발생할 수 있습니다.</li>
+<li>객체의 비교 기준이 복잡한 경우, <code>Comparator</code>를 사용하는 것이 더 적합할 수 있습니다.</li>
+</ul>
 </div>
 <footer class=post-footer data-animation=true><div class=post-license-info>
 <a class=button rel=license href=https://creativecommons.org/licenses/by-sa/4.0/deed.ko target=_blank>

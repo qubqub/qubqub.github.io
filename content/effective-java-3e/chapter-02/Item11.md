@@ -21,23 +21,26 @@ showContentProgressbar: true
 #   hidden: true
 #   image: "/logo/logo-effective-java-3e.png"
 ---
+## 1. 왜 hashCode도 재정의해야 할까?
+자바의 `HashMap`, `HashSet` 같은 해시 기반 컬렉션은 객체의 고유한 해시값을 사용하여 저장, 검색, 비교를 수행합니다. 따라서 `equals`를 재정의하고도 `hashCode`를 재정의하지 않으면, 두 객체가 논리적으로는 같아도 해시값이 다를 수 있어 중복이 발생하거나 의도치 않게 검색에 실패할 수 있습니다.
+
 `equals`와 `hasoCode`를 재정의 하지 않으면 `HashMap`이나 `HashSet`에서 같은 원소를 사용할 때 문제가 발생합니다.
 
-다음은 Object 명세에서 발췌한 규약입니다.
+`Object` 명세에서 정의한 `hashCode` 규약
+>- **일관성**: `equals`로 비교되는 정보가 변하지 않는 한, 애플리케이션 실행 동안 여러 번 `hashCode`를 호출해도 일관된 값을 반환해야 합니다.
+>- **동치성**: 두 객체가 `equals`로 같다면, `hashCode`도 반드시 같아야 합니다.
+>- **비교 가능성**: 두 객체가 `equals`로 다르더라도 `hashCode`는 다를 필요는 없지만, **다른 객체**에 대해 다른 값을 반환하면 해시 테이블의 성능이 향상됩니다.
 
-- `equals` 비교에 사용되는 정보가 변경되지 않는다면, 애플리케이션이 실행되는 동안 객체의 `hashCode`메서드는 여러번 호출해도 일관된 값을 반환해야 합니다.
-- `equals`가 두 객체를 같다고 판단하면 `hashCode` 또한 같은 값을 반환해야 합니다.
-- `equals`가 두 객체를 다르다고 판단해도, 두 객체의 `hashCode`가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.
 <br>
 <br>
 
-## 논리적으로 같은 객체는 같은 해시코드를 반환해야 합니다.
+## 2. 논리적으로 같은 객체는 같은 해시코드를 반환해야 한다
 
-서로 다른 인스턴스에 대해서 모두 다른 해시코드를 반환하면 좋겠지만 `hashCode`는 `int`형이므로 `2^32`만큼의 경우의 수로 제한되어 있기 때문에 {{< font family="Roboto" size="1" color-var="main-color" weight="600" text="비둘기 집의 원리" >}}로 예외가 생길 수 있습니다.
+객체가 다르더라도 해시값이 같을 수는 있지만, 논리적으로 동등한 객체는 **반드시** 같은 해시값을 가져야 합니다. 그러나 해시코드 값이 32비트 int 범위로 제한되기 때문에 **비둘기 집의 원리**에 따라 충돌이 발생할 수 있습니다. 충돌을 최소화하고 성능을 향상시키려면, 해시코드 구현이 중요합니다.
 <br>
 <br>
 
-### <i class="user-fa-action-info-outline" aria-hidden="true"></i> 다음은 hashCode를 작성하는 요령입니다.
+### hashCode를 작성하는 요령
 
 {{< font family="cascadiacode" size="1.1" color-var="main-color" weight="600" text="1." >}} `int` 변수 `result`를 선언한 후 값 `c`로 초기화 합니다. 이때 `c`는 해당 객체의 첫번째 해시 필드를 `2.a` 방식으로 계산한 해시코드입니다.
 <br>
@@ -53,9 +56,7 @@ showContentProgressbar: true
 
 `equals` 비교에서 사용되지 않는 필드는 **반드시** 제외해야 합니다. 그렇지 않으면 맨 처음에 언급했던 두 번째 규약을 어기게됩니다.
 <br>
-<br>
-
-숫자를 곱하는 이유는 만약 곱셈 없는 `hahCode`를 구현하게 되면 모든 아나그램의 해시코드가 같아집니다. 그리고 `31`을 선택한 이유는 `홀수`이면서 `소수`이기 때문입니다.
+숫자를 곱하는 이유는 만약 곱셈 없는 `hahCode`를 구현하게 되면 모든 아나그램의 해시코드가 같아집니다. `31`을 선택한 이유는 `홀수`이면서 `소수`이기 때문입니다. 소수는 곱할 때 결과 값이 더 고르게 분포되게 만들며, 홀수이기 때문에 숫자를 곱한 뒤 정보를 잃지 않습니다. 또한, 31은 비트 연산으로 곱셈을 최적화할 수 있습니다. 31 * i는 (i << 5) - i로 계산되어 효율적입니다.
 
 ``` java
 @Override
@@ -66,7 +67,7 @@ public int hashCode() {
     return result;
 }
 ```
-<i class="user-fa-action-info-outline" aria-hidden="true"></i> _전형적인 hashCode 메서드_
+<i class="user-fa-action-info-outline" aria-hidden="true"></i> _전형적인 `hashCode` 메서드_
 <br>
 
 ``` java
@@ -75,7 +76,7 @@ public int hashCode(){
     return Objects.hash(lineNum, prefix, areaCode);
 }
 ```
-<i class="user-fa-action-info-outline" aria-hidden="true"></i> _한 줄짜리 hasoCode 메서드 - 성능이 살짝 아쉽습니다._
+<i class="user-fa-action-info-outline" aria-hidden="true"></i> _한 줄짜리 `hashCode` 메서드 - 성능이 살짝 아쉽다_
 <br>
 
 ``` java
@@ -92,9 +93,13 @@ private int hashCode; // 자동으로 0으로 초기화된다.
     return result;
 }
 ```
-<i class="user-fa-action-info-outline" aria-hidden="true"></i> _해시코드를 지연 초기화하는 hashCode 메서드 - 스레드 안정성까지 고려해야 한다._
+<i class="user-fa-action-info-outline" aria-hidden="true"></i> _해시코드를 지연 초기화하는 `hashCode` 메서드 - 스레드 안정성까지 고려해야 한다_
 <br>
 <br>
 
-## <i class="user-fa-av-new-releases" aria-hidden="true"></i> 정리
-`equals`를 재정의 할 때는 `hashCdoe`도 재정의해야 합니다. 그렇지 않으면 프로그램이 제대로 동작하지 않을 수 있습니다. 서로 다른 인스턴스라면 되도록 해시코드도 서로 다르게 구현해야 합니다.
+## 3. 정리
+- `equals`를 재정의할 때는 반드시 `hashCode`도 재정의해야 합니다. 그렇지 않으면 해시 기반 컬렉션에서 객체를 제대로 인식하지 못하게 됩니다.
+- 두 객체가 논리적으로 같다면 반드시 같은 해시코드를 가져야 하며, 서로 다른 객체는 가능하면 다른 해시코드를 가지도록 해야 해시 테이블의 성능을 극대화할 수 있습니다.
+- 복잡한 해시코드 계산이 필요한 경우, 지연 초기화를 고려할 수 있지만 스레드 안전성을 염두에 두어야 합니다.
+
+`equals`와 `hashCode`를 제대로 재정의하지 않으면 컬렉션에서 예기치 않은 동작이 발생할 수 있으므로, 이 두 메서드의 일관성 있는 재정의는 필수적입니다.

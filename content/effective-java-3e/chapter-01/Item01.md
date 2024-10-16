@@ -34,7 +34,7 @@ public static Boolean valueOf(boolean b) {
 _Boolean 클래스에서 발췌한 예제 코드_
 <br>
 
-## <i class="user-fa-action-done" aria-hidden="true"></i> 장점
+## 장점
 
 ### {{< font color-var="main-color" text="첫" >}} 번째, 이름을 가질 수 있다.
 
@@ -99,7 +99,7 @@ public static <E extends Enum<E>> EnumSet<E> noneOf(Class<E> elementType) {
 <br>
 <br>
 
-## <i class="user-fa-action-done" aria-hidden="true"></i> 단점
+## 단점
 
 ### {{< font color-var="main-color" text="첫" >}} 번째, 상속을 위해서는 public 또는 protected 생성자가 필요하다.
 정적 팩토리 메서드만 제공할 경우 하위 클래스를 만들 수 없습니다. 따라서 상속을 사용하려면 여전히 `public` 또는 `protected` 생성자가 필요합니다. 하지만, 이는 **상속(is-a)** 대신 **컴포지션(has-a)** 을 권장하고, 불변 타입을 만들도록 유도하는 측면에서 오히려 장점일 수 있습니다.

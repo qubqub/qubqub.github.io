@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://qubqub.github.io/sitemap.xml

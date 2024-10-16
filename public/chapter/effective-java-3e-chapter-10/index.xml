@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Effective Java 3E Chapter 10 on &lt;Qubqub/&gt;</title>
+    <link>https://qubqub.github.io/chapter/effective-java-3e-chapter-10/</link>
+    <description>Recent content in Effective Java 3E Chapter 10 on &lt;Qubqub/&gt;</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <lastBuildDate>Fri, 02 Jul 2021 10:11:42 +0900</lastBuildDate><atom:link href="https://qubqub.github.io/chapter/effective-java-3e-chapter-10/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[아이템 78] 공유중인 가변 데이터는 동기화해 사용하라</title>
+      <link>https://qubqub.github.io/effective-java-3e/chapter-10/item78/</link>
+      <pubDate>Fri, 02 Jul 2021 10:11:42 +0900</pubDate>
+      
+      <guid>https://qubqub.github.io/effective-java-3e/chapter-10/item78/</guid>
+      <description>[아이템 78] 공유중인 가변 데이터는 동기화해 사용하라. 동기화란 특정 메서드나 블럭에 한 쓰레드가 접근했을 때, 해당 객체에 락을 걸고 다른 쓰레드가 접근하지 못하도록 하는 것이다.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 public class StopThread { private static boolean stopRequested; public static void main(String[] args) throws InterruptedException { Thread backgroundThread = new Thread(() -&amp;gt; { int i = 0; while (!stopRequested) i++; }); backgroundThread.</description>
+    </item>
+    
+  </channel>
+</rss>

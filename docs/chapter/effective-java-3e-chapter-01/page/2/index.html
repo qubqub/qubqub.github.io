@@ -10,7 +10,7 @@
 <meta name=description content="<Qubqub/>">
 <meta name=author content>
 <link rel=canonical href=https://qubqub.github.io/chapter/effective-java-3e-chapter-01/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.d6b2907d3887dd4d00f0da9656a9eba78b683589aabae559a3ea596510c7d1a3.css integrity="sha256-1rKQfTiH3U0A8NqWVqnrp4toNYmquuVZo+pZZRDH0aM=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.f2266dddfb6f71aab6d6e518fdb7e3c11fe4f02f4eedd1e7b17f18d0d9452708.css integrity="sha256-8iZt3ftvcaq21uUY/bfjwR/k8C9O7dHnsX8Y0NlFJwg=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://qubqub.github.io/icon/favicon-64.webp>
 <link rel=icon type=image/png sizes=16x16 href=https://qubqub.github.io/icon/favicon-16.webp>
 <link rel=icon type=image/png sizes=32x32 href=https://qubqub.github.io/icon/favicon-32.webp>
@@ -86,19 +86,19 @@ Effective Java 3E Chapter 01
 </h1>
 </header>
 <div class=list-entry-wrapper style=animation-delay:170ms data-animation=true>
-<article class="list-entry button" title="java.lang.Math와 java.util.Arrays와 같이 static메서드와 static필드만을 담을 클래스는 인스턴스화를 하는 건 낭비가 됩니다.
-매개변수 없는 생성자를 만들지 않으면 기본생성자가 생성이 되는데 이것을 방치하면 클라이언트 입장에서는 정적 멤버만 담은 유틸리티 클래스인지 알 수 없으므로 인스턴스화를 시킬 가능성이 있습니다. 이를 방지하기 위해 private생성자를 만들어서 인스턴스화를 막을 수 있습니다.
-1 2 3 4 5 6 7  public class UtilityClass { // 기본 생성자가 만들어지는 것을 막는다.(인스턴스화 방지용)  private UtilityClass() { throw new AssertionError(); } .">
+<article class="list-entry button" title="개요 java.lang.Math나 java.util.Arrays와 같은 유틸리티 클래스는 정적(static) 메서드와 정적 필드만을 포함하고 있어, 굳이 인스턴스를 생성할 필요가 없습니다. 그러나 기본 생성자를 명시적으로 막지 않으면, 클라이언트 코드가 실수로 인스턴스를 생성할 수 있습니다.
+자바에서는 매개변수가 없는 생성자를 명시하지 않으면 기본 생성자가 자동으로 만들어지므로, 이를 방지하기 위해 private 생성자를 정의해야 합니다.
+인스턴스화 방지 방법 1 2 3 4 5 6  public class UtilityClass { // 인스턴스화 방지용 private 생성자  private UtilityClass() { throw new AssertionError(); // 인스턴스 생성 시도 시 예외 발생  } }   이 코드의 동작 방식  private 생성자를 선언하여 외부에서 이 클래스를 인스턴스화하는 것을 막습니다.">
 <header class=entry-header>
 <h2>[아이템 4] 인스턴스를 막으려거든 private 생성자를 사용하라
 </h2>
 </header>
 <section class=entry-content>
-<p>java.lang.Math와 java.util.Arrays와 같이 static메서드와 static필드만을 담을 클래스는 인스턴스화를 하는 건 낭비가 됩니다.
-매개변수 없는 생성자를 만들지 않으면 기본생성자가 생성이 되는데 이것을 방치하면 클라이언트 입장에서는 정적 멤버만 담은 유틸리티 클래스인지 알 수 없으므로 인스턴스화를 시킬 가능성이 있습니다. 이를 방지하기 위해 private생성자를 만들어서 인스턴스화를 막을 수 있습니다.
-1 2 3 4 5 6 7 public class UtilityClass { // 기본 생성자가 만들어지는 것을 막는다.(인스턴스화 방지용) private UtilityClass() { throw new AssertionError(); } ....</p>
+<p>개요 java.lang.Math나 java.util.Arrays와 같은 유틸리티 클래스는 정적(static) 메서드와 정적 필드만을 포함하고 있어, 굳이 인스턴스를 생성할 필요가 없습니다. 그러나 기본 생성자를 명시적으로 막지 않으면, 클라이언트 코드가 실수로 인스턴스를 생성할 수 있습니다.
+자바에서는 매개변수가 없는 생성자를 명시하지 않으면 기본 생성자가 자동으로 만들어지므로, 이를 방지하기 위해 private 생성자를 정의해야 합니다.
+인스턴스화 방지 방법 1 2 3 4 5 6 public class UtilityClass { // 인스턴스화 방지용 private 생성자 private UtilityClass() { throw new AssertionError(); // 인스턴스 생성 시도 시 예외 발생 } } 이 코드의 동작 방식 private 생성자를 선언하여 외부에서 이 클래스를 인스턴스화하는 것을 막습니다....</p>
 </section>
-<footer class=entry-footer><span title="2020-06-19 15:51:43 +0900 KST">2020년 6월 19일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 1 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;qubqub
+<footer class=entry-footer><span title="2020-06-19 15:51:43 +0900 KST">2020년 6월 19일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;qubqub
 <ul class=post-tags>
 <li><a class=button href=https://qubqub.github.io/tags/java/ title=Java>Java</a></li>
 <li><a class=button href=https://qubqub.github.io/tags/effective-java-3e/ title="Effective Java 3E">Effective Java 3E</a></li>
@@ -107,19 +107,19 @@ Effective Java 3E Chapter 01
 </article>
 </div>
 <div class=list-entry-wrapper style=animation-delay:220ms data-animation=true>
-<article class="list-entry button" title="싱글턴Singleton이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new키워드로 호출해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.
-싱글턴을 만드는 방식은 보통 둘 중 하나입니다.
-📌 public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { ... } }   public이나 protected 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다.">
+<article class="list-entry button" title="싱글턴(Singleton) 패턴은 클래스의 인스턴스를 오직 하나만 생성하여 공유하는 방식입니다. 객체를 호출할 때마다 새로운 인스턴스를 만들지 않고, 동일한 인스턴스를 반환하는 방식이므로 메모리 낭비를 방지하고, 동작의 일관성을 유지할 수 있습니다.
+싱글턴을 구현하는 주요 방식은 다음과 같습니다.
+📌 public static final 필드를 이용한 방식 1 2 3 4 5 6 7 8 9  public class Elvis { public static final Elvis INSTANCE = new Elvis(); // 유일한 인스턴스  private void Elvis() { .">
 <header class=entry-header>
 <h2>[아이템 3] private 생성자나 열거 타입으로 싱글턴임을 보증하라
 </h2>
 </header>
 <section class=entry-content>
-<p>싱글턴Singleton이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말합니다. 즉 객체를 호출할 때마다 new키워드로 호출해서 새로 생성하지 않고 하나의 인스턴스를 계속 사용하는 것입니다.
-싱글턴을 만드는 방식은 보통 둘 중 하나입니다.
-📌 public static 멤버가 final인 방식 1 2 3 4 5 6 7 8 9 public class Elvis { public static final Elvis INSTANCE = new Elvis(); private void Elvis() { ... } private void leaveTheBuilding() { ... } } public이나 protected 생성자가 없으므로 Elvis 클래스가 초기화 될 때 만들어진 인스턴스는 하나 뿐입니다....</p>
+<p>싱글턴(Singleton) 패턴은 클래스의 인스턴스를 오직 하나만 생성하여 공유하는 방식입니다. 객체를 호출할 때마다 새로운 인스턴스를 만들지 않고, 동일한 인스턴스를 반환하는 방식이므로 메모리 낭비를 방지하고, 동작의 일관성을 유지할 수 있습니다.
+싱글턴을 구현하는 주요 방식은 다음과 같습니다.
+📌 public static final 필드를 이용한 방식 1 2 3 4 5 6 7 8 9 public class Elvis { public static final Elvis INSTANCE = new Elvis(); // 유일한 인스턴스 private void Elvis() { ....</p>
 </section>
-<footer class=entry-footer><span title="2020-06-18 19:09:20 +0900 KST">2020년 6월 18일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 2 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;qubqub
+<footer class=entry-footer><span title="2020-06-18 19:09:20 +0900 KST">2020년 6월 18일</span>&nbsp;&nbsp;·&nbsp;&nbsp;<span><svg class="svg--time" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" width="13.19" height="13.19" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> 3 분 소요</span>&nbsp;&nbsp;·&nbsp;&nbsp;qubqub
 <ul class=post-tags>
 <li><a class=button href=https://qubqub.github.io/tags/java/ title=Java>Java</a></li>
 <li><a class=button href=https://qubqub.github.io/tags/effective-java-3e/ title="Effective Java 3E">Effective Java 3E</a></li>
@@ -149,7 +149,7 @@ Effective Java 3E Chapter 01
 <div class=list-entry-wrapper style=animation-delay:320ms data-animation=true>
 <article class="list-entry button" title="일반적으로 사용하는 public 생성자 대신, 별도로 정적 팩토리 메서드를 이용할 수 있다. 객체 생성 시 public 생성자 대신 정적 팩토리 메서드(static factory method) 를 사용하는 것을 고려할 수 있습니다. 이를 통해 다양한 이점을 얻을 수 있는데, Java에서 자주 사용되는 패턴 중 하나입니다.
 1 2 3  public static Boolean valueOf(boolean b) { return b ? Boolean.TRUE : Booelan.FALSE; }   Boolean 클래스에서 발췌한 예제 코드
- 장점 첫 번째, 이름을 가질 수 있다.">
+장점 첫 번째, 이름을 가질 수 있다.">
 <header class=entry-header>
 <h2>[아이템 1] 생성자 대신 정적 팩토리 메서드를 고려하라
 </h2>

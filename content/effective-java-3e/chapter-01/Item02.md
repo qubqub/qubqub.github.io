@@ -169,12 +169,12 @@ public class NyPizza extends Pizza {
         }
 
         @Override
-        Pizza build() {
+        public NyPizza build() {
             return new NyPizza(this);
         }
 
         @Override
-            protected Builder self() {
+        protected Builder self() {
             return this;
         }
 
@@ -197,18 +197,18 @@ public class Calzone extends Pizza {
     public static class Builder extends Pizza.Builder<Builder> {
         private boolean sauceInside = false;
 
-        public Builder sauceInde() {
+        public Builder sauceInside() {
             sauceInside = true;
             return this;
         }
 
         @Override
-            public Calzone build() {
+        public Calzone build() {
             return new Calzone(this);
         }
 
         @Override
-            protected Builder self() {
+        protected Builder self() {
             return this;
         }
     }
@@ -221,26 +221,26 @@ public class Calzone extends Pizza {
 }
 ````
 
-`build` 메서드는 해당하는 구체 하위 클래스를 반환하도록 선언합니다. `NyPizza.Builder`는 `NyPizza`를 반환하고, `Calzone.Builder`는 `Calzone`을 반환한다는 뜻입니다. 하위 메서드가 상위 클래스의 메서드가 정의한 반환 타입이 아닌, 그 하위 타입을 반환하는 기능을 공변 반환 타이핑`covariant return typing`이라 합니다.
+`build` 메서드는 해당하는 구체 하위 클래스를 반환하도록 재정의합니다. 하위 메서드가 상위 클래스의 메서드가 정의한 반환 타입이 아닌, 그 하위 타입을 반환하는 기능을 **공변 반환 타이핑(covariant return typing)** 이라 합니다.
+
+위 예시에서 볼 수 있듯이, 빌더 패턴을 사용하면 **유연한 계층 구조**를 유지하면서도 객체를 쉽게 생성할 수 있습니다. 구체적인 빌더는 자신에게 맞는 객체를 반환하도록 설계되어 있어, 다양한 하위 클래스에 적용 가능합니다.
 <br>
 
 ``` java
-Pizza pizza = new Builder(SMALL)
-                    .addTopping(SAUSAGE)
-                    .addTopping(ONION)
-                    .build();
+NyPizza pizza = new NyPizza.Builder(SMALL)
+                           .addTopping(SAUSAGE)
+                           .addTopping(ONION)
+                           .build();
 
 Calzone calzone = new Calzone.Builder()
-                                .addTopping(HAM)
-                                .sauceInde()
-                                .build();
+                             .addTopping(HAM)
+                             .sauceInside()
+                             .build();
 ```
 <br>
 <br>
 
-## <i class="user-fa-av-new-releases" aria-hidden="true"></i> 정리
+## <i class="user-fa-action-done" aria-hidden="true"></i> 정리
 
-빌더는 다양한 방식으로 객체를 생생할 수 있으므로 생성자와 정적 팩토리 메서드 방식보다 상당히 유연합니다.
-
-단점으로는 객체를 생성하려면 `Builder()`를 생성해야 하는데 성능에 민감한 상황에서는 이 점이 문제가 될 수 있습니다. 그리고 생성자에 비해서 코드가 장황해질 수 있으므로 현재 필요한 매개변수와 확장성을 고려해서 잘 판단하면 될 것 같습니다.
+빌더 패턴은 복잡한 객체를 유연하게 생성할 수 있으며, 특히 **매개변수가 많은 경우**나 **계층적 클래스 구조**에서 유용합니다. 다만 빌더 객체를 생성해야 하는 비용이 추가되기 때문에 **성능이 중요한 상황**에서는 신중히 고려해야 합니다. 또한 코드가 다소 길어질 수 있으므로, 매개변수의 복잡도와 필요에 따라 적절히 사용해야 합니다.
 <br>
