@@ -37,20 +37,21 @@ Arrays.sort(a);
 - 이 객체와 비교할 수 없는 타입이면 `ClassCastException`을 던집니다.
 
 여기서 **sgn(표현식)** 표기는 수학에서의 부호 함수를 뜻하며, 표현식의 값이 **음수, 0, 양수**일 때 각각 **-1, 0, 1**을 반환하도록 정의합니다.
+<br>
 
 ### 1) 규약 요약
 - `Comparable`을 구현한 클래스는 모든 `x`, `y`에 대해 다음을 만족해야 합니다.
-**<center>sgn(x.comparaTo(y)) == -sgn(y.comparaTo(x))</center>** 따라서 {{< font family="" size="1" color-var="" weight="600" text="sgn(x.compareTo(y))" >}}는 {{< font family="" size="1" color-var="" weight="600" text="sgn(y.compareTo(x))" >}}가 예외를 던질 때에만 예외를 던져야 합니다.
+**<center>{{< font family="cascadiacode" color-var="main-color" text="sgn(x.comparaTo(y)) == -sgn(y.comparaTo(x))" >}}</center>** 따라서 **{{< font family="cascadiacode" color-var="main-color" text="sgn(x.compareTo(y))" >}}**는 **{{< font family="cascadiacode" color-var="main-color" text="sgn(y.compareTo(x))" >}}**가 예외를 던질 때에만 예외를 던져야 합니다.
 <br>
 
 - `Comparable`을 구현한 클래스는 **추이성을 보장**해야 합니다.
-**<center>x.compareTo(y) > 0 and y.compareTo(z) > 0 ⟹ x.compareTo(z) > 0</center>**
+**<center>{{< font family="cascadiacode" color-var="main-color" text="x.compareTo(y) > 0 and y.compareTo(z) > 0 ⟹ x.compareTo(z) > 0" >}}</center>**
 
 - 모든 `z`에 대해:
-**<center>x.compareTo(y) == 0 ⟹ sgn(x.compareTo(z)) == sgn(y.compareTo(z))</center>**
+**<center>{{< font family="cascadiacode" color-var="main-color" text="x.compareTo(y) == 0 ⟹ sgn(x.compareTo(z)) == sgn(y.compareTo(z))" >}}</center>**
 
 - 권장 사항이지만 꼭 지켜야 하는 것은:
-**<center>(x.compareTo(y) == 0) == (x.equals(y))</center>**
+**<center>{{< font family="cascadiacode" color-var="main-color" text="(x.compareTo(y) == 0) == (x.equals(y))" >}}</center>**
 <br>
 
 이러한 규약을 지키지 않으면 `TreeSet`, `TreeMap`과 같이 비교를 활용하는 클래스에서 **오작동**이 발생할 수 있습니다.
