@@ -300,7 +300,7 @@ header.header {
 }
 .main .profile .profile_inner .__cursor {
   display: inline-block;
-  width: .45em;
+  width: .4em;
   height: .8em;
   vertical-align: -1px;
   /* background: #fe5186; */
@@ -2746,14 +2746,14 @@ header.header {
 
   .main .post-single .toc-aside .inner-wrapper .inner a:before {
     content: "";
-    width: 0.3em;
-    height: calc(100% - 0.3em);
+    width: 0.25em;
+    height: calc(100% - 0.5em);
     margin: auto;
     background-color: #e96900;
     position: absolute;
     top: 0;
     bottom: 0;
-    left: -1em;
+    left: -0.9em;
     transition: .4s;
     opacity: 0;
   }
@@ -2980,7 +2980,7 @@ header.header {
   .main .post-single .toc-aside .inner-wrapper .inner a:before {
     content: "";
     width: 0.25em;
-    height: calc(100% - 0.25em);
+    height: calc(100% - 0.5em);
     margin: auto;
     background-color: #e96900;
     position: absolute;
